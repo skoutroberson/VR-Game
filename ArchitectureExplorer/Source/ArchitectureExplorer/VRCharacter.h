@@ -33,11 +33,19 @@ private:
 	void MoveForward(float throttle);
 	void MoveRight(float throttle);
 	void TurnRight(float throttle);
+	void BeginTeleport();
+	void FinishTeleport();
 
 private:
 
 	UPROPERTY(VisibleAnywhere)
 	class UCameraComponent* Camera;
+
+	UPROPERTY(VisibleAnywhere)
+	class UMotionControllerComponent* LeftController;
+
+	UPROPERTY(VisibleAnywhere)
+	class UMotionControllerComponent* RightController;
 
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* VRRoot;
@@ -48,6 +56,8 @@ private:
 private:
 
 	UPROPERTY(EditAnywhere)
-		float MaxTeleportDistance = 1000;
+	float MaxTeleportDistance = 1000;
+	float TeleportFadeTime = 1;
+	FHitResult HitResult;
 
 };
