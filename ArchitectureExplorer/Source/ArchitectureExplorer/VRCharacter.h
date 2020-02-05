@@ -35,6 +35,11 @@ private:
 	void TurnRight(float throttle);
 	void BeginTeleport();
 	void FinishTeleport();
+	void EnableAction1();
+	void EnableAction2();
+	void DisableAction1();
+	void DisableAction2();
+	void InterpretMCMotion();
 
 private:
 
@@ -54,10 +59,23 @@ private:
 	class UStaticMeshComponent* DestinationMarker;
 
 private:
+	bool bAction1 = false;
+	bool bAction2 = false;
+	bool bSprint = false;
+	bool bTeleportEnabled = false;
+
+private:
 
 	UPROPERTY(EditAnywhere)
 	float MaxTeleportDistance = 1000;
 	float TeleportFadeTime = 1;
 	FHitResult HitResult;
+	int TickCounter = 0;
+	float MCLeftPos = 0;
+	float MCRightPos = 0;
+	float MoveForwardScaleValue = 1.0f;
+
+	int StopSprintChecks = 0;
+	int StopSprintMax = 3;
 
 };
