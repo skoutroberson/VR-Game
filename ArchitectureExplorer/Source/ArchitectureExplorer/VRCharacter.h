@@ -62,7 +62,7 @@ private:
 	bool bAction1 = false;
 	bool bAction2 = false;
 	bool bSprint = false;
-	bool bTeleportEnabled = false;
+	bool bTeleportEnabled = true;
 
 private:
 

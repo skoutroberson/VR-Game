@@ -86,30 +86,31 @@ void AVRCharacter::InterpretMCMotion()
 		float LeftZOffset = LeftController->GetComponentLocation().Z - MCLeftPos;
 		float RightZOffset = RightController->GetComponentLocation().Z - MCRightPos;
 
-		if (LeftZOffset < 0)
-			LeftZOffset = -LeftZOffset;
-		if (RightZOffset < 0)
-			RightZOffset = -RightZOffset;
-
-		//UE_LOG(LogTemp, Warning, TEXT("LEFT: %f"), LeftZOffset);
-		//UE_LOG(LogTemp, Warning, TEXT("RIGHT: %f"), RightZOffset);
-		//UE_LOG(LogTemp, Warning, TEXT("TOTAL: %f"), LeftZOffset + RightZOffset);
-		//UE_LOG(LogTemp, Warning, TEXT("-------------------------------------------------------------"));
-
-		if (LeftZOffset > 6 && RightZOffset > 6)
+		if (LeftZOffset > 0 || RightZOffset > 0)
 		{
-			bSprint = true;
-			StopSprintChecks = 0;
-		}
-		else
-		{
-			StopSprintChecks ++;
-			if (StopSprintChecks > StopSprintMax)
-				bSprint = false;
-		}
+			if (RightZOffset < 0 || LeftZOffset < 0)
+			{
+				if (LeftZOffset < 0)
+					LeftZOffset = -LeftZOffset;
+				if (RightZOffset < 0)
+					RightZOffset = -RightZOffset;
 
-		MCLeftPos = LeftController->GetComponentLocation().Z;
-		MCRightPos = RightController->GetComponentLocation().Z;
+				if (LeftZOffset > 6 && RightZOffset > 6)
+				{
+					bSprint = true;
+					StopSprintChecks = 0;
+				}
+				else
+				{
+					StopSprintChecks++;
+					if (StopSprintChecks > StopSprintMax)
+						bSprint = false;
+				}
+
+				MCLeftPos = LeftController->GetComponentLocation().Z;
+				MCRightPos = RightController->GetComponentLocation().Z;
+			}
+		}
 	}
 
 	if (TickCounter > 10000)
@@ -178,7 +179,7 @@ void AVRCharacter::MoveForward(float throttle)
 
 void AVRCharacter::MoveRight(float throttle)
 {
-	AddMovementInput(throttle * Camera->GetRightVector());
+	AddMovementInput(throttle * Camera->GetRightVector(), 0.5f);
 }
 
 void AVRCharacter::TurnRight(float throttle)
