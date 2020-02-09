@@ -44,7 +44,7 @@ private:
 
 private:
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	class UCameraComponent* Camera;
 
 	UPROPERTY(VisibleAnywhere)
@@ -63,7 +63,7 @@ private:
 	bool bAction1 = false;
 	bool bAction2 = false;
 	bool bSprint = false;
-	bool bTeleportEnabled = true;
+	bool bTeleportEnabled = false;
 
 private:
 
