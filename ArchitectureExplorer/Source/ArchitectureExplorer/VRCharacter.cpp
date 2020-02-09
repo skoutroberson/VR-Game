@@ -10,6 +10,7 @@
 #include "Components/CapsuleComponent.h"
 #include "MotionControllerComponent.h"
 #include "Misc/FrameRate.h"
+#include "GameFramework/PlayerController.h"
 
 // Sets default values
 AVRCharacter::AVRCharacter()
@@ -55,6 +56,8 @@ void AVRCharacter::BeginPlay()
 void AVRCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
 
 	FVector NewCameraOffset = Camera->GetComponentLocation() - GetActorLocation();
 	NewCameraOffset.Z = 0;

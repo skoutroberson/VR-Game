@@ -74,7 +74,7 @@ public:
 public:
 	void InitPortal(USceneCaptureComponent2D* Portal);
 
-	void PortalCheck(UStaticMeshComponent* PortalMesh, float Dist, UStaticMeshComponent* TargetMesh);
+	void PortalCheck(UStaticMeshComponent* PortalMesh, float Dist, UStaticMeshComponent* TargetMesh, USceneCaptureComponent2D* TargetCam);
 
 	FVector ConvertLocationToActorSpace(FVector Location, UStaticMeshComponent* Reference, UStaticMeshComponent* Target);
 	FRotator ConvertRotationToActorSpace(FRotator Rotation, UStaticMeshComponent* Reference, UStaticMeshComponent* Target);
