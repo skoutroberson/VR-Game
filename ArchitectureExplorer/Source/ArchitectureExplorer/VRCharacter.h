@@ -33,6 +33,7 @@ private:
 	void MoveForward(float throttle);
 	void MoveRight(float throttle);
 	void TurnRight(float throttle);
+	void LookUp(float throttle);
 	void BeginTeleport();
 	void FinishTeleport();
 	void EnableAction1();
