@@ -16,6 +16,7 @@
 #include "Math/Quat.h"
 #include "Math/TransformNonVectorized.h"
 #include "GameFramework/PlayerController.h"
+#include "Engine/LocalPlayer.h"
 
 // Sets default values
 APortal::APortal()
@@ -71,6 +72,12 @@ void APortal::BeginPlay()
 
 	ALoc = PlaneA->GetComponentLocation();
 	BLoc = PlaneB->GetComponentLocation();
+	
+	CameraA->TextureTarget->SizeX = 1920;
+	CameraA->TextureTarget->SizeY = 1080;
+	CameraB->TextureTarget->SizeX = 1920;
+	CameraB->TextureTarget->SizeY = 1080;
+	
 
 	PlayerCamLoc = PlayerCamera->GetComponentLocation();
 }
@@ -100,6 +107,9 @@ void APortal::PortalCheck(UStaticMeshComponent* PortalMesh, float Dist, UStaticM
 	FVector Point2 = PortalMesh->GetComponentLocation() + PortalMesh->GetForwardVector() * -PortalHalfWidth;
 	//FVector P = PlayerCamLoc;
 	FVector TargetLoc = TargetMesh->GetComponentLocation();
+
+	CameraA->SetWorldLocation(FVector(CameraA->GetComponentLocation().X, CameraA->GetComponentLocation().Y, PlayerCamLoc.Z));
+	CameraB->SetWorldLocation(FVector(CameraB->GetComponentLocation().X, CameraB->GetComponentLocation().Y, PlayerCamLoc.Z));
 	
 	DrawDebugSphere(GetWorld(), Point1, 8, 6, FColor::Magenta);
 	DrawDebugSphere(GetWorld(), Point2, 8, 6, FColor::Magenta);
@@ -119,11 +129,13 @@ void APortal::PortalCheck(UStaticMeshComponent* PortalMesh, float Dist, UStaticM
 	);
 
 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
-	FVector NewLocation = ConvertLocationToActorSpace(PlayerCamLoc, PortalMesh, TargetMesh);
+	
+	FVector NewLocationP = ConvertLocationToActorSpaceP(PlayerCamLoc, PortalMesh, TargetMesh);
 	FRotator NewRotation = ConvertRotationToActorSpace(PlayerCamera->GetComponentRotation(), PortalMesh, TargetMesh);
 	
 	NewRotation.Yaw += 180;
 	TargetCam->SetWorldRotation(NewRotation);
+	TargetCam->SetWorldLocation(NewLocationP);
 	
 	//UE_LOG(LogTemp, Warning, TEXT("%f"), ConCamOffset);
 	//DrawDebugSphere(GetWorld(), NewLocation, 10, 10, FColor::Red);
@@ -137,10 +149,10 @@ void APortal::PortalCheck(UStaticMeshComponent* PortalMesh, float Dist, UStaticM
 	float ConCamOffset = PlayerController->GetControlRotation().Yaw - PlayerCamera->GetComponentRotation().Yaw;
 	UE_LOG(LogTemp, Warning, TEXT("%f"), ConCamOffset);
 
-	if (IsIntersect && Dist < PortalHalfWidth && !IsInFrontOfPortal && LastInFront)
+	if (IsIntersect && Dist < PortalHalfWidth) //&& !IsInFrontOfPortal && LastInFront
 	{
 		
-
+		FVector NewLocation = ConvertLocationToActorSpace(PlayerCamLoc, PortalMesh, TargetMesh);
 		//FVector NewLocation = ConvertLocationToActorSpace(PlayerCamLoc, PortalMesh, TargetMesh);
 		//FRotator NewRotation = ConvertRotationToActorSpace(PlayerCamera->GetComponentRotation(), PortalMesh, TargetMesh);
 		
@@ -183,6 +195,28 @@ FVector APortal::ConvertLocationToActorSpace(FVector Location, UStaticMeshCompon
 		+ Dots.Z * Target->GetUpVector();
 
 	return TargetLocation + NewDirection;
+}
+
+FVector APortal::ConvertLocationToActorSpaceP(FVector Location, UStaticMeshComponent* Reference, UStaticMeshComponent* Target)
+{
+	if (Reference == nullptr || Target == nullptr)
+	{
+		return FVector::ZeroVector;
+	}
+
+	FVector Direction = Location - Reference->GetComponentLocation();
+	FVector TargetLocation = Target->GetComponentLocation();
+
+	FVector Dots;
+	Dots.X = FVector::DotProduct(Direction, Reference->GetForwardVector());
+	Dots.Y = FVector::DotProduct(Direction, Reference->GetRightVector());
+	Dots.Z = FVector::DotProduct(Direction, Reference->GetUpVector());
+
+	FVector NewDirection = Dots.X * Target->GetForwardVector()
+		+ Dots.Y * Target->GetRightVector()
+		+ Dots.Z * Target->GetUpVector();
+
+	return TargetLocation - NewDirection;
 }
 
 FRotator APortal::ConvertRotationToActorSpace(FRotator Rotation, UStaticMeshComponent* Reference, UStaticMeshComponent* Target)
