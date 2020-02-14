@@ -12,6 +12,9 @@
 #include "Misc/FrameRate.h"
 #include "GameFramework/PlayerController.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "Math/UnrealMathVectorCommon.h"
+#include "Math/UnrealMathUtility.h"
 
 // Sets default values
 AVRCharacter::AVRCharacter()
@@ -49,9 +52,6 @@ void AVRCharacter::BeginPlay()
 	
 	DestinationMarker->SetVisibility(false);
 
-	MCLeftPos = LeftController->GetComponentLocation().Z;
-	MCRightPos = RightController->GetComponentLocation().Z;
-
 	//UE_LOG(LogTemp, Warning, TEXT("%f %f %f"), GetActorUp)
 }
 
@@ -73,25 +73,47 @@ void AVRCharacter::Tick(float DeltaTime)
 		UpdateDestinationMarker();
 	}
 
-	if (bAction1 && bAction2)
+	if (bDodge)
+	{
+		Dodge();
+	}
+
+	if (bAction1 && bAction2 && !bDodge)
 	{
 		InterpretMCMotion();
 
-		if (bSprint)
+		if (bDodge)
+		{
+			Dodge();
+		}
+		else if (bSprint)
 		{
 			MoveForward(1.0f);
 		}
 	}
 }
 
+void AVRCharacter::Dodge()
+{
+	SetActorLocation(FMath::VInterpTo(GetActorLocation(), DodgePos, GetWorld()->DeltaTimeSeconds, 1.0f));
+}
+
 void AVRCharacter::InterpretMCMotion()
 {
-	if (TickCounter % 4 == 0)
+	if (TickCounter % 4 == 0)	// Do this every four frames
 	{
 		// (x >= 0) ? x : -x
-		float LeftZOffset = LeftController->GetComponentLocation().Z - MCLeftPos;
-		float RightZOffset = RightController->GetComponentLocation().Z - MCRightPos;
 
+		FVector LeftOffset = LeftController->GetComponentLocation() - MCLeftPos;
+		FVector RightOffset = RightController->GetComponentLocation() - MCRightPos;
+
+
+
+		float LeftZOffset = LeftController->GetComponentLocation().Z - MCLeftPos.Z;
+		float RightZOffset = RightController->GetComponentLocation().Z - MCRightPos.Z;
+
+
+		//	CHECK SPRINT MOTION
 		if (LeftZOffset > 0 || RightZOffset > 0)
 		{
 			if (RightZOffset < 0 || LeftZOffset < 0)
@@ -101,22 +123,36 @@ void AVRCharacter::InterpretMCMotion()
 				if (RightZOffset < 0)
 					RightZOffset = -RightZOffset;
 
-				if (LeftZOffset > 6 && RightZOffset > 6)
+				if (LeftZOffset > 10 && RightZOffset > 10)
 				{
 					bSprint = true;
 					StopSprintChecks = 0;
 				}
-				else
-				{
-					StopSprintChecks++;
-					if (StopSprintChecks > StopSprintMax)
-						bSprint = false;
-				}
-
-				MCLeftPos = LeftController->GetComponentLocation().Z;
-				MCRightPos = RightController->GetComponentLocation().Z;
 			}
 		}
+
+		// CHECK DODGE MOTION
+
+		float DotProd = FVector::DotProduct(LeftOffset, RightOffset);
+
+		if (DotProd > 200 && LeftZOffset < 6 && RightZOffset < 6)
+		{
+			FVector AddedVecs = (LeftOffset + RightOffset);
+			bDodge = true;
+			DodgePos = GetActorLocation() + (AddedVecs / AddedVecs.Size()) * 100;
+			DodgePos.Z = GetActorLocation().Z;
+			UE_LOG(LogTemp, Warning, TEXT("DOT: %f"), DotProd);
+			FVector PlayerV = FVector(Camera->GetComponentLocation().X, Camera->GetComponentLocation().Y, Camera->GetComponentLocation().Z - 10);
+			DrawDebugLine(GetWorld(), PlayerV, PlayerV + (LeftOffset + RightOffset) * DotProd, FColor::Turquoise, false, 1.0f);
+			StopSprintChecks += StopSprintMax;
+		}
+
+		if (StopSprintChecks > StopSprintMax)
+			bSprint = false;
+
+		StopSprintChecks++;
+		MCLeftPos = LeftController->GetComponentLocation();
+		MCRightPos = RightController->GetComponentLocation();
 	}
 
 	if (TickCounter > 10000)
@@ -174,19 +210,25 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 void AVRCharacter::MoveForward(float throttle)
 {
-	if (bSprint)
+	if (!bDodge)
 	{
-		AddMovementInput(Camera->GetForwardVector());
-	}
-	else
-	{
-		AddMovementInput(throttle * Camera->GetForwardVector(), 0.5f);
+		if (bSprint)
+		{
+			AddMovementInput(Camera->GetForwardVector());
+		}
+		else
+		{
+			AddMovementInput(throttle * Camera->GetForwardVector(), 0.5f);
+		}
 	}
 }
 
 void AVRCharacter::MoveRight(float throttle)
 {
-	AddMovementInput(throttle * Camera->GetRightVector(), 0.5f);
+	if (!bDodge)
+	{
+		AddMovementInput(throttle * Camera->GetRightVector(), 0.5f);
+	}
 }
 
 void AVRCharacter::TurnRight(float throttle)

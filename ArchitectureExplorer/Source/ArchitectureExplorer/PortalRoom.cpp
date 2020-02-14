@@ -3,6 +3,7 @@
 
 #include "PortalRoom.h"
 #include "Components/StaticMeshComponent.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 APortalRoom::APortalRoom()
@@ -22,7 +23,10 @@ APortalRoom::APortalRoom()
 void APortalRoom::BeginPlay()
 {
 	Super::BeginPlay();
+
+	DrawDebugLine(GetWorld(), PRRoot->GetComponentLocation(), PRRoot->GetComponentLocation() + PRRoot->GetForwardVector() * 100, FColor::Purple, true);
 	
+	SetActorEnableCollision(true);
 }
 
 // Called every frame

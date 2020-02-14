@@ -28,7 +28,7 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* PRRoot;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(VisibleAnywhere)
 	class UStaticMeshComponent* RoomMesh;
 
 };
