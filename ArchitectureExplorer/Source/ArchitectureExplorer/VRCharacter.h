@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Math/Vector.h"
 #include "VRCharacter.generated.h"
 
 UCLASS()
@@ -41,6 +42,7 @@ private:
 	void DisableAction1();
 	void DisableAction2();
 	void InterpretMCMotion();
+	void Dodge();
 
 private:
 
@@ -63,6 +65,7 @@ private:
 	bool bAction1 = false;
 	bool bAction2 = false;
 	bool bSprint = false;
+	bool bDodge = false;
 	bool bTeleportEnabled = false;
 
 private:
@@ -72,11 +75,15 @@ private:
 	float TeleportFadeTime = 1;
 	FHitResult HitResult;
 	int TickCounter = 0;
-	float MCLeftPos = 0;
-	float MCRightPos = 0;
+
+	FVector MCLeftPos = FVector::ZeroVector;
+	FVector MCRightPos = FVector::ZeroVector;
+	FVector DodgePos = FVector::ZeroVector;
+
+
 	float MoveForwardScaleValue = 1.0f;
 
 	int StopSprintChecks = 0;
-	int StopSprintMax = 3;
+	int StopSprintMax = 2;
 
 };
