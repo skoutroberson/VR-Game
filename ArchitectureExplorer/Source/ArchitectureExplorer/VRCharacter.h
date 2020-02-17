@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Math/Vector.h"
+#include "MotionControllerComponent.h"
 #include "VRCharacter.generated.h"
 
 UCLASS()
@@ -26,6 +27,8 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UStaticMeshComponent* CreateHandMesh(UMotionControllerComponent* a_compParent, FName a_strDisplayName, FName a_nameHandType);
 
 private:
 
@@ -54,6 +57,12 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	class UMotionControllerComponent* RightController;
+
+	UPROPERTY(VisibleAnywhere)
+	class USkeletalMeshComponent* LeftHandMesh;
+
+	UPROPERTY(VisibleAnywhere)
+	class USkeletalMeshComponent* RightHandMesh;
 
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* VRRoot;

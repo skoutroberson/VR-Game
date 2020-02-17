@@ -15,6 +15,10 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Math/UnrealMathVectorCommon.h"
 #include "Math/UnrealMathUtility.h"
+#include "UObject/ConstructorHelpers.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "XRMotionControllerBase.h"
+#include "HeadMountedDisplay.h"
 
 // Sets default values
 AVRCharacter::AVRCharacter()
@@ -31,14 +35,60 @@ AVRCharacter::AVRCharacter()
 	Camera->SetupAttachment(VRRoot);
 
 	LeftController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("LeftController"));
+	LeftController->SetRelativeLocationAndRotation(FVector::ZeroVector, FQuat::Identity);
+	LeftController->SetRelativeScale3D(FVector::OneVector);
+	LeftController->MotionSource = FXRMotionControllerBase::LeftHandSourceId;
 	LeftController->SetupAttachment(VRRoot);
-	LeftController->SetTrackingSource(EControllerHand::Left);
-	LeftController->bDisplayDeviceModel = true;
+	//LeftController->SetTrackingSource(EControllerHand::Left);
+	//LeftController->bDisplayDeviceModel = true;
 
 	RightController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("RightController"));
+	RightController->SetRelativeLocationAndRotation(FVector::ZeroVector, FQuat::Identity);
+	RightController->SetRelativeScale3D(FVector::OneVector);
+	RightController->MotionSource = FXRMotionControllerBase::RightHandSourceId;
 	RightController->SetupAttachment(VRRoot);
-	RightController->SetTrackingSource(EControllerHand::Right);
-	RightController->bDisplayDeviceModel = true;
+	//RightController->SetTrackingSource(EControllerHand::Right);
+	//RightController->bDisplayDeviceModel = true;
+
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh> HandMeshObject(TEXT("SkeletalMesh'/Game/VR_Hands/Meshes/RealHand_Right.RealHand_Right'"));
+	if (!HandMeshObject.Object)
+	{
+		UE_LOG(LogTemp, Error, TEXT("COULD NOT LOAD HAND MESH"));
+		//return NULL;
+	}
+
+	LeftHandMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("LeftHandMesh"));
+	LeftHandMesh->SetupAttachment(LeftController);
+	LeftHandMesh->SetSkeletalMesh(HandMeshObject.Object, true);
+	LeftHandMesh->SetAutoActivate(true);
+	LeftHandMesh->SetVisibility(true);
+	LeftHandMesh->SetHiddenInGame(false);
+	FQuat qRotation = FQuat::Identity;
+	FVector vec3Scale = FVector::OneVector;
+	qRotation = FQuat(FVector(1, 0, 0), FMath::DegreesToRadians(100));
+	
+	vec3Scale = FVector(0.8f, -0.8f, 0.8f);
+	LeftHandMesh->SetRelativeLocationAndRotation(FVector(-10,-4,-2), qRotation);
+	LeftHandMesh->AddRelativeRotation(FQuat(FVector(0,1,0), FMath::DegreesToRadians(10)));
+	LeftHandMesh->AddRelativeRotation(FQuat(FVector(0,0,1), FMath::DegreesToRadians(15)));
+	LeftHandMesh->SetRelativeScale3D(vec3Scale);
+	
+	RightHandMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("RightHandMesh"));
+	RightHandMesh->SetupAttachment(RightController);
+	RightHandMesh->SetSkeletalMesh(HandMeshObject.Object, true);
+	RightHandMesh->SetAutoActivate(true);
+	RightHandMesh->SetVisibility(true);
+	RightHandMesh->SetHiddenInGame(false);
+	qRotation = FQuat::Identity;
+	qRotation = FQuat(FVector(1, 0, 0), FMath::DegreesToRadians(280));
+	
+	RightHandMesh->SetRelativeLocationAndRotation(FVector(-10,4,-2), qRotation);
+	RightHandMesh->AddRelativeRotation(FQuat(FVector(0, 1, 0), FMath::DegreesToRadians(10)));
+	RightHandMesh->AddRelativeRotation(FQuat(FVector(0, 0, 1), FMath::DegreesToRadians(-15)));
+	vec3Scale = FVector(0.8f, 0.8f, 0.8f);
+	RightHandMesh->SetRelativeScale3D(vec3Scale);
+	
+
 
 	DestinationMarker = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DestinationMarker"));
 	DestinationMarker->SetupAttachment(GetRootComponent());
@@ -135,6 +185,11 @@ void AVRCharacter::InterpretMCMotion()
 
 		float DotProd = FVector::DotProduct(LeftOffset, RightOffset);
 
+		UE_LOG(LogTemp, Warning, TEXT("LEFT: %f %f %f"), LeftOffset.X, LeftOffset.Y, LeftOffset.Z);
+		UE_LOG(LogTemp, Warning, TEXT("RIGHT: %f %f %f"), RightOffset.X, RightOffset.Y, RightOffset.Z);
+		UE_LOG(LogTemp, Warning, TEXT("DOTPROD: %f"), DotProd);
+
+		/*
 		if (DotProd > 200 && LeftZOffset < 6 && RightZOffset < 6)
 		{
 			FVector AddedVecs = (LeftOffset + RightOffset);
@@ -145,7 +200,7 @@ void AVRCharacter::InterpretMCMotion()
 			FVector PlayerV = FVector(Camera->GetComponentLocation().X, Camera->GetComponentLocation().Y, Camera->GetComponentLocation().Z - 10);
 			DrawDebugLine(GetWorld(), PlayerV, PlayerV + (LeftOffset + RightOffset) * DotProd, FColor::Turquoise, false, 1.0f);
 			StopSprintChecks += StopSprintMax;
-		}
+		}*/
 
 		if (StopSprintChecks > StopSprintMax)
 			bSprint = false;
@@ -207,6 +262,8 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Released, this, &AVRCharacter::DisableAction2);
 
 }
+
+
 
 void AVRCharacter::MoveForward(float throttle)
 {

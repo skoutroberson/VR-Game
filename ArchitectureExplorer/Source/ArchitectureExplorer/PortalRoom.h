@@ -28,7 +28,20 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* PRRoot;
 
+	UPROPERTY(EditAnywhere)
+	class USceneComponent* TeleLoc;
+
 	UPROPERTY(VisibleAnywhere)
 	class UStaticMeshComponent* RoomMesh;
+
+public:
+
+	void Teleport();
+	bool bTele = false;
+	FVector ConvertLocationToActorSpace(FVector Location, AActor* Reference, USceneComponent* Target);
+	FRotator ConvertRotationToActorSpace(FRotator Rotation, AActor* Reference, USceneComponent* Target);
+
+	class AActor* Player;
+	class UCameraComponent* PlayerCamera;
 
 };
