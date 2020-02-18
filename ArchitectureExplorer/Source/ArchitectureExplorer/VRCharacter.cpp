@@ -19,6 +19,10 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "XRMotionControllerBase.h"
 #include "HeadMountedDisplay.h"
+#include "Animation/AnimBlueprint.h"
+#include "Animation/AnimInstance.h"
+#include "Animation/AnimBlueprintGeneratedClass.h"
+
 
 // Sets default values
 AVRCharacter::AVRCharacter()
@@ -41,6 +45,8 @@ AVRCharacter::AVRCharacter()
 	LeftController->SetupAttachment(VRRoot);
 	//LeftController->SetTrackingSource(EControllerHand::Left);
 	//LeftController->bDisplayDeviceModel = true;
+	// Create the hand mesh for visualization
+
 
 	RightController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("RightController"));
 	RightController->SetRelativeLocationAndRotation(FVector::ZeroVector, FQuat::Identity);
@@ -72,6 +78,7 @@ AVRCharacter::AVRCharacter()
 	LeftHandMesh->AddRelativeRotation(FQuat(FVector(0,1,0), FMath::DegreesToRadians(10)));
 	LeftHandMesh->AddRelativeRotation(FQuat(FVector(0,0,1), FMath::DegreesToRadians(15)));
 	LeftHandMesh->SetRelativeScale3D(vec3Scale);
+
 	
 	RightHandMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("RightHandMesh"));
 	RightHandMesh->SetupAttachment(RightController);
@@ -87,12 +94,90 @@ AVRCharacter::AVRCharacter()
 	RightHandMesh->AddRelativeRotation(FQuat(FVector(0, 0, 1), FMath::DegreesToRadians(-15)));
 	vec3Scale = FVector(0.8f, 0.8f, 0.8f);
 	RightHandMesh->SetRelativeScale3D(vec3Scale);
+
 	
 
+	static ConstructorHelpers::FObjectFinder<UAnimBlueprint> HandAnimBP (TEXT("AnimBlueprint'/Game/VirtualReality/Mannequin/Animations/RightHand_AnimBP.RightHand_AnimBP'"));
+	if (HandAnimBP.Succeeded())
+	{
+		//UAnimBlueprintGeneratedClass* PreviewBP = HandAnimBP.Object->GetAnimBlueprintGeneratedClass();
+		//m_refLeftHandAnimBP = (UcPlayerHandAnimBP*)HandAnimBP.Object;
+
+		LeftHandMesh->AnimClass = HandAnimBP.Object->GetAnimBlueprintGeneratedClass();
+		LeftHandMesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
+		LeftHandMesh->SetAnimInstanceClass(HandAnimBP.Object->GetAnimBlueprintGeneratedClass());
+
+		//LeftHandMesh->SetAnimInstanceClass(AnimClass);
+		//LeftHandMesh->SetAnimInstanceClass(HandAnimBP.Object->GetAnimBlueprintGeneratedClass());
+		//LeftHandMesh->SetAnimInstanceClass(HandAnimBP.Object);
+
+		RightHandMesh->AnimClass = HandAnimBP.Object->GeneratedClass;
+		RightHandMesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
+		//RightHandMesh->SetAnimInstanceClass(HandAnimBP.Object);
+	}
+
+	if (!IsValid(LeftHandMesh->GetAnimInstance()))
+	{
+		UE_LOG(LogTemp, Error, TEXT("FAILUREEEEEFAILUREEEEE"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("PASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS"));
+	}
+
+	m_meshLeftHand = LeftHandMesh;
+	m_meshRightHand = RightHandMesh;
+
+	//SetHandAnimationBlueprint(LeftHandMesh);
+	//SetHandAnimationBlueprint(RightHandMesh);
 
 	DestinationMarker = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DestinationMarker"));
 	DestinationMarker->SetupAttachment(GetRootComponent());
 
+}
+
+void AVRCharacter::SetHandAnimationBlueprint(USkeletalMeshComponent* a_refHand) 
+{
+	static ConstructorHelpers::FObjectFinder<UAnimBlueprint> HandAnimBP(TEXT("AnimBlueprint'/Game/VirtualReality/Mannequin/Animations/RightHand_AnimBP.RightHand_AnimBP'"));
+	if (HandAnimBP.Succeeded())
+	{
+		UAnimBlueprintGeneratedClass* HandAnimGenerated = HandAnimBP.Object->GetAnimBlueprintGeneratedClass();
+		a_refHand->AnimClass = HandAnimGenerated;
+		a_refHand->SetAnimationMode(EAnimationMode::AnimationBlueprint);
+		a_refHand->SetAnimInstanceClass(HandAnimBP.Object->GetAnimBlueprintGeneratedClass());
+
+		if (!IsValid(a_refHand->GetAnimInstance()))
+		{
+			UE_LOG(LogTemp, Error, TEXT("AH shitballs!!!"));
+		}
+		
+		//a_refHand->SetAnimClass(HandAnimBP.Object);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("COULD NOT LOAD IN THE HAND ANIMATION BLUEPRINT!!!"));
+	}
+}
+
+void AVRCharacter::GripLeftHand_Pressed_Implementation()
+{
+	UE_LOG(LogTemp, Log, TEXT("Left Hand Grip Pressed"));
+	//m_refLeftHandAnimBP->SetGripValue(1.0f);
+}
+void AVRCharacter::GripRightHand_Pressed_Implementation()
+{
+	UE_LOG(LogTemp, Log, TEXT("Right Hand Grip Pressed"));
+	//m_refRightHandAnimBP->SetGripValue(1.0f);
+}
+void AVRCharacter::GripLeftHand_Released_Implementation()
+{
+	UE_LOG(LogTemp, Log, TEXT("Left Hand Grip Released"));
+	//m_refLeftHandAnimBP->SetGripValue(0.0f);
+}
+void AVRCharacter::GripRightHand_Released_Implementation()
+{
+	UE_LOG(LogTemp, Log, TEXT("Left Hand Grip Released"));
+	//m_refRightHandAnimBP->SetGripValue(0.0f);
 }
 
 // Called when the game starts or when spawned
@@ -102,7 +187,22 @@ void AVRCharacter::BeginPlay()
 	
 	DestinationMarker->SetVisibility(false);
 
-	//UE_LOG(LogTemp, Warning, TEXT("%f %f %f"), GetActorUp)
+	//CacheHandAnimInstances();
+}
+
+void AVRCharacter::CacheHandAnimInstances()
+{
+	m_refLeftHandAnimBP = (UcPlayerHandAnimBP*)m_meshLeftHand->GetAnimInstance();
+	if (!IsValid(m_refLeftHandAnimBP))
+	{
+		UE_LOG(LogTemp, Error, TEXT("Could not cast Hand Anim to the right class"));
+	}
+
+	m_refRightHandAnimBP = (UcPlayerHandAnimBP*)m_meshRightHand->GetAnimInstance();
+	if (!IsValid(m_refRightHandAnimBP))
+	{
+		UE_LOG(LogTemp, Error, TEXT("Could not cast Hand Anim to the right class"));
+	}
 }
 
 // Called every frame
@@ -261,6 +361,10 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction(TEXT("Action1"), IE_Released, this, &AVRCharacter::DisableAction1);
 	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Released, this, &AVRCharacter::DisableAction2);
 
+	PlayerInputComponent->BindAction(TEXT("Grip_Left_Hand"), IE_Pressed, this, &AVRCharacter::GripLeftHand_Pressed);
+	PlayerInputComponent->BindAction(TEXT("Grip_Right_Hand"), IE_Pressed, this, &AVRCharacter::GripRightHand_Pressed);
+	PlayerInputComponent->BindAction(TEXT("Grip_Left_Hand"), IE_Released, this, &AVRCharacter::GripLeftHand_Released);
+	PlayerInputComponent->BindAction(TEXT("Grip_Right_Hand"), IE_Released, this, &AVRCharacter::GripRightHand_Released);
 }
 
 
