@@ -95,34 +95,30 @@ AVRCharacter::AVRCharacter()
 	vec3Scale = FVector(0.8f, 0.8f, 0.8f);
 	RightHandMesh->SetRelativeScale3D(vec3Scale);
 
-	
+	LeftHandMesh->bEditableWhenInherited = true;
+	RightHandMesh->bEditableWhenInherited = true;
 
 	static ConstructorHelpers::FObjectFinder<UAnimBlueprint> HandAnimBP (TEXT("AnimBlueprint'/Game/VirtualReality/Mannequin/Animations/RightHand_AnimBP.RightHand_AnimBP'"));
 	if (HandAnimBP.Succeeded())
 	{
-		//UAnimBlueprintGeneratedClass* PreviewBP = HandAnimBP.Object->GetAnimBlueprintGeneratedClass();
-		//m_refLeftHandAnimBP = (UcPlayerHandAnimBP*)HandAnimBP.Object;
-
+		UClass* AnimClass = HandAnimBP.Object->GetAnimBlueprintGeneratedClass();
 		LeftHandMesh->AnimClass = HandAnimBP.Object->GetAnimBlueprintGeneratedClass();
 		LeftHandMesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
-		LeftHandMesh->SetAnimInstanceClass(HandAnimBP.Object->GetAnimBlueprintGeneratedClass());
 
-		//LeftHandMesh->SetAnimInstanceClass(AnimClass);
-		//LeftHandMesh->SetAnimInstanceClass(HandAnimBP.Object->GetAnimBlueprintGeneratedClass());
-		//LeftHandMesh->SetAnimInstanceClass(HandAnimBP.Object);
+		//LeftHandMesh->SetAnimInstanceClass(UAnimBlueprint::FindRootAnimBlueprint(HandAnimBP.Object)->GetAnimBlueprintGeneratedClass());
+
+		if (!IsValid(AnimClass))
+		{
+			UE_LOG(LogTemp, Error, TEXT("FAILUREEEEEFAILUREEEEE"));
+		}
+		else
+		{
+			UE_LOG(LogTemp, Error, TEXT("PASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS"));
+		}
 
 		RightHandMesh->AnimClass = HandAnimBP.Object->GeneratedClass;
 		RightHandMesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
 		//RightHandMesh->SetAnimInstanceClass(HandAnimBP.Object);
-	}
-
-	if (!IsValid(LeftHandMesh->GetAnimInstance()))
-	{
-		UE_LOG(LogTemp, Error, TEXT("FAILUREEEEEFAILUREEEEE"));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("PASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS"));
 	}
 
 	m_meshLeftHand = LeftHandMesh;
