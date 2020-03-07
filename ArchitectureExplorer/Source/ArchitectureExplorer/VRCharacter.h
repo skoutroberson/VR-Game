@@ -51,7 +51,7 @@ public:
 
 	
 
-public:
+private:
 	USkeletalMeshComponent* m_meshLeftHand;
 	USkeletalMeshComponent* m_meshRightHand;
 

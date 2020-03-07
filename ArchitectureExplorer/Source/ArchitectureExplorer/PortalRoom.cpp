@@ -8,6 +8,8 @@
 #include "Camera/CameraComponent.h"
 #include "VRCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Engine/EngineTypes.h"
+#include "VRCharacter.h"
 
 // Sets default values
 APortalRoom::APortalRoom()
@@ -22,7 +24,7 @@ APortalRoom::APortalRoom()
 	RoomMesh->SetupAttachment(PRRoot);
 
 	TeleLoc = CreateDefaultSubobject<USceneComponent>(TEXT("TeleLoc"));
-	//TeleLoc->SetupAttachment(PRRoot);
+	TeleLoc->SetupAttachment(PRRoot);
 
 
 }
@@ -36,6 +38,8 @@ void APortalRoom::BeginPlay()
 
 	Player = GetWorld()->GetFirstPlayerController()->GetPawn();
 	PlayerCamera = Player->FindComponentByClass<UCameraComponent>();
+
+	
 }
 
 // Called every frame
@@ -58,37 +62,47 @@ void APortalRoom::Teleport()
 {
 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
 	AVRCharacter* VRChar = nullptr;
+	//UCameraComponent* CharCam = nullptr;
+	VRChar = Cast<AVRCharacter>(Player);
+	//CharCam = Cast<UCameraComponent>(VRChar->GetComponentByClass(UCameraComponent::StaticClass()));
 
-	float RotDif = GetActorRotation().Yaw - PlayerController->GetControlRotation().Yaw;
+	//FVector NewLocation = GetTeleportLocation(CharCam);
+	
+	FVector Dif = Player->GetActorLocation() - GetActorLocation();
+	DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + Dif, FColor::Orange, true);
+	DrawDebugSphere(GetWorld(), PRRoot->GetComponentLocation(), 8, 16, FColor::Red, true);
+	DrawDebugSphere(GetWorld(), PRRoot->GetComponentLocation() + Dif, 8, 16, FColor::Emerald, true);
+	Dif.RotateAngleAxis(180, FVector(0, 0, 1));
+	
+	//Player->SetActorLocation(TeleLoc->GetComponentLocation() + Dif);
+	FVector NewLocation = FVector(TeleLoc->GetComponentLocation().X, TeleLoc->GetComponentLocation().Y, Player->GetActorLocation().X) + Dif;
+	//PlayerCamera->SetWorldLocation(NewLocation);
+	//Player->SetActorLocation(NewLocation);
+	
+	//VRChar->SetActorEnableCollision(false);
+	//VRChar->SetActorLocationAndRotation(TeleLoc->, TeleLoc->GetComponentRotation());
 
-	float ConCamOffset = PlayerController->GetControlRotation().Yaw - PlayerCamera->GetComponentRotation().Yaw;
-
-	float NewYaw = TeleLoc->GetComponentRotation().Yaw + RotDif + ConCamOffset;
-
-	FVector LocOffset = PlayerCamera->GetComponentLocation() - GetActorLocation();
-
+	Player->SetActorLocation(FVector(350, -930, Player->GetActorLocation().Z), false);
 	SetActorLocation(TeleLoc->GetComponentLocation());
 	SetActorRotation(TeleLoc->GetComponentRotation());
+	//PlayerCamera->SetWorldLocation(TeleLoc->GetComponentLocation());
+	//VRChar->SetActorLocation(NewLocation);
+}
 
-	VRChar = Cast<AVRCharacter>(Player);
-	
-	FVector NewLocation = ConvertLocationToActorSpace(Player->GetActorLocation(), this, TeleLoc);
-	FRotator NewRotation = ConvertRotationToActorSpace(PlayerCamera->GetComponentRotation(), this, TeleLoc);
-	NewRotation.Yaw += 90;
+FVector APortalRoom::GetTeleportLocation(UCameraComponent* CharCam)
+{
+	FVector Dir = CharCam->GetComponentLocation() - GetActorLocation();
+	FVector Dots = FVector::ZeroVector;
+	FVector NewLoc = FVector::ZeroVector;
+	Dots.X = FVector::DotProduct(Dir, GetActorForwardVector());
+	Dots.Y = FVector::DotProduct(Dir, GetActorForwardVector());
+	Dots.Z = FVector::DotProduct(Dir, GetActorUpVector());
 
-	float VelLen = VRChar->GetCharacterMovement()->Velocity.Size();
-	FVector VelRes = VelLen * TeleLoc->GetForwardVector();
+	FVector NewDirection = Dots.X * TeleLoc->GetForwardVector()
+		+ Dots.Y * TeleLoc->GetRightVector()
+		+ Dots.Z * TeleLoc->GetUpVector();
 
-	Player->SetActorLocation(NewLocation);
-
-	
-
-	PlayerController->SetIgnoreLookInput(true);
-	PlayerController->SetControlRotation(NewRotation);
-	PlayerController->SetIgnoreLookInput(false);
-
-	VRChar->GetCharacterMovement()->Velocity.Set(VelRes.X, VelRes.Y, VelRes.Z);
-	
+	return TeleLoc->GetComponentLocation() + NewDirection;
 }
 
 FVector APortalRoom::ConvertLocationToActorSpace(FVector Location, AActor* Reference, USceneComponent* Target)
