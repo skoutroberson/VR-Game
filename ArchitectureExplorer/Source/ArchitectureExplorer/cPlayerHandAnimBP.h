@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(transient, Blueprintable, hideCategories=AnimInstance, BlueprintType)
 class ARCHITECTUREEXPLORER_API UcPlayerHandAnimBP : public UAnimInstance
 {
 	GENERATED_BODY()

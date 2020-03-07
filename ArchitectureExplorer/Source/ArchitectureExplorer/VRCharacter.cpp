@@ -98,27 +98,17 @@ AVRCharacter::AVRCharacter()
 	LeftHandMesh->bEditableWhenInherited = true;
 	RightHandMesh->bEditableWhenInherited = true;
 
-	static ConstructorHelpers::FObjectFinder<UAnimBlueprint> HandAnimBP (TEXT("AnimBlueprint'/Game/VirtualReality/Mannequin/Animations/RightHand_AnimBP.RightHand_AnimBP'"));
+	
+	static ConstructorHelpers::FObjectFinder<UAnimBlueprintGeneratedClass> HandAnimBP (TEXT("AnimBlueprintGeneratedClass'/Game/VirtualReality/Mannequin/Animations/RightHand_AnimBP.RightHand_AnimBP_C'"));
 	if (HandAnimBP.Succeeded())
 	{
-		UClass* AnimClass = HandAnimBP.Object->GetAnimBlueprintGeneratedClass();
-		LeftHandMesh->AnimClass = HandAnimBP.Object->GetAnimBlueprintGeneratedClass();
+		LeftHandMesh->AnimClass = HandAnimBP.Object;
 		LeftHandMesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
+		LeftHandMesh->SetAnimInstanceClass(HandAnimBP.Object);
 
-		//LeftHandMesh->SetAnimInstanceClass(UAnimBlueprint::FindRootAnimBlueprint(HandAnimBP.Object)->GetAnimBlueprintGeneratedClass());
-
-		if (!IsValid(AnimClass))
-		{
-			UE_LOG(LogTemp, Error, TEXT("FAILUREEEEEFAILUREEEEE"));
-		}
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("PASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS"));
-		}
-
-		RightHandMesh->AnimClass = HandAnimBP.Object->GeneratedClass;
+		RightHandMesh->AnimClass = HandAnimBP.Object;
 		RightHandMesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
-		//RightHandMesh->SetAnimInstanceClass(HandAnimBP.Object);
+		RightHandMesh->SetAnimInstanceClass(HandAnimBP.Object);
 	}
 
 	m_meshLeftHand = LeftHandMesh;
@@ -183,18 +173,27 @@ void AVRCharacter::BeginPlay()
 	
 	DestinationMarker->SetVisibility(false);
 
-	//CacheHandAnimInstances();
+	if (!IsValid(LeftHandMesh->GetAnimInstance()))
+	{
+		UE_LOG(LogTemp, Error, TEXT("EPIC FAIL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("EPIC WIN OMEGALUL!!!!!! UwU"));
+	}
+
+	CacheHandAnimInstances();
 }
 
 void AVRCharacter::CacheHandAnimInstances()
 {
-	m_refLeftHandAnimBP = (UcPlayerHandAnimBP*)m_meshLeftHand->GetAnimInstance();
+	m_refLeftHandAnimBP = Cast<UcPlayerHandAnimBP>(LeftHandMesh->GetAnimInstance());
 	if (!IsValid(m_refLeftHandAnimBP))
 	{
 		UE_LOG(LogTemp, Error, TEXT("Could not cast Hand Anim to the right class"));
 	}
 
-	m_refRightHandAnimBP = (UcPlayerHandAnimBP*)m_meshRightHand->GetAnimInstance();
+	m_refRightHandAnimBP = Cast<UcPlayerHandAnimBP>(RightHandMesh->GetAnimInstance());
 	if (!IsValid(m_refRightHandAnimBP))
 	{
 		UE_LOG(LogTemp, Error, TEXT("Could not cast Hand Anim to the right class"));
@@ -210,9 +209,11 @@ void AVRCharacter::Tick(float DeltaTime)
 
 	FVector NewCameraOffset = Camera->GetComponentLocation() - GetActorLocation();
 	NewCameraOffset.Z = 0;
+
 	///////
-	AddActorWorldOffset(NewCameraOffset);
-	VRRoot->AddWorldOffset(-NewCameraOffset);
+	
+	//AddActorWorldOffset(NewCameraOffset);
+	//VRRoot->AddWorldOffset(-NewCameraOffset);
 
 	if (bTeleportEnabled)
 	{
@@ -281,9 +282,14 @@ void AVRCharacter::InterpretMCMotion()
 
 		float DotProd = FVector::DotProduct(LeftOffset, RightOffset);
 
-		UE_LOG(LogTemp, Warning, TEXT("LEFT: %f %f %f"), LeftOffset.X, LeftOffset.Y, LeftOffset.Z);
-		UE_LOG(LogTemp, Warning, TEXT("RIGHT: %f %f %f"), RightOffset.X, RightOffset.Y, RightOffset.Z);
-		UE_LOG(LogTemp, Warning, TEXT("DOTPROD: %f"), DotProd);
+		//UE_LOG(LogTemp, Warning, TEXT("LEFT: %f %f %f"), LeftOffset.X, LeftOffset.Y, LeftOffset.Z);
+		//UE_LOG(LogTemp, Warning, TEXT("RIGHT: %f %f %f"), RightOffset.X, RightOffset.Y, RightOffset.Z);
+		//UE_LOG(LogTemp, Warning, TEXT("DOTPROD: %f"), DotProd);
+
+		if (DotProd > 120)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("DODGE!!!!!!"));
+		}
 
 		/*
 		if (DotProd > 200 && LeftZOffset < 6 && RightZOffset < 6)

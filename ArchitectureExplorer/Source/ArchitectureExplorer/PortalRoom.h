@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "VRCharacter.h"
 #include "PortalRoom.generated.h"
 
 UCLASS()
@@ -40,8 +41,8 @@ public:
 	bool bTele = false;
 	FVector ConvertLocationToActorSpace(FVector Location, AActor* Reference, USceneComponent* Target);
 	FRotator ConvertRotationToActorSpace(FRotator Rotation, AActor* Reference, USceneComponent* Target);
-
 	class AActor* Player;
 	class UCameraComponent* PlayerCamera;
-
+	FVector PortLoc;
+	FVector GetTeleportLocation(UCameraComponent* CharCam);
 };
