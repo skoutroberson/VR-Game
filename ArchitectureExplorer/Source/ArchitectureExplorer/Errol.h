@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include <vector>
+#include "CollisionQueryParams.h"
+#include "Engine/EngineTypes.h"
 #include "Errol.generated.h"
 
 using namespace std;
@@ -28,6 +30,8 @@ public:
 
 	AActor* Enemy;
 	AActor* Player;
+	UPROPERTY(VisibleAnywhere)
+	class USceneComponent* VRRoot;
 
 	FVector EnemyLocation;
 	FRotator EnemyRotation;
@@ -103,7 +107,9 @@ public:
 	int FOVHeight = 2000;
 
 	void SetupThetaGrid();
+
 	void ConnectStairNodes();
+	const int StairHalfLength = 200;
 
 	//	Check if player location is inside FOV triangle (2D view frustum)
 	//	A function to check whether point P(x, y) lies inside the triangle formed
@@ -115,6 +121,7 @@ public:
 	void UpdateInterpLocation();
 	//	Returns true if raycast from Start collides with End
 	bool IsClearPath(FVector Start, FVector End);
+
 	bool InPlayerLOS();
 	// Gotta think of a better name for this function
 	void ArrivedInterpLoc();
