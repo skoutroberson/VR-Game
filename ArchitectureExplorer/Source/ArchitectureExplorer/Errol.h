@@ -7,9 +7,18 @@
 #include <vector>
 #include "CollisionQueryParams.h"
 #include "Engine/EngineTypes.h"
+#include "UObject/Class.h"
 #include "Errol.generated.h"
 
 using namespace std;
+
+UENUM()
+enum AnimState
+{
+	Idle	UMETA(DisplayName = "Idle"),
+	Walk	UMETA(DisplayName = "Walk"),
+	Run		UMETA(DisplayName = "Run"),
+};
 
 UCLASS()
 class ARCHITECTUREEXPLORER_API AErrol : public AActor
@@ -27,6 +36,12 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = ErrolStuff)
+	float ErrolSpeed = 0;
+	
 
 	AActor* Enemy;
 	AActor* Player;
