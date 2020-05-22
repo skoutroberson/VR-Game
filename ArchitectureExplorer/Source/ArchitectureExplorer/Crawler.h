@@ -29,4 +29,6 @@ public:
 	UPROPERTY(EditAnywhere)
 	class UStaticMeshComponent* Body;
 
+	FVector StartingPosition;
+
 };

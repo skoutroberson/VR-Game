@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "VRCharacter.h"
+#include "Math/Vector.h"
 #include "PortalRoom.generated.h"
 
 UCLASS()
@@ -29,20 +30,9 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* PRRoot;
 
-	UPROPERTY(EditAnywhere)
-	class USceneComponent* TeleLoc;
-
-	UPROPERTY(VisibleAnywhere)
-	class UStaticMeshComponent* RoomMesh;
-
 public:
 
-	void Teleport();
-	bool bTele = false;
-	FVector ConvertLocationToActorSpace(FVector Location, AActor* Reference, USceneComponent* Target);
-	FRotator ConvertRotationToActorSpace(FRotator Rotation, AActor* Reference, USceneComponent* Target);
-	class AActor* Player;
-	class UCameraComponent* PlayerCamera;
-	FVector PortLoc;
-	FVector GetTeleportLocation(UCameraComponent* CharCam);
+	FVector LocationA;
+	FVector LocationB;
+
 };

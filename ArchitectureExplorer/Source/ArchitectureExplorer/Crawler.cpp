@@ -5,6 +5,7 @@
 #include "Components/SceneComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "DrawDebugHelpers.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 ACrawler::ACrawler()
@@ -15,8 +16,7 @@ ACrawler::ACrawler()
 	CrawlerRoot = CreateDefaultSubobject<USceneComponent>(TEXT("CrawlerRoot"));
 	SetRootComponent(CrawlerRoot);
 
-	Body = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Body"));
-	Body->SetupAttachment(CrawlerRoot);
+	StartingPosition = FVector(-893, 4132, 271);
 
 }
 
@@ -24,6 +24,8 @@ ACrawler::ACrawler()
 void ACrawler::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//UE_LOG(LogTemp, Warning, TEXT("%f"), GetActorLocation().Y);
 	
 }
 
@@ -32,5 +34,18 @@ void ACrawler::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//UE_LOG(LogTemp, Warning, TEXT("%f"), GetActorLocation().Y);
+
+	if (GetActorLocation().Y < 2000)
+	{
+		SetActorLocation(StartingPosition);
+	}
+	else
+	{
+		SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(GetActorLocation(),
+			FVector(GetActorLocation().X, GetActorLocation().Y - 1000, GetActorLocation().Z)
+			, DeltaTime, 200.f));
+	}
+	
 }
 

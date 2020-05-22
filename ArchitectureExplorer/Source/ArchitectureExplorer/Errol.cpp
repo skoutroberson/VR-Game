@@ -24,6 +24,8 @@ AErrol::AErrol()
 	Enemy = this;
 	RayCollisionParams.AddIgnoredActor(this);
 
+	
+
 }
 
 // Called when the game starts or when spawned
@@ -32,8 +34,6 @@ void AErrol::BeginPlay()
 
 	Super::BeginPlay();
 
-
-	
 	EnemyLocation = GetActorLocation();
 	EnemyRotation = GetActorRotation();
 	InterpLocation = EnemyLocation;
@@ -58,7 +58,7 @@ void AErrol::Tick(float DeltaTime)
 	EnemyFloor = GetEnemyFloor();
 	EnemyDirection = (InterpLocation - EnemyLocation);
 	EnemyDirection.Normalize();								// Pretty sure I could optimize the way of getting the rotation that I dont need this calculation every time but not sure...
-	Enemy->SetActorRotation(FMath::Lerp(EnemyRotation, FRotator(EnemyRotation.Pitch, EnemyDirection.Rotation().Yaw, EnemyRotation.Roll), 0.03f));
+	Enemy->SetActorRotation(FMath::Lerp(EnemyRotation, FRotator(EnemyRotation.Pitch, EnemyDirection.Rotation().Yaw, EnemyRotation.Roll), 6 * DeltaTime));
 	Enemy->SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(EnemyLocation, InterpLocation, DeltaTime, EnemySpeed));
 	ArrivedInterpLoc();
 
@@ -95,8 +95,7 @@ void AErrol::Tick(float DeltaTime)
 					}
 				}*/
 				EnemyZ = roundf(EnemyLocation.Z);
-				UE_LOG(LogTemp, Warning, TEXT("%d"), EnemyZ % FloorHeight);
-				UE_LOG(LogTemp, Warning, TEXT("EnemyZ = %f"), GetActorLocation().Z);
+				
 				if (EnemyZ % FloorHeight != 20)
 				{
 					//UE_LOG(LogTemp, Warning, TEXT("%f"), EnemyLocation.Z);
@@ -212,7 +211,7 @@ void AErrol::SetupThetaGrid()
 
 				for (auto n : nodes[f].NeighbourNodes)
 				{
-					DrawDebugLine(GetWorld(), FVector(nodes[f].x, nodes[f].y, nodes[f].z + 1), FVector(n->x, n->y, n->z + 1), FColor(100 * z, 200, 210 / (z + 1)), true);
+					//DrawDebugLine(GetWorld(), FVector(nodes[f].x, nodes[f].y, nodes[f].z + 1), FVector(n->x, n->y, n->z + 1), FColor(100 * z, 200, 210 / (z + 1)), true);
 				}
 
 			}
@@ -455,9 +454,11 @@ void AErrol::UpdateInterpLocation()
 		//UE_LOG(LogTemp, Warning, TEXT("Moving to next node..."));
 		ThetaNode* InterpNode = EnemyPath.Pop();
 		InterpLocation = FVector(InterpNode->x, InterpNode->y, InterpNode->z);
+		ErrolSpeed = 100;
 	}
 	else
 	{
+		ErrolSpeed = 0;
 		//	No new nodes to move to...
 	}
 }
@@ -472,6 +473,10 @@ void AErrol::ArrivedInterpLoc()
 		{
 			// Try to update interp location
 			UpdateInterpLocation();
+		}
+		else
+		{
+			ErrolSpeed = 0;
 		}
 	}
 }
