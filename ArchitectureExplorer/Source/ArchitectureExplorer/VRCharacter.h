@@ -30,36 +30,6 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UStaticMeshComponent* CreateHandMesh(UMotionControllerComponent* a_compParent, FName a_strDisplayName, FName a_nameHandType);
-
-	void SetHandAnimationBlueprint(USkeletalMeshComponent* a_refHand);
-
-
-public:
-
-	UFUNCTION(BlueprintNativeEvent, Category = "Input")
-	void GripLeftHand_Pressed();
-
-	UFUNCTION(BlueprintNativeEvent, Category = "Input")
-	void GripRightHand_Pressed();
-
-	UFUNCTION(BlueprintNativeEvent, Category = "Input")
-	void GripLeftHand_Released();
-
-	UFUNCTION(BlueprintNativeEvent, Category = "Input")
-	void GripRightHand_Released();
-
-	
-
-private:
-	USkeletalMeshComponent* m_meshLeftHand;
-	USkeletalMeshComponent* m_meshRightHand;
-
-	UcPlayerHandAnimBP* m_refLeftHandAnimBP;
-	UcPlayerHandAnimBP* m_refRightHandAnimBP;
-
-	void CacheHandAnimInstances();
-
 private:
 
 	void UpdateDestinationMarker();
@@ -83,10 +53,10 @@ private:
 	class UCameraComponent* Camera;
 
 	UPROPERTY(VisibleAnywhere)
-	class UMotionControllerComponent* LeftController;
+	class AHandController* LeftController;
 
 	UPROPERTY(VisibleAnywhere)
-	class UMotionControllerComponent* RightController;
+	class AHandController* RightController;
 
 	UPROPERTY(VisibleAnywhere)
 	class USkeletalMeshComponent* LeftHandMesh;
@@ -99,6 +69,9 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	class UStaticMeshComponent* DestinationMarker;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<AHandController> HandControllerClass;
 
 private:
 	bool bAction1 = false;
