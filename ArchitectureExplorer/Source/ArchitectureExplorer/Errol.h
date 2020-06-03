@@ -87,7 +87,7 @@ public:
 	const int GridHeight = 60;
 	const int NumFloors = 3;
 	//	Distance nodes are from eachother in A* grid. (61cm = 2ft)
-	const int NodeDist = 40;
+	const int NodeDist = 60;
 	//	Variable for checking when AStarCallCounter == AStarCallTime
 	const int AStarCallTime = 60;
 	//	Counter for calling SolveAStar() every n frames

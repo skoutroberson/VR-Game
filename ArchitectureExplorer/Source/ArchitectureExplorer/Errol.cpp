@@ -14,6 +14,8 @@
 #include "Engine/EngineTypes.h"
 #include "Engine/World.h"
 #include "Physics/GenericPhysicsInterface.h"
+#include "Engine/Brush.h"
+#include "Components/BrushComponent.h"
 
 // Sets default values
 AErrol::AErrol()
@@ -165,7 +167,7 @@ void AErrol::SetupThetaGrid()
 					for (TActorIterator<AStaticMeshActor> ActorItr(GetWorld()); ActorItr; ++ActorItr)							// I NEED TO OPTIMIZE THIS SO THAT IT ONLY CHECKS ACTORS CLOSE TO ITS XYZ
 					{
 						// Same as with the Object Iterator, access the subclass instance with the * or -> operators.
-						AStaticMeshActor *SMActor = *ActorItr;
+						//AStaticMeshActor *SMActor = *ActorItr;
 						if (ActorItr->GetStaticMeshComponent()->OverlapComponent(Pos, Qwa, Boxy)) // && ActorItr->GetStackMeshComponent
 						{
 							//DrawDebugSphere(GetWorld(), FVector(nodes[f].x, nodes[f].y, nodes[f].z + 10), 10, 4, FColor(255, 100, 50), true);
@@ -296,7 +298,7 @@ void AErrol::SolveThetaStar()
 				float fPossiblyLowerGoal = nodeCurrent->fLocalGoal + distance(nodeCurrent, nodeNeighbour);
 				// This if statement is very long but I cant make the two vectors before I check if nodeCurrent->parent is not null
 				if (nodeCurrent->parent != nullptr &&
-					IsClearPath(FVector(nodeCurrent->parent->x, nodeCurrent->parent->y, nodeCurrent->parent->z +1), FVector(nodeNeighbour->x, nodeNeighbour->y, nodeNeighbour->z +1)))
+					IsClearPath(FVector(nodeCurrent->parent->x, nodeCurrent->parent->y, nodeCurrent->parent->z), FVector(nodeNeighbour->x, nodeNeighbour->y, nodeNeighbour->z)))
 				{
 					fPossiblyLowerGoal = nodeCurrent->parent->fLocalGoal + distance(nodeCurrent->parent, nodeNeighbour);
 					if (fPossiblyLowerGoal < nodeNeighbour->fLocalGoal)
@@ -402,9 +404,9 @@ bool AErrol::IsClearPath(FVector Start, FVector End)
 	const float x5 = x2 * cos(270 * (PI / 180)) - y2 * sin(270 * (PI / 180)) + End.X;
 	const float y5 = y2 * cos(270 * (PI / 180)) + x2 * sin(270 * (PI / 180)) + End.Y;
 	// This is the point that lies on the right side of the enemy's bounding box
-	FVector StartR = FVector(x1, y1, Start.Z + 1);
+	FVector StartR = FVector(x1, y1, Start.Z + 20);
 	// This is the point that lies on the left side of the enemy's bounding box
-	FVector StartL = FVector(x3, y3, Start.Z + 1);
+	FVector StartL = FVector(x3, y3, Start.Z + 20);
 	FVector EndR = FVector(x5, y5, End.Z + 1);
 	FVector EndL = FVector(x4, y4, End.Z + 1);
 	//DrawDebugLine(GetWorld(), StartL, EndL, FColor(255, 0, 0), false, 0.1f);
