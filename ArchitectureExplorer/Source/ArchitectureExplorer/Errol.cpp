@@ -45,8 +45,9 @@ void AErrol::BeginPlay()
 	RayCollisionParams.AddIgnoredActor(Player);
 
 	SetupThetaGrid();
+	ConnectStairNodes();
 
-	UE_LOG(LogTemp, Warning, TEXT("EnemyZ = %f"), GetActorLocation().Z);
+	
 }
 
 // Called every frame
@@ -57,7 +58,7 @@ void AErrol::Tick(float DeltaTime)
 	AStarCallCounter++;
 	EnemyLocation = Enemy->GetActorLocation();
 	EnemyRotation = Enemy->GetActorRotation();
-	EnemyFloor = GetEnemyFloor();
+	EnemyFloor = GetFloor(EnemyLocation.Z);
 	EnemyDirection = (InterpLocation - EnemyLocation);
 	EnemyDirection.Normalize();								// Pretty sure I could optimize the way of getting the rotation that I dont need this calculation every time but not sure...
 	Enemy->SetActorRotation(FMath::Lerp(EnemyRotation, FRotator(EnemyRotation.Pitch, EnemyDirection.Rotation().Yaw, EnemyRotation.Roll), 6 * DeltaTime));
@@ -67,67 +68,65 @@ void AErrol::Tick(float DeltaTime)
 	//	Conditional for calling SolveAStar() every n frames
 	if (AStarCallCounter == AStarCallTime)
 	{
-		PlayerLocation = Player->GetActorLocation();
-
-		if (PlayerLocation.X / NodeDist > 0 && PlayerLocation.X / NodeDist < GridWidth)
+		if (CanPathfind())
 		{
-			if (PlayerLocation.Y / NodeDist > 0 && PlayerLocation.Y / NodeDist < GridHeight)
+			TraceCount = 0;
+			Pathfind();
+			UE_LOG(LogTemp, Error, TEXT("%d"), TraceCount);
+		}
+
+		AStarCallCounter = 0;
+	}
+}
+
+bool AErrol::CanPathfind()
+{
+	PlayerLocation = Player->GetActorLocation();
+
+	if (PlayerLocation.X / NodeDist > 0 && PlayerLocation.X / NodeDist < GridWidth)
+	{
+		if (PlayerLocation.Y / NodeDist > 0 && PlayerLocation.Y / NodeDist < GridHeight)
+		{
+
+			EnemyZ = roundf(EnemyLocation.Z);
+			//UE_LOG(LogTemp, Warning, TEXT("%f, %f"), EnemyLocation.Z, EnemyZ % FloorHeight);
+
+			//	If Errol is on first or second floor. (don't pathfind on stairs)
+			if (EnemyZ % FloorHeight == 0)
 			{
-
-				//DrawDebugLine(GetWorld(), SightR, FVector(x5, y5, PlayerLocation.Z), FColor(255, 0, 0), false, 0.5f);
-				//DrawDebugLine(GetWorld(), SightL, FVector(x4, y4, PlayerLocation.Z), FColor(0, 0, 255), false, 0.5f);
-
-				/*
-				if (FVector::Distance(CurrentLocation, PlayerLocation) < FOVHeight)					//	Will need to take into account Z values too!!!
+				return true;
+			}
+			else
+			{
+				//	If Errol is on third floor
+				if (EnemyZ % FloorHeight == 20 && EnemyZ == 876)
 				{
-					FOVPointR = FVector(
-						CurrentLocation.X + (UKismetMathLibrary::DegCos(GetActorRotation().Yaw + FOVHalfangle) * FOVMultiplier),
-						CurrentLocation.Y + (UKismetMathLibrary::DegSin(GetActorRotation().Yaw + FOVHalfangle) * FOVMultiplier),
-						CurrentLocation.Z);
-					FOVPointL = FVector(
-						CurrentLocation.X + (UKismetMathLibrary::DegCos(GetActorRotation().Yaw - FOVHalfangle) * FOVMultiplier),
-						CurrentLocation.Y + (UKismetMathLibrary::DegSin(GetActorRotation().Yaw - FOVHalfangle) * FOVMultiplier),
-						CurrentLocation.Z);
-
-					DrawDebugSphere(GetWorld(), FOVPointR, 10, 4, FColor(0, 255, 255), true,+1.0f);
-					DrawDebugSphere(GetWorld(), FOVPointL, 10, 4, FColor(0, 255, 255), true,+1.0f);
-					if (IsInside(CurrentLocation.X,CurrentLocation.Y,FOVPointR.X,FOVPointR.Y,FOVPointL.X,FOVPointL.Y,PlayerLocation.X,PlayerLocation.Y))
-					{
-						//UE_LOG(LogTemp, Warning, TEXT("%d"), EnemyPath.Num());
-					}
-				}*/
-				EnemyZ = roundf(EnemyLocation.Z);
-				
-				if (EnemyZ % FloorHeight != 20)
-				{
-					//UE_LOG(LogTemp, Warning, TEXT("%f"), EnemyLocation.Z);
+					return true;
 				}
 				else
 				{
-					PlayerX = roundf(PlayerLocation.X / NodeDist);
-					PlayerY = roundf(PlayerLocation.Y / NodeDist);
-					PlayerZ = roundf(PlayerLocation.Z / FloorHeight);
-					EnemyX = roundf(EnemyLocation.X / NodeDist);
-					EnemyY = roundf(EnemyLocation.Y / NodeDist);
-					NodeStart = &nodes[EnemyY * GridWidth + EnemyX + EnemyFloor * GridWidth * GridHeight];
-					NodeEnd = &nodes[PlayerY * GridWidth + PlayerX + PlayerZ * GridWidth * GridHeight];
-					//DrawDebugSphere(GetWorld(), FVector(NodeEnd->x, NodeEnd->y, NodeEnd->z), 6, 4, FColor(255, 0, 0), true);
-					SolveThetaStar();
-					
-					
+					UE_LOG(LogTemp, Warning, TEXT("%d, %d"), EnemyZ % FloorHeight, EnemyZ);
 				}
-				///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//UE_LOG(LogTemp, Warning, TEXT("%d"), EnemyPath.Num());
-//DrawDebugLine(GetWorld(), FVector(NodeStart->x * NodeDist, NodeStart->y*NodeDist, FloorHeight), FVector(NodeEnd->x*NodeDist, NodeEnd->y*NodeDist, FloorHeight), FColor(0, 255, 0), false, 1.0);
-//FVector Dir = (FVector(NodeEnd->x*NodeDist, NodeEnd->y*NodeDist, FloorHeight) - FVector(NodeStart->x * NodeDist, NodeStart->y*NodeDist, FloorHeight));
-//Dir.RotateAngleAxis(90, FVector(0,0,1));
-//Dir.Normalize();
-//DrawDebugLine(GetWorld(), FVector(Dir * 60), FVector(NodeEnd->x, NodeEnd->y,FloorHeight), FColor(0, 255, 0), false, 1.0);
 			}
 		}
-		AStarCallCounter = 0;
 	}
+	return false;
+}
+
+void AErrol::Pathfind()
+{
+	PlayerX = roundf(PlayerLocation.X / NodeDist);
+	PlayerY = roundf(PlayerLocation.Y / NodeDist);
+	PlayerZ = roundf(PlayerLocation.Z / FloorHeight);
+	EnemyX = roundf(EnemyLocation.X / NodeDist);
+	EnemyY = roundf(EnemyLocation.Y / NodeDist);
+	EnemyZ = roundf(EnemyLocation.Z / FloorHeight);
+	NodeStart = &nodes[EnemyY * GridWidth + EnemyX + EnemyZ * GridWidth * GridHeight];
+	NodeEnd = &nodes[PlayerY * GridWidth + PlayerX + PlayerZ * GridWidth * GridHeight];
+	DrawDebugSphere(GetWorld(), FVector(NodeEnd->x, NodeEnd->y, NodeEnd->z), 16, 4, FColor(255, 0, 0), false, 0.4f);
+	DrawDebugLine(GetWorld(), FVector(NodeEnd->x, NodeEnd->y, NodeEnd->z), FVector(NodeEnd->x, NodeEnd->y, NodeEnd->z + 10000), FColor::Red, false, 0.4f, (uint8)'\000', 1.0f);
+	DrawDebugSphere(GetWorld(), FVector(NodeStart->x, NodeStart->y, NodeStart->z), 16, 4, FColor(0, 0, 255), false, 0.4f);
+	SolveThetaStar();
 }
 
 void AErrol::SetupThetaGrid()
@@ -136,14 +135,18 @@ void AErrol::SetupThetaGrid()
 	for (int z = 0; z < 3; z++)
 	{
 		const int GridOffset = z * GridWidth * GridHeight;
+		int ThirdFloor = 0;
 		for (int x = 0; x < GridWidth; x++)
 		{
 			for (int y = 0; y < GridHeight; y++)
 			{
+				
+				if (z == 2) { ThirdFloor = 20; }
+
 				const int f = (y * GridWidth + x) + GridOffset;
 				nodes[f].x = x * NodeDist;
 				nodes[f].y = y * NodeDist;
-				nodes[f].z = z * FloorHeight + 20.f;	//20 is the current height of the floor
+				nodes[f].z = z * FloorHeight + ThirdFloor;
 				nodes[f].bObstacle = false;
 				nodes[f].parent = nullptr;
 				nodes[f].bVisited = false;
@@ -211,6 +214,7 @@ void AErrol::SetupThetaGrid()
 					nodes[f].NeighbourNodes.push_back(&nodes[((y + 1) * GridWidth + (x + 1)) + GridOffset]);
 				*/
 
+				//	Draw Node Connections
 				for (auto n : nodes[f].NeighbourNodes)
 				{
 					//DrawDebugLine(GetWorld(), FVector(nodes[f].x, nodes[f].y, nodes[f].z + 1), FVector(n->x, n->y, n->z + 1), FColor(100 * z, 200, 210 / (z + 1)), true);
@@ -263,8 +267,10 @@ void AErrol::SolveThetaStar()
 	listNotTestedNodes.Add(NodeStart);
 	//listNotTestedNodes.sort([](const sNode* lhs, const sNode* rhs) { return lhs->fGlobalGoal < rhs->fGlobalGoal; });
 	// while (listNotTestedNodes.Num() > 0 && nodeCurrent != NodeEnd) <- this code will find the path faster but it may not be the shortest path
+	
 	while (listNotTestedNodes.Num() > 0 && nodeCurrent != NodeEnd)
 	{
+
 		// Sort Untested nodes by global goal, so lowest is first
 		listNotTestedNodes.Sort([](const ThetaNode& lhs, const ThetaNode& rhs) {return lhs.fGlobalGoal < rhs.fGlobalGoal; });
 		// Front of listNotTestedNodes is potentially the lowest distance node. Our
@@ -404,36 +410,39 @@ bool AErrol::IsClearPath(FVector Start, FVector End)
 	const float x5 = x2 * cos(270 * (PI / 180)) - y2 * sin(270 * (PI / 180)) + End.X;
 	const float y5 = y2 * cos(270 * (PI / 180)) + x2 * sin(270 * (PI / 180)) + End.Y;
 	// This is the point that lies on the right side of the enemy's bounding box
-	FVector StartR = FVector(x1, y1, Start.Z + 20);
+	FVector StartR = FVector(x1, y1, Start.Z + 200);
 	// This is the point that lies on the left side of the enemy's bounding box
-	FVector StartL = FVector(x3, y3, Start.Z + 20);
-	FVector EndR = FVector(x5, y5, End.Z + 1);
-	FVector EndL = FVector(x4, y4, End.Z + 1);
-	//DrawDebugLine(GetWorld(), StartL, EndL, FColor(255, 0, 0), false, 0.1f);
-	//DrawDebugLine(GetWorld(), StartR, EndR, FColor(255, 0, 0), false, 0.1f);
+	FVector StartL = FVector(x3, y3, Start.Z + 200);
+	FVector EndR = FVector(x5, y5, End.Z + 200);
+	FVector EndL = FVector(x4, y4, End.Z + 200);
+	//DrawDebugLine(GetWorld(), StartL, EndL, FColor(255, 0, 0), false, 0.5f);
+	//DrawDebugLine(GetWorld(), StartR, EndR, FColor(255, 0, 0), false, 0.5f);
 	if (StartR.Z != EndR.Z)
 	{
+		//UE_LOG(LogTemp, Warning, TEXT("CLEAR PATH TRACE Zs are off!!!!!!!!!!! S: %f, E: %f"), StartR.Z, EndR.Z);
 		return false;
 	}
 	else if (GetWorld()->LineTraceSingleByChannel(HitStruct, StartR, EndR, ECC_WorldDynamic, RayCollisionParams) == true)
 	{
+		TraceCount++;
 		return false;
 	}
 	else if (GetWorld()->LineTraceSingleByChannel(HitStruct, StartL, EndL, ECC_WorldDynamic, RayCollisionParams) == true)
 	{
+		TraceCount += 2;
 		return false;
 	}
+	TraceCount += 2;
 	return true;
 }
 
-int AErrol::GetEnemyFloor()
+int AErrol::GetFloor(float ZLocation)
 {
-	int EnemyZ = roundf(EnemyLocation.Z);
-	if (EnemyZ < FloorHeight)
+	if (ZLocation < FloorHeight)
 	{
 		return 0;
 	}
-	else if (EnemyZ > FloorHeight && EnemyZ < FloorHeight * 2)
+	else if (ZLocation > FloorHeight && ZLocation < FloorHeight * 2)
 	{
 		return 1;
 	}
@@ -443,10 +452,7 @@ int AErrol::GetEnemyFloor()
 	}
 }
 
-void AErrol::ConnectStairNodes()
-{
 
-}
 
 void AErrol::UpdateInterpLocation()
 {
@@ -481,4 +487,55 @@ void AErrol::ArrivedInterpLoc()
 			ErrolSpeed = 0;
 		}
 	}
+}
+
+void AErrol::ConnectStairNodes()
+{
+	//NodeEnd = &nodes[PlayerY * GridWidth + PlayerX + PlayerZ * GridWidth * GridHeight];
+	// 45, 13, 1 ---- 66, 13, 0
+
+	//	First hall stair
+	nodes[13 * GridWidth + 45 + 1 * GridWidth * GridHeight].NeighbourNodes.push_back(
+		&nodes[13 * GridWidth + 66 + 0]
+	);
+	nodes[13 * GridWidth + 45 + 1 * GridWidth * GridHeight].bObstacle = false;
+
+	nodes[13 * GridWidth + 66 + 0].NeighbourNodes.push_back(
+		&nodes[13 * GridWidth + 45 + 1 * GridWidth * GridHeight]
+	);
+	nodes[13 * GridWidth + 66 + 0].bObstacle = false;
+
+	DrawDebugSphere(GetWorld(), FVector(
+		nodes[13 * GridWidth + 45 + 1 * GridWidth * GridHeight].x,
+		nodes[13 * GridWidth + 45 + 1 * GridWidth * GridHeight].y,
+		nodes[13 * GridWidth + 45 + 1 * GridWidth * GridHeight].z
+	), 10, 10, FColor::Purple, true);
+
+	DrawDebugSphere(GetWorld(), FVector(
+		nodes[13 * GridWidth + 66 + 0].x,
+		nodes[13 * GridWidth + 66 + 0].y,
+		nodes[13 * GridWidth + 66 + 0].z
+	), 10, 10, FColor::Purple, true);
+
+	//	Kitchen stair
+	nodes[82 * GridWidth + 23 + 0].NeighbourNodes.push_back(
+		&nodes[103 * GridWidth + 23 + 1 * GridWidth * GridHeight]
+	);
+	nodes[82 * GridWidth + 23 + 0].bObstacle = false;
+
+	nodes[103 * GridWidth + 23 + 1 * GridWidth * GridHeight].NeighbourNodes.push_back(
+		&nodes[82 * GridWidth + 23 + 0]
+	);
+	nodes[103 * GridWidth + 23 + 1 * GridWidth * GridHeight].bObstacle = false;
+
+	// Main hall stair
+	nodes[67 * GridWidth + 78 + 1 * GridWidth * GridHeight].NeighbourNodes.push_back(
+		&nodes[67 * GridWidth + 56 + 2 * GridWidth * GridHeight]
+	);
+	nodes[67 * GridWidth + 78 + 1 * GridWidth * GridHeight].bObstacle = false;
+
+	nodes[67 * GridWidth + 56 + 2 * GridWidth * GridHeight].NeighbourNodes.push_back(
+		&nodes[67 * GridWidth + 78 + 1 * GridWidth * GridHeight]
+	);
+	nodes[67 * GridWidth + 56 + 2 * GridWidth * GridHeight].bObstacle = false;
 }

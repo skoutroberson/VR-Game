@@ -46,6 +46,9 @@ private:
 	void DisableAction2();
 	void InterpretMCMotion();
 	void Dodge();
+	void Sprint();
+	void StopSprint();
+	void Click();
 
 private:
 

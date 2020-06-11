@@ -54,6 +54,8 @@ public:
 	FVector EnemyDirection;
 	int EnemyFloor;
 
+	int TraceCount = 0;
+
 	// THETA* STUFF	
 
 	struct ThetaNode
@@ -81,19 +83,19 @@ public:
 	TArray<ThetaNode*> EnemyPath;
 
 	//	Width of A* grid
-	const int GridWidth = 60;
+	const int GridWidth = 140;
 
 	//	Height of A* grid
-	const int GridHeight = 60;
+	const int GridHeight = 140;
 	const int NumFloors = 3;
 	//	Distance nodes are from eachother in A* grid. (61cm = 2ft)
-	const int NodeDist = 60;
+	static const int NodeDist = 30;
 	//	Variable for checking when AStarCallCounter == AStarCallTime
-	const int AStarCallTime = 60;
+	const int AStarCallTime = 30;
 	//	Counter for calling SolveAStar() every n frames
 	int AStarCallCounter = 0;
 	//	Will need to change the way I do this when I make 2 stories
-	const int FloorHeight = 280;
+	static const int FloorHeight = 428;
 	const int EnemyHalfWidth = 30;
 	const int EnemyHalfHeight = 105;
 	//	For Integer division of FVector PlayerLocation, Might not need...
@@ -123,6 +125,11 @@ public:
 
 	void SetupThetaGrid();
 
+	bool bCanPathfind = false;
+
+	bool CanPathfind();
+	void Pathfind();
+
 	void ConnectStairNodes();
 	const int StairHalfLength = 200;
 
@@ -141,7 +148,7 @@ public:
 	// Gotta think of a better name for this function
 	void ArrivedInterpLoc();
 
-	int GetEnemyFloor();
+	int GetFloor(float ZLocation);
 
 	FHitResult HitStruct = FHitResult(ForceInit); ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	FCollisionQueryParams RayCollisionParams;

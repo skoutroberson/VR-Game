@@ -23,6 +23,7 @@
 #include "Animation/AnimInstance.h"
 #include "Animation/AnimBlueprintGeneratedClass.h"
 #include "HandController.h"
+#include "Errol.h"
 
 
 // Sets default values
@@ -239,6 +240,50 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Pressed, this, &AVRCharacter::EnableAction2);
 	PlayerInputComponent->BindAction(TEXT("Action1"), IE_Released, this, &AVRCharacter::DisableAction1);
 	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Released, this, &AVRCharacter::DisableAction2);
+	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Pressed, this, &AVRCharacter::Sprint);
+	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Released, this, &AVRCharacter::StopSprint);
+	PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
+}
+
+void AVRCharacter::Click()
+{
+	FVector ForwardVector = Camera->GetForwardVector();
+	FVector Start = Camera->GetComponentLocation();
+	float len = 10000.0f;
+	FVector End = (ForwardVector * len) + Start;
+	DrawDebugLine(GetWorld(), Start, End, FColor(255, 0, 0), true, 1.0f);
+	FHitResult Outhit;
+	FCollisionQueryParams ColParams;
+	ColParams.AddIgnoredActor(this);
+
+	if (GetWorld()->LineTraceSingleByChannel(Outhit, Start, End, ECollisionChannel::ECC_WorldDynamic, ColParams))
+	{
+		int NodeDist = AErrol::NodeDist;
+		int FloorHeight = AErrol::FloorHeight;
+		FVector ClosestNode = FVector(
+		roundf(Outhit.Location.X / NodeDist) * NodeDist,
+		roundf(Outhit.Location.Y / NodeDist) * NodeDist,
+			Outhit.Location.Z);
+
+		DrawDebugSphere(GetWorld(), ClosestNode, 10, 8, FColor::White, false, 1.0f);
+
+		UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f"), 
+			roundf(Outhit.Location.X / NodeDist),
+			roundf(Outhit.Location.Y / NodeDist),
+			roundf(Outhit.Location.Z/FloorHeight));
+	}
+}
+
+void AVRCharacter::Sprint()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Sprint"));
+	bSprint = true;
+}
+
+void AVRCharacter::StopSprint()
+{
+	UE_LOG(LogTemp, Warning, TEXT("StopSprint"));
+	bSprint = false;
 }
 
 
@@ -274,6 +319,7 @@ void AVRCharacter::TurnRight(float throttle)
 void AVRCharacter::LookUp(float throttle)
 {
 	AddControllerPitchInput(-throttle);
+
 }
 
 void AVRCharacter::BeginTeleport()
