@@ -50,6 +50,10 @@ private:
 	void StopSprint();
 	void Click();
 
+	void UpdateCapsuleHeight();
+	FHitResult CamHeightHit;
+	FCollisionQueryParams CamHeightParams;
+
 private:
 
 	UPROPERTY(EditAnywhere)
