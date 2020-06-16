@@ -50,6 +50,8 @@ AVRCharacter::AVRCharacter()
 	DestinationMarker = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DestinationMarker"));
 	DestinationMarker->SetupAttachment(GetRootComponent());
 
+	CamHeightParams.AddIgnoredActor(this);
+
 }
 
 // Called when the game starts or when spawned
@@ -74,7 +76,21 @@ void AVRCharacter::BeginPlay()
 		RightController->SetHand(EControllerHand::Right);
 		RightController->SetOwner(this);
 	}
+}
 
+void AVRCharacter::UpdateCapsuleHeight()
+{
+	GetWorld()->LineTraceSingleByChannel(CamHeightHit, Camera->GetComponentLocation(),
+		(Camera->GetUpVector() * -300) + Camera->GetComponentLocation(),
+		ECollisionChannel::ECC_WorldDynamic, CamHeightParams);
+
+	float NewCapsuleHeight = Camera->GetComponentLocation().Z - CamHeightHit.Location.Z;
+	
+	UE_LOG(LogTemp, Warning, TEXT("New Capsule Height: %f"), NewCapsuleHeight);
+
+
+
+	GetCapsuleComponent()->SetCapsuleHalfHeight(NewCapsuleHeight/2.f + 10.f);
 
 }
 
@@ -84,14 +100,15 @@ void AVRCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
+	//UpdateCapsuleHeight();
 
 	FVector NewCameraOffset = Camera->GetComponentLocation() - GetActorLocation();
 	NewCameraOffset.Z = 0;
-
-	///////
 	
 	AddActorWorldOffset(NewCameraOffset);
 	VRRoot->AddWorldOffset(-NewCameraOffset);
+
+	
 
 	if (bTeleportEnabled)
 	{

@@ -70,9 +70,9 @@ void AErrol::Tick(float DeltaTime)
 	{
 		if (CanPathfind())
 		{
-			TraceCount = 0;
-			Pathfind();
-			UE_LOG(LogTemp, Error, TEXT("%d"), TraceCount);
+			//TraceCount = 0;
+			//Pathfind();
+			//UE_LOG(LogTemp, Error, TEXT("%d"), TraceCount);
 		}
 
 		AStarCallCounter = 0;

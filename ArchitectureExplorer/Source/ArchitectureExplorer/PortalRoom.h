@@ -32,7 +32,12 @@ private:
 
 public:
 
-	FVector LocationA;
-	FVector LocationB;
+	FVector TargetLocation = FVector(953, 1189, 0);
+
+	//	Difference in yaw rotations from source portal room doors to target room doors
+	float DeltaRotation = -90.f;
+
+	UFUNCTION()
+	void ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
 
 };
