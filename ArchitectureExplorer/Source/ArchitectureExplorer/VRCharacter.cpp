@@ -86,11 +86,20 @@ void AVRCharacter::UpdateCapsuleHeight()
 
 	float NewCapsuleHeight = Camera->GetComponentLocation().Z - CamHeightHit.Location.Z;
 	
-	UE_LOG(LogTemp, Warning, TEXT("New Capsule Height: %f"), NewCapsuleHeight);
+	//UE_LOG(LogTemp, Warning, TEXT("New Capsule Height: %f"), NewCapsuleHeight);
 
-
-
-	GetCapsuleComponent()->SetCapsuleHalfHeight(NewCapsuleHeight/2.f + 10.f);
+	if (NewCapsuleHeight < 10.f)
+	{
+		GetCapsuleComponent()->SetCapsuleHalfHeight(5.f);
+	}
+	else if (NewCapsuleHeight > 200.f)
+	{
+		GetCapsuleComponent()->SetCapsuleHalfHeight(100.f);
+	}
+	else
+	{
+		GetCapsuleComponent()->SetCapsuleHalfHeight(NewCapsuleHeight / 2.f);
+	}
 
 }
 
@@ -100,7 +109,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
-	//UpdateCapsuleHeight();
+	UpdateCapsuleHeight();
 
 	FVector NewCameraOffset = Camera->GetComponentLocation() - GetActorLocation();
 	NewCameraOffset.Z = 0;
