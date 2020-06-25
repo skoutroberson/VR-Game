@@ -5,6 +5,7 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "Engine/World.h"
 #include "DrawDebugHelpers.h"
+#include "QuatRotLib.h"
 
 // Sets default values
 ARoach::ARoach()
@@ -75,17 +76,24 @@ void ARoach::LilTurn()
 	float DT = GetWorld()->DeltaTimeSeconds;
 	FRotator AR = GetActorRotation();
 	FRotator NR = AR;
-	NR.Pitch += 10;
+	NR.Pitch += 4 * DT;
 
+	FRotator DR = FRotator(16 * DT, 0, 0);
+	FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
+
+	UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
+	
+
+	//SetActorRotation(FMath::Lerp(AR, NR, DT));
+	FVector UV = GetActorUpVector();
+
+	UE_LOG(LogTemp, Warning, TEXT("%f %f %f"), UV.X, UV.Y, UV.Z);
+	
+	// Draw forward and up vectors for debugging.	///////////////////////////////////////////
 	FVector AL = GetActorLocation();
 	FVector AFV = GetActorForwardVector();
 	DrawDebugLine(GetWorld(), AL, AL + GetActorUpVector() * 16, FColor::Green, false, DT * 2);
 	DrawDebugLine(GetWorld(), AL, AL + AFV * 16, FColor::Magenta, false, DT * 2);
-
-	SetActorRotation(FMath::Lerp(AR, NR, DT));
-
-	UE_LOG(LogTemp, Warning, TEXT("AR: %f | NR: %f"), AR.Pitch, NR.Pitch);
-
+	//////////////////////////////////////////////////////////////////////////////////////////
 	
 }
-
