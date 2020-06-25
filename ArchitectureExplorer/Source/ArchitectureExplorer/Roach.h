@@ -46,5 +46,4 @@ private:
 	
 	//	I think for all of the classes I am doing line traces in, I want to check if I am querying too many things
 	FCollisionQueryParams ColQueryParams;
-
 };
