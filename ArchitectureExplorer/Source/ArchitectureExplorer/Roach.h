@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "CollisionQueryParams.h"
 #include "Roach.generated.h"
 
 UCLASS()
@@ -29,21 +30,25 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	class UStaticMeshComponent* RoachMesh;
 
-	void Move();
+	void Move(float DeltaTime);
+
+	// For making the roach parallel to the plane it is walking on
+	void ZeroRoll(float DeltaTime);
+
 	bool CheckFront();
-	void LilTurn();
+	void TraverseCorner(float DeltaTime);
 
 private:
 
 	float RoachLength = 13.f;
+	float RoachWidth = 8.f;
+	float Speed = 50.f;
 	
 	FVector TurnPoint = FVector::ZeroVector;
 
-	FTimerHandle MemberTimerHandle;
-
 
 	FHitResult HitResult;
-	
 	//	I think for all of the classes I am doing line traces in, I want to check if I am querying too many things
-	FCollisionQueryParams ColQueryParams;
+	FCollisionQueryParams RoachParams;
+	
 };
