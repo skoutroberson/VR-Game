@@ -6,6 +6,7 @@
 #include "Engine/World.h"
 #include "DrawDebugHelpers.h"
 #include "QuatRotLib.h"
+#include "CollisionQueryParams.h"
 
 // Sets default values
 ARoach::ARoach()
@@ -19,7 +20,7 @@ ARoach::ARoach()
 	RoachMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("RoachMesh"));
 	RoachMesh->SetupAttachment(RoachRoot);
 
-	ColQueryParams.AddIgnoredActor(this);
+	RoachParams.AddIgnoredActor(this);
 
 }
 
@@ -37,26 +38,80 @@ void ARoach::Tick(float DeltaTime)
 	
 	if (CheckFront())
 	{
-		LilTurn();
-		UE_LOG(LogTemp, Warning, TEXT("Turning"));
+		TraverseCorner(DeltaTime);
+		UE_LOG(LogTemp, Warning, TEXT("Traversing Corner"));
 	}
 	else
 	{
-		Move();
+		ZeroRoll(DeltaTime);
+		Move(DeltaTime);
 		UE_LOG(LogTemp, Warning, TEXT("Moving"));
 	}
 
 }
 
-void ARoach::Move()
+void ARoach::Move(float DeltaTime)
 {
-
 	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(
 		GetActorLocation(),
 		GetActorLocation() + GetActorForwardVector() * 10,
-		GetWorld()->DeltaTimeSeconds,
-		50.f
+		DeltaTime,
+		Speed
 	));
+
+}
+
+//	Keeps the roach flat against the surface it is on
+void ARoach::ZeroRoll(float DeltaTime)
+{
+	//	Might need to raise this position up a lil
+	FVector AL = GetActorLocation();
+	FVector LL = AL - GetActorRightVector() * RoachWidth;
+	FVector RL = AL + GetActorRightVector() * RoachWidth;
+
+	DrawDebugLine(GetWorld(), AL, LL, FColor::Red, false, 2 * GetWorld()->DeltaTimeSeconds);
+	DrawDebugLine(GetWorld(), AL, RL, FColor::Blue, false, 2 * GetWorld()->DeltaTimeSeconds);
+	
+	bool LTrace = GetWorld()->LineTraceSingleByChannel(HitResult, AL, LL, ECollisionChannel::ECC_WorldStatic, RoachParams);
+	bool RTrace = GetWorld()->LineTraceSingleByChannel(HitResult, AL, RL, ECollisionChannel::ECC_WorldStatic, RoachParams);
+	
+	if (LTrace || RTrace)
+	{
+		FRotator DR;
+		if (LTrace)
+		{
+			// rotate roll right
+			DR = FRotator(0, 0, -150 * DeltaTime);
+		}
+		else if (RTrace)
+		{
+			//rotate roll left
+			DR = FRotator(0, 0, 150 * DeltaTime);
+		}
+		FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
+		UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
+	}
+
+}
+
+void ARoach::TraverseCorner(float DeltaTime)
+{
+	FRotator DR = FRotator(-150 * DeltaTime, 0, 0);
+	FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
+
+	UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
+
+	/* Draw forward and up vectors for debugging.	///////////////////////////////////////////
+	//SetActorRotation(FMath::Lerp(AR, NR, DT));
+	FVector UV = GetActorUpVector();
+	UE_LOG(LogTemp, Warning, TEXT("%f %f %f"), UV.X, UV.Y, UV.Z);
+	FVector AL = GetActorLocation();
+	FVector AFV = GetActorForwardVector();
+	DrawDebugLine(GetWorld(), AL, AL + GetActorUpVector() * 16, FColor::Green, false, DT * 2);
+	DrawDebugLine(GetWorld(), AL, AL + AFV * 16, FColor::Magenta, false, DT * 2);
+	//////////////////////////////////////////////////////////////////////////////////////////
+	*/
+	
 }
 
 bool ARoach::CheckFront()
@@ -65,35 +120,8 @@ bool ARoach::CheckFront()
 	FVector AL = GetActorLocation();
 	FVector AFV = GetActorForwardVector();
 	bool Trace = GetWorld()->LineTraceSingleByChannel(
-		HitResult, AL + AFV * 5, AL + AFV * 13, ECollisionChannel::ECC_WorldStatic, ColQueryParams);
+		HitResult, AL + AFV * 5, AL + AFV * 13, ECollisionChannel::ECC_WorldStatic, RoachParams);
 
-	return true;
+	return Trace;
 
-}
-
-void ARoach::LilTurn()
-{
-	float DT = GetWorld()->DeltaTimeSeconds;
-	FRotator AR = GetActorRotation();
-	FRotator NR = AR;
-	NR.Pitch += 4 * DT;
-
-	FRotator DR = FRotator(16 * DT, 0, 0);
-	FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
-
-	UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
-	
-
-	//SetActorRotation(FMath::Lerp(AR, NR, DT));
-	FVector UV = GetActorUpVector();
-
-	UE_LOG(LogTemp, Warning, TEXT("%f %f %f"), UV.X, UV.Y, UV.Z);
-	
-	// Draw forward and up vectors for debugging.	///////////////////////////////////////////
-	FVector AL = GetActorLocation();
-	FVector AFV = GetActorForwardVector();
-	DrawDebugLine(GetWorld(), AL, AL + GetActorUpVector() * 16, FColor::Green, false, DT * 2);
-	DrawDebugLine(GetWorld(), AL, AL + AFV * 16, FColor::Magenta, false, DT * 2);
-	//////////////////////////////////////////////////////////////////////////////////////////
-	
 }
