@@ -36,13 +36,22 @@ public:
 	void ZeroRoll(float DeltaTime);
 
 	bool CheckFront();
-	void TraverseCorner(float DeltaTime);
+	bool CheckDown();
+
+	void TraverseCorner(float DeltaTime, bool Down);
+	
+	void Swerve(float DeltaTime);
 
 private:
 
 	float RoachLength = 13.f;
 	float RoachWidth = 8.f;
-	float Speed = 50.f;
+	float Speed = 200.f;
+
+	int t = 0;
+
+	bool TraversingUpCorner;
+	bool TraversingDownCorner;
 	
 	FVector TurnPoint = FVector::ZeroVector;
 

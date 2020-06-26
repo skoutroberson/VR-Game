@@ -36,17 +36,28 @@ void ARoach::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	if (CheckFront())
+	if (t > 4000)
 	{
-		TraverseCorner(DeltaTime);
-		UE_LOG(LogTemp, Warning, TEXT("Traversing Corner"));
-	}
-	else
-	{
+		if (CheckFront())
+		{
+			TraverseCorner(DeltaTime, false);
+			TraversingUpCorner = true;
+			UE_LOG(LogTemp, Warning, TEXT("Traversing corner up"));
+		}
+		else if (!CheckDown() && !TraversingUpCorner)
+		{
+			TraverseCorner(DeltaTime, true);
+			UE_LOG(LogTemp, Warning, TEXT("Traversing corner down"));
+		}
+		else
+		{
+			Swerve(DeltaTime);
+			Move(DeltaTime);
+			UE_LOG(LogTemp, Warning, TEXT("Moving"));
+		}
 		ZeroRoll(DeltaTime);
-		Move(DeltaTime);
-		UE_LOG(LogTemp, Warning, TEXT("Moving"));
 	}
+	t++;
 
 }
 
@@ -59,6 +70,21 @@ void ARoach::Move(float DeltaTime)
 		Speed
 	));
 
+	TraversingUpCorner = false;
+	TraversingDownCorner = false;
+
+}
+
+//	Create random swerves
+void ARoach::Swerve(float DeltaTime)
+{
+	int RY = rand() % 300;
+
+	int i = (RY % 2 == 0) ? 1 : -1;
+	
+	FRotator DR = FRotator(0, RY * i * DeltaTime, 0);
+	FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
+	UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
 }
 
 //	Keeps the roach flat against the surface it is on
@@ -81,12 +107,12 @@ void ARoach::ZeroRoll(float DeltaTime)
 		if (LTrace)
 		{
 			// rotate roll right
-			DR = FRotator(0, 0, -150 * DeltaTime);
+			DR = FRotator(0, 0, -200 * DeltaTime);
 		}
 		else if (RTrace)
 		{
 			//rotate roll left
-			DR = FRotator(0, 0, 150 * DeltaTime);
+			DR = FRotator(0, 0, 200 * DeltaTime);
 		}
 		FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
 		UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
@@ -94,9 +120,18 @@ void ARoach::ZeroRoll(float DeltaTime)
 
 }
 
-void ARoach::TraverseCorner(float DeltaTime)
+void ARoach::TraverseCorner(float DeltaTime, bool Down)
 {
-	FRotator DR = FRotator(-150 * DeltaTime, 0, 0);
+	int i = -1;
+	float RSpeed = 200.f;
+
+	if (Down)
+	{
+		i = 1;
+		RSpeed = Speed;
+	}
+
+	FRotator DR = FRotator(RSpeed * i * DeltaTime, 0, 0);
 	FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
 
 	UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
@@ -112,6 +147,19 @@ void ARoach::TraverseCorner(float DeltaTime)
 	//////////////////////////////////////////////////////////////////////////////////////////
 	*/
 	
+}
+
+bool ARoach::CheckDown()
+{
+	FVector AL = GetActorLocation();
+	FVector DV = -GetActorUpVector();
+
+	DrawDebugLine(GetWorld(), AL, AL + DV * 2, FColor::Magenta, false, 2 * GetWorld()->DeltaTimeSeconds);
+
+	bool Trace = GetWorld()->LineTraceSingleByChannel(
+		HitResult, AL + -DV * 2, AL + DV * 4, ECollisionChannel::ECC_WorldStatic, RoachParams);
+
+	return Trace;
 }
 
 bool ARoach::CheckFront()
