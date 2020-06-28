@@ -109,7 +109,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
-	UpdateCapsuleHeight();
+	//UpdateCapsuleHeight();
 
 	FVector NewCameraOffset = Camera->GetComponentLocation() - GetActorLocation();
 	NewCameraOffset.Z = 0;
