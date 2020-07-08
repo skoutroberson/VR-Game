@@ -28,6 +28,7 @@ public:
 	class USceneComponent* RoachRoot;
 
 	void Move(float DeltaTime);
+	void Move(float DeltaTime, float OSpeed);
 
 	// For making the roach parallel to the plane it is walking on
 	void ZeroRoll(float DeltaTime);
@@ -35,12 +36,19 @@ public:
 	bool CheckFront();
 	bool CheckDown();
 
+	void RotateToNormal(FVector_NetQuantizeNormal NormalVector);
+	float CurrentTraceLength = 0;
+
 	void TraverseCorner(float DeltaTime, bool Down);
 	
 	void Swerve(float DeltaTime);
 	void NewDeltaYaw();
 	void NewSpeed();
 	bool ShouldWait();
+
+	void Fall(float DeltaTime);
+	float FallTime = 0;
+	bool IsFalling = false;
 
 	UFUNCTION()
 	void StopWait();
