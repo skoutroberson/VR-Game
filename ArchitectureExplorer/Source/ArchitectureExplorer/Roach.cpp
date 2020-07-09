@@ -47,7 +47,11 @@ void ARoach::Tick(float DeltaTime)
 	
 	//	If front/down traces detect a corner, don't move, flee, or swerve, just traverse the corner
 	
-	if (IsFalling)
+	if (MoveToGoal || RotateToGoal)
+	{
+		MoveAndRotateToGoal(DeltaTime);
+	}
+	else if (IsFalling)
 	{
 		Fall(DeltaTime);
 		//UE_LOG(LogTemp, Warning, TEXT("FALLING!!!"));
@@ -73,14 +77,48 @@ void ARoach::Tick(float DeltaTime)
 		}
 		//ZeroRoll(DeltaTime);
 	}
-	
 
 }
 
+void ARoach::MoveAndRotateToGoal(float DeltaTime)
+{
+	FVector CurrentLocation = GetActorLocation();
+	FQuat CurrentRotation = GetActorQuat();
+
+	if (CurrentLocation.Equals(GoalLocation, 0.001f))
+	{
+		MoveToGoal = false;
+	}
+	else
+	{
+		// Interp to goal
+		SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(CurrentLocation, GoalLocation, DeltaTime, 54.f));
+	}
+
+	if (CurrentRotation.Equals(GoalRotation, 0.001f))
+	{
+		RotateToGoal = false;
+	}
+	else
+	{
+		// Lerp to goal
+		SetActorRotation(FMath::Lerp(CurrentRotation, GoalRotation, 26.f * DeltaTime));
+	}
+
+	if (!MoveToGoal && !RotateToGoal)
+	{
+		GetWorldTimerManager().UnPauseTimer(GoalTimerHandle);
+		GetWorldTimerManager().UnPauseTimer(WaitTimerHandle);
+	}
+
+}
+
+//	Make the roach fall until the fall trace hits a static object
 void ARoach::Fall(float DeltaTime)
 {
 	FallTime += DeltaTime;
 	FVector RoachLocation = GetActorLocation();
+	// Up Down Vector
 	FVector UDVector = FVector(0, 0, FallTime * -15.f);
 
 	bool FallTrace = GetWorld()->LineTraceSingleByChannel(HitResult, RoachLocation,
@@ -98,7 +136,6 @@ void ARoach::Fall(float DeltaTime)
 	else
 	{
 
-		FVector RoachLocation = GetActorLocation();
 		float NewZ = RoachLocation.Z + FallTime * -7.8f;
 		RoachLocation.Z = NewZ;
 
@@ -175,7 +212,7 @@ void ARoach::NewDeltaYaw()
 
 void ARoach::NewSpeed()
 {
-	Speed = FMath::FRandRange(20.f, 100.f);
+	Speed = FMath::FRandRange(30.f, 100.f);
 	//Speed = 100.f;
 }
 
@@ -184,7 +221,7 @@ void ARoach::ComputeLaziness()
 {
 	int i = FMath::RandRange(0, 1);
 	int j = FMath::RandRange(0, 1);
-	Laziness = i + j + 6;
+	Laziness = i + j + 1;
 }
 
 bool ARoach::ShouldWait()
@@ -310,7 +347,7 @@ bool ARoach::CheckDown()
 	//DrawDebugLine(GetWorld(), AL + -DV, AL + DV, FColor::Magenta, false, 2 * GetWorld()->DeltaTimeSeconds);
 
 	bool Trace = GetWorld()->LineTraceSingleByChannel(
-		HitResult, AL + -DV, AL + DV, ECollisionChannel::ECC_WorldStatic, RoachParams);
+		HitResult, AL + -DV, AL + DV * 1.4f, ECollisionChannel::ECC_WorldStatic, RoachParams);
 	
 	if (Trace)
 	{
@@ -319,11 +356,8 @@ bool ARoach::CheckDown()
 		float TraceLength = DeltaVector.Size();
 		//	Only rotate roach with normal and move to impact point when the surface plane changes
 
-		if (TraceLength < CurrentTraceLength - 0.01f || TraceLength > CurrentTraceLength + 0.01f)
+		if (TraceLength < CurrentTraceLength - 0.001f || TraceLength > CurrentTraceLength + 0.001f)
 		{
-			//UE_LOG(LogTemp, Warning, TEXT("Plane Change!-------------------------------"));
-			FVector SN = HitResult.ImpactPoint;
-			//DrawDebugLine(GetWorld(), SN, SN + HitResult.ImpactNormal * 100, FColor::Magenta, false, 2 * GetWorld()->DeltaTimeSeconds);
 			SetActorLocation(HitResult.ImpactPoint);
 			RotateToNormal(HitResult.ImpactNormal);
 
@@ -333,20 +367,15 @@ bool ARoach::CheckDown()
 	else
 	{
 		// Traverse down corner
-		// In order to find the surface for the wall on the other side of the corner, we need to
-		// do 4 traces back to back until on of them hits, if we don't do this, then when the roach
-		// needs to traverse down a corner when their forward vector is almost parralel to the wall
-		// plane, it will get stuck.
+
 		FHitResult DownHitResult;
-		bool DownTrace = false;
 		FVector DownTraceDirection = -GetActorForwardVector() * 2;
 		FVector RotateAxis = GetActorUpVector();
-		int i = 0;
 		
 		// I feel like this trace should fail sometimes but it doesn't on my testing wall so we shall see...
 		// I would think I'd have to do 4 traces like my comment above states.
 
-		DownTrace = GetWorld()->LineTraceSingleByChannel(
+		bool DownTrace = GetWorld()->LineTraceSingleByChannel(
 			DownHitResult, AL + DV, AL + DV + DownTraceDirection, ECollisionChannel::ECC_WorldStatic, RoachParams);
 		
 		
@@ -363,8 +392,13 @@ bool ARoach::CheckDown()
 
 		if (DownTrace)
 		{
-			RotateToNormal(DownHitResult.ImpactNormal);
-			SetActorLocation(DownHitResult.ImpactPoint);
+			SetGoalLocation(DownHitResult.ImpactPoint);
+			SetGoalRotation(DownHitResult.ImpactNormal);
+			GetWorldTimerManager().PauseTimer(WaitTimerHandle);
+			GetWorldTimerManager().PauseTimer(GoalTimerHandle);
+
+			//RotateToNormal(DownHitResult.ImpactNormal);
+			//SetActorLocation(DownHitResult.ImpactPoint);
 		}
 		else
 		{
@@ -379,9 +413,29 @@ bool ARoach::CheckDown()
 	return Trace;
 }
 
+void ARoach::SetGoalLocation(FVector Location)
+{
+	GoalLocation = Location;
+	MoveToGoal = true;
+}
+
+void ARoach::SetGoalRotation(FVector_NetQuantizeNormal NormalVector)
+{
+	FVector UpVector = GetActorUpVector();
+	FVector RotationAxis = FVector::CrossProduct(UpVector, NormalVector);
+	RotationAxis.Normalize();
+	float DotProduct = FVector::DotProduct(UpVector, NormalVector);
+	float RotationAngle = acosf(DotProduct);
+	FQuat RotQuat = FQuat(RotationAxis, RotationAngle);
+	FQuat MyQuat = GetActorQuat();
+	FQuat NewQuat = RotQuat * MyQuat;
+
+	GoalRotation = NewQuat;
+	RotateToGoal = true;
+}
+
 bool ARoach::CheckFront()
 {
-
 	FVector AL = GetActorLocation();
 	FVector AFV = GetActorForwardVector();
 	FVector UV = GetActorUpVector();
@@ -391,8 +445,32 @@ bool ARoach::CheckFront()
 
 	if (Trace)
 	{
-		RotateToNormal(HitResult.ImpactNormal);
-		SetActorLocation(HitResult.Location);
+		FHitResult HitResult2;
+		float Dot = FVector::DotProduct(HitResult.ImpactNormal, AFV);
+		Dot *= -1.f;
+
+		FVector Loc = HitResult.ImpactPoint + UV * 6 * Dot;
+
+		bool Trace2 = GetWorld()->LineTraceSingleByChannel(
+			HitResult2, AL + UV, Loc, ECollisionChannel::ECC_WorldStatic, RoachParams);
+
+		if (Trace2)
+		{
+			SetGoalLocation(Loc);
+			SetGoalRotation(HitResult.ImpactNormal);
+		}
+		else
+		{
+			//FVector Loc2 = HitResult.ImpactPoint + UV * 2 * Dot;
+			SetGoalLocation(HitResult.ImpactPoint);
+			SetGoalRotation(HitResult.ImpactNormal);
+		}
+
+		GetWorldTimerManager().PauseTimer(WaitTimerHandle);
+		GetWorldTimerManager().PauseTimer(GoalTimerHandle);
+
+		//RotateToNormal(HitResult.ImpactNormal);
+		//SetActorLocation(HitResult.Location);
 	}
 
 	return Trace;
@@ -402,16 +480,12 @@ bool ARoach::CheckFront()
 void ARoach::RotateToNormal(FVector_NetQuantizeNormal NormalVector)
 {
 	FVector UpVector = GetActorUpVector();
-	
 	FVector RotationAxis = FVector::CrossProduct(UpVector, NormalVector);
 	RotationAxis.Normalize();
-
 	float DotProduct = FVector::DotProduct(UpVector, NormalVector);
 	float RotationAngle = acosf(DotProduct);
-
 	FQuat RotQuat = FQuat(RotationAxis, RotationAngle);
 	FQuat MyQuat = GetActorQuat();
-
 	FQuat NewQuat = RotQuat * MyQuat;
 
 	SetActorRotation(NewQuat);

@@ -27,6 +27,24 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* RoachRoot;
 
+public:
+	//	Corner traversal movement and rotation stuff
+	void SetGoalLocation(FVector Location);
+	void SetGoalRotation(FVector_NetQuantizeNormal NormalVector);
+
+private:
+
+	bool MoveToGoal = false;
+	bool RotateToGoal = false;
+
+	FVector GoalLocation = FVector::ZeroVector;
+	FQuat GoalRotation;
+
+	void MoveAndRotateToGoal(float DeltaTime);
+
+public:
+
+	//	Move forward
 	void Move(float DeltaTime);
 	void Move(float DeltaTime, float OSpeed);
 
@@ -71,7 +89,6 @@ private:
 	int Laziness;
 
 	float DeltaYaw = 0.f;
-
 
 	bool TraversingUpCorner;
 	bool TraversingDownCorner;
