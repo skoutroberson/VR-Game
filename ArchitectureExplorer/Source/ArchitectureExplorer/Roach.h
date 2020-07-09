@@ -37,6 +37,11 @@ private:
 	bool MoveToGoal = false;
 	bool RotateToGoal = false;
 
+	bool DontMove = false;
+
+	bool Stuck = false;
+	void UnStick(float DeltaTime);
+
 	FVector GoalLocation = FVector::ZeroVector;
 	FQuat GoalRotation;
 
@@ -97,6 +102,7 @@ private:
 
 
 	FHitResult HitResult;
+	FHitResult FrontHit;
 	//	I think for all of the classes I am doing line traces in, I want to check if I am querying too many things
 	FCollisionQueryParams RoachParams;
 
