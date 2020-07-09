@@ -22,6 +22,9 @@ ARoach::ARoach()
 	SetRootComponent(RoachRoot);
 
 	RoachParams.AddIgnoredActor(this);
+	TArray<AActor*> FoundRoaches;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ARoach::StaticClass(), FoundRoaches);
+	RoachParams.AddIgnoredActors(FoundRoaches);
 	ComputeLaziness();
 	NewSpeed();
 	
@@ -50,34 +53,56 @@ void ARoach::Tick(float DeltaTime)
 	if (MoveToGoal || RotateToGoal)
 	{
 		MoveAndRotateToGoal(DeltaTime);
+		UE_LOG(LogTemp, Warning, TEXT("Moving to Goal!!!"));
 	}
 	else if (IsFalling)
 	{
 		Fall(DeltaTime);
-		//UE_LOG(LogTemp, Warning, TEXT("FALLING!!!"));
+		UE_LOG(LogTemp, Warning, TEXT("FALLING!!!"));
 	}
 	else
 	{
 		if (!TraversingDownCorner && CheckFront())
 		{
 			TraversingUpCorner = true;
-			//UE_LOG(LogTemp, Warning, TEXT("UP UP UP UP UP"));
+			UE_LOG(LogTemp, Warning, TEXT("UP UP UP UP UP"));
 		}
 		else if (!TraversingUpCorner && !CheckDown())
 		{
 			TraversingDownCorner = true;
-			//UE_LOG(LogTemp, Warning, TEXT("DOWN DOWN DOWN DOWN DOWN"));
+			UE_LOG(LogTemp, Warning, TEXT("DOWN DOWN DOWN DOWN DOWN"));
 		}
 		else
 		{
-			Swerve(DeltaTime);
-			Move(DeltaTime);
-			FleePlayer(DeltaTime);
+			if (!Stuck)
+			{
+				Swerve(DeltaTime);
+				FleePlayer(DeltaTime);
+				Move(DeltaTime);
+			}
+			else
+			{
+				UnStick(DeltaTime);
+				Stuck = false;
+			}
+			
 			//UE_LOG(LogTemp, Warning, TEXT("Moving"));
 		}
 		//ZeroRoll(DeltaTime);
 	}
+}
 
+void ARoach::UnStick(float DeltaTime)
+{
+	//FVector AL = GetActorLocation();
+	//FVector UN = FrontHit.ImpactNormal.RotateAngleAxis(90.f, FVector(0, 0, 1));
+	//float Dot = FVector::DotProduct(AL, UN);
+	//UE_LOG(LogTemp, Warning, TEXT("%f"), FVector::DotProduct(AL, UN));
+	//int i = (Dot > 0) ? 1 : -1;
+
+	FRotator DR = FRotator(0, 100 * DeltaTime, 0);
+	FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
+	UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
 }
 
 void ARoach::MoveAndRotateToGoal(float DeltaTime)
@@ -85,30 +110,30 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 	FVector CurrentLocation = GetActorLocation();
 	FQuat CurrentRotation = GetActorQuat();
 
-	if (CurrentLocation.Equals(GoalLocation, 0.001f))
+	if (CurrentLocation.Equals(GoalLocation, 0.01f))
 	{
 		MoveToGoal = false;
 	}
 	else
 	{
 		// Interp to goal
-		SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(CurrentLocation, GoalLocation, DeltaTime, 54.f));
+		SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(CurrentLocation, GoalLocation, DeltaTime, 60.f), true);
 	}
 
-	if (CurrentRotation.Equals(GoalRotation, 0.001f))
+	if (CurrentRotation.Equals(GoalRotation, 0.01f))
 	{
 		RotateToGoal = false;
 	}
 	else
 	{
 		// Lerp to goal
-		SetActorRotation(FMath::Lerp(CurrentRotation, GoalRotation, 26.f * DeltaTime));
+		SetActorRotation(FMath::Lerp(CurrentRotation, GoalRotation, 16.f * DeltaTime));
 	}
 
 	if (!MoveToGoal && !RotateToGoal)
 	{
-		GetWorldTimerManager().UnPauseTimer(GoalTimerHandle);
-		GetWorldTimerManager().UnPauseTimer(WaitTimerHandle);
+		//GetWorldTimerManager().UnPauseTimer(GoalTimerHandle);
+		//GetWorldTimerManager().UnPauseTimer(WaitTimerHandle);
 	}
 
 }
@@ -119,9 +144,9 @@ void ARoach::Fall(float DeltaTime)
 	FallTime += DeltaTime;
 	FVector RoachLocation = GetActorLocation();
 	// Up Down Vector
-	FVector UDVector = FVector(0, 0, FallTime * -15.f);
+	FVector UDVector = FVector(0, 0, FallTime * -30.f);
 
-	bool FallTrace = GetWorld()->LineTraceSingleByChannel(HitResult, RoachLocation,
+	bool FallTrace = GetWorld()->LineTraceSingleByChannel(HitResult, RoachLocation - UDVector,
 		RoachLocation + UDVector, ECollisionChannel::ECC_WorldStatic, RoachParams);
 
 	if (FallTrace)
@@ -151,11 +176,10 @@ void ARoach::Move(float DeltaTime)
 		GetActorLocation() + GetActorForwardVector() * 10,
 		DeltaTime,
 		Speed
-	));
+	), true);
 
 	TraversingUpCorner = false;
 	TraversingDownCorner = false;
-
 }
 
 void ARoach::Move(float DeltaTime, float OSpeed)
@@ -212,7 +236,7 @@ void ARoach::NewDeltaYaw()
 
 void ARoach::NewSpeed()
 {
-	Speed = FMath::FRandRange(30.f, 100.f);
+	Speed = FMath::FRandRange(60.f, 100.f);
 	//Speed = 100.f;
 }
 
@@ -221,7 +245,7 @@ void ARoach::ComputeLaziness()
 {
 	int i = FMath::RandRange(0, 1);
 	int j = FMath::RandRange(0, 1);
-	Laziness = i + j + 1;
+	Laziness = i + j + 6;
 }
 
 bool ARoach::ShouldWait()
@@ -232,8 +256,8 @@ bool ARoach::ShouldWait()
 
 void ARoach::SetGoalTimerRate()
 {
-	GoalTimerRate = fabs(3.f / DeltaYaw);
-	GoalTimerRate = (GoalTimerRate > 3.f) ? 3.f : GoalTimerRate;
+	GoalTimerRate = fabs(2.f / DeltaYaw);
+	GoalTimerRate = (GoalTimerRate > 2.f) ? 2.f : GoalTimerRate;
 }
 
 void ARoach::ReachedGoal()
@@ -342,12 +366,12 @@ void ARoach::MoveDown(float DeltaTime)
 bool ARoach::CheckDown()
 {
 	FVector AL = GetActorLocation();
-	FVector DV = -GetActorUpVector() * 2.f;
+	FVector DV = -GetActorUpVector();
 
 	//DrawDebugLine(GetWorld(), AL + -DV, AL + DV, FColor::Magenta, false, 2 * GetWorld()->DeltaTimeSeconds);
 
 	bool Trace = GetWorld()->LineTraceSingleByChannel(
-		HitResult, AL + -DV, AL + DV * 1.4f, ECollisionChannel::ECC_WorldStatic, RoachParams);
+		HitResult, AL - DV * 0.4f, AL + DV * 3.f, ECollisionChannel::ECC_WorldStatic, RoachParams);
 	
 	if (Trace)
 	{
@@ -358,8 +382,11 @@ bool ARoach::CheckDown()
 
 		if (TraceLength < CurrentTraceLength - 0.001f || TraceLength > CurrentTraceLength + 0.001f)
 		{
-			SetActorLocation(HitResult.ImpactPoint);
+			SetActorLocation(HitResult.ImpactPoint, true);
 			RotateToNormal(HitResult.ImpactNormal);
+
+			//SetGoalLocation(HitResult.ImpactPoint);
+			//SetGoalRotation(HitResult.ImpactNormal);
 
 			CurrentTraceLength = TraceLength;
 		}
@@ -394,8 +421,8 @@ bool ARoach::CheckDown()
 		{
 			SetGoalLocation(DownHitResult.ImpactPoint);
 			SetGoalRotation(DownHitResult.ImpactNormal);
-			GetWorldTimerManager().PauseTimer(WaitTimerHandle);
-			GetWorldTimerManager().PauseTimer(GoalTimerHandle);
+			//GetWorldTimerManager().PauseTimer(WaitTimerHandle);
+			//GetWorldTimerManager().PauseTimer(GoalTimerHandle);
 
 			//RotateToNormal(DownHitResult.ImpactNormal);
 			//SetActorLocation(DownHitResult.ImpactPoint);
@@ -440,34 +467,59 @@ bool ARoach::CheckFront()
 	FVector AFV = GetActorForwardVector();
 	FVector UV = GetActorUpVector();
 	bool Trace = GetWorld()->LineTraceSingleByChannel(
-		HitResult, AL + UV, AL + UV + AFV * 6.f, ECollisionChannel::ECC_WorldStatic, RoachParams);
+		FrontHit, AL + UV - AFV, AL + UV + AFV * 6.f, ECollisionChannel::ECC_WorldStatic, RoachParams);
 	//DrawDebugLine(GetWorld(), AL + UV, AL + UV + AFV * 6.f, FColor::Magenta, false, GetWorld()->DeltaTimeSeconds * 2);
 
 	if (Trace)
 	{
 		FHitResult HitResult2;
-		float Dot = FVector::DotProduct(HitResult.ImpactNormal, AFV);
+		float Dot = FVector::DotProduct(FrontHit.ImpactNormal, AFV);
 		Dot *= -1.f;
 
-		FVector Loc = HitResult.ImpactPoint + UV * 6 * Dot;
+		FVector Loc = FrontHit.ImpactPoint + UV * 6 * Dot;
 
 		bool Trace2 = GetWorld()->LineTraceSingleByChannel(
-			HitResult2, AL + UV, Loc, ECollisionChannel::ECC_WorldStatic, RoachParams);
+			HitResult2, FrontHit.ImpactPoint - AFV * 0.2f, Loc - AFV * 0.2f, ECollisionChannel::ECC_WorldStatic, RoachParams);
 
-		if (Trace2)
+		//DrawDebugLine(GetWorld(), HitResult.ImpactPoint - AFV, Loc - AFV, FColor::Red, true);
+		//DrawDebugPoint(GetWorld(), HitResult.ImpactPoint, 6.f, FColor::Blue, true);
+
+		//UE_LOG(LogTemp, Warning, TEXT("%d"), Trace2);
+
+		if (!Trace2)
 		{
-			SetGoalLocation(Loc);
-			SetGoalRotation(HitResult.ImpactNormal);
+			bool Trace3 = GetWorld()->LineTraceSingleByChannel(
+				HitResult2, Loc, Loc + AFV * 0.2f, ECollisionChannel::ECC_WorldStatic, RoachParams);
+
+			if (Trace3)
+			{
+				SetGoalLocation(Loc);
+				SetGoalRotation(FrontHit.ImpactNormal);
+			}
+			else
+			{
+				Stuck = true;
+				return false;
+			}
+			
 		}
 		else
 		{
-			//FVector Loc2 = HitResult.ImpactPoint + UV * 2 * Dot;
-			SetGoalLocation(HitResult.ImpactPoint);
-			SetGoalRotation(HitResult.ImpactNormal);
+			// Set Goal Rotation to be sideways if side trace hits, if not, then fall
+
+			Stuck = true;
+			return false;
+
+			//SetGoalLocation(HitResult.ImpactPoint);
+			//SetGoalRotation(HitResult.ImpactNormal);
+
+			//IsFalling = true;
+			//GetWorldTimerManager().PauseTimer(WaitTimerHandle);
+			//GetWorldTimerManager().PauseTimer(GoalTimerHandle);
 		}
 
-		GetWorldTimerManager().PauseTimer(WaitTimerHandle);
-		GetWorldTimerManager().PauseTimer(GoalTimerHandle);
+		//GetWorldTimerManager().PauseTimer(WaitTimerHandle);
+		//GetWorldTimerManager().PauseTimer(GoalTimerHandle);
 
 		//RotateToNormal(HitResult.ImpactNormal);
 		//SetActorLocation(HitResult.Location);
