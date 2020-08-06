@@ -32,7 +32,31 @@ public:
 	void SetGoalLocation(FVector Location);
 	void SetGoalRotation(FVector_NetQuantizeNormal NormalVector);
 
+public:
+	//	New Code
+
+	FHitResult LeftHitResult;
+	FHitResult RightHitResult;
+
+	FVector MovementDirection = FVector::ZeroVector;
+
+	bool CheckSideCollision();
+	void CalcGoalQuat(FVector GoalVec);
+	void RotateToGoalRot(float DeltaTime);
+	void MoveToGoalLoc(float DeltaTime);
+
+	FQuat GoalQuat;
+	FVector GoalVec;
+
+	int PosNegYaw = 0;
+	void Turn(float DeltaTime, bool Right);
+	
+
+	void Move(FVector Direction, float DeltaTime);
+
 private:
+
+	float AngleBetweenVectors(FVector A, FVector B);
 
 	bool MoveToGoal = false;
 	bool RotateToGoal = false;
@@ -48,6 +72,8 @@ private:
 	void MoveAndRotateToGoal(float DeltaTime);
 
 public:
+
+	int WaitrCount = 0;
 
 	//	Move forward
 	void Move(float DeltaTime);
@@ -89,9 +115,10 @@ private:
 	float RoachLength = 13.f;
 	float RoachWidth = 4.f;
 	float Speed = 100.f;
+	float RotSpeed = 20.f;
 
 	//	A smaller laziness value makes the roach more lazy! DONT MAKE THIS ZERO!
-	int Laziness;
+	int Laziness = 1;
 
 	float DeltaYaw = 0.f;
 

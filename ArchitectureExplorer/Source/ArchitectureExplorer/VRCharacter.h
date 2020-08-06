@@ -8,6 +8,7 @@
 #include "MotionControllerComponent.h"
 #include "UObject/ObjectMacros.h"
 #include "cPlayerHandAnimBP.h"
+#include "Components/SphereComponent.h"
 #include "VRCharacter.generated.h"
 
 UCLASS()
@@ -53,6 +54,9 @@ private:
 	void UpdateCapsuleHeight();
 	FHitResult CamHeightHit;
 	FCollisionQueryParams CamHeightParams;
+	FVector WorldDownVector = -FVector(0,0,1);
+
+	USphereComponent* HeadCollisionSphere;
 
 private:
 

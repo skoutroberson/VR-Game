@@ -68,15 +68,13 @@ void APortalRoom::ActorBeginOverlap(AActor * OverlappedActor, AActor * OtherActo
 			FVector TeleportLocation = TargetLocation + NewDeltaPosition;
 			float TeleportYaw = PlayerRotation.Yaw + DeltaRotation;
 			FRotator TeleportRotation = FRotator(PlayerRotation.Pitch, TeleportYaw, PlayerRotation.Roll);
-
 			FVector NewVelocity = SavedVelocity.RotateAngleAxis(DeltaRotation, FVector(0, 0, 1));
 			
 			OverlappingActor->SetActorLocation(TeleportLocation);
 			PlayerController->SetControlRotation(TeleportRotation);
-
 			VRChar->GetCharacterMovement()->Velocity.Set(NewVelocity.X, NewVelocity.Y, NewVelocity.Z);
 			
-			// So this isn't called multiple times per frame on player...
+			// Break so this isn't called multiple times per frame on player...
 			break;
 		}
 	}

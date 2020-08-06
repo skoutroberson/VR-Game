@@ -24,6 +24,7 @@
 #include "Animation/AnimBlueprintGeneratedClass.h"
 #include "HandController.h"
 #include "Errol.h"
+#include "Components/SphereComponent.h"
 
 
 // Sets default values
@@ -51,6 +52,8 @@ AVRCharacter::AVRCharacter()
 	DestinationMarker->SetupAttachment(GetRootComponent());
 
 	CamHeightParams.AddIgnoredActor(this);
+
+	//HeadCollisionSphere = Cast<USphereComponent*>(Camera->GetChildComponent(0));
 
 }
 
@@ -80,14 +83,27 @@ void AVRCharacter::BeginPlay()
 
 void AVRCharacter::UpdateCapsuleHeight()
 {
+
 	GetWorld()->LineTraceSingleByChannel(CamHeightHit, Camera->GetComponentLocation(),
-		(Camera->GetUpVector() * -300) + Camera->GetComponentLocation(),
+		Camera->GetComponentLocation() + WorldDownVector * 500,
 		ECollisionChannel::ECC_WorldDynamic, CamHeightParams);
 
-	float NewCapsuleHeight = Camera->GetComponentLocation().Z - CamHeightHit.Location.Z;
+	//float NewCapsuleHeight = Camera->GetComponentLocation().Z - CamHeightHit.Location.Z;
 	
-	//UE_LOG(LogTemp, Warning, TEXT("New Capsule Height: %f"), NewCapsuleHeight);
+	//UE_LOG(LogTemp, Warning, TEXT("Capsule Height: %f"), GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight() * 2.f);
+	//UE_LOG(LogTemp, Warning, TEXT("Cam Distance: %f"), CamHeightHit.Distance);
+	//UE_LOG(LogTemp, Warning, TEXT("Root: %f"), VRRoot->GetComponentLocation().Z);
+	//UE_LOG(LogTemp, Warning, TEXT("Came: %f"), Camera->GetComponentLocation().Z);
 
+	FVector RootVector = VRRoot->GetComponentLocation();
+	RootVector.Z = CamHeightHit.ImpactPoint.Z;
+	GetCapsuleComponent()->SetCapsuleHalfHeight(CamHeightHit.Distance / 2.f);
+	VRRoot->SetWorldLocation(RootVector);
+	
+
+	
+
+	/*
 	if (NewCapsuleHeight < 10.f)
 	{
 		GetCapsuleComponent()->SetCapsuleHalfHeight(5.f);
@@ -100,7 +116,7 @@ void AVRCharacter::UpdateCapsuleHeight()
 	{
 		GetCapsuleComponent()->SetCapsuleHalfHeight(NewCapsuleHeight / 2.f);
 	}
-
+	*/
 }
 
 // Called every frame
@@ -109,14 +125,13 @@ void AVRCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
-	//UpdateCapsuleHeight();
 
 	FVector NewCameraOffset = Camera->GetComponentLocation() - GetActorLocation();
 	NewCameraOffset.Z = 0;
-	
 	AddActorWorldOffset(NewCameraOffset);
 	VRRoot->AddWorldOffset(-NewCameraOffset);
 
+	UpdateCapsuleHeight();
 	
 
 	if (bTeleportEnabled)
@@ -344,7 +359,7 @@ void AVRCharacter::TurnRight(float throttle)
 
 void AVRCharacter::LookUp(float throttle)
 {
-	AddControllerPitchInput(-throttle);
+	//AddControllerPitchInput(-throttle);
 
 }
 

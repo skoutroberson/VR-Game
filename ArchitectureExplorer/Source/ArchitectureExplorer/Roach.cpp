@@ -11,6 +11,7 @@
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
 #include "VRCharacter.h"
+#include "Components/CapsuleComponent.h"
 
 // Sets default values
 ARoach::ARoach()
@@ -41,7 +42,9 @@ void ARoach::BeginPlay()
 	GetWorld()->GetTimerManager().SetTimer(GoalTimerHandle, this, &ARoach::ReachedGoal, GoalTimerRate);
 
 	Player = UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass());
+
 }
+
 
 // Called every frame
 void ARoach::Tick(float DeltaTime)
@@ -49,48 +52,220 @@ void ARoach::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	
 	//	If front/down traces detect a corner, don't move, flee, or swerve, just traverse the corner
-	
-	if (MoveToGoal || RotateToGoal)
-	{
-		MoveAndRotateToGoal(DeltaTime);
-		UE_LOG(LogTemp, Warning, TEXT("Moving to Goal!!!"));
-	}
-	else if (IsFalling)
-	{
-		Fall(DeltaTime);
-		UE_LOG(LogTemp, Warning, TEXT("FALLING!!!"));
-	}
-	else
-	{
-		if (!TraversingDownCorner && CheckFront())
+		if (MoveToGoal || RotateToGoal)
 		{
-			TraversingUpCorner = true;
-			UE_LOG(LogTemp, Warning, TEXT("UP UP UP UP UP"));
+			MoveAndRotateToGoal(DeltaTime);
 		}
-		else if (!TraversingUpCorner && !CheckDown())
+		else if (IsFalling)
 		{
-			TraversingDownCorner = true;
-			UE_LOG(LogTemp, Warning, TEXT("DOWN DOWN DOWN DOWN DOWN"));
+			Fall(DeltaTime);
+			UE_LOG(LogTemp, Warning, TEXT("FALLING!!!"));
 		}
 		else
 		{
-			if (!Stuck)
+			if (!TraversingDownCorner && CheckFront())
 			{
-				Swerve(DeltaTime);
-				FleePlayer(DeltaTime);
-				Move(DeltaTime);
+				TraversingUpCorner = true;
+				UE_LOG(LogTemp, Warning, TEXT("UP UP UP UP UP"));
+			}
+			else if (!TraversingUpCorner && !CheckDown())
+			{
+				TraversingDownCorner = true;
+				UE_LOG(LogTemp, Warning, TEXT("DOWN DOWN DOWN DOWN DOWN"));
 			}
 			else
 			{
-				UnStick(DeltaTime);
-				Stuck = false;
+				
+				Swerve(DeltaTime);
+				FleePlayer(DeltaTime);
+				Move(DeltaTime);
+				UE_LOG(LogTemp, Warning, TEXT("Moving"));
 			}
-			
-			//UE_LOG(LogTemp, Warning, TEXT("Moving"));
+			//ZeroRoll(DeltaTime);
 		}
-		//ZeroRoll(DeltaTime);
+	
+}
+
+/*
+// I might need to go state machine here. But if this works fine then I won't have time to change it.
+void ARoach::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	if (RotateToGoal)
+	{
+		RotateToGoalRot(DeltaTime);
+		UE_LOG(LogTemp, Warning, TEXT("Rotating to Goal"));
+	}
+	if (MoveToGoal)
+	{
+		MoveToGoalLoc(DeltaTime);
+		UE_LOG(LogTemp, Warning, TEXT("Moving to Goal"));
+	}
+	if (CheckSideCollision())
+	{
+		GoalVec = GetActorLocation() + MovementDirection;
+		UE_LOG(LogTemp, Warning, TEXT("COLLIDED"));
+	}
+	else if(!RotateToGoal && !MoveToGoal)
+	{
+		Move(DeltaTime);
+		UE_LOG(LogTemp, Warning, TEXT("Moving"));
+	}
+
+	//Move(MovementDirection, DeltaTime);
+	
+}
+*/
+
+void ARoach::MoveToGoalLoc(float DeltaTime)
+{
+	DrawDebugPoint(GetWorld(), GoalLocation, 10.f, FColor::Cyan, false, 2 * DeltaTime);
+
+	FVector CurrentLocation = GetActorLocation();
+	if (CurrentLocation.Equals(GoalLocation, 0.1f))
+	{
+		MoveToGoal = false;
+		UE_LOG(LogTemp, Warning, TEXT("DONE LOC"));
+	}
+	else
+	{
+		SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(CurrentLocation, GoalLocation, DeltaTime, Speed));
 	}
 }
+
+void ARoach::RotateToGoalRot(float DeltaTime)
+{
+	FQuat CurrentRotation = GetActorQuat();
+	if (CurrentRotation.Equals(GoalQuat))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("DONE ROT"));
+		RotateToGoal = false;
+	}
+	else
+	{
+		// Lerp to goal
+		SetActorRotation(FMath::Lerp(CurrentRotation, GoalQuat, RotSpeed * DeltaTime));
+	}
+}
+
+void ARoach::CalcGoalQuat(FVector GoalVec)
+{
+	FVector AFV = GetActorForwardVector();
+	FVector RotationAxis = GetActorUpVector();
+	float DotProduct = FVector::DotProduct(AFV, GoalVec);
+	float RotationAngle = acosf(DotProduct);
+	FQuat RotQuat = FQuat(RotationAxis, RotationAngle);
+	FQuat MyQuat = GetActorQuat();
+	GoalQuat = RotQuat * MyQuat;
+}
+
+void ARoach::Move(FVector Direction, float DeltaTime)
+{
+	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(
+		GetActorLocation(),
+		GetActorLocation() + Direction,
+		DeltaTime,
+		4.f));
+}
+
+void ARoach::Turn(float DeltaTime, bool Right)
+{
+	int i = (Right) ? 1 : -1;
+
+	FRotator DR = FRotator(0, 100 * DeltaTime * i, 0);
+	FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
+	UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
+}
+
+bool ARoach::CheckSideCollision()
+{
+	FVector UV = GetActorUpVector();
+	FVector AL = GetActorLocation() + UV;
+	FVector AFV = GetActorForwardVector() * 3.f;
+	FVector BV = -AFV * 1.4f;
+	FVector RV = GetActorRightVector() * 2.4f;
+	
+
+	bool LeftTrace = GetWorld()->LineTraceSingleByChannel(
+		LeftHitResult, AL - RV + BV, AL + AFV, ECollisionChannel::ECC_WorldStatic, RoachParams);
+
+	bool RightTrace = GetWorld()->LineTraceSingleByChannel(
+		RightHitResult, AL + RV + BV, AL + AFV, ECollisionChannel::ECC_WorldStatic, RoachParams);
+
+	DrawDebugLine(GetWorld(), AL + AFV, AL - RV + BV, FColor::Red, false, GetWorld()->DeltaTimeSeconds * 2.f);
+	DrawDebugLine(GetWorld(), AL + AFV, AL + RV + BV, FColor::Green, false, GetWorld()->DeltaTimeSeconds * 2.f);
+	
+	if (LeftTrace)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Left trace collided"));
+		MovementDirection = AL - LeftHitResult.ImpactPoint;
+		MovementDirection.Z = 0;
+
+		GoalLocation = AL + MovementDirection;
+		GoalLocation.Z = AL.Z;
+
+		RotateToGoal = true;
+		MoveToGoal = true;
+
+		float IP = FVector::DotProduct(GetActorRightVector(), LeftHitResult.ImpactNormal);
+		
+		if (IP > 0)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("TURN LEFT"));
+			CalcGoalQuat(GetActorForwardVector().RotateAngleAxis(10.f, GetActorUpVector()));
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("TURN RIGHT"));
+			CalcGoalQuat(GetActorForwardVector().RotateAngleAxis(-10.f, GetActorUpVector()));
+		}
+
+		RotateToNormal(LeftHitResult.ImpactNormal);
+		SetActorLocation(LeftHitResult.ImpactPoint);
+
+		return true;
+	}
+	else if (RightTrace)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Right trace collided"));
+		MovementDirection = AL - RightHitResult.ImpactPoint;
+		MovementDirection.Z = 0;
+
+		GoalLocation = AL + MovementDirection;
+		GoalLocation.Z = AL.Z;
+
+		RotateToGoal = true;
+		MoveToGoal = true;
+
+		float IP = FVector::DotProduct(GetActorRightVector(), RightHitResult.ImpactNormal);
+		
+		if (IP > 0)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("TURN LEFT"));
+			CalcGoalQuat(GetActorForwardVector().RotateAngleAxis(10.f, GetActorUpVector()));
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("TURN RIGHT"));
+			CalcGoalQuat(GetActorForwardVector().RotateAngleAxis(-10.f, GetActorUpVector()));
+		}
+
+		RotateToNormal(RightHitResult.ImpactNormal);
+		SetActorLocation(RightHitResult.ImpactPoint);
+		
+		return true;
+	}
+	
+	return false;
+
+}
+
+float ARoach::AngleBetweenVectors(FVector A, FVector B)
+{
+	return acosf(FVector::DotProduct(A, B));
+}
+
 
 void ARoach::UnStick(float DeltaTime)
 {
@@ -99,8 +274,12 @@ void ARoach::UnStick(float DeltaTime)
 	//float Dot = FVector::DotProduct(AL, UN);
 	//UE_LOG(LogTemp, Warning, TEXT("%f"), FVector::DotProduct(AL, UN));
 	//int i = (Dot > 0) ? 1 : -1;
+	FVector AFV = GetActorForwardVector();
+	FVector NV = FrontHit.ImpactNormal;
 
-	FRotator DR = FRotator(0, 100 * DeltaTime, 0);
+	//FPlane ImpactPlane = UKismetMathLibrary::MakePlaneFromPointAndNormal(FrontHit.ImpactPoint, RV);
+
+	FRotator DR = FRotator(0, 300.f * DeltaTime, 0);
 	FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
 	UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
 }
@@ -116,8 +295,10 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 	}
 	else
 	{
+		DrawDebugPoint(GetWorld(), GoalLocation, 10.f, FColor::Red, false, 2 * DeltaTime);
 		// Interp to goal
-		SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(CurrentLocation, GoalLocation, DeltaTime, 60.f), true);
+		SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(CurrentLocation, GoalLocation, DeltaTime, 60.f));
+		UE_LOG(LogTemp, Warning, TEXT("Moving to Goal!!!"));
 	}
 
 	if (CurrentRotation.Equals(GoalRotation, 0.01f))
@@ -127,7 +308,8 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 	else
 	{
 		// Lerp to goal
-		SetActorRotation(FMath::Lerp(CurrentRotation, GoalRotation, 16.f * DeltaTime));
+		SetActorRotation(FMath::Lerp(CurrentRotation, GoalRotation, 18.f * DeltaTime));
+		UE_LOG(LogTemp, Warning, TEXT("Rotating to Goal!!!"));
 	}
 
 	if (!MoveToGoal && !RotateToGoal)
@@ -144,7 +326,7 @@ void ARoach::Fall(float DeltaTime)
 	FallTime += DeltaTime;
 	FVector RoachLocation = GetActorLocation();
 	// Up Down Vector
-	FVector UDVector = FVector(0, 0, FallTime * -30.f);
+	FVector UDVector = FVector(0, 0, FallTime * -50.f);
 
 	bool FallTrace = GetWorld()->LineTraceSingleByChannel(HitResult, RoachLocation - UDVector,
 		RoachLocation + UDVector, ECollisionChannel::ECC_WorldStatic, RoachParams);
@@ -245,7 +427,21 @@ void ARoach::ComputeLaziness()
 {
 	int i = FMath::RandRange(0, 1);
 	int j = FMath::RandRange(0, 1);
-	Laziness = i + j + 6;
+	//Laziness = i + j + 1;
+	Laziness = 8;
+	/*
+	if (i)
+	{
+		if (j)
+		{
+			Laziness = 2;
+		}
+	}
+	else
+	{
+		Laziness = 1;
+	}
+	*/
 }
 
 bool ARoach::ShouldWait()
