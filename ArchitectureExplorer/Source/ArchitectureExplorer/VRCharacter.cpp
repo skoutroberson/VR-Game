@@ -25,6 +25,9 @@
 #include "HandController.h"
 #include "Errol.h"
 #include "Components/SphereComponent.h"
+#include "IHeadMountedDisplay.h"
+#include "Engine/Engine.h"
+#include "IXRTrackingSystem.h"
 
 
 // Sets default values
@@ -79,6 +82,26 @@ void AVRCharacter::BeginPlay()
 		RightController->SetHand(EControllerHand::Right);
 		RightController->SetOwner(this);
 	}
+
+
+	
+	//	Check if VR is enabled
+	IHeadMountedDisplay *pHmd = nullptr;
+	TSharedPtr<IStereoRendering, ESPMode::ThreadSafe> pStereo = nullptr;
+	if (GEngine) 
+	{
+		pHmd = GEngine->XRSystem->GetHMDDevice();
+		pStereo = GEngine->XRSystem->GetStereoRenderingDevice();
+	}
+	if (pHmd->IsHMDEnabled() && pHmd->IsHMDConnected() && pStereo->IsStereoEnabled()) 
+	{
+		// in VR mode
+	}
+	else
+	{
+		VRRoot->SetRelativeLocation(FVector(0,0,50.f));
+	}
+	
 }
 
 void AVRCharacter::UpdateCapsuleHeight()
@@ -124,14 +147,14 @@ void AVRCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	UE_LOG(LogTemp, Warning, TEXT("Velocity: %f, %f, %f"), GetCharacterMovement()->Velocity.X, GetCharacterMovement()->Velocity.Y, GetCharacterMovement()->Velocity.Z);
+
 	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
 
-	FVector NewCameraOffset = Camera->GetComponentLocation() - GetActorLocation();
-	NewCameraOffset.Z = 0;
-	AddActorWorldOffset(NewCameraOffset);
-	VRRoot->AddWorldOffset(-NewCameraOffset);
+	//	Need to do this every frame so the collision capsule stays on top of the player's camera
+	CorrectCameraOffset();
 
-	UpdateCapsuleHeight();
+	//UpdateCapsuleHeight();
 	
 
 	if (bTeleportEnabled)
@@ -284,6 +307,11 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Pressed, this, &AVRCharacter::Sprint);
 	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Released, this, &AVRCharacter::StopSprint);
 	PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
+
+	PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Pressed, this, &AVRCharacter::GripLeft);
+	PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Pressed, this, &AVRCharacter::GripRight);
+	PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Released, this, &AVRCharacter::ReleaseLeft);
+	PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Released, this, &AVRCharacter::ReleaseRight);
 }
 
 void AVRCharacter::Click()
@@ -359,7 +387,7 @@ void AVRCharacter::TurnRight(float throttle)
 
 void AVRCharacter::LookUp(float throttle)
 {
-	//AddControllerPitchInput(-throttle);
+	AddControllerPitchInput(-throttle);
 
 }
 
@@ -412,5 +440,13 @@ void AVRCharacter::DisableAction2()
 {
 	bAction2 = false;
 	bSprint = false;
+}
+
+void AVRCharacter::CorrectCameraOffset()
+{
+	FVector NewCameraOffset = Camera->GetComponentLocation() - GetActorLocation();
+	NewCameraOffset.Z = 0;
+	AddActorWorldOffset(NewCameraOffset);
+	VRRoot->AddWorldOffset(-NewCameraOffset);
 }
 

@@ -9,6 +9,7 @@
 #include "UObject/ObjectMacros.h"
 #include "cPlayerHandAnimBP.h"
 #include "Components/SphereComponent.h"
+#include "HandController.h"
 #include "VRCharacter.generated.h"
 
 UCLASS()
@@ -27,6 +28,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	void CorrectCameraOffset();
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -37,6 +39,7 @@ private:
 
 	void MoveForward(float throttle);
 	void MoveRight(float throttle);
+
 	void TurnRight(float throttle);
 	void LookUp(float throttle);
 	void BeginTeleport();
@@ -83,6 +86,14 @@ private:
 
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AHandController> HandControllerClass;
+
+public:
+
+	void GripLeft() { LeftController->Grip(); }
+	void ReleaseLeft() { LeftController->Release(); }
+
+	void GripRight() { RightController->Grip(); }
+	void ReleaseRight() { RightController->Release(); }
 
 private:
 	bool bAction1 = false;

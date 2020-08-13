@@ -31,6 +31,7 @@ public:
 	//	Corner traversal movement and rotation stuff
 	void SetGoalLocation(FVector Location);
 	void SetGoalRotation(FVector_NetQuantizeNormal NormalVector);
+	
 
 public:
 	//	New Code
