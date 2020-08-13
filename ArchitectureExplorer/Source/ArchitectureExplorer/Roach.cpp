@@ -12,6 +12,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "VRCharacter.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/BoxComponent.h"
 
 // Sets default values
 ARoach::ARoach()
@@ -45,7 +46,7 @@ void ARoach::BeginPlay()
 
 }
 
-
+/*
 // Called every frame
 void ARoach::Tick(float DeltaTime)
 {
@@ -86,7 +87,7 @@ void ARoach::Tick(float DeltaTime)
 	
 }
 
-/*
+
 // I might need to go state machine here. But if this works fine then I won't have time to change it.
 void ARoach::Tick(float DeltaTime)
 {
@@ -117,6 +118,14 @@ void ARoach::Tick(float DeltaTime)
 	
 }
 */
+
+void ARoach::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	Move(DeltaTime);
+
+}
 
 void ARoach::MoveToGoalLoc(float DeltaTime)
 {
