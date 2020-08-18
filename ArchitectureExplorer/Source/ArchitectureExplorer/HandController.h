@@ -47,11 +47,18 @@ private:
 	void ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActor);
 
 	// Helpers
-	bool CanClimb() const;
+	void CanInteract();
+	AActor* OverlappingDoor = nullptr;
 
 	// State
 	bool bCanClimb = false;
 	bool bIsClimbing = false;
+	bool bNewCanClimb = false;
 	FVector ClimbingStartLocation;
+
+	bool bCanUseDoor = false;
+	bool bIsUsingDoor = false;
+	bool bNewCanUseDoor = false;
+	FVector UsingDoorLocation;
 
 };

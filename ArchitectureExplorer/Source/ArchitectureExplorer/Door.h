@@ -23,7 +23,32 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere)
+	// Parameters
+	UPROPERTY(EditDefaultsOnly)
+	class UHapticFeedbackEffect_Base * HapticEffect;
+
+	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* DoorRoot;
+
+	class UStaticMeshComponent* DoorMesh;
+
+	AActor* HandController = nullptr;
+	FVector LastHCLocation;
+
+	
+
+	// Functions
+	void PassController(AActor * HC);
+	void SetIsBeingUsed(bool Value);
+
+	void UseDoor(float DeltaTime);
+
+	// State
+	bool bIsBeingUsed = false;
+
+private:
+	int Push = 0;
+
+	FVector2D ConvertVector3D(FVector Vec);
 
 };

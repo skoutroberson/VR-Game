@@ -84,7 +84,7 @@ void AVRCharacter::BeginPlay()
 	}
 
 
-	
+	/*
 	//	Check if VR is enabled
 	IHeadMountedDisplay *pHmd = nullptr;
 	TSharedPtr<IStereoRendering, ESPMode::ThreadSafe> pStereo = nullptr;
@@ -101,7 +101,7 @@ void AVRCharacter::BeginPlay()
 	{
 		VRRoot->SetRelativeLocation(FVector(0,0,50.f));
 	}
-	
+	*/
 }
 
 void AVRCharacter::UpdateCapsuleHeight()
@@ -146,8 +146,6 @@ void AVRCharacter::UpdateCapsuleHeight()
 void AVRCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	UE_LOG(LogTemp, Warning, TEXT("Velocity: %f, %f, %f"), GetCharacterMovement()->Velocity.X, GetCharacterMovement()->Velocity.Y, GetCharacterMovement()->Velocity.Z);
 
 	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
 
