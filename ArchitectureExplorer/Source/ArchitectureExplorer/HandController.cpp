@@ -4,6 +4,7 @@
 #include "HandController.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
+#include "Door.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -33,6 +34,7 @@ void AHandController::Tick(float DeltaTime)
 	{
 		FVector HandControllerDelta = GetActorLocation() - ClimbingStartLocation;
 		GetAttachParentActor()->AddActorWorldOffset(-HandControllerDelta);
+		UE_LOG(LogTemp, Warning, TEXT("CLIMBINGGGGGGGG"));
 	}
 
 }
@@ -47,6 +49,26 @@ void AHandController::Grip()
 			ClimbingStartLocation = GetActorLocation();
 		}
 	}
+	if (bCanUseDoor)
+	{
+		if (!bIsUsingDoor)
+		{
+			bIsUsingDoor = true;
+			ADoor* CurrentDoor = Cast<ADoor>(OverlappingDoor);
+
+			if (CurrentDoor != nullptr)
+			{
+				CurrentDoor->PassController(this);
+				CurrentDoor->SetIsBeingUsed(true);
+
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("CurrentDoor cast failed!!!"));
+			}
+			//UsingDoorLocation = GetActorLocation();
+		}
+	}
 }
 
 void AHandController::Release()
@@ -55,11 +77,25 @@ void AHandController::Release()
 	{
 		bIsClimbing = false;
 	}
+	if (bIsUsingDoor)
+	{
+		bIsUsingDoor = false;
+		ADoor* CurrentDoor = Cast<ADoor>(OverlappingDoor);
+
+		if (CurrentDoor != nullptr)
+		{
+			CurrentDoor->SetIsBeingUsed(false);
+		}
+		//free(OverlappingDoor);
+	}
 }
 
 void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor)
 {
-	bool bNewCanClimb = CanClimb();
+	// Set bNewCanClimb and bNewCanUseDoor
+	CanInteract();
+
+	// Climb mechanics
 	if (!bCanClimb && bNewCanClimb)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Can Climb!"));
@@ -76,14 +112,34 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 		}
 	}
 	bCanClimb = bNewCanClimb;
+	// Door mechanics
+	if (!bIsUsingDoor && !bCanUseDoor && bNewCanUseDoor)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Can use door!"));
+
+		APawn* Pawn = Cast<APawn>(GetAttachParentActor());
+		if (Pawn != nullptr)
+		{
+			APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
+
+			if (Controller != nullptr)
+			{
+				Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
+			}
+		}
+	}
+	bCanUseDoor = bNewCanUseDoor;
 }
 
 void AHandController::ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActor)
 {
-	bCanClimb = CanClimb();
+	//bCanClimb = CanClimb();
+	CanInteract();
+	bCanClimb = bNewCanClimb;
+	bCanUseDoor = bNewCanUseDoor;
 }
 
-bool AHandController::CanClimb() const
+void AHandController::CanInteract()
 {
 	TArray<AActor*> OverlappingActors;
 	GetOverlappingActors(OverlappingActors);
@@ -91,9 +147,17 @@ bool AHandController::CanClimb() const
 	{
 		if (OverlappingActor->ActorHasTag(TEXT("Climbable")))
 		{
-			return true;
+			bNewCanClimb = true;
+			return;
+		}
+		if (OverlappingActor->ActorHasTag(TEXT("Door")))
+		{
+			bNewCanUseDoor = true;
+			OverlappingDoor = OverlappingActor;
+			return;
 		}
 	}
-	return false;
+	bNewCanClimb = false;
+	bNewCanUseDoor = false;
 }
 
