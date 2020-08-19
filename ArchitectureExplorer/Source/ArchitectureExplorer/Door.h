@@ -32,6 +32,8 @@ public:
 
 	class UStaticMeshComponent* DoorMesh;
 
+	class USceneComponent* DoorHinge;
+
 	AActor* HandController = nullptr;
 	FVector LastHCLocation;
 
@@ -41,6 +43,8 @@ public:
 	void PassController(AActor * HC);
 	void SetIsBeingUsed(bool Value);
 
+	FQuat CalcGoalQuat(FVector GoalVec);
+
 	void UseDoor(float DeltaTime);
 
 	// State
@@ -48,6 +52,9 @@ public:
 
 private:
 	int Push = 0;
+
+	FQuat MinRotation;
+	FQuat MaxRotation;
 
 	FVector2D ConvertVector3D(FVector Vec);
 
