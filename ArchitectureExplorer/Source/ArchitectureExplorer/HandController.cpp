@@ -41,6 +41,7 @@ void AHandController::Tick(float DeltaTime)
 
 void AHandController::Grip()
 {
+	// climb
 	if (bCanClimb)
 	{
 		if (!bIsClimbing)
@@ -49,6 +50,7 @@ void AHandController::Grip()
 			ClimbingStartLocation = GetActorLocation();
 		}
 	}
+	// door
 	if (bCanUseDoor)
 	{
 		if (!bIsUsingDoor)
@@ -73,10 +75,12 @@ void AHandController::Grip()
 
 void AHandController::Release()
 {
+	//climb
 	if (bIsClimbing)
 	{
 		bIsClimbing = false;
 	}
+	// door
 	if (bIsUsingDoor)
 	{
 		bIsUsingDoor = false;

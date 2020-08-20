@@ -55,6 +55,7 @@ public:
 
 private:
 	float SwingVelocity;
+	float SlerpSize;
 
 	int Push = 0;
 
