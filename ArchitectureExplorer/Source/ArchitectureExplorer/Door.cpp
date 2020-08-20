@@ -35,6 +35,7 @@ void ADoor::BeginPlay()
 	FVector LV = -DoorHinge->GetRightVector();
 	MinRotation = CalcGoalQuat(DoorHinge->GetForwardVector());
 	MaxRotation = LV.ToOrientationQuat();
+	//MaxRotation = LV.RotateAngleAxis(3.f, DoorHinge->GetUpVector()).ToOrientationQuat();
 	
 	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector() * 100.f, FColor::Green, true);
 	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector().RotateAngleAxis(90.f, DoorHinge->GetUpVector()) * 100.f, FColor::Red, true);
@@ -48,6 +49,15 @@ void ADoor::Tick(float DeltaTime)
 	{
 		UseDoor(DeltaTime);
 	}
+	else if (bSwing)
+	{
+		Swing(DeltaTime);
+	}
+
+}
+
+void ADoor::Swing(float DeltaTime)
+{
 
 }
 
@@ -56,11 +66,12 @@ void ADoor::UseDoor(float DeltaTime)
 	//UE_LOG(LogTemp, Warning, TEXT("%f"), FVector(LastHCLocation - HandController->GetActorLocation()).Size());
 
 	FVector HCDelta = LastHCLocation - HandController->GetActorLocation();
+	HCDelta.Z = 0;
 	FVector DFV = DoorHinge->GetForwardVector();
-	float Dot = FVector::DotProduct(HCDelta, DFV);
+	float Dot = FVector::DotProduct(HCDelta.GetSafeNormal(), DFV);
 	FQuat DHQ = DoorHinge->GetComponentQuat();
 
-	float SlerpSize = (Dot * HCDelta.Size() * (180.f / PI) * Push * DeltaTime) / 45.f;
+	float SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI) * DeltaTime) / 50.f;
 
 	//FRotator DR = FRotator(0, DeltaYaw * 10 * DeltaTime, 0);
 	//FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
@@ -88,8 +99,8 @@ void ADoor::UseDoor(float DeltaTime)
 		DoorHinge->AddLocalRotation(DQ);
 	}
 	
-	UE_LOG(LogTemp, Warning, TEXT("Min: %f"), UKismetMathLibrary::Quat_AngularDistance(DoorHinge->GetComponentQuat(), MinRotation));
-	UE_LOG(LogTemp, Warning, TEXT("Max: %f"), UKismetMathLibrary::Quat_AngularDistance(DoorHinge->GetComponentQuat(), MaxRotation));
+	//UE_LOG(LogTemp, Warning, TEXT("Min: %f"), UKismetMathLibrary::Quat_AngularDistance(DoorHinge->GetComponentQuat(), MinRotation));
+	//UE_LOG(LogTemp, Warning, TEXT("Max: %f"), UKismetMathLibrary::Quat_AngularDistance(DoorHinge->GetComponentQuat(), MaxRotation));
 
 	
 
@@ -134,7 +145,6 @@ void ADoor::PassController(AActor * HC)
 	HandController = HC;
 	LastHCLocation = HandController->GetActorLocation();
 	
-	
 	float Dot = FVector::DotProduct(HandController->GetActorForwardVector(), DoorHinge->GetForwardVector());
 	if (Dot > 0)
 	{
@@ -152,6 +162,12 @@ void ADoor::PassController(AActor * HC)
 void ADoor::SetIsBeingUsed(bool Value)
 {
 	bIsBeingUsed = Value;
+
+	if (!Value)
+	{
+
+		bSwing = true;
+	}
 }
 
 FVector2D ADoor::ConvertVector3D(FVector Vec)
