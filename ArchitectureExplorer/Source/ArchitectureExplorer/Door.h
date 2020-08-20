@@ -45,12 +45,17 @@ public:
 
 	FQuat CalcGoalQuat(FVector GoalVec);
 
+	// Mechanic functions
 	void UseDoor(float DeltaTime);
+	void Swing(float DeltaTime);
 
 	// State
 	bool bIsBeingUsed = false;
+	bool bSwing = false;
 
 private:
+	float SwingVelocity;
+
 	int Push = 0;
 
 	FQuat MinRotation;
