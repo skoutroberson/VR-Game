@@ -58,7 +58,31 @@ void ADoor::Tick(float DeltaTime)
 
 void ADoor::Swing(float DeltaTime)
 {
+	UE_LOG(LogTemp, Warning, TEXT("SWING: %f"), SwingVelocity);
 
+	FQuat DHQ = DoorHinge->GetComponentQuat();
+	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SwingVelocity * DeltaTime);
+	FQuat NewQuat = DHQ * DQ;
+
+	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
+	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
+
+	if (MaxDistance > HALF_PI)
+	{
+		DoorHinge->SetWorldRotation(MinRotation);
+		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
+		bSwing = false;
+	}
+	else if (MinDistance > HALF_PI)
+	{
+		DoorHinge->SetWorldRotation(MaxRotation);
+		//UE_LOG(LogTemp, Warning, TEXT("MAX"));
+		bSwing = false;
+	}
+	else
+	{
+		DoorHinge->AddLocalRotation(DQ);
+	}
 }
 
 void ADoor::UseDoor(float DeltaTime)
@@ -71,14 +95,14 @@ void ADoor::UseDoor(float DeltaTime)
 	float Dot = FVector::DotProduct(HCDelta.GetSafeNormal(), DFV);
 	FQuat DHQ = DoorHinge->GetComponentQuat();
 
-	float SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI) * DeltaTime) / 50.f;
+	SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI)) / 50.f;
 
 	//FRotator DR = FRotator(0, DeltaYaw * 10 * DeltaTime, 0);
 	//FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
 	//UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
 
 	//UE_LOG(LogTemp, Warning, TEXT("SLRP: %f"), SlerpSize);
-	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SlerpSize);
+	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SlerpSize * DeltaTime);
 	FQuat NewQuat = DHQ * DQ;
 
 	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
@@ -163,10 +187,11 @@ void ADoor::SetIsBeingUsed(bool Value)
 {
 	bIsBeingUsed = Value;
 
+	// not a big fan of putting this logic here
 	if (!Value)
 	{
-
 		bSwing = true;
+		SwingVelocity = SlerpSize;
 	}
 }
 
