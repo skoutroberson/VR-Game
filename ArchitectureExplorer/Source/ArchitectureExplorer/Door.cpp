@@ -32,13 +32,24 @@ void ADoor::BeginPlay()
 
 	DoorHinge = GetRootComponent()->GetChildComponent(0);
 
-	FVector LV = -DoorHinge->GetRightVector();
+	float MaxAngle = BinarySearchForMaxAngle();
+	float LVAngle = MaxAngle - 180.f;
+
+	MaxAngleRadians = (270 - MaxAngle) * (PI / 180.f);
+
+	//UE_LOG(LogTemp, Warning, TEXT("MA: %f, MAR: %f"), MaxAngle, MaxAngleRadians);
+	//UE_LOG(LogTemp, Warning, TEXT("LV: %f"), LVAngle);
+
+	FVector LV = -DoorHinge->GetRightVector().RotateAngleAxis(LVAngle, DoorHinge->GetUpVector());
 	MinRotation = CalcGoalQuat(DoorHinge->GetForwardVector());
 	MaxRotation = LV.ToOrientationQuat();
 	//MaxRotation = LV.RotateAngleAxis(3.f, DoorHinge->GetUpVector()).ToOrientationQuat();
 	
 	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector() * 100.f, FColor::Green, true);
-	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector().RotateAngleAxis(90.f, DoorHinge->GetUpVector()) * 100.f, FColor::Red, true);
+	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + LV * 100.f, FColor::Red, true);
+
+	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector().RotateAngleAxis(148.f, DoorHinge->GetUpVector()) * 91.f, FColor::Black, true);
+	//148 - 270
 }
 // Called every frame
 void ADoor::Tick(float DeltaTime)
@@ -56,9 +67,61 @@ void ADoor::Tick(float DeltaTime)
 
 }
 
+// Helper function to find the max swing angle for the doors (angle where the door hits an object so it can't open all the way)
+float ADoor::BinarySearchForMaxAngle()
+{
+	float Max = 270.f;
+	float Min = 148.f;
+	float Mid = -1.f;
+
+	FVector DHL = DoorHinge->GetComponentLocation();
+	DHL.Z += 4.f;
+	FVector DUV = DoorHinge->GetUpVector();
+	FVector DFV = DoorHinge->GetForwardVector();
+
+	FVector TestVec;
+
+	FHitResult HitResult;
+	FCollisionQueryParams ColParams;
+	ColParams.AddIgnoredActor(this);
+
+	UWorld* World = GetWorld();
+
+	// base case: if door can be opened all the way, don't do all these traces.
+	while (fabsf(Max - Min) > 1.f)
+	{
+		Mid = (Max + Min) / 2.f;
+
+		TestVec = DFV.RotateAngleAxis(Mid, DUV) * DoorLength;
+		//DrawDebugLine(World, DHL, DHL + TestVec, FColor::Orange, true);
+
+		if (World->LineTraceSingleByChannel(HitResult, DHL, DHL + TestVec, ECC_WorldStatic, ColParams))
+		{
+			Min = Mid;
+			KnobCollision = true;
+			//DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Emerald, true);
+		}
+		else
+		{
+			Max = Mid;
+		}
+	}
+
+	//UE_LOG(LogTemp, Warning, TEXT("%d TRACES USED"), i);
+	//DrawDebugLine(World, DHL, DHL + TestVec, FColor::Cyan, true);
+
+	Mid = (KnobCollision) ? Mid + 3.5f : Mid;
+
+	return Mid;
+}
+
 void ADoor::Swing(float DeltaTime)
 {
-	UE_LOG(LogTemp, Warning, TEXT("SWING: %f"), SwingVelocity);
+	//UE_LOG(LogTemp, Warning, TEXT("SWING: %f"), SwingVelocity);
+
+	//SwingVelocity = SwingVelocity - (HingeFriction * DeltaTime);
+
+	SwingVelocity = (SwingVelocity > 0) ? SwingVelocity - (HingeFriction * DeltaTime) : SwingVelocity - (-HingeFriction * DeltaTime);
 
 	FQuat DHQ = DoorHinge->GetComponentQuat();
 	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SwingVelocity * DeltaTime);
@@ -67,13 +130,13 @@ void ADoor::Swing(float DeltaTime)
 	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
 	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
 
-	if (MaxDistance > HALF_PI)
+	if (MaxDistance > MaxAngleRadians)
 	{
 		DoorHinge->SetWorldRotation(MinRotation);
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 		bSwing = false;
 	}
-	else if (MinDistance > HALF_PI)
+	else if (MinDistance > MaxAngleRadians)
 	{
 		DoorHinge->SetWorldRotation(MaxRotation);
 		//UE_LOG(LogTemp, Warning, TEXT("MAX"));
@@ -81,7 +144,7 @@ void ADoor::Swing(float DeltaTime)
 	}
 	else
 	{
-		DoorHinge->AddLocalRotation(DQ);
+		DoorHinge->AddLocalRotation(DQ, true);
 	}
 }
 
@@ -97,23 +160,27 @@ void ADoor::UseDoor(float DeltaTime)
 
 	SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI)) / 50.f;
 
+	SlerpSize = (SlerpSize > 3.f) ? 3.f : SlerpSize;
+
 	//FRotator DR = FRotator(0, DeltaYaw * 10 * DeltaTime, 0);
 	//FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
 	//UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
 
-	//UE_LOG(LogTemp, Warning, TEXT("SLRP: %f"), SlerpSize);
+	UE_LOG(LogTemp, Warning, TEXT("SLRP: %f"), SlerpSize);
 	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SlerpSize * DeltaTime);
 	FQuat NewQuat = DHQ * DQ;
 
 	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
 	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
 
-	if (MaxDistance > HALF_PI)
+	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector() * 300.f, FColor::Cyan, false, 2 * DeltaTime);
+
+	if (MaxDistance > MaxAngleRadians)
 	{
 		DoorHinge->SetWorldRotation(MinRotation);
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 	}
-	else if (MinDistance > HALF_PI)
+	else if (MinDistance > MaxAngleRadians)
 	{
 		DoorHinge->SetWorldRotation(MaxRotation);
 		//UE_LOG(LogTemp, Warning, TEXT("MAX"));

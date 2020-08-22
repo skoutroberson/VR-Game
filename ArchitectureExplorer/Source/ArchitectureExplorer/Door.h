@@ -36,14 +36,12 @@ public:
 
 	AActor* HandController = nullptr;
 	FVector LastHCLocation;
-
 	
 
-	// Functions
+	// Grip/Release HandController functions
 	void PassController(AActor * HC);
 	void SetIsBeingUsed(bool Value);
 
-	FQuat CalcGoalQuat(FVector GoalVec);
 
 	// Mechanic functions
 	void UseDoor(float DeltaTime);
@@ -56,12 +54,21 @@ public:
 private:
 	float SwingVelocity;
 	float SlerpSize;
+	float HingeFriction = 0.44f;
+	float DoorLength = 91.f;
+	float MaxAngleRadians = 0;
+
+	bool KnobCollision = false;
 
 	int Push = 0;
 
 	FQuat MinRotation;
 	FQuat MaxRotation;
 
+	// Helpers
+
 	FVector2D ConvertVector3D(FVector Vec);
+	FQuat CalcGoalQuat(FVector GoalVec);
+	float BinarySearchForMaxAngle();
 
 };
