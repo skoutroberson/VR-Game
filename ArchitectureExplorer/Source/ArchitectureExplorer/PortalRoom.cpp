@@ -102,7 +102,7 @@ void APortalRoom::ActorBeginOverlap(AActor * OverlappedActor, AActor * OtherActo
 			
 			
 			
-			
+			// CHANGE STAGE CHECK!!!!!!!!! IF TRUE, THEN SET A BOOL TO TRUE TO CHANGE THE STAGE
 			
 
 			//VRChar->CorrectCameraOffset();

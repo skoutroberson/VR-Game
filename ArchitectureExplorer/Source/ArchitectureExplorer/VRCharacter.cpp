@@ -73,6 +73,9 @@ void AVRCharacter::BeginPlay()
 		LeftController->AttachToComponent(VRRoot, FAttachmentTransformRules::KeepRelativeTransform);
 		LeftController->SetHand(EControllerHand::Left);
 		LeftController->SetOwner(this);
+		LeftController->SetActorScale3D(FVector(1.f,-1.f,1.f));
+		LeftController->SetActorRelativeLocation(FVector(-10, -4, -2));
+		LeftController->SetActorRelativeRotation(FQuat(FVector(1,0,0), FMath::DegreesToRadians(100)));
 	}
 
 	RightController = GetWorld()->SpawnActor<AHandController>(HandControllerClass);
@@ -304,7 +307,7 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Released, this, &AVRCharacter::DisableAction2);
 	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Pressed, this, &AVRCharacter::Sprint);
 	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Released, this, &AVRCharacter::StopSprint);
-	PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
+	//PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
 
 	PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Pressed, this, &AVRCharacter::GripLeft);
 	PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Pressed, this, &AVRCharacter::GripRight);
