@@ -5,6 +5,7 @@
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 #include "Door.h"
+#include "XRMotionControllerBase.h"
 
 // Sets default values
 AHandController::AHandController()

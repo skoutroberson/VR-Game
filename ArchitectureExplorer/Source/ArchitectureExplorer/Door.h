@@ -46,6 +46,7 @@ public:
 	// Mechanic functions
 	void UseDoor(float DeltaTime);
 	void Swing(float DeltaTime);
+	void SlowClose(float CloseVelocity);
 
 	// State
 	bool bIsBeingUsed = false;
@@ -54,7 +55,7 @@ public:
 private:
 	float SwingVelocity;
 	float SlerpSize;
-	float HingeFriction = 0.44f;
+	float HingeFriction = 0.48f;
 	float DoorLength = 91.f;
 	float MaxAngleRadians = 0;
 

@@ -107,6 +107,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	float MaxTeleportDistance = 1000;
 	float TeleportFadeTime = 1;
+	float LookSensitivity = 2.f;
 	FHitResult HitResult;
 	int TickCounter = 0;
 

@@ -110,9 +110,15 @@ float ADoor::BinarySearchForMaxAngle()
 	//UE_LOG(LogTemp, Warning, TEXT("%d TRACES USED"), i);
 	//DrawDebugLine(World, DHL, DHL + TestVec, FColor::Cyan, true);
 
+	// Move the angle in 3.5 degrees to account for the knob hitting the wall.
 	Mid = (KnobCollision) ? Mid + 3.5f : Mid;
 
 	return Mid;
+}
+
+void ADoor::SlowClose(float CloseVelocity)
+{
+
 }
 
 void ADoor::Swing(float DeltaTime)
@@ -120,6 +126,11 @@ void ADoor::Swing(float DeltaTime)
 	//UE_LOG(LogTemp, Warning, TEXT("SWING: %f"), SwingVelocity);
 
 	//SwingVelocity = SwingVelocity - (HingeFriction * DeltaTime);
+
+	if (fabsf(SwingVelocity) < 0.0001f)
+	{
+		bSwing = false;
+	}
 
 	SwingVelocity = (SwingVelocity > 0) ? SwingVelocity - (HingeFriction * DeltaTime) : SwingVelocity - (-HingeFriction * DeltaTime);
 
@@ -132,15 +143,23 @@ void ADoor::Swing(float DeltaTime)
 
 	if (MaxDistance > MaxAngleRadians)
 	{
-		DoorHinge->SetWorldRotation(MinRotation);
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 		bSwing = false;
+		DoorHinge->SetWorldRotation(MinRotation);
 	}
 	else if (MinDistance > MaxAngleRadians)
 	{
-		DoorHinge->SetWorldRotation(MaxRotation);
+		if (KnobCollision)
+		{
+			SwingVelocity = -SwingVelocity / 12.f;
+		}
+		else
+		{
+			SwingVelocity = -SwingVelocity / 16.f;
+		}
+		//DoorHinge->SetWorldRotation(MaxRotation);
+		//bSwing = false;
 		//UE_LOG(LogTemp, Warning, TEXT("MAX"));
-		bSwing = false;
 	}
 	else
 	{
@@ -158,7 +177,7 @@ void ADoor::UseDoor(float DeltaTime)
 	float Dot = FVector::DotProduct(HCDelta.GetSafeNormal(), DFV);
 	FQuat DHQ = DoorHinge->GetComponentQuat();
 
-	SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI)) / 50.f;
+	SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI)) / 130.f;
 
 	SlerpSize = (SlerpSize > 3.f) ? 3.f : SlerpSize;
 
@@ -258,7 +277,7 @@ void ADoor::SetIsBeingUsed(bool Value)
 	if (!Value)
 	{
 		bSwing = true;
-		SwingVelocity = SlerpSize;
+		SwingVelocity = (SlerpSize > 3.f) ? 3.f : SlerpSize;
 	}
 }
 
