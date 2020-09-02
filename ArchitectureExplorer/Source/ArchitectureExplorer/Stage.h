@@ -25,10 +25,27 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	/////////////////////////////////////////////////////////////////////////
 
 public:
+	bool bIsCompleted = false;
 
-	//vector<bool *> StageFlags;
-	//bool IsCompleted();
+private:
+	virtual void IsCompleted();
 
+	virtual bool Flag0Check();
+	virtual bool Flag1Check();
+	virtual bool Flag2Check();
+	virtual bool Flag3Check();
+	virtual bool Flag4Check();
+	virtual bool Flag5Check();
+	virtual bool Flag6Check();
+	virtual bool Flag7Check();
+	virtual bool Flag8Check();
+	virtual bool Flag9Check();
+
+	// Function pointer for a function that returns a bool and takes 0 arguments
+	typedef bool (AStage::*FunctionPtrType)(void);
+	// vector holding the boolean functions that check if the player has completed a flag for this stage
+	vector<FunctionPtrType> FlagChecks;
 };

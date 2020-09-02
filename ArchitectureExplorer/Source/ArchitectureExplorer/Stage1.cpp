@@ -8,11 +8,8 @@
 AStage1::AStage1()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	//PrimaryActorTick.bCanEverTick = true;
 
-	FlagChecks.push_back(&AStage1::Flag0Check);
-	FlagChecks.push_back(&AStage1::Flag1Check);
-	FlagChecks.push_back(&AStage1::Flag2Check);
 }
 
 
@@ -21,12 +18,14 @@ void AStage1::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// this is how you call a function in a vector of function pointers :) wow 
+	// this is how you call a function in a vector of function pointers. nice syntax 
 	//(this->*(FlagChecks[0]))();
+
 
 }
 
 // Called every frame
+/*
 void AStage1::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -56,7 +55,7 @@ void AStage1::IsCompleted()
 		bIsCompleted = true;
 	}
 }
-
+*/
 bool AStage1::Flag0Check()
 {
 	UE_LOG(LogTemp, Warning, TEXT("000000000FUNCTION PONITER WORKS!! LLOLOLOL"));
