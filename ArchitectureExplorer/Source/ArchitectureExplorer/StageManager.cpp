@@ -16,6 +16,8 @@ AStageManager::AStageManager()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	Stages.push_back(AStage1::StaticClass());
+	
 }
 
 // Called when the game starts or when spawned
@@ -27,12 +29,13 @@ void AStageManager::BeginPlay()
 	FRotator Rotation(0.0f, 0.0f, 0.0f);
 	FActorSpawnParameters SpawnInfo;
 
-	GetWorld()->SpawnActor<AStage1>(SpawnInfo);
-	CurrentStage = UGameplayStatics::GetActorOfClass(GetWorld(), AStage1::StaticClass());
+	GetWorld()->SpawnActor<AStage>(Stages[0]);
+	CurrentStage = UGameplayStatics::GetActorOfClass(GetWorld(), Stages[0]);
+	
 	//GetWorld()->DestroyActor(CurrentStage);
 
+	//QUICK ON/OFF PROTOTYPE CODE FOR LIGHT FIXTURE MATERIALS
 	//////////////////////////////////////////////////////////////////////////////////////////////////////
-	
 	//FString LampString = FString("Lamp1");
 	TArray<AActor*> SMActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AStaticMeshActor::StaticClass(), SMActors);
@@ -53,10 +56,8 @@ void AStageManager::BeginPlay()
 		Lamp->SetMaterial(0, DynamicMaterial);
 		Lamp->SetScalarParameterValueOnMaterials(TEXT("EmissiveWeight"), 100.f);
 	}
-	
-	
-
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
 
 // Called every frame

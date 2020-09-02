@@ -13,7 +13,7 @@ using namespace std;
  * 
  */
 UCLASS()
-class ARCHITECTUREEXPLORER_API AStage1 : public AActor
+class ARCHITECTUREEXPLORER_API AStage1 : public AStage
 {
 	GENERATED_BODY()
 
@@ -27,25 +27,22 @@ protected:
 
 public:
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	//virtual void Tick(float DeltaTime) override;
 
 	// bool for determining if the player has completed this stage
-	bool bIsCompleted = false;
+	//bool bIsCompleted = false;
 
-private:
-
-	// vector holding the boolean functions that check if the player has completed a flag for this stage
-	
+protected:
 
 	// function for changing bIsCompleted to true if all of the flags are true
-	void IsCompleted();
+	//virtual void IsCompleted() override;
 
-	bool Flag0Check();
-	bool Flag1Check();
-	bool Flag2Check();
+	virtual bool Flag0Check() override;
+	virtual bool Flag1Check() override;
+	virtual bool Flag2Check() override;
 
-	typedef bool (AStage1::*FunctionPtrType)(void);
-
-	vector<FunctionPtrType> FlagChecks;
-
+	// Function pointer for a function that returns a bool and takes 0 arguments
+	//typedef bool (AStage1::*FunctionPtrType)(void);
+	// vector holding the boolean functions that check if the player has completed a flag for this stage
+	//vector<FunctionPtrType> FlagChecks;
 };

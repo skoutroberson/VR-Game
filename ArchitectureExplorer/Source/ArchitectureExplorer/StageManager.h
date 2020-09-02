@@ -4,8 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include <vector>
 #include "Stage1.h"
 #include "StageManager.generated.h"
+
+using namespace std;
 
 UCLASS()
 class ARCHITECTUREEXPLORER_API AStageManager : public AActor
@@ -26,5 +29,7 @@ public:
 
 private:
 	AActor * CurrentStage;
+
+	vector<TSubclassOf<AStage>> Stages; 
 
 };
