@@ -1,76 +1,51 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
+#include "BoxTrigger.h"
+#include "Engine/TriggerBox.h"
+#include "Engine/World.h"
 #include "Stage1.h"
+
 
 // Sets default values
 
 AStage1::AStage1()
 {
-	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	//PrimaryActorTick.bCanEverTick = true;
-
+	
 }
-
 
 // Called when the game starts or when spawned
 void AStage1::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// this is how you call a function in a vector of function pointers. nice syntax 
-	//(this->*(FlagChecks[0]))();
-
-
+	SetupFlag0();
 }
 
-// Called every frame
-/*
-void AStage1::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-	if (!bIsCompleted)
-	{
-		IsCompleted();
-	}
-
-}
-
-
-void AStage1::IsCompleted()
-{
-	if (!FlagChecks.empty())
-	{
-		for (int i = 0; i < FlagChecks.size(); i++)
-		{
-			if ((this->*(FlagChecks[i]))() == true)
-			{
-				FlagChecks.erase(FlagChecks.begin() + i);
-			}
-		}
-	}
-	else
-	{
-		bIsCompleted = true;
-	}
-}
-*/
 bool AStage1::Flag0Check()
 {
-	UE_LOG(LogTemp, Warning, TEXT("000000000FUNCTION PONITER WORKS!! LLOLOLOL"));
+	//UE_LOG(LogTemp, Warning, TEXT("000000000FUNCTION PONITER WORKS!! LLOLOLOL"));
+
+	//	If player listens to full answering machine / radio message.
 	return false;
+	
 }
 
 bool AStage1::Flag1Check()
 {
-	UE_LOG(LogTemp, Warning, TEXT("1111111111FUNCTION PONITER WORKS!! LLOLOLOL"));
+	//UE_LOG(LogTemp, Warning, TEXT("1111111111FUNCTION PONITER WORKS!! LLOLOLOL"));
+
+	if (Trigger1->bTriggered)
+	{
+		GetWorld()->DestroyActor(Trigger1);
+		return true;
+	}
+
 	return false;
 }
 
-bool AStage1::Flag2Check()
+void AStage1::SetupFlag0()
 {
-	UE_LOG(LogTemp, Warning, TEXT("222222222FUNCTION PONITER WORKS!! LLOLOLOL"));
-	return false;
+	Trigger1 = GetWorld()->SpawnActor<ABoxTrigger>(ABoxTrigger::StaticClass());
+	Trigger1->SetActorLocation(FVector(0, 0, 0));
 }
 
