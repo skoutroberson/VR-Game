@@ -16,6 +16,12 @@ AStage::AStage()
 	FlagChecks.push_back(&AStage::Flag0Check);
 	FlagChecks.push_back(&AStage::Flag1Check);
 	FlagChecks.push_back(&AStage::Flag2Check);
+	FlagChecks.push_back(&AStage::Flag3Check);
+	FlagChecks.push_back(&AStage::Flag4Check);
+	FlagChecks.push_back(&AStage::Flag5Check);
+	FlagChecks.push_back(&AStage::Flag6Check);
+	FlagChecks.push_back(&AStage::Flag7Check);
+	FlagChecks.push_back(&AStage::Flag8Check);
 	FlagChecks.push_back(&AStage::Flag9Check);
 
 }
@@ -44,7 +50,7 @@ void AStage::IsCompleted()
 	{
 		for (int i = 0; i < FlagChecks.size(); i++)
 		{
-			if ((this->*(FlagChecks[i]))() == true)
+			if ((this->*(FlagChecks[i]))() == true)	// if the function in FlagChecks returns true
 			{
 				FlagChecks.erase(FlagChecks.begin() + i);
 			}
@@ -58,52 +64,51 @@ void AStage::IsCompleted()
 
 bool AStage::Flag0Check()
 {
-	return false;
+	return true;
 }
 
 bool AStage::Flag1Check()
 {
-	return false;
+	return true;
 }
 
 bool AStage::Flag2Check()
 {
-	return false;
+	return true;
 }
 
 bool AStage::Flag3Check()
 {
-	return false;
+	return true;
 }
 
 bool AStage::Flag4Check()
 {
-	return false;
+	return true;
 }
 
 bool AStage::Flag5Check()
 {
-	return false;
+	return true;
 }
 
 bool AStage::Flag6Check()
 {
-	return false;
+	return true;
 }
 
 bool AStage::Flag7Check()
 {
-	return false;
+	return true;
 }
 
 bool AStage::Flag8Check()
 {
-	return false;
+	return true;
 }
 
 bool AStage::Flag9Check()
 {
-	UE_LOG(LogTemp, Warning, TEXT("99999999999"));
-	return false;
+	return true;
 }
 

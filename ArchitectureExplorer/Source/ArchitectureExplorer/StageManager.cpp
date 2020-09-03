@@ -16,7 +16,10 @@ AStageManager::AStageManager()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	Stages.push_back(AStage1::StaticClass());
+	//Stages.push_back(AStage1::StaticClass());
+
+	
+	// RootStageNode.NextStage.push_back(AStage2::StaticClass());
 	
 }
 
@@ -24,15 +27,13 @@ AStageManager::AStageManager()
 void AStageManager::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	FVector Location(0.0f, 0.0f, 0.0f);
-	FRotator Rotation(0.0f, 0.0f, 0.0f);
-	FActorSpawnParameters SpawnInfo;
 
-	GetWorld()->SpawnActor<AStage>(Stages[0]);
-	CurrentStage = UGameplayStatics::GetActorOfClass(GetWorld(), Stages[0]);
-	
+	//CurrentStage = GetWorld()->SpawnActor<AStage>(Stages[0]);
 	//GetWorld()->DestroyActor(CurrentStage);
+
+
+	SetupStageNodes();
+
 
 	//QUICK ON/OFF PROTOTYPE CODE FOR LIGHT FIXTURE MATERIALS
 	//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,6 +59,7 @@ void AStageManager::BeginPlay()
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 }
 
 // Called every frame
@@ -65,5 +67,15 @@ void AStageManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void AStageManager::SetupStageNodes()
+{
+	StageNode0 = new StageNode;
+	StageNode0->StageClass = AStage1::StaticClass();
+
+	constexpr size_t sizeOfT = sizeof(StageNode0);
+
+	GetWorld()->SpawnActor<AStage>(StageNode0->StageClass);
 }
 

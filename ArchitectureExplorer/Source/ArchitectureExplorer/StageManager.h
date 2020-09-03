@@ -28,8 +28,17 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	AActor * CurrentStage;
 
-	vector<TSubclassOf<AStage>> Stages; 
+	//AActor * CurrentStage;
+	//vector<TSubclassOf<AStage>> Stages;
 
+	struct StageNode
+	{
+		TSubclassOf<AStage> StageClass;
+		vector<StageNode*> NextStage;
+	};
+
+	StageNode * StageNode0 = nullptr;	// Root
+
+	void SetupStageNodes();
 };

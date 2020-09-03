@@ -5,6 +5,9 @@
 #include "CoreMinimal.h"
 #include "Stage.h"
 #include <vector>
+#include "BoxTrigger.h"
+#include "Engine/TriggerBox.h"
+#include "Engine/World.h"
 #include "Stage1.generated.h"
 
 using namespace std;
@@ -25,24 +28,18 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:
-	// Called every frame
-	//virtual void Tick(float DeltaTime) override;
-
-	// bool for determining if the player has completed this stage
-	//bool bIsCompleted = false;
-
 protected:
 
-	// function for changing bIsCompleted to true if all of the flags are true
-	//virtual void IsCompleted() override;
+	virtual bool Flag0Check() override;	//	Listen to full radio / answering machine message
+	virtual bool Flag1Check() override;	//	Trigger box flag template
 
-	virtual bool Flag0Check() override;
-	virtual bool Flag1Check() override;
-	virtual bool Flag2Check() override;
+private:
 
-	// Function pointer for a function that returns a bool and takes 0 arguments
-	//typedef bool (AStage1::*FunctionPtrType)(void);
-	// vector holding the boolean functions that check if the player has completed a flag for this stage
-	//vector<FunctionPtrType> FlagChecks;
+	UPROPERTY(EditAnywhere)
+	ABoxTrigger * Trigger1;
+
+private:
+	// Flag setup functions (called in BeginPlay())
+	void SetupFlag0();
+
 };

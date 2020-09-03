@@ -24,6 +24,7 @@ void AHandController::BeginPlay()
 
 	OnActorBeginOverlap.AddDynamic(this, &AHandController::ActorBeginOverlap);
 	OnActorEndOverlap.AddDynamic(this, &AHandController::ActorEndOverlap);
+
 }
 
 // Called every frame
