@@ -89,10 +89,14 @@ private:
 
 public:
 
+	UFUNCTION()
 	void GripLeft() { LeftController->Grip(); }
+	UFUNCTION()
 	void ReleaseLeft() { LeftController->Release(); }
 
+	UFUNCTION()
 	void GripRight() { RightController->Grip(); }
+	UFUNCTION()
 	void ReleaseRight() { RightController->Release(); }
 
 private:

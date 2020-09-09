@@ -30,6 +30,22 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	bool bLeft = false;
+
+public:
+	// Animation stuff
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
+	float GripSize = 25.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
+	float GripSizeDefault = 25.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
+	float GripSizeMax = 100.f;
+
+	float GripSizeCanGrab = 35.f;
+
 private:
 	// Default sub object
 	UPROPERTY(VisibleAnywhere)
@@ -60,5 +76,11 @@ private:
 	bool bIsUsingDoor = false;
 	bool bNewCanUseDoor = false;
 	FVector UsingDoorLocation;
+
+	bool bCanGrab = false;
+	bool bIsGrabbing = false;
+	bool bNewCanGrab = false;
+
+	AActor * GrabActor;
 
 };

@@ -123,10 +123,6 @@ void ADoor::SlowClose(float CloseVelocity)
 
 void ADoor::Swing(float DeltaTime)
 {
-	//UE_LOG(LogTemp, Warning, TEXT("SWING: %f"), SwingVelocity);
-
-	//SwingVelocity = SwingVelocity - (HingeFriction * DeltaTime);
-
 	if (fabsf(SwingVelocity) < 0.0001f)
 	{
 		bSwing = false;
@@ -135,7 +131,7 @@ void ADoor::Swing(float DeltaTime)
 	SwingVelocity = (SwingVelocity > 0) ? SwingVelocity - (HingeFriction * DeltaTime) : SwingVelocity - (-HingeFriction * DeltaTime);
 
 	FQuat DHQ = DoorHinge->GetComponentQuat();
-	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SwingVelocity * DeltaTime);
+	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SwingVelocity);
 	FQuat NewQuat = DHQ * DQ;
 
 	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
@@ -157,9 +153,6 @@ void ADoor::Swing(float DeltaTime)
 		{
 			SwingVelocity = -SwingVelocity / 16.f;
 		}
-		//DoorHinge->SetWorldRotation(MaxRotation);
-		//bSwing = false;
-		//UE_LOG(LogTemp, Warning, TEXT("MAX"));
 	}
 	else
 	{
@@ -177,16 +170,11 @@ void ADoor::UseDoor(float DeltaTime)
 	float Dot = FVector::DotProduct(HCDelta.GetSafeNormal(), DFV);
 	FQuat DHQ = DoorHinge->GetComponentQuat();
 
-	SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI)) / 130.f;
-
+	SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI)) * 0.0002f;
 	SlerpSize = (SlerpSize > 3.f) ? 3.f : SlerpSize;
 
-	//FRotator DR = FRotator(0, DeltaYaw * 10 * DeltaTime, 0);
-	//FQuat DQ = UQuatRotLib::Euler_To_Quaternion(DR);
-	//UQuatRotLib::AddActorLocalRotationQuat(this, DQ);
-
 	UE_LOG(LogTemp, Warning, TEXT("SLRP: %f"), SlerpSize);
-	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SlerpSize * DeltaTime);
+	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SlerpSize);
 	FQuat NewQuat = DHQ * DQ;
 
 	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
@@ -208,32 +196,7 @@ void ADoor::UseDoor(float DeltaTime)
 	{
 		DoorHinge->AddLocalRotation(DQ);
 	}
-	
-	//UE_LOG(LogTemp, Warning, TEXT("Min: %f"), UKismetMathLibrary::Quat_AngularDistance(DoorHinge->GetComponentQuat(), MinRotation));
-	//UE_LOG(LogTemp, Warning, TEXT("Max: %f"), UKismetMathLibrary::Quat_AngularDistance(DoorHinge->GetComponentQuat(), MaxRotation));
 
-	
-
-	/*
-	if (DoorHinge->GetComponentQuat().Equals(MinRotation, 0.01f))
-	{
-		if (Dot > 0)
-		{
-			DoorHinge->AddLocalRotation(DQ);
-		}
-	}
-	else if (DoorHinge->GetComponentQuat().Equals(MaxRotation, 0.01f))
-	{
-		if (Dot < 0)
-		{
-			DoorHinge->AddLocalRotation(DQ);
-		}
-	}
-	else if()
-	{
-		DoorHinge->AddLocalRotation(DQ);
-	}
-	*/
 	LastHCLocation = HandController->GetActorLocation();
 }
 

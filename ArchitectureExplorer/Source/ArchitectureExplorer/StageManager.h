@@ -39,6 +39,14 @@ private:
 	};
 
 	StageNode * StageNode0 = nullptr;	// Root
+	StageNode * StageNode2 = nullptr;
+
+	StageNode * CurrentNode = nullptr;
+	AActor * CurrentStageActor = nullptr;
 
 	void SetupStageNodes();
+
+	void TESTLIGHTFUNCTION();
+
+	bool CurrentStageCompleted();
 };

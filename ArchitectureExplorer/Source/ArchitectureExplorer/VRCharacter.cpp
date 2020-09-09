@@ -74,8 +74,7 @@ void AVRCharacter::BeginPlay()
 		LeftController->SetHand(EControllerHand::Left);
 		LeftController->SetOwner(this);
 		LeftController->SetActorScale3D(FVector(1.f,-1.f,1.f));
-		LeftController->SetActorRelativeLocation(FVector(-10, -4, -2));
-		LeftController->SetActorRelativeRotation(FQuat(FVector(1,0,0), FMath::DegreesToRadians(100)));
+		//LeftController->SetActorRelativeLocation(FVector(-10, -4, -2));
 	}
 
 	RightController = GetWorld()->SpawnActor<AHandController>(HandControllerClass);
