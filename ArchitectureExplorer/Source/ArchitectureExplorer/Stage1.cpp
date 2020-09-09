@@ -4,6 +4,8 @@
 #include "Engine/TriggerBox.h"
 #include "Engine/World.h"
 #include "Stage1.h"
+#include "Kismet/GameplayStatics.h"
+#include "LightManager.h"
 
 
 // Sets default values
@@ -26,13 +28,13 @@ bool AStage1::Flag0Check()
 	//UE_LOG(LogTemp, Warning, TEXT("000000000FUNCTION PONITER WORKS!! LLOLOLOL"));
 
 	//	If player listens to full answering machine / radio message.
-	return false;
+	return true;
 	
 }
 
 bool AStage1::Flag1Check()
 {
-	//UE_LOG(LogTemp, Warning, TEXT("1111111111FUNCTION PONITER WORKS!! LLOLOLOL"));
+	
 
 	if (Trigger1->bTriggered)
 	{

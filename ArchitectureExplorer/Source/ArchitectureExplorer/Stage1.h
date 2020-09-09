@@ -31,7 +31,7 @@ protected:
 protected:
 
 	virtual bool Flag0Check() override;	//	Listen to full radio / answering machine message
-	virtual bool Flag1Check() override;	//	Trigger box flag template
+	virtual bool Flag1Check() override;	//	Trigger box flag (WILL NOT BE IN THIS STAGE)
 
 private:
 

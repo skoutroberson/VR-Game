@@ -55,7 +55,7 @@ public:
 private:
 	float SwingVelocity;
 	float SlerpSize;
-	float HingeFriction = 0.48f;
+	float HingeFriction = 0.008f;
 	float DoorLength = 91.f;
 	float MaxAngleRadians = 0;
 

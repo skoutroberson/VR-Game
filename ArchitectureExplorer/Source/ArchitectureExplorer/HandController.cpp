@@ -6,6 +6,10 @@
 #include "GameFramework/PlayerController.h"
 #include "Door.h"
 #include "XRMotionControllerBase.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "Flashlight.h"
+#include "Grabbable.h"
+#include "Components/StaticMeshComponent.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -13,8 +17,8 @@ AHandController::AHandController()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	MotionController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("MotionController"));
-	SetRootComponent(MotionController);
+MotionController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("MotionController"));
+SetRootComponent(MotionController);
 }
 
 // Called when the game starts or when spawned
@@ -38,22 +42,50 @@ void AHandController::Tick(float DeltaTime)
 		GetAttachParentActor()->AddActorWorldOffset(-HandControllerDelta);
 		UE_LOG(LogTemp, Warning, TEXT("CLIMBINGGGGGGGG"));
 	}
-
 }
 
 void AHandController::Grip()
 {
-	// climb
-	if (bCanClimb)
+	if (bCanGrab)
+	{
+		if (!bIsGrabbing)
+		{
+			bIsGrabbing = true;
+			AGrabbable * ActorToGrab = Cast<AGrabbable>(GrabActor);
+			if (ActorToGrab != nullptr)
+			{
+				// I could make this mesh global
+				UStaticMeshComponent * Mesh;
+				Mesh = Cast<UStaticMeshComponent>(GrabActor->GetComponentByClass(UStaticMeshComponent::StaticClass()));
+				if (Mesh != nullptr)
+				{
+					UE_LOG(LogTemp, Warning, TEXT("%s"), *ActorToGrab->GetName());
+					GripSize = ActorToGrab->ItemGripSize;
+					FName SocketName = TEXT("GrabSocket");
+					Mesh->SetSimulatePhysics(false);
+					//GrabActor->AttachToComponent(this->GetRootComponent(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, SocketName);
+					
+					GrabActor->AttachToActor(this, FAttachmentTransformRules::SnapToTargetNotIncludingScale, SocketName);
+				}
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("CAST FAILED!!!!!"));
+			}
+			return;
+		}
+	}
+	else if (bCanClimb)
 	{
 		if (!bIsClimbing)
 		{
 			bIsClimbing = true;
 			ClimbingStartLocation = GetActorLocation();
+			GripSize = 80.f;
+			return;
 		}
 	}
-	// door
-	if (bCanUseDoor)
+	else if (bCanUseDoor)
 	{
 		if (!bIsUsingDoor)
 		{
@@ -64,7 +96,8 @@ void AHandController::Grip()
 			{
 				CurrentDoor->PassController(this);
 				CurrentDoor->SetIsBeingUsed(true);
-
+				GripSize = 80.f;
+				return;
 			}
 			else
 			{
@@ -73,6 +106,7 @@ void AHandController::Grip()
 			//UsingDoorLocation = GetActorLocation();
 		}
 	}
+	GripSize = GripSizeMax;
 }
 
 void AHandController::Release()
@@ -94,6 +128,25 @@ void AHandController::Release()
 		}
 		//free(OverlappingDoor);
 	}
+
+	if (bIsGrabbing)
+	{
+		bIsGrabbing = false;
+
+		UStaticMeshComponent * Mesh;
+		Mesh = Cast<UStaticMeshComponent>(GrabActor->GetComponentByClass(UStaticMeshComponent::StaticClass()));
+		if (Mesh != nullptr)
+		{
+			GrabActor->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+			Mesh->SetSimulatePhysics(true);
+			GrabActor = nullptr;
+		}
+	}
+
+	if (GripSize != GripSizeDefault)
+	{
+		GripSize = GripSizeDefault;
+	}
 }
 
 void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor)
@@ -101,10 +154,29 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 	// Set bNewCanClimb and bNewCanUseDoor
 	CanInteract();
 
+	// Grab mechanics
+	if (!bCanGrab && bNewCanGrab)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Can Grab!"));
+		GripSize = GripSizeCanGrab;
+
+		APawn* Pawn = Cast<APawn>(GetAttachParentActor());
+		if (Pawn != nullptr)
+		{
+			APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
+
+			if (Controller != nullptr)
+			{
+				Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
+			}
+		}
+	}
+	bCanGrab = bNewCanGrab;
 	// Climb mechanics
 	if (!bCanClimb && bNewCanClimb)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Can Climb!"));
+		GripSize = GripSizeCanGrab;
 
 		APawn* Pawn = Cast<APawn>(GetAttachParentActor());
 		if (Pawn != nullptr)
@@ -122,6 +194,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 	if (!bIsUsingDoor && !bCanUseDoor && bNewCanUseDoor)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Can use door!"));
+		GripSize = GripSizeCanGrab;
 
 		APawn* Pawn = Cast<APawn>(GetAttachParentActor());
 		if (Pawn != nullptr)
@@ -143,6 +216,12 @@ void AHandController::ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActo
 	CanInteract();
 	bCanClimb = bNewCanClimb;
 	bCanUseDoor = bNewCanUseDoor;
+	bCanGrab = bNewCanGrab;
+
+	if (GripSize == GripSizeCanGrab)
+	{
+		GripSize = GripSizeDefault;
+	}
 }
 
 void AHandController::CanInteract()
@@ -151,12 +230,18 @@ void AHandController::CanInteract()
 	GetOverlappingActors(OverlappingActors);
 	for (AActor* OverlappingActor : OverlappingActors)
 	{
-		if (OverlappingActor->ActorHasTag(TEXT("Climbable")))
+		if (OverlappingActor->ActorHasTag(TEXT("Grab")))
+		{
+			bNewCanGrab = true;
+			GrabActor = OverlappingActor;
+			return;
+		}
+		else if (OverlappingActor->ActorHasTag(TEXT("Climbable")))
 		{
 			bNewCanClimb = true;
 			return;
 		}
-		if (OverlappingActor->ActorHasTag(TEXT("Door")))
+		else if (OverlappingActor->ActorHasTag(TEXT("Door")))
 		{
 			bNewCanUseDoor = true;
 			OverlappingDoor = OverlappingActor;
@@ -165,5 +250,8 @@ void AHandController::CanInteract()
 	}
 	bNewCanClimb = false;
 	bNewCanUseDoor = false;
+	bNewCanGrab = false;
 }
+
+
 

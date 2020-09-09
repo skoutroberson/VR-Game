@@ -1,8 +1,9 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ // Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "StageManager.h"
 #include "Stage1.h"
+#include "Stage2.h"
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
 #include "Engine/StaticMeshActor.h"
@@ -15,11 +16,6 @@ AStageManager::AStageManager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	//Stages.push_back(AStage1::StaticClass());
-
-	
-	// RootStageNode.NextStage.push_back(AStage2::StaticClass());
 	
 }
 
@@ -28,13 +24,39 @@ void AStageManager::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//CurrentStage = GetWorld()->SpawnActor<AStage>(Stages[0]);
-	//GetWorld()->DestroyActor(CurrentStage);
-
-
 	SetupStageNodes();
 
+}
 
+// Called every frame
+void AStageManager::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	CurrentStageCompleted();
+
+}
+
+void AStageManager::SetupStageNodes()
+{
+	StageNode0 = new StageNode;
+	StageNode2 = new StageNode;
+
+	CurrentNode = StageNode0;
+
+	StageNode0->StageClass = AStage1::StaticClass();
+	StageNode0->NextStage.push_back(StageNode2);
+
+	StageNode2->StageClass = AStage2::StaticClass();
+
+	//constexpr size_t sizeOfT = sizeof(StageNode0);
+
+	CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode0->StageClass);
+	//GetWorld()->DestroyActor(CurrentStage);
+}
+
+void AStageManager::TESTLIGHTFUNCTION()
+{
 	//QUICK ON/OFF PROTOTYPE CODE FOR LIGHT FIXTURE MATERIALS
 	//////////////////////////////////////////////////////////////////////////////////////////////////////
 	//FString LampString = FString("Lamp1");
@@ -58,24 +80,21 @@ void AStageManager::BeginPlay()
 		Lamp->SetScalarParameterValueOnMaterials(TEXT("EmissiveWeight"), 100.f);
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 }
 
-// Called every frame
-void AStageManager::Tick(float DeltaTime)
+bool AStageManager::CurrentStageCompleted()
 {
-	Super::Tick(DeltaTime);
+	AStage * TestStage = Cast<AStage>(CurrentStageActor);
 
-}
+	if (TestStage != nullptr)
+	{
+		if (TestStage->bIsCompleted)
+		{
+			GetWorld()->DestroyActor(TestStage);
+			CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode2->StageClass);
+		}
+	}
 
-void AStageManager::SetupStageNodes()
-{
-	StageNode0 = new StageNode;
-	StageNode0->StageClass = AStage1::StaticClass();
-
-	constexpr size_t sizeOfT = sizeof(StageNode0);
-
-	GetWorld()->SpawnActor<AStage>(StageNode0->StageClass);
+	return false;
 }
 
