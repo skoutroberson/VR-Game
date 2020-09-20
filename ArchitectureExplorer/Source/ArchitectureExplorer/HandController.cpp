@@ -10,6 +10,8 @@
 #include "Flashlight.h"
 #include "Grabbable.h"
 #include "Components/StaticMeshComponent.h"
+#include "DrawDebugHelpers.h"
+#include "Components/SkeletalMeshComponent.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -17,8 +19,8 @@ AHandController::AHandController()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-MotionController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("MotionController"));
-SetRootComponent(MotionController);
+	MotionController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("MotionController"));
+	SetRootComponent(MotionController);
 }
 
 // Called when the game starts or when spawned
@@ -29,6 +31,13 @@ void AHandController::BeginPlay()
 	OnActorBeginOverlap.AddDynamic(this, &AHandController::ActorBeginOverlap);
 	OnActorEndOverlap.AddDynamic(this, &AHandController::ActorEndOverlap);
 
+	UActorComponent * MeshComponent = GetComponentByClass(USkeletalMeshComponent::StaticClass());
+	HandMesh = Cast<USkeletalMeshComponent>(MeshComponent);
+	if (HandMesh == nullptr)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Skeletal Mesh cast failed in HandController.cpp"));
+	}
+
 }
 
 // Called every frame
@@ -36,16 +45,24 @@ void AHandController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//DrawDebugLines(DeltaTime);	///////////////////// DEBUG HELPER
+
 	if (bIsClimbing)
 	{
 		FVector HandControllerDelta = GetActorLocation() - ClimbingStartLocation;
 		GetAttachParentActor()->AddActorWorldOffset(-HandControllerDelta);
 		UE_LOG(LogTemp, Warning, TEXT("CLIMBINGGGGGGGG"));
 	}
+	else if (bIsUsingDoor)
+	{
+		CheckDoorDistance();
+	}
 }
 
 void AHandController::Grip()
 {
+	bIsGripping = true;
+
 	if (bCanGrab)
 	{
 		if (!bIsGrabbing)
@@ -55,22 +72,32 @@ void AHandController::Grip()
 			if (ActorToGrab != nullptr)
 			{
 				// I could make this mesh global
-				UStaticMeshComponent * Mesh;
-				Mesh = Cast<UStaticMeshComponent>(GrabActor->GetComponentByClass(UStaticMeshComponent::StaticClass()));
+				UPrimitiveComponent * Mesh;
+				Mesh = Cast<UPrimitiveComponent>(GrabActor->GetComponentByClass(UPrimitiveComponent::StaticClass()));
 				if (Mesh != nullptr)
 				{
-					UE_LOG(LogTemp, Warning, TEXT("%s"), *ActorToGrab->GetName());
-					GripSize = ActorToGrab->ItemGripSize;
-					FName SocketName = TEXT("GrabSocket");
-					Mesh->SetSimulatePhysics(false);
-					//GrabActor->AttachToComponent(this->GetRootComponent(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, SocketName);
+					FName SocketName = TEXT("");
+					if (GrabActor->ActorHasTag(TEXT("Flashlight")))
+					{
+						bIsHoldingFlashlight = true;
+						SocketName = TEXT("GrabSocket");
+					}
+					else if (GrabActor->ActorHasTag(TEXT("Chainsaw")))
+					{
+						bIsHoldingChainsaw = true;
+						SocketName = TEXT("ChainSocket");
+					}
 					
-					GrabActor->AttachToActor(this, FAttachmentTransformRules::SnapToTargetNotIncludingScale, SocketName);
+					Mesh->SetSimulatePhysics(false);
+					GripSize = ActorToGrab->ItemGripSize;
+					GrabActor->AttachToComponent(HandMesh, FAttachmentTransformRules::SnapToTargetIncludingScale, SocketName);
+					
+					//UE_LOG(LogTemp, Warning, TEXT("%s"), *ActorToGrab->GetName());
 				}
 			}
 			else
 			{
-				UE_LOG(LogTemp, Warning, TEXT("CAST FAILED!!!!!"));
+				UE_LOG(LogTemp, Warning, TEXT("ActorToGrab cast failed!"));
 			}
 			return;
 		}
@@ -90,6 +117,9 @@ void AHandController::Grip()
 		if (!bIsUsingDoor)
 		{
 			bIsUsingDoor = true;
+
+			OverlappingKnob = OverlappingDoor->GetRootComponent()->GetChildComponent(2);	/////////////////////////////////
+
 			ADoor* CurrentDoor = Cast<ADoor>(OverlappingDoor);
 
 			if (CurrentDoor != nullptr)
@@ -111,6 +141,8 @@ void AHandController::Grip()
 
 void AHandController::Release()
 {
+	bIsGripping = false;
+
 	//climb
 	if (bIsClimbing)
 	{
@@ -129,18 +161,31 @@ void AHandController::Release()
 		//free(OverlappingDoor);
 	}
 
-	if (bIsGrabbing)
+	if (bIsGrabbing)	// NEED TO FIX THIS CODE TO NOT DROP AN ITEM IF THE OTHER HAND IS HOLDING IT
 	{
 		bIsGrabbing = false;
 
-		UStaticMeshComponent * Mesh;
-		Mesh = Cast<UStaticMeshComponent>(GrabActor->GetComponentByClass(UStaticMeshComponent::StaticClass()));
-		if (Mesh != nullptr)
+		if (GrabActor != nullptr)
 		{
-			GrabActor->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-			Mesh->SetSimulatePhysics(true);
-			GrabActor = nullptr;
+			if (GrabActor->ActorHasTag(TEXT("Flashlight")))
+			{
+				bIsHoldingFlashlight = false;
+			}
+			else if (GrabActor->ActorHasTag(TEXT("Chainsaw")))
+			{
+				bIsHoldingChainsaw = true;
+			}
+
+			UPrimitiveComponent * Mesh = nullptr;
+			Mesh = Cast<UPrimitiveComponent>(GrabActor->GetComponentByClass(UPrimitiveComponent::StaticClass()));
+			if (Mesh != nullptr)
+			{
+				GrabActor->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+				Mesh->SetSimulatePhysics(true);
+				GrabActor = nullptr;
+			}
 		}
+		
 	}
 
 	if (GripSize != GripSizeDefault)
@@ -151,76 +196,82 @@ void AHandController::Release()
 
 void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor)
 {
-	// Set bNewCanClimb and bNewCanUseDoor
-	CanInteract();
-
-	// Grab mechanics
-	if (!bCanGrab && bNewCanGrab)
+	if (!bIsGripping)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Can Grab!"));
-		GripSize = GripSizeCanGrab;
+		// Set bNewCanClimb and bNewCanUseDoor
+		CanInteract();
 
-		APawn* Pawn = Cast<APawn>(GetAttachParentActor());
-		if (Pawn != nullptr)
+		// Grab mechanics
+		if (!bCanGrab && bNewCanGrab)
 		{
-			APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
+			UE_LOG(LogTemp, Warning, TEXT("Can Grab!"));
+			GripSize = GripSizeCanGrab;
 
-			if (Controller != nullptr)
+			APawn* Pawn = Cast<APawn>(GetAttachParentActor());
+			if (Pawn != nullptr)
 			{
-				Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
+				APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
+
+				if (Controller != nullptr)
+				{
+					Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
+				}
 			}
 		}
-	}
-	bCanGrab = bNewCanGrab;
-	// Climb mechanics
-	if (!bCanClimb && bNewCanClimb)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Can Climb!"));
-		GripSize = GripSizeCanGrab;
-
-		APawn* Pawn = Cast<APawn>(GetAttachParentActor());
-		if (Pawn != nullptr)
+		bCanGrab = bNewCanGrab;
+		// Climb mechanics
+		if (!bCanClimb && bNewCanClimb)
 		{
-			APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
+			UE_LOG(LogTemp, Warning, TEXT("Can Climb!"));
+			GripSize = GripSizeCanGrab;
 
-			if (Controller != nullptr)
+			APawn* Pawn = Cast<APawn>(GetAttachParentActor());
+			if (Pawn != nullptr)
 			{
-				Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
+				APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
+
+				if (Controller != nullptr)
+				{
+					Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
+				}
 			}
 		}
-	}
-	bCanClimb = bNewCanClimb;
-	// Door mechanics
-	if (!bIsUsingDoor && !bCanUseDoor && bNewCanUseDoor)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Can use door!"));
-		GripSize = GripSizeCanGrab;
-
-		APawn* Pawn = Cast<APawn>(GetAttachParentActor());
-		if (Pawn != nullptr)
+		bCanClimb = bNewCanClimb;
+		// Door mechanics
+		if (!bIsUsingDoor && !bCanUseDoor && bNewCanUseDoor)
 		{
-			APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
+			UE_LOG(LogTemp, Warning, TEXT("Can use door!"));
+			GripSize = GripSizeCanGrab;
 
-			if (Controller != nullptr)
+			APawn* Pawn = Cast<APawn>(GetAttachParentActor());
+			if (Pawn != nullptr)
 			{
-				Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
+				APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
+
+				if (Controller != nullptr)
+				{
+					Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
+				}
 			}
 		}
+		bCanUseDoor = bNewCanUseDoor;
 	}
-	bCanUseDoor = bNewCanUseDoor;
 }
 
 void AHandController::ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActor)
 {
-	//bCanClimb = CanClimb();
-	CanInteract();
-	bCanClimb = bNewCanClimb;
-	bCanUseDoor = bNewCanUseDoor;
-	bCanGrab = bNewCanGrab;
-
-	if (GripSize == GripSizeCanGrab)
+	if (!bIsGripping)
 	{
-		GripSize = GripSizeDefault;
+		//bCanClimb = CanClimb();
+		CanInteract();
+		bCanClimb = bNewCanClimb;
+		bCanUseDoor = bNewCanUseDoor;
+		bCanGrab = bNewCanGrab;
+
+		if (GripSize == GripSizeCanGrab)
+		{
+			GripSize = GripSizeDefault;
+		}
 	}
 }
 
@@ -232,6 +283,8 @@ void AHandController::CanInteract()
 	{
 		if (OverlappingActor->ActorHasTag(TEXT("Grab")))
 		{
+			//UE_LOG(LogTemp, Warning, TEXT("%s"), *OverlappingActor->GetName());
+
 			bNewCanGrab = true;
 			GrabActor = OverlappingActor;
 			return;
@@ -253,5 +306,34 @@ void AHandController::CanInteract()
 	bNewCanGrab = false;
 }
 
+void AHandController::CheckDoorDistance()
+{
+	
+}
 
+void AHandController::DrawDebugLines(float DeltaTime)
+{
+	DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + GetActorUpVector() * 20.f, FColor::Red, false, 2 * DeltaTime);
+	DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + GetActorRightVector() * 20.f, FColor::Blue, false, 2 * DeltaTime);
+	DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + GetActorForwardVector() * 20.f, FColor::Green, false, 2 * DeltaTime);
+	FVector RotVec = GetActorUpVector();
+	RotVec = RotVec.RotateAngleAxis(45.f, GetActorRightVector());
 
+	DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + RotVec * 20.f, FColor::Magenta, false, 2 * DeltaTime);
+}
+
+void AHandController::PressFlashlightButton()
+{
+	if (bIsHoldingFlashlight)
+	{
+		ButtonPress = 50.f;
+	}
+}
+
+void AHandController::ReleaseFlashlightButton()
+{
+	if (bIsHoldingFlashlight)
+	{
+		ButtonPress = 35.f;
+	}
+}

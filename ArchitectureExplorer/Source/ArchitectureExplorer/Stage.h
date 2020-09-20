@@ -22,6 +22,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	virtual void PrintTest();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -29,7 +31,7 @@ public:
 public:
 	bool bIsCompleted = false;
 
-private:
+protected:
 	virtual void IsCompleted();
 
 	virtual bool Flag0Check();

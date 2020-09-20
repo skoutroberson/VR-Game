@@ -46,6 +46,20 @@ public:
 
 	float GripSizeCanGrab = 35.f;
 
+	// Flashlight variables/functions
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
+	float ButtonPress = 35.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
+	bool bIsHoldingFlashlight = false;
+
+	void PressFlashlightButton();
+	void ReleaseFlashlightButton();
+
+	// Chainsaw variables/functions
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
+	bool bIsHoldingChainsaw = false;
+
 private:
 	// Default sub object
 	UPROPERTY(VisibleAnywhere)
@@ -58,13 +72,14 @@ private:
 	// Callbacks
 
 	UFUNCTION()
-	void ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
-	UFUNCTION()
+	void ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);	// I nested both of these functions. There might be a 
+	UFUNCTION()																// better solution than the if(!bIsGripping)
 	void ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActor);
 
 	// Helpers
 	void CanInteract();
 	AActor* OverlappingDoor = nullptr;
+	USceneComponent * OverlappingKnob = nullptr;
 
 	// State
 	bool bCanClimb = false;
@@ -81,6 +96,19 @@ private:
 	bool bIsGrabbing = false;
 	bool bNewCanGrab = false;
 
+	bool bIsGripping = false;
+
+	// Actor that the hand controller is picking up
 	AActor * GrabActor;
+
+	USkeletalMeshComponent * HandMesh;
+
+private:
+	// Stops the player is they are holding on to door handle and moving too far away
+	void CheckDoorDistance();
+
+private:
+	// Debug functions
+	void DrawDebugLines(float DeltaTime);
 
 };

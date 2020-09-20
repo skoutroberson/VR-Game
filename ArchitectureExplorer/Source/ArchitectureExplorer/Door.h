@@ -46,7 +46,6 @@ public:
 	// Mechanic functions
 	void UseDoor(float DeltaTime);
 	void Swing(float DeltaTime);
-	void SlowClose(float CloseVelocity);
 
 	// State
 	bool bIsBeingUsed = false;
@@ -55,8 +54,8 @@ public:
 private:
 	float SwingVelocity;
 	float SlerpSize;
-	float HingeFriction = 0.008f;
-	float DoorLength = 91.f;
+	const float HingeFriction = 0.008f;
+	const float DoorLength = 91.f;
 	float MaxAngleRadians = 0;
 
 	bool KnobCollision = false;
@@ -71,5 +70,18 @@ private:
 	FVector2D ConvertVector3D(FVector Vec);
 	FQuat CalcGoalQuat(FVector GoalVec);
 	float BinarySearchForMaxAngle();
+
+	// Functions to be called in Stage classes!
+public:
+	// bool for not letting the player use the door if the stage closes/is closing it 
+	bool bCloseDoorFast = false;
+private:
+	void CloseDoorFast(float DeltaTime);
+	bool bStageLock = false;
+	float CloseDoorFastVelocity = 0.0001f;
+
+private:
+	float YawAngle = -1.f;
+	int DoorCloseDirection = 0;
 
 };

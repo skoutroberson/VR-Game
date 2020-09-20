@@ -26,5 +26,7 @@ protected:
 protected:
 
 	virtual bool Flag0Check() override;
+
+	virtual void PrintTest() override;
 	
 };

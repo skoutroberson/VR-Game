@@ -99,6 +99,13 @@ public:
 	UFUNCTION()
 	void ReleaseRight() { RightController->Release(); }
 
+	UFUNCTION()
+	void PressA() { RightController->PressFlashlightButton(); }
+	void ReleaseA() { RightController->ReleaseFlashlightButton(); }
+
+	void PressX() { LeftController->PressFlashlightButton(); }
+	void ReleaseX() { LeftController->ReleaseFlashlightButton(); }
+
 private:
 	bool bAction1 = false;
 	bool bAction2 = false;
