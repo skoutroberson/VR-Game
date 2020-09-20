@@ -35,7 +35,7 @@ public:
 
 	Light Lights[100] = { };
 
-	// Set Emmissive Value for light material. 
+	// Set Emmissive Value for light material. 0 is off
 	void SetEmmissive(float Value, int index);
 
 };

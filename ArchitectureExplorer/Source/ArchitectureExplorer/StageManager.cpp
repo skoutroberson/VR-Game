@@ -52,6 +52,7 @@ void AStageManager::SetupStageNodes()
 	//constexpr size_t sizeOfT = sizeof(StageNode0);
 
 	CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode0->StageClass);
+	
 	//GetWorld()->DestroyActor(CurrentStage);
 }
 

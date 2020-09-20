@@ -25,5 +25,14 @@ public:
 
 public:
 	float ItemGripSize = 100.f;
+	FRotator ItemRotation = FRotator(0, 0, 0);
+	FVector ItemLocation = FVector(0, 0, 0);
+	//FRotator ItemRotation = FRotator(0, -75.f, -85.f);
+	//FVector ItemLocation = FVector(4.f, 11.f, -3.5f);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = CustomVariables)
+	bOneHandHeld = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = CustomVariables)
+	bTwoHandHeld = false;
 
 };

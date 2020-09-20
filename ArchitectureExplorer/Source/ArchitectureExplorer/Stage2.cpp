@@ -9,7 +9,7 @@
 
 AStage2::AStage2()
 {
-
+	PrimaryActorTick.bCanEverTick = true;
 }
 
 void AStage2::BeginPlay()
@@ -26,4 +26,9 @@ void AStage2::BeginPlay()
 bool AStage2::Flag0Check()
 {
 	return false;
+}
+
+void AStage2::PrintTest()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Stage 2"));
 }

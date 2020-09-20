@@ -24,6 +24,8 @@ AStage::AStage()
 	FlagChecks.push_back(&AStage::Flag8Check);
 	FlagChecks.push_back(&AStage::Flag9Check);
 
+	//SetActorTickInterval(1.f);
+
 }
 
 // Called when the game starts or when spawned
@@ -38,7 +40,9 @@ void AStage::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!bIsCompleted)
+	//PrintTest();
+
+	if (!bIsCompleted)	//////////////////// DONT NEED TO CHECK THIS EVERY FRAME! MAKE THIS EVENT DRIVEN
 	{
 		IsCompleted();
 	}
@@ -110,5 +114,10 @@ bool AStage::Flag8Check()
 bool AStage::Flag9Check()
 {
 	return true;
+}
+
+void AStage::PrintTest()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Stage -1"));
 }
 

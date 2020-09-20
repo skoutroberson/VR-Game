@@ -43,6 +43,10 @@ void ADoor::BeginPlay()
 	FVector LV = -DoorHinge->GetRightVector().RotateAngleAxis(LVAngle, DoorHinge->GetUpVector());
 	MinRotation = CalcGoalQuat(DoorHinge->GetForwardVector());
 	MaxRotation = LV.ToOrientationQuat();
+
+	YawAngle = GetActorRotation().Yaw + 180.f;
+	DoorCloseDirection = (YawAngle > 180.f) ? -1 : 1;
+
 	//MaxRotation = LV.RotateAngleAxis(3.f, DoorHinge->GetUpVector()).ToOrientationQuat();
 	
 	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector() * 100.f, FColor::Green, true);
@@ -56,13 +60,17 @@ void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (bIsBeingUsed)
+	if (!bStageLock && bIsBeingUsed)
 	{
 		UseDoor(DeltaTime);
 	}
 	else if (bSwing)
 	{
 		Swing(DeltaTime);
+	}
+	else if (bCloseDoorFast)
+	{
+		CloseDoorFast(DeltaTime);
 	}
 
 }
@@ -87,7 +95,6 @@ float ADoor::BinarySearchForMaxAngle()
 
 	UWorld* World = GetWorld();
 
-	// base case: if door can be opened all the way, don't do all these traces.
 	while (fabsf(Max - Min) > 1.f)
 	{
 		Mid = (Max + Min) / 2.f;
@@ -116,9 +123,34 @@ float ADoor::BinarySearchForMaxAngle()
 	return Mid;
 }
 
-void ADoor::SlowClose(float CloseVelocity)
+void ADoor::CloseDoorFast(float DeltaTime)
 {
+	bStageLock = true;
 
+	CloseDoorFastVelocity += powf(DeltaTime * 6.f, 3.f);
+
+	SwingVelocity = 2.5f * DoorCloseDirection * DeltaTime;
+
+	FQuat DHQ = DoorHinge->GetComponentQuat();
+	FQuat DQ = FQuat(DoorHinge->GetUpVector(), CloseDoorFastVelocity);
+	FQuat NewQuat = DHQ * DQ;
+
+	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
+
+	if (MaxDistance > MaxAngleRadians)
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
+		bCloseDoorFast = false;
+		bStageLock = false;
+		DoorHinge->SetWorldRotation(MinRotation);
+		///////////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
+		///////////////////////////////////////////////////////////////////////////////////////////
+	}
+	else
+	{
+		DoorHinge->AddLocalRotation(DQ, true);
+	}
 }
 
 void ADoor::Swing(float DeltaTime)
@@ -142,6 +174,9 @@ void ADoor::Swing(float DeltaTime)
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 		bSwing = false;
 		DoorHinge->SetWorldRotation(MinRotation);
+		///////////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
+		///////////////////////////////////////////////////////////////////////////////////////////
 	}
 	else if (MinDistance > MaxAngleRadians)
 	{
@@ -162,8 +197,6 @@ void ADoor::Swing(float DeltaTime)
 
 void ADoor::UseDoor(float DeltaTime)
 {
-	//UE_LOG(LogTemp, Warning, TEXT("%f"), FVector(LastHCLocation - HandController->GetActorLocation()).Size());
-
 	FVector HCDelta = LastHCLocation - HandController->GetActorLocation();
 	HCDelta.Z = 0;
 	FVector DFV = DoorHinge->GetForwardVector();

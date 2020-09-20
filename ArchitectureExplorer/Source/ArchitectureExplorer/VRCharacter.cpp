@@ -154,7 +154,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	//	Need to do this every frame so the collision capsule stays on top of the player's camera
 	CorrectCameraOffset();
 
-	//UpdateCapsuleHeight();
+	UpdateCapsuleHeight();
 	
 
 	if (bTeleportEnabled)
@@ -312,6 +312,15 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Pressed, this, &AVRCharacter::GripRight);
 	PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Released, this, &AVRCharacter::ReleaseLeft);
 	PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Released, this, &AVRCharacter::ReleaseRight);
+
+	PlayerInputComponent->BindAction(TEXT("PressA"), IE_Pressed, this, &AVRCharacter::PressA);
+	PlayerInputComponent->BindAction(TEXT("PressA"), IE_Released, this, &AVRCharacter::ReleaseA);
+
+	PlayerInputComponent->BindAction(TEXT("PressX"), IE_Pressed, this, &AVRCharacter::PressX);
+	PlayerInputComponent->BindAction(TEXT("PressX"), IE_Released, this, &AVRCharacter::ReleaseX);
+
+	// Debug inputs for rotating item being carried.
+
 }
 
 void AVRCharacter::Click()
@@ -449,4 +458,3 @@ void AVRCharacter::CorrectCameraOffset()
 	AddActorWorldOffset(NewCameraOffset);
 	VRRoot->AddWorldOffset(-NewCameraOffset);
 }
-
