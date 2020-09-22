@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "MotionControllerComponent.h"
 #include "MotionControllerComponent.h"
+#include "Grabbable.h"
 #include "HandController.generated.h"
 
 UCLASS()
@@ -31,6 +32,12 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	bool bLeft = false;
+
+private:
+	AHandController * SisterController;
+public:
+	// Called by VRCharacter after both HCs are spawned
+	void SetSisterController(AHandController * Sister);
 
 public:
 	// Animation stuff
@@ -98,12 +105,15 @@ private:
 
 	bool bIsGripping = false;
 
-	// Actor that the hand controller is picking up
-	AActor * GrabActor;
+	// Actor that the hand controller can pick up
+	AActor * GrabActor = nullptr;
+
+	AGrabbable * ActorBeingGrabbed = nullptr;
 
 	USkeletalMeshComponent * HandMesh;
 
 private:
+
 	// Stops the player is they are holding on to door handle and moving too far away
 	void CheckDoorDistance();
 

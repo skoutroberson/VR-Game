@@ -31,8 +31,10 @@ public:
 	//FVector ItemLocation = FVector(4.f, 11.f, -3.5f);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = CustomVariables)
-	bOneHandHeld = false;
+	bool bOneHandHeld = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = CustomVariables)
-	bTwoHandHeld = false;
+	bool bTwoHandHeld = false;
+
+	void Grab();
 
 };
