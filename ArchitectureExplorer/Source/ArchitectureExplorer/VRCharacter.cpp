@@ -85,6 +85,8 @@ void AVRCharacter::BeginPlay()
 		RightController->SetOwner(this);
 	}
 
+	LeftController->SetSisterController(RightController);
+	RightController->SetSisterController(LeftController);
 
 	/*
 	//	Check if VR is enabled

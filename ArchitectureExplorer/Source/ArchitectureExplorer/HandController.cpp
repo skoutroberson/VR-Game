@@ -68,9 +68,17 @@ void AHandController::Grip()
 		if (!bIsGrabbing)
 		{
 			bIsGrabbing = true;
-			AGrabbable * ActorToGrab = Cast<AGrabbable>(GrabActor);
-			if (ActorToGrab != nullptr)
+			//AGrabbable * ActorToGrab = Cast<AGrabbable>(GrabActor);
+			ActorBeingGrabbed = Cast<AGrabbable>(GrabActor);
+
+			if (ActorBeingGrabbed != nullptr)
 			{
+
+				if (ActorBeingGrabbed == SisterController->ActorBeingGrabbed)
+				{
+					SisterController->Release();
+				}
+
 				// I could make this mesh global
 				UPrimitiveComponent * Mesh;
 				Mesh = Cast<UPrimitiveComponent>(GrabActor->GetComponentByClass(UPrimitiveComponent::StaticClass()));
@@ -89,15 +97,15 @@ void AHandController::Grip()
 					}
 					
 					Mesh->SetSimulatePhysics(false);
-					GripSize = ActorToGrab->ItemGripSize;
-					GrabActor->AttachToComponent(HandMesh, FAttachmentTransformRules::SnapToTargetIncludingScale, SocketName);
+					GripSize = ActorBeingGrabbed->ItemGripSize;
+					GrabActor->AttachToComponent(HandMesh, FAttachmentTransformRules::SnapToTargetNotIncludingScale, SocketName);
 					
 					//UE_LOG(LogTemp, Warning, TEXT("%s"), *ActorToGrab->GetName());
 				}
 			}
 			else
 			{
-				UE_LOG(LogTemp, Warning, TEXT("ActorToGrab cast failed!"));
+				UE_LOG(LogTemp, Warning, TEXT("ActorBeingGrabbed cast failed!"));
 			}
 			return;
 		}
@@ -336,4 +344,9 @@ void AHandController::ReleaseFlashlightButton()
 	{
 		ButtonPress = 35.f;
 	}
+}
+
+void AHandController::SetSisterController(AHandController * Sister)
+{
+	SisterController = Sister;
 }
