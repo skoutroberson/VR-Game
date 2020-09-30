@@ -74,6 +74,7 @@ void AVRCharacter::BeginPlay()
 		LeftController->SetHand(EControllerHand::Left);
 		LeftController->SetOwner(this);
 		LeftController->SetActorScale3D(FVector(1.f,-1.f,1.f));
+		LeftController->bLeft = true;
 		//LeftController->SetActorRelativeLocation(FVector(-10, -4, -2));
 	}
 

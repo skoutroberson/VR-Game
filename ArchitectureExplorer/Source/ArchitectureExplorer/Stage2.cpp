@@ -9,17 +9,18 @@
 
 AStage2::AStage2()
 {
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 }
 
 void AStage2::BeginPlay()
 {
 	AActor * LM = UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass());
-	ALightManager * LMClass = Cast<ALightManager>(LM);
+	ALightManager * LightManager = Cast<ALightManager>(LM);
 
-	if (LMClass != nullptr)
+	if (LightManager != nullptr)
 	{
-		LMClass->SetEmmissive(0, 0);
+		//LMClass->SetEmmissive(0, 0);
+		LightManager->TurnOff(TEXT("BP_Lamp1_2"));
 	}
 }
 
