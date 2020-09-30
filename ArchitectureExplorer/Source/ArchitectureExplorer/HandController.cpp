@@ -12,6 +12,8 @@
 #include "Components/StaticMeshComponent.h"
 #include "DrawDebugHelpers.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Engine/SkeletalMeshSocket.h"
+#include "Math/RotationAboutPointMatrix.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -46,6 +48,7 @@ void AHandController::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//DrawDebugLines(DeltaTime);	///////////////////// DEBUG HELPER
+	//PrintSocketOffsets(DeltaTime);
 
 	if (bIsClimbing)
 	{
@@ -99,6 +102,35 @@ void AHandController::Grip()
 					Mesh->SetSimulatePhysics(false);
 					GripSize = ActorBeingGrabbed->ItemGripSize;
 					GrabActor->AttachToComponent(HandMesh, FAttachmentTransformRules::SnapToTargetNotIncludingScale, SocketName);
+					
+					// if this is a left hand then rotate the item being picked up 180 degrees around the socket's up vector
+					if (bLeft)
+					{
+						USceneComponent * HandMeshCasted;
+						HandMeshCasted = Cast<USceneComponent>(HandMesh);
+
+						if (HandMeshCasted != nullptr)
+						{
+							
+							
+							/*
+							FRotator SocketRotation = HandMeshCasted->GetSocketRotation(SocketName);
+							//SocketRotation.Y *= -1.f;
+
+							//GrabActor->SetActorRotation(SocketRotation.ToOrientationQuat());
+
+							//GrabActor->SetActorScale3D(FVector(1, -1, 1));
+							FVector SocketLocation = HandMeshCasted->GetSocketLocation(SocketName);
+							FMatrix SockRotPonMat = FRotationAboutPointMatrix::Make(SocketRotation, SocketLocation);
+							FVector SocketVector = SockRotPonMat.GetScaledAxis(EAxis::Y);
+							SocketVector.Y *= -1.f;
+							GrabActor->SetActorRotation(SocketVector.ToOrientationQuat());
+							*/
+							//SocketRotation.Yaw = -SocketRotation.Yaw;
+							//GrabActor->SetActorRotation(SocketRotation.ToOrientationQuat().Inverse());
+
+						}
+					}
 					
 					//UE_LOG(LogTemp, Warning, TEXT("%s"), *ActorToGrab->GetName());
 				}
@@ -349,4 +381,47 @@ void AHandController::ReleaseFlashlightButton()
 void AHandController::SetSisterController(AHandController * Sister)
 {
 	SisterController = Sister;
+}
+
+void AHandController::PrintSocketOffsets(float DeltaTime)
+{
+	USceneComponent * HandMeshCasted;
+	HandMeshCasted = Cast<USceneComponent>(HandMesh);
+
+	if (HandMeshCasted != nullptr)
+	{
+		if (GrabActor != nullptr)
+		{
+			FName SocketName = TEXT("");
+			if (GrabActor->ActorHasTag(TEXT("Flashlight")))
+			{
+				bIsHoldingFlashlight = true;
+				SocketName = TEXT("GrabSocket");
+			}
+			else if (GrabActor->ActorHasTag(TEXT("Chainsaw")))
+			{
+				bIsHoldingChainsaw = true;
+				SocketName = TEXT("ChainSocket");
+			}
+			FRotator SocketRotation = HandMeshCasted->GetSocketRotation(SocketName);
+			FVector SocketLocation = HandMeshCasted->GetSocketLocation(SocketName);
+			FMatrix SockRotPonMat = FRotationAboutPointMatrix::Make(SocketRotation, SocketLocation);
+			FVector SFV = SockRotPonMat.GetScaledAxis(EAxis::X);
+			FVector SRV = SockRotPonMat.GetScaledAxis(EAxis::Y);
+			FVector SUV = SockRotPonMat.GetScaledAxis(EAxis::Z);
+
+			FQuat SQ = HandMeshCasted->GetSocketQuaternion(SocketName);
+			FQuat SI = FQuat(SockRotPonMat.Inverse());
+			
+			DrawDebugLine(GetWorld(), SocketLocation, SocketLocation + SQ.GetForwardVector() * 15.f, FColor::Red, false, 2 * DeltaTime);
+			DrawDebugLine(GetWorld(), SocketLocation, SocketLocation + SQ.GetRightVector() * 15.f, FColor::Green, false, 2 * DeltaTime);
+			DrawDebugLine(GetWorld(), SocketLocation, SocketLocation + SQ.GetUpVector() * 15.f, FColor::Blue, false, 2 * DeltaTime);
+			DrawDebugPoint(GetWorld(), GrabActor->GetActorLocation(), 10.f, FColor::White, false, 2 * DeltaTime);
+
+			DrawDebugLine(GetWorld(), SocketLocation, SocketLocation + SI.GetForwardVector() * 7.f, FColor::Magenta, false, 2 * DeltaTime);
+			DrawDebugLine(GetWorld(), SocketLocation, SocketLocation + SI.GetRightVector() * 7.f, FColor::Emerald, false, 2 * DeltaTime);
+			DrawDebugLine(GetWorld(), SocketLocation, SocketLocation + SI.GetUpVector() * 7.f, FColor::Cyan, false, 2 * DeltaTime);
+		}
+		
+	}
 }

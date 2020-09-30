@@ -32,11 +32,13 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	bool bLeft = false;
+	
+	void PrintSocketOffsets(float DeltaTime);
 
 private:
 	AHandController * SisterController;
 public:
-	// Called by VRCharacter after both HCs are spawned
+	// Called by VRCharacter
 	void SetSisterController(AHandController * Sister);
 
 public:
@@ -107,6 +109,7 @@ private:
 
 	// Actor that the hand controller can pick up
 	AActor * GrabActor = nullptr;
+	FQuat GrabQuat;
 
 	AGrabbable * ActorBeingGrabbed = nullptr;
 
