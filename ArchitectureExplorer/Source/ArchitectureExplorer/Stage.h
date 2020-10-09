@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include <vector>
+#include "Components/BoxComponent.h"
 #include "Stage.generated.h"
 
 using namespace std;
@@ -49,4 +50,9 @@ protected:
 	typedef bool (AStage::*FunctionPtrType)(void);
 	// vector holding the boolean functions that check if the player has completed a flag for this stage
 	vector<FunctionPtrType> FlagChecks;
+
+public:
+	bool StageFlags[10];
+
+
 };

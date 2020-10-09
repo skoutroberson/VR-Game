@@ -4,6 +4,10 @@
 #include "Stage.h"
 #include <vector>
 #include "Stage1.h"
+#include "Components/BoxComponent.h"
+#include "Components/PrimitiveComponent.h"
+#include "VRCharacter.h"
+#include "DrawDebugHelpers.h"
 
 using namespace std;
 
@@ -25,14 +29,12 @@ AStage::AStage()
 	FlagChecks.push_back(&AStage::Flag9Check);
 
 	//SetActorTickInterval(1.f);
-
 }
 
 // Called when the game starts or when spawned
 void AStage::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -41,6 +43,7 @@ void AStage::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//PrintTest();
+	//DrawTriggers(DeltaTime);
 
 	if (!bIsCompleted)	//////////////////// DONT NEED TO CHECK THIS EVERY FRAME! MAKE THIS EVENT DRIVEN
 	{
@@ -120,4 +123,3 @@ void AStage::PrintTest()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Stage -1"));
 }
-

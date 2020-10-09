@@ -9,7 +9,7 @@
 
 AStage2::AStage2()
 {
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
 }
 
 void AStage2::BeginPlay()

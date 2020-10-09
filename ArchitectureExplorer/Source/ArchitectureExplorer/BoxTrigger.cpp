@@ -34,11 +34,19 @@ void ABoxTrigger::ActorBeginOverlap(AActor * OverlappedActor, AActor * OtherActo
 			if (OverlappingActor->ActorHasTag(TEXT("Player")))
 			{
 				UE_LOG(LogTemp, Warning, TEXT("PLAYERINTERCEPTBRO!!!"));
+
+				TriggerFunction();
+
 				bTriggered = true;
 				break;
 			}
 		}
 	}
+}
+
+void ABoxTrigger::TriggerFunction()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Base class trigger function"));
 }
 
 void ABoxTrigger::ActorEndOverlap(AActor * OverlappedActor, AActor * OtherActor)

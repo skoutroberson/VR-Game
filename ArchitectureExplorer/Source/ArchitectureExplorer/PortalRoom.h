@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "VRCharacter.h"
 #include "Math/Vector.h"
+#include "BoxTrigger.h"
 #include "PortalRoom.generated.h"
 
 UCLASS()
@@ -30,14 +31,23 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* PRRoot;
 
-public:
+	FVector TargetLocation = FVector(-833, 0, 17);
 
-	FVector TargetLocation = FVector(-893, 0, 17);
+	UPROPERTY(EditAnywhere)
+	ABoxTrigger * StartTrigger;
+
+	UPROPERTY(EditAnywhere)
+	ABoxTrigger * EndTrigger;
+
+	void ResetTriggers();
 
 	//	Difference in yaw rotation from source portal room doors to target room doors
 	float DeltaRotation = 90.f;
 
 	UFUNCTION()
 	void ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
+
+public:
+	void Teleport();
 
 };

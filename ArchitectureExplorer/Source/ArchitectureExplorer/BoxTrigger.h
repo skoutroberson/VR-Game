@@ -26,6 +26,8 @@ public:
 
 	bool bTriggered = false;
 
+	virtual void TriggerFunction();
+
 private:
 
 	UFUNCTION()

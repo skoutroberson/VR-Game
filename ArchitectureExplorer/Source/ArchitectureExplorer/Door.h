@@ -80,6 +80,8 @@ private:
 	bool bStageLock = false;
 	float CloseDoorFastVelocity = 0.0001f;
 
+	bool bLocked = false;
+
 private:
 	float YawAngle = -1.f;
 	int DoorCloseDirection = 0;

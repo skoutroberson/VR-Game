@@ -10,6 +10,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Materials/MaterialInterface.h"
+#include "VRCharacter.h"
 
 // Sets default values
 AStageManager::AStageManager()
@@ -17,6 +18,11 @@ AStageManager::AStageManager()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	
+	StartDoorTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("StartDoorTrigger"));
+	EndDoorTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("EndDoorTrigger"));
+
+	StartDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapStartDoorTrigger);
+	EndDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapEndDoorTrigger);
 }
 
 // Called when the game starts or when spawned
@@ -26,12 +32,18 @@ void AStageManager::BeginPlay()
 
 	SetupStageNodes();
 
+	StartDoorTrigger->SetWorldLocation(FVector(-560.f, 0, 116));
+	EndDoorTrigger->SetWorldLocation(FVector(620, -2005, 115));
+
+	StartDoorTrigger->SetBoxExtent(FVector(10, 80, 100));
+	EndDoorTrigger->SetBoxExtent(FVector(240, 10, 100));
 }
 
 // Called every frame
 void AStageManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
 
 	CurrentStageCompleted();
 
@@ -97,5 +109,43 @@ bool AStageManager::CurrentStageCompleted()
 	}
 
 	return false;
+}
+
+void AStageManager::BeginOverlapStartDoorTrigger(UPrimitiveComponent * FirstComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
+{
+	TArray<AActor*> OverlappingActors;
+	StartDoorTrigger->GetOverlappingActors(OverlappingActors, AVRCharacter::StaticClass());
+
+	for (AActor* OverlappingActor : OverlappingActors)
+	{
+		if (OverlappingActor->ActorHasTag(TEXT("Player")))
+		{
+			//	Close door
+			UE_LOG(LogTemp, Warning, TEXT("Door overlap bro!!!"));
+			StartDoorTrigger->SetGenerateOverlapEvents(false);
+			EndDoorTrigger->SetGenerateOverlapEvents(true);
+
+			break;
+		}
+	}
+}
+
+void AStageManager::BeginOverlapEndDoorTrigger(UPrimitiveComponent * FirstComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
+{
+	TArray<AActor*> OverlappingActors;
+	EndDoorTrigger->GetOverlappingActors(OverlappingActors, AVRCharacter::StaticClass());
+
+	for (AActor* OverlappingActor : OverlappingActors)
+	{
+		if (OverlappingActor->ActorHasTag(TEXT("Player")))
+		{
+			//	Close door and teleport player when its fully closed.
+			UE_LOG(LogTemp, Warning, TEXT("End Door overlap bro!!!"));
+			EndDoorTrigger->SetGenerateOverlapEvents(false);
+			StartDoorTrigger->SetGenerateOverlapEvents(true);
+
+			break;
+		}
+	}
 }
 
