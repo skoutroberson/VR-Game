@@ -45,6 +45,8 @@ public:
 	// Flag setup functions; called in BeginPlay()
 	void SetupFlag1();
 
+
+
 public:
 	// Called by StageManager when the player starts another loop.
 	void Reset();
@@ -52,5 +54,4 @@ public:
 private:
 	
 	ADoor * TheDoor = nullptr;
-
 };

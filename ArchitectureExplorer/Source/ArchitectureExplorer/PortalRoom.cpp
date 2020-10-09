@@ -13,6 +13,7 @@
 #include "GameFramework/PlayerController.h"
 #include "Components/PrimitiveComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "BoxTrigger.h"
 
 // Sets default values
 APortalRoom::APortalRoom()
@@ -113,5 +114,12 @@ void APortalRoom::ActorBeginOverlap(AActor * OverlappedActor, AActor * OtherActo
 	}
 }
 
+void APortalRoom::ResetTriggers()
+{
+	StartTrigger->bTriggered = false;
+}
 
+void APortalRoom::Teleport()
+{
 
+}

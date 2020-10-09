@@ -123,13 +123,12 @@ void AVRCharacter::UpdateCapsuleHeight()
 	//UE_LOG(LogTemp, Warning, TEXT("Root: %f"), VRRoot->GetComponentLocation().Z);
 	//UE_LOG(LogTemp, Warning, TEXT("Came: %f"), Camera->GetComponentLocation().Z);
 
+
+	
 	FVector RootVector = VRRoot->GetComponentLocation();
 	RootVector.Z = CamHeightHit.ImpactPoint.Z;
 	GetCapsuleComponent()->SetCapsuleHalfHeight(CamHeightHit.Distance / 2.f);
 	VRRoot->SetWorldLocation(RootVector);
-	
-
-	
 
 	/*
 	if (NewCapsuleHeight < 10.f)

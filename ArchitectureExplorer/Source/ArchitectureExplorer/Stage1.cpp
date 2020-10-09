@@ -7,13 +7,15 @@
 #include "Kismet/GameplayStatics.h"
 #include "LightManager.h"
 #include "Door.h"
+#include "DrawDebugHelpers.h"
 
 
 // Sets default values
 
 AStage1::AStage1()
 {
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
+	
 }
 
 // Called when the game starts or when spawned
@@ -41,6 +43,11 @@ void AStage1::BeginPlay()
 			}
 		}
 	}
+
+	
+	
+	//AStage::StartDoorTrigger->SetActorLocation(FVector(-500, 0, 0));
+	
 }
 
 bool AStage1::Flag0Check()
@@ -48,7 +55,7 @@ bool AStage1::Flag0Check()
 	//UE_LOG(LogTemp, Warning, TEXT("000000000FUNCTION PONITER WORKS!! LLOLOLOL"));
 
 	//	If player listens to full answering machine / radio message.
-	return true;
+	return false;
 	
 }
 
@@ -57,7 +64,6 @@ bool AStage1::Flag1Check()
 	if (Trigger1->bTriggered)
 	{
 		TheDoor->bCloseDoorFast = true;
-
 		GetWorld()->DestroyActor(Trigger1);
 		return true;
 	}

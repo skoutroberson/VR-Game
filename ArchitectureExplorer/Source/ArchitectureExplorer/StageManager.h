@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include <vector>
 #include "Stage1.h"
+#include "BoxTrigger.h"
+#include "Door.h"
 #include "StageManager.generated.h"
 
 using namespace std;
@@ -49,4 +51,15 @@ private:
 	void TESTLIGHTFUNCTION();
 
 	bool CurrentStageCompleted();
+
+	UPROPERTY(VisibleAnywhere)
+		UBoxComponent * StartDoorTrigger;
+	UPROPERTY(VisibleAnywhere)
+		UBoxComponent * EndDoorTrigger;
+
+	UFUNCTION()
+		virtual void BeginOverlapStartDoorTrigger(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+
+	UFUNCTION()
+		virtual void BeginOverlapEndDoorTrigger(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
 };

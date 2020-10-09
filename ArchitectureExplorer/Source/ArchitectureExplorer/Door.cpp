@@ -125,9 +125,8 @@ float ADoor::BinarySearchForMaxAngle()
 
 void ADoor::CloseDoorFast(float DeltaTime)
 {
-	bStageLock = true;
 
-	CloseDoorFastVelocity += powf(DeltaTime * 6.f, 3.f);
+	CloseDoorFastVelocity += powf(DeltaTime * 10.f, 3.f);
 
 	SwingVelocity = 2.5f * DoorCloseDirection * DeltaTime;
 
@@ -141,7 +140,6 @@ void ADoor::CloseDoorFast(float DeltaTime)
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 		bCloseDoorFast = false;
-		bStageLock = false;
 		DoorHinge->SetWorldRotation(MinRotation);
 		///////////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
