@@ -29,28 +29,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-protected:
-
-	virtual bool Flag0Check() override;	//	Listen to full radio / answering machine message
-	virtual bool Flag1Check() override;	//	Trigger box flag (WILL NOT BE IN THIS STAGE)
-
-	virtual void PrintTest() override;
-
-private:
-
-	UPROPERTY(EditAnywhere)
-	ABoxTrigger * Trigger1;
-
-public:
-	// Flag setup functions; called in BeginPlay()
-	void SetupFlag1();
-
-
-
-public:
-	// Called by StageManager when the player starts another loop.
-	void Reset();
-
 private:
 	
 	ADoor * TheDoor = nullptr;

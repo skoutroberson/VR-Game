@@ -156,7 +156,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	//	Need to do this every frame so the collision capsule stays on top of the player's camera
 	CorrectCameraOffset();
 
-	UpdateCapsuleHeight();
+	//UpdateCapsuleHeight();
 	
 
 	if (bTeleportEnabled)

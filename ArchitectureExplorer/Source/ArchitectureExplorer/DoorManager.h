@@ -16,11 +16,13 @@ public:
 	// Sets default values for this actor's properties
 	ADoorManager();
 
+	ADoor * GetDoor(FString Name);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-private:	
+public:	
 	
 	TMap<FString, ADoor*> DoorsMap;
 

@@ -8,6 +8,7 @@
 #include "Components/PrimitiveComponent.h"
 #include "VRCharacter.h"
 #include "DrawDebugHelpers.h"
+#include "Kismet/GameplayStatics.h"
 
 using namespace std;
 
@@ -15,18 +16,15 @@ using namespace std;
 AStage::AStage()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
-	FlagChecks.push_back(&AStage::Flag0Check);
-	FlagChecks.push_back(&AStage::Flag1Check);
-	FlagChecks.push_back(&AStage::Flag2Check);
-	FlagChecks.push_back(&AStage::Flag3Check);
-	FlagChecks.push_back(&AStage::Flag4Check);
-	FlagChecks.push_back(&AStage::Flag5Check);
-	FlagChecks.push_back(&AStage::Flag6Check);
-	FlagChecks.push_back(&AStage::Flag7Check);
-	FlagChecks.push_back(&AStage::Flag8Check);
-	FlagChecks.push_back(&AStage::Flag9Check);
+	AActor * TMA;
+	TMA = UGameplayStatics::GetActorOfClass(GetWorld(), ATriggerManager::StaticClass());
+	TriggerManager = Cast<ATriggerManager>(TMA);
+	if (TriggerManager == nullptr)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("TriggerManager cast failed!"));
+	}
 
 	//SetActorTickInterval(1.f);
 }
@@ -35,88 +33,46 @@ AStage::AStage()
 void AStage::BeginPlay()
 {
 	Super::BeginPlay();
+
+	TriggerManager->Triggers[0]->OnComponentBeginOverlap.AddDynamic(this, &AStage::BeginOverlapTrigger0);
+
+	//constexpr size_t sizeOfT = sizeof(Triggers);
+
+	//constexpr size_t sizeOfT = sizeof(Flags);
 }
 
 // Called every frame
 void AStage::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	//PrintTest();
-	//DrawTriggers(DeltaTime);
-
-	if (!bIsCompleted)	//////////////////// DONT NEED TO CHECK THIS EVERY FRAME! MAKE THIS EVENT DRIVEN
-	{
-		IsCompleted();
-	}
 }
 
-void AStage::IsCompleted()
+void AStage::BeginOverlapTrigger0(UPrimitiveComponent * FirstComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
-	if (!FlagChecks.empty())
+	TArray<AActor*> OverlappingActors;
+	TriggerManager->Triggers[0]->GetOverlappingActors(OverlappingActors, AVRCharacter::StaticClass());
+
+	for (AActor* OverlappingActor : OverlappingActors)
 	{
-		for (int i = 0; i < FlagChecks.size(); i++)
+		if (OverlappingActor->ActorHasTag(TEXT("Player")))
 		{
-			if ((this->*(FlagChecks[i]))() == true)	// if the function in FlagChecks returns true
-			{
-				FlagChecks.erase(FlagChecks.begin() + i);
-			}
+			UE_LOG(LogTemp, Warning, TEXT("BOTrigger0!"));
+			BOTrigger0();
 		}
 	}
-	else
-	{
-		bIsCompleted = true;
-	}
 }
 
-bool AStage::Flag0Check()
+void AStage::EndOverlapTrigger0()
 {
-	return true;
 }
 
-bool AStage::Flag1Check()
+void AStage::BOTrigger0()
 {
-	return true;
+	UE_LOG(LogTemp, Warning, TEXT("BOTrigger0 base class function"));
 }
 
-bool AStage::Flag2Check()
+void AStage::EOTrigger0()
 {
-	return true;
-}
-
-bool AStage::Flag3Check()
-{
-	return true;
-}
-
-bool AStage::Flag4Check()
-{
-	return true;
-}
-
-bool AStage::Flag5Check()
-{
-	return true;
-}
-
-bool AStage::Flag6Check()
-{
-	return true;
-}
-
-bool AStage::Flag7Check()
-{
-	return true;
-}
-
-bool AStage::Flag8Check()
-{
-	return true;
-}
-
-bool AStage::Flag9Check()
-{
-	return true;
 }
 
 void AStage::PrintTest()
