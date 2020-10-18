@@ -9,7 +9,7 @@
 
 AStage2::AStage2()
 {
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 }
 
 void AStage2::BeginPlay()
@@ -20,16 +20,11 @@ void AStage2::BeginPlay()
 	if (LightManager != nullptr)
 	{
 		//LMClass->SetEmmissive(0, 0);
-		LightManager->TurnOff(TEXT("BP_Lamp1_2"));
+		FString LN = "BP_Lamp1_2";
+		LightManager->TurnOff(LN);
 	}
-}
-
-bool AStage2::Flag0Check()
-{
-	return false;
-}
-
-void AStage2::PrintTest()
-{
-	UE_LOG(LogTemp, Warning, TEXT("Stage 2"));
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("LightManager cast failed in Stage2"));
+	}
 }

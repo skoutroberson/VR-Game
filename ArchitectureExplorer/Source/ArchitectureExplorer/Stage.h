@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include <vector>
 #include "Components/BoxComponent.h"
+#include "TriggerManager.h"
 #include "Stage.generated.h"
 
 using namespace std;
@@ -29,30 +30,34 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-public:
-	bool bIsCompleted = false;
-
-protected:
-	virtual void IsCompleted();
-
-	virtual bool Flag0Check();
-	virtual bool Flag1Check();
-	virtual bool Flag2Check();
-	virtual bool Flag3Check();
-	virtual bool Flag4Check();
-	virtual bool Flag5Check();
-	virtual bool Flag6Check();
-	virtual bool Flag7Check();
-	virtual bool Flag8Check();
-	virtual bool Flag9Check();
-
 	// Function pointer for a function that returns a bool and takes 0 arguments - For the flag checks
 	typedef bool (AStage::*FunctionPtrType)(void);
 	// vector holding the boolean functions that check if the player has completed a flag for this stage
 	vector<FunctionPtrType> FlagChecks;
+	///////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
+
+	//	This is the real stuff I'll need for stages
 
 public:
-	bool StageFlags[10];
+	
+	// I think I can make these variables static but they can't be static if I want to see them in editor/blueprints
 
+	UPROPERTY(VisibleAnywhere, Category = "Flags")
+	TArray<bool> Flags;
+	//bool Flags[16];
+
+	UPROPERTY(VisibleAnywhere, Category = "Flags")
+	int FlagCount = 0;
+
+protected:
+	
+	ATriggerManager * TriggerManager = nullptr;
+
+	UFUNCTION()
+	void BeginOverlapTrigger0(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+	void EndOverlapTrigger0();
+	virtual void BOTrigger0();
+	virtual void EOTrigger0();
 
 };

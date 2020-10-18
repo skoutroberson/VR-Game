@@ -46,7 +46,8 @@ private:
 	StageNode * CurrentNode = nullptr;
 	AActor * CurrentStageActor = nullptr;
 
-	void SetupStageNodes();
+
+	void InitializeStageNodes();
 
 	void TESTLIGHTFUNCTION();
 
@@ -57,9 +58,19 @@ private:
 	UPROPERTY(VisibleAnywhere)
 		UBoxComponent * EndDoorTrigger;
 
-	UFUNCTION()
-		virtual void BeginOverlapStartDoorTrigger(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+	ADoor * StartDoor = nullptr;
+	ADoor * EndDoor = nullptr;
 
 	UFUNCTION()
-		virtual void BeginOverlapEndDoorTrigger(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+		void BeginOverlapStartDoorTrigger(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+
+	UFUNCTION()
+		void BeginOverlapEndDoorTrigger(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+
+private:
+	// Initializers
+
+	void InitializeDoorTriggers();
+	void InitializeStartEndDoors();
+
 };

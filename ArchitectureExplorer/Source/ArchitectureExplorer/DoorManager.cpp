@@ -23,6 +23,19 @@ void ADoorManager::BeginPlay()
 
 }
 
+ADoor * ADoorManager::GetDoor(FString Name)
+{
+	if (DoorsMap.Contains(Name))
+	{
+		return DoorsMap[Name];
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("DoorsMap does not contain the key: %s"), *Name);
+		return nullptr;
+	}
+}
+
 void ADoorManager::FillDoorsMap()
 {
 	TArray<AActor*> DoorActors;
@@ -35,8 +48,12 @@ void ADoorManager::FillDoorsMap()
 		{
 			DoorsMap.Add(Actor->GetName(), ThisDoor);
 		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("ThisDoor cast failed in FillDoorsmap()"));
+		}
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("DoorsMap Size: %d"), DoorsMap.Num());
+	//UE_LOG(LogTemp, Warning, TEXT("DoorsMap Size: %d"), DoorsMap.GetAllocatedSize());
 
 }
