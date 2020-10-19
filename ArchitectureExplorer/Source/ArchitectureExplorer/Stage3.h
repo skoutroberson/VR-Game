@@ -4,36 +4,23 @@
 
 #include "CoreMinimal.h"
 #include "Stage.h"
-#include <vector>
-#include "Engine/World.h"
-#include "Door.h"
-#include "Stage1.generated.h"
-
-using namespace std;
+#include "Stage3.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class ARCHITECTUREEXPLORER_API AStage1 : public AStage
+class ARCHITECTUREEXPLORER_API AStage3 : public AStage
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this actor's properties
-	AStage1();
-	~AStage1();
+	AStage3();
+	~AStage3();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-private:
-	UBoxComponent* Trigger0 = nullptr;
-
-protected:
-	// overloads
-	virtual void BOTrigger0() override;
 
 	virtual void AddTriggerDelegates() override;
 	virtual void RemoveTriggerDelegates() override;

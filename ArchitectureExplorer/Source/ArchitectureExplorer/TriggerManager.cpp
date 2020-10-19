@@ -10,9 +10,9 @@ ATriggerManager::ATriggerManager()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	Triggers.Init(nullptr, 16);
+	Triggers.Init(nullptr, TriggerCount);
 
-	for (int i = 0; i < 16; i++)
+	for (int i = 0; i < TriggerCount; i++)
 	{
 		//UBoxComponent * BC = NewObject<UBoxComponent>(UBoxComponent::StaticClass());
 		FString BCName = FString(TEXT("Trigger"));
@@ -20,6 +20,7 @@ ATriggerManager::ATriggerManager()
 		UBoxComponent * BC = CreateDefaultSubobject<UBoxComponent>(*BCName);
 		Triggers[i] = BC;
 		Triggers[i]->SetCollisionProfileName(TEXT("PlayerTrigger"));
+		Triggers[i]->SetGenerateOverlapEvents(false);
 	}
 }
 
@@ -35,20 +36,5 @@ void ATriggerManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-}
-
-void ATriggerManager::BeginOverlapTrigger0()
-{
-	TArray<AActor*> OverlappingActors;
-	Triggers[0]->GetOverlappingActors(OverlappingActors, AVRCharacter::StaticClass());
-
-	for (AActor* OverlappingActor : OverlappingActors)
-	{
-		if (OverlappingActor->ActorHasTag(TEXT("Player")))
-		{
-			UE_LOG(LogTemp, Warning, TEXT("Trigger1 Overlap!"));
-		}
-	}
-	
 }
 

@@ -18,9 +18,20 @@ class ARCHITECTUREEXPLORER_API AStage2 : public AStage
 
 public:
 	AStage2();
+	~AStage2();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+private:
+	UBoxComponent* Trigger0 = nullptr;
+
+private:
+	// overloads
+	virtual void BOTrigger0() override;
+
+	virtual void AddTriggerDelegates() override;
+	virtual void RemoveTriggerDelegates() override;
 	
 };

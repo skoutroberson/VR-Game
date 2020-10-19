@@ -4,6 +4,7 @@
 #include "StageManager.h"
 #include "Stage1.h"
 #include "Stage2.h"
+#include "Stage3.h"
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
 #include "Engine/StaticMeshActor.h"
@@ -18,7 +19,7 @@ AStageManager::AStageManager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-	
+
 	InitializeDoorTriggers();
 }
 
@@ -26,7 +27,6 @@ AStageManager::AStageManager()
 void AStageManager::BeginPlay()
 {
 	Super::BeginPlay();
-
 	InitializeStageNodes();
 	InitializeStartEndDoors();
 }
@@ -43,17 +43,21 @@ void AStageManager::Tick(float DeltaTime)
 
 void AStageManager::InitializeStageNodes()
 {
-	StageNode0 = new StageNode;
+	StageNode1 = new StageNode;
 	StageNode2 = new StageNode;
+	StageNode3 = new StageNode;
 
-	CurrentNode = StageNode0;
+	CurrentNode = StageNode1;
 
-	StageNode0->StageClass = AStage1::StaticClass();
-	StageNode0->NextStage.push_back(StageNode2);
+	StageNode1->StageClass = AStage1::StaticClass();
+	StageNode1->NextStage.push_back(StageNode2);
 
 	StageNode2->StageClass = AStage2::StaticClass();
+	StageNode2->NextStage.push_back(StageNode3);
 
-	CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode0->StageClass);
+	StageNode3->StageClass = AStage3::StaticClass();
+
+	CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode1->StageClass);
 	
 	//GetWorld()->DestroyActor(CurrentStage);
 }
@@ -87,20 +91,28 @@ void AStageManager::TESTLIGHTFUNCTION()
 
 bool AStageManager::CurrentStageCompleted()
 {
-	/*
+	
 	AStage * TestStage = Cast<AStage>(CurrentStageActor);
 
 	if (TestStage != nullptr)
 	{
-		if (TestStage->bIsCompleted)
-		{
-			GetWorld()->DestroyActor(TestStage);
+		int FlagCount = TestStage->FlagCount;
 
-			CurrentStageActor = GetWorld()->SpawnActor<AStage>(CurrentNode->NextStage[0]->StageClass);
-			//CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode2->StageClass);
+		// check if all stage flags are true; this can be edited so it can do stuff if only some of them are true;
+		for (int i = 0; i < FlagCount; i++)
+		{
+			if (TestStage->Flags[i] == false)
+			{
+				return false;
+			}
 		}
+
+		
+		GetWorld()->DestroyActor(TestStage);
+		CurrentStageActor = GetWorld()->SpawnActor<AStage>(CurrentNode->NextStage[0]->StageClass);
+		//CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode2->StageClass);
 	}
-	*/
+	
 	return false;
 }
 
@@ -154,6 +166,7 @@ void AStageManager::BeginOverlapEndDoorTrigger(UPrimitiveComponent * FirstCompon
 
 void AStageManager::InitializeStartEndDoors()
 {
+
 	AActor * DM = UGameplayStatics::GetActorOfClass(GetWorld(), ADoorManager::StaticClass());
 	ADoorManager * DoorManager = Cast<ADoorManager>(DM);
 
@@ -182,9 +195,9 @@ void AStageManager::InitializeDoorTriggers()
 	StartDoorTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("StartDoorTrigger"));
 	EndDoorTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("EndDoorTrigger"));
 
-	StartDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapStartDoorTrigger);
-	EndDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapEndDoorTrigger);
-
 	StartDoorTrigger->SetCollisionProfileName(TEXT("PlayerTrigger"));
 	EndDoorTrigger->SetCollisionProfileName(TEXT("PlayerTrigger"));
+
+	StartDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapStartDoorTrigger);
+	EndDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapEndDoorTrigger);
 }

@@ -40,8 +40,9 @@ private:
 		vector<StageNode*> NextStage;
 	};
 
-	StageNode * StageNode0 = nullptr;	// Root
+	StageNode * StageNode1 = nullptr;	// Root
 	StageNode * StageNode2 = nullptr;
+	StageNode * StageNode3 = nullptr;
 
 	StageNode * CurrentNode = nullptr;
 	AActor * CurrentStageActor = nullptr;
