@@ -10,10 +10,20 @@
 AStage2::AStage2()
 {
 	PrimaryActorTick.bCanEverTick = false;
+
+	AStage::FlagCount = 1;
+	AStage::Flags.Init(false, FlagCount);
+}
+
+AStage2::~AStage2()
+{
+	RemoveTriggerDelegates();
 }
 
 void AStage2::BeginPlay()
 {
+	//AddTriggerDelegates();
+
 	AActor * LM = UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass());
 	ALightManager * LightManager = Cast<ALightManager>(LM);
 
@@ -27,4 +37,27 @@ void AStage2::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("LightManager cast failed in Stage2"));
 	}
+
+	UE_LOG(LogTemp, Warning, TEXT("Stage 2 beginplay"));
+	Trigger0 = TriggerManager->Triggers[0];
+	Trigger0->SetGenerateOverlapEvents(true);
+
+	AddTriggerDelegates();
+}
+
+void AStage2::BOTrigger0()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Stage2 trigger"));
+	AStage::Flags[0] = true;
+	Trigger0->SetGenerateOverlapEvents(false);
+}
+
+void AStage2::AddTriggerDelegates()
+{
+	Trigger0->OnComponentBeginOverlap.AddDynamic(this, &AStage::BeginOverlapTrigger0);
+}
+
+void AStage2::RemoveTriggerDelegates()
+{
+	Trigger0->OnComponentBeginOverlap.RemoveDynamic(this, &AStage::BeginOverlapTrigger0);
 }

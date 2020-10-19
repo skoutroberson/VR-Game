@@ -35,7 +35,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Triggers")
 	TArray<UBoxComponent*> Triggers;
 
-public:
-	void BeginOverlapTrigger0();
+private:
+	UPROPERTY(VisibleAnywhere)
+	int TriggerCount = 8;
 
 };
