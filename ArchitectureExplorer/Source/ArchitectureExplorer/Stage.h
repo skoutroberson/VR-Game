@@ -27,17 +27,6 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	// Function pointer for a function that returns a bool and takes 0 arguments - For the flag checks
-	typedef bool (AStage::*FunctionPtrType)(void);
-	// vector holding the boolean functions that check if the player has completed a flag for this stage
-	vector<FunctionPtrType> FlagChecks;
-	///////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////
-
-	//	This is the real stuff I'll need for stages
-
-public:
 	
 	// I think I can make these variables static but they can't be static if I want to see them in editor/blueprints
 
@@ -49,7 +38,8 @@ public:
 	int FlagCount = 0;
 
 public:
-	
+	// Trigger virtual stuff
+
 	ATriggerManager * TriggerManager;
 	TArray<UBoxComponent*> * Triggers;
 	
@@ -108,6 +98,12 @@ public:
 	void EndOverlapTrigger7(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 	virtual void BOTrigger7() { UE_LOG(LogTemp, Warning, TEXT("BOTrigger7 base class function")); }
 	virtual void EOTrigger7() { UE_LOG(LogTemp, Warning, TEXT("EOTrigger7 base class function")); }
+
+protected:
+	// Flag combo for next stage
+	//UPROPERTY(VisibleAnywhere)
+	//TArray<TArray<bool>> FlagCombos;
+	
 
 protected:
 	// called in BeginPlay()
