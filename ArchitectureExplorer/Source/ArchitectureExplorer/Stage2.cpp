@@ -11,7 +11,7 @@ AStage2::AStage2()
 {
 	PrimaryActorTick.bCanEverTick = false;
 
-	AStage::FlagCount = 1;
+	AStage::FlagCount = 2;
 	AStage::Flags.Init(false, FlagCount);
 }
 
