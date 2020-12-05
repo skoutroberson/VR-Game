@@ -16,7 +16,14 @@ AStage3::~AStage3()
 
 void AStage3::BeginPlay()
 {
-	
+	Super::BeginPlay();
+}
+
+void AStage3::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	RemoveTriggerDelegates();
 }
 
 void AStage3::AddTriggerDelegates()

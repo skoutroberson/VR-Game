@@ -54,6 +54,8 @@ private:
 	void StopSprint();
 	void Click();
 
+	float MCCrossMag = 0;
+
 	void UpdateCapsuleHeight();
 	FHitResult CamHeightHit;
 	FCollisionQueryParams CamHeightParams;

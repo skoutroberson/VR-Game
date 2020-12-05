@@ -75,82 +75,6 @@ void ADoor::Tick(float DeltaTime)
 
 }
 
-// Helper function to find the max swing angle for the doors (angle where the door hits an object so it can't open all the way)
-float ADoor::BinarySearchForMaxAngle()
-{
-	float Max = 270.f;
-	float Min = 148.f;
-	float Mid = -1.f;
-
-	FVector DHL = DoorHinge->GetComponentLocation();
-	DHL.Z += 4.f;
-	FVector DUV = DoorHinge->GetUpVector();
-	FVector DFV = DoorHinge->GetForwardVector();
-
-	FVector TestVec;
-
-	FHitResult HitResult;
-	FCollisionQueryParams ColParams;
-	ColParams.AddIgnoredActor(this);
-
-	UWorld* World = GetWorld();
-
-	while (fabsf(Max - Min) > 1.f)
-	{
-		Mid = (Max + Min) / 2.f;
-
-		TestVec = DFV.RotateAngleAxis(Mid, DUV) * DoorLength;
-		//DrawDebugLine(World, DHL, DHL + TestVec, FColor::Orange, true);
-
-		if (World->LineTraceSingleByChannel(HitResult, DHL, DHL + TestVec, ECC_WorldStatic, ColParams))
-		{
-			Min = Mid;
-			KnobCollision = true;
-			//DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Emerald, true);
-		}
-		else
-		{
-			Max = Mid;
-		}
-	}
-
-	//UE_LOG(LogTemp, Warning, TEXT("%d TRACES USED"), i);
-	//DrawDebugLine(World, DHL, DHL + TestVec, FColor::Cyan, true);
-
-	// Move the angle in 3.5 degrees to account for the knob hitting the wall.
-	Mid = (KnobCollision) ? Mid + 3.5f : Mid;
-
-	return Mid;
-}
-
-void ADoor::CloseDoorFast(float DeltaTime)
-{
-
-	CloseDoorFastVelocity += powf(DeltaTime * 10.f, 3.f);
-
-	SwingVelocity = 2.5f * DoorCloseDirection * DeltaTime;
-
-	FQuat DHQ = DoorHinge->GetComponentQuat();
-	FQuat DQ = FQuat(DoorHinge->GetUpVector(), CloseDoorFastVelocity);
-	FQuat NewQuat = DHQ * DQ;
-
-	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
-
-	if (MaxDistance > MaxAngleRadians)
-	{
-		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
-		bCloseDoorFast = false;
-		DoorHinge->SetWorldRotation(MinRotation);
-		///////////////////////////////////////////////////////////////////////////////////////////
-		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
-		///////////////////////////////////////////////////////////////////////////////////////////
-	}
-	else
-	{
-		DoorHinge->AddLocalRotation(DQ, true);
-	}
-}
-
 void ADoor::Swing(float DeltaTime)
 {
 	if (fabsf(SwingVelocity) < 0.0001f)
@@ -229,6 +153,82 @@ void ADoor::UseDoor(float DeltaTime)
 	}
 
 	LastHCLocation = HandController->GetActorLocation();
+}
+
+// Helper function to find the max swing angle for the doors (angle where the door hits an object so it can't open all the way). Called in BeginPlay().
+float ADoor::BinarySearchForMaxAngle()
+{
+	float Max = 270.f;
+	float Min = 148.f;
+	float Mid = -1.f;
+
+	FVector DHL = DoorHinge->GetComponentLocation();
+	DHL.Z += 4.f;
+	FVector DUV = DoorHinge->GetUpVector();
+	FVector DFV = DoorHinge->GetForwardVector();
+
+	FVector TestVec;
+
+	FHitResult HitResult;
+	FCollisionQueryParams ColParams;
+	ColParams.AddIgnoredActor(this);
+
+	UWorld* World = GetWorld();
+
+	while (fabsf(Max - Min) > 1.f)
+	{
+		Mid = (Max + Min) / 2.f;
+
+		TestVec = DFV.RotateAngleAxis(Mid, DUV) * DoorLength;
+		//DrawDebugLine(World, DHL, DHL + TestVec, FColor::Orange, true);
+
+		if (World->LineTraceSingleByChannel(HitResult, DHL, DHL + TestVec, ECC_WorldStatic, ColParams))
+		{
+			Min = Mid;
+			KnobCollision = true;
+			//DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Emerald, true);
+		}
+		else
+		{
+			Max = Mid;
+		}
+	}
+
+	//UE_LOG(LogTemp, Warning, TEXT("%d TRACES USED"), i);
+	//DrawDebugLine(World, DHL, DHL + TestVec, FColor::Cyan, true);
+
+	// Move the angle in 3.5 degrees to account for the knob hitting the wall.
+	Mid = (KnobCollision) ? Mid + 3.5f : Mid;
+
+	return Mid;
+}
+
+void ADoor::CloseDoorFast(float DeltaTime)
+{
+
+	CloseDoorFastVelocity += powf(DeltaTime * 10.f, 3.f);
+
+	SwingVelocity = 2.5f * DoorCloseDirection * DeltaTime;
+
+	FQuat DHQ = DoorHinge->GetComponentQuat();
+	FQuat DQ = FQuat(DoorHinge->GetUpVector(), CloseDoorFastVelocity);
+	FQuat NewQuat = DHQ * DQ;
+
+	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
+
+	if (MaxDistance > MaxAngleRadians)
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
+		bCloseDoorFast = false;
+		DoorHinge->SetWorldRotation(MinRotation);
+		///////////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
+		///////////////////////////////////////////////////////////////////////////////////////////
+	}
+	else
+	{
+		DoorHinge->AddLocalRotation(DQ, true);
+	}
 }
 
 FQuat ADoor::CalcGoalQuat(FVector GoalVec)
