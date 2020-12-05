@@ -17,12 +17,14 @@ AStage2::AStage2()
 
 AStage2::~AStage2()
 {
-	RemoveTriggerDelegates();
+	//RemoveTriggerDelegates();
 }
 
 void AStage2::BeginPlay()
 {
-	//AddTriggerDelegates();
+	Super::BeginPlay();
+
+	AddTriggerDelegates();
 
 	AActor * LM = UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass());
 	ALightManager * LightManager = Cast<ALightManager>(LM);
@@ -43,6 +45,13 @@ void AStage2::BeginPlay()
 	Trigger0->SetGenerateOverlapEvents(true);
 
 	AddTriggerDelegates();
+}
+
+void AStage2::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	RemoveTriggerDelegates();
 }
 
 void AStage2::BOTrigger0()

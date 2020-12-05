@@ -167,6 +167,11 @@ void AHandController::Grip()
 				CurrentDoor->PassController(this);
 				CurrentDoor->SetIsBeingUsed(true);
 				GripSize = 80.f;
+
+				// Attach this hand controller's skeletal mesh to the doorknob.
+
+				// Initiate knob turn mechanics if the door is currently closed all the way.
+
 				return;
 			}
 			else
@@ -198,6 +203,9 @@ void AHandController::Release()
 		{
 			CurrentDoor->SetIsBeingUsed(false);
 		}
+
+		// Attach HandMesh to this hand controller
+
 		//free(OverlappingDoor);
 	}
 

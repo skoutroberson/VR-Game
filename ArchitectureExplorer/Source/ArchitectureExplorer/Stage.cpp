@@ -31,9 +31,18 @@ void AStage::BeginPlay()
 {
 	Super::BeginPlay();
 
+	//AddTriggerDelegates();
+
 	UE_LOG(LogTemp, Warning, TEXT("Base stage beginplay"));
 
 	//constexpr size_t sizeOfT = sizeof(Flags);
+}
+
+void AStage::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	UE_LOG(LogTemp, Warning, TEXT("Base Stage endplay"));
 }
 
 // Called every frame

@@ -23,6 +23,14 @@ AStageManager::AStageManager()
 	InitializeDoorTriggers();
 }
 
+AStageManager::~AStageManager()
+{
+	delete StageNode1;
+	delete StageNode2;
+	delete StageNode3;
+	UE_LOG(LogTemp, Error, TEXT("AStageManager destructor called!"));
+}
+
 // Called when the game starts or when spawned
 void AStageManager::BeginPlay()
 {
@@ -56,6 +64,8 @@ void AStageManager::InitializeStageNodes()
 	StageNode2->NextStage.push_back(StageNode3);
 
 	StageNode3->StageClass = AStage3::StaticClass();
+	// ...
+	// StageNodeN->...
 
 	CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode1->StageClass);
 	

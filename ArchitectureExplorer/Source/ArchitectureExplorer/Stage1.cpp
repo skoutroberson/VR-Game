@@ -22,7 +22,7 @@ AStage1::AStage1()
 
 AStage1::~AStage1()
 {
-	RemoveTriggerDelegates();
+	//RemoveTriggerDelegates();
 }
 
 // Called when the game starts or when spawned
@@ -37,6 +37,13 @@ void AStage1::BeginPlay()
 
 	UE_LOG(LogTemp, Warning, TEXT("Stage1 BeginPlay()"));
 	
+}
+
+void AStage1::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	RemoveTriggerDelegates();
 }
 
 void AStage1::BOTrigger0()

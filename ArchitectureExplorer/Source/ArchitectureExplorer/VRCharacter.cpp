@@ -156,7 +156,8 @@ void AVRCharacter::Tick(float DeltaTime)
 	//	Need to do this every frame so the collision capsule stays on top of the player's camera
 	CorrectCameraOffset();
 
-	//UpdateCapsuleHeight();
+	//	Updates the capsule height to be the height from the floor to the HMD
+	UpdateCapsuleHeight();
 	
 
 	if (bTeleportEnabled)
@@ -191,77 +192,21 @@ void AVRCharacter::Dodge()
 
 void AVRCharacter::InterpretMCMotion()
 {
-	if (TickCounter % 4 == 0)	// Do this every four frames
-	{
+	
 		// (x >= 0) ? x : -x
 
-		FVector LeftOffset = LeftController->GetActorLocation() - MCLeftPos;
-		FVector RightOffset = RightController->GetActorLocation() - MCRightPos;
+	FVector LeftOffset = LeftController->GetActorLocation() - MCLeftPos;
+	FVector RightOffset = RightController->GetActorLocation() - MCRightPos;
 
+	// This is the float that will determine how fast to move the player (for sprinting).
+	MCCrossMag = FVector::CrossProduct(LeftOffset, RightOffset).Size() / 100.f;
 
+	UE_LOG(LogTemp, Warning, TEXT("MCCRoss: %f"), MCCrossMag);
 
-		float LeftZOffset = LeftController->GetActorLocation().Z - MCLeftPos.Z;
-		float RightZOffset = RightController->GetActorLocation().Z - MCRightPos.Z;
+	AddMovementInput(Camera->GetForwardVector(), MCCrossMag);
 
-
-		//	CHECK SPRINT MOTION
-		if (LeftZOffset > 0 || RightZOffset > 0)
-		{
-			if (RightZOffset < 0 || LeftZOffset < 0)
-			{
-				if (LeftZOffset < 0)
-					LeftZOffset = -LeftZOffset;
-				if (RightZOffset < 0)
-					RightZOffset = -RightZOffset;
-
-				if (LeftZOffset > 10 && RightZOffset > 10)
-				{
-					bSprint = true;
-					StopSprintChecks = 0;
-				}
-			}
-		}
-
-		// CHECK DODGE MOTION
-
-		float DotProd = FVector::DotProduct(LeftOffset, RightOffset);
-
-		//UE_LOG(LogTemp, Warning, TEXT("LEFT: %f %f %f"), LeftOffset.X, LeftOffset.Y, LeftOffset.Z);
-		//UE_LOG(LogTemp, Warning, TEXT("RIGHT: %f %f %f"), RightOffset.X, RightOffset.Y, RightOffset.Z);
-		//UE_LOG(LogTemp, Warning, TEXT("DOTPROD: %f"), DotProd);
-
-		if (DotProd > 120)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("DODGE!!!!!!"));
-		}
-
-		/*
-		if (DotProd > 200 && LeftZOffset < 6 && RightZOffset < 6)
-		{
-			FVector AddedVecs = (LeftOffset + RightOffset);
-			bDodge = true;
-			DodgePos = GetActorLocation() + (AddedVecs / AddedVecs.Size()) * 100;
-			DodgePos.Z = GetActorLocation().Z;
-			UE_LOG(LogTemp, Warning, TEXT("DOT: %f"), DotProd);
-			FVector PlayerV = FVector(Camera->GetComponentLocation().X, Camera->GetComponentLocation().Y, Camera->GetComponentLocation().Z - 10);
-			DrawDebugLine(GetWorld(), PlayerV, PlayerV + (LeftOffset + RightOffset) * DotProd, FColor::Turquoise, false, 1.0f);
-			StopSprintChecks += StopSprintMax;
-		}*/
-
-		if (StopSprintChecks > StopSprintMax)
-			bSprint = false;
-
-		StopSprintChecks++;
-		MCLeftPos = LeftController->GetActorLocation();
-		MCRightPos = RightController->GetActorLocation();
-	}
-
-	if (TickCounter > 10000)
-	{
-		TickCounter = 0;
-	}
-	TickCounter++;
-
+	MCLeftPos = LeftController->GetActorLocation();
+	MCRightPos = RightController->GetActorLocation();
 }
 
 void AVRCharacter::UpdateDestinationMarker()
@@ -370,16 +315,9 @@ void AVRCharacter::StopSprint()
 
 void AVRCharacter::MoveForward(float throttle)
 {
-	if (!bDodge)
+	if(!bSprint)
 	{
-		if (bSprint)
-		{
-			AddMovementInput(Camera->GetForwardVector());
-		}
-		else
-		{
-			AddMovementInput(throttle * Camera->GetForwardVector(), 0.5f);
-		}
+		AddMovementInput(throttle * GetActorForwardVector(), 0.4f);
 	}
 }
 
@@ -432,13 +370,21 @@ void AVRCharacter::FinishTeleport()
 void AVRCharacter::EnableAction1()
 {
 	bAction1 = true;
-	UE_LOG(LogTemp, Warning, TEXT("Action1"));
+	if (bAction2)
+	{
+		Sprint();
+	}
+	//UE_LOG(LogTemp, Warning, TEXT("Action1"));
 }
 
 void AVRCharacter::EnableAction2()
 {
 	bAction2 = true;
-	UE_LOG(LogTemp, Warning, TEXT("Action2"));
+	if (bAction1)
+	{
+		Sprint();
+	}
+	//UE_LOG(LogTemp, Warning, TEXT("Action2"));
 }
 
 void AVRCharacter::DisableAction1()
