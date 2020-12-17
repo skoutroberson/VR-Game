@@ -16,4 +16,12 @@ class ARCHITECTUREEXPLORER_API AChainsaw : public AGrabbable
 public:
 
 	AChainsaw();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	void BladeBeginOverlap(UPrimitiveComponent * FirstComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+
+	class UBoxComponent * BladeCollision = nullptr;
 };
