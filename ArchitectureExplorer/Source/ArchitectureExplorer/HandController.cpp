@@ -48,7 +48,6 @@ void AHandController::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//DrawDebugLines(DeltaTime);	///////////////////// DEBUG HELPER
-	//PrintSocketOffsets(DeltaTime);
 
 	if (bIsClimbing)
 	{
