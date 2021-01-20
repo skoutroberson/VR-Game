@@ -6,6 +6,13 @@
 #include "GameFramework/Character.h"
 #include "ErrolCharacter.generated.h"
 
+UENUM(BlueprintType)
+enum class ErrolState : uint8
+{
+	STATE_IDLE		UMETA(DisplayName="Idle"),
+	STATE_PATROL	UMETA(DisplayName="Patrol"),
+};
+
 UCLASS()
 class ARCHITECTUREEXPLORER_API AErrolCharacter : public ACharacter
 {
@@ -25,5 +32,12 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ErrolState State;
+
+private:
+	void Patrol();
 
 };
