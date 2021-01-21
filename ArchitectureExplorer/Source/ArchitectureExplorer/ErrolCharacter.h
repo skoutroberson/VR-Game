@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Runtime/Engine/Classes/Engine/TargetPoint.h"
 #include "ErrolCharacter.generated.h"
 
 UENUM(BlueprintType)
@@ -39,5 +40,15 @@ public:
 
 private:
 	void Patrol();
+
+private:
+	UPROPERTY()
+		TArray<AActor*> Waypoints;
+
+	UFUNCTION()
+		ATargetPoint* GetRandomWaypoint();
+
+	UFUNCTION()
+		void GoToRandomWaypoint();
 
 };
