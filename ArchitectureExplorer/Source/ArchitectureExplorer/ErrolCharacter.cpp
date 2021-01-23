@@ -5,6 +5,8 @@
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
 #include "Engine/World.h"
 #include "AIController.h"
+#include "AITypes.h"
+#include "ErrolController.h"
 
 // Sets default values
 AErrolCharacter::AErrolCharacter()
@@ -18,6 +20,9 @@ AErrolCharacter::AErrolCharacter()
 void AErrolCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	AErrolController * ErrolCon = Cast<AErrolController>(GetController());
+	ErrolCon->InitializeLookAroundTimerhandle(); 
 
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATargetPoint::StaticClass(), Waypoints);
 	GoToRandomWaypoint();
@@ -48,7 +53,7 @@ void AErrolCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 
 void AErrolCharacter::Patrol()
 {
-	// Move to random places on Nav Mesh with distance from player based on a value.
+	// Move to random places on Nav Mesh with distance from player based on a variable.
 }
 
 ATargetPoint * AErrolCharacter::GetRandomWaypoint()
@@ -59,7 +64,10 @@ ATargetPoint * AErrolCharacter::GetRandomWaypoint()
 
 void AErrolCharacter::GoToRandomWaypoint()
 {
+	
 	AAIController * AICon = Cast<AAIController>(GetController());
-	AICon->MoveToActor(GetRandomWaypoint());
+	AICon->MoveToActor(GetRandomWaypoint(), -1.f, true, true, true);
+	
 	//MoveToActor(GetRandomWaypoint());
+	//AICon->OnMoveCompleted
 }
