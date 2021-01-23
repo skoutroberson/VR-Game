@@ -24,4 +24,15 @@ private:
 
 	UFUNCTION()
 		void GoToRandomWaypoint();
+
+public:
+		//virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
+		virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
+
+		FTimerHandle LookAroundTimerHandle;
+		void InitializeLookAroundTimerhandle();
+	UFUNCTION()
+		void LookAroundTimerCompleted();
+		float LookAroundTimerRate = 0;
+		void SetLookAroundTimerRate();
 };

@@ -12,6 +12,8 @@ enum class ErrolState : uint8
 {
 	STATE_IDLE		UMETA(DisplayName="Idle"),
 	STATE_PATROL	UMETA(DisplayName="Patrol"),
+	STATE_CHASE		UMETA(Displayname="Chase"),
+
 };
 
 UCLASS()
@@ -47,7 +49,7 @@ private:
 
 	UFUNCTION()
 		ATargetPoint* GetRandomWaypoint();
-
+public:
 	UFUNCTION()
 		void GoToRandomWaypoint();
 
