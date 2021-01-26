@@ -28,34 +28,16 @@ void AErrolCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	World = GetWorld();
-	Player = Cast<AActor>(UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass()));
-	
-	UActorComponent * TempAC = Player->GetComponentByClass(UCameraComponent::StaticClass());
-	PlayerCamera = Cast<UCameraComponent>(TempAC);
 
 	ErrolEye = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), FName("ET"))[0]);
-	
-	TArray<AActor*> TempActors;
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AHandController::StaticClass(), TempActors);
-	for (auto a : TempActors)
-	{
-		AHandController * TempHC = Cast<AHandController>(a);
-		if (TempHC->bLeft)
-		{
-			LHandController = TempHC;
-		}
-		else
-		{
-			RHandController = TempHC;
-		}
-	}
 
 	AErrolController * ErrolCon = Cast<AErrolController>(GetController());
 	ErrolCon->InitializeLookAroundTimerhandle();
 
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATargetPoint::StaticClass(), Waypoints);
 	GoToRandomWaypoint();
-	InitializeChaseTimer();
+
+	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, 1.f, false, 0.2f);
 }
 
 // Called every frame
@@ -114,13 +96,25 @@ void AErrolCharacter::EnterChaseState()
 	State = ErrolState::STATE_CHASE;
 }
 
+void AErrolCharacter::InitializeCanSeeVariables()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Initalize can see!"));
+	Player = Cast<AActor>(UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass()));
+	AVRCharacter * TempC = Cast<AVRCharacter>(Player);
+	LHandController = Cast<AActor>(TempC->LeftController);
+	RHandController = Cast<AActor>(TempC->RightController);
+	UActorComponent * TempAC = Player->GetComponentByClass(UCameraComponent::StaticClass());
+	PlayerCamera = Cast<UCameraComponent>(TempAC);
+	InitializeChaseTimer();
+}
+
 void AErrolCharacter::InitializeChaseTimer()
 {
-	GetWorld()->GetTimerManager().SetTimer(ChaseTimerHandle, this, &AErrolCharacter::ShouldChase, ChaseTimerRate, true);
+	GetWorld()->GetTimerManager().SetTimer(ChaseTimerHandle, this, &AErrolCharacter::ShouldChase, CanSeeTimerRate, true, 1.0f);
 }
 
 void AErrolCharacter::ShouldChase()
-{
+{	
 	FHitResult Outhit;
 	FCollisionQueryParams EyeParams;
 	EyeParams.AddIgnoredActor(this);
@@ -130,10 +124,22 @@ void AErrolCharacter::ShouldChase()
 	FVector LHCLocation = LHandController->GetActorLocation();
 	FVector RHCLocation = RHandController->GetActorLocation();
 	bool Trace1 = World->LineTraceSingleByChannel(Outhit, EyeLocation, CameraLocation, ECollisionChannel::ECC_WorldDynamic, EyeParams);
+	bool Trace2 = World->LineTraceSingleByChannel(Outhit, EyeLocation, LHCLocation, ECollisionChannel::ECC_WorldDynamic, EyeParams);
+	bool Trace3 = World->LineTraceSingleByChannel(Outhit, EyeLocation, RHCLocation, ECollisionChannel::ECC_WorldDynamic, EyeParams);
 
 	if (!Trace1)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("boom baby"));
+		UE_LOG(LogTemp, Warning, TEXT("I see camera!"));
+		DrawDebugLine(World, EyeLocation, CameraLocation, FColor::Orange, false, World->DeltaTimeSeconds * 2.f);
 	}
-	
+	if (!Trace2)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("I see Left hand!"));
+		DrawDebugLine(World, EyeLocation, LHCLocation, FColor::Red, false, World->DeltaTimeSeconds * 2.f);
+	}
+	if (!Trace3)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("I see Right hand!"));
+		DrawDebugLine(World, EyeLocation, RHCLocation, FColor::Cyan, false, World->DeltaTimeSeconds * 2.f);
+	}
 }

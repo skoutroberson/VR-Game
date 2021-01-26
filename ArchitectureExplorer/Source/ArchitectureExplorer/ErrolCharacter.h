@@ -71,9 +71,13 @@ public:
 	// Errol local senses funcitonality
 private:
 	FTimerHandle ChaseTimerHandle;
+	FTimerHandle SetUpCanSeeHandle;
+	UFUNCTION()
+	void InitializeCanSeeVariables();
 	void InitializeChaseTimer();
-	float ChaseTimerRate = 0.3f;
+	float CanSeeTimerRate = 0.3f;
 	float HalfFOV = 45.f;
 	UFUNCTION()
 	void ShouldChase();
+
 };
