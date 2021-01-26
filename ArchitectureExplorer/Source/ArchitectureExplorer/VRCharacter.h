@@ -63,7 +63,7 @@ private:
 
 	USphereComponent* HeadCollisionSphere;
 
-private:
+public:
 
 	UPROPERTY(EditAnywhere)
 	class UCameraComponent* Camera;
