@@ -19,30 +19,33 @@ void AErrolController::GoToRandomWaypoint()
 void AErrolController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult & Result)
 {
 	Super::OnMoveCompleted(RequestID, Result);
-	UE_LOG(LogTemp, Warning, TEXT("HERE MOTHAFUCKA!"));
-	GetWorldTimerManager().ClearTimer(LookAroundTimerHandle);
-	GetWorldTimerManager().SetTimer(LookAroundTimerHandle, this, &AErrolController::LookAroundTimerCompleted, LookAroundTimerRate, true);
-	//GetWorldTimerManager().UnPauseTimer(LookAroundTimerHandle);
-	// Depending on ErrolState. look around
-	
+
+	switch (ErrolCharacter->State)
+	{
+	case ErrolState::STATE_PATROL:
+		UE_LOG(LogTemp, Warning, TEXT("HERE MOTHAFUCKA!"));
+		GetWorldTimerManager().SetTimer(LookAroundTimerHandle, this, &AErrolController::LookAroundTimerCompleted, LookAroundTimerRate, true);
+		break;
+	}
 }
 
-void AErrolController::SetLookAroundTimerRate()
+void AErrolController::SetLookAroundTimerRate(float Rate)
 {
-	LookAroundTimerRate = 3.5f;
+	LookAroundTimerRate = Rate;
 }
 
-void AErrolController::InitializeLookAroundTimerhandle()
+void AErrolController::InitializeLookAroundTimer()
 {
-	SetLookAroundTimerRate();
-	GetWorld()->GetTimerManager().SetTimer(LookAroundTimerHandle, this, &AErrolController::LookAroundTimerCompleted, LookAroundTimerRate, true);
+	ErrolCharacter = Cast<AErrolCharacter>(GetPawn());
+	SetLookAroundTimerRate(3.5f);
+	GetWorld()->GetTimerManager().SetTimer(LookAroundTimerHandle, this, &AErrolController::LookAroundTimerCompleted, LookAroundTimerRate, true, 0.2f);
 	GetWorldTimerManager().PauseTimer(LookAroundTimerHandle);
 }
 
 void AErrolController::LookAroundTimerCompleted()
 {
 	UE_LOG(LogTemp, Warning, TEXT("TImer"));
-	AErrolCharacter * ErrolChar = Cast<AErrolCharacter>(GetPawn());
-	GetWorldTimerManager().PauseTimer(LookAroundTimerHandle);
-	ErrolChar->GoToRandomWaypoint();
+	GetWorldTimerManager().ClearTimer(LookAroundTimerHandle);
+	//GetWorldTimerManager().PauseTimer(LookAroundTimerHandle);
+	ErrolCharacter->GoToRandomWaypoint();
 }

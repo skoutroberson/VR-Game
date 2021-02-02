@@ -319,13 +319,17 @@ void AVRCharacter::MoveForward(float throttle)
 	{
 		AddMovementInput(throttle * GetActorForwardVector(), 0.4f);
 	}
+	else
+	{
+		AddMovementInput(throttle * GetActorForwardVector());
+	}
 }
 
 void AVRCharacter::MoveRight(float throttle)
 {
 	if (!bDodge)
 	{
-		AddMovementInput(throttle * Camera->GetRightVector(), 0.5f);
+		AddMovementInput(throttle * Camera->GetRightVector(), 0.4f);
 	}
 }
 
