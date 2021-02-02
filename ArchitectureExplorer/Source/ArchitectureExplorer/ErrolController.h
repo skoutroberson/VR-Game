@@ -16,6 +16,8 @@ class ARCHITECTUREEXPLORER_API AErrolController : public AAIController
 	GENERATED_BODY()
 
 private:
+	class AErrolCharacter * ErrolCharacter;
+
 	UPROPERTY()
 		TArray<AActor*> Waypoints;
 
@@ -30,9 +32,11 @@ public:
 		virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
 
 		FTimerHandle LookAroundTimerHandle;
-		void InitializeLookAroundTimerhandle();
+		void InitializeLookAroundTimer();
+		void StopLookAroundTimer();
+
 	UFUNCTION()
 		void LookAroundTimerCompleted();
 		float LookAroundTimerRate = 0;
-		void SetLookAroundTimerRate();
+		void SetLookAroundTimerRate(float Rate);
 };
