@@ -26,6 +26,9 @@ void AErrolController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollow
 		UE_LOG(LogTemp, Warning, TEXT("HERE MOTHAFUCKA!"));
 		GetWorldTimerManager().SetTimer(LookAroundTimerHandle, this, &AErrolController::LookAroundTimerCompleted, LookAroundTimerRate, true);
 		break;
+	case ErrolState::STATE_CHASE:
+		UE_LOG(LogTemp, Warning, TEXT("U DEAD NOW MOTHAFUCKA!"));
+		break;
 	}
 }
 

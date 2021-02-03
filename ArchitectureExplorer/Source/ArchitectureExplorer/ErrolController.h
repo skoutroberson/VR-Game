@@ -33,7 +33,7 @@ public:
 
 		FTimerHandle LookAroundTimerHandle;
 		void InitializeLookAroundTimer();
-		void StopLookAroundTimer();
+		//void StopLookAroundTimer();
 
 	UFUNCTION()
 		void LookAroundTimerCompleted();
