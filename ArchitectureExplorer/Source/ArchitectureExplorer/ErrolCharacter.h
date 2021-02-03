@@ -78,8 +78,9 @@ public:
 	void ExitPatrolState();
 	void ExitChaseState();
 
-	float PatrolSpeed = 200.f;
-	float ChaseSpeed = 400.f;
+	float PatrolSpeed = 140.f;
+	float ChaseSpeed = 220.f;
+	float Speed = 0;
 
 	// Errol local senses funcitonality
 private:
@@ -92,7 +93,7 @@ private:
 	float HalfFOV = 45.f;
 	int CanSeeChaseThreshold = 3;
 	int CanSeeHitCounter = 0;
-	float SeeDotThreshold = 0.5f;
+	float SeeDotThreshold = 0.26f;
 
 	// Have offset timers call these functions
 
@@ -124,5 +125,6 @@ public:
 	float DetectionThreshold = 0;
 
 
-
+private:
+	void UpdateSpeedBasedOnRotation();
 };

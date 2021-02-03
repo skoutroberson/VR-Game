@@ -40,6 +40,7 @@ void AErrolCharacter::BeginPlay()
 
 	// I have to call this a bit after the game starts so the player and hand controllers are spawned in
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
+	EnterPatrolState();
 }
 
 // Called every frame
@@ -50,10 +51,14 @@ void AErrolCharacter::Tick(float DeltaTime)
 	switch (State)
 	{
 	case ErrolState::STATE_IDLE:
+		UE_LOG(LogTemp, Warning, TEXT("IDLE"));
 		break;
 	case ErrolState::STATE_PATROL:
+		UE_LOG(LogTemp, Warning, TEXT("PATROL"));
+		UpdateSpeedBasedOnRotation();
 		break;
 	case ErrolState::STATE_CHASE:
+		UE_LOG(LogTemp, Warning, TEXT("CHASE"));
 		break;
 	}
 
@@ -100,7 +105,7 @@ void AErrolCharacter::EnterChaseState()
 {
 	State = ErrolState::STATE_CHASE;
 	GetCharacterMovement()->MaxWalkSpeed = ChaseSpeed;
-
+	ErrolController->MoveToActor(Player);
 }
 
 void AErrolCharacter::ExitIdleState()
@@ -109,7 +114,8 @@ void AErrolCharacter::ExitIdleState()
 
 void AErrolCharacter::ExitPatrolState()
 {
-
+	State = ErrolState::STATE_IDLE;
+	ErrolController->StopMovement();
 }
 
 void AErrolCharacter::ExitChaseState()
@@ -184,36 +190,54 @@ void AErrolCharacter::SetSeeGauge()
 		UKismetMathLibrary::Vector_Normalize(Dif);
 		FVector EV = ErrolEye->GetForwardVector();
 		float Dot = FVector::DotProduct(Dif, EV);
-		
+		int ChaseGauge = 0;
 
 		if (Dot > SeeDotThreshold)
 		{
 			if (!Trace1) { CanSeeHitCounter++; }
 			if (!Trace2) { CanSeeHitCounter++; }
 			if (!Trace3) { CanSeeHitCounter++; }
-			if (CanSeeHitCounter > 30) { CanSeeHitCounter = 30; }
+			if (CanSeeHitCounter > 25) { CanSeeHitCounter = 25; }
 
-			
-			
-			//UE_LOG(LogTemp, Warning, TEXT("Dot: %f, Len: %d"), Dot, DifLen);
+			if (DifLen < 300.f && CanSeeHitCounter > 3)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("I SEE U MOTHAFUCKA"));
+				ChaseGauge = 5;
+			}
+			else if (Dot > 0.9f && CanSeeHitCounter > 5)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("I SEE U MOTHAFUCKA"));
+				ChaseGauge = 4;
+			}
+			else if (Dot > 0.75f && CanSeeHitCounter > 9)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("I SEE U MOTHAFUCKA"));
+				ChaseGauge = 3;
+			}
+			else if (Dot > 0.35f && CanSeeHitCounter > 16)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("I SEE U MOTHAFUCKA"));
+				ChaseGauge = 2;
+			}
+			else if(CanSeeHitCounter > 24)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("I SEE U MOTHAFUCKA"));
+				ChaseGauge = 1;
+			}
 
-			if (Dot > 0.95f && CanSeeHitCounter > 8)
+			if (ChaseGauge != 0)
 			{
-				UE_LOG(LogTemp, Warning, TEXT("I SEE U MOTHAFUCKA"));
+				switch (State)
+				{
+				case ErrolState::STATE_PATROL:
+					ExitPatrolState();
+					EnterChaseState();
+					break;
+				case ErrolState::STATE_CHASE:
+					//	Move to random point on sphere where player is, moving farther away depending on how high ChaseGauge is.
+					break;
+				}
 			}
-			else if (Dot > 0.85f && CanSeeHitCounter > 12)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("I SEE U MOTHAFUCKA"));
-			}
-			else if (Dot > 0.7f && CanSeeHitCounter > 20)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("I SEE U MOTHAFUCKA"));
-			}
-			else if(CanSeeHitCounter == 30)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("I SEE U MOTHAFUCKA"));
-			}
-
 		}
 		else
 		{
@@ -244,5 +268,27 @@ void AErrolCharacter::ShouldChase()
 	{
 		EnterChaseState();
 		// Exit Current State
+	}
+}
+
+void AErrolCharacter::UpdateSpeedBasedOnRotation()
+{
+	FVector Vel = GetVelocity();
+	UKismetMathLibrary::Vector_Normalize(Vel);
+	float Dot = FVector::DotProduct(Vel, GetActorForwardVector());
+	//UE_LOG(LogTemp, Warning, TEXT("d: %f"), Dot);
+	switch (State)
+	{
+	case ErrolState::STATE_PATROL:
+		//GetCharacterMovement()->MaxWalkSpeed = PatrolSpeed - (PatrolSpeed * Dot);
+		if (Dot > 0)
+		{
+			GetCharacterMovement()->MaxWalkSpeed = PatrolSpeed * Dot;
+		}
+		else
+		{
+			GetCharacterMovement()->MaxWalkSpeed = PatrolSpeed;
+		}
+		break;
 	}
 }
