@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Grabbable.h"
+#include "ErrolCharacter.h"
 #include "Bottle.generated.h"
 
 /**
@@ -17,7 +18,11 @@ class ARCHITECTUREEXPLORER_API ABottle : public AGrabbable
 public:
 	ABottle();
 
+	virtual void BeginPlay() override;
+
 private:
 	UFUNCTION(BlueprintCallable, Category = ErrolCharacter)
 	void NotifyErrolCharacter();
+
+	AErrolCharacter * Errol = nullptr;
 };

@@ -7,6 +7,7 @@
 #include "Runtime/Engine/Classes/Engine/TargetPoint.h"
 #include "TimerManager.h"
 #include "ErrolController.h"
+#include "NavigationSystem.h"
 #include "ErrolCharacter.generated.h"
 
 UENUM(BlueprintType)
@@ -47,6 +48,7 @@ private:
 	AActor * RHandController = nullptr;
 	USceneComponent * PlayerCamera = nullptr;
 	USceneComponent * ErrolEye = nullptr;
+	UNavigationSystemV1 * NavigationSystem = nullptr;
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -127,4 +129,8 @@ public:
 
 private:
 	void UpdateSpeedBasedOnRotation();
+
+	public:
+		// Called by Bottle.cpp to notify Errol when a bottle breaks.
+		void IHearABottleBreakHeHe(AActor * Bottle);
 };
