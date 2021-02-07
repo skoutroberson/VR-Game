@@ -14,6 +14,8 @@
 #include "DrawDebugHelpers.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "NavigationSystem.h"
+#include "NavigationPath.h"
 
 
 // Sets default values
@@ -41,6 +43,8 @@ void AErrolCharacter::BeginPlay()
 	// I have to call this a bit after the game starts so the player and hand controllers are spawned in
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
 	EnterPatrolState();
+
+	NavigationSystem = UNavigationSystemV1::GetCurrent(World);
 }
 
 // Called every frame
@@ -292,4 +296,22 @@ void AErrolCharacter::UpdateSpeedBasedOnRotation()
 		}
 		break;
 	}
+}
+
+void AErrolCharacter::IHearABottleBreakHeHe(AActor * Bottle)
+{
+	FVector BL = Bottle->GetActorLocation();
+	FVector AL = GetActorLocation();
+	UNavigationPath * Path = NavigationSystem->FindPathToLocationSynchronously(World, BL, AL);
+	TArray<FVector> PathPoints = Path->PathPoints;
+	int Distance = 0;
+	for (int i = 1; i < PathPoints.Num(); i++)
+	{
+		FVector V1 = PathPoints[i];
+		FVector V2 = PathPoints[i - 1];
+		Distance += UKismetMathLibrary::Vector_DistanceSquared(V1, V2);
+		V1.Z += 10.f; V2.Z += 10.f;
+		DrawDebugLine(World, V1, V2, FColor::Orange, true);
+	}
+	UE_LOG(LogTemp, Warning, TEXT("pp: %d"), Distance);
 }
