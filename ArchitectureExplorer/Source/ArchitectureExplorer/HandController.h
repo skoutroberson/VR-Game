@@ -69,6 +69,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
 	bool bIsHoldingChainsaw = false;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
+	bool bIsHoldingBottle = false;
+
 private:
 	// Default sub object
 	UPROPERTY(VisibleAnywhere)

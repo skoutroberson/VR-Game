@@ -13,12 +13,13 @@
 UENUM(BlueprintType)
 enum class ErrolState : uint8
 {
-	STATE_IDLE		UMETA(DisplayName="Idle"),
-	STATE_PATROL	UMETA(DisplayName="Patrol"),
-	STATE_CHASE		UMETA(DisplayName="Chase"),
-	STATE_KILL		UMETA(DisplayName="Kill"),
-	STATE_PEEK		UMETA(DisplayName="Peek"),
-	STATE_SCARE1	UMETA(DisplayName="Scare1"),
+	STATE_IDLE			UMETA(DisplayName="Idle"),
+	STATE_PATROL		UMETA(DisplayName="Patrol"),
+	STATE_CHASE			UMETA(DisplayName="Chase"),
+	STATE_INVESTIGATE	UMETA(DisplayName="Investigate"),
+	STATE_KILL			UMETA(DisplayName="Kill"),
+	STATE_PEEK			UMETA(DisplayName="Peek"),
+	STATE_SCARE1		UMETA(DisplayName="Scare1"),
 };
 
 UCLASS()
@@ -74,14 +75,17 @@ public:
 	void EnterIdleState();
 	void EnterPatrolState();
 	void EnterChaseState();
+	void EnterInvestigateState();
 
 	// State exit functions for clearing timers
 	void ExitIdleState();
 	void ExitPatrolState();
 	void ExitChaseState();
+	void ExitInvestigateState();
 
 	float PatrolSpeed = 140.f;
 	float ChaseSpeed = 220.f;
+	float InvestigateSpeed = 180.f;
 	float Speed = 0;
 
 	// Errol local senses funcitonality
@@ -131,6 +135,8 @@ private:
 	void UpdateSpeedBasedOnRotation();
 
 	public:
-		// Called by Bottle.cpp to notify Errol when a bottle breaks.
-		void IHearABottleBreakHeHe(AActor * Bottle);
+		// Called by VRCharacter, Bottle, or Door. The int will represent the actor so I don't have to do casts
+		// 1 = Player, 2 = Door, 3 = Bottle
+		void HearSound(AActor * Bottle, int ActorInt, int Loudness = 100);
+		FVector InvestigateLocation = FVector::ZeroVector;
 };
