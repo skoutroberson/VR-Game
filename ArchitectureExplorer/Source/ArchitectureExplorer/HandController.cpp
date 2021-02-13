@@ -97,12 +97,18 @@ void AHandController::Grip()
 						bIsHoldingChainsaw = true;
 						SocketName = TEXT("ChainSocket");
 					}
+					else if (GrabActor->ActorHasTag(TEXT("Bot")))
+					{
+						bIsHoldingBottle = true;
+						SocketName = TEXT("GrabSocket");
+					}
 					
 					Mesh->SetSimulatePhysics(false);
 					GripSize = ActorBeingGrabbed->ItemGripSize;
 					GrabActor->AttachToComponent(HandMesh, FAttachmentTransformRules::SnapToTargetNotIncludingScale, SocketName);
 					
 					// if this is a left hand then rotate the item being picked up 180 degrees around the socket's up vector
+					//	THIS IF() MIGHT NOT BE NECCASARY
 					if (bLeft)
 					{
 						USceneComponent * HandMeshCasted;
@@ -220,7 +226,11 @@ void AHandController::Release()
 			}
 			else if (GrabActor->ActorHasTag(TEXT("Chainsaw")))
 			{
-				bIsHoldingChainsaw = true;
+				bIsHoldingChainsaw = false;
+			}
+			else if (GrabActor->ActorHasTag(TEXT("Bot")))
+			{
+				bIsHoldingBottle = false;
 			}
 
 			UPrimitiveComponent * Mesh = nullptr;

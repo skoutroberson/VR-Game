@@ -16,6 +16,7 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "NavigationSystem.h"
 #include "NavigationPath.h"
+#include "AI/Navigation/NavigationTypes.h"
 
 
 // Sets default values
@@ -105,11 +106,22 @@ void AErrolCharacter::EnterPatrolState()
 	GoToRandomWaypoint();
 }
 
+
 void AErrolCharacter::EnterChaseState()
 {
 	State = ErrolState::STATE_CHASE;
 	GetCharacterMovement()->MaxWalkSpeed = ChaseSpeed;
 	ErrolController->MoveToActor(Player);
+}
+
+void AErrolCharacter::EnterInvestigateState()
+{
+	// Move to InvestigateLocation and look around
+	State = ErrolState::STATE_INVESTIGATE;
+	float * MWS = &GetCharacterMovement()->MaxWalkSpeed;
+	//*MWS = (*MWS == PatrolSpeed) ? InvestigateSpeed : *MWS;
+	if (*MWS == PatrolSpeed) { *MWS = InvestigateSpeed; }
+	ErrolController->MoveToLocation(InvestigateLocation);
 }
 
 void AErrolCharacter::ExitIdleState()
@@ -123,6 +135,10 @@ void AErrolCharacter::ExitPatrolState()
 }
 
 void AErrolCharacter::ExitChaseState()
+{
+}
+
+void AErrolCharacter::ExitInvestigateState()
 {
 }
 
@@ -298,20 +314,56 @@ void AErrolCharacter::UpdateSpeedBasedOnRotation()
 	}
 }
 
-void AErrolCharacter::IHearABottleBreakHeHe(AActor * Bottle)
+// I will call this function for any noise that the player creates (bottles, doors, sprinting). 
+void AErrolCharacter::HearSound(AActor * Bottle, int ActorInt, int Loudness)
 {
 	FVector BL = Bottle->GetActorLocation();
 	FVector AL = GetActorLocation();
 	UNavigationPath * Path = NavigationSystem->FindPathToLocationSynchronously(World, BL, AL);
 	TArray<FVector> PathPoints = Path->PathPoints;
 	int Distance = 0;
-	for (int i = 1; i < PathPoints.Num(); i++)
+	int PathPointsNum = PathPoints.Num();
+	PathPointsNum = (PathPointsNum > 10) ? 10 : PathPointsNum;
+
+	// I don't really think this is a possible path, but if I ever read this log i'm gonna be scared
+	if (PathPointsNum < 2)
 	{
-		FVector V1 = PathPoints[i];
-		FVector V2 = PathPoints[i - 1];
-		Distance += UKismetMathLibrary::Vector_DistanceSquared(V1, V2);
-		V1.Z += 10.f; V2.Z += 10.f;
-		DrawDebugLine(World, V1, V2, FColor::Orange, true);
+		UE_LOG(LogTemp, Warning, TEXT("ERRROROROROROROROROOR PathBOTTLESTUFF"));
 	}
-	UE_LOG(LogTemp, Warning, TEXT("pp: %d"), Distance);
+	else 
+	{
+		for (int i = 1; i < PathPointsNum; i++)
+		{
+			FVector V1 = PathPoints[i];
+			FVector V2 = PathPoints[i - 1];
+			Distance += UKismetMathLibrary::Vector_DistanceSquared(V1, V2);
+			// next two lines are for debugging
+			V1.Z += 10.f; V2.Z += 10.f;
+			DrawDebugLine(World, V1, V2, FColor::Orange, true);
+		}
+	}
+	Distance >>= 13;
+	Distance *= PathPointsNum;
+	//UE_LOG(LogTemp, Warning, TEXT("pp: %d"), Distance);
+
+	// Set InvestigateLocation to be somewhere near the bottle based on the path distance with differences based on ActorInt
+	FNavLocation NavLoc;
+	bool bFoundNav = NavigationSystem->GetRandomReachablePointInRadius(BL, Distance, NavLoc);
+	if (bFoundNav)
+	{
+		InvestigateLocation = NavLoc.Location;
+		//Exit current state
+		switch (State)
+		{
+		case ErrolState::STATE_PATROL:
+			ExitPatrolState();
+			EnterInvestigateState();
+			break;
+		case ErrolState::STATE_CHASE:
+			break;
+		}
+	}
+	//DrawDebugSphere(World, BL, Distance, 20, FColor::Orange, true);
+	//DrawDebugSphere(World, NavLoc.Location, 10.f, 10, FColor::Red, true);
+	//Enter Investigate State
 }

@@ -22,6 +22,6 @@ void ABottle::BeginPlay()
 
 void ABottle::NotifyErrolCharacter()
 {
-	Errol->IHearABottleBreakHeHe(this);
+	Errol->HearSound(this, 3);
 	UE_LOG(LogTemp, Warning, TEXT("BOTTLEBREAK!"));
 }
