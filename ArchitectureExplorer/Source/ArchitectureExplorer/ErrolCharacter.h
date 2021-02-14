@@ -31,6 +31,8 @@ public:
 	// Sets default values for this character's properties
 	AErrolCharacter();
 
+	//class UDestructibleComponent * DC = nullptr;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -99,7 +101,7 @@ private:
 	float HalfFOV = 45.f;
 	int CanSeeChaseThreshold = 3;
 	int CanSeeHitCounter = 0;
-	float SeeDotThreshold = 0.26f;
+	float SeeDotThreshold = 0.26f;			// represents errol fov. 0 is 180 degrees
 
 	// Have offset timers call these functions
 
@@ -135,7 +137,7 @@ private:
 	void UpdateSpeedBasedOnRotation();
 
 	public:
-		// Called by VRCharacter, Bottle, or Door. The int will represent the actor so I don't have to do casts
+		// Called by VRCharacter, Bottle, or Door. The int will represent the actor so I don't have to do casts for better performance
 		// 1 = Player, 2 = Door, 3 = Bottle
 		void HearSound(AActor * Bottle, int ActorInt, int Loudness = 100);
 		FVector InvestigateLocation = FVector::ZeroVector;

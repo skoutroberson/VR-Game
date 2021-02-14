@@ -8,16 +8,25 @@
 
 ABottle::ABottle()
 {
+	PrimaryActorTick.bCanEverTick = true;
+	
 	AGrabbable::ItemGripSize = 55.f;
 }
 
 void ABottle::BeginPlay()
 {
+	Super::BeginPlay();
 	Errol = Cast<AErrolCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AErrolCharacter::StaticClass()));
 	if (Errol == nullptr)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Errol cast failed in Bottle.cpp!"));
 	}
+}
+
+void ABottle::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	UE_LOG(LogTemp, Warning, TEXT("SLFJSL"));
 }
 
 void ABottle::NotifyErrolCharacter()

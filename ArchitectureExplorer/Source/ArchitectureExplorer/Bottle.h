@@ -18,11 +18,20 @@ class ARCHITECTUREEXPLORER_API ABottle : public AGrabbable
 public:
 	ABottle();
 
+	virtual void Tick(float DeltaTime) override;
+
 	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere, Category = Bottle)
+	bool bInAir = false;
 
 private:
 	UFUNCTION(BlueprintCallable, Category = ErrolCharacter)
 	void NotifyErrolCharacter();
 
 	AErrolCharacter * Errol = nullptr;
+
+	UPROPERTY(EditAnywhere, Category = Bottle)
+	bool bCanBreak = false;
+
 };
