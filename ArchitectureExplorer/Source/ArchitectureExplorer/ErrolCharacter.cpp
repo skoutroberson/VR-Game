@@ -17,7 +17,8 @@
 #include "NavigationSystem.h"
 #include "NavigationPath.h"
 #include "AI/Navigation/NavigationTypes.h"
-
+#include "Bottle.h"
+#include "DestructibleComponent.h"
 
 // Sets default values
 AErrolCharacter::AErrolCharacter()
@@ -46,6 +47,11 @@ void AErrolCharacter::BeginPlay()
 	EnterPatrolState();
 
 	NavigationSystem = UNavigationSystemV1::GetCurrent(World);
+
+	//ABottle * B;
+	//B = Cast<ABottle>(UGameplayStatics::GetActorOfClass(World, ABottle::StaticClass()));
+	//DC = Cast<UDestructibleComponent>(B->GetComponentByClass(UDestructibleComponent::StaticClass()));
+	//DC = Cast<UDestructibleComponent>(B->GetComponentByClass(UDestructibleComponent::StaticClass()));
 }
 
 // Called every frame
@@ -176,7 +182,7 @@ void AErrolCharacter::SetSeeGauge()
 	bool Trace2 = World->LineTraceSingleByChannel(Outhit, EyeLocation, LHCLocation, ECollisionChannel::ECC_WorldDynamic, EyeParams);
 	bool Trace3 = World->LineTraceSingleByChannel(Outhit, EyeLocation, RHCLocation, ECollisionChannel::ECC_WorldDynamic, EyeParams);
 
-	UE_LOG(LogTemp, Warning, TEXT("See: %d"), CanSeeHitCounter);
+	//UE_LOG(LogTemp, Warning, TEXT("See: %d"), CanSeeHitCounter);
 	/*
 	// Debug stuff //////
 	if (!Trace1)
@@ -364,6 +370,6 @@ void AErrolCharacter::HearSound(AActor * Bottle, int ActorInt, int Loudness)
 		}
 	}
 	//DrawDebugSphere(World, BL, Distance, 20, FColor::Orange, true);
-	//DrawDebugSphere(World, NavLoc.Location, 10.f, 10, FColor::Red, true);
+	DrawDebugSphere(World, NavLoc.Location, 10.f, 10, FColor::Red, true);
 	//Enter Investigate State
 }
