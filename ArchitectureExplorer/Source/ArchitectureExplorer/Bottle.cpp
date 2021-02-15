@@ -5,10 +5,11 @@
 #include "Grabbable.h"
 #include "ErrolCharacter.h"
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "DestructibleComponent.h"
 
 ABottle::ABottle()
 {
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 	
 	AGrabbable::ItemGripSize = 55.f;
 }
@@ -26,7 +27,7 @@ void ABottle::BeginPlay()
 void ABottle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	UE_LOG(LogTemp, Warning, TEXT("SLFJSL"));
+	UE_LOG(LogTemp, Warning, TEXT("BOTTLEBREAK!"));
 }
 
 void ABottle::NotifyErrolCharacter()

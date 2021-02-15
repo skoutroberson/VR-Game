@@ -14,6 +14,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Engine/SkeletalMeshSocket.h"
 #include "Math/RotationAboutPointMatrix.h"
+#include "Bottle.h"
 
 // Sets default values
 AHandController::AHandController()

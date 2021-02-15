@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Grabbable.h"
 #include "ErrolCharacter.h"
+#include "DestructibleComponent.h"
 #include "Bottle.generated.h"
 
 /**
@@ -22,16 +23,13 @@ public:
 
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, Category = Bottle)
-	bool bInAir = false;
+	UDestructibleComponent * DestructibleComponent = nullptr;
+	UDestructibleMesh * DestructibleMesh = nullptr;
 
 private:
 	UFUNCTION(BlueprintCallable, Category = ErrolCharacter)
 	void NotifyErrolCharacter();
 
 	AErrolCharacter * Errol = nullptr;
-
-	UPROPERTY(EditAnywhere, Category = Bottle)
-	bool bCanBreak = false;
 
 };
