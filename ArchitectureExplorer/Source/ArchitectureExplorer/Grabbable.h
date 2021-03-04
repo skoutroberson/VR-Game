@@ -17,11 +17,11 @@ public:
 
 protected:
 	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	virtual void BeginPlay();
 
 public:	
 	// Called every frame
-	virtual void Tick(float DeltaTime);
+	//virtual void Tick(float DeltaTime);
 
 public:
 	float ItemGripSize = 100.f;

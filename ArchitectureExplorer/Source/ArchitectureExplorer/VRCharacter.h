@@ -33,6 +33,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector DeltaLocation = FVector::ZeroVector;
+
 private:
 
 	void UpdateDestinationMarker();
@@ -74,16 +77,16 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	class AHandController* RightController;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class USkeletalMeshComponent* LeftHandMesh;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class USkeletalMeshComponent* RightHandMesh;
 
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* VRRoot;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	class UStaticMeshComponent* DestinationMarker;
 
 	UPROPERTY(EditDefaultsOnly)

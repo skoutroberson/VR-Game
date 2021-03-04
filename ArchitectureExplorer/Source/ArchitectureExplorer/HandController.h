@@ -23,6 +23,9 @@ public:
 	void Grip();
 	void Release();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector DeltaLocation = FVector::ZeroVector;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -91,7 +94,8 @@ private:
 	// Helpers
 	void CanInteract();
 	AActor* OverlappingDoor = nullptr;
-	USceneComponent * OverlappingKnob = nullptr;
+	UPrimitiveComponent * OverlappingKnob = nullptr;
+	//USceneComponent * OverlappingKnob = nullptr;
 
 	// State
 	bool bCanClimb = false;

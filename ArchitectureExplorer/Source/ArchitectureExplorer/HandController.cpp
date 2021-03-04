@@ -15,6 +15,7 @@
 #include "Engine/SkeletalMeshSocket.h"
 #include "Math/RotationAboutPointMatrix.h"
 #include "Bottle.h"
+#include "DestructibleComponent.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -41,12 +42,15 @@ void AHandController::BeginPlay()
 		UE_LOG(LogTemp, Warning, TEXT("Skeletal Mesh cast failed in HandController.cpp"));
 	}
 
+	DeltaLocation = GetActorLocation();
 }
 
 // Called every frame
 void AHandController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	DeltaLocation = DeltaLocation - GetActorLocation();
 
 	//DrawDebugLines(DeltaTime);	///////////////////// DEBUG HELPER
 
@@ -100,6 +104,7 @@ void AHandController::Grip()
 					}
 					else if (GrabActor->ActorHasTag(TEXT("Bot")))
 					{
+						UE_LOG(LogTemp, Warning, TEXT("Grabbing Bot"));
 						bIsHoldingBottle = true;
 						SocketName = TEXT("GrabSocket");
 					}
@@ -164,7 +169,8 @@ void AHandController::Grip()
 		{
 			bIsUsingDoor = true;
 
-			OverlappingKnob = OverlappingDoor->GetRootComponent()->GetChildComponent(2);	/////////////////////////////////
+			//OverlappingKnob = OverlappingDoor->GetRootComponent()->GetChildComponent(2);	/////////////////////////////////
+			//UE_LOG(LogTemp, Warning, TEXT("O: %s"), OverlappingKnob->GetName());
 
 			ADoor* CurrentDoor = Cast<ADoor>(OverlappingDoor);
 
@@ -336,7 +342,9 @@ void AHandController::ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActo
 void AHandController::CanInteract()
 {
 	TArray<AActor*> OverlappingActors;
+	TArray<UPrimitiveComponent*> OverlappingComponents;
 	GetOverlappingActors(OverlappingActors);
+	GetOverlappingComponents(OverlappingComponents);
 	for (AActor* OverlappingActor : OverlappingActors)
 	{
 		if (OverlappingActor->ActorHasTag(TEXT("Grab")))
@@ -352,13 +360,26 @@ void AHandController::CanInteract()
 			bNewCanClimb = true;
 			return;
 		}
+		/*
 		else if (OverlappingActor->ActorHasTag(TEXT("Door")))
 		{
 			bNewCanUseDoor = true;
 			OverlappingDoor = OverlappingActor;
 			return;
 		}
+		*/
 	}
+	for (UPrimitiveComponent* OC : OverlappingComponents)
+	{
+		if (OC->ComponentHasTag(TEXT("Knob")))
+		{
+			bNewCanUseDoor = true;
+			OverlappingKnob = OC;
+			OverlappingDoor = OC->GetOwner();
+			return;
+		}
+	}
+	
 	bNewCanClimb = false;
 	bNewCanUseDoor = false;
 	bNewCanGrab = false;

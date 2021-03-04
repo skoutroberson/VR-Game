@@ -44,6 +44,12 @@ AVRCharacter::AVRCharacter()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(VRRoot);
 
+	LeftHandMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("LeftHandMesh"));
+	LeftHandMesh->SetupAttachment(VRRoot);
+
+	RightHandMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("RightHandMesh"));
+	RightHandMesh->SetupAttachment(VRRoot);
+
 	//LeftController->SetTrackingSource(EControllerHand::Left);
 	//LeftController->bDisplayDeviceModel = true;
 	// Create the hand mesh for visualization
@@ -57,7 +63,6 @@ AVRCharacter::AVRCharacter()
 	CamHeightParams.AddIgnoredActor(this);
 
 	//HeadCollisionSphere = Cast<USphereComponent*>(Camera->GetChildComponent(0));
-
 }
 
 // Called when the game starts or when spawned
@@ -107,6 +112,8 @@ void AVRCharacter::BeginPlay()
 		VRRoot->SetRelativeLocation(FVector(0,0,50.f));
 	}
 	*/
+
+	DeltaLocation = GetActorLocation();
 }
 
 void AVRCharacter::UpdateCapsuleHeight()
@@ -127,7 +134,11 @@ void AVRCharacter::UpdateCapsuleHeight()
 	
 	FVector RootVector = VRRoot->GetComponentLocation();
 	RootVector.Z = CamHeightHit.ImpactPoint.Z;
+
+
+
 	GetCapsuleComponent()->SetCapsuleHalfHeight(CamHeightHit.Distance / 2.f);
+
 	VRRoot->SetWorldLocation(RootVector);
 
 	/*
@@ -151,13 +162,15 @@ void AVRCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	DeltaLocation = DeltaLocation - GetActorLocation();
+
 	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
 
 	//	Need to do this every frame so the collision capsule stays on top of the player's camera
 	CorrectCameraOffset();
 
 	//	Updates the capsule height to be the height from the floor to the HMD
-	//UpdateCapsuleHeight();
+	UpdateCapsuleHeight();
 	
 
 	if (bTeleportEnabled)
@@ -183,6 +196,13 @@ void AVRCharacter::Tick(float DeltaTime)
 			MoveForward(1.0f);
 		}
 	}
+
+	LeftHandMesh->SetWorldLocation(LeftController->GetActorLocation());
+	RightHandMesh->SetWorldLocation(RightController->GetActorLocation());
+	LeftHandMesh->SetWorldRotation(LeftController->GetActorRotation());
+	RightHandMesh->SetWorldRotation(RightController->GetActorRotation());
+	//LeftHandMesh->SetWorldLocationAndRotation(LeftController->GetActorLocation(), LeftController->GetActorQuat());
+	//RightHandMesh->SetWorldLocationAndRotation(RightController->GetActorLocation(), RightController->GetActorQuat());
 }
 
 void AVRCharacter::Dodge()
@@ -317,11 +337,11 @@ void AVRCharacter::MoveForward(float throttle)
 {
 	if(!bSprint)
 	{
-		AddMovementInput(throttle * GetActorForwardVector(), 0.4f);
+		AddMovementInput(throttle * Camera->GetForwardVector(), 0.4f);
 	}
 	else
 	{
-		AddMovementInput(throttle * GetActorForwardVector());
+		AddMovementInput(throttle * Camera->GetForwardVector());
 	}
 }
 

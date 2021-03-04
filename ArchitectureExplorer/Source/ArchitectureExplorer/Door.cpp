@@ -64,6 +64,10 @@ void ADoor::Tick(float DeltaTime)
 	{
 		UseDoor(DeltaTime);
 	}
+	else if (bCollisionSwing)
+	{
+		CollisionSwing(DeltaTime);
+	}
 	else if (bSwing)
 	{
 		Swing(DeltaTime);
@@ -104,17 +108,58 @@ void ADoor::Swing(float DeltaTime)
 	{
 		if (KnobCollision)
 		{
-			SwingVelocity = -SwingVelocity / 12.f;
+			SwingVelocity = -SwingVelocity * 0.25f;
 		}
 		else
 		{
-			SwingVelocity = -SwingVelocity / 16.f;
+			SwingVelocity = -SwingVelocity * 0.25f;
 		}
 	}
 	else
 	{
 		DoorHinge->AddLocalRotation(DQ, true);
 	}
+}
+
+void ADoor::CollisionSwing(float DeltaTime)
+{
+	FVector CL = CollisionActor->GetActorLocation();
+	FVector CADelta = LastCALocation - CL;
+	CADelta.Z = 0;
+	FVector DFV = DoorHinge->GetForwardVector();
+	float Dot = FVector::DotProduct(CADelta.GetSafeNormal(), DFV);
+	//float CollisionDot = FVector::DotProduct(CADelta.GetSafeNormal(), CollisionActor->GetParentActor()->GetActorForwardVector());
+	if (Dot < 0)
+	{
+		bSwing = true;
+		bCollisionSwing = false;
+		return;
+	}
+	FQuat DHQ = DoorHinge->GetComponentQuat();
+	SlerpSize = (-Dot * CADelta.Size() * (180.f / PI)) * 0.0002f;
+	SlerpSize = (SlerpSize > 3.f) ? 3.f : SlerpSize;
+	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SlerpSize);
+	FQuat NewQuat = DHQ * DQ;
+
+	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
+	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
+
+	if (MaxDistance > MaxAngleRadians)
+	{
+		DoorHinge->SetWorldRotation(MinRotation);
+		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
+	}
+	else if (MinDistance > MaxAngleRadians)
+	{
+		DoorHinge->SetWorldRotation(MaxRotation);
+		//UE_LOG(LogTemp, Warning, TEXT("MAX"));
+	}
+	else
+	{
+		DoorHinge->AddLocalRotation(DQ);
+	}
+
+	LastCALocation = CL;
 }
 
 void ADoor::UseDoor(float DeltaTime)
