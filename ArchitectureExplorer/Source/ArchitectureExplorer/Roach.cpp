@@ -20,8 +20,8 @@ ARoach::ARoach()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	RoachRoot = CreateDefaultSubobject<USceneComponent>(TEXT("RoachRoot"));
-	SetRootComponent(RoachRoot);
+	//RoachRoot = CreateDefaultSubobject<USceneComponent>(TEXT("RoachRoot"));
+	//SetRootComponent(RoachRoot);
 
 	RoachParams.AddIgnoredActor(this);
 	TArray<AActor*> FoundRoaches;
@@ -37,10 +37,10 @@ void ARoach::BeginPlay()
 {
 	Super::BeginPlay();
 
-	ReachedGoal();
-	UE_LOG(LogTemp, Warning, TEXT("%s - %d"), *GetFName().ToString(), Laziness);
+	//ReachedGoal();
+	//UE_LOG(LogTemp, Warning, TEXT("%s - %d"), *GetFName().ToString(), Laziness);
 	
-	GetWorld()->GetTimerManager().SetTimer(GoalTimerHandle, this, &ARoach::ReachedGoal, GoalTimerRate);
+	//GetWorld()->GetTimerManager().SetTimer(GoalTimerHandle, this, &ARoach::ReachedGoal, GoalTimerRate);
 
 	Player = UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass());
 
@@ -123,7 +123,7 @@ void ARoach::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	Move(DeltaTime);
+	//Move(DeltaTime);
 
 }
 

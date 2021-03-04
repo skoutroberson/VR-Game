@@ -9,8 +9,9 @@ public class ArchitectureExplorer : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay" });
+        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "OculusHMD" });
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+        PrivateDependencyModuleNames.AddRange(new string[] {  });
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "NavigationSystem" });
 

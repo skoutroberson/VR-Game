@@ -15,16 +15,17 @@ AGrabbable::AGrabbable()
 void AGrabbable::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	SetTickGroup(ETickingGroup::TG_PrePhysics);
 }
 
 // Called every frame
+/*
 void AGrabbable::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	//UE_LOG(LogTemp, Warning, TEXT("%s"), *GetName());
 }
-
+*/
 void AGrabbable::Grab()
 {
 

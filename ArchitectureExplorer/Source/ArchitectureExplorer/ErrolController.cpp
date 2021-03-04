@@ -27,7 +27,10 @@ void AErrolController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollow
 		GetWorldTimerManager().SetTimer(LookAroundTimerHandle, this, &AErrolController::LookAroundTimerCompleted, LookAroundTimerRate, true);
 		break;
 	case ErrolState::STATE_CHASE:
-		UE_LOG(LogTemp, Warning, TEXT("U DEAD NOW MOTHAFUCKA!"));
+		UE_LOG(LogTemp, Warning, TEXT("IM CHASING U MOTHAFUCKA!"));
+		break;
+	case ErrolState::STATE_INVESTIGATE:
+		UE_LOG(LogTemp, Warning, TEXT("IM INVESTIGATING THE NOISE!"));
 		break;
 	}
 }
@@ -37,18 +40,24 @@ void AErrolController::SetLookAroundTimerRate(float Rate)
 	LookAroundTimerRate = Rate;
 }
 
+// I need to add a looking around animation to play while this timer is running.
 void AErrolController::InitializeLookAroundTimer()
 {
 	ErrolCharacter = Cast<AErrolCharacter>(GetPawn());
-	SetLookAroundTimerRate(3.5f);
 	GetWorld()->GetTimerManager().SetTimer(LookAroundTimerHandle, this, &AErrolController::LookAroundTimerCompleted, LookAroundTimerRate, true, 0.2f);
 	GetWorldTimerManager().PauseTimer(LookAroundTimerHandle);
 }
 
+// Stop looking around and patrol again
 void AErrolController::LookAroundTimerCompleted()
 {
 	UE_LOG(LogTemp, Warning, TEXT("TImer"));
 	GetWorldTimerManager().ClearTimer(LookAroundTimerHandle);
 	//GetWorldTimerManager().PauseTimer(LookAroundTimerHandle);
 	ErrolCharacter->GoToRandomWaypoint();
+}
+
+void AErrolController::StopTimers()
+{
+	GetWorldTimerManager().ClearTimer(LookAroundTimerHandle);
 }

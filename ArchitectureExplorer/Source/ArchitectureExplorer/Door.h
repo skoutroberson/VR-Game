@@ -46,13 +46,28 @@ public:
 	// Mechanic functions
 	void UseDoor(float DeltaTime);
 	void Swing(float DeltaTime);
+	void CollisionSwing(float DeltaTime);
 
 	// State
 	bool bIsBeingUsed = false;
+
+	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
 	bool bSwing = false;
 
-private:
+	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
 	float SwingVelocity;
+
+	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
+	bool bCollisionSwing = false;
+
+	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
+	AActor * CollisionActor = nullptr;
+
+	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
+	FVector LastCALocation = FVector::ZeroVector;
+
+private:
+	
 	float SlerpSize;
 	const float HingeFriction = 0.008f;
 	const float DoorLength = 91.f;

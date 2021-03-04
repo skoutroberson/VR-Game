@@ -19,7 +19,7 @@ class ARCHITECTUREEXPLORER_API ABottle : public AGrabbable
 public:
 	ABottle();
 
-	virtual void Tick(float DeltaTime) override;
+	//virtual void Tick(float DeltaTime) override;
 
 	virtual void BeginPlay() override;
 

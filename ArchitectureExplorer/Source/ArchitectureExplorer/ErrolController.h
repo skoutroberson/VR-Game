@@ -37,6 +37,8 @@ public:
 
 	UFUNCTION()
 		void LookAroundTimerCompleted();
-		float LookAroundTimerRate = 0;
+		float LookAroundTimerRate = 3.5f;
 		void SetLookAroundTimerRate(float Rate);
+
+		void StopTimers();
 };

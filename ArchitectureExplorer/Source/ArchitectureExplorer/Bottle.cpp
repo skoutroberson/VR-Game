@@ -17,17 +17,13 @@ ABottle::ABottle()
 void ABottle::BeginPlay()
 {
 	Super::BeginPlay();
+	SetTickGroup(ETickingGroup::TG_PrePhysics);
 	Errol = Cast<AErrolCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AErrolCharacter::StaticClass()));
 	if (Errol == nullptr)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Errol cast failed in Bottle.cpp!"));
 	}
-}
-
-void ABottle::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	UE_LOG(LogTemp, Warning, TEXT("BOTTLEBREAK!"));
+	DestructibleComponent = Cast<UDestructibleComponent>(GetComponentByClass(UDestructibleComponent::StaticClass()));
 }
 
 void ABottle::NotifyErrolCharacter()

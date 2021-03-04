@@ -25,6 +25,10 @@ AErrolCharacter::AErrolCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	NakedMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("NakedMesh"));
+	NakedMesh->SetupAttachment(GetRootComponent());
+
 	State = ErrolState::STATE_IDLE;
 }
 
@@ -41,6 +45,7 @@ void AErrolCharacter::BeginPlay()
 	ErrolController->InitializeLookAroundTimer();
 
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATargetPoint::StaticClass(), Waypoints);
+	
 
 	// I have to call this a bit after the game starts so the player and hand controllers are spawned in
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
@@ -52,6 +57,9 @@ void AErrolCharacter::BeginPlay()
 	//B = Cast<ABottle>(UGameplayStatics::GetActorOfClass(World, ABottle::StaticClass()));
 	//DC = Cast<UDestructibleComponent>(B->GetComponentByClass(UDestructibleComponent::StaticClass()));
 	//DC = Cast<UDestructibleComponent>(B->GetComponentByClass(UDestructibleComponent::StaticClass()));
+
+	USkeletalMeshComponent* SM = Cast<USkeletalMeshComponent>(GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+	SM->HideBoneByName(TEXT("Head"), EPhysBodyOp::PBO_None);
 }
 
 // Called every frame
@@ -127,6 +135,7 @@ void AErrolCharacter::EnterInvestigateState()
 	float * MWS = &GetCharacterMovement()->MaxWalkSpeed;
 	//*MWS = (*MWS == PatrolSpeed) ? InvestigateSpeed : *MWS;
 	if (*MWS == PatrolSpeed) { *MWS = InvestigateSpeed; }
+	ErrolController->StopTimers();
 	ErrolController->MoveToLocation(InvestigateLocation);
 }
 
@@ -137,6 +146,7 @@ void AErrolCharacter::ExitIdleState()
 void AErrolCharacter::ExitPatrolState()
 {
 	State = ErrolState::STATE_IDLE;
+	ErrolController->StopTimers();
 	ErrolController->StopMovement();
 }
 
@@ -345,7 +355,7 @@ void AErrolCharacter::HearSound(AActor * Bottle, int ActorInt, int Loudness)
 			Distance += UKismetMathLibrary::Vector_DistanceSquared(V1, V2);
 			// next two lines are for debugging
 			V1.Z += 10.f; V2.Z += 10.f;
-			DrawDebugLine(World, V1, V2, FColor::Orange, true);
+			//DrawDebugLine(World, V1, V2, FColor::Orange, true);
 		}
 	}
 	Distance >>= 13;
