@@ -28,6 +28,8 @@
 #include "IHeadMountedDisplay.h"
 #include "Engine/Engine.h"
 #include "IXRTrackingSystem.h"
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "Sound/SoundCue.h"
 
 
 // Sets default values
@@ -157,6 +159,47 @@ void AVRCharacter::UpdateCapsuleHeight()
 	*/
 }
 
+void AVRCharacter::PlayFootStepSound()
+{
+	float V = GetVelocity().Size();
+
+	//UE_LOG(LogTemp, Warning, TEXT("D: %f"), DistanceMoved);
+
+	if (V > VelocityThreshold)
+	{
+		DistanceMoved += V;
+
+		if (DistanceMoved > DistanceThreshold)
+		{
+			// Play Sound
+			DistanceMoved = 0.f;
+			if (bRightStep)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Right Step"));
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), RightFootstepSound, 
+					GetActorLocation() - GetActorUpVector() * 20.f + GetActorRightVector() * 5.f);
+				bRightStep = false;
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Left Step"));
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), LeftFootstepSound, 
+					GetActorLocation() - GetActorUpVector() * 20.f - GetActorRightVector() * 5.f);
+				bRightStep = true;
+			}
+		}
+	}
+	else
+	{
+		if (DistanceMoved > 0)
+		{
+			DistanceMoved -= DistanceMovedDecrementAmount + (VelocityThreshold - V);
+			if (DistanceMoved < 0) { DistanceMoved = 0; }
+		}
+		
+	}
+}
+
 // Called every frame
 void AVRCharacter::Tick(float DeltaTime)
 {
@@ -170,7 +213,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	CorrectCameraOffset();
 
 	//	Updates the capsule height to be the height from the floor to the HMD
-	UpdateCapsuleHeight();
+	//UpdateCapsuleHeight();
 	
 
 	if (bTeleportEnabled)
@@ -203,6 +246,8 @@ void AVRCharacter::Tick(float DeltaTime)
 	RightHandMesh->SetWorldRotation(RightController->GetActorRotation());
 	//LeftHandMesh->SetWorldLocationAndRotation(LeftController->GetActorLocation(), LeftController->GetActorQuat());
 	//RightHandMesh->SetWorldLocationAndRotation(RightController->GetActorLocation(), RightController->GetActorQuat());
+
+	PlayFootStepSound();
 }
 
 void AVRCharacter::Dodge()

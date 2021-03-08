@@ -117,6 +117,8 @@ private:
 	bool bSprint = false;
 	bool bDodge = false;
 	bool bTeleportEnabled = false;
+	bool bIsMovingForward = false;
+	bool bIsMovingUpDown = false;
 
 private:
 
@@ -136,5 +138,22 @@ private:
 
 	int StopSprintChecks = 0;
 	int StopSprintMax = 2;
+
+	// foot steps:
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * LeftFootstepSound;
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * RightFootstepSound;
+
+	bool bRightStep = false;
+	float DistanceMoved = 0;
+	const float DistanceThreshold = 6200.f;
+	// this should go down more if the players velocity is farther from velocity threshold
+	const float DistanceMovedDecrementAmount = 14.f;
+	// the character's velocity must be over this amount to be considered "moving".
+	const float VelocityThreshold = 16.f;
+	// This function plays a footstep sound if MoveDistance goes over MoveThreshold.
+	void PlayFootStepSound();
 
 };
