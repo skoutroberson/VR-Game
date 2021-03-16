@@ -101,4 +101,25 @@ private:
 	float YawAngle = -1.f;
 	int DoorCloseDirection = 0;
 
+private:
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * OpenSound;
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * CloseSound;
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * SwingOpenSound;
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * SwingCloseSound;
+
+	UAudioComponent * SwingAudioComponent = nullptr;
+
+	bool bSwingingOpen = false;
+	bool bPlayingSwingSound = false;
+
+	float DoorVelocitySoundThreshold = 0.01f;
+	
+	float SwingOpenSoundDuration = 0;
+	float SwingCloseSoundDuration = 0;
+
+	void PlaySwingSound(const float Velocity, const float Ratio);
 };

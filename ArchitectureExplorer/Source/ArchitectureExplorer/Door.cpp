@@ -10,6 +10,9 @@
 #include "Components/StaticMeshComponent.h"
 #include "HandController.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "Sound/SoundCue.h"
+#include "Components/AudioComponent.h"
 
 // Sets default values
 ADoor::ADoor()
@@ -54,6 +57,11 @@ void ADoor::BeginPlay()
 
 	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector().RotateAngleAxis(148.f, DoorHinge->GetUpVector()) * 91.f, FColor::Black, true);
 	//148 - 270
+
+	SwingAudioComponent = Cast<UAudioComponent>(GetComponentByClass(UAudioComponent::StaticClass()));
+
+	SwingOpenSoundDuration = SwingOpenSound->GetDuration();
+	SwingCloseSoundDuration = SwingCloseSound->GetDuration();
 }
 // Called every frame
 void ADoor::Tick(float DeltaTime)
@@ -95,6 +103,8 @@ void ADoor::Swing(float DeltaTime)
 	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
 	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
 
+	UE_LOG(LogTemp, Warning, TEXT("SV: %f"), SwingVelocity);
+
 	if (MaxDistance > MaxAngleRadians)
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
@@ -103,22 +113,25 @@ void ADoor::Swing(float DeltaTime)
 		///////////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
 		///////////////////////////////////////////////////////////////////////////////////////////
+		SwingVelocity = 0;
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, GetActorLocation());
 	}
 	else if (MinDistance > MaxAngleRadians)
 	{
 		if (KnobCollision)
 		{
-			SwingVelocity = -SwingVelocity * 0.25f;
+			SwingVelocity = -SwingVelocity * 0.16f;
 		}
 		else
 		{
-			SwingVelocity = -SwingVelocity * 0.25f;
+			SwingVelocity = -SwingVelocity * 0.16f;
 		}
 	}
 	else
 	{
 		DoorHinge->AddLocalRotation(DQ, true);
 	}
+	PlaySwingSound(SwingVelocity, MinDistance / MaxAngleRadians);
 }
 
 void ADoor::CollisionSwing(float DeltaTime)
@@ -173,7 +186,7 @@ void ADoor::UseDoor(float DeltaTime)
 	SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI)) * 0.0002f;
 	SlerpSize = (SlerpSize > 3.f) ? 3.f : SlerpSize;
 
-	UE_LOG(LogTemp, Warning, TEXT("SLRP: %f"), SlerpSize);
+	//UE_LOG(LogTemp, Warning, TEXT("SLRP: %f"), SlerpSize);
 	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SlerpSize);
 	FQuat NewQuat = DHQ * DQ;
 
@@ -182,9 +195,19 @@ void ADoor::UseDoor(float DeltaTime)
 
 	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector() * 300.f, FColor::Cyan, false, 2 * DeltaTime);
 
+	//UE_LOG(LogTemp, Warning, TEXT("D: %f"), Dot);
+	//UE_LOG(LogTemp, Warning, TEXT("V: %f"), SlerpSize);
+
+	//UE_LOG(LogTemp, Warning, TEXT("Max: %f"), MaxDistance);
+	//UE_LOG(LogTemp, Warning, TEXT("Min: %f"), MinDistance);
+	//UE_LOG(LogTemp, Warning, TEXT("MAR: %f"), MaxAngleRadians);
+
+	PlaySwingSound(SlerpSize, MinDistance / MaxAngleRadians);
+
 	if (MaxDistance > MaxAngleRadians)
 	{
 		DoorHinge->SetWorldRotation(MinRotation);
+		
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 	}
 	else if (MinDistance > MaxAngleRadians)
@@ -269,10 +292,57 @@ void ADoor::CloseDoorFast(float DeltaTime)
 		///////////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
 		///////////////////////////////////////////////////////////////////////////////////////////
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, GetActorLocation());
 	}
 	else
 	{
 		DoorHinge->AddLocalRotation(DQ, true);
+	}
+}
+
+void ADoor::PlaySwingSound(const float Velocity, const float Ratio)
+{
+	bool bOpen = (Velocity > 0) ? false : true;
+	const float FV = fabsf(Velocity);
+
+	if (FV < DoorVelocitySoundThreshold)
+	{
+		// stop all sounds if they are playing
+
+		if (bPlayingSwingSound)
+		{
+			bPlayingSwingSound = false;
+			SwingAudioComponent->Stop();
+			UE_LOG(LogTemp, Warning, TEXT("Stop Swing Audio"));
+		}
+	}
+	else
+	{
+		if (!bPlayingSwingSound)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Play Swing Audio"));
+			// play the sound
+
+			if (bOpen)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Open"));
+				SwingAudioComponent->SetSound(SwingOpenSound);
+				SwingAudioComponent->Play(SwingOpenSoundDuration * Ratio);
+				bPlayingSwingSound = true;
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Close"));
+				SwingAudioComponent->SetSound(SwingCloseSound);
+				SwingAudioComponent->Play(SwingOpenSoundDuration - (SwingCloseSoundDuration * Ratio));
+				bPlayingSwingSound = true;
+			}
+		}
+
+		// change the pitch based on velocity
+		//
+		//
+		//
 	}
 }
 
@@ -305,7 +375,7 @@ void ADoor::PassController(AActor * HC)
 		UE_LOG(LogTemp, Warning, TEXT("PUSH TO OPEN"));
 		Push = -1;
 	}
-	
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), OpenSound, GetActorLocation());
 }
 
 void ADoor::SetIsBeingUsed(bool Value)
