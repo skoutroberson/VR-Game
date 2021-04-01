@@ -24,10 +24,13 @@ void AErrolController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollow
 	{
 	case ErrolState::STATE_PATROL:
 		UE_LOG(LogTemp, Warning, TEXT("HERE MOTHAFUCKA!"));
+		ErrolCharacter->EnterLookAroundState();
 		GetWorldTimerManager().SetTimer(LookAroundTimerHandle, this, &AErrolController::LookAroundTimerCompleted, LookAroundTimerRate, true);
 		break;
 	case ErrolState::STATE_CHASE:
 		UE_LOG(LogTemp, Warning, TEXT("IM CHASING U MOTHAFUCKA!"));
+		ErrolCharacter->ExitChaseState();
+		ErrolCharacter->EnterKillState();
 		break;
 	case ErrolState::STATE_INVESTIGATE:
 		UE_LOG(LogTemp, Warning, TEXT("IM INVESTIGATING THE NOISE!"));
@@ -51,8 +54,8 @@ void AErrolController::InitializeLookAroundTimer()
 // Stop looking around and patrol again
 void AErrolController::LookAroundTimerCompleted()
 {
-	UE_LOG(LogTemp, Warning, TEXT("TImer"));
 	GetWorldTimerManager().ClearTimer(LookAroundTimerHandle);
+	ErrolCharacter->ExitLookAroundState();
 	//GetWorldTimerManager().PauseTimer(LookAroundTimerHandle);
 	ErrolCharacter->GoToRandomWaypoint();
 }

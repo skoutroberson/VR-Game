@@ -17,6 +17,7 @@ enum class ErrolState : uint8
 	STATE_PATROL		UMETA(DisplayName="Patrol"),
 	STATE_CHASE			UMETA(DisplayName="Chase"),
 	STATE_INVESTIGATE	UMETA(DisplayName="Investigate"),
+	STATE_LOOKAROUND	UMETA(DisplayName="LookAround"),
 	STATE_KILL			UMETA(DisplayName="Kill"),
 	STATE_PEEK			UMETA(DisplayName="Peek"),
 	STATE_SCARE1		UMETA(DisplayName="Scare1"),
@@ -32,7 +33,7 @@ public:
 	AErrolCharacter();
 
 private:
-	bool bIsNaked = false;
+	bool bHasClothes = true;
 
 	//class UDestructibleComponent * DC = nullptr;
 
@@ -63,6 +64,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	ErrolState State;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	ErrolState LastState;
+
 	AErrolController * ErrolController;
 
 private:
@@ -78,23 +82,37 @@ public:
 	UFUNCTION()
 		void GoToRandomWaypoint();
 
+	UFUNCTION(BlueprintImplementableEvent, Category = "AIAnimation")
+	void UpdateAnimation(ErrolState CurrentState);
+
 	// State entry functions for starting timers and setting variables
 public:
 	void EnterIdleState();
 	void EnterPatrolState();
 	void EnterChaseState();
 	void EnterInvestigateState();
+	void EnterKillState();
+	void EnterLookAroundState();
 
 	// State exit functions for clearing timers
 	void ExitIdleState();
 	void ExitPatrolState();
 	void ExitChaseState();
 	void ExitInvestigateState();
+	void ExitLookAroundState();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float PatrolSpeed = 140.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	float ChaseSpeed = 220.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	float InvestigateSpeed = 180.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite);
+	float KillSpeed = 0.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	float Speed = 0;
+
+	float KillRadius = 50.f;
 
 	// Errol local senses funcitonality
 private:
@@ -122,6 +140,9 @@ private:
 
 	UFUNCTION()
 	void ShouldChase();
+
+	UFUNCTION()
+	void ShouldKill();
 
 	//	How much Errol can see the player
 	float SeeGauge = 0;

@@ -34,6 +34,8 @@ public:
 
 	class USceneComponent* DoorHinge;
 
+	class USphereComponent * Doorknob;
+
 	AActor* HandController = nullptr;
 	FVector LastHCLocation;
 	
@@ -122,4 +124,6 @@ private:
 	float SwingCloseSoundDuration = 0;
 
 	void PlaySwingSound(const float Velocity, const float Ratio);
+
+	float MaxSwingVelocity = 0;
 };

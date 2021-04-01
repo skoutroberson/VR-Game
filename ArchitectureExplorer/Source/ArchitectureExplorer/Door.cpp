@@ -13,6 +13,7 @@
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
 #include "Components/AudioComponent.h"
+#include "Components/SphereComponent.h"
 
 // Sets default values
 ADoor::ADoor()
@@ -59,6 +60,7 @@ void ADoor::BeginPlay()
 	//148 - 270
 
 	SwingAudioComponent = Cast<UAudioComponent>(GetComponentByClass(UAudioComponent::StaticClass()));
+	Doorknob = Cast<USphereComponent>(GetComponentByClass(USphereComponent::StaticClass()));
 
 	SwingOpenSoundDuration = SwingOpenSound->GetDuration();
 	SwingCloseSoundDuration = SwingCloseSound->GetDuration();
@@ -103,7 +105,7 @@ void ADoor::Swing(float DeltaTime)
 	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
 	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
 
-	UE_LOG(LogTemp, Warning, TEXT("SV: %f"), SwingVelocity);
+	//UE_LOG(LogTemp, Warning, TEXT("SV: %f"), SwingVelocity);
 
 	if (MaxDistance > MaxAngleRadians)
 	{
@@ -114,7 +116,7 @@ void ADoor::Swing(float DeltaTime)
 		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
 		///////////////////////////////////////////////////////////////////////////////////////////
 		SwingVelocity = 0;
-		UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, GetActorLocation());
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation());
 	}
 	else if (MinDistance > MaxAngleRadians)
 	{
@@ -221,6 +223,13 @@ void ADoor::UseDoor(float DeltaTime)
 	}
 
 	LastHCLocation = HandController->GetActorLocation();
+
+	if (fabsf(SlerpSize) > MaxSwingVelocity)
+	{
+		MaxSwingVelocity = SlerpSize;
+	}
+	UE_LOG(LogTemp, Warning, TEXT("Max: %f"), MaxSwingVelocity);
+	UE_LOG(LogTemp, Warning, TEXT("SV: %f"), SlerpSize); 
 }
 
 // Helper function to find the max swing angle for the doors (angle where the door hits an object so it can't open all the way). Called in BeginPlay().
