@@ -108,6 +108,11 @@ void AHandController::Grip()
 						bIsHoldingBottle = true;
 						SocketName = TEXT("GrabSocket");
 					}
+					else if (GrabActor->ActorHasTag(TEXT("Ball")))
+					{
+						UE_LOG(LogTemp, Warning, TEXT("Grabbing ball!"));
+						bIsHoldingBall = true;
+					}
 					
 					Mesh->SetSimulatePhysics(false);
 					GripSize = ActorBeingGrabbed->ItemGripSize;
@@ -239,6 +244,10 @@ void AHandController::Release()
 			{
 				bIsHoldingBottle = false;
 			}
+			else if (GrabActor->ActorHasTag(TEXT("Ball")))
+			{
+				bIsHoldingBall = false;
+			}
 
 			UPrimitiveComponent * Mesh = nullptr;
 			Mesh = Cast<UPrimitiveComponent>(GrabActor->GetComponentByClass(UPrimitiveComponent::StaticClass()));
@@ -349,7 +358,7 @@ void AHandController::CanInteract()
 	{
 		if (OverlappingActor->ActorHasTag(TEXT("Grab")))
 		{
-			//UE_LOG(LogTemp, Warning, TEXT("%s"), *OverlappingActor->GetName());
+			UE_LOG(LogTemp, Warning, TEXT("%s"), *OverlappingActor->GetName());
 
 			bNewCanGrab = true;
 			GrabActor = OverlappingActor;

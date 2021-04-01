@@ -114,6 +114,8 @@ private:
 
 	bool bIsGripping = false;
 
+	bool bIsHoldingBall = false;
+
 	// Actor that the hand controller can pick up
 	AActor * GrabActor = nullptr;
 	FQuat GrabQuat;

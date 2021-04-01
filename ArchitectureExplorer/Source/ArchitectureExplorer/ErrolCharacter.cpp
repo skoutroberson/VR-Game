@@ -40,12 +40,12 @@ void AErrolCharacter::BeginPlay()
 	World = GetWorld();
 
 	ErrolEye = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), FName("ET"))[0]);
+	
 
 	ErrolController = Cast<AErrolController>(GetController());
 	ErrolController->InitializeLookAroundTimer();
 
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATargetPoint::StaticClass(), Waypoints);
-	
 
 	// I have to call this a bit after the game starts so the player and hand controllers are spawned in
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
@@ -67,20 +67,34 @@ void AErrolCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	switch (State)
-	{
-	case ErrolState::STATE_IDLE:
-		//UE_LOG(LogTemp, Warning, TEXT("IDLE"));
-		break;
-	case ErrolState::STATE_PATROL:
-		//UE_LOG(LogTemp, Warning, TEXT("PATROL"));
-		UpdateSpeedBasedOnRotation();
-		break;
-	case ErrolState::STATE_CHASE:
-		//UE_LOG(LogTemp, Warning, TEXT("CHASE"));
-		break;
-	}
+	
+		switch (State)
+		{
+		case ErrolState::STATE_IDLE:
+			//UE_LOG(LogTemp, Warning, TEXT("IDLE"));
+			break;
+		case ErrolState::STATE_PATROL:
+			//UE_LOG(LogTemp, Warning, TEXT("PATROL"));
+			UpdateSpeedBasedOnRotation();
+			break;
+		case ErrolState::STATE_CHASE:
+			//UE_LOG(LogTemp, Warning, TEXT("CHASE"));
+			ShouldKill();
+			break;
+		}
 
+}
+
+void AErrolCharacter::ShouldKill()
+{
+	float D = FVector::Distance(GetActorLocation(), Player->GetActorLocation());
+
+	UE_LOG(LogTemp, Warning, TEXT("D: %f"), D);
+	if (D < KillRadius)
+	{
+		ExitChaseState();
+		EnterKillState();
+	}
 }
 
 // Called to bind functionality to input
@@ -103,7 +117,9 @@ ATargetPoint * AErrolCharacter::GetRandomWaypoint()
 
 void AErrolCharacter::GoToRandomWaypoint()
 {
-	ErrolController->MoveToActor(GetRandomWaypoint(), -1.f, true, true, true);
+	ErrolController->MoveToActor(GetRandomWaypoint(), 1.f, true, true, true);
+	
+
 	//AAIController * AICon = Cast<AAIController>(GetController());
 	//AICon->MoveToActor(GetRandomWaypoint(), -1.f, true, true, true);
 }
@@ -111,12 +127,14 @@ void AErrolCharacter::GoToRandomWaypoint()
 void AErrolCharacter::EnterIdleState()
 {
 	State = ErrolState::STATE_IDLE;
+	UpdateAnimation(State);
 }
 
 void AErrolCharacter::EnterPatrolState()
 {
 	State = ErrolState::STATE_PATROL;
 	GetCharacterMovement()->MaxWalkSpeed = PatrolSpeed;
+	UpdateAnimation(State);
 	GoToRandomWaypoint();
 }
 
@@ -125,7 +143,8 @@ void AErrolCharacter::EnterChaseState()
 {
 	State = ErrolState::STATE_CHASE;
 	GetCharacterMovement()->MaxWalkSpeed = ChaseSpeed;
-	ErrolController->MoveToActor(Player);
+	UpdateAnimation(State);
+	ErrolController->MoveToActor(Player, KillRadius);
 }
 
 void AErrolCharacter::EnterInvestigateState()
@@ -136,11 +155,28 @@ void AErrolCharacter::EnterInvestigateState()
 	//*MWS = (*MWS == PatrolSpeed) ? InvestigateSpeed : *MWS;
 	if (*MWS == PatrolSpeed) { *MWS = InvestigateSpeed; }
 	ErrolController->StopTimers();
+	UpdateAnimation(State);
 	ErrolController->MoveToLocation(InvestigateLocation);
+}
+
+void AErrolCharacter::EnterKillState()
+{
+	State = ErrolState::STATE_KILL;
+	GetWorld()->GetTimerManager().ClearTimer(ChaseTimerHandle);
+	GetCharacterMovement()->MaxWalkSpeed = KillSpeed;
+	UpdateAnimation(State);
+}
+
+void AErrolCharacter::EnterLookAroundState()
+{
+	LastState = State;
+	State = ErrolState::STATE_LOOKAROUND;
+	UpdateAnimation(State);
 }
 
 void AErrolCharacter::ExitIdleState()
 {
+	
 }
 
 void AErrolCharacter::ExitPatrolState()
@@ -156,6 +192,12 @@ void AErrolCharacter::ExitChaseState()
 
 void AErrolCharacter::ExitInvestigateState()
 {
+}
+
+void AErrolCharacter::ExitLookAroundState()
+{
+	State = LastState;
+	UpdateAnimation(State);
 }
 
 void AErrolCharacter::InitializeCanSeeVariables()
@@ -268,6 +310,10 @@ void AErrolCharacter::SetSeeGauge()
 				{
 				case ErrolState::STATE_PATROL:
 					ExitPatrolState();
+					EnterChaseState();
+					break;
+				case ErrolState::STATE_LOOKAROUND:
+					ExitLookAroundState();
 					EnterChaseState();
 					break;
 				case ErrolState::STATE_CHASE:

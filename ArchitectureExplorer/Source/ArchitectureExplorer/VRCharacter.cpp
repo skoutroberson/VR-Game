@@ -177,14 +177,14 @@ void AVRCharacter::PlayFootStepSound()
 			{
 				UE_LOG(LogTemp, Warning, TEXT("Right Step"));
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), RightFootstepSound, 
-					GetActorLocation() - GetActorUpVector() * 20.f + GetActorRightVector() * 5.f);
+					GetActorLocation() - GetActorUpVector() * 60.f + GetActorRightVector() * 10.f);
 				bRightStep = false;
 			}
 			else
 			{
 				UE_LOG(LogTemp, Warning, TEXT("Left Step"));
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), LeftFootstepSound, 
-					GetActorLocation() - GetActorUpVector() * 20.f - GetActorRightVector() * 5.f);
+					GetActorLocation() - GetActorUpVector() * 60.f - GetActorRightVector() * 10.f);
 				bRightStep = true;
 			}
 		}
