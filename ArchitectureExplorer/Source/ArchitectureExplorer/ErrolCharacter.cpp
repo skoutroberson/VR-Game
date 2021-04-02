@@ -49,7 +49,9 @@ void AErrolCharacter::BeginPlay()
 
 	// I have to call this a bit after the game starts so the player and hand controllers are spawned in
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
-	EnterPatrolState();
+
+	EnterIdleState();
+	//EnterPatrolState();
 
 	NavigationSystem = UNavigationSystemV1::GetCurrent(World);
 
@@ -202,7 +204,7 @@ void AErrolCharacter::ExitLookAroundState()
 
 void AErrolCharacter::InitializeCanSeeVariables()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Initalize can see!"));
+	//UE_LOG(LogTemp, Warning, TEXT("Initalize can see!"));
 	GetWorld()->GetTimerManager().ClearTimer(SetUpCanSeeHandle);
 	Player = Cast<AActor>(UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass()));
 	AVRCharacter * TempC = Cast<AVRCharacter>(Player);
