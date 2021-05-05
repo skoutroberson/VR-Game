@@ -126,4 +126,7 @@ private:
 	void PlaySwingSound(const float Velocity, const float Ratio);
 
 	float MaxSwingVelocity = 0;
+
+	UPROPERTY(EditAnywhere)
+	bool bBackwards = false;
 };

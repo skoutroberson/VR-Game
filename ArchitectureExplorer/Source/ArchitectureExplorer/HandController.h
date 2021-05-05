@@ -72,6 +72,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
 	bool bIsHoldingChainsaw = false;
 
+	bool bLeftHandChainsaw = false;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
 	bool bIsHoldingBottle = false;
 
@@ -116,6 +118,10 @@ private:
 
 	bool bIsHoldingBall = false;
 
+	bool bNeedToAttach = false;
+
+	bool bIsControllingItem = false;
+
 	// Actor that the hand controller can pick up
 	AActor * GrabActor = nullptr;
 	FQuat GrabQuat;
@@ -123,6 +129,8 @@ private:
 	AGrabbable * ActorBeingGrabbed = nullptr;
 
 	USkeletalMeshComponent * HandMesh;
+
+	FTransform HandMeshRelativeTransform;
 
 private:
 

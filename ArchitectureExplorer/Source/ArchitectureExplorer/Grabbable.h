@@ -21,19 +21,42 @@ protected:
 
 public:	
 	// Called every frame
-	//virtual void Tick(float DeltaTime);
+	virtual void Tick(float DeltaTime);
 
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Grabbable)
 	float ItemGripSize = 100.f;
 	FRotator ItemRotation = FRotator(0, 0, 0);
 	FVector ItemLocation = FVector(0, 0, 0);
 	//FRotator ItemRotation = FRotator(0, -75.f, -85.f);
 	//FVector ItemLocation = FVector(4.f, 11.f, -3.5f);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = CustomVariables)
-	bool bOneHandHeld = false;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = CustomVariables)
-	bool bTwoHandHeld = false;
+
+	// For two hand item grabbing.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	bool bBeingHeld = false;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	bool bLeftHandHeld = false;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	bool bRightHandHeld = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	bool bTwoHanded = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	bool bRotateTwoHand = false;
+
+	USceneComponent * HandHold1 = nullptr;
+	USceneComponent * HandHold2 = nullptr;
+
+	FVector HandHoldOffset1 = FVector::ZeroVector;
+	FVector HandHoldOffset2 = FVector::ZeroVector;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	AActor* MotionController1 = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	AActor* MotionController2 = nullptr;
 
 	void Grab();
 

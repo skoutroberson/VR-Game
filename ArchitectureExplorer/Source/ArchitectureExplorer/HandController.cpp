@@ -23,8 +23,8 @@ AHandController::AHandController()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	MotionController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("MotionController"));
-	SetRootComponent(MotionController);
+MotionController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("MotionController"));
+SetRootComponent(MotionController);
 }
 
 // Called when the game starts or when spawned
@@ -41,6 +41,8 @@ void AHandController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Skeletal Mesh cast failed in HandController.cpp"));
 	}
+
+	HandMeshRelativeTransform = HandMesh->GetRelativeTransform();
 
 	DeltaLocation = GetActorLocation();
 }
@@ -80,12 +82,63 @@ void AHandController::Grip()
 
 			if (ActorBeingGrabbed != nullptr)
 			{
+				if (!ActorBeingGrabbed->bTwoHanded)
+				{
+					if (ActorBeingGrabbed == SisterController->ActorBeingGrabbed)
+					{
+						SisterController->Release();
+					}
+				}
+				
+				//	TWO HANDED MECHANICS
+				if (!ActorBeingGrabbed->bBeingHeld)
+				{
+					bIsControllingItem = true;
+					ActorBeingGrabbed->bBeingHeld = true;
 
+					UPrimitiveComponent * Mesh;
+					Mesh = Cast<UPrimitiveComponent>(GrabActor->GetComponentByClass(UPrimitiveComponent::StaticClass()));
+					if (Mesh != nullptr)
+					{
+						Mesh->SetSimulatePhysics(false);
+						Mesh->SetEnableGravity(false);
+						GripSize = ActorBeingGrabbed->ItemGripSize;
+						USceneComponent* Root = GrabActor->GetRootComponent();
+						bool b = Root->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+						
+						FVector ChainsawOffset = ActorBeingGrabbed->HandHoldOffset1;
+
+						if (bLeft)
+						{
+							ChainsawOffset.Y = -ChainsawOffset.Y;
+							ActorBeingGrabbed->SetActorRelativeLocation(ChainsawOffset);
+						}
+						else
+						{
+							ActorBeingGrabbed->SetActorRelativeLocation(ChainsawOffset);
+						}
+					}
+				}
+				else
+				{
+					HandMesh->AttachToComponent(ActorBeingGrabbed->HandHold2, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+					GripSize = ActorBeingGrabbed->ItemGripSize;
+
+					ActorBeingGrabbed->MotionController1 = this;
+					ActorBeingGrabbed->MotionController2 = SisterController;
+					ActorBeingGrabbed->bRotateTwoHand = true;
+					// also need to add the offset so the hand lines up perfectly with the mesh
+				}
+
+
+
+				// I NEED TO FIX THIS CODE
+				/*
 				if (ActorBeingGrabbed == SisterController->ActorBeingGrabbed)
 				{
 					SisterController->Release();
 				}
-
+				
 				// I could make this mesh global
 				UPrimitiveComponent * Mesh;
 				Mesh = Cast<UPrimitiveComponent>(GrabActor->GetComponentByClass(UPrimitiveComponent::StaticClass()));
@@ -106,12 +159,13 @@ void AHandController::Grip()
 					{
 						UE_LOG(LogTemp, Warning, TEXT("Grabbing Bot"));
 						bIsHoldingBottle = true;
-						SocketName = TEXT("GrabSocket");
+						SocketName = TEXT("ChainSocket");
 					}
 					else if (GrabActor->ActorHasTag(TEXT("Ball")))
 					{
 						UE_LOG(LogTemp, Warning, TEXT("Grabbing ball!"));
 						bIsHoldingBall = true;
+						SocketName = TEXT("ChainSocket");
 					}
 					
 					Mesh->SetSimulatePhysics(false);
@@ -128,28 +182,20 @@ void AHandController::Grip()
 						if (HandMeshCasted != nullptr)
 						{
 							
-							
-							/*
-							FRotator SocketRotation = HandMeshCasted->GetSocketRotation(SocketName);
-							//SocketRotation.Y *= -1.f;
+							FQuat Q = GrabActor->GetActorQuat();
+							FVector FV = GrabActor->GetActorForwardVector();
+							FVector UV = GrabActor->GetActorUpVector();
 
-							//GrabActor->SetActorRotation(SocketRotation.ToOrientationQuat());
+							FQuat NewRot = FQuat(UV, PI);
 
-							//GrabActor->SetActorScale3D(FVector(1, -1, 1));
-							FVector SocketLocation = HandMeshCasted->GetSocketLocation(SocketName);
-							FMatrix SockRotPonMat = FRotationAboutPointMatrix::Make(SocketRotation, SocketLocation);
-							FVector SocketVector = SockRotPonMat.GetScaledAxis(EAxis::Y);
-							SocketVector.Y *= -1.f;
-							GrabActor->SetActorRotation(SocketVector.ToOrientationQuat());
-							*/
-							//SocketRotation.Yaw = -SocketRotation.Yaw;
-							//GrabActor->SetActorRotation(SocketRotation.ToOrientationQuat().Inverse());
+							GrabActor->SetActorRelativeRotation(NewRot);
 
 						}
 					}
-					
+
 					//UE_LOG(LogTemp, Warning, TEXT("%s"), *ActorToGrab->GetName());
 				}
+				*/
 			}
 			else
 			{
@@ -226,7 +272,7 @@ void AHandController::Release()
 		//free(OverlappingDoor);
 	}
 
-	if (bIsGrabbing)	// NEED TO FIX THIS CODE TO NOT DROP AN ITEM IF THE OTHER HAND IS HOLDING IT
+	if (bIsGrabbing)
 	{
 		bIsGrabbing = false;
 
@@ -249,13 +295,38 @@ void AHandController::Release()
 				bIsHoldingBall = false;
 			}
 
-			UPrimitiveComponent * Mesh = nullptr;
-			Mesh = Cast<UPrimitiveComponent>(GrabActor->GetComponentByClass(UPrimitiveComponent::StaticClass()));
-			if (Mesh != nullptr)
+			// two handed mechanics
+			if (ActorBeingGrabbed != nullptr)
 			{
-				GrabActor->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-				Mesh->SetSimulatePhysics(true);
-				GrabActor = nullptr;
+				if (bIsControllingItem)
+				{
+					ActorBeingGrabbed->bBeingHeld = false;
+					bIsControllingItem = false;
+
+					UPrimitiveComponent * Mesh = nullptr;
+					Mesh = Cast<UPrimitiveComponent>(GrabActor->GetComponentByClass(UPrimitiveComponent::StaticClass()));
+					if (Mesh != nullptr)
+					{
+						USceneComponent* Root = GrabActor->GetRootComponent();
+						Root->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+
+						Mesh->SetSimulatePhysics(true);
+						Mesh->SetEnableGravity(true);
+
+
+						GrabActor = nullptr;
+					}
+				}
+				else
+				{
+					UE_LOG(LogTemp, Warning, TEXT("Not Controlling item"));
+					HandMesh->DetachFromParent();
+					HandMesh->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::SnapToTargetIncludingScale);
+					HandMesh->SetRelativeTransform(HandMeshRelativeTransform);
+					ActorBeingGrabbed->bRotateTwoHand = false;
+					// stop attaching handmesh to handhold
+				}
+					
 			}
 		}
 		

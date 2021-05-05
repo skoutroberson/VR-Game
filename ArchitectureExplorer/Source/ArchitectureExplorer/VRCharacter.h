@@ -148,12 +148,23 @@ private:
 
 	bool bRightStep = false;
 	float DistanceMoved = 0;
-	const float DistanceThreshold = 6200.f;
+	const float DistanceThreshold = 84.f;
 	// this should go down more if the players velocity is farther from velocity threshold
 	const float DistanceMovedDecrementAmount = 14.f;
 	// the character's velocity must be over this amount to be considered "moving".
-	const float VelocityThreshold = 16.f;
+	const float VelocityThreshold = 0.01f;
 	// This function plays a footstep sound if MoveDistance goes over MoveThreshold.
 	void PlayFootStepSound();
+
+	// CAMERA CONTROLS FOR CUTSCENES
+	bool bLockCameraPosition = false;
+	void LockCameraPosition();
+	FVector LastCameraLocation = FVector::ZeroVector;
+
+	float LastCamDistance = 0;
+
+	float HMDZPos = 0;
+
+	float StepVolumeMultiplier = 1.5f;
 
 };
