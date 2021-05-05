@@ -17,7 +17,6 @@ ABottle::ABottle()
 void ABottle::BeginPlay()
 {
 	Super::BeginPlay();
-	SetTickGroup(ETickingGroup::TG_PrePhysics);
 	Errol = Cast<AErrolCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AErrolCharacter::StaticClass()));
 	if (Errol == nullptr)
 	{

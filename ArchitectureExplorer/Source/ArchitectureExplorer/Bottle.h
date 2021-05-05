@@ -6,6 +6,7 @@
 #include "Grabbable.h"
 #include "ErrolCharacter.h"
 #include "DestructibleComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "Bottle.generated.h"
 
 /**
@@ -25,6 +26,12 @@ public:
 
 	UDestructibleComponent * DestructibleComponent = nullptr;
 	UDestructibleMesh * DestructibleMesh = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Bottle)
+	bool bStopSimulatingPhysics = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Bottle)
+	USkeletalMeshComponent * AHC = nullptr;
 
 private:
 	UFUNCTION(BlueprintCallable, Category = ErrolCharacter)

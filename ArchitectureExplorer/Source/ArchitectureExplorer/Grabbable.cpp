@@ -15,7 +15,19 @@ AGrabbable::AGrabbable()
 void AGrabbable::BeginPlay()
 {
 	Super::BeginPlay();
-	SetTickGroup(ETickingGroup::TG_PrePhysics);
+
+	if (bTwoHanded)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("POOP"));
+		HandHold1 = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), TEXT("1"))[0]);
+		HandHold2 = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), TEXT("2"))[0]);
+		HandHoldOffset1 = GetActorLocation() - HandHold1->GetComponentLocation();
+		HandHoldOffset2 = GetActorLocation() - HandHold2->GetComponentLocation();
+	}
+}
+
+void AGrabbable::Tick(float DeltaTime)
+{
 }
 
 // Called every frame

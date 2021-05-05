@@ -48,9 +48,6 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	USkeletalMeshComponent * NakedMesh = nullptr;
-
 private:
 	UWorld * World = nullptr;
 	AActor * Player = nullptr;

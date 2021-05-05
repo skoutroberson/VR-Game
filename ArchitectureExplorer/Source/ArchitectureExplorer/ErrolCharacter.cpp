@@ -26,9 +26,6 @@ AErrolCharacter::AErrolCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	NakedMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("NakedMesh"));
-	NakedMesh->SetupAttachment(GetRootComponent());
-
 	State = ErrolState::STATE_IDLE;
 }
 
@@ -50,8 +47,10 @@ void AErrolCharacter::BeginPlay()
 	// I have to call this a bit after the game starts so the player and hand controllers are spawned in
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
 
-	EnterIdleState();
+	//EnterIdleState();
 	//EnterPatrolState();
+	State = ErrolState::STATE_PEEK;
+	UpdateAnimation(State);
 
 	NavigationSystem = UNavigationSystemV1::GetCurrent(World);
 

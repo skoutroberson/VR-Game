@@ -96,6 +96,13 @@ void AVRCharacter::BeginPlay()
 	LeftController->SetSisterController(RightController);
 	RightController->SetSisterController(LeftController);
 
+	FRotator DR;
+	FVector DP;
+	UHeadMountedDisplayFunctionLibrary::GetOrientationAndPosition(DR, DP);
+	HMDZPos = DP.Z;
+
+	UEngineTypes::ConvertToCollisionChannel(ETraceTypeQuery::TraceTypeQuery1);
+
 	/*
 	//	Check if VR is enabled
 	IHeadMountedDisplay *pHmd = nullptr;
@@ -120,50 +127,88 @@ void AVRCharacter::BeginPlay()
 
 void AVRCharacter::UpdateCapsuleHeight()
 {
+	//	NEED TO CHECK IF BLOCKING HIT ACTOR HAS THE TAG "FLOOR".
+	FRotator DR;
+	FVector DP;
+	UHeadMountedDisplayFunctionLibrary::GetOrientationAndPosition(DR, DP);
+	TArray<AActor*> EmptyActors;
+	UKismetSystemLibrary::SphereTraceSingle(GetWorld(), Camera->GetComponentLocation(), Camera->GetComponentLocation() + WorldDownVector * (DP.Z + 20.f),
+		GetCapsuleComponent()->GetScaledCapsuleRadius(), ETraceTypeQuery::TraceTypeQuery1, true, EmptyActors, EDrawDebugTrace::ForOneFrame, CamHeightHit,
+		true, FLinearColor::Red, FLinearColor::Green, 1.f);
 
-	GetWorld()->LineTraceSingleByChannel(CamHeightHit, Camera->GetComponentLocation(),
-		Camera->GetComponentLocation() + WorldDownVector * 500,
+	//UE_LOG(LogTemp, Warning, TEXT("DP.Z: %f"), DP.Z);
+
+	/*
+	bool Trace = GetWorld()->LineTraceSingleByChannel(CamHeightHit, Camera->GetComponentLocation(),
+		Camera->GetComponentLocation() + WorldDownVector * (DP.Z + 20.f),
 		ECollisionChannel::ECC_WorldDynamic, CamHeightParams);
+	*/
+	//GetCapsuleComponent()->SphereTrace
 
+	DrawDebugSphere(GetWorld(), GetActorLocation(), 5.f, 6, FColor::Red, false, GetWorld()->DeltaTimeSeconds * 2.f);
+	DrawDebugPoint(GetWorld(), VRRoot->GetComponentLocation(), 4.f, FColor::Green, false, GetWorld()->DeltaTimeSeconds * 2.f, ESceneDepthPriorityGroup::SDPG_MAX);
+
+	if (CamHeightHit.bBlockingHit)
+	{
+		// I probably need to change this to check if the actor has a tag: "Floor"
+		FVector RootVector = VRRoot->GetComponentLocation();
+		//RootVector.Z = CamHeightHit.ImpactPoint.Z;
+		float NewCapsuleHalfHeight = FVector::Distance(Camera->GetComponentLocation(), CamHeightHit.ImpactPoint) / 2;
+		if (NewCapsuleHalfHeight < 20.f)
+		{
+			NewCapsuleHalfHeight = 20.f;
+		}
+		RootVector.Z = CamHeightHit.ImpactPoint.Z;
+		
+		GetCapsuleComponent()->SetCapsuleHalfHeight(NewCapsuleHalfHeight);
+		VRRoot->SetWorldLocation(RootVector);
+	}
+	else
+	{
+		if (GEngine)
+			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("UpdateCapsuleHeight Trace not hitting!!"));
+	}
+	
 	//float NewCapsuleHeight = Camera->GetComponentLocation().Z - CamHeightHit.Location.Z;
 	
 	//UE_LOG(LogTemp, Warning, TEXT("Capsule Height: %f"), GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight() * 2.f);
 	//UE_LOG(LogTemp, Warning, TEXT("Cam Distance: %f"), CamHeightHit.Distance);
 	//UE_LOG(LogTemp, Warning, TEXT("Root: %f"), VRRoot->GetComponentLocation().Z);
 	//UE_LOG(LogTemp, Warning, TEXT("Came: %f"), Camera->GetComponentLocation().Z);
-
-
+		//UE_LOG(LogTemp, Warning, TEXT("HMD: %f"), DP.Z);
+		//UE_LOG(LogTemp, Warning, TEXT("CAM: %f"), CamHeightHit.Distance);
+		//UE_LOG(LogTemp, Warning, TEXT("DIF = %f"), CamHeightHit.Distance - DP.Z);
 	
-	FVector RootVector = VRRoot->GetComponentLocation();
-	RootVector.Z = CamHeightHit.ImpactPoint.Z;
-
-
-
-	GetCapsuleComponent()->SetCapsuleHalfHeight(CamHeightHit.Distance / 2.f);
-
-	VRRoot->SetWorldLocation(RootVector);
-
-	/*
-	if (NewCapsuleHeight < 10.f)
-	{
-		GetCapsuleComponent()->SetCapsuleHalfHeight(5.f);
-	}
-	else if (NewCapsuleHeight > 200.f)
-	{
-		GetCapsuleComponent()->SetCapsuleHalfHeight(100.f);
-	}
-	else
-	{
-		GetCapsuleComponent()->SetCapsuleHalfHeight(NewCapsuleHeight / 2.f);
-	}
-	*/
+		/*
+		//UE_LOG(LogTemp, Warning, TEXT("CC: %f"), CamHeightHit.ImpactPoint.Z);
+		if (DP.Z < 3.f)
+		{
+			DP.Z = 3.f;
+			UE_LOG(LogTemp, Warning, TEXT("HMD IS TOO LOW!"));
+		}
+		
+		if (fabsf(DP.Z - HMDZPos) > 8.f)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("CHANGE ROOT POSITION"));
+			HMDZPos = DP.Z;
+			FVector RL = GetActorLocation();
+			RL.Z -= DP.Z * 0.5f;
+			//RL.X = 0;
+			//RL.Y = 0;
+			RootVector.Z = RL.Z;
+			GetCapsuleComponent()->SetCapsuleHalfHeight(DP.Z * 0.5f);
+			VRRoot->SetRelativeLocation(FVector(0,0, RL.Z));
+		}
+		*/
 }
 
 void AVRCharacter::PlayFootStepSound()
 {
-	float V = GetVelocity().Size();
+	float DeltaTime = GetWorld()->DeltaTimeSeconds;
+	float V = GetVelocity().Size() * DeltaTime;
 
 	//UE_LOG(LogTemp, Warning, TEXT("D: %f"), DistanceMoved);
+	//UE_LOG(LogTemp, Warning, TEXT("V: %f"), V);
 
 	if (V > VelocityThreshold)
 	{
@@ -177,14 +222,14 @@ void AVRCharacter::PlayFootStepSound()
 			{
 				UE_LOG(LogTemp, Warning, TEXT("Right Step"));
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), RightFootstepSound, 
-					GetActorLocation() - GetActorUpVector() * 60.f + GetActorRightVector() * 10.f);
+					VRRoot->GetComponentLocation() + GetActorRightVector() * 10.f, V*2.f);
 				bRightStep = false;
 			}
 			else
 			{
 				UE_LOG(LogTemp, Warning, TEXT("Left Step"));
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), LeftFootstepSound, 
-					GetActorLocation() - GetActorUpVector() * 60.f - GetActorRightVector() * 10.f);
+					VRRoot->GetComponentLocation() + -GetActorRightVector() * 10.f, V*2.f);
 				bRightStep = true;
 			}
 		}
@@ -193,7 +238,7 @@ void AVRCharacter::PlayFootStepSound()
 	{
 		if (DistanceMoved > 0)
 		{
-			DistanceMoved -= DistanceMovedDecrementAmount + (VelocityThreshold - V);
+			DistanceMoved -= DistanceMovedDecrementAmount * DeltaTime;
 			if (DistanceMoved < 0) { DistanceMoved = 0; }
 		}
 		
@@ -230,11 +275,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	{
 		InterpretMCMotion();
 
-		if (bDodge)
-		{
-			Dodge();
-		}
-		else if (bSprint)
+		if (bSprint)
 		{
 			MoveForward(1.0f);
 		}
@@ -248,6 +289,11 @@ void AVRCharacter::Tick(float DeltaTime)
 	//RightHandMesh->SetWorldLocationAndRotation(RightController->GetActorLocation(), RightController->GetActorQuat());
 
 	PlayFootStepSound();
+}
+
+void AVRCharacter::LockCameraPosition()
+{
+	VRRoot->SetRelativeLocation(-Camera->GetRelativeLocation());
 }
 
 void AVRCharacter::Dodge()
@@ -368,12 +414,14 @@ void AVRCharacter::Sprint()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Sprint"));
 	bSprint = true;
+	StepVolumeMultiplier = 6.f;
 }
 
 void AVRCharacter::StopSprint()
 {
 	UE_LOG(LogTemp, Warning, TEXT("StopSprint"));
 	bSprint = false;
+	StepVolumeMultiplier = 1.8f;
 }
 
 
@@ -400,12 +448,12 @@ void AVRCharacter::MoveRight(float throttle)
 
 void AVRCharacter::TurnRight(float throttle)
 {
-	AddControllerYawInput(throttle);
+	AddControllerYawInput(throttle * GetWorld()->DeltaTimeSeconds * 50.f);
 }
 
 void AVRCharacter::LookUp(float throttle)
 {
-	AddControllerPitchInput(-throttle);
+	AddControllerPitchInput(-throttle * GetWorld()->DeltaTimeSeconds * 50.f);
 
 }
 

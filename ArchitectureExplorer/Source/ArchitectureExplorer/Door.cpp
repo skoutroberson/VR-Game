@@ -45,7 +45,12 @@ void ADoor::BeginPlay()
 	//UE_LOG(LogTemp, Warning, TEXT("LV: %f"), LVAngle);
 
 	FVector LV = -DoorHinge->GetRightVector().RotateAngleAxis(LVAngle, DoorHinge->GetUpVector());
-	MinRotation = CalcGoalQuat(DoorHinge->GetForwardVector());
+	FVector FV = DoorHinge->GetForwardVector();
+	if (bBackwards)
+	{
+		LV = -LV;
+	}
+	MinRotation = CalcGoalQuat(FV);
 	MaxRotation = LV.ToOrientationQuat();
 
 	YawAngle = GetActorRotation().Yaw + 180.f;
@@ -276,7 +281,7 @@ float ADoor::BinarySearchForMaxAngle()
 
 	// Move the angle in 3.5 degrees to account for the knob hitting the wall.
 	Mid = (KnobCollision) ? Mid + 3.5f : Mid;
-
+	Mid = 180.f;	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	return Mid;
 }
 
