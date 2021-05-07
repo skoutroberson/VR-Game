@@ -5,6 +5,8 @@
 #include "Components/BoxComponent.h"
 #include "DrawDebugHelpers.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "HandController.h"
 
 AChainsaw::AChainsaw()
 {
@@ -37,17 +39,44 @@ void AChainsaw::BeginPlay()
 
 void AChainsaw::Tick(float DeltaTime)
 {
+	DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + SkeletalMesh->GetRightVector() * 100.f, FColor::Red, false, 2 * DeltaTime);
 	if (AGrabbable::bRotateTwoHand)
 	{
-		const FVector SMFV = SkeletalMesh->GetForwardVector();
-		const FVector MC1L = AGrabbable::MotionController1->GetActorLocation();
-		const FVector MC2L = AGrabbable::MotionController2->GetActorLocation();
-		const FVector MCDif = (MC1L - MC2L).GetSafeNormal();
-		const float Angle = FMath::Acos(FVector::DotProduct(SMFV, MCDif));
-		const FVector Axis = FVector::CrossProduct(SMFV, MCDif).GetSafeNormal();
-		const FQuat DeltaRotation = FQuat(Axis, Angle);
-		AddActorLocalRotation(DeltaRotation);
+		RotateTwoHand(DeltaTime);
 	}
+}
+
+void AChainsaw::RotateTwoHand(float DeltaTime)
+{
+	const FVector SMFV = SkeletalMesh->GetForwardVector();
+	//const FVector MC1L = AGrabbable::MotionController1->GetActorLocation();
+	const FVector MC1L = AGrabbable::MC1OffsetComponent->GetComponentLocation();
+	const FVector MC2L = AGrabbable::MotionController2->GetActorLocation();
+	
+	float D = FVector::Distance(MC1L, MC2L);
+	if (D > TwoHandDistance + TwoHandDropThreshold || D < TwoHandDistance - TwoHandDropThreshold)
+	{
+		Cast<AHandController>(AGrabbable::MotionController1)->Release();
+		Cast<AHandController>(AGrabbable::MotionController2)->Grip();
+		return;
+	}
+
+	const FVector MCDif = (MC1L - MC2L).GetSafeNormal();
+	const float Angle = FMath::Acos(FVector::DotProduct(SMFV, MCDif));
+	const FVector Axis = FVector::CrossProduct(SMFV, MCDif).GetSafeNormal();
+	const FQuat DeltaRotation = FQuat(Axis, Angle);
+	const FQuat NewRotation = DeltaRotation * GetActorQuat();
+	const FQuat SlerpQuat = FQuat::Slerp(GetActorQuat(), NewRotation, 3.f * DeltaTime);
+	SetActorRotation(SlerpQuat);
+
+	/*
+	const float Angle2 = FMath::FMath::Acos(FVector::DotProduct(SkeletalMesh->GetRightVector(), AGrabbable::MotionController1->GetActorRightVector()));
+	const FVector Axis2 = FVector::CrossProduct(SkeletalMesh->GetRightVector(), AGrabbable::MotionController1->GetActorRightVector()).GetSafeNormal();
+	const FQuat DeltaRot = FQuat(Axis2, Angle2);
+	const FQuat NewRot = DeltaRot * GetActorQuat();
+	const FQuat SlerpQuat2 = FQuat::Slerp(GetActorQuat(), NewRot, 3.f * DeltaTime);
+	SetActorRotation(SlerpQuat2);
+	*/
 }
 
 void AChainsaw::BladeBeginOverlap(UPrimitiveComponent * FirstComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)

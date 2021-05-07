@@ -132,6 +132,8 @@ private:
 
 	FTransform HandMeshRelativeTransform;
 
+	USceneComponent* ChainsawOffset = nullptr;
+
 private:
 
 	// Stops the player is they are holding on to door handle and moving too far away

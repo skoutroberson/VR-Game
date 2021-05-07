@@ -30,4 +30,10 @@ protected:
 
 private:
 	class USkeletalMeshComponent * SkeletalMesh = nullptr;
+
+	float TwoHandDropThreshold = 15.f;
+	float TwoHandDistance = 22.f;
+
+	void RotateTwoHand(float DeltaTime);
+
 };
