@@ -58,6 +58,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
 	AActor* MotionController2 = nullptr;
 
+	USceneComponent* MC1OffsetComponent = nullptr;
+
 	void Grab();
 
 };

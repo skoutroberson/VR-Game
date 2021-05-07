@@ -43,6 +43,7 @@ void AHandController::BeginPlay()
 	}
 
 	HandMeshRelativeTransform = HandMesh->GetRelativeTransform();
+	ChainsawOffset = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), FName("Saw"))[0]);
 
 	DeltaLocation = GetActorLocation();
 }
@@ -124,6 +125,7 @@ void AHandController::Grip()
 					HandMesh->AttachToComponent(ActorBeingGrabbed->HandHold2, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 					GripSize = ActorBeingGrabbed->ItemGripSize;
 
+					ActorBeingGrabbed->MC1OffsetComponent = ChainsawOffset;
 					ActorBeingGrabbed->MotionController1 = this;
 					ActorBeingGrabbed->MotionController2 = SisterController;
 					ActorBeingGrabbed->bRotateTwoHand = true;
