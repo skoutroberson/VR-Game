@@ -23,6 +23,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime);
 
+	virtual void Gripped(int HandHoldNum);
+	virtual void Released(int HandHoldNum);
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Grabbable)
 	float ItemGripSize = 100.f;
@@ -44,14 +47,27 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
 	bool bTwoHanded = false;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	bool bInterpToMC = false;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
 	bool bRotateTwoHand = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	bool bCanBeOneHanded = false;
+
+	TArray<int> ValidOneHandHandHolds;
 
 	USceneComponent * HandHold1 = nullptr;
 	USceneComponent * HandHold2 = nullptr;
 
 	FVector HandHoldOffset1 = FVector::ZeroVector;
 	FVector HandHoldOffset2 = FVector::ZeroVector;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	AActor* ControllingMC = nullptr;
+
+	FVector ControllingOffset = FVector::ZeroVector;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
 	AActor* MotionController1 = nullptr;
@@ -61,5 +77,10 @@ public:
 	USceneComponent* MC1OffsetComponent = nullptr;
 
 	void Grab();
+
+protected:
+	
+	bool b1Held = false;
+	bool b2Held = false;
 
 };

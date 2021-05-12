@@ -122,6 +122,10 @@ private:
 
 	bool bIsControllingItem = false;
 
+	bool bHandHold1 = false;
+	bool bHandHold2 = false;
+	
+
 	// Actor that the hand controller can pick up
 	AActor * GrabActor = nullptr;
 	FQuat GrabQuat;
