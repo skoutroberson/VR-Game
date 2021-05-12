@@ -204,11 +204,11 @@ void AVRCharacter::UpdateCapsuleHeight()
 
 void AVRCharacter::PlayFootStepSound()
 {
-	float DeltaTime = GetWorld()->DeltaTimeSeconds;
-	float V = GetVelocity().Size() * DeltaTime;
+	const float DeltaTime = GetWorld()->DeltaTimeSeconds;
+	const float V = (DeltaLocation - GetActorLocation()).Size();
 
 	//UE_LOG(LogTemp, Warning, TEXT("D: %f"), DistanceMoved);
-	//UE_LOG(LogTemp, Warning, TEXT("V: %f"), V);
+	//UE_LOG(LogTemp, Warning, TEXT("V: %f"), (DeltaLocation - GetActorLocation()).Size());
 
 	if (V > VelocityThreshold)
 	{
@@ -222,14 +222,14 @@ void AVRCharacter::PlayFootStepSound()
 			{
 				UE_LOG(LogTemp, Warning, TEXT("Right Step"));
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), RightFootstepSound, 
-					VRRoot->GetComponentLocation() + GetActorRightVector() * 10.f, V*2.f);
+					VRRoot->GetComponentLocation() + GetActorRightVector() * 4.f, V*2.f);
 				bRightStep = false;
 			}
 			else
 			{
 				UE_LOG(LogTemp, Warning, TEXT("Left Step"));
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), LeftFootstepSound, 
-					VRRoot->GetComponentLocation() + -GetActorRightVector() * 10.f, V*2.f);
+					VRRoot->GetComponentLocation() + -GetActorRightVector() * 4.f, V*2.f);
 				bRightStep = true;
 			}
 		}
@@ -250,7 +250,7 @@ void AVRCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	DeltaLocation = DeltaLocation - GetActorLocation();
+	
 
 	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
 
@@ -289,6 +289,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	//RightHandMesh->SetWorldLocationAndRotation(RightController->GetActorLocation(), RightController->GetActorQuat());
 
 	PlayFootStepSound();
+	DeltaLocation = GetActorLocation();
 }
 
 void AVRCharacter::LockCameraPosition()

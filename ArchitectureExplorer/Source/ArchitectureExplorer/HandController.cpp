@@ -92,8 +92,8 @@ void AHandController::Grip()
 				}
 				
 				//	TWO HANDED MECHANICS
-				if (!ActorBeingGrabbed->bBeingHeld)
-				{
+				//if (!ActorBeingGrabbed->bBeingHeld)
+				//{
 					bIsControllingItem = true;
 					ActorBeingGrabbed->bBeingHeld = true;
 
@@ -101,6 +101,43 @@ void AHandController::Grip()
 					Mesh = Cast<UPrimitiveComponent>(GrabActor->GetComponentByClass(UPrimitiveComponent::StaticClass()));
 					if (Mesh != nullptr)
 					{
+						FVector AL = GetActorLocation();
+						float D1 = FVector::Distance(AL, ActorBeingGrabbed->HandHold1->GetComponentLocation());
+						float D2 = FVector::Distance(AL, ActorBeingGrabbed->HandHold2->GetComponentLocation());
+
+						if (D1 > D2)
+						{
+							HandMesh->AttachToComponent(ActorBeingGrabbed->HandHold2, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+							
+							if (ActorBeingGrabbed->MotionController2 == SisterController)
+							{
+								SisterController->Release();
+							}
+							ActorBeingGrabbed->MotionController2 = this;
+							ActorBeingGrabbed->Gripped(2);
+							bHandHold2 = true;
+							//need to apply rotation as well
+						}
+						else
+						{
+							HandMesh->AttachToComponent(ActorBeingGrabbed->HandHold1, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+							if (ActorBeingGrabbed->MotionController1 == SisterController)
+							{
+								SisterController->Release();
+							}
+							ActorBeingGrabbed->MotionController1 = this;
+							ActorBeingGrabbed->Gripped(1);
+							bHandHold1 = true;
+							//need to apply rotation as well
+						}
+
+						
+
+						/*
+						// attach handmesh to chainsaw
+						// interp chainsaw to HandController
+						
+
 						Mesh->SetSimulatePhysics(false);
 						Mesh->SetEnableGravity(false);
 						GripSize = ActorBeingGrabbed->ItemGripSize;
@@ -111,6 +148,7 @@ void AHandController::Grip()
 
 						if (bLeft)
 						{
+							//ActorBeingGrabbed->NegateYAxisOffset
 							ChainsawOffset.Y = -ChainsawOffset.Y;
 							ActorBeingGrabbed->SetActorRelativeLocation(ChainsawOffset);
 						}
@@ -118,20 +156,25 @@ void AHandController::Grip()
 						{
 							ActorBeingGrabbed->SetActorRelativeLocation(ChainsawOffset);
 						}
+						*/
 					}
-				}
+				//}
+				/*
 				else
 				{
 					HandMesh->AttachToComponent(ActorBeingGrabbed->HandHold2, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+					/*
+					
 					GripSize = ActorBeingGrabbed->ItemGripSize;
 
 					ActorBeingGrabbed->MC1OffsetComponent = ChainsawOffset;
 					ActorBeingGrabbed->MotionController1 = this;
 					ActorBeingGrabbed->MotionController2 = SisterController;
 					ActorBeingGrabbed->bRotateTwoHand = true;
+					*/
 					// also need to add the offset so the hand lines up perfectly with the mesh
-				}
-
+				//}
+				
 
 
 				// I NEED TO FIX THIS CODE
@@ -300,6 +343,25 @@ void AHandController::Release()
 			// two handed mechanics
 			if (ActorBeingGrabbed != nullptr)
 			{
+				HandMesh->DetachFromParent();
+				HandMesh->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::SnapToTargetIncludingScale);
+				HandMesh->SetRelativeTransform(HandMeshRelativeTransform);
+				if (bIsControllingItem)
+				{
+					ActorBeingGrabbed->bBeingHeld = false;
+					bIsControllingItem = false;
+				}
+				if (bHandHold1)
+				{
+					ActorBeingGrabbed->Released(1);
+					bHandHold1 = false;
+				}
+				else if (bHandHold2)
+				{
+					ActorBeingGrabbed->Released(2);
+					bHandHold2 = false;
+				}
+				/*
 				if (bIsControllingItem)
 				{
 					ActorBeingGrabbed->bBeingHeld = false;
@@ -328,7 +390,7 @@ void AHandController::Release()
 					ActorBeingGrabbed->bRotateTwoHand = false;
 					// stop attaching handmesh to handhold
 				}
-					
+				*/	
 			}
 		}
 		

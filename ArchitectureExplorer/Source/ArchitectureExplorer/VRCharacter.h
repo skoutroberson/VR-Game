@@ -148,11 +148,17 @@ private:
 
 	bool bRightStep = false;
 	float DistanceMoved = 0;
-	const float DistanceThreshold = 84.f;
+	UPROPERTY(EditAnywhere);
+	float DistanceThreshold = 98.f;
 	// this should go down more if the players velocity is farther from velocity threshold
-	const float DistanceMovedDecrementAmount = 14.f;
+	UPROPERTY(EditAnywhere);
+	float DistanceMovedDecrementAmount = 14.f;
 	// the character's velocity must be over this amount to be considered "moving".
-	const float VelocityThreshold = 0.01f;
+	UPROPERTY(EditAnywhere);
+	float VelocityThreshold = 0.01f;
+
+	FVector FootstepPosition;
+
 	// This function plays a footstep sound if MoveDistance goes over MoveThreshold.
 	void PlayFootStepSound();
 

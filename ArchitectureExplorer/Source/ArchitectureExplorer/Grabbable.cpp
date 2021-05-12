@@ -30,6 +30,14 @@ void AGrabbable::Tick(float DeltaTime)
 {
 }
 
+void AGrabbable::Gripped(int HandHoldNum)
+{
+}
+
+void AGrabbable::Released(int HandHoldNum)
+{
+}
+
 // Called every frame
 /*
 void AGrabbable::Tick(float DeltaTime)

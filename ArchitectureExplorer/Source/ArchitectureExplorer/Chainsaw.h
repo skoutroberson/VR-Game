@@ -19,6 +19,9 @@ public:
 
 	virtual void Tick(float DeltaTime);
 
+	virtual void Gripped(int HandHoldNum) override;
+	virtual void Released(int HandHoldNum) override;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -35,5 +38,7 @@ private:
 	float TwoHandDistance = 22.f;
 
 	void RotateTwoHand(float DeltaTime);
+
+	void InterpToMC(float DeltaTime);
 
 };
