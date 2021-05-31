@@ -19,10 +19,7 @@
 APortalRoom::APortalRoom()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
-	PRRoot = CreateDefaultSubobject<USceneComponent>(TEXT("PRRoot"));
-	SetRootComponent(PRRoot);
+	PrimaryActorTick.bCanEverTick = false;
 
 }
 
@@ -31,8 +28,6 @@ void APortalRoom::BeginPlay()
 {
 	Super::BeginPlay();
 
-	OnActorBeginOverlap.AddDynamic(this, &APortalRoom::ActorBeginOverlap);
-	
 }
 
 // Called every frame
@@ -42,7 +37,7 @@ void APortalRoom::Tick(float DeltaTime)
 
 }
 
-void APortalRoom::ActorBeginOverlap(AActor * OverlappedActor, AActor * OtherActor)
+void APortalRoom::FakeFunction()
 {
 	TArray<AActor*> OverlappingActors;
 	GetOverlappingActors(OverlappingActors);
@@ -54,25 +49,12 @@ void APortalRoom::ActorBeginOverlap(AActor * OverlappedActor, AActor * OtherActo
 			APlayerController * PlayerController = GetWorld()->GetFirstPlayerController();
 			AVRCharacter* VRChar = Cast<AVRCharacter>(OverlappingActor);
 			FVector SavedVelocity = VRChar->GetCharacterMovement()->GetLastUpdateVelocity();
-
 			FRotator PlayerRotation = OverlappingActor->GetActorRotation();
 			
 
 			FVector DeltaPosition = OverlappingActor->GetActorLocation() - GetActorLocation();
 			//FVector NewDeltaPosition = DeltaPosition.RotateAngleAxis(DeltaRotation, FVector(0, 0, 1.f));
 			FVector NewDeltaPosition = FVector(-DeltaPosition.Y, DeltaPosition.X, DeltaPosition.Z);	// This is only if the DeltaRotation is 90.f
-
-			//UE_LOG(LogTemp, Warning, TEXT("TELEPORT PLAYER!"));
-			//DrawDebugSphere(GetWorld(), GetActorLocation(), 10, 10, FColor::Red, true);
-			//DrawDebugSphere(GetWorld(), TargetLocation, 10, 10, FColor::Red, true);
-			//DrawDebugSphere(GetWorld(), DeltaPosition + GetActorLocation(), 10, 10, FColor::Cyan, true);
-			//DrawDebugSphere(GetWorld(), NewDeltaPosition + TargetLocation, 10, 10, FColor::Cyan, true);
-			//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + DeltaPosition, FColor::Purple, true);
-			//DrawDebugLine(GetWorld(), TargetLocation, TargetLocation + NewDeltaPosition, FColor::Purple, true);
-			//UE_LOG(LogTemp, Warning, TEXT("DP: %f %f %f"), DeltaPosition.X, DeltaPosition.Y, DeltaPosition.Z);
-			//UE_LOG(LogTemp, Warning, TEXT("NP: %f %f %f"), NewDeltaPosition.X, NewDeltaPosition.Y, NewDeltaPosition.Z);
-			//UE_LOG(LogTemp, Warning, TEXT("SV: %f %f %f"), SavedVelocity.X, SavedVelocity.Y, SavedVelocity.Z);
-			//UE_LOG(LogTemp, Warning, TEXT("NV: %f %f %f"), NewVelocity.X, NewVelocity.Y, NewVelocity.Z);
 
 			FVector TeleportLocation = TargetLocation + NewDeltaPosition;
 			float TeleportYaw = PlayerRotation.Yaw + DeltaRotation;
@@ -91,20 +73,8 @@ void APortalRoom::ActorBeginOverlap(AActor * OverlappedActor, AActor * OtherActo
 			VRChar->GetCharacterMovement()->Velocity.Set(NewVelocity.X, NewVelocity.Y, NewVelocity.Z);
 			PlayerController->SetControlRotation(TeleportRotation);
 			OverlappingActor->SetActorLocationAndRotation(TeleportLocation, TeleportRotation);
-			//OverlappingActor->SetActorLocation(TeleportLocation);
-			
-			/*
-			UCapsuleComponent * PlayerCapsule = Cast<UCapsuleComponent>(OverlappingActor->GetRootComponent());
-			if (PlayerCapsule != nullptr)
-			{
-				PlayerCapsule->AddImpulse(ResultVector);
-			}
-			*/
-			
-			
 			
 			// CHANGE STAGE CHECK!!!!!!!!! IF TRUE, THEN SET A BOOL TO TRUE TO CHANGE THE STAGE
-			
 
 			//VRChar->CorrectCameraOffset();
 			
@@ -114,12 +84,26 @@ void APortalRoom::ActorBeginOverlap(AActor * OverlappedActor, AActor * OtherActo
 	}
 }
 
-void APortalRoom::ResetTriggers()
+void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AActor * Player)
 {
-	StartTrigger->bTriggered = false;
-}
+	APlayerController * PlayerController = GetWorld()->GetFirstPlayerController();
+	AVRCharacter* VRChar = Cast<AVRCharacter>(Player);
+	FVector SavedVelocity = VRChar->GetCharacterMovement()->GetLastUpdateVelocity();
+	FRotator PlayerRotation = Player->GetActorRotation();
+	FVector DeltaPosition = Player->GetActorLocation() - GetActorLocation();
+	//FVector NewDeltaPosition = DeltaPosition.RotateAngleAxis(DeltaRotation, FVector(0,0,1));
+	FVector NewDeltaPosition = FVector(-DeltaPosition.Y, DeltaPosition.X, DeltaPosition.Z);
+	FVector TargetLocation = TargetRoom->GetActorLocation() + NewDeltaPosition;
+	float TeleportYaw = PlayerRotation.Yaw + DeltaRotation;
+	FRotator TeleportRotation = FRotator(PlayerRotation.Pitch, TeleportYaw, PlayerRotation.Roll);
+	FVector NewVelocity = SavedVelocity.RotateAngleAxis(DeltaRotation, FVector(0, 0, 1.f));
+	FVector TargetNormal = TeleportRotation.Vector().GetSafeNormal();
+	float VelocityLength = SavedVelocity.Size();
+	FVector ResultVector = TargetNormal * VelocityLength;
 
-void APortalRoom::Teleport()
-{
-
+	UE_LOG(LogTemp, Warning, TEXT("1: %f %f %f"), DeltaPosition.X, DeltaPosition.Y, DeltaPosition.Z);
+	UE_LOG(LogTemp, Warning, TEXT("2: %f %f %f"), NewDeltaPosition.X, NewDeltaPosition.Y, NewDeltaPosition.Z);
+	VRChar->GetCharacterMovement()->Velocity.Set(NewVelocity.X, NewVelocity.Y, 0);
+	PlayerController->SetControlRotation(TeleportRotation);
+	Player->SetActorLocationAndRotation(TargetLocation, TeleportRotation);
 }

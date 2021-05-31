@@ -16,18 +16,23 @@ void AGrabbable::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if (bTwoHanded)
+	
+	HandHold1 = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), TEXT("1"))[0]);
+	HandHoldOffset1 = GetActorLocation() - HandHold1->GetComponentLocation();
+
+	if (GetComponentsByTag(USceneComponent::StaticClass(), TEXT("2")).Num() > 0)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("POOP"));
-		HandHold1 = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), TEXT("1"))[0]);
 		HandHold2 = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), TEXT("2"))[0]);
-		HandHoldOffset1 = GetActorLocation() - HandHold1->GetComponentLocation();
+	}
+	if (HandHold2 != nullptr)
+	{
 		HandHoldOffset2 = GetActorLocation() - HandHold2->GetComponentLocation();
 	}
 }
 
 void AGrabbable::Tick(float DeltaTime)
 {
+	
 }
 
 void AGrabbable::Gripped(int HandHoldNum)

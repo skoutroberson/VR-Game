@@ -50,7 +50,12 @@ void AChainsaw::Tick(float DeltaTime)
 	
 	if (AGrabbable::bRotateTwoHand)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("Two"));
 		RotateTwoHand(DeltaTime);
+	}
+	else if (bRotateOneHand)
+	{
+		RotateOneHand(DeltaTime);
 	}
 }
 
@@ -65,12 +70,21 @@ void AChainsaw::Gripped(int HandHoldNum)
 			{
 				AGrabbable::ControllingMC = AGrabbable::MotionController1;
 				ControllingOffset = HandHoldOffset1;
+				ControllingHandHold = HandHold1;
 				bInterpToMC = true;
+				bRotateOneHand = true;
 			}
 		}
-		else
+		else 
 		{
+			// two hand mechanics
+			AGrabbable::ControllingMC = AGrabbable::MotionController1;
+			ControllingOffset = HandHoldOffset1;
+			ControllingHandHold = HandHold1;
 
+			bInterpToMC = true;
+			bRotateOneHand = false;
+			bRotateTwoHand = true;
 		}
 	}
 	else if (HandHoldNum == 2)
@@ -82,12 +96,14 @@ void AChainsaw::Gripped(int HandHoldNum)
 			{
 				AGrabbable::ControllingMC = AGrabbable::MotionController2;
 				ControllingOffset = HandHoldOffset2;
+				ControllingHandHold = HandHold2;
 				bInterpToMC = true;
+				bRotateOneHand = true;
 			}
 		}
 		else
 		{
-
+			// two hand mechanics
 		}
 	}
 
@@ -96,6 +112,22 @@ void AChainsaw::Gripped(int HandHoldNum)
 	{
 		SkeletalMesh->SetSimulatePhysics(false);
 		SkeletalMesh->SetEnableGravity(false);
+	}
+
+	// check if ControllingMC is left or right for different rotations
+
+	if (ControllingMC != nullptr)
+	{
+		AHandController* HCCast = Cast<AHandController>(ControllingMC);
+
+		if (HCCast->bLeft)
+		{
+			bControllingMCLeft = true;
+		}
+		else
+		{
+			bControllingMCLeft = false;
+		}
 	}
 }
 
@@ -110,6 +142,7 @@ void AChainsaw::Released(int HandHoldNum)
 			{
 				ControllingMC = MotionController2;
 				ControllingOffset = HandHoldOffset2;
+				
 			}
 			else
 			{
@@ -126,6 +159,7 @@ void AChainsaw::Released(int HandHoldNum)
 			{
 				ControllingMC = MotionController1;
 				ControllingOffset = HandHoldOffset1;
+				
 			}
 			else
 			{
@@ -138,12 +172,24 @@ void AChainsaw::Released(int HandHoldNum)
 void AChainsaw::InterpToMC(float DeltaTime)
 {
 	const FVector AL = GetActorLocation();
+	ControllingOffset = GetActorLocation() - ControllingHandHold->GetComponentLocation();
 	const FVector TL = AGrabbable::ControllingMC->GetActorLocation() + ControllingOffset;
-	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 100.f));
+	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 100.f), true);
+}
+
+void AChainsaw::RotateOneHand(float DeltaTime)
+{
+	
+
+	// this only works for the chainsaw
+	FRotator MCRot = ControllingMC->GetActorRotation();
+	MCRot.Roll = (bControllingMCLeft) ? MCRot.Roll - 90.f : MCRot.Roll += 90.f;
+	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), MCRot, 3.5f * DeltaTime, true));
 }
 
 void AChainsaw::RotateTwoHand(float DeltaTime)
 {
+	/*
 	const FVector SMFV = SkeletalMesh->GetForwardVector();
 	//const FVector MC1L = AGrabbable::MotionController1->GetActorLocation();
 	const FVector MC1L = AGrabbable::MC1OffsetComponent->GetComponentLocation();
@@ -166,7 +212,7 @@ void AChainsaw::RotateTwoHand(float DeltaTime)
 	const FQuat SlerpQuat = FQuat::Slerp(GetActorQuat(), NewRotation, 3.5f * DeltaTime);
 	SetActorRotation(SlerpQuat);
 
-	/*
+	 
 	const float Angle2 = FMath::FMath::Acos(FVector::DotProduct(SkeletalMesh->GetRightVector(), AGrabbable::MotionController1->GetActorRightVector()));
 	const FVector Axis2 = FVector::CrossProduct(SkeletalMesh->GetRightVector(), AGrabbable::MotionController1->GetActorRightVector()).GetSafeNormal();
 	const FQuat DeltaRot = FQuat(Axis2, Angle2);

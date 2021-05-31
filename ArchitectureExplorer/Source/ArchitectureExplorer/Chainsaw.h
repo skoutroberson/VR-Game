@@ -38,6 +38,7 @@ private:
 	float TwoHandDistance = 22.f;
 
 	void RotateTwoHand(float DeltaTime);
+	void RotateOneHand(float DeltaTime);
 
 	void InterpToMC(float DeltaTime);
 
