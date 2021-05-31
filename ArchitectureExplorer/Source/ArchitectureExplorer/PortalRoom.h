@@ -28,24 +28,15 @@ public:
 
 private:
 
-	UPROPERTY(VisibleAnywhere)
-	class USceneComponent* PRRoot;
-
 	FVector TargetLocation = FVector(-833, 0, 17);
-
-	UPROPERTY(EditAnywhere)
-	ABoxTrigger * StartTrigger;
-
-	UPROPERTY(EditAnywhere)
-	ABoxTrigger * EndTrigger;
-
-	void ResetTriggers();
 
 	//	Difference in yaw rotation from source portal room doors to target room doors
 	float DeltaRotation = 90.f;
 
-	UFUNCTION()
-	void ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
+	void FakeFunction();
+
+	UFUNCTION(BlueprintCallable, Category = "CustomFunctions")
+	void TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AActor * Player);
 
 public:
 	void Teleport();

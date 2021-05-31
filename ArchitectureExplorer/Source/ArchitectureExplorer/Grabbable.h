@@ -54,6 +54,9 @@ public:
 	bool bRotateTwoHand = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	bool bRotateOneHand = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
 	bool bCanBeOneHanded = false;
 
 	TArray<int> ValidOneHandHandHolds;
@@ -67,7 +70,13 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = TwoHanded)
 	AActor* ControllingMC = nullptr;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	bool bControllingMCLeft = false;
+
 	FVector ControllingOffset = FVector::ZeroVector;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	USceneComponent* ControllingHandHold = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
 	AActor* MotionController1 = nullptr;

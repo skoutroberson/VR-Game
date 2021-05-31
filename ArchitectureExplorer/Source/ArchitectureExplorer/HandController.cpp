@@ -55,7 +55,7 @@ void AHandController::Tick(float DeltaTime)
 
 	DeltaLocation = DeltaLocation - GetActorLocation();
 
-	//DrawDebugLines(DeltaTime);	///////////////////// DEBUG HELPER
+	DrawDebugLines(DeltaTime);	///////////////////// DEBUG HELPER
 
 	if (bIsClimbing)
 	{
@@ -103,7 +103,13 @@ void AHandController::Grip()
 					{
 						FVector AL = GetActorLocation();
 						float D1 = FVector::Distance(AL, ActorBeingGrabbed->HandHold1->GetComponentLocation());
-						float D2 = FVector::Distance(AL, ActorBeingGrabbed->HandHold2->GetComponentLocation());
+						float D2 = 99999.f;
+						USceneComponent* HH2 = ActorBeingGrabbed->HandHold2;
+
+						if (HH2 != nullptr)
+						{
+							D2 = FVector::Distance(AL, ActorBeingGrabbed->HandHold2->GetComponentLocation());
+						} 
 
 						if (D1 > D2)
 						{

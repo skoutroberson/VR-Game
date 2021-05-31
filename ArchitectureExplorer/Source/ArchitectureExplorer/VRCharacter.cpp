@@ -207,8 +207,7 @@ void AVRCharacter::PlayFootStepSound()
 	const float DeltaTime = GetWorld()->DeltaTimeSeconds;
 	const float V = (DeltaLocation - GetActorLocation()).Size();
 
-	//UE_LOG(LogTemp, Warning, TEXT("D: %f"), DistanceMoved);
-	//UE_LOG(LogTemp, Warning, TEXT("V: %f"), (DeltaLocation - GetActorLocation()).Size());
+	// I should also make the noise quieter if the capsule height is smaller
 
 	if (V > VelocityThreshold)
 	{
@@ -220,16 +219,16 @@ void AVRCharacter::PlayFootStepSound()
 			DistanceMoved = 0.f;
 			if (bRightStep)
 			{
-				UE_LOG(LogTemp, Warning, TEXT("Right Step"));
+				//UE_LOG(LogTemp, Warning, TEXT("Right Step"));
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), RightFootstepSound, 
-					VRRoot->GetComponentLocation() + GetActorRightVector() * 4.f, V*2.f);
+					VRRoot->GetComponentLocation() + GetActorRightVector() * 2.f, V*2.f);
 				bRightStep = false;
 			}
 			else
 			{
-				UE_LOG(LogTemp, Warning, TEXT("Left Step"));
+				//UE_LOG(LogTemp, Warning, TEXT("Left Step"));
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), LeftFootstepSound, 
-					VRRoot->GetComponentLocation() + -GetActorRightVector() * 4.f, V*2.f);
+					VRRoot->GetComponentLocation() + -GetActorRightVector() * 2.f, V*2.f);
 				bRightStep = true;
 			}
 		}
@@ -431,11 +430,12 @@ void AVRCharacter::MoveForward(float throttle)
 {
 	if(!bSprint)
 	{
-		AddMovementInput(throttle * Camera->GetForwardVector(), 0.4f);
+		//AddMovementInput(throttle * Camera->GetForwardVector(), 0.4f);
+		AddMovementInput(throttle * GetActorForwardVector(), 0.4f);
 	}
 	else
 	{
-		AddMovementInput(throttle * Camera->GetForwardVector());
+		AddMovementInput(throttle * GetActorForwardVector());
 	}
 }
 
@@ -443,7 +443,8 @@ void AVRCharacter::MoveRight(float throttle)
 {
 	if (!bDodge)
 	{
-		AddMovementInput(throttle * Camera->GetRightVector(), 0.4f);
+		//AddMovementInput(throttle * Camera->GetRightVector(), 0.4f);
+		AddMovementInput(throttle * GetActorRightVector(), 0.4f);
 	}
 }
 
@@ -455,7 +456,6 @@ void AVRCharacter::TurnRight(float throttle)
 void AVRCharacter::LookUp(float throttle)
 {
 	AddControllerPitchInput(-throttle * GetWorld()->DeltaTimeSeconds * 50.f);
-
 }
 
 void AVRCharacter::BeginTeleport()
