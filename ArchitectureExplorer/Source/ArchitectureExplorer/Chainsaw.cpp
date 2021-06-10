@@ -69,6 +69,7 @@ void AChainsaw::Gripped(int HandHoldNum)
 			if (AGrabbable::ValidOneHandHandHolds.Contains(HandHoldNum))
 			{
 				AGrabbable::ControllingMC = AGrabbable::MotionController1;
+				AGrabbable::NonControllingMC = AGrabbable::MotionController2;
 				ControllingOffset = HandHoldOffset1;
 				ControllingHandHold = HandHold1;
 				bInterpToMC = true;
@@ -79,6 +80,7 @@ void AChainsaw::Gripped(int HandHoldNum)
 		{
 			// two hand mechanics
 			AGrabbable::ControllingMC = AGrabbable::MotionController1;
+			AGrabbable::NonControllingMC = AGrabbable::MotionController2;
 			ControllingOffset = HandHoldOffset1;
 			ControllingHandHold = HandHold1;
 
@@ -95,6 +97,7 @@ void AChainsaw::Gripped(int HandHoldNum)
 			if (AGrabbable::ValidOneHandHandHolds.Contains(HandHoldNum))
 			{
 				AGrabbable::ControllingMC = AGrabbable::MotionController2;
+				AGrabbable::NonControllingMC = AGrabbable::MotionController1;
 				ControllingOffset = HandHoldOffset2;
 				ControllingHandHold = HandHold2;
 				bInterpToMC = true;
@@ -103,6 +106,13 @@ void AChainsaw::Gripped(int HandHoldNum)
 		}
 		else
 		{
+			AGrabbable::ControllingMC = AGrabbable::MotionController1;
+			AGrabbable::NonControllingMC = AGrabbable::MotionController2;
+			ControllingOffset = HandHoldOffset1;
+			ControllingHandHold = HandHold1;
+			bInterpToMC = true;
+			bRotateOneHand = false;
+			bRotateTwoHand = true;
 			// two hand mechanics
 		}
 	}
@@ -189,6 +199,9 @@ void AChainsaw::RotateOneHand(float DeltaTime)
 
 void AChainsaw::RotateTwoHand(float DeltaTime)
 {
+	AHandController * HC = Cast<AHandController>(NonControllingMC);
+	FVector CO = HC->ChainsawOffset->GetComponentLocation();
+	DrawDebugSphere(GetWorld(), CO, 8.f, 10.f, FColor::Green, false, DeltaTime*2.f);
 	/*
 	const FVector SMFV = SkeletalMesh->GetForwardVector();
 	//const FVector MC1L = AGrabbable::MotionController1->GetActorLocation();
