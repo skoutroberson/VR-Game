@@ -71,6 +71,9 @@ public:
 	AActor* ControllingMC = nullptr;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = TwoHanded)
+	AActor* NonControllingMC = nullptr;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = TwoHanded)
 	bool bControllingMCLeft = false;
 
 	FVector ControllingOffset = FVector::ZeroVector;
@@ -84,6 +87,7 @@ public:
 	AActor* MotionController2 = nullptr;
 
 	USceneComponent* MC1OffsetComponent = nullptr;
+	USceneComponent* MC2OffsetComponent = nullptr;
 
 	void Grab();
 

@@ -136,6 +136,7 @@ private:
 
 	FTransform HandMeshRelativeTransform;
 
+public:
 	USceneComponent* ChainsawOffset = nullptr;
 
 private:

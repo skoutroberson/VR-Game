@@ -37,6 +37,7 @@ void APortalRoom::Tick(float DeltaTime)
 
 }
 
+// This was the old Teleport function
 void APortalRoom::FakeFunction()
 {
 	TArray<AActor*> OverlappingActors;
@@ -91,8 +92,8 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 	FVector SavedVelocity = VRChar->GetCharacterMovement()->GetLastUpdateVelocity();
 	FRotator PlayerRotation = Player->GetActorRotation();
 	FVector DeltaPosition = Player->GetActorLocation() - GetActorLocation();
-	//FVector NewDeltaPosition = DeltaPosition.RotateAngleAxis(DeltaRotation, FVector(0,0,1));
-	FVector NewDeltaPosition = FVector(-DeltaPosition.Y, DeltaPosition.X, DeltaPosition.Z);
+	//FVector NewDeltaPosition = DeltaPosition.RotateAngleAxis(DeltaRotation, FVector(0,0,1));		// This works but RotateAngleAxis() has a bit of error past the second decimal (this is fine to use, just not perfect though)
+	FVector NewDeltaPosition = FVector(-DeltaPosition.Y, DeltaPosition.X, DeltaPosition.Z);			// This only works for a 90 degree delta rotation
 	FVector TargetLocation = TargetRoom->GetActorLocation() + NewDeltaPosition;
 	float TeleportYaw = PlayerRotation.Yaw + DeltaRotation;
 	FRotator TeleportRotation = FRotator(PlayerRotation.Pitch, TeleportYaw, PlayerRotation.Roll);
@@ -103,7 +104,7 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 
 	UE_LOG(LogTemp, Warning, TEXT("1: %f %f %f"), DeltaPosition.X, DeltaPosition.Y, DeltaPosition.Z);
 	UE_LOG(LogTemp, Warning, TEXT("2: %f %f %f"), NewDeltaPosition.X, NewDeltaPosition.Y, NewDeltaPosition.Z);
-	VRChar->GetCharacterMovement()->Velocity.Set(NewVelocity.X, NewVelocity.Y, 0);
+	VRChar->GetCharacterMovement()->Velocity.Set(NewVelocity.X, NewVelocity.Y, NewVelocity.Z);
 	PlayerController->SetControlRotation(TeleportRotation);
 	Player->SetActorLocationAndRotation(TargetLocation, TeleportRotation);
 }
