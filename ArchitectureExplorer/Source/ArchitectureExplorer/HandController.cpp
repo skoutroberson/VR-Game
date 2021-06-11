@@ -418,7 +418,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 		// Grab mechanics
 		if (!bCanGrab && bNewCanGrab)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Can Grab!"));
+			//UE_LOG(LogTemp, Warning, TEXT("Can Grab!"));
 			GripSize = GripSizeCanGrab;
 
 			APawn* Pawn = Cast<APawn>(GetAttachParentActor());
@@ -436,7 +436,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 		// Climb mechanics
 		if (!bCanClimb && bNewCanClimb)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Can Climb!"));
+			//UE_LOG(LogTemp, Warning, TEXT("Can Climb!"));
 			GripSize = GripSizeCanGrab;
 
 			APawn* Pawn = Cast<APawn>(GetAttachParentActor());
@@ -454,7 +454,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 		// Door mechanics
 		if (!bIsUsingDoor && !bCanUseDoor && bNewCanUseDoor)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Can use door!"));
+			//UE_LOG(LogTemp, Warning, TEXT("Can use door!"));
 			GripSize = GripSizeCanGrab;
 
 			APawn* Pawn = Cast<APawn>(GetAttachParentActor());
@@ -499,7 +499,7 @@ void AHandController::CanInteract()
 	{
 		if (OverlappingActor->ActorHasTag(TEXT("Grab")))
 		{
-			UE_LOG(LogTemp, Warning, TEXT("%s"), *OverlappingActor->GetName());
+			//UE_LOG(LogTemp, Warning, TEXT("%s"), *OverlappingActor->GetName());
 
 			bNewCanGrab = true;
 			GrabActor = OverlappingActor;
