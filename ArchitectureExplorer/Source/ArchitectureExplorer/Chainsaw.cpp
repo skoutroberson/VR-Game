@@ -50,7 +50,6 @@ void AChainsaw::Tick(float DeltaTime)
 	
 	if (AGrabbable::bRotateTwoHand)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Two"));
 		RotateTwoHand(DeltaTime);
 	}
 	else if (bRotateOneHand)
@@ -152,7 +151,9 @@ void AChainsaw::Released(int HandHoldNum)
 			{
 				ControllingMC = MotionController2;
 				ControllingOffset = HandHoldOffset2;
-				
+				ControllingHandHold = HandHold2;
+				bRotateTwoHand = false;
+				bRotateOneHand = true;
 			}
 			else
 			{
@@ -169,7 +170,9 @@ void AChainsaw::Released(int HandHoldNum)
 			{
 				ControllingMC = MotionController1;
 				ControllingOffset = HandHoldOffset1;
-				
+				ControllingHandHold = HandHold1;
+				bRotateTwoHand = false;
+				bRotateOneHand = true;
 			}
 			else
 			{
@@ -189,7 +192,6 @@ void AChainsaw::InterpToMC(float DeltaTime)
 
 void AChainsaw::RotateOneHand(float DeltaTime)
 {
-	
 
 	// this only works for the chainsaw
 	FRotator MCRot = ControllingMC->GetActorRotation();
@@ -199,9 +201,14 @@ void AChainsaw::RotateOneHand(float DeltaTime)
 
 void AChainsaw::RotateTwoHand(float DeltaTime)
 {
-	AHandController * HC = Cast<AHandController>(NonControllingMC);
-	FVector CO = HC->ChainsawOffset->GetComponentLocation();
-	DrawDebugSphere(GetWorld(), CO, 8.f, 10.f, FColor::Green, false, DeltaTime*2.f);
+	const AHandController * HC = Cast<AHandController>(NonControllingMC);
+	const FVector CO = HC->ChainsawOffset->GetComponentLocation();
+	const FVector MCDif = (CO - ControllingMC->GetActorLocation()).GetSafeNormal();
+	FRotator NewRot = MCDif.ToOrientationRotator();
+	NewRot.Roll = ControllingMC->GetActorRotation().Roll;
+
+	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), NewRot, 3.5f * DeltaTime, true));
+
 	/*
 	const FVector SMFV = SkeletalMesh->GetForwardVector();
 	//const FVector MC1L = AGrabbable::MotionController1->GetActorLocation();
