@@ -187,17 +187,17 @@ void AStageManager::InitializeStartEndDoors()
 
 	if (DoorManager != nullptr)
 	{
-		FString SDN = "BP_Door1";
-		FString EDN = "BP_Door2_5";
+		FString SDN = "BP_Door_5";
+		FString EDN = "BP_Door2";
 		StartDoor = DoorManager->GetDoor(SDN);
 		EndDoor = DoorManager->GetDoor(EDN);
 	}
 
-	StartDoorTrigger->SetWorldLocation(FVector(-560.f, 0, 116));
-	EndDoorTrigger->SetWorldLocation(FVector(620, -2005, 115));
+	StartDoorTrigger->SetWorldLocation(FVector(2089, 190, 140));
+	EndDoorTrigger->SetWorldLocation(FVector(504.0, -386.0, 100.0));
 
-	StartDoorTrigger->SetBoxExtent(FVector(10, 80, 100));
-	EndDoorTrigger->SetBoxExtent(FVector(240, 10, 100));
+	StartDoorTrigger->SetBoxExtent(FVector(88, 8, 140));
+	EndDoorTrigger->SetBoxExtent(FVector(10.0, 74.0, 100.0));
 }
 
 void AStageManager::InitializeDoorTriggers()
