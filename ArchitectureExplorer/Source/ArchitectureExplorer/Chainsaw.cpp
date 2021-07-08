@@ -158,6 +158,8 @@ void AChainsaw::Released(int HandHoldNum)
 			else
 			{
 				bInterpToMC = false;
+				bRotateTwoHand = false;
+				bRotateOneHand = false;
 			}
 		}
 	}
@@ -177,6 +179,8 @@ void AChainsaw::Released(int HandHoldNum)
 			else
 			{
 				bInterpToMC = false;
+				bRotateTwoHand = false;
+				bRotateOneHand = false;
 			}
 		}
 	}
@@ -187,7 +191,7 @@ void AChainsaw::InterpToMC(float DeltaTime)
 	const FVector AL = GetActorLocation();
 	ControllingOffset = GetActorLocation() - ControllingHandHold->GetComponentLocation();
 	const FVector TL = AGrabbable::ControllingMC->GetActorLocation() + ControllingOffset;
-	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 100.f), true);
+	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 300.f), true);
 }
 
 void AChainsaw::RotateOneHand(float DeltaTime)
@@ -196,7 +200,7 @@ void AChainsaw::RotateOneHand(float DeltaTime)
 	// this only works for the chainsaw
 	FRotator MCRot = ControllingMC->GetActorRotation();
 	MCRot.Roll = (bControllingMCLeft) ? MCRot.Roll - 90.f : MCRot.Roll += 90.f;
-	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), MCRot, 3.5f * DeltaTime, true));
+	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), MCRot, 5.f * DeltaTime, true));
 }
 
 void AChainsaw::RotateTwoHand(float DeltaTime)
@@ -207,7 +211,7 @@ void AChainsaw::RotateTwoHand(float DeltaTime)
 	FRotator NewRot = MCDif.ToOrientationRotator();
 	NewRot.Roll = ControllingMC->GetActorRotation().Roll;
 
-	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), NewRot, 3.5f * DeltaTime, true));
+	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), NewRot, 5.f * DeltaTime, true));
 
 	/*
 	const FVector SMFV = SkeletalMesh->GetForwardVector();

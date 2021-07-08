@@ -33,7 +33,7 @@ void AStage::BeginPlay()
 
 	//AddTriggerDelegates();
 
-	UE_LOG(LogTemp, Warning, TEXT("Base stage beginplay"));
+	//UE_LOG(LogTemp, Warning, TEXT("Base stage beginplay"));
 
 	//constexpr size_t sizeOfT = sizeof(Flags);
 }

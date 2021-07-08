@@ -48,8 +48,8 @@ void AErrolCharacter::BeginPlay()
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
 
 	//EnterIdleState();
-	//EnterPatrolState();
-	State = ErrolState::STATE_PEEK;
+	EnterPatrolState();
+	State = ErrolState::STATE_PATROL;
 	UpdateAnimation(State);
 
 	NavigationSystem = UNavigationSystemV1::GetCurrent(World);
