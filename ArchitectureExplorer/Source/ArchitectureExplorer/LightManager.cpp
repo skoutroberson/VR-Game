@@ -54,9 +54,10 @@ void ALightManager::BeginPlay()
     */
 	FillLightsMap();
 
-	if (LightsMap.Contains(TEXT("BP_Lamp1_2")))
+	if (LightsMap.Contains(TEXT("BP_Lamp_Wall_2")))
 	{
-		TurnOn(TEXT("BP_Lamp1_2"));
+		FString LN = "BP_Lamp_Wall_2";
+		TurnOn(LN);
 	}
 	else
 	{
