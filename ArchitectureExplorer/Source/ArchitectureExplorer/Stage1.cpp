@@ -43,6 +43,7 @@ void AStage1::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
 
+	UE_LOG(LogTemp, Warning, TEXT("Stage1 Endplay()"));
 	RemoveTriggerDelegates();
 }
 
