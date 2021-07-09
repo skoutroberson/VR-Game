@@ -24,8 +24,6 @@ void AStage2::BeginPlay()
 {
 	Super::BeginPlay();
 
-	AddTriggerDelegates();
-
 	AActor * LM = UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass());
 	ALightManager * LightManager = Cast<ALightManager>(LM);
 
