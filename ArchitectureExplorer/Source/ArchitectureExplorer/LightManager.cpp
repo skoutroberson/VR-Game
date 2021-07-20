@@ -57,7 +57,7 @@ void ALightManager::BeginPlay()
 	if (LightsMap.Contains(TEXT("BP_Lamp_Wall_2")))
 	{
 		FString LN = "BP_Lamp_Wall_2";
-		TurnOn(LN);
+		TurnOn(LN, 1.6f, 25.f);
 	}
 	else
 	{

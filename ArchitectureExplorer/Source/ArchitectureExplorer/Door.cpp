@@ -75,7 +75,11 @@ void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!bStageLock && bIsBeingUsed)
+	if (bCloseDoorFast)
+	{
+		CloseDoorFast(DeltaTime);
+	}
+	else if (!bStageLock && bIsBeingUsed)
 	{
 		UseDoor(DeltaTime);
 	}
@@ -86,10 +90,6 @@ void ADoor::Tick(float DeltaTime)
 	else if (bSwing)
 	{
 		Swing(DeltaTime);
-	}
-	else if (bCloseDoorFast)
-	{
-		CloseDoorFast(DeltaTime);
 	}
 
 }
@@ -285,7 +285,7 @@ float ADoor::BinarySearchForMaxAngle()
 	return Mid;
 }
 
-void ADoor::CloseDoorFast(float DeltaTime)
+void ADoor::CloseDoorFast(UPARAM(DisplayName = "DeltaTime") float DeltaTime)
 {
 
 	CloseDoorFastVelocity += powf(DeltaTime * 10.f, 3.f);
