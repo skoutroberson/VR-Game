@@ -20,7 +20,7 @@ AStageManager::AStageManager()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	InitializeDoorTriggers();
+	//InitializeDoorTriggers();
 }
 
 AStageManager::~AStageManager()
@@ -36,7 +36,7 @@ void AStageManager::BeginPlay()
 {
 	Super::BeginPlay();
 	InitializeStageNodes();
-	InitializeStartEndDoors();
+	//InitializeStartEndDoors();
 }
 
 // Called every frame
@@ -187,7 +187,7 @@ void AStageManager::InitializeStartEndDoors()
 
 	if (DoorManager != nullptr)
 	{
-		FString SDN = "BP_Door_5";
+		FString SDN = "BP_Door1";
 		FString EDN = "BP_Door2";
 		StartDoor = DoorManager->GetDoor(SDN);
 		EndDoor = DoorManager->GetDoor(EDN);
@@ -208,6 +208,6 @@ void AStageManager::InitializeDoorTriggers()
 	StartDoorTrigger->SetCollisionProfileName(TEXT("PlayerTrigger"));
 	EndDoorTrigger->SetCollisionProfileName(TEXT("PlayerTrigger"));
 
-	StartDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapStartDoorTrigger);
-	EndDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapEndDoorTrigger);
+	//StartDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapStartDoorTrigger);
+	//EndDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapEndDoorTrigger);
 }

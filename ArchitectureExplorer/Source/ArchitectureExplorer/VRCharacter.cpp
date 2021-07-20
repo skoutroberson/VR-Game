@@ -432,6 +432,7 @@ void AVRCharacter::MoveForward(float throttle)
 	{
 		//AddMovementInput(throttle * Camera->GetForwardVector(), 0.4f);
 		AddMovementInput(throttle * GetActorForwardVector(), 0.4f);
+		
 	}
 	else
 	{

@@ -91,9 +91,13 @@ private:
 	// Functions to be called in Stage classes!
 public:
 	// bool for not letting the player use the door if the stage closes/is closing it 
+	UPROPERTY(BlueprintReadWrite)
 	bool bCloseDoorFast = false;
+
+	UFUNCTION(BlueprintCallable)
+	void CloseDoorFast(UPARAM(DisplayName = "DeltaTime") float DeltaTime);
+
 private:
-	void CloseDoorFast(float DeltaTime);
 	bool bStageLock = false;
 	float CloseDoorFastVelocity = 0.0001f;
 
