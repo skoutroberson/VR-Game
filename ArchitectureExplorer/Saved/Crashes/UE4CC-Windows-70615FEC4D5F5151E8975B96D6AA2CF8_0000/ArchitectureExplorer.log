@@ -1,0 +1,1915 @@
+﻿Log file open, 04/08/21 13:17:05
+LogInit: LLM is enabled
+LogInit: LLM CsvWriter: off TraceWriter: off
+LogInit: Display: Running engine for game: ArchitectureExplorer
+LogPlatformFile: Not using cached read wrapper
+LogTaskGraph: Started task graph with 5 named threads and 35 total threads with 3 sets of task threads.
+LogStats: Stats thread started at 0.460556
+LogD3D11RHI: Loaded GFSDK_Aftermath_Lib.x64.dll
+LogICUInternationalization: ICU TimeZone Detection - Raw Offset: -8:00, Platform Override: ''
+LogPluginManager: Mounting plugin MegascansPlugin
+LogPluginManager: Mounting plugin MeshPainting
+LogPluginManager: Mounting plugin XGEController
+LogPluginManager: Mounting plugin Paper2D
+LogPluginManager: Mounting plugin LightPropagationVolume
+LogPluginManager: Mounting plugin CameraShakePreviewer
+LogPluginManager: Mounting plugin AssetManagerEditor
+LogPluginManager: Mounting plugin CryptoKeys
+LogPluginManager: Mounting plugin CurveEditorTools
+LogPluginManager: Mounting plugin DataValidation
+LogPluginManager: Mounting plugin EditorScriptingUtilities
+LogPluginManager: Mounting plugin FacialAnimation
+LogPluginManager: Mounting plugin GameplayTagsEditor
+LogPluginManager: Mounting plugin GeometryMode
+LogPluginManager: Mounting plugin MaterialAnalyzer
+LogPluginManager: Mounting plugin MacGraphicsSwitching
+LogPluginManager: Mounting plugin MobileLauncherProfileWizard
+LogPluginManager: Mounting plugin MeshEditor
+LogPluginManager: Mounting plugin SpeedTreeImporter
+LogPluginManager: Mounting plugin PluginBrowser
+LogPluginManager: Mounting plugin DataprepEditor
+LogPluginManager: Mounting plugin DatasmithContent
+LogPluginManager: Mounting plugin StaticMeshEditorExtension
+LogPluginManager: Mounting plugin Niagara
+LogPluginManager: Mounting plugin VariantManagerContent
+LogPluginManager: Mounting plugin MagicLeap
+LogPluginManager: Mounting plugin LuminPlatformFeatures
+LogPluginManager: Mounting plugin MagicLeapMedia
+LogPluginManager: Mounting plugin MagicLeapLightEstimation
+LogPluginManager: Mounting plugin MagicLeapPassableWorld
+LogPluginManager: Mounting plugin MLSDK
+LogPluginManager: Mounting plugin AlembicImporter
+LogPluginManager: Mounting plugin AutomationUtils
+LogPluginManager: Mounting plugin BackChannel
+LogPluginManager: Mounting plugin BlastPlugin
+LogPluginManager: Mounting plugin ChaosCloth
+LogPluginManager: Mounting plugin ChaosClothEditor
+LogPluginManager: Mounting plugin ChaosEditor
+LogPluginManager: Mounting plugin ChaosNiagara
+LogPluginManager: Mounting plugin CharacterAI
+LogPluginManager: Mounting plugin ChaosSolverPlugin
+LogPluginManager: Mounting plugin GeometryCache
+LogPluginManager: Mounting plugin GeometryCollectionPlugin
+LogPluginManager: Mounting plugin GeometryProcessing
+LogPluginManager: Mounting plugin AndroidMedia
+LogPluginManager: Mounting plugin ImgMedia
+LogPluginManager: Mounting plugin MediaCompositing
+LogPluginManager: Mounting plugin MediaPlayerEditor
+LogPluginManager: Mounting plugin AvfMedia
+LogPluginManager: Mounting plugin WmfMedia
+LogPluginManager: Mounting plugin WebMMedia
+LogPluginManager: Mounting plugin MotoSynth
+LogPluginManager: Mounting plugin PlanarCut
+LogPluginManager: Mounting plugin PlatformCrypto
+LogPluginManager: Mounting plugin ProxyLODPlugin
+LogPluginManager: Mounting plugin PythonScriptPlugin
+LogPluginManager: Mounting plugin SkeletalReduction
+LogPluginManager: Mounting plugin UdpMessaging
+LogPluginManager: Mounting plugin TcpMessaging
+LogPluginManager: Mounting plugin ActorSequence
+LogPluginManager: Mounting plugin LevelSequenceEditor
+LogPluginManager: Mounting plugin MatineeToLevelSequence
+LogPluginManager: Mounting plugin TemplateSequence
+LogPluginManager: Mounting plugin OnlineSubsystem
+LogPluginManager: Mounting plugin OnlineSubsystemNull
+LogPluginManager: Mounting plugin OnlineSubsystemUtils
+LogPluginManager: Mounting plugin LauncherChunkInstaller
+LogPluginManager: Mounting plugin ActorLayerUtilities
+LogPluginManager: Mounting plugin AndroidMoviePlayer
+LogPluginManager: Mounting plugin AndroidDeviceProfileSelector
+LogPluginManager: Mounting plugin ApexDestruction
+LogPluginManager: Mounting plugin AppleImageUtils
+LogPluginManager: Mounting plugin AppleMoviePlayer
+LogPluginManager: Mounting plugin AndroidPermission
+LogPluginManager: Mounting plugin AssetTags
+LogPluginManager: Mounting plugin AudioSynesthesia
+LogPluginManager: Mounting plugin ArchVisCharacter
+LogPluginManager: Mounting plugin AudioCapture
+LogPluginManager: Mounting plugin CableComponent
+LogPluginManager: Mounting plugin ChunkDownloader
+LogPluginManager: Mounting plugin CustomMeshComponent
+LogPluginManager: Mounting plugin EditableMesh
+LogPluginManager: Mounting plugin ExampleDeviceProfileSelector
+LogPluginManager: Mounting plugin GoogleCloudMessaging
+LogPluginManager: Mounting plugin GooglePAD
+LogPluginManager: Mounting plugin IOSDeviceProfileSelector
+LogPluginManager: Mounting plugin LinuxDeviceProfileSelector
+LogPluginManager: Mounting plugin LocationServicesBPLibrary
+LogPluginManager: Mounting plugin MobilePatchingUtils
+LogPluginManager: Mounting plugin PhysXVehicles
+LogPluginManager: Mounting plugin PostSplashScreen
+LogPluginManager: Mounting plugin ProceduralMeshComponent
+LogPluginManager: Mounting plugin PropertyAccessEditor
+LogPluginManager: Mounting plugin RuntimePhysXCooking
+LogPluginManager: Mounting plugin SignificanceManager
+LogPluginManager: Mounting plugin SoundFields
+LogPluginManager: Mounting plugin Synthesis
+LogPluginManager: Mounting plugin WebMMoviePlayer
+LogPluginManager: Mounting plugin WindowsMoviePlayer
+LogPluginManager: Mounting plugin ScreenshotTools
+LogPluginManager: Mounting plugin AnimationSharing
+LogPluginManager: Mounting plugin CodeLiteSourceCodeAccess
+LogPluginManager: Mounting plugin KDevelopSourceCodeAccess
+LogPluginManager: Mounting plugin NullSourceCodeAccess
+LogPluginManager: Mounting plugin GitSourceControl
+LogPluginManager: Mounting plugin PerforceSourceControl
+LogPluginManager: Mounting plugin CLionSourceCodeAccess
+LogPluginManager: Mounting plugin PluginUtils
+LogPluginManager: Mounting plugin PlasticSourceControl
+LogPluginManager: Mounting plugin PropertyAccessNode
+LogPluginManager: Mounting plugin SubversionSourceControl
+LogPluginManager: Mounting plugin UObjectPlugin
+LogPluginManager: Mounting plugin RiderSourceCodeAccess
+LogPluginManager: Mounting plugin VisualStudioCodeSourceCodeAccess
+LogPluginManager: Mounting plugin VisualStudioSourceCodeAccess
+LogPluginManager: Mounting plugin XCodeSourceCodeAccess
+LogPluginManager: Mounting plugin AISupport
+LogPluginManager: Mounting plugin EnvironmentQueryEditor
+LogPluginManager: Mounting plugin ContentBrowserFileDataSource
+LogPluginManager: Mounting plugin ContentBrowserAssetDataSource
+LogPluginManager: Mounting plugin ContentBrowserClassDataSource
+LogPluginManager: Mounting plugin OnlineSubsystemGooglePlay
+LogPluginManager: Mounting plugin OnlineSubsystemIOS
+LogPluginManager: Mounting plugin DatabaseSupport
+LogPluginManager: Mounting plugin SQLiteSupport
+LogPluginManager: Mounting plugin SQLiteCore
+LogPluginManager: Mounting plugin OculusVR
+LogPluginManager: Mounting plugin SteamVR
+LogXGEController: Cleaning working directory: C:/Users/Skouty/AppData/Local/Temp/UnrealXGEWorkingDir/
+LogXGEController: Cannot use XGE Controller as Incredibuild is not installed on this machine.
+LogInit: Using libcurl 7.55.1-DEV
+LogInit:  - built for x86_64-pc-win32
+LogInit:  - supports SSL with OpenSSL/1.1.1
+LogInit:  - supports HTTP deflate (compression) using libz 1.2.8
+LogInit:  - other features:
+LogInit:      CURL_VERSION_SSL
+LogInit:      CURL_VERSION_LIBZ
+LogInit:      CURL_VERSION_IPV6
+LogInit:      CURL_VERSION_ASYNCHDNS
+LogInit:      CURL_VERSION_LARGEFILE
+LogInit:      CURL_VERSION_IDN
+LogInit:  CurlRequestOptions (configurable via config and command line):
+LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
+LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+LogInit:  - MaxHostConnections = 16  - Libcurl will limit the number of connections to a host
+LogInit:  - LocalHostAddr = Default
+LogInit:  - BufferSize = 65536
+LogOnline: OSS: Creating online subsystem instance for: NULL
+LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+LogOnline: OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for module [NULL]
+LogOculusPluginWrapper: OculusPlugin initialized successfully
+LogHMD: FOculusHMDModule PreInit successfully
+LogInit: Build: ++UE4+Release-4.26-CL-15228867
+LogInit: Engine Version: 4.26.1-15228867+++UE4+Release-4.26
+LogInit: Compatible Engine Version: 4.26.0-14830424+++UE4+Release-4.26
+LogInit: Net CL: 14830424
+LogInit: OS: Windows 10 (Release 2004) (), CPU: AMD Ryzen 5 2600 Six-Core Processor            , GPU: NVIDIA GeForce GTX 1060 6GB
+LogInit: Compiled (64-bit): Jan 28 2021 07:07:34
+LogInit: Compiled with Visual C++: 19.24.28315.00
+LogInit: Build Configuration: Development
+LogInit: Branch Name: ++UE4+Release-4.26
+LogInit: Command Line: 
+LogInit: Base Directory: C:/Program Files/Epic Games/UE_4.26/Engine/Binaries/Win64/
+LogInit: Allocator: TBB
+LogInit: Installed Engine Build: 1
+LogDevObjectVersion: Number of dev versions registered: 29
+LogDevObjectVersion:   Dev-Blueprints (B0D832E4-1F89-4F0D-ACCF-7EB736FD4AA2): 10
+LogDevObjectVersion:   Dev-Build (E1C64328-A22C-4D53-A36C-8E866417BD8C): 0
+LogDevObjectVersion:   Dev-Core (375EC13C-06E4-48FB-B500-84F0262A717E): 4
+LogDevObjectVersion:   Dev-Editor (E4B068ED-F494-42E9-A231-DA0B2E46BB41): 40
+LogDevObjectVersion:   Dev-Framework (CFFC743F-43B0-4480-9391-14DF171D2073): 37
+LogDevObjectVersion:   Dev-Mobile (B02B49B5-BB20-44E9-A304-32B752E40360): 3
+LogDevObjectVersion:   Dev-Networking (A4E4105C-59A1-49B5-A7C5-40C4547EDFEE): 0
+LogDevObjectVersion:   Dev-Online (39C831C9-5AE6-47DC-9A44-9C173E1C8E7C): 0
+LogDevObjectVersion:   Dev-Physics (78F01B33-EBEA-4F98-B9B4-84EACCB95AA2): 4
+LogDevObjectVersion:   Dev-Platform (6631380F-2D4D-43E0-8009-CF276956A95A): 0
+LogDevObjectVersion:   Dev-Rendering (12F88B9F-8875-4AFC-A67C-D90C383ABD29): 44
+LogDevObjectVersion:   Dev-Sequencer (7B5AE74C-D270-4C10-A958-57980B212A5A): 12
+LogDevObjectVersion:   Dev-VR (D7296918-1DD6-4BDD-9DE2-64A83CC13884): 3
+LogDevObjectVersion:   Dev-LoadTimes (C2A15278-BFE7-4AFE-6C17-90FF531DF755): 1
+LogDevObjectVersion:   Private-Geometry (6EACA3D4-40EC-4CC1-B786-8BED09428FC5): 3
+LogDevObjectVersion:   Dev-AnimPhys (29E575DD-E0A3-4627-9D10-D276232CDCEA): 17
+LogDevObjectVersion:   Dev-Anim (AF43A65D-7FD3-4947-9873-3E8ED9C1BB05): 15
+LogDevObjectVersion:   Dev-ReflectionCapture (6B266CEC-1EC7-4B8F-A30B-E4D90942FC07): 1
+LogDevObjectVersion:   Dev-Automation (0DF73D61-A23F-47EA-B727-89E90C41499A): 1
+LogDevObjectVersion:   FortniteMain (601D1886-AC64-4F84-AA16-D3DE0DEAC7D6): 43
+LogDevObjectVersion:   FortniteRelease (E7086368-6B23-4C58-8439-1B7016265E91): 1
+LogDevObjectVersion:   Dev-Enterprise (9DFFBCD6-494F-0158-E221-12823C92A888): 10
+LogDevObjectVersion:   Dev-Niagara (F2AED0AC-9AFE-416F-8664-AA7FFA26D6FC): 1
+LogDevObjectVersion:   Dev-Destruction (174F1F0B-B4C6-45A5-B13F-2EE8D0FB917D): 10
+LogDevObjectVersion:   Dev-Physics-Ext (35F94A83-E258-406C-A318-09F59610247C): 40
+LogDevObjectVersion:   Dev-PhysicsMaterial-Chaos (B68FC16E-8B1B-42E2-B453-215C058844FE): 1
+LogDevObjectVersion:   Dev-CineCamera (B2E18506-4273-CFC2-A54E-F4BB758BBA07): 1
+LogDevObjectVersion:   Dev-VirtualProduction (64F58936-FD1B-42BA-BA96-7289D5D0FA4E): 1
+LogDevObjectVersion:   Dev-MediaFramework (6F0ED827-A609-4895-9C91-998D90180EA4): 2
+LogInit: Presizing for max 25165824 objects, including 0 objects not considered by GC, pre-allocating 0 bytes for permanent pool.
+LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+LogConfig: Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+LogConfig: Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
+LogConfig: Setting CVar [[s.EventDrivenLoaderEnabled:1]]
+LogConfig: Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
+LogConfig: Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
+LogConfig: Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
+LogConfig: Setting CVar [[s.UseBackgroundLevelStreaming:1]]
+LogConfig: Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+LogConfig: Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+LogConfig: Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+LogConfig: Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+LogConfig: Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+LogConfig: Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
+LogInit: Object subsystem initialized
+LogConfig: Setting CVar [[con.DebugEarlyDefault:1]]
+LogConfig: Setting CVar [[r.setres:1280x720]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.VSync:0]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.RHICmdBypass:0]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.GPUCrashDebugging:0]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.MobileHDR:1]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.Mobile.DisableVertexFog:1]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxMobileCascades:2]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.MobileMSAA:4]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.Mobile.UseHWsRGBEncoding:1]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.Mobile.AllowDitheredLODTransition:0]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.Mobile.AllowSoftwareOcclusion:0]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.DiscardUnusedQuality:0]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.AllowOcclusionQueries:1]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForLights:0.030000]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForDepthPrepass:0.030000]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForCSMDepth:0.010000]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.PrecomputedVisibilityWarning:0]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.TextureStreaming:1]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[Compat.UseDXT5NormalMaps:0]]
+[2021.04.08-20.17.05:910][  0]LogConfig: Setting CVar [[r.VirtualTextures:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.VirtualTexturedLightmaps:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.VT.TileSize:128]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.VT.TileBorderSize:4]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.vt.FeedbackFactor:16]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.VT.EnableCompressZlib:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.VT.EnableCompressCrunch:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.ClearCoatNormal:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.ReflectionCaptureResolution:128]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.ReflectionEnvironmentLightmapMixBasedOnRoughness:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.ForwardShading:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.VertexFoggingForOpaque:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.AllowStaticLighting:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.NormalMapsForStaticLighting:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.GenerateMeshDistanceFields:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DistanceFieldBuild.EightBit:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.GenerateLandscapeGIData:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DistanceFieldBuild.Compress:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.TessellationAdaptivePixelsPerTriangle:48.000000]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SeparateTranslucency:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.TranslucentSortPolicy:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.CustomDepth:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.CustomDepthTemporalAAJitter:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.PostProcessing.PropagateAlpha:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultFeature.Bloom:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultFeature.AmbientOcclusion:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultFeature.AmbientOcclusionStaticFraction:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.Method:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.UsePreExposure:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.EyeAdaptation.EditorOnly:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultFeature.MotionBlur:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultFeature.LensFlare:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.TemporalAA.Upsampling:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SSGI.Enable:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultFeature.AntiAliasing:3]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultFeature.LightUnits:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DefaultBackBufferPixelFormat:4]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.Shadow.UnbuiltPreviewInGame:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.StencilForLODDither:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.EarlyZPass:3]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.EarlyZPassOnlyMaterialMasking:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.DBuffer:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.ClearSceneMethod:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.BasePassOutputsVelocity:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SelectiveBasePassOutputs:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[fx.GPUSimulationTextureSizeX:1024]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[fx.GPUSimulationTextureSizeY:1024]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.AllowGlobalClipPlane:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.GBufferFormat:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.MorphTarget.Mode:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[vr.InstancedStereo:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[vr.MobileMultiView:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[vr.RoundRobinOcclusion:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[vr.ODSCapture:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.WireframeCullThreshold:5.000000]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.RayTracing:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.RayTracing.UseTextureLod:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SupportStationarySkylight:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SupportLowQualityLightmaps:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SupportPointLightWholeSceneShadows:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SupportAtmosphericFog:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SupportSkyAtmosphere:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SupportSkyAtmosphereAffectsHeightFog:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SkinCache.CompileShaders:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.Mobile.EnableStaticAndCSMShadowReceivers:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableLightCSMShaderCulling:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.Mobile.AllowDistanceFieldShadows:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.Mobile.AllowMovableDirectionalLights:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.MobileNumDynamicPointLights:4]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.MobileDynamicPointLightsUseStaticBranch:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableSpotlights:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SkinCache.SceneMemoryLimitInMB:128.000000]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.GPUSkin.Limit2BoneInfluences:0]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SupportDepthOnlyIndexBuffers:1]]
+[2021.04.08-20.17.05:911][  0]LogConfig: Setting CVar [[r.SupportReversedIndexBuffers:1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[r.LightPropagationVolume:0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableSpotlightsShadow:1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererOverrideSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.08-20.17.05:912][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.EventDrivenLoaderEnabled:1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.UseBackgroundLevelStreaming:1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.GarbageCollectionSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.MaxObjectsNotConsideredByGC:1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.SizeOfPermanentObjectPool:0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.FlushStreamingOnGC:0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.NumRetriesBeforeForcingGC:10]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.AllowParallelGC:1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.TimeBetweenPurgingPendingKillObjects:61.1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.MaxObjectsInEditor:25165824]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.IncrementalBeginDestroyEnabled:1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.CreateGCClusters:1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.MinGCClusterSize:5]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.ActorClusteringEnabled:0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.BlueprintClusteringEnabled:0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.UseDisregardForGCOnDedicatedServers:0]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Setting CVar [[gc.MultithreadedDestructionEnabled:1]]
+[2021.04.08-20.17.05:912][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.NetworkSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.08-20.17.05:912][  0]LogConfig: Applying CVar settings from Section [/Script/UnrealEd.CookerSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.08-20.17.05:934][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
+[2021.04.08-20.17.05:934][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.AnisotropicMaterials:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+[2021.04.08-20.17.05:935][  0]LogInit: Selected Device Profile: [Windows]
+[2021.04.08-20.17.05:935][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2021.04.08-20.17.05:935][  0]LogHAL: Display: Platform has ~ 16 GB [17124524032 / 17179869184 / 16], which maps to Larger [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+[2021.04.08-20.17.05:935][  0]LogInit: Going up to parent DeviceProfile []
+[2021.04.08-20.17.05:935][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
+[2021.04.08-20.17.05:935][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.AnisotropicMaterials:1]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
+[2021.04.08-20.17.05:936][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+[2021.04.08-20.17.05:937][  0]LogConfig: Applying CVar settings from Section [Startup] File [../../../Engine/Config/ConsoleVariables.ini]
+[2021.04.08-20.17.05:938][  0]LogConfig: Setting CVar [[net.UseAdaptiveNetUpdateFrequency:0]]
+[2021.04.08-20.17.05:938][  0]LogConfig: Setting CVar [[p.chaos.AllowCreatePhysxBodies:1]]
+[2021.04.08-20.17.05:938][  0]LogConfig: Setting CVar [[fx.SkipVectorVMBackendOptimizations:1]]
+[2021.04.08-20.17.05:938][  0]LogConfig: Applying CVar settings from Section [ConsoleVariables] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.08-20.17.05:938][  0]LogInit: Computer: DESKTOP-Q7OIGVQ
+[2021.04.08-20.17.05:938][  0]LogInit: User: Skouty
+[2021.04.08-20.17.05:938][  0]LogInit: CPU Page size=4096, Cores=6
+[2021.04.08-20.17.05:938][  0]LogInit: High frequency timer resolution =10.000000 MHz
+[2021.04.08-20.17.05:938][  0]LogMemory: Memory total: Physical=15.9GB (16GB approx)
+[2021.04.08-20.17.05:938][  0]LogMemory: Platform Memory Stats for Windows
+[2021.04.08-20.17.05:938][  0]LogMemory: Process Physical Memory: 141.86 MB used, 141.86 MB peak
+[2021.04.08-20.17.05:938][  0]LogMemory: Process Virtual Memory: 114.04 MB used, 114.04 MB peak
+[2021.04.08-20.17.05:938][  0]LogMemory: Physical Memory: 8092.79 MB used,  8238.43 MB free, 16331.22 MB total
+[2021.04.08-20.17.05:938][  0]LogMemory: Virtual Memory: 134203752.00 MB used,  13976.08 MB free, 134217728.00 MB total
+[2021.04.08-20.17.05:943][  0]LogWindows: WindowsPlatformFeatures enabled
+[2021.04.08-20.17.05:991][  0]LogInit: Physics initialised using underlying interface: PhysX
+[2021.04.08-20.17.05:992][  0]LogInit: Using OS detected language (en-US).
+[2021.04.08-20.17.05:992][  0]LogInit: Using OS detected locale (en-US).
+[2021.04.08-20.17.06:005][  0]LogTextLocalizationManager: No specific localization for 'en-US' exists, so the 'en' localization will be used.
+[2021.04.08-20.17.06:266][  0]LogInit: Setting process to per monitor DPI aware
+[2021.04.08-20.17.06:280][  0]LogWindowsTextInputMethodSystem: Display: IME system deactivated.
+[2021.04.08-20.17.06:340][  0]LogSlate: New Slate User Created.  User Index 0, Is Virtual User: 0
+[2021.04.08-20.17.06:340][  0]LogSlate: Slate User Registered.  User Index 0, Is Virtual User: 0
+[2021.04.08-20.17.06:669][  0]LogD3D11RHI: D3D11 min allowed feature level: 11_0
+[2021.04.08-20.17.06:669][  0]LogD3D11RHI: D3D11 max allowed feature level: 11_0
+[2021.04.08-20.17.06:669][  0]LogD3D11RHI: D3D11 adapters:
+[2021.04.08-20.17.06:792][  0]LogD3D11RHI:    0. 'NVIDIA GeForce GTX 1060 6GB' (Feature Level 11_0)
+[2021.04.08-20.17.06:792][  0]LogD3D11RHI:       6052/0/8165 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:2, VendorId:0x10de
+[2021.04.08-20.17.06:796][  0]LogD3D11RHI:    1. 'Microsoft Basic Render Driver' (Feature Level 11_0)
+[2021.04.08-20.17.06:796][  0]LogD3D11RHI:       0/0/8165 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1414
+[2021.04.08-20.17.06:796][  0]LogD3D11RHI: Chosen D3D11 Adapter: 0
+[2021.04.08-20.17.06:805][  0]LogD3D11RHI: Creating new Direct3DDevice
+[2021.04.08-20.17.06:805][  0]LogD3D11RHI:     GPU DeviceId: 0x1c03 (for the marketing name, search the web for "GPU Device Id")
+[2021.04.08-20.17.06:805][  0]LogWindows: EnumDisplayDevices:
+[2021.04.08-20.17.06:806][  0]LogWindows:    0. 'NVIDIA GeForce GTX 1060 6GB' (P:1 D:1)
+[2021.04.08-20.17.06:806][  0]LogWindows:    1. 'NVIDIA GeForce GTX 1060 6GB' (P:0 D:1)
+[2021.04.08-20.17.06:806][  0]LogWindows:    2. 'NVIDIA GeForce GTX 1060 6GB' (P:0 D:0)
+[2021.04.08-20.17.06:806][  0]LogWindows:    3. 'NVIDIA GeForce GTX 1060 6GB' (P:0 D:0)
+[2021.04.08-20.17.06:807][  0]LogWindows: DebugString: FoundDriverCount:4 
+[2021.04.08-20.17.06:807][  0]LogD3D11RHI:     Adapter Name: NVIDIA GeForce GTX 1060 6GB
+[2021.04.08-20.17.06:807][  0]LogD3D11RHI:   Driver Version: 461.72 (internal:27.21.14.6172, unified:461.72)
+[2021.04.08-20.17.06:807][  0]LogD3D11RHI:      Driver Date: 2-23-2021
+[2021.04.08-20.17.06:807][  0]LogRHI: Texture pool is 4236 MB (70% of 6052 MB)
+[2021.04.08-20.17.06:910][  0]LogD3D11RHI: RHI has support for 64 bit atomics
+[2021.04.08-20.17.06:911][  0]LogD3D11RHI: Async texture creation enabled
+[2021.04.08-20.17.06:911][  0]LogD3D11RHI: Array index from any shader is supported
+[2021.04.08-20.17.06:931][  0]LogD3D11RHI: GPU Timing Frequency: 1000.000000 (Debug: 2 1)
+[2021.04.08-20.17.06:933][  0]LogRHI: GeForceNow SDK initialized: 1
+[2021.04.08-20.17.07:249][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'AllDesktop'
+[2021.04.08-20.17.07:275][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android'
+[2021.04.08-20.17.07:275][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ASTC'
+[2021.04.08-20.17.07:276][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_DXT'
+[2021.04.08-20.17.07:276][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ETC2'
+[2021.04.08-20.17.07:276][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'AndroidClient'
+[2021.04.08-20.17.07:276][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ASTCClient'
+[2021.04.08-20.17.07:276][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_DXTClient'
+[2021.04.08-20.17.07:276][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ETC2Client'
+[2021.04.08-20.17.07:276][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_Multi'
+[2021.04.08-20.17.07:276][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_MultiClient'
+[2021.04.08-20.17.07:304][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'IOSClient'
+[2021.04.08-20.17.07:304][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'IOS'
+[2021.04.08-20.17.07:317][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Linux'
+[2021.04.08-20.17.07:327][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxNoEditor'
+[2021.04.08-20.17.07:338][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxClient'
+[2021.04.08-20.17.07:349][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxServer'
+[2021.04.08-20.17.07:360][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64NoEditor'
+[2021.04.08-20.17.07:370][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64Client'
+[2021.04.08-20.17.07:381][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64Server'
+[2021.04.08-20.17.07:415][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Lumin'
+[2021.04.08-20.17.07:415][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LuminClient'
+[2021.04.08-20.17.07:425][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'MacNoEditor'
+[2021.04.08-20.17.07:438][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Mac'
+[2021.04.08-20.17.07:449][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'MacClient'
+[2021.04.08-20.17.07:460][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'MacServer'
+[2021.04.08-20.17.07:481][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'TVOSClient'
+[2021.04.08-20.17.07:481][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'TVOS'
+[2021.04.08-20.17.07:493][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsNoEditor'
+[2021.04.08-20.17.07:507][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Windows'
+[2021.04.08-20.17.07:518][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsClient'
+[2021.04.08-20.17.07:530][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsServer'
+[2021.04.08-20.17.07:530][  0]LogTargetPlatformManager: Display: Building Assets For Windows
+[2021.04.08-20.17.07:539][  0]LogAudioDebug: Display: Lib vorbis DLL was dynamically loaded.
+[2021.04.08-20.17.07:633][  0]LogRendererCore: Ray tracing is disabled. Reason: r.RayTracing=0.
+[2021.04.08-20.17.07:633][  0]LogShaderCompilers: Guid format shader working directory is -52 characters bigger than the processId version (../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Shaders/WorkingDirectory/2448/).
+[2021.04.08-20.17.07:633][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/Skouty/AppData/Local/Temp/UnrealShaderWorkingDir/CBC24B084A2D4F54D1699188C0D7CD2A/'.
+[2021.04.08-20.17.07:633][  0]LogShaderCompilers: Cannot use XGE Shader Compiler as Incredibuild is not installed on this machine.
+[2021.04.08-20.17.07:633][  0]LogShaderCompilers: Display: Using Local Shader Compiler.
+[2021.04.08-20.17.08:650][  0]LogDerivedDataCache: Display: Max Cache Size: 512 MB
+[2021.04.08-20.17.08:807][  0]LogDerivedDataCache: Loaded boot cache 0.16s 130MB C:/Users/Skouty/AppData/Local/UnrealEngine/4.26/DerivedDataCache/Boot.ddc.
+[2021.04.08-20.17.08:807][  0]LogDerivedDataCache: Display: Loaded Boot cache: C:/Users/Skouty/AppData/Local/UnrealEngine/4.26/DerivedDataCache/Boot.ddc
+[2021.04.08-20.17.08:807][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2021.04.08-20.17.08:807][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2021.04.08-20.17.08:807][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  CompressedPak pak cache file ../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2021.04.08-20.17.08:807][  0]LogDerivedDataCache: Unable to find inner node CompressedPak for hierarchical cache Hierarchy.
+[2021.04.08-20.17.08:825][  0]LogDerivedDataCache: Display: Pak cache opened for reading ../../../Engine/DerivedDataCache/Compressed.ddp.
+[2021.04.08-20.17.08:825][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  EnterprisePak pak cache file ../../../Enterprise/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2021.04.08-20.17.08:825][  0]LogDerivedDataCache: Unable to find inner node EnterprisePak for hierarchical cache Hierarchy.
+[2021.04.08-20.17.08:847][  0]LogDerivedDataCache: Speed tests for C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache took 0.02 seconds
+[2021.04.08-20.17.08:847][  0]LogDerivedDataCache: Display: Performance to C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache: Latency=0.07ms. RandomReadSpeed=100.74MBs, RandomWriteSpeed=85.00MBs. Assigned SpeedClass 'Local'
+[2021.04.08-20.17.08:848][  0]LogDerivedDataCache: Using Local data cache path C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache: Writable
+[2021.04.08-20.17.08:848][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
+[2021.04.08-20.17.08:848][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
+[2021.04.08-20.17.08:900][  0]LogSlate: Using FreeType 2.10.0
+[2021.04.08-20.17.08:901][  0]LogSlate: SlateFontServices - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2021.04.08-20.17.08:926][  0]LogAssetRegistry: FAssetRegistry took 0.0032 seconds to start up
+[2021.04.08-20.17.09:186][  0]LogInit: Selected Device Profile: [Windows]
+[2021.04.08-20.17.09:186][  0]LogInit: Active device profile: [00000296AC44F600][00000296A92FCAC0 49] Windows
+[2021.04.08-20.17.09:186][  0]LogInit: Profiles: [00000296AC44F600][00000296A92FCAC0 49] Windows, [00000296AC408B00][00000296ACF64C40 49] WindowsNoEditor, [00000296AC44CB00][00000296ACF68DC0 49] WindowsServer, [00000296AC40B300][00000296ACF6CF40 49] WindowsClient, [00000296AC44F200][00000296ACF710C0 49] IOS, [00000296AC408F00][00000296ACF75240 49] iPadAir, [00000296AC44CE00][00000296ACF793C0 49] iPadAir2, [00000296AC340F00][00000296ACF91680 49] IPadPro, [00000296AC341000][00000296ACF7D6C0 49] iPadAir3, [00000296AC44EF00][00000296ACF95840 49] iPadAir4, [00000296AC343E00][00000296ACF61980 49] iPadMini2, [00000296AC44C900][00000296ACF99AC0 49] iPadMini3, [00000296AC342200][00000296ACF9DC00 49] iPadMini4, [00000296AC44D100][00000296ACFA40C0 49] iPadMini5, [00000296AC40A800][00000296ACFAC380 49] iPhone6, [00000296AC40A500][00000296ACFA83C0 49] iPodTouch6, [00000296AC343400][00000296ACFB4680 49] iPhone7, [00000296AC343500][00000296ACFB06C0 49] iPodTouch7, [00000296AC40BB00][00000296ACFB8840 49] iPhone5S, [00000296AC340B00][00000296ACFBC9C0 49] iPhone6Plus, [00000296AC409600][00000296ACFC0B40 49] iPhone6S, [00000296AC340100][00000296ACFC8CC0 49] iPhone6SPlus, [00000296AC40BF00][00000296ACFD8E40 49] iPhone7Plus, [00000296AC343F00][00000296ACFDCFC0 49] iPhoneSE, [00000296AC40B600][00000296ACFE1140 49] iPhone8, [00000296AC340500][00000296ACFE52C0 49] iPhone8Plus, [00000296AC40A000][00000296ACFE9440 49] iPhoneX, [00000296AC342100][00000296ACFED5C0 49] iPhoneXS, [00000296AC409000][00000296ACFF1740 49] iPhoneXSMax, [00000296AC341400][00000296ACFF58C0 49] iPhoneXR, [00000296AC408100][00000296ACFA1A00 49] iPhone11, [00000296AC341B00][00000296ACFFDB40 49] iPhone11Pro, [00000296AC408800][00000296AD001C80 49] iPhone11ProMax, [00000296AC341700][00000296AD004100 49] iPhoneSE2, [00000296AC408400][00000296AD00C280 49] iPhone12Mini, [00000296AC341D00][00000296AD010400 49] iPhone12, [00000296AC408C00][00000296AD014580 49] iPhone12Pro, [00000296AC341500][00000296AD018700 49] iPhone12ProMax, [00000296AC408A00][00000296AD01C880 49] iPadPro105, [00000296AC342300][00000296AD020A00 49] iPadPro129, [00000296AC40BE00][00000296AD024B80 49] iPadPro97, [00000296AC341800][00000296AD028D00 49] iPadPro2_129, [00000296AC409800][00000296AD02CE80 49] iPad5, [00000296AC342900][00000296AD031000 49] iPad6, [00000296AC40AA00][00000296AD035180 49] iPad7, [00000296AC343A00][00000296AD039300 49] iPad8, [00000296AC409E00][00000296AD03D480 49] iPadPro11, [00000296AC342B00][00000296AD041600 49] iPadPro2_11, [00000296AC409700][00000296AD049780 49] iPadPro3_129, [00000296AC341F00][00000296AD059900 49] iPadPro4_129, [00000296AC40B900][00000296AD009A40 49] AppleTV, [00000296AC340400][00000296AD06FB80 49] AppleTV4K, [00000296AC40AF00][00000296AD073CC0 49] TVOS, [00000296AC341100][00000296AD076140 49] Mac, [00000296AC409A00][00000296AD0822C0 49] MacClient, [00000296AC340600][00000296AD086440 49] MacNoEditor, [00000296AC408D00][00000296AD08A5C0 49] MacServer, [00000296AC4F8A00][00000296AD098740 49] Linux, [00000296AC44EC00][00000296AD0A08C0 49] LinuxNoEditor, [00000296AC4F9200][00000296AD0A4A40 49] LinuxAArch64NoEditor, [00000296AC44E800][00000296AD0D0BC0 49] LinuxClient, [00000296AC4F8500][00000296AD12ED40 49] LinuxAArch64Client, [00000296AC44DB00][00000296AD132EC0 49] LinuxServer, [00000296AC4F9300][00000296AD14D040 49] LinuxAArch64Server, [00000296AC44C700][00000296AD1511C0 49] Android, [00000296AC4F8400][00000296AD159340 49] Android_Low, [00000296AC44D200][00000296AD1614C0 49] Android_Mid, [00000296AC4F8D00][00000296AD19B640 49] Android_High, [00000296AC44F700][00000296AD1AB7C0 49] Android_Default, [00000296AC341900][00000296AD1BB940 49] Android_Adreno4xx, [00000296AC44F000][00000296AD1E1AC0 49] Android_Adreno5xx_Low, [00000296AC342000][00000296AD07FC00 49] Android_Adreno5xx, [00000296AC44E700][00000296AD1F3D40 49] Android_Adreno6xx, [00000296AC342700][00000296AD1F61C0 49] Android_Adreno6xx_Vulkan, [00000296AC44C800][00000296AD1FE340 49] Android_Mali_T6xx, [00000296AC343700][00000296AD2024C0 49] Android_Mali_T7xx, [00000296AC44D700][00000296AD206640 49] Android_Mali_T8xx, [00000296AC340200][00000296AD20A7C0 49] Android_Mali_G71, [00000296AC44E500][00000296AD20E940 49] Android_Mali_G72, [00000296AC343900][00000296AD212AC0 49] Android_Mali_G72_Vulkan, [00000296AC44CF00][00000296AD216C40 49] Android_Mali_G76, [00000296AC343100][00000296AD21ADC0 49] Android_Mali_G76_Vulkan, [00000296AC44FE00][00000296AD21EF40 49] Android_Mali_G77, [00000296AC342F00][00000296AD2230C0 49] Android_Mali_G77_Vulkan, [00000296AC44C500][00000296AD227240 49] Android_Vulkan_SM5, [00000296AC340C00][00000296AD22B3C0 49] Android_PowerVR_G6xxx, [00000296AC44C200][00000296AD22F540 49] Android_PowerVR_GT7xxx, [00000296AC342400][00000296AD2336C0 49] Android_PowerVR_GE8xxx, [00000296AC44EE00][00000296AD237840 49] Android_PowerVR_GM9xxx, [00000296AC341300][000002968C5899C0 49] Android_PowerVR_GM9xxx_Vulkan, [00000296AC44EA00][000002968C58DB40 49] Android_TegraK1, [00000296AC343200][00000296AD1FBC80 49] Android_Unknown_Vulkan, [00000296AC44FB00][000002968C590100 49] Lumin, [00000296AC340900][000002968C594240 49] Lumin_Desktop, [00000296AC44DC00][000002968C59C3C0 49] HoloLens, 
+[2021.04.08-20.17.09:310][  0]LogMeshReduction: Using QuadricMeshReduction for automatic static mesh reduction
+[2021.04.08-20.17.09:310][  0]LogMeshReduction: Using SimplygonMeshReduction for automatic skeletal mesh reduction
+[2021.04.08-20.17.09:310][  0]LogMeshReduction: Using ProxyLODMeshReduction for automatic mesh merging
+[2021.04.08-20.17.09:310][  0]LogMeshReduction: No distributed automatic mesh merging module available
+[2021.04.08-20.17.09:310][  0]LogMeshMerging: No distributed automatic mesh merging module available
+[2021.04.08-20.17.09:346][  0]LogNetVersion: ArchitectureExplorer 1.0.0, NetCL: 14830424, EngineNetVer: 16, GameNetVer: 0 (Checksum: 4169611960)
+[2021.04.08-20.17.09:872][  0]LogHMD: PokeAHoleMaterial loaded successfully
+[2021.04.08-20.17.09:956][  0]LogPackageLocalizationCache: Processed 27 localized package path(s) for 1 prioritized culture(s) in 0.083592 seconds
+[2021.04.08-20.17.09:962][  0]LogUObjectArray: 16830 objects as part of root set at end of initial load.
+[2021.04.08-20.17.09:962][  0]LogUObjectAllocator: 4209472 out of 0 bytes used by permanent object pool.
+[2021.04.08-20.17.09:962][  0]LogUObjectArray: CloseDisregardForGC: 0/0 objects in disregard for GC pool
+[2021.04.08-20.17.10:492][  0]LogPython: Using Python 3.7.7
+[2021.04.08-20.17.11:386][  0]LogUdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2021.04.08-20.17.11:395][  0]LogTcpMessaging: Initializing TcpMessaging bridge
+[2021.04.08-20.17.11:547][  0]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.17.11:547][  0]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.17.11:548][  0]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.17.11:548][  0]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.17.11:548][  0]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.17.11:548][  0]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.17.11:548][  0]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.17.11:548][  0]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.17.11:548][  0]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.17.12:199][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
+[2021.04.08-20.17.12:228][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2021.04.08-20.17.12:228][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2021.04.08-20.17.12:342][  0]SourceControl: Source control is disabled
+[2021.04.08-20.17.12:342][  0]SourceControl: Source control is disabled
+[2021.04.08-20.17.12:349][  0]SourceControl: Source control is disabled
+[2021.04.08-20.17.12:359][  0]SourceControl: Source control is disabled
+[2021.04.08-20.17.12:363][  0]SourceControl: Source control is disabled
+[2021.04.08-20.17.12:375][  0]LogUProjectInfo: Found projects:
+[2021.04.08-20.17.12:393][  0]LogCollectionManager: Loaded 0 collections in 0.001913 seconds
+[2021.04.08-20.17.12:423][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Collections/' took 0.00s
+[2021.04.08-20.17.12:423][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Developers/Skouty/Collections/' took 0.00s
+[2021.04.08-20.17.12:423][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Collections/' took 0.00s
+[2021.04.08-20.17.12:429][  0]LogOcInput: OculusInput pre-init called
+[2021.04.08-20.17.12:919][  0]LogEngine: Initializing Engine...
+[2021.04.08-20.17.12:919][  0]LogHMD: PokeAHoleMaterial loaded successfully
+[2021.04.08-20.17.12:919][  0]LogHMD: Initializing OVRPlugin session
+[2021.04.08-20.17.13:120][  0]LogHMD: Allocating Oculus 3136 x 1728 rendertarget swapchain
+[2021.04.08-20.17.13:120][  0]LogHMD: Oculus plugin initialized. Version: 4.26.1-15228867+++UE4+Release-4.26, OVRPlugin: 1.51.0
+[2021.04.08-20.17.13:122][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.000 s
+[2021.04.08-20.17.13:226][  0]LogInit: Initializing FReadOnlyCVARCache
+[2021.04.08-20.17.13:240][  0]LogAIModule: Creating AISystem for world Untitled
+[2021.04.08-20.17.13:244][  0]LogAudio: Display: Initializing Audio Device Manager...
+[2021.04.08-20.17.13:248][  0]LogAudio: Display: Audio Device Manager Initialized
+[2021.04.08-20.17.13:248][  0]LogAudio: Display: Creating Audio Device:                 Id: 1, Scope: Shared, Realtime: True
+[2021.04.08-20.17.13:248][  0]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.04.08-20.17.13:248][  0]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.04.08-20.17.13:248][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.04.08-20.17.13:248][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.04.08-20.17.13:248][  0]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2021.04.08-20.17.13:248][  0]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2021.04.08-20.17.13:248][  0]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2021.04.08-20.17.13:248][  0]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.04.08-20.17.13:248][  0]LogAudio: Display: Using built-in audio occlusion.
+[2021.04.08-20.17.13:248][  0]LogAudioMixer: Display: Initializing audio mixer.
+[2021.04.08-20.17.13:267][  0]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.17.13:267][  0]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.17.13:300][  0]LogAudioMixer: Display: Using Audio Device Realtek HD Audio 2nd output (Realtek(R) Audio)
+[2021.04.08-20.17.13:303][  0]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.04.08-20.17.13:304][  0]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.04.08-20.17.13:304][  0]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.04.08-20.17.13:305][  0]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.04.08-20.17.13:305][  0]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.04.08-20.17.13:305][  0]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.04.08-20.17.13:307][  0]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.04.08-20.17.13:307][  0]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.04.08-20.17.13:307][  0]LogInit: FAudioDevice initialized.
+[2021.04.08-20.17.13:307][  0]LogAudio: Display: Audio Device (ID: 1) registered with world 'Untitled'.
+[2021.04.08-20.17.13:308][  0]LogNetVersion: Set ProjectVersion to 1.0.0.0. Version Checksum will be recalculated on next use.
+[2021.04.08-20.17.13:420][  0]LogDerivedDataCache: Saved boot cache 0.11s 110MB C:/Users/Skouty/AppData/Local/UnrealEngine/4.26/DerivedDataCache/Boot.ddc.
+[2021.04.08-20.17.13:427][  0]LogInit: Texture streaming: Enabled
+[2021.04.08-20.17.13:441][  0]LogAnalytics: Display: [UEEditor.Rocket.Release] APIServer = https://datarouter.ol.epicgames.com/. AppVersion = 4.26.1-15228867+++UE4+Release-4.26
+[2021.04.08-20.17.13:446][  0]LogEngineSessionManager: EngineSessionManager initialized
+[2021.04.08-20.17.13:450][  0]LogEngineSessionManager: EngineSessionManager sent abnormal shutdown report. Type=Crashed, SessionId={3BAE1DE7-4087-B29A-C70B-10BC7BCD19C1}
+[2021.04.08-20.17.13:450][  0]LogEditorSessionSummary: Verbose: Initializing EditorSessionSummaryWriter for editor session tracking
+[2021.04.08-20.17.13:452][  0]LogEditorSessionSummary: EditorSessionSummaryWriter initialized
+[2021.04.08-20.17.13:499][  0]LogInit: Transaction tracking system initialized
+[2021.04.08-20.17.13:540][  0]BlueprintLog: New page: Editor Load
+[2021.04.08-20.17.13:656][  0]LocalizationService: Localization service is disabled
+[2021.04.08-20.17.13:693][  0]TimingProfiler: Initialize
+[2021.04.08-20.17.13:694][  0]TimingProfiler: OnSessionChanged
+[2021.04.08-20.17.13:694][  0]LoadingProfiler: Initialize
+[2021.04.08-20.17.13:694][  0]LoadingProfiler: OnSessionChanged
+[2021.04.08-20.17.13:694][  0]NetworkingProfiler: Initialize
+[2021.04.08-20.17.13:694][  0]NetworkingProfiler: OnSessionChanged
+[2021.04.08-20.17.13:694][  0]MemoryProfiler: Initialize
+[2021.04.08-20.17.13:694][  0]MemoryProfiler: OnSessionChanged
+[2021.04.08-20.17.13:910][  0]LogCook: Display: CookSettings for Memory: MemoryMaxUsedVirtual 0MiB, MemoryMaxUsedPhysical 16384MiB, MemoryMinFreeVirtual 0MiB, MemoryMinFreePhysical 1024MiB
+[2021.04.08-20.17.13:911][  0]LogCook: Display: Mobile HDR setting 1
+[2021.04.08-20.17.14:164][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/' took 0.14s
+[2021.04.08-20.17.14:327][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2021.04.08-20.17.14:332][  0]SourceControl: Source control is disabled
+[2021.04.08-20.17.14:332][  0]LogUnrealEdMisc: Loading editor; pre map load, took 9.923
+[2021.04.08-20.17.14:332][  0]Cmd: MAP LOAD FILE="../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
+[2021.04.08-20.17.14:333][  0]LightingResults: New page: Lighting Build
+[2021.04.08-20.17.14:337][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
+[2021.04.08-20.17.14:337][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.08-20.17.14:337][  0]MapCheck: New page: Map Check
+[2021.04.08-20.17.14:337][  0]LightingResults: New page: Lighting Build
+[2021.04.08-20.17.14:344][  0]LogUObjectHash: Compacting FUObjectHashTables data took   0.86ms
+[2021.04.08-20.17.14:471][  0]LogBlueprint: Warning: [AssetLog] C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Content\FiverrAnim\AB_FiverrBody.uasset: [Compiler] Node  Look At - Bone: Head_JNT  uses potentially thread-unsafe call  Get PlayerCamera . Disable threaded update or use a thread-safe call. Function may need BlueprintThreadSafe metadata adding.
+[2021.04.08-20.17.15:681][  0]LogAudio: Display: Audio Device (ID: 1) registered with world 'World'.
+[2021.04.08-20.17.15:682][  0]LogAIModule: Creating AISystem for world World
+[2021.04.08-20.17.15:699][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/World.World:PersistentLevel.BP_FiverrErrol_3.CharacterMesh0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.08-20.17.15:707][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2021.04.08-20.17.15:738][  0]LogUObjectHash: Compacting FUObjectHashTables data took   1.17ms
+[2021.04.08-20.17.15:738][  0]Cmd: MAP CHECKDEP NOCLEARLOG
+[2021.04.08-20.17.15:739][  0]MapCheck: Map check complete: 0 Error(s), 0 Warning(s), took 0.272ms to complete.
+[2021.04.08-20.17.15:739][  0]LogFileHelpers: Loading map 'World' took 1.406
+[2021.04.08-20.17.15:743][  0]LogUnrealEdMisc: Total Editor Startup Time, took 11.334
+[2021.04.08-20.17.15:893][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.08-20.17.15:900][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.08-20.17.15:906][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.08-20.17.15:913][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.08-20.17.15:930][  0]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0117 seconds. Added 3820 classes and 914 folders.
+[2021.04.08-20.17.15:935][  0]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'WidgetCarousel' in 0.0003 seconds. Added 0 classes and 0 folders.
+[2021.04.08-20.17.15:936][  0]LogPakFile: PakFile PrimaryIndexSize=187
+[2021.04.08-20.17.15:936][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:936][  0]LogPakFile: PakFile FullDirectoryIndexSize=148
+[2021.04.08-20.17.15:936][  0]LogPakFile: OnPakFileMounted2Time == 0.000009
+[2021.04.08-20.17.15:937][  0]LogPakFile: PakFile PrimaryIndexSize=189
+[2021.04.08-20.17.15:937][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:937][  0]LogPakFile: PakFile FullDirectoryIndexSize=152
+[2021.04.08-20.17.15:937][  0]LogPakFile: OnPakFileMounted2Time == 0.000010
+[2021.04.08-20.17.15:937][  0]LogPakFile: PakFile PrimaryIndexSize=191
+[2021.04.08-20.17.15:937][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:938][  0]LogPakFile: PakFile FullDirectoryIndexSize=160
+[2021.04.08-20.17.15:938][  0]LogPakFile: OnPakFileMounted2Time == 0.000011
+[2021.04.08-20.17.15:938][  0]LogPakFile: PakFile PrimaryIndexSize=185
+[2021.04.08-20.17.15:938][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:938][  0]LogPakFile: PakFile FullDirectoryIndexSize=148
+[2021.04.08-20.17.15:938][  0]LogPakFile: OnPakFileMounted2Time == 0.000012
+[2021.04.08-20.17.15:939][  0]LogPakFile: PakFile PrimaryIndexSize=190
+[2021.04.08-20.17.15:939][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:939][  0]LogPakFile: PakFile FullDirectoryIndexSize=154
+[2021.04.08-20.17.15:939][  0]LogPakFile: OnPakFileMounted2Time == 0.000013
+[2021.04.08-20.17.15:939][  0]LogPakFile: PakFile PrimaryIndexSize=192
+[2021.04.08-20.17.15:939][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:939][  0]LogPakFile: PakFile FullDirectoryIndexSize=158
+[2021.04.08-20.17.15:939][  0]LogPakFile: OnPakFileMounted2Time == 0.000014
+[2021.04.08-20.17.15:940][  0]LogPakFile: PakFile PrimaryIndexSize=182
+[2021.04.08-20.17.15:940][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:940][  0]LogPakFile: PakFile FullDirectoryIndexSize=138
+[2021.04.08-20.17.15:940][  0]LogPakFile: OnPakFileMounted2Time == 0.000015
+[2021.04.08-20.17.15:941][  0]LogPakFile: PakFile PrimaryIndexSize=184
+[2021.04.08-20.17.15:941][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:941][  0]LogPakFile: PakFile FullDirectoryIndexSize=142
+[2021.04.08-20.17.15:941][  0]LogPakFile: OnPakFileMounted2Time == 0.000016
+[2021.04.08-20.17.15:941][  0]LogPakFile: PakFile PrimaryIndexSize=188
+[2021.04.08-20.17.15:941][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:941][  0]LogPakFile: PakFile FullDirectoryIndexSize=150
+[2021.04.08-20.17.15:941][  0]LogPakFile: OnPakFileMounted2Time == 0.000017
+[2021.04.08-20.17.15:942][  0]LogPakFile: PakFile PrimaryIndexSize=182
+[2021.04.08-20.17.15:942][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:942][  0]LogPakFile: PakFile FullDirectoryIndexSize=138
+[2021.04.08-20.17.15:942][  0]LogPakFile: OnPakFileMounted2Time == 0.000018
+[2021.04.08-20.17.15:942][  0]LogPakFile: PakFile PrimaryIndexSize=184
+[2021.04.08-20.17.15:942][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:942][  0]LogPakFile: PakFile FullDirectoryIndexSize=142
+[2021.04.08-20.17.15:942][  0]LogPakFile: OnPakFileMounted2Time == 0.000019
+[2021.04.08-20.17.15:943][  0]LogPakFile: PakFile PrimaryIndexSize=183
+[2021.04.08-20.17.15:943][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:943][  0]LogPakFile: PakFile FullDirectoryIndexSize=140
+[2021.04.08-20.17.15:943][  0]LogPakFile: OnPakFileMounted2Time == 0.000021
+[2021.04.08-20.17.15:943][  0]LogPakFile: PakFile PrimaryIndexSize=185
+[2021.04.08-20.17.15:943][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:943][  0]LogPakFile: PakFile FullDirectoryIndexSize=144
+[2021.04.08-20.17.15:943][  0]LogPakFile: OnPakFileMounted2Time == 0.000022
+[2021.04.08-20.17.15:944][  0]LogPakFile: PakFile PrimaryIndexSize=188
+[2021.04.08-20.17.15:944][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:944][  0]LogPakFile: PakFile FullDirectoryIndexSize=150
+[2021.04.08-20.17.15:944][  0]LogPakFile: OnPakFileMounted2Time == 0.000023
+[2021.04.08-20.17.15:945][  0]LogPakFile: PakFile PrimaryIndexSize=190
+[2021.04.08-20.17.15:945][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:945][  0]LogPakFile: PakFile FullDirectoryIndexSize=154
+[2021.04.08-20.17.15:945][  0]LogPakFile: OnPakFileMounted2Time == 0.000024
+[2021.04.08-20.17.15:945][  0]LogPakFile: PakFile PrimaryIndexSize=187
+[2021.04.08-20.17.15:945][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:945][  0]LogPakFile: PakFile FullDirectoryIndexSize=148
+[2021.04.08-20.17.15:945][  0]LogPakFile: OnPakFileMounted2Time == 0.000025
+[2021.04.08-20.17.15:946][  0]LogPakFile: PakFile PrimaryIndexSize=189
+[2021.04.08-20.17.15:946][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:946][  0]LogPakFile: PakFile FullDirectoryIndexSize=152
+[2021.04.08-20.17.15:946][  0]LogPakFile: OnPakFileMounted2Time == 0.000026
+[2021.04.08-20.17.15:946][  0]LogPakFile: PakFile PrimaryIndexSize=183
+[2021.04.08-20.17.15:946][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:947][  0]LogPakFile: PakFile FullDirectoryIndexSize=140
+[2021.04.08-20.17.15:947][  0]LogPakFile: OnPakFileMounted2Time == 0.000027
+[2021.04.08-20.17.15:947][  0]LogPakFile: PakFile PrimaryIndexSize=185
+[2021.04.08-20.17.15:947][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:947][  0]LogPakFile: PakFile FullDirectoryIndexSize=144
+[2021.04.08-20.17.15:947][  0]LogPakFile: OnPakFileMounted2Time == 0.000028
+[2021.04.08-20.17.15:948][  0]LogPakFile: PakFile PrimaryIndexSize=185
+[2021.04.08-20.17.15:948][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:948][  0]LogPakFile: PakFile FullDirectoryIndexSize=144
+[2021.04.08-20.17.15:948][  0]LogPakFile: OnPakFileMounted2Time == 0.000029
+[2021.04.08-20.17.15:948][  0]LogPakFile: PakFile PrimaryIndexSize=187
+[2021.04.08-20.17.15:948][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:948][  0]LogPakFile: PakFile FullDirectoryIndexSize=148
+[2021.04.08-20.17.15:948][  0]LogPakFile: OnPakFileMounted2Time == 0.000030
+[2021.04.08-20.17.15:949][  0]LogPakFile: PakFile PrimaryIndexSize=183
+[2021.04.08-20.17.15:949][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:949][  0]LogPakFile: PakFile FullDirectoryIndexSize=140
+[2021.04.08-20.17.15:949][  0]LogPakFile: OnPakFileMounted2Time == 0.000031
+[2021.04.08-20.17.15:950][  0]LogPakFile: PakFile PrimaryIndexSize=186
+[2021.04.08-20.17.15:950][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:950][  0]LogPakFile: PakFile FullDirectoryIndexSize=146
+[2021.04.08-20.17.15:950][  0]LogPakFile: OnPakFileMounted2Time == 0.000032
+[2021.04.08-20.17.15:951][  0]LogPakFile: PakFile PrimaryIndexSize=188
+[2021.04.08-20.17.15:951][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:951][  0]LogPakFile: PakFile FullDirectoryIndexSize=150
+[2021.04.08-20.17.15:951][  0]LogPakFile: OnPakFileMounted2Time == 0.000033
+[2021.04.08-20.17.15:951][  0]LogPakFile: PakFile PrimaryIndexSize=185
+[2021.04.08-20.17.15:951][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:951][  0]LogPakFile: PakFile FullDirectoryIndexSize=144
+[2021.04.08-20.17.15:951][  0]LogPakFile: OnPakFileMounted2Time == 0.000034
+[2021.04.08-20.17.15:952][  0]LogPakFile: PakFile PrimaryIndexSize=192
+[2021.04.08-20.17.15:952][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.08-20.17.15:952][  0]LogPakFile: PakFile FullDirectoryIndexSize=158
+[2021.04.08-20.17.15:952][  0]LogPakFile: OnPakFileMounted2Time == 0.000036
+[2021.04.08-20.17.16:007][  0]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'AddContentDialog' in 0.0005 seconds. Added 0 classes and 0 folders.
+[2021.04.08-20.17.16:015][  0]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'SceneOutliner' in 0.0005 seconds. Added 2 classes and 0 folders.
+[2021.04.08-20.17.16:116][  0]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.17.16:132][  0]LogSlate: Took 0.000224 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
+[2021.04.08-20.17.16:136][  0]LogSlate: Took 0.000190 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' (160K)
+[2021.04.08-20.17.16:139][  0]LogSlate: Took 0.000179 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/FontAwesome.ttf' (139K)
+[2021.04.08-20.17.16:306][  0]LogRenderer: Reallocating scene render targets to support 1164x400 Format 10 NumSamples 4 (Frame:1).
+[2021.04.08-20.17.16:380][  0]LogSlate: Took 0.000152 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
+[2021.04.08-20.17.16:430][  0]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'HierarchicalLODOutliner' in 0.0003 seconds. Added 0 classes and 0 folders.
+[2021.04.08-20.17.16:430][  0]LogLoad: (Engine Initialization) Total time: 12.02 seconds
+[2021.04.08-20.17.16:430][  0]LogLoad: (Engine Initialization) Total Blueprint compile time: 0.00 seconds
+[2021.04.08-20.17.16:430][  0]LogInit: First time updating LLM stats...
+[2021.04.08-20.17.16:439][  0]LogOcInput: OculusInput is initialized
+[2021.04.08-20.17.16:501][  0]LogContentStreaming: Texture pool size now 1000 MB
+[2021.04.08-20.17.16:742][  3]LogAssetRegistry: Asset discovery search completed in 7.8173 seconds
+[2021.04.08-20.17.16:746][  3]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000003 seconds (updated 0 objects)
+[2021.04.08-20.17.19:212][ 93]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.17.21:691][101]LogTcpMessaging: Started Connection to '127.0.0.1:6666'
+[2021.04.08-20.17.25:978][211]LogRenderer: Reallocating scene render targets to support 1164x528 Format 10 NumSamples 4 (Frame:130).
+[2021.04.08-20.17.26:088][212]LogRenderer: Reallocating scene render targets to support 1164x592 Format 10 NumSamples 4 (Frame:132).
+[2021.04.08-20.18.28:011][885]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.18.28:012][885]LogSlate: Took 0.000189 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
+[2021.04.08-20.18.28:050][885]LogUObjectHash: Compacting FUObjectHashTables data took   0.92ms
+[2021.04.08-20.18.28:241][885]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/World7921E9F3416AAE125E45628208D141C3.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World.umap'
+[2021.04.08-20.18.28:341][885]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/World_BuiltData77F0AA264616743207BEBA8C35C4AB96.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World_BuiltData.uasset'
+[2021.04.08-20.18.28:359][885]AssetCheck: New page: Asset Save: multiple assets
+[2021.04.08-20.18.28:359][885]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Maps/World_BuiltData.World_BuiltData
+[2021.04.08-20.18.28:359][885]LogContentValidation: Display: Validating World /Game/Maps/World.World
+[2021.04.08-20.27.44:961][590]LogHotReload: New module detected: UE4Editor-ArchitectureExplorer-0004.dll
+[2021.04.08-20.27.46:649][596]LogHotReload: Starting Hot-Reload from IDE
+[2021.04.08-20.27.46:652][596]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.27.46:712][596]LogClass: AnimState HotReload.
+[2021.04.08-20.27.46:712][596]LogClass: ErrolState HotReload.
+[2021.04.08-20.27.46:722][596]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.27.46:722][596]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.27.46:722][596]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.27.46:723][596]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.27.46:723][596]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.27.46:723][596]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.27.46:723][596]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.27.46:723][596]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.27.46:723][596]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.27.46:732][596]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ArchitectureExplorer' in 0.0003 seconds. Added 27 classes and 2 folders.
+[2021.04.08-20.27.46:749][596]Display: HotReload successful (53 functions remapped  0 scriptstructs remapped)
+[2021.04.08-20.27.46:803][596]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0128 seconds. Added 3820 classes and 914 folders.
+[2021.04.08-20.27.46:810][596]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.27.46:888][596]Display: HotReload took  0.2s.
+[2021.04.08-20.27.49:133][680]LogSlate: Took 0.000185 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/DroidSansMono.ttf' (77K)
+[2021.04.08-20.27.58:667][694]LogTemp: Repeating last play command: VR Preview
+[2021.04.08-20.27.58:677][694]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.04.08-20.27.58:678][694]PIE: New page: PIE session: World (Apr 8, 2021, 6:27:58 AM)
+[2021.04.08-20.27.58:679][694]LogOnline: OSS: Creating online subsystem instance for: NULL
+[2021.04.08-20.27.58:681][694]LogOnline: OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for module [NULL]
+[2021.04.08-20.27.58:681][694]LogPlayLevel: Creating play world package: /Game/Maps/UEDPIE_0_World
+[2021.04.08-20.27.58:723][694]LogPlayLevel: PIE: StaticDuplicateObject took: (0.042421s)
+[2021.04.08-20.27.58:724][694]LogAIModule: Creating AISystem for world World
+[2021.04.08-20.27.58:725][694]LogPlayLevel: PIE: World Init took: (0.001875s)
+[2021.04.08-20.27.58:725][694]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Maps/World.World to /Game/Maps/UEDPIE_0_World.World (0.044489s)
+[2021.04.08-20.27.58:730][694]LogTemp: Error: AStageManager destructor called!
+[2021.04.08-20.27.58:730][694]LogTemp: Error: AStageManager destructor called!
+[2021.04.08-20.27.58:731][694]LogUObjectHash: Compacting FUObjectHashTables data took   0.89ms
+[2021.04.08-20.27.58:731][694]LogAudio: Display: Creating Audio Device:                 Id: 2, Scope: Unique, Realtime: True
+[2021.04.08-20.27.58:731][694]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.04.08-20.27.58:731][694]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.04.08-20.27.58:731][694]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.04.08-20.27.58:731][694]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.04.08-20.27.58:731][694]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2021.04.08-20.27.58:731][694]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2021.04.08-20.27.58:731][694]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2021.04.08-20.27.58:731][694]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.04.08-20.27.58:732][694]LogAudio: Display: Using built-in audio occlusion.
+[2021.04.08-20.27.58:732][694]LogAudioMixer: Display: Initializing audio mixer.
+[2021.04.08-20.27.58:735][694]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.27.58:736][694]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.27.58:737][694]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.27.58:737][694]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.27.58:738][694]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.27.58:738][694]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.27.58:739][694]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.27.58:739][694]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.27.58:741][694]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.27.58:741][694]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.27.58:750][694]LogAudioMixer: Display: Using Audio Device Headphones (Oculus Virtual Audio Device)
+[2021.04.08-20.27.58:751][694]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.04.08-20.27.58:751][694]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.04.08-20.27.58:751][694]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.04.08-20.27.58:751][694]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.04.08-20.27.58:751][694]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.04.08-20.27.58:751][694]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.04.08-20.27.58:767][694]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.04.08-20.27.58:767][694]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.04.08-20.27.58:767][694]LogInit: FAudioDevice initialized.
+[2021.04.08-20.27.58:767][694]LogAudio: Display: Audio Device (ID: 2) registered with world 'World'.
+[2021.04.08-20.27.58:771][694]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.27.58:778][694]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.08-20.27.58:878][694]LogLoad: Game class is 'BP_VRGameMode_C'
+[2021.04.08-20.27.58:891][694]LogPhysicsCore: Error: PHYSX: (d:\build\++fortnite\sync\engine\source\thirdparty\physx3\physx_3.4\source\physx\src\NpRigidBodyTemplate.h 443) eINVALID_PARAMETER : RigidBody::setRigidBodyFlag: kinematic bodies with CCD enabled are not supported! CCD will be ignored.
+[2021.04.08-20.27.58:892][694]LogPhysicsCore: Error: PHYSX: (d:\build\++fortnite\sync\engine\source\thirdparty\physx3\physx_3.4\source\physx\src\NpRigidBodyTemplate.h 443) eINVALID_PARAMETER : RigidBody::setRigidBodyFlag: kinematic bodies with CCD enabled are not supported! CCD will be ignored.
+[2021.04.08-20.27.58:892][694]LogPhysicsCore: Error: PHYSX: (d:\build\++fortnite\sync\engine\source\thirdparty\physx3\physx_3.4\source\physx\src\NpRigidBodyTemplate.h 443) eINVALID_PARAMETER : RigidBody::setRigidBodyFlag: kinematic bodies with CCD enabled are not supported! CCD will be ignored.
+[2021.04.08-20.27.58:892][694]LogPhysicsCore: Error: PHYSX: (d:\build\++fortnite\sync\engine\source\thirdparty\physx3\physx_3.4\source\physx\src\NpRigidBodyTemplate.h 443) eINVALID_PARAMETER : RigidBody::setRigidBodyFlag: kinematic bodies with CCD enabled are not supported! CCD will be ignored.
+[2021.04.08-20.27.58:893][694]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/UEDPIE_0_World.World:PersistentLevel.BP_FiverrErrol_3.CharacterMesh0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.08-20.27.58:893][694]PIE: Error: Blueprint Runtime Error: "Accessed None trying to read property PlayerCamera". Blueprint:  AB_FiverrBody Function:  Execute Ubergraph AB Fiverr Body Graph:  AnimGraph Node:  Look At - Bone: Head_JNT
+[2021.04.08-20.27.58:894][694]LogWorld: Bringing World /Game/Maps/UEDPIE_0_World.World up for play (max tick rate 0) at 2021.04.08-13.27.58
+[2021.04.08-20.27.58:894][694]LogWorld: Bringing up level for play took: 0.015073
+[2021.04.08-20.27.58:895][694]LogOnline: OSS: Creating online subsystem instance for: :Context_2
+[2021.04.08-20.27.58:935][694]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'MovieSceneCapture' in 0.0005 seconds. Added 20 classes and 0 folders.
+[2021.04.08-20.27.58:937][694]LogTemp: Warning: Name: BladeCollision
+[2021.04.08-20.27.58:942][694]PIE: Server logged in
+[2021.04.08-20.27.58:943][694]PIE: Play in editor total start time 0.268 seconds.
+[2021.04.08-20.27.58:945][694]LogEngine: Changing dynamic resolution state.
+[2021.04.08-20.27.58:968][695]LogRenderer: Warning: Resizing VR buffer to 3136 by 1728
+[2021.04.08-20.27.58:968][695]LogRenderer: Reallocating scene render targets to support 3136x1728 Format 10 NumSamples 4 (Frame:1).
+[2021.04.08-20.27.58:968][695]LogHMD: Allocating Oculus 3136 x 1728 depth rendertarget swapchain
+[2021.04.08-20.28.04:112][ 47]LogTemp: Warning: Left Step
+[2021.04.08-20.28.04:112][ 47]LogAudio: Display: Cached duration for Sound Cue SoundCue /Game/UltimateRealismFootstepsCollection/UltimateRealismFootsteps/Wood/Light_Wood/GameReady/LightWood_GameReady.LightWood_GameReady was zero and has changed. Consider manually Re-saving the asset
+[2021.04.08-20.28.04:310][ 61]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:323][ 62]LogProfilingDebugging: Allocated a 1024 x 1024 texture for HMD canvas layer
+[2021.04.08-20.28.04:323][ 62]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:336][ 63]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:348][ 64]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:361][ 65]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:374][ 66]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:389][ 67]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:412][ 68]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:426][ 69]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:439][ 70]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:454][ 71]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:467][ 72]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:479][ 73]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:493][ 74]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:506][ 75]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:530][ 76]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:544][ 77]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:558][ 78]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:572][ 79]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:585][ 80]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:599][ 81]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:613][ 82]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:627][ 83]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:641][ 84]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:654][ 85]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:668][ 86]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:682][ 87]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:695][ 88]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:708][ 89]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.04:911][104]LogTemp: Warning: BP_BeerBottle_Open_2
+[2021.04.08-20.28.04:911][104]LogTemp: Warning: Can Grab!
+[2021.04.08-20.28.08:703][373]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:718][374]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:742][375]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:755][376]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:769][377]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:781][378]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:793][379]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:806][380]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:819][381]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:832][382]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:846][383]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:859][384]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:883][385]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:895][386]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:908][387]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:922][388]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:935][389]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:948][390]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:960][391]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:973][392]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.08:986][393]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:010][394]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:023][395]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:037][396]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:049][397]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:064][398]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:076][399]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:091][400]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:105][401]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:120][402]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:133][403]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:147][404]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:162][405]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:176][406]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:190][407]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:205][408]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:219][409]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:233][410]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:247][411]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:260][412]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:275][413]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:289][414]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:302][415]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:314][416]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:329][417]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:342][418]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:356][419]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:370][420]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:383][421]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:408][422]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:422][423]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:434][424]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:448][425]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:460][426]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:472][427]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:486][428]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:499][429]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:512][430]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:526][431]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:551][432]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:563][433]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:578][434]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:591][435]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:603][436]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:616][437]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:628][438]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:641][439]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:654][440]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:667][441]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:680][442]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:692][443]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:707][444]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:730][445]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:743][446]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:757][447]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:782][448]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:796][449]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:808][450]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:821][451]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:835][452]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:849][453]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:862][454]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:877][455]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:890][456]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:904][457]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:917][458]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:932][459]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:945][460]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:957][461]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:971][462]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:984][463]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.09:997][464]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:010][465]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:024][466]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:049][467]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:062][468]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:076][469]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:087][470]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:100][471]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:113][472]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:126][473]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:139][474]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:153][475]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:166][476]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:191][477]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:203][478]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:216][479]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:228][480]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:241][481]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:241][481]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:253][482]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:253][482]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:266][483]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:266][483]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:279][484]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:279][484]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:292][485]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:292][485]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:305][486]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:305][486]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:329][487]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:329][487]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:343][488]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:343][488]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:356][489]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:356][489]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:368][490]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:368][490]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:381][491]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:381][491]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:406][492]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:406][492]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:420][493]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:420][493]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:420][493]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:432][494]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:432][494]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:432][494]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:446][495]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:446][495]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:446][495]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:460][496]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:460][496]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:460][496]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:473][497]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:473][497]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:473][497]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:486][498]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:486][498]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:487][498]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:501][499]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:501][499]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:501][499]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:514][500]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:514][500]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:514][500]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:528][501]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:528][501]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:529][501]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:542][502]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:542][502]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:542][502]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:571][503]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:571][503]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:583][504]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:583][504]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:596][505]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:596][505]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:610][506]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:610][506]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:624][507]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:624][507]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:637][508]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:638][508]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:651][509]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:651][509]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:664][510]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:664][510]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:678][511]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:678][511]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:692][512]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:692][512]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:705][513]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:705][513]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:719][514]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:719][514]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:733][515]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:733][515]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:746][516]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:746][516]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:760][517]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:760][517]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:773][518]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:773][518]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:787][519]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:788][519]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:802][520]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:802][520]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:815][521]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:815][521]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:829][522]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:830][522]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:842][523]LogTemp: Warning: BP_BeerBottle_Open3_8
+[2021.04.08-20.28.10:842][523]LogTemp: Warning: Can Grab!
+[2021.04.08-20.28.10:843][523]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:843][523]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:858][524]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:858][524]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:882][525]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:882][525]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.10:896][526]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:909][527]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:922][528]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:934][529]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:947][530]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:960][531]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:974][532]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.10:988][533]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:012][534]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:025][535]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:039][536]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:051][537]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:063][538]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:076][539]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:089][540]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:103][541]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:115][542]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:128][543]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:141][544]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:164][545]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:575][574]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:589][575]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:602][576]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:615][577]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:628][578]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:642][579]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:666][580]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:678][581]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:692][582]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:704][583]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:716][584]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:729][585]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:742][586]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:755][587]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:768][588]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:781][589]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:806][590]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:819][591]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:833][592]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:845][593]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:859][594]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:859][594]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.11:871][595]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:871][595]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.11:885][596]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:885][596]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.11:899][597]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:899][597]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.11:911][598]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:911][598]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.11:924][599]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:924][599]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.11:938][600]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:939][600]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.11:962][601]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:962][601]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.11:975][602]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:975][602]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.11:988][603]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.11:989][603]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:002][604]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:003][604]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:015][605]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:016][605]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:030][606]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:031][606]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:043][607]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:044][607]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:058][608]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:058][608]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:071][609]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:071][609]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:084][610]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:084][610]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:099][611]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:099][611]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:111][612]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:111][612]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:125][613]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:126][613]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:139][614]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:139][614]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:153][615]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:153][615]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:167][616]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:167][616]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:181][617]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:181][617]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:195][618]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:195][618]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:220][619]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:220][619]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:233][620]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:233][620]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:246][621]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:246][621]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:259][622]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:259][622]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:272][623]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:272][623]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:285][624]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:285][624]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:298][625]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:298][625]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:311][626]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:311][626]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:325][627]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:325][627]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:348][628]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:349][628]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:362][629]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:362][629]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:377][630]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:377][630]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:400][631]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:400][631]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:414][632]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:415][632]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:429][633]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:429][633]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:454][634]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:454][634]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:468][635]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:468][635]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:481][636]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:481][636]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:494][637]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:495][637]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:508][638]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:508][638]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:532][639]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:532][639]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:544][640]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:545][640]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:558][641]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:558][641]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:572][642]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:572][642]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:586][643]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:587][643]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:600][644]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:600][644]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:624][645]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:624][645]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:639][646]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:639][646]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:664][647]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:664][647]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:677][648]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:677][648]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:688][649]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:689][649]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:701][650]LogTemp: Warning: BOTTLEBREAK!
+[2021.04.08-20.28.12:702][650]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:702][650]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:715][651]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:715][651]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:729][652]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:730][652]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:753][653]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:753][653]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:766][654]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:766][654]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:779][655]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:779][655]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:795][656]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:795][656]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:807][657]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:808][657]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:822][658]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:823][658]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:846][659]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:847][659]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:861][660]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:861][660]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:886][661]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:886][661]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:911][662]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:911][662]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:934][663]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:934][663]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:957][664]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:958][664]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.12:983][665]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.12:983][665]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.13:008][666]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:008][666]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.13:035][667]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:036][667]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.13:063][668]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:063][668]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.13:090][669]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:090][669]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.28.13:117][670]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:145][671]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:173][672]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:202][673]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:230][674]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:257][675]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:285][676]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:313][677]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:341][678]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:369][679]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:397][680]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:425][681]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:453][682]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:480][683]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:509][684]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:537][685]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.13:565][686]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.28.14:321][713]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.28.14:321][713]LogTemp: Warning: Can Grab!
+[2021.04.08-20.28.15:884][769]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.28.18:406][894]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.28.18:407][894]LogTemp: Warning: Can Grab!
+[2021.04.08-20.28.21:178][ 33]LogTemp: Warning: ActorBeingGrabbed cast failed!
+[2021.04.08-20.28.21:624][ 64]LogTemp: Warning: ActorBeingGrabbed cast failed!
+[2021.04.08-20.28.22:037][ 83]LogTemp: Warning: ActorBeingGrabbed cast failed!
+[2021.04.08-20.28.26:912][332]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.28.26:912][332]LogTemp: Warning: Can Grab!
+[2021.04.08-20.28.30:798][553]LogTemp: Warning: Right Step
+[2021.04.08-20.28.31:773][621]LogTemp: Warning: Left Step
+[2021.04.08-20.28.32:864][693]LogTemp: Warning: ActorBeingGrabbed cast failed!
+[2021.04.08-20.28.37:168][852]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.08-20.28.37:168][852]LogWorld: BeginTearingDown for /Game/Maps/UEDPIE_0_World
+[2021.04.08-20.28.37:169][852]LogSlate: Window 'ArchitectureExplorer Preview [NetMode: Standalone]  (64-bit/Windows) OculusHMD' being destroyed
+[2021.04.08-20.28.37:210][852]LogWorld: UWorld::CleanupWorld for World, bSessionEnded=true, bCleanupResources=true
+[2021.04.08-20.28.37:212][852]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.08-20.28.37:217][852]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.04.08-20.28.37:221][852]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.08-20.28.37:228][852]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2021.04.08-20.28.37:229][852]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.08-20.28.37:229][852]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.08-20.28.37:251][852]LogUObjectHash: Compacting FUObjectHashTables data took   0.97ms
+[2021.04.08-20.28.37:266][852]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.28.37:287][852]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.28.37:339][853]LogPlayLevel: Display: Destroying online subsystem :Context_2
+[2021.04.08-20.28.37:344][853]LogEngine: Changing dynamic resolution state.
+[2021.04.08-20.28.38:731][911]LogSlate: Window 'Message Log' being destroyed
+[2021.04.08-20.28.38:760][911]LogSlate: Window 'Message Log' being destroyed
+[2021.04.08-20.28.49:246][472]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.28.49:562][472]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Models/Beer/BP_BeerBottle_Open.BP_BeerBottle_Open
+[2021.04.08-20.28.49:579][472]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.28.49:773][472]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'BlueprintGraph' in 0.0007 seconds. Added 126 classes and 0 folders.
+[2021.04.08-20.28.50:943][472]LogSlate: Took 0.000226 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2021.04.08-20.28.51:013][473]LogSlate: Took 0.000222 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Italic.ttf' (157K)
+[2021.04.08-20.29.06:312][456]LogSlate: Window 'BP_BeerBottle_Open' being destroyed
+[2021.04.08-20.29.06:335][456]LogSlate: Window 'BP_BeerBottle_Open' being destroyed
+[2021.04.08-20.29.06:345][456]LogWorld: UWorld::CleanupWorld for World_3, bSessionEnded=true, bCleanupResources=true
+[2021.04.08-20.29.06:346][456]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.08-20.30.23:776][356]LogHotReload: New module detected: UE4Editor-ArchitectureExplorer-0005.dll
+[2021.04.08-20.30.25:811][363]LogHotReload: Starting Hot-Reload from IDE
+[2021.04.08-20.30.25:815][363]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.30.25:976][363]LogClass: AnimState HotReload.
+[2021.04.08-20.30.25:976][363]LogClass: ErrolState HotReload.
+[2021.04.08-20.30.25:993][363]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.30.25:993][363]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.30.25:993][363]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.30.25:994][363]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.30.25:994][363]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.30.25:994][363]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.30.25:994][363]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.30.25:995][363]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.30.25:995][363]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.30.26:008][363]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ArchitectureExplorer' in 0.0009 seconds. Added 27 classes and 2 folders.
+[2021.04.08-20.30.26:030][363]Display: HotReload successful (53 functions remapped  0 scriptstructs remapped)
+[2021.04.08-20.30.26:116][363]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0140 seconds. Added 3820 classes and 914 folders.
+[2021.04.08-20.30.26:119][363]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.30.26:120][363]Display: HotReload took  0.3s.
+[2021.04.08-20.30.31:118][508]LogTemp: Repeating last play command: VR Preview
+[2021.04.08-20.30.31:131][508]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.04.08-20.30.31:131][508]LogHMD: Initializing OVRPlugin session
+[2021.04.08-20.30.31:300][508]LogHMD: Allocating Oculus 3136 x 1728 rendertarget swapchain
+[2021.04.08-20.30.31:301][508]PIE: New page: PIE session: World (Apr 8, 2021, 6:30:31 AM)
+[2021.04.08-20.30.31:302][508]LogPlayLevel: Creating play world package: /Game/Maps/UEDPIE_0_World
+[2021.04.08-20.30.31:349][508]LogPlayLevel: PIE: StaticDuplicateObject took: (0.047691s)
+[2021.04.08-20.30.31:351][508]LogAIModule: Creating AISystem for world World
+[2021.04.08-20.30.31:351][508]LogPlayLevel: PIE: World Init took: (0.001671s)
+[2021.04.08-20.30.31:351][508]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Maps/World.World to /Game/Maps/UEDPIE_0_World.World (0.049561s)
+[2021.04.08-20.30.31:404][508]LogTemp: Error: AStageManager destructor called!
+[2021.04.08-20.30.31:413][508]LogTemp: Error: AStageManager destructor called!
+[2021.04.08-20.30.31:449][508]LogUObjectHash: Compacting FUObjectHashTables data took   4.38ms
+[2021.04.08-20.30.31:451][508]LogAudio: Display: Creating Audio Device:                 Id: 3, Scope: Unique, Realtime: True
+[2021.04.08-20.30.31:451][508]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.04.08-20.30.31:451][508]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.04.08-20.30.31:451][508]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.04.08-20.30.31:451][508]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.04.08-20.30.31:451][508]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2021.04.08-20.30.31:451][508]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2021.04.08-20.30.31:451][508]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2021.04.08-20.30.31:451][508]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.04.08-20.30.31:452][508]LogAudio: Display: Using built-in audio occlusion.
+[2021.04.08-20.30.31:452][508]LogAudioMixer: Display: Initializing audio mixer.
+[2021.04.08-20.30.31:456][508]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.30.31:456][508]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.30.31:457][508]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.30.31:457][508]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.30.31:458][508]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.30.31:458][508]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.30.31:460][508]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.30.31:460][508]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.30.31:462][508]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.08-20.30.31:462][508]LogAudioMixer: Display: 1: FrontRight
+[2021.04.08-20.30.31:470][508]LogAudioMixer: Display: Using Audio Device Headphones (Oculus Virtual Audio Device)
+[2021.04.08-20.30.31:470][508]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.04.08-20.30.31:470][508]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.04.08-20.30.31:470][508]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.04.08-20.30.31:471][508]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.04.08-20.30.31:471][508]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.04.08-20.30.31:471][508]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.04.08-20.30.31:488][508]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.04.08-20.30.31:488][508]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.04.08-20.30.31:488][508]LogInit: FAudioDevice initialized.
+[2021.04.08-20.30.31:488][508]LogAudio: Display: Audio Device (ID: 3) registered with world 'World'.
+[2021.04.08-20.30.31:491][508]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.30.31:500][508]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.08-20.30.31:598][508]LogLoad: Game class is 'BP_VRGameMode_C'
+[2021.04.08-20.30.31:610][508]LogPhysicsCore: Error: PHYSX: (d:\build\++fortnite\sync\engine\source\thirdparty\physx3\physx_3.4\source\physx\src\NpRigidBodyTemplate.h 443) eINVALID_PARAMETER : RigidBody::setRigidBodyFlag: kinematic bodies with CCD enabled are not supported! CCD will be ignored.
+[2021.04.08-20.30.31:610][508]LogPhysicsCore: Error: PHYSX: (d:\build\++fortnite\sync\engine\source\thirdparty\physx3\physx_3.4\source\physx\src\NpRigidBodyTemplate.h 443) eINVALID_PARAMETER : RigidBody::setRigidBodyFlag: kinematic bodies with CCD enabled are not supported! CCD will be ignored.
+[2021.04.08-20.30.31:610][508]LogPhysicsCore: Error: PHYSX: (d:\build\++fortnite\sync\engine\source\thirdparty\physx3\physx_3.4\source\physx\src\NpRigidBodyTemplate.h 443) eINVALID_PARAMETER : RigidBody::setRigidBodyFlag: kinematic bodies with CCD enabled are not supported! CCD will be ignored.
+[2021.04.08-20.30.31:610][508]LogPhysicsCore: Error: PHYSX: (d:\build\++fortnite\sync\engine\source\thirdparty\physx3\physx_3.4\source\physx\src\NpRigidBodyTemplate.h 443) eINVALID_PARAMETER : RigidBody::setRigidBodyFlag: kinematic bodies with CCD enabled are not supported! CCD will be ignored.
+[2021.04.08-20.30.31:611][508]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/UEDPIE_0_World.World:PersistentLevel.BP_FiverrErrol_3.CharacterMesh0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.08-20.30.31:611][508]PIE: Error: Blueprint Runtime Error: "Accessed None trying to read property PlayerCamera". Blueprint:  AB_FiverrBody Function:  Execute Ubergraph AB Fiverr Body Graph:  AnimGraph Node:  Look At - Bone: Head_JNT
+[2021.04.08-20.30.31:612][508]LogWorld: Bringing World /Game/Maps/UEDPIE_0_World.World up for play (max tick rate 0) at 2021.04.08-13.30.31
+[2021.04.08-20.30.31:612][508]LogWorld: Bringing up level for play took: 0.013239
+[2021.04.08-20.30.31:612][508]LogOnline: OSS: Creating online subsystem instance for: :Context_6
+[2021.04.08-20.30.31:618][508]LogTemp: Warning: Name: BladeCollision
+[2021.04.08-20.30.31:622][508]PIE: Server logged in
+[2021.04.08-20.30.31:623][508]PIE: Play in editor total start time 0.494 seconds.
+[2021.04.08-20.30.31:623][508]LogEngine: Changing dynamic resolution state.
+[2021.04.08-20.30.31:646][509]LogHMD: Allocating Oculus 3136 x 1728 depth rendertarget swapchain
+[2021.04.08-20.30.39:665][  0]LogTemp: Warning: Sprint
+[2021.04.08-20.30.39:830][ 12]LogTemp: Warning: Left Step
+[2021.04.08-20.30.40:035][ 27]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:061][ 28]LogProfilingDebugging: Allocated a 1024 x 1024 texture for HMD canvas layer
+[2021.04.08-20.30.40:061][ 28]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:074][ 29]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:088][ 30]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:100][ 31]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:113][ 32]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:126][ 33]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:139][ 34]LogTemp: Warning: StopSprint
+[2021.04.08-20.30.40:140][ 34]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:153][ 35]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:166][ 36]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:178][ 37]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:192][ 38]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:206][ 39]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:219][ 40]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:244][ 41]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:258][ 42]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:271][ 43]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:283][ 44]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:295][ 45]LogTemp: Warning: Right Step
+[2021.04.08-20.30.40:297][ 45]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:309][ 46]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:323][ 47]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:334][ 48]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:348][ 49]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:361][ 50]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:374][ 51]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:388][ 52]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.40:568][ 65]LogTemp: Warning: BP_BeerBottle_Open_2
+[2021.04.08-20.30.40:568][ 65]LogTemp: Warning: Can Grab!
+[2021.04.08-20.30.42:164][178]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:179][179]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:192][180]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:206][181]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:220][182]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:233][183]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:247][184]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:262][185]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:275][186]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:289][187]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:303][188]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:328][189]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:342][190]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:355][191]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:368][192]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:382][193]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:395][194]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:408][195]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:421][196]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:434][197]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:448][198]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:461][199]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:474][200]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:487][201]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:501][202]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:516][203]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:540][204]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:553][205]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:566][206]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:579][207]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:592][208]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:604][209]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:617][210]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:631][211]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:644][212]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:657][213]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:671][214]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:695][215]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:708][216]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:721][217]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:734][218]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:746][219]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:759][220]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:772][221]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:784][222]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:797][223]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:811][224]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:825][225]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:825][225]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:849][226]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:849][226]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:862][227]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:862][227]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:874][228]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:874][228]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:888][229]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:888][229]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:902][230]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:902][230]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:914][231]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:915][231]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:927][232]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:927][232]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:940][233]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:940][233]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:953][234]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:954][234]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:966][235]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:966][235]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:979][236]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:979][236]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:994][237]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.42:994][237]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:017][238]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:017][238]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:031][239]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:031][239]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:046][240]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:046][240]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:058][241]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:058][241]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:072][242]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:072][242]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:086][243]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:086][243]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:100][244]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:100][244]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:113][245]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:113][245]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:128][246]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:128][246]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:141][247]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:141][247]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:155][248]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:155][248]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:169][249]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:169][249]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:183][250]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:183][250]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:196][251]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:196][251]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:210][252]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:210][252]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:223][253]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:223][253]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:237][254]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:237][254]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:252][255]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:252][255]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:265][256]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:265][256]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:280][257]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:280][257]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:293][258]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:293][258]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:308][259]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:308][259]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:321][260]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:321][260]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:346][261]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:346][261]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:360][262]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:360][262]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:373][263]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:374][263]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:387][264]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:401][265]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:401][265]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:412][266]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:412][266]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:424][267]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:424][267]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:438][268]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:438][268]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:451][269]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:451][269]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:465][270]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:465][270]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:490][271]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:490][271]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:503][272]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:503][272]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:515][273]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:515][273]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:528][274]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:528][274]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:540][275]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:540][275]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:553][276]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:553][276]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:566][277]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:566][277]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:579][278]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:592][279]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:604][280]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:618][281]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:643][282]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:655][283]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:671][284]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:684][285]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:699][286]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:712][287]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:726][288]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:740][289]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:754][290]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:769][291]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:782][292]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:796][293]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:811][294]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:824][295]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:838][296]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:851][297]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:865][298]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:879][299]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:892][300]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.43:892][300]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:906][301]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.43:906][301]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:920][302]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.43:920][302]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:934][303]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.43:934][303]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:950][304]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.43:950][304]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:962][305]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.43:962][305]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:975][306]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.43:975][306]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.43:989][307]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.43:989][307]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.44:003][308]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.44:003][308]LogBlueprintUserMessages: [BP_Chainsaw_2] Failed hand controller cast in Chainsaw
+[2021.04.08-20.30.44:017][309]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.44:031][310]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.44:301][329]LogTemp: Warning: BP_BeerBottle_Open3_8
+[2021.04.08-20.30.44:301][329]LogTemp: Warning: Can Grab!
+[2021.04.08-20.30.45:466][411]LogTemp: Warning: BP_BeerBottle_Open3_8
+[2021.04.08-20.30.45:551][417]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:564][418]LogTemp: Warning: BP_BeerBottle_Open3_8
+[2021.04.08-20.30.45:565][418]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:579][419]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:592][420]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:606][421]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:621][422]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:634][423]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:648][424]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:662][425]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:676][426]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:689][427]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:703][428]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:717][429]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:730][430]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.45:948][445]LogTemp: Warning: BOTTLEBREAK!
+[2021.04.08-20.30.46:669][497]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.46:682][498]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.46:694][499]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.46:721][500]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.46:734][501]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.46:746][502]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.46:759][503]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.46:771][504]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.46:784][505]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.46:797][506]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:668][639]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:682][640]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:695][641]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:709][642]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:722][643]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:737][644]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:752][645]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:777][646]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:790][647]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:803][648]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:816][649]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:829][650]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.48:842][651]LogTemp: Warning: Overlap Errol!
+[2021.04.08-20.30.53:469][980]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.30.53:469][980]LogTemp: Warning: Can Grab!
+[2021.04.08-20.30.56:778][211]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.30.56:778][211]LogTemp: Warning: Can Grab!
+[2021.04.08-20.30.58:850][358]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.30.58:850][358]LogTemp: Warning: Can Grab!
+[2021.04.08-20.31.00:395][468]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.31.00:395][468]LogTemp: Warning: Can Grab!
+[2021.04.08-20.31.01:909][576]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.31.01:909][576]LogTemp: Warning: Can Grab!
+[2021.04.08-20.31.03:413][683]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.31.03:413][683]LogTemp: Warning: Can Grab!
+[2021.04.08-20.31.09:082][ 86]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.31.09:082][ 86]LogTemp: Warning: Can Grab!
+[2021.04.08-20.31.11:365][248]LogTemp: Warning: BP_Ball_2
+[2021.04.08-20.31.11:365][248]LogTemp: Warning: Can Grab!
+[2021.04.08-20.31.18:748][760]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.08-20.31.18:748][760]LogWorld: BeginTearingDown for /Game/Maps/UEDPIE_0_World
+[2021.04.08-20.31.18:749][760]LogSlate: Window 'ArchitectureExplorer Preview [NetMode: Standalone]  (64-bit/Windows) OculusHMD' being destroyed
+[2021.04.08-20.31.18:779][760]LogWorld: UWorld::CleanupWorld for World, bSessionEnded=true, bCleanupResources=true
+[2021.04.08-20.31.18:781][760]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.08-20.31.18:790][760]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.04.08-20.31.18:795][760]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.08-20.31.18:809][760]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2021.04.08-20.31.18:810][760]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.08-20.31.18:811][760]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.08-20.31.18:834][760]LogUObjectHash: Compacting FUObjectHashTables data took   3.29ms
+[2021.04.08-20.31.18:851][760]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.31.18:873][760]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.31.18:915][761]LogPlayLevel: Display: Destroying online subsystem :Context_6
+[2021.04.08-20.31.18:922][761]LogEngine: Changing dynamic resolution state.
+[2021.04.08-20.31.20:022][800]LogSlate: Window 'Message Log' being destroyed
+[2021.04.08-20.31.20:050][800]LogSlate: Window 'Message Log' being destroyed
+[2021.04.08-20.43.17:587][ 14]LogHotReload: New module detected: UE4Editor-ArchitectureExplorer-0006.dll
+[2021.04.08-20.43.19:281][ 20]LogHotReload: Starting Hot-Reload from IDE
+[2021.04.08-20.43.19:283][ 20]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.08-20.43.19:332][ 20]LogClass: Could not find existing class Bottle in package /Script/ArchitectureExplorer for HotReload, assuming new class
+[2021.04.08-20.43.19:332][ 20]LogClass: Could not find existing class Grabbable in package /Script/ArchitectureExplorer for HotReload, assuming new class
+[2021.04.08-20.43.19:332][ 20]LogClass: Function NotifyErrolCharacter is new.
+[2021.04.08-20.43.19:335][ 20]LogClass: Could not find existing class Chainsaw in package /Script/ArchitectureExplorer for HotReload, assuming new class
+[2021.04.08-20.43.19:335][ 20]LogClass: Function BladeBeginOverlap is new.
+[2021.04.08-20.43.19:355][ 20]LogClass: Could not find existing class Flashlight in package /Script/ArchitectureExplorer for HotReload, assuming new class
+[2021.04.08-20.43.19:361][ 20]LogClass: Could not find existing class Phone in package /Script/ArchitectureExplorer for HotReload, assuming new class
+[2021.04.08-20.43.19:388][ 20]LogClass: AnimState HotReload.
+[2021.04.08-20.43.19:388][ 20]LogClass: ErrolState HotReload.
+[2021.04.08-20.43.19:398][ 20]LogHotReload: Re-instancing Bottle after hot-reload.
+[2021.04.08-20.43.19:439][ 20]LogHotReload: Re-instancing Chainsaw after hot-reload.
+[2021.04.08-20.43.19:486][ 20]LogHotReload: Re-instancing Flashlight after hot-reload.
+[2021.04.08-20.43.19:520][ 20]LogHotReload: Re-instancing Grabbable after hot-reload.
+[2021.04.08-20.43.19:553][ 20]LogHotReload: Re-instancing Phone after hot-reload.
+[2021.04.08-20.43.19:569][ 20]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.43.19:569][ 20]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.43.19:569][ 20]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.43.19:569][ 20]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.43.19:569][ 20]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.43.19:570][ 20]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.43.19:570][ 20]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.43.19:570][ 20]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.08-20.43.19:570][ 20]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.08-20.43.19:582][ 20]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ArchitectureExplorer' in 0.0004 seconds. Added 27 classes and 2 folders.
+[2021.04.08-20.43.19:597][ 20]Display: HotReload successful (51 functions remapped  0 scriptstructs remapped)

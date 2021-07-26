@@ -1,0 +1,1894 @@
+﻿Log file open, 04/14/21 15:39:52
+LogInit: LLM is enabled
+LogInit: LLM CsvWriter: off TraceWriter: off
+LogInit: Display: Running engine for game: ArchitectureExplorer
+LogPlatformFile: Not using cached read wrapper
+LogTaskGraph: Started task graph with 5 named threads and 35 total threads with 3 sets of task threads.
+LogStats: Stats thread started at 0.352144
+LogD3D11RHI: Loaded GFSDK_Aftermath_Lib.x64.dll
+LogICUInternationalization: ICU TimeZone Detection - Raw Offset: -8:00, Platform Override: ''
+LogPluginManager: Mounting plugin MegascansPlugin
+LogPluginManager: Mounting plugin MeshPainting
+LogPluginManager: Mounting plugin XGEController
+LogPluginManager: Mounting plugin Paper2D
+LogPluginManager: Mounting plugin AISupport
+LogPluginManager: Mounting plugin LightPropagationVolume
+LogPluginManager: Mounting plugin CameraShakePreviewer
+LogPluginManager: Mounting plugin CLionSourceCodeAccess
+LogPluginManager: Mounting plugin CodeLiteSourceCodeAccess
+LogPluginManager: Mounting plugin AnimationSharing
+LogPluginManager: Mounting plugin GitSourceControl
+LogPluginManager: Mounting plugin KDevelopSourceCodeAccess
+LogPluginManager: Mounting plugin NullSourceCodeAccess
+LogPluginManager: Mounting plugin PlasticSourceControl
+LogPluginManager: Mounting plugin PerforceSourceControl
+LogPluginManager: Mounting plugin EnvironmentQueryEditor
+LogPluginManager: Mounting plugin PropertyAccessNode
+LogPluginManager: Mounting plugin PluginUtils
+LogPluginManager: Mounting plugin SubversionSourceControl
+LogPluginManager: Mounting plugin RiderSourceCodeAccess
+LogPluginManager: Mounting plugin UObjectPlugin
+LogPluginManager: Mounting plugin VisualStudioSourceCodeAccess
+LogPluginManager: Mounting plugin XCodeSourceCodeAccess
+LogPluginManager: Mounting plugin VisualStudioCodeSourceCodeAccess
+LogPluginManager: Mounting plugin DataprepEditor
+LogPluginManager: Mounting plugin DatasmithContent
+LogPluginManager: Mounting plugin StaticMeshEditorExtension
+LogPluginManager: Mounting plugin VariantManagerContent
+LogPluginManager: Mounting plugin AssetManagerEditor
+LogPluginManager: Mounting plugin CryptoKeys
+LogPluginManager: Mounting plugin CurveEditorTools
+LogPluginManager: Mounting plugin DataValidation
+LogPluginManager: Mounting plugin EditorScriptingUtilities
+LogPluginManager: Mounting plugin FacialAnimation
+LogPluginManager: Mounting plugin GameplayTagsEditor
+LogPluginManager: Mounting plugin GeometryMode
+LogPluginManager: Mounting plugin MacGraphicsSwitching
+LogPluginManager: Mounting plugin MeshEditor
+LogPluginManager: Mounting plugin MaterialAnalyzer
+LogPluginManager: Mounting plugin MobileLauncherProfileWizard
+LogPluginManager: Mounting plugin PluginBrowser
+LogPluginManager: Mounting plugin LuminPlatformFeatures
+LogPluginManager: Mounting plugin Niagara
+LogPluginManager: Mounting plugin MagicLeap
+LogPluginManager: Mounting plugin SpeedTreeImporter
+LogPluginManager: Mounting plugin MagicLeapLightEstimation
+LogPluginManager: Mounting plugin MagicLeapMedia
+LogPluginManager: Mounting plugin MLSDK
+LogPluginManager: Mounting plugin AndroidMedia
+LogPluginManager: Mounting plugin MagicLeapPassableWorld
+LogPluginManager: Mounting plugin AvfMedia
+LogPluginManager: Mounting plugin ImgMedia
+LogPluginManager: Mounting plugin MediaPlayerEditor
+LogPluginManager: Mounting plugin MediaCompositing
+LogPluginManager: Mounting plugin WebMMedia
+LogPluginManager: Mounting plugin WmfMedia
+LogPluginManager: Mounting plugin UdpMessaging
+LogPluginManager: Mounting plugin TcpMessaging
+LogPluginManager: Mounting plugin LevelSequenceEditor
+LogPluginManager: Mounting plugin MatineeToLevelSequence
+LogPluginManager: Mounting plugin TemplateSequence
+LogPluginManager: Mounting plugin OnlineSubsystem
+LogPluginManager: Mounting plugin OnlineSubsystemNull
+LogPluginManager: Mounting plugin LauncherChunkInstaller
+LogPluginManager: Mounting plugin OnlineSubsystemUtils
+LogPluginManager: Mounting plugin ActorSequence
+LogPluginManager: Mounting plugin ActorLayerUtilities
+LogPluginManager: Mounting plugin AndroidDeviceProfileSelector
+LogPluginManager: Mounting plugin AndroidMoviePlayer
+LogPluginManager: Mounting plugin ApexDestruction
+LogPluginManager: Mounting plugin AppleImageUtils
+LogPluginManager: Mounting plugin AppleMoviePlayer
+LogPluginManager: Mounting plugin AndroidPermission
+LogPluginManager: Mounting plugin CableComponent
+LogPluginManager: Mounting plugin AudioSynesthesia
+LogPluginManager: Mounting plugin AssetTags
+LogPluginManager: Mounting plugin ChunkDownloader
+LogPluginManager: Mounting plugin CustomMeshComponent
+LogPluginManager: Mounting plugin ExampleDeviceProfileSelector
+LogPluginManager: Mounting plugin EditableMesh
+LogPluginManager: Mounting plugin GoogleCloudMessaging
+LogPluginManager: Mounting plugin GooglePAD
+LogPluginManager: Mounting plugin IOSDeviceProfileSelector
+LogPluginManager: Mounting plugin LinuxDeviceProfileSelector
+LogPluginManager: Mounting plugin LocationServicesBPLibrary
+LogPluginManager: Mounting plugin MobilePatchingUtils
+LogPluginManager: Mounting plugin AudioCapture
+LogPluginManager: Mounting plugin ScreenshotTools
+LogPluginManager: Mounting plugin PhysXVehicles
+LogPluginManager: Mounting plugin PostSplashScreen
+LogPluginManager: Mounting plugin ProceduralMeshComponent
+LogPluginManager: Mounting plugin PropertyAccessEditor
+LogPluginManager: Mounting plugin RuntimePhysXCooking
+LogPluginManager: Mounting plugin SignificanceManager
+LogPluginManager: Mounting plugin SoundFields
+LogPluginManager: Mounting plugin ArchVisCharacter
+LogPluginManager: Mounting plugin Synthesis
+LogPluginManager: Mounting plugin AlembicImporter
+LogPluginManager: Mounting plugin BackChannel
+LogPluginManager: Mounting plugin WebMMoviePlayer
+LogPluginManager: Mounting plugin WindowsMoviePlayer
+LogPluginManager: Mounting plugin BlastPlugin
+LogPluginManager: Mounting plugin ChaosCloth
+LogPluginManager: Mounting plugin ChaosClothEditor
+LogPluginManager: Mounting plugin ChaosEditor
+LogPluginManager: Mounting plugin ChaosNiagara
+LogPluginManager: Mounting plugin ChaosSolverPlugin
+LogPluginManager: Mounting plugin CharacterAI
+LogPluginManager: Mounting plugin AutomationUtils
+LogPluginManager: Mounting plugin GeometryCache
+LogPluginManager: Mounting plugin GeometryCollectionPlugin
+LogPluginManager: Mounting plugin GeometryProcessing
+LogPluginManager: Mounting plugin MotoSynth
+LogPluginManager: Mounting plugin PlanarCut
+LogPluginManager: Mounting plugin PlatformCrypto
+LogPluginManager: Mounting plugin ProxyLODPlugin
+LogPluginManager: Mounting plugin SkeletalReduction
+LogPluginManager: Mounting plugin PythonScriptPlugin
+LogPluginManager: Mounting plugin ContentBrowserAssetDataSource
+LogPluginManager: Mounting plugin ContentBrowserFileDataSource
+LogPluginManager: Mounting plugin ContentBrowserClassDataSource
+LogPluginManager: Mounting plugin OnlineSubsystemGooglePlay
+LogPluginManager: Mounting plugin OnlineSubsystemIOS
+LogPluginManager: Mounting plugin DatabaseSupport
+LogPluginManager: Mounting plugin SQLiteCore
+LogPluginManager: Mounting plugin SQLiteSupport
+LogPluginManager: Mounting plugin OculusVR
+LogPluginManager: Mounting plugin SteamVR
+LogXGEController: Cleaning working directory: C:/Users/Skouty/AppData/Local/Temp/UnrealXGEWorkingDir/
+LogXGEController: Cannot use XGE Controller as Incredibuild is not installed on this machine.
+LogInit: Using libcurl 7.55.1-DEV
+LogInit:  - built for x86_64-pc-win32
+LogInit:  - supports SSL with OpenSSL/1.1.1
+LogInit:  - supports HTTP deflate (compression) using libz 1.2.8
+LogInit:  - other features:
+LogInit:      CURL_VERSION_SSL
+LogInit:      CURL_VERSION_LIBZ
+LogInit:      CURL_VERSION_IPV6
+LogInit:      CURL_VERSION_ASYNCHDNS
+LogInit:      CURL_VERSION_LARGEFILE
+LogInit:      CURL_VERSION_IDN
+LogInit:  CurlRequestOptions (configurable via config and command line):
+LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
+LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+LogInit:  - MaxHostConnections = 16  - Libcurl will limit the number of connections to a host
+LogInit:  - LocalHostAddr = Default
+LogInit:  - BufferSize = 65536
+LogOnline: OSS: Creating online subsystem instance for: NULL
+LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+LogOnline: OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for module [NULL]
+LogOculusPluginWrapper: OculusPlugin initialized successfully
+LogHMD: FOculusHMDModule PreInit successfully
+LogInit: Build: ++UE4+Release-4.26-CL-15228867
+LogInit: Engine Version: 4.26.1-15228867+++UE4+Release-4.26
+LogInit: Compatible Engine Version: 4.26.0-14830424+++UE4+Release-4.26
+LogInit: Net CL: 14830424
+LogInit: OS: Windows 10 (Release 2004) (), CPU: AMD Ryzen 5 2600 Six-Core Processor            , GPU: NVIDIA GeForce GTX 1060 6GB
+LogInit: Compiled (64-bit): Jan 28 2021 07:07:34
+LogInit: Compiled with Visual C++: 19.24.28315.00
+LogInit: Build Configuration: Development
+LogInit: Branch Name: ++UE4+Release-4.26
+LogInit: Command Line: 
+LogInit: Base Directory: C:/Program Files/Epic Games/UE_4.26/Engine/Binaries/Win64/
+LogInit: Allocator: TBB
+LogInit: Installed Engine Build: 1
+LogDevObjectVersion: Number of dev versions registered: 29
+LogDevObjectVersion:   Dev-Blueprints (B0D832E4-1F89-4F0D-ACCF-7EB736FD4AA2): 10
+LogDevObjectVersion:   Dev-Build (E1C64328-A22C-4D53-A36C-8E866417BD8C): 0
+LogDevObjectVersion:   Dev-Core (375EC13C-06E4-48FB-B500-84F0262A717E): 4
+LogDevObjectVersion:   Dev-Editor (E4B068ED-F494-42E9-A231-DA0B2E46BB41): 40
+LogDevObjectVersion:   Dev-Framework (CFFC743F-43B0-4480-9391-14DF171D2073): 37
+LogDevObjectVersion:   Dev-Mobile (B02B49B5-BB20-44E9-A304-32B752E40360): 3
+LogDevObjectVersion:   Dev-Networking (A4E4105C-59A1-49B5-A7C5-40C4547EDFEE): 0
+LogDevObjectVersion:   Dev-Online (39C831C9-5AE6-47DC-9A44-9C173E1C8E7C): 0
+LogDevObjectVersion:   Dev-Physics (78F01B33-EBEA-4F98-B9B4-84EACCB95AA2): 4
+LogDevObjectVersion:   Dev-Platform (6631380F-2D4D-43E0-8009-CF276956A95A): 0
+LogDevObjectVersion:   Dev-Rendering (12F88B9F-8875-4AFC-A67C-D90C383ABD29): 44
+LogDevObjectVersion:   Dev-Sequencer (7B5AE74C-D270-4C10-A958-57980B212A5A): 12
+LogDevObjectVersion:   Dev-VR (D7296918-1DD6-4BDD-9DE2-64A83CC13884): 3
+LogDevObjectVersion:   Dev-LoadTimes (C2A15278-BFE7-4AFE-6C17-90FF531DF755): 1
+LogDevObjectVersion:   Private-Geometry (6EACA3D4-40EC-4CC1-B786-8BED09428FC5): 3
+LogDevObjectVersion:   Dev-AnimPhys (29E575DD-E0A3-4627-9D10-D276232CDCEA): 17
+LogDevObjectVersion:   Dev-Anim (AF43A65D-7FD3-4947-9873-3E8ED9C1BB05): 15
+LogDevObjectVersion:   Dev-ReflectionCapture (6B266CEC-1EC7-4B8F-A30B-E4D90942FC07): 1
+LogDevObjectVersion:   Dev-Automation (0DF73D61-A23F-47EA-B727-89E90C41499A): 1
+LogDevObjectVersion:   FortniteMain (601D1886-AC64-4F84-AA16-D3DE0DEAC7D6): 43
+LogDevObjectVersion:   FortniteRelease (E7086368-6B23-4C58-8439-1B7016265E91): 1
+LogDevObjectVersion:   Dev-Enterprise (9DFFBCD6-494F-0158-E221-12823C92A888): 10
+LogDevObjectVersion:   Dev-Niagara (F2AED0AC-9AFE-416F-8664-AA7FFA26D6FC): 1
+LogDevObjectVersion:   Dev-Destruction (174F1F0B-B4C6-45A5-B13F-2EE8D0FB917D): 10
+LogDevObjectVersion:   Dev-Physics-Ext (35F94A83-E258-406C-A318-09F59610247C): 40
+LogDevObjectVersion:   Dev-PhysicsMaterial-Chaos (B68FC16E-8B1B-42E2-B453-215C058844FE): 1
+LogDevObjectVersion:   Dev-CineCamera (B2E18506-4273-CFC2-A54E-F4BB758BBA07): 1
+LogDevObjectVersion:   Dev-VirtualProduction (64F58936-FD1B-42BA-BA96-7289D5D0FA4E): 1
+LogDevObjectVersion:   Dev-MediaFramework (6F0ED827-A609-4895-9C91-998D90180EA4): 2
+LogInit: Presizing for max 25165824 objects, including 0 objects not considered by GC, pre-allocating 0 bytes for permanent pool.
+LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+LogConfig: Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+LogConfig: Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
+LogConfig: Setting CVar [[s.EventDrivenLoaderEnabled:1]]
+LogConfig: Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
+LogConfig: Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
+LogConfig: Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
+LogConfig: Setting CVar [[s.UseBackgroundLevelStreaming:1]]
+LogConfig: Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+LogConfig: Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+LogConfig: Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+LogConfig: Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+LogConfig: Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+LogConfig: Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
+LogInit: Object subsystem initialized
+LogConfig: Setting CVar [[con.DebugEarlyDefault:1]]
+LogConfig: Setting CVar [[r.setres:1280x720]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.VSync:0]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.RHICmdBypass:0]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.GPUCrashDebugging:0]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.MobileHDR:1]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.Mobile.DisableVertexFog:1]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxMobileCascades:2]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.MobileMSAA:4]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.Mobile.UseHWsRGBEncoding:1]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.Mobile.AllowDitheredLODTransition:0]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.Mobile.AllowSoftwareOcclusion:0]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.DiscardUnusedQuality:0]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.AllowOcclusionQueries:1]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForLights:0.030000]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForDepthPrepass:0.030000]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForCSMDepth:0.010000]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.PrecomputedVisibilityWarning:0]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.TextureStreaming:1]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[Compat.UseDXT5NormalMaps:0]]
+[2021.04.14-22.39.53:302][  0]LogConfig: Setting CVar [[r.VirtualTextures:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.VirtualTexturedLightmaps:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.VT.TileSize:128]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.VT.TileBorderSize:4]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.vt.FeedbackFactor:16]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.VT.EnableCompressZlib:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.VT.EnableCompressCrunch:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.ClearCoatNormal:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.ReflectionCaptureResolution:128]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.ReflectionEnvironmentLightmapMixBasedOnRoughness:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.ForwardShading:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.VertexFoggingForOpaque:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.AllowStaticLighting:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.NormalMapsForStaticLighting:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.GenerateMeshDistanceFields:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DistanceFieldBuild.EightBit:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.GenerateLandscapeGIData:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DistanceFieldBuild.Compress:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.TessellationAdaptivePixelsPerTriangle:48.000000]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SeparateTranslucency:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.TranslucentSortPolicy:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.CustomDepth:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.CustomDepthTemporalAAJitter:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.PostProcessing.PropagateAlpha:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultFeature.Bloom:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultFeature.AmbientOcclusion:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultFeature.AmbientOcclusionStaticFraction:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.Method:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.UsePreExposure:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.EyeAdaptation.EditorOnly:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultFeature.MotionBlur:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultFeature.LensFlare:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.TemporalAA.Upsampling:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SSGI.Enable:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultFeature.AntiAliasing:3]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultFeature.LightUnits:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DefaultBackBufferPixelFormat:4]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.Shadow.UnbuiltPreviewInGame:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.StencilForLODDither:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.EarlyZPass:3]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.EarlyZPassOnlyMaterialMasking:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.DBuffer:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.ClearSceneMethod:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.BasePassOutputsVelocity:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SelectiveBasePassOutputs:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[fx.GPUSimulationTextureSizeX:1024]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[fx.GPUSimulationTextureSizeY:1024]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.AllowGlobalClipPlane:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.GBufferFormat:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.MorphTarget.Mode:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[vr.InstancedStereo:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[vr.MobileMultiView:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[vr.RoundRobinOcclusion:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[vr.ODSCapture:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.WireframeCullThreshold:5.000000]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.RayTracing:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.RayTracing.UseTextureLod:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SupportStationarySkylight:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SupportLowQualityLightmaps:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SupportPointLightWholeSceneShadows:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SupportAtmosphericFog:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SupportSkyAtmosphere:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SupportSkyAtmosphereAffectsHeightFog:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SkinCache.CompileShaders:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.Mobile.EnableStaticAndCSMShadowReceivers:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableLightCSMShaderCulling:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.Mobile.AllowDistanceFieldShadows:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.Mobile.AllowMovableDirectionalLights:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.MobileNumDynamicPointLights:4]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.MobileDynamicPointLightsUseStaticBranch:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableSpotlights:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SkinCache.SceneMemoryLimitInMB:128.000000]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.GPUSkin.Limit2BoneInfluences:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SupportDepthOnlyIndexBuffers:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.SupportReversedIndexBuffers:1]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.LightPropagationVolume:0]]
+[2021.04.14-22.39.53:303][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableSpotlightsShadow:1]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererOverrideSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.14-22.39.53:304][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.EventDrivenLoaderEnabled:1]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.UseBackgroundLevelStreaming:1]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.GarbageCollectionSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.MaxObjectsNotConsideredByGC:1]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.SizeOfPermanentObjectPool:0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.FlushStreamingOnGC:0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.NumRetriesBeforeForcingGC:10]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.AllowParallelGC:1]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.TimeBetweenPurgingPendingKillObjects:61.1]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.MaxObjectsInEditor:25165824]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.IncrementalBeginDestroyEnabled:1]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.CreateGCClusters:1]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.MinGCClusterSize:5]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.ActorClusteringEnabled:0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.BlueprintClusteringEnabled:0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.UseDisregardForGCOnDedicatedServers:0]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Setting CVar [[gc.MultithreadedDestructionEnabled:1]]
+[2021.04.14-22.39.53:304][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.NetworkSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.14-22.39.53:304][  0]LogConfig: Applying CVar settings from Section [/Script/UnrealEd.CookerSettings] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.14-22.39.53:332][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2021.04.14-22.39.53:332][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.AnisotropicMaterials:1]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+[2021.04.14-22.39.53:333][  0]LogInit: Selected Device Profile: [Windows]
+[2021.04.14-22.39.53:333][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2021.04.14-22.39.53:333][  0]LogHAL: Display: Platform has ~ 16 GB [17124524032 / 17179869184 / 16], which maps to Larger [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+[2021.04.14-22.39.53:333][  0]LogInit: Going up to parent DeviceProfile []
+[2021.04.14-22.39.53:333][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
+[2021.04.14-22.39.53:333][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.AnisotropicMaterials:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
+[2021.04.14-22.39.53:334][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+[2021.04.14-22.39.53:335][  0]LogConfig: Applying CVar settings from Section [Startup] File [../../../Engine/Config/ConsoleVariables.ini]
+[2021.04.14-22.39.53:336][  0]LogConfig: Setting CVar [[net.UseAdaptiveNetUpdateFrequency:0]]
+[2021.04.14-22.39.53:336][  0]LogConfig: Setting CVar [[p.chaos.AllowCreatePhysxBodies:1]]
+[2021.04.14-22.39.53:336][  0]LogConfig: Setting CVar [[fx.SkipVectorVMBackendOptimizations:1]]
+[2021.04.14-22.39.53:336][  0]LogConfig: Applying CVar settings from Section [ConsoleVariables] File [C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2021.04.14-22.39.53:336][  0]LogInit: Computer: DESKTOP-Q7OIGVQ
+[2021.04.14-22.39.53:336][  0]LogInit: User: Skouty
+[2021.04.14-22.39.53:336][  0]LogInit: CPU Page size=4096, Cores=6
+[2021.04.14-22.39.53:336][  0]LogInit: High frequency timer resolution =10.000000 MHz
+[2021.04.14-22.39.53:336][  0]LogMemory: Memory total: Physical=15.9GB (16GB approx)
+[2021.04.14-22.39.53:336][  0]LogMemory: Platform Memory Stats for Windows
+[2021.04.14-22.39.53:336][  0]LogMemory: Process Physical Memory: 142.93 MB used, 142.93 MB peak
+[2021.04.14-22.39.53:336][  0]LogMemory: Process Virtual Memory: 120.33 MB used, 120.33 MB peak
+[2021.04.14-22.39.53:336][  0]LogMemory: Physical Memory: 7392.49 MB used,  8938.73 MB free, 16331.22 MB total
+[2021.04.14-22.39.53:336][  0]LogMemory: Virtual Memory: 134210792.00 MB used,  6934.77 MB free, 134217728.00 MB total
+[2021.04.14-22.39.53:339][  0]LogWindows: WindowsPlatformFeatures enabled
+[2021.04.14-22.39.53:385][  0]LogInit: Physics initialised using underlying interface: PhysX
+[2021.04.14-22.39.53:386][  0]LogInit: Using OS detected language (en-US).
+[2021.04.14-22.39.53:386][  0]LogInit: Using OS detected locale (en-US).
+[2021.04.14-22.39.53:397][  0]LogTextLocalizationManager: No specific localization for 'en-US' exists, so the 'en' localization will be used.
+[2021.04.14-22.39.53:626][  0]LogInit: Setting process to per monitor DPI aware
+[2021.04.14-22.39.53:636][  0]LogWindowsTextInputMethodSystem: Display: IME system deactivated.
+[2021.04.14-22.39.53:685][  0]LogSlate: New Slate User Created.  User Index 0, Is Virtual User: 0
+[2021.04.14-22.39.53:685][  0]LogSlate: Slate User Registered.  User Index 0, Is Virtual User: 0
+[2021.04.14-22.39.53:878][  0]LogD3D11RHI: D3D11 min allowed feature level: 11_0
+[2021.04.14-22.39.53:878][  0]LogD3D11RHI: D3D11 max allowed feature level: 11_0
+[2021.04.14-22.39.53:878][  0]LogD3D11RHI: D3D11 adapters:
+[2021.04.14-22.39.54:015][  0]LogD3D11RHI:    0. 'NVIDIA GeForce GTX 1060 6GB' (Feature Level 11_0)
+[2021.04.14-22.39.54:015][  0]LogD3D11RHI:       6052/0/8165 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:2, VendorId:0x10de
+[2021.04.14-22.39.54:018][  0]LogD3D11RHI:    1. 'Microsoft Basic Render Driver' (Feature Level 11_0)
+[2021.04.14-22.39.54:018][  0]LogD3D11RHI:       0/0/8165 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1414
+[2021.04.14-22.39.54:018][  0]LogD3D11RHI: Chosen D3D11 Adapter: 0
+[2021.04.14-22.39.54:026][  0]LogD3D11RHI: Creating new Direct3DDevice
+[2021.04.14-22.39.54:026][  0]LogD3D11RHI:     GPU DeviceId: 0x1c03 (for the marketing name, search the web for "GPU Device Id")
+[2021.04.14-22.39.54:026][  0]LogWindows: EnumDisplayDevices:
+[2021.04.14-22.39.54:026][  0]LogWindows:    0. 'NVIDIA GeForce GTX 1060 6GB' (P:1 D:1)
+[2021.04.14-22.39.54:027][  0]LogWindows:    1. 'NVIDIA GeForce GTX 1060 6GB' (P:0 D:1)
+[2021.04.14-22.39.54:027][  0]LogWindows:    2. 'NVIDIA GeForce GTX 1060 6GB' (P:0 D:0)
+[2021.04.14-22.39.54:027][  0]LogWindows:    3. 'NVIDIA GeForce GTX 1060 6GB' (P:0 D:0)
+[2021.04.14-22.39.54:028][  0]LogWindows: DebugString: FoundDriverCount:4 
+[2021.04.14-22.39.54:028][  0]LogD3D11RHI:     Adapter Name: NVIDIA GeForce GTX 1060 6GB
+[2021.04.14-22.39.54:028][  0]LogD3D11RHI:   Driver Version: 461.72 (internal:27.21.14.6172, unified:461.72)
+[2021.04.14-22.39.54:028][  0]LogD3D11RHI:      Driver Date: 2-23-2021
+[2021.04.14-22.39.54:028][  0]LogRHI: Texture pool is 4236 MB (70% of 6052 MB)
+[2021.04.14-22.39.54:133][  0]LogD3D11RHI: RHI has support for 64 bit atomics
+[2021.04.14-22.39.54:133][  0]LogD3D11RHI: Async texture creation enabled
+[2021.04.14-22.39.54:133][  0]LogD3D11RHI: Array index from any shader is supported
+[2021.04.14-22.39.54:156][  0]LogD3D11RHI: GPU Timing Frequency: 1000.000000 (Debug: 2 1)
+[2021.04.14-22.39.54:158][  0]LogRHI: GeForceNow SDK initialized: 1
+[2021.04.14-22.39.54:497][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'AllDesktop'
+[2021.04.14-22.39.54:526][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android'
+[2021.04.14-22.39.54:526][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ASTC'
+[2021.04.14-22.39.54:526][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_DXT'
+[2021.04.14-22.39.54:526][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ETC2'
+[2021.04.14-22.39.54:526][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'AndroidClient'
+[2021.04.14-22.39.54:526][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ASTCClient'
+[2021.04.14-22.39.54:526][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_DXTClient'
+[2021.04.14-22.39.54:526][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ETC2Client'
+[2021.04.14-22.39.54:526][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_Multi'
+[2021.04.14-22.39.54:526][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_MultiClient'
+[2021.04.14-22.39.54:557][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'IOSClient'
+[2021.04.14-22.39.54:557][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'IOS'
+[2021.04.14-22.39.54:571][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Linux'
+[2021.04.14-22.39.54:583][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxNoEditor'
+[2021.04.14-22.39.54:596][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxClient'
+[2021.04.14-22.39.54:608][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxServer'
+[2021.04.14-22.39.54:620][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64NoEditor'
+[2021.04.14-22.39.54:632][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64Client'
+[2021.04.14-22.39.54:644][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64Server'
+[2021.04.14-22.39.54:683][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Lumin'
+[2021.04.14-22.39.54:683][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LuminClient'
+[2021.04.14-22.39.54:696][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'MacNoEditor'
+[2021.04.14-22.39.54:709][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Mac'
+[2021.04.14-22.39.54:721][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'MacClient'
+[2021.04.14-22.39.54:733][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'MacServer'
+[2021.04.14-22.39.54:755][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'TVOSClient'
+[2021.04.14-22.39.54:755][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'TVOS'
+[2021.04.14-22.39.54:767][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsNoEditor'
+[2021.04.14-22.39.54:780][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Windows'
+[2021.04.14-22.39.54:791][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsClient'
+[2021.04.14-22.39.54:803][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsServer'
+[2021.04.14-22.39.54:803][  0]LogTargetPlatformManager: Display: Building Assets For Windows
+[2021.04.14-22.39.54:811][  0]LogAudioDebug: Display: Lib vorbis DLL was dynamically loaded.
+[2021.04.14-22.39.54:882][  0]LogRendererCore: Ray tracing is disabled. Reason: r.RayTracing=0.
+[2021.04.14-22.39.54:882][  0]LogShaderCompilers: Guid format shader working directory is -53 characters bigger than the processId version (../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Shaders/WorkingDirectory/13396/).
+[2021.04.14-22.39.54:882][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/Skouty/AppData/Local/Temp/UnrealShaderWorkingDir/F97346644DB0A6F8954F7FAEA4715D6A/'.
+[2021.04.14-22.39.54:883][  0]LogShaderCompilers: Cannot use XGE Shader Compiler as Incredibuild is not installed on this machine.
+[2021.04.14-22.39.54:883][  0]LogShaderCompilers: Display: Using Local Shader Compiler.
+[2021.04.14-22.39.55:731][  0]LogDerivedDataCache: Display: Max Cache Size: 512 MB
+[2021.04.14-22.39.55:805][  0]LogDerivedDataCache: Loaded boot cache 0.07s 101MB C:/Users/Skouty/AppData/Local/UnrealEngine/4.26/DerivedDataCache/Boot.ddc.
+[2021.04.14-22.39.55:805][  0]LogDerivedDataCache: Display: Loaded Boot cache: C:/Users/Skouty/AppData/Local/UnrealEngine/4.26/DerivedDataCache/Boot.ddc
+[2021.04.14-22.39.55:805][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2021.04.14-22.39.55:805][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2021.04.14-22.39.55:805][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  CompressedPak pak cache file ../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2021.04.14-22.39.55:805][  0]LogDerivedDataCache: Unable to find inner node CompressedPak for hierarchical cache Hierarchy.
+[2021.04.14-22.39.55:820][  0]LogDerivedDataCache: Display: Pak cache opened for reading ../../../Engine/DerivedDataCache/Compressed.ddp.
+[2021.04.14-22.39.55:820][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  EnterprisePak pak cache file ../../../Enterprise/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2021.04.14-22.39.55:820][  0]LogDerivedDataCache: Unable to find inner node EnterprisePak for hierarchical cache Hierarchy.
+[2021.04.14-22.39.55:834][  0]LogDerivedDataCache: Speed tests for C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache took 0.01 seconds
+[2021.04.14-22.39.55:834][  0]LogDerivedDataCache: Display: Performance to C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache: Latency=0.04ms. RandomReadSpeed=215.37MBs, RandomWriteSpeed=105.56MBs. Assigned SpeedClass 'Local'
+[2021.04.14-22.39.55:835][  0]LogDerivedDataCache: Using Local data cache path C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache: Writable
+[2021.04.14-22.39.55:835][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
+[2021.04.14-22.39.55:835][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
+[2021.04.14-22.39.55:893][  0]LogSlate: Using FreeType 2.10.0
+[2021.04.14-22.39.55:894][  0]LogSlate: SlateFontServices - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2021.04.14-22.39.55:921][  0]LogAssetRegistry: FAssetRegistry took 0.0037 seconds to start up
+[2021.04.14-22.39.56:234][  0]LogInit: Selected Device Profile: [Windows]
+[2021.04.14-22.39.56:235][  0]LogInit: Active device profile: [000001A50FC2E100][000001A50EB70300 49] Windows
+[2021.04.14-22.39.56:235][  0]LogInit: Profiles: [000001A50FC2E100][000001A50EB70300 49] Windows, [000001A50FBE2100][000001A50EB88480 49] WindowsNoEditor, [000001A50FC2FE00][000001A50EBBA600 49] WindowsServer, [000001A50FBE0400][000001A50EBC8780 49] WindowsClient, [000001A50FC2C400][000001A50EBDA900 49] IOS, [000001A50FBE2F00][000001A50EBE6A80 49] iPadAir, [000001A50FC2EB00][000001A50EBEAC00 49] iPadAir2, [000001A50F9FB500][000001A50EC02EC0 49] IPadPro, [000001A50F9FB600][000001A50EBEEF00 49] iPadAir3, [000001A50FC2D600][000001A50EC15080 49] iPadAir4, [000001A50F9FA700][000001A50EC19200 49] iPadMini2, [000001A50FC2F800][000001A50EC63380 49] iPadMini3, [000001A50F9F8F00][000001A50EC67500 49] iPadMini4, [000001A50FC2CA00][000001A50EC6F680 49] iPadMini5, [000001A50FBCB100][000001A50EC8F8C0 49] iPhone6, [000001A50FBCB200][000001A50EB75900 49] iPodTouch6, [000001A50F9FB800][000001A50EC9BB40 49] iPhone7, [000001A50F9FB900][000001A50EC93B80 49] iPodTouch7, [000001A50FBCA700][000001A50ECB9D00 49] iPhone5S, [000001A50F9F9900][000001A50ECC81C0 49] iPhone6Plus, [000001A50FBC8D00][000001A50ECCC340 49] iPhone6S, [000001A50F9F8300][000001A50ECD04C0 49] iPhone6SPlus, [000001A50FBCAD00][000001A50ECD4640 49] iPhone7Plus, [000001A50F9FBA00][000001A50ECD87C0 49] iPhoneSE, [000001A50FBCA600][000001A50ECDC940 49] iPhone8, [000001A50F9F8800][000001A50ECE0AC0 49] iPhone8Plus, [000001A50FBCA400][000001A50ECE4C40 49] iPhoneX, [000001A50F9F9800][000001A50ECE8DC0 49] iPhoneXS, [000001A50FBC8700][000001A50ECECF40 49] iPhoneXSMax, [000001A50F9FAA00][000001A50ECF10C0 49] iPhoneXR, [000001A50FBCB500][000001A50ECF5240 49] iPhone11, [000001A50F9FBC00][000001A50ECF93C0 49] iPhone11Pro, [000001A50FBCA300][000001A50ECFD540 49] iPhone11ProMax, [000001A50F9F9B00][000001A50ED016C0 49] iPhoneSE2, [000001A50FBC9900][000001A50ED05840 49] iPhone12Mini, [000001A50F9F8200][000001A50ECB5980 49] iPhone12, [000001A50FBC8400][000001A50ED09AC0 49] iPhone12Pro, [000001A50F9F9100][000001A50ED0DC00 49] iPhone12ProMax, [000001A50FBC9100][000001A50ED140C0 49] iPadPro105, [000001A50F9F9500][000001A50ED18240 49] iPadPro129, [000001A50FBC9700][000001A50ED1C3C0 49] iPadPro97, [000001A50F9F9200][000001A50ED20540 49] iPadPro2_129, [000001A50F9F9D00][000001A50ED246C0 49] iPad5, [000001A50FBE1D00][000001A50ED28840 49] iPad6, [000001A50F9F8500][000001A50ED2C9C0 49] iPad7, [000001A50FBE0B00][000001A50FD40B40 49] iPad8, [000001A50F9FAB00][000001A50FD44CC0 49] iPadPro11, [000001A50FBE3B00][000001A50FD48E40 49] iPadPro2_11, [000001A50F9F8B00][000001A50FD4CFC0 49] iPadPro3_129, [000001A50FBE3E00][000001A50FD51140 49] iPadPro4_129, [000001A50FBE3000][000001A50FD552C0 49] AppleTV, [000001A50FBC9400][000001A50FD59440 49] AppleTV4K, [000001A50FBE1A00][000001A50FD5D5C0 49] TVOS, [000001A50FBC9C00][000001A50FD61740 49] Mac, [000001A50FBE2C00][000001A50FD658C0 49] MacClient, [000001A50FBCBA00][000001A50ED11A00 49] MacNoEditor, [000001A50FBE0F00][000001A50FD69B40 49] MacServer, [000001A50FBCBD00][000001A50FD6DC80 49] Linux, [000001A50FBE3800][000001A50FD70100 49] LinuxNoEditor, [000001A50FBC9A00][000001A50FD78280 49] LinuxAArch64NoEditor, [000001A50FBE1B00][000001A50FD7C400 49] LinuxClient, [000001A50FBCB000][000001A50FD80580 49] LinuxAArch64Client, [000001A50F9FA800][000001A50FD84700 49] LinuxServer, [000001A50FBC9300][000001A50FD88880 49] LinuxAArch64Server, [000001A50F9F8400][000001A50FD8CA00 49] Android, [000001A50FBC9800][000001A50FD90B80 49] Android_Low, [000001A50F9FB100][000001A50FD94D00 49] Android_Mid, [000001A50FBCA200][000001A50FD98E80 49] Android_High, [000001A50F9FA200][000001A50FD9D000 49] Android_Default, [000001A50FBC8B00][000001A50FDA1180 49] Android_Adreno4xx, [000001A50F9FA900][000001A50FDA5300 49] Android_Adreno5xx_Low, [000001A50FBC9F00][000001A50FDA9480 49] Android_Adreno5xx, [000001A50F9F9000][000001A50FDAD600 49] Android_Adreno6xx, [000001A50FBC8600][000001A50FDB1780 49] Android_Adreno6xx_Vulkan, [000001A50F9F9C00][000001A50FDB5900 49] Android_Mali_T6xx, [000001A50FBC8300][000001A50FD75A40 49] Android_Mali_T7xx, [000001A50F9FAE00][000001A50FDB9B80 49] Android_Mali_T8xx, [000001A50FBCA500][000001A50FDBDCC0 49] Android_Mali_G71, [000001A50F9FA500][000001A50FDC0140 49] Android_Mali_G72, [000001A50FBC8100][000001A50FDC82C0 49] Android_Mali_G72_Vulkan, [000001A50F9F8E00][000001A50FDCC440 49] Android_Mali_G76, [000001A50FBCB400][000001A50FDD05C0 49] Android_Mali_G76_Vulkan, [000001A50F9FBF00][000001A50FDD4740 49] Android_Mali_G77, [000001A50FBC9000][000001A50FDD88C0 49] Android_Mali_G77_Vulkan, [000001A50F9FA300][000001A50FDDCA40 49] Android_Vulkan_SM5, [000001A50FBCAC00][000001A50FDE0BC0 49] Android_PowerVR_G6xxx, [000001A50F9F9400][000001A50FDE4D40 49] Android_PowerVR_GT7xxx, [000001A50FBC8A00][000001A50FDE8EC0 49] Android_PowerVR_GE8xxx, [000001A50F9FBD00][000001A50FDED040 49] Android_PowerVR_GM9xxx, [000001A50FBCA000][000001A50FDF11C0 49] Android_PowerVR_GM9xxx_Vulkan, [000001A50F9FBB00][000001A50FDF5340 49] Android_TegraK1, [000001A50FBC8500][000001A50FDF94C0 49] Android_Unknown_Vulkan, [000001A50F9FA400][000001A50FDFD640 49] Lumin, [000001A50FBC9E00][000001A50FE017C0 49] Lumin_Desktop, [000001A50FBE1F00][000001A50FE05940 49] HoloLens, 
+[2021.04.14-22.39.56:368][  0]LogMeshReduction: Using QuadricMeshReduction for automatic static mesh reduction
+[2021.04.14-22.39.56:368][  0]LogMeshReduction: Using SimplygonMeshReduction for automatic skeletal mesh reduction
+[2021.04.14-22.39.56:368][  0]LogMeshReduction: Using ProxyLODMeshReduction for automatic mesh merging
+[2021.04.14-22.39.56:368][  0]LogMeshReduction: No distributed automatic mesh merging module available
+[2021.04.14-22.39.56:368][  0]LogMeshMerging: No distributed automatic mesh merging module available
+[2021.04.14-22.39.56:411][  0]LogNetVersion: ArchitectureExplorer 1.0.0, NetCL: 14830424, EngineNetVer: 16, GameNetVer: 0 (Checksum: 4169611960)
+[2021.04.14-22.39.56:909][  0]LogHMD: PokeAHoleMaterial loaded successfully
+[2021.04.14-22.39.56:985][  0]LogPackageLocalizationCache: Processed 27 localized package path(s) for 1 prioritized culture(s) in 0.075326 seconds
+[2021.04.14-22.39.56:992][  0]LogUObjectArray: 16830 objects as part of root set at end of initial load.
+[2021.04.14-22.39.56:992][  0]LogUObjectAllocator: 4209472 out of 0 bytes used by permanent object pool.
+[2021.04.14-22.39.56:992][  0]LogUObjectArray: CloseDisregardForGC: 0/0 objects in disregard for GC pool
+[2021.04.14-22.39.57:423][  0]LogUdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2021.04.14-22.39.57:429][  0]LogTcpMessaging: Initializing TcpMessaging bridge
+[2021.04.14-22.39.57:504][  0]LogPython: Using Python 3.7.7
+[2021.04.14-22.39.58:484][  0]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.39.58:484][  0]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.39.58:484][  0]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.39.58:484][  0]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.39.58:484][  0]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.39.58:484][  0]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.39.58:484][  0]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.39.58:484][  0]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.39.58:484][  0]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.39.58:575][  0]SourceControl: Source control is disabled
+[2021.04.14-22.39.58:575][  0]SourceControl: Source control is disabled
+[2021.04.14-22.39.58:578][  0]SourceControl: Source control is disabled
+[2021.04.14-22.39.58:582][  0]SourceControl: Source control is disabled
+[2021.04.14-22.39.58:588][  0]SourceControl: Source control is disabled
+[2021.04.14-22.39.58:599][  0]LogUProjectInfo: Found projects:
+[2021.04.14-22.39.58:946][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
+[2021.04.14-22.39.59:011][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2021.04.14-22.39.59:012][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2021.04.14-22.39.59:228][  0]LogCollectionManager: Loaded 0 collections in 0.001902 seconds
+[2021.04.14-22.39.59:263][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Collections/' took 0.00s
+[2021.04.14-22.39.59:263][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Developers/Skouty/Collections/' took 0.00s
+[2021.04.14-22.39.59:263][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Collections/' took 0.00s
+[2021.04.14-22.39.59:263][  0]LogOcInput: OculusInput pre-init called
+[2021.04.14-22.39.59:806][  0]LogEngine: Initializing Engine...
+[2021.04.14-22.39.59:807][  0]LogHMD: PokeAHoleMaterial loaded successfully
+[2021.04.14-22.39.59:807][  0]LogHMD: Initializing OVRPlugin session
+[2021.04.14-22.39.59:968][  0]LogHMD: Allocating Oculus 3136 x 1728 rendertarget swapchain
+[2021.04.14-22.39.59:968][  0]LogHMD: Oculus plugin initialized. Version: 4.26.1-15228867+++UE4+Release-4.26, OVRPlugin: 1.51.0
+[2021.04.14-22.39.59:969][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.000 s
+[2021.04.14-22.40.00:093][  0]LogInit: Initializing FReadOnlyCVARCache
+[2021.04.14-22.40.00:105][  0]LogAIModule: Creating AISystem for world Untitled
+[2021.04.14-22.40.00:113][  0]LogAudio: Display: Initializing Audio Device Manager...
+[2021.04.14-22.40.00:117][  0]LogAudio: Display: Audio Device Manager Initialized
+[2021.04.14-22.40.00:117][  0]LogAudio: Display: Creating Audio Device:                 Id: 1, Scope: Shared, Realtime: True
+[2021.04.14-22.40.00:117][  0]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.04.14-22.40.00:117][  0]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.04.14-22.40.00:117][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.04.14-22.40.00:117][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.04.14-22.40.00:117][  0]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2021.04.14-22.40.00:117][  0]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2021.04.14-22.40.00:117][  0]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2021.04.14-22.40.00:117][  0]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.04.14-22.40.00:118][  0]LogAudio: Display: Using built-in audio occlusion.
+[2021.04.14-22.40.00:118][  0]LogAudioMixer: Display: Initializing audio mixer.
+[2021.04.14-22.40.00:135][  0]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.40.00:135][  0]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.40.00:167][  0]LogAudioMixer: Display: Using Audio Device Realtek HD Audio 2nd output (Realtek(R) Audio)
+[2021.04.14-22.40.00:170][  0]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.04.14-22.40.00:172][  0]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.04.14-22.40.00:172][  0]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.04.14-22.40.00:173][  0]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.04.14-22.40.00:173][  0]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.04.14-22.40.00:173][  0]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.04.14-22.40.00:174][  0]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.04.14-22.40.00:174][  0]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.04.14-22.40.00:174][  0]LogInit: FAudioDevice initialized.
+[2021.04.14-22.40.00:174][  0]LogAudio: Display: Audio Device (ID: 1) registered with world 'Untitled'.
+[2021.04.14-22.40.00:175][  0]LogNetVersion: Set ProjectVersion to 1.0.0.0. Version Checksum will be recalculated on next use.
+[2021.04.14-22.40.00:281][  0]LogDerivedDataCache: Saved boot cache 0.11s 101MB C:/Users/Skouty/AppData/Local/UnrealEngine/4.26/DerivedDataCache/Boot.ddc.
+[2021.04.14-22.40.00:284][  0]LogInit: Texture streaming: Enabled
+[2021.04.14-22.40.00:298][  0]LogAnalytics: Display: [UEEditor.Rocket.Release] APIServer = https://datarouter.ol.epicgames.com/. AppVersion = 4.26.1-15228867+++UE4+Release-4.26
+[2021.04.14-22.40.00:302][  0]LogEngineSessionManager: EngineSessionManager initialized
+[2021.04.14-22.40.00:302][  0]LogEditorSessionSummary: Verbose: Initializing EditorSessionSummaryWriter for editor session tracking
+[2021.04.14-22.40.00:304][  0]LogEditorSessionSummary: EditorSessionSummaryWriter initialized
+[2021.04.14-22.40.00:343][  0]LogInit: Transaction tracking system initialized
+[2021.04.14-22.40.00:365][  0]BlueprintLog: New page: Editor Load
+[2021.04.14-22.40.00:444][  0]LocalizationService: Localization service is disabled
+[2021.04.14-22.40.00:470][  0]TimingProfiler: Initialize
+[2021.04.14-22.40.00:470][  0]TimingProfiler: OnSessionChanged
+[2021.04.14-22.40.00:470][  0]LoadingProfiler: Initialize
+[2021.04.14-22.40.00:470][  0]LoadingProfiler: OnSessionChanged
+[2021.04.14-22.40.00:470][  0]NetworkingProfiler: Initialize
+[2021.04.14-22.40.00:470][  0]NetworkingProfiler: OnSessionChanged
+[2021.04.14-22.40.00:470][  0]MemoryProfiler: Initialize
+[2021.04.14-22.40.00:470][  0]MemoryProfiler: OnSessionChanged
+[2021.04.14-22.40.00:636][  0]LogCook: Display: CookSettings for Memory: MemoryMaxUsedVirtual 0MiB, MemoryMaxUsedPhysical 16384MiB, MemoryMinFreeVirtual 0MiB, MemoryMinFreePhysical 1024MiB
+[2021.04.14-22.40.00:636][  0]LogCook: Display: Mobile HDR setting 1
+[2021.04.14-22.40.00:817][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/' took 0.14s
+[2021.04.14-22.40.01:023][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2021.04.14-22.40.01:028][  0]SourceControl: Source control is disabled
+[2021.04.14-22.40.01:028][  0]LogUnrealEdMisc: Loading editor; pre map load, took 9.258
+[2021.04.14-22.40.01:028][  0]Cmd: MAP LOAD FILE="../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
+[2021.04.14-22.40.01:028][  0]LightingResults: New page: Lighting Build
+[2021.04.14-22.40.01:030][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.40.01:030][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.40.01:030][  0]MapCheck: New page: Map Check
+[2021.04.14-22.40.01:030][  0]LightingResults: New page: Lighting Build
+[2021.04.14-22.40.01:037][  0]LogUObjectHash: Compacting FUObjectHashTables data took   1.08ms
+[2021.04.14-22.40.01:175][  0]LogBlueprint: Warning: [AssetLog] C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Content\FiverrAnim\AB_FiverrBody.uasset: [Compiler] Node  Look At - Bone: Head_JNT  uses potentially thread-unsafe call  Get PlayerCamera . Disable threaded update or use a thread-safe call. Function may need BlueprintThreadSafe metadata adding.
+[2021.04.14-22.40.02:426][  0]LogAudio: Display: Audio Device (ID: 1) registered with world 'World'.
+[2021.04.14-22.40.02:426][  0]LogAIModule: Creating AISystem for world World
+[2021.04.14-22.40.02:444][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/World.World:PersistentLevel.BP_FiverrErrol_3.CharacterMesh0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.40.02:453][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2021.04.14-22.40.02:483][  0]LogUObjectHash: Compacting FUObjectHashTables data took   1.14ms
+[2021.04.14-22.40.02:484][  0]Cmd: MAP CHECKDEP NOCLEARLOG
+[2021.04.14-22.40.02:484][  0]MapCheck: Map check complete: 0 Error(s), 0 Warning(s), took 0.279ms to complete.
+[2021.04.14-22.40.02:484][  0]LogFileHelpers: Loading map 'World' took 1.456
+[2021.04.14-22.40.02:490][  0]LogUnrealEdMisc: Total Editor Startup Time, took 10.720
+[2021.04.14-22.40.02:620][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.40.02:627][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.40.02:634][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.40.02:641][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.40.02:657][  0]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0118 seconds. Added 3820 classes and 914 folders.
+[2021.04.14-22.40.02:661][  0]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'WidgetCarousel' in 0.0003 seconds. Added 0 classes and 0 folders.
+[2021.04.14-22.40.02:663][  0]LogPakFile: PakFile PrimaryIndexSize=187
+[2021.04.14-22.40.02:664][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:664][  0]LogPakFile: PakFile FullDirectoryIndexSize=148
+[2021.04.14-22.40.02:664][  0]LogPakFile: OnPakFileMounted2Time == 0.000008
+[2021.04.14-22.40.02:664][  0]LogPakFile: PakFile PrimaryIndexSize=189
+[2021.04.14-22.40.02:664][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:664][  0]LogPakFile: PakFile FullDirectoryIndexSize=152
+[2021.04.14-22.40.02:664][  0]LogPakFile: OnPakFileMounted2Time == 0.000009
+[2021.04.14-22.40.02:665][  0]LogPakFile: PakFile PrimaryIndexSize=191
+[2021.04.14-22.40.02:665][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:665][  0]LogPakFile: PakFile FullDirectoryIndexSize=160
+[2021.04.14-22.40.02:665][  0]LogPakFile: OnPakFileMounted2Time == 0.000012
+[2021.04.14-22.40.02:666][  0]LogPakFile: PakFile PrimaryIndexSize=185
+[2021.04.14-22.40.02:666][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:666][  0]LogPakFile: PakFile FullDirectoryIndexSize=148
+[2021.04.14-22.40.02:666][  0]LogPakFile: OnPakFileMounted2Time == 0.000013
+[2021.04.14-22.40.02:666][  0]LogPakFile: PakFile PrimaryIndexSize=190
+[2021.04.14-22.40.02:666][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:666][  0]LogPakFile: PakFile FullDirectoryIndexSize=154
+[2021.04.14-22.40.02:666][  0]LogPakFile: OnPakFileMounted2Time == 0.000014
+[2021.04.14-22.40.02:667][  0]LogPakFile: PakFile PrimaryIndexSize=192
+[2021.04.14-22.40.02:667][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:667][  0]LogPakFile: PakFile FullDirectoryIndexSize=158
+[2021.04.14-22.40.02:667][  0]LogPakFile: OnPakFileMounted2Time == 0.000015
+[2021.04.14-22.40.02:668][  0]LogPakFile: PakFile PrimaryIndexSize=182
+[2021.04.14-22.40.02:668][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:668][  0]LogPakFile: PakFile FullDirectoryIndexSize=138
+[2021.04.14-22.40.02:668][  0]LogPakFile: OnPakFileMounted2Time == 0.000016
+[2021.04.14-22.40.02:668][  0]LogPakFile: PakFile PrimaryIndexSize=184
+[2021.04.14-22.40.02:668][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:668][  0]LogPakFile: PakFile FullDirectoryIndexSize=142
+[2021.04.14-22.40.02:668][  0]LogPakFile: OnPakFileMounted2Time == 0.000020
+[2021.04.14-22.40.02:669][  0]LogPakFile: PakFile PrimaryIndexSize=188
+[2021.04.14-22.40.02:669][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:669][  0]LogPakFile: PakFile FullDirectoryIndexSize=150
+[2021.04.14-22.40.02:669][  0]LogPakFile: OnPakFileMounted2Time == 0.000021
+[2021.04.14-22.40.02:670][  0]LogPakFile: PakFile PrimaryIndexSize=182
+[2021.04.14-22.40.02:670][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:670][  0]LogPakFile: PakFile FullDirectoryIndexSize=138
+[2021.04.14-22.40.02:670][  0]LogPakFile: OnPakFileMounted2Time == 0.000022
+[2021.04.14-22.40.02:670][  0]LogPakFile: PakFile PrimaryIndexSize=184
+[2021.04.14-22.40.02:670][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:670][  0]LogPakFile: PakFile FullDirectoryIndexSize=142
+[2021.04.14-22.40.02:670][  0]LogPakFile: OnPakFileMounted2Time == 0.000023
+[2021.04.14-22.40.02:671][  0]LogPakFile: PakFile PrimaryIndexSize=183
+[2021.04.14-22.40.02:671][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:671][  0]LogPakFile: PakFile FullDirectoryIndexSize=140
+[2021.04.14-22.40.02:671][  0]LogPakFile: OnPakFileMounted2Time == 0.000024
+[2021.04.14-22.40.02:672][  0]LogPakFile: PakFile PrimaryIndexSize=185
+[2021.04.14-22.40.02:672][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:672][  0]LogPakFile: PakFile FullDirectoryIndexSize=144
+[2021.04.14-22.40.02:672][  0]LogPakFile: OnPakFileMounted2Time == 0.000024
+[2021.04.14-22.40.02:672][  0]LogPakFile: PakFile PrimaryIndexSize=188
+[2021.04.14-22.40.02:672][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:672][  0]LogPakFile: PakFile FullDirectoryIndexSize=150
+[2021.04.14-22.40.02:672][  0]LogPakFile: OnPakFileMounted2Time == 0.000025
+[2021.04.14-22.40.02:673][  0]LogPakFile: PakFile PrimaryIndexSize=190
+[2021.04.14-22.40.02:673][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:673][  0]LogPakFile: PakFile FullDirectoryIndexSize=154
+[2021.04.14-22.40.02:673][  0]LogPakFile: OnPakFileMounted2Time == 0.000026
+[2021.04.14-22.40.02:673][  0]LogPakFile: PakFile PrimaryIndexSize=187
+[2021.04.14-22.40.02:673][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:673][  0]LogPakFile: PakFile FullDirectoryIndexSize=148
+[2021.04.14-22.40.02:673][  0]LogPakFile: OnPakFileMounted2Time == 0.000027
+[2021.04.14-22.40.02:674][  0]LogPakFile: PakFile PrimaryIndexSize=189
+[2021.04.14-22.40.02:674][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:674][  0]LogPakFile: PakFile FullDirectoryIndexSize=152
+[2021.04.14-22.40.02:674][  0]LogPakFile: OnPakFileMounted2Time == 0.000028
+[2021.04.14-22.40.02:675][  0]LogPakFile: PakFile PrimaryIndexSize=183
+[2021.04.14-22.40.02:675][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:675][  0]LogPakFile: PakFile FullDirectoryIndexSize=140
+[2021.04.14-22.40.02:675][  0]LogPakFile: OnPakFileMounted2Time == 0.000030
+[2021.04.14-22.40.02:675][  0]LogPakFile: PakFile PrimaryIndexSize=185
+[2021.04.14-22.40.02:675][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:675][  0]LogPakFile: PakFile FullDirectoryIndexSize=144
+[2021.04.14-22.40.02:675][  0]LogPakFile: OnPakFileMounted2Time == 0.000031
+[2021.04.14-22.40.02:676][  0]LogPakFile: PakFile PrimaryIndexSize=185
+[2021.04.14-22.40.02:676][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:676][  0]LogPakFile: PakFile FullDirectoryIndexSize=144
+[2021.04.14-22.40.02:676][  0]LogPakFile: OnPakFileMounted2Time == 0.000033
+[2021.04.14-22.40.02:677][  0]LogPakFile: PakFile PrimaryIndexSize=187
+[2021.04.14-22.40.02:677][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:677][  0]LogPakFile: PakFile FullDirectoryIndexSize=148
+[2021.04.14-22.40.02:677][  0]LogPakFile: OnPakFileMounted2Time == 0.000034
+[2021.04.14-22.40.02:677][  0]LogPakFile: PakFile PrimaryIndexSize=183
+[2021.04.14-22.40.02:677][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:677][  0]LogPakFile: PakFile FullDirectoryIndexSize=140
+[2021.04.14-22.40.02:677][  0]LogPakFile: OnPakFileMounted2Time == 0.000035
+[2021.04.14-22.40.02:678][  0]LogPakFile: PakFile PrimaryIndexSize=186
+[2021.04.14-22.40.02:678][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:678][  0]LogPakFile: PakFile FullDirectoryIndexSize=146
+[2021.04.14-22.40.02:678][  0]LogPakFile: OnPakFileMounted2Time == 0.000035
+[2021.04.14-22.40.02:678][  0]LogPakFile: PakFile PrimaryIndexSize=188
+[2021.04.14-22.40.02:678][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:679][  0]LogPakFile: PakFile FullDirectoryIndexSize=150
+[2021.04.14-22.40.02:679][  0]LogPakFile: OnPakFileMounted2Time == 0.000036
+[2021.04.14-22.40.02:679][  0]LogPakFile: PakFile PrimaryIndexSize=185
+[2021.04.14-22.40.02:679][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:679][  0]LogPakFile: PakFile FullDirectoryIndexSize=144
+[2021.04.14-22.40.02:679][  0]LogPakFile: OnPakFileMounted2Time == 0.000037
+[2021.04.14-22.40.02:680][  0]LogPakFile: PakFile PrimaryIndexSize=192
+[2021.04.14-22.40.02:680][  0]LogPakFile: PakFile PathHashIndexSize=101
+[2021.04.14-22.40.02:680][  0]LogPakFile: PakFile FullDirectoryIndexSize=158
+[2021.04.14-22.40.02:680][  0]LogPakFile: OnPakFileMounted2Time == 0.000038
+[2021.04.14-22.40.02:737][  0]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'AddContentDialog' in 0.0003 seconds. Added 0 classes and 0 folders.
+[2021.04.14-22.40.02:742][  0]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'SceneOutliner' in 0.0003 seconds. Added 2 classes and 0 folders.
+[2021.04.14-22.40.02:833][  0]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.40.02:847][  0]LogSlate: Took 0.000206 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
+[2021.04.14-22.40.02:852][  0]LogSlate: Took 0.000202 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' (160K)
+[2021.04.14-22.40.02:857][  0]LogSlate: Took 0.000193 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/FontAwesome.ttf' (139K)
+[2021.04.14-22.40.03:025][  0]LogRenderer: Reallocating scene render targets to support 1068x612 Format 10 NumSamples 4 (Frame:1).
+[2021.04.14-22.40.03:101][  0]LogSlate: Took 0.000215 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
+[2021.04.14-22.40.03:168][  0]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'HierarchicalLODOutliner' in 0.0003 seconds. Added 0 classes and 0 folders.
+[2021.04.14-22.40.03:168][  0]LogLoad: (Engine Initialization) Total time: 11.40 seconds
+[2021.04.14-22.40.03:168][  0]LogLoad: (Engine Initialization) Total Blueprint compile time: 0.00 seconds
+[2021.04.14-22.40.03:168][  0]LogInit: First time updating LLM stats...
+[2021.04.14-22.40.03:183][  0]LogOcInput: OculusInput is initialized
+[2021.04.14-22.40.03:316][  0]LogContentStreaming: Texture pool size now 1000 MB
+[2021.04.14-22.40.03:485][  3]LogAssetRegistry: Asset discovery search completed in 7.5651 seconds
+[2021.04.14-22.40.03:488][  3]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000004 seconds (updated 0 objects)
+[2021.04.14-22.40.08:487][ 19]LogTcpMessaging: Started Connection to '127.0.0.1:6666'
+[2021.04.14-22.40.34:323][ 96]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.40.42:128][118]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.41.21:552][391]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.41.21:553][391]LogSlate: Took 0.000184 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
+[2021.04.14-22.41.21:877][391]LogUObjectHash: Compacting FUObjectHashTables data took   1.16ms
+[2021.04.14-22.41.22:074][391]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/World96091C6044F5A09F966CE1BC38FDC209.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World.umap'
+[2021.04.14-22.41.22:159][391]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/World_BuiltData06E019144FFBA987E7F43FA269A9A405.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World_BuiltData.uasset'
+[2021.04.14-22.41.22:175][391]AssetCheck: New page: Asset Save: multiple assets
+[2021.04.14-22.41.22:175][391]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Maps/World_BuiltData.World_BuiltData
+[2021.04.14-22.41.22:176][391]LogContentValidation: Display: Validating World /Game/Maps/World.World
+[2021.04.14-22.41.22:618][415]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.41.22:619][415]Candidate modules for hot reload:
+[2021.04.14-22.41.22:619][415]  ArchitectureExplorer
+[2021.04.14-22.41.22:619][415]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ArchitectureExplorer,2763 ArchitectureExplorerEditor Win64 Development -Project="C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/ArchitectureExplorer.uproject" "C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/ArchitectureExplorer.uproject"  -IgnoreJunk]
+[2021.04.14-22.41.22:625][415]Warning: Starting HotReload took  0.1s.
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: New page: Compilation - Apr 14, 2021, 8:41:25 AM
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1).
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: Building ArchitectureExplorerEditor...
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: Using Visual Studio 2017 14.16.27035 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: [Upgrade]
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: [Upgrade] Using backward-compatible build settings. The latest version of UE4 sets the following values by default, which may require code changes:
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: [Upgrade]     bLegacyPublicIncludePaths = false                 => Omits subfolders from public include paths to reduce compiler command line length. (Previously: true).
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: [Upgrade]     ShadowVariableWarningLevel = WarningLevel.Error   => Treats shadowed variable warnings as errors. (Previously: WarningLevel.Warning).
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: [Upgrade]
+[2021.04.14-22.41.25:999][635]CompilerResultsLog: Building 3 actions with 12 processes...
+[2021.04.14-22.41.25:999][635]CompilerResultsLog:   [1/3] UE4Editor-ArchitectureExplorer-2763.lib
+[2021.04.14-22.41.26:000][635]CompilerResultsLog:      Creating library C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-2763.lib and object C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-2763.exp
+[2021.04.14-22.41.26:000][635]CompilerResultsLog:   [2/3] UE4Editor-ArchitectureExplorer-2763.dll
+[2021.04.14-22.41.26:000][635]CompilerResultsLog:      Creating library C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-2763.suppressed.lib and object C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-2763.suppressed.exp
+[2021.04.14-22.41.26:000][635]CompilerResultsLog:   [3/3] ArchitectureExplorerEditor.target
+[2021.04.14-22.41.26:000][635]CompilerResultsLog: Total time in Parallel executor: 2.32 seconds
+[2021.04.14-22.41.26:000][635]CompilerResultsLog: Total execution time: 3.24 seconds
+[2021.04.14-22.41.26:000][635]LogMainFrame: MainFrame: Module compiling took 3.390 seconds
+[2021.04.14-22.41.26:061][635]LogClass: AnimState HotReload.
+[2021.04.14-22.41.26:061][635]LogClass: ErrolState HotReload.
+[2021.04.14-22.41.26:071][635]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.41.26:071][635]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.41.26:071][635]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.41.26:071][635]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.41.26:071][635]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.41.26:072][635]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.41.26:072][635]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.41.26:072][635]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.41.26:072][635]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.41.26:082][635]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ArchitectureExplorer' in 0.0005 seconds. Added 27 classes and 2 folders.
+[2021.04.14-22.41.26:096][635]Display: HotReload successful (53 functions remapped  0 scriptstructs remapped)
+[2021.04.14-22.41.26:150][635]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0120 seconds. Added 3820 classes and 914 folders.
+[2021.04.14-22.41.26:150][635]Display: HotReload took  3.7s.
+[2021.04.14-22.41.29:080][826]LogTemp: Repeating last play command: VR Preview
+[2021.04.14-22.41.29:090][826]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.04.14-22.41.29:090][826]PIE: New page: PIE session: World (Apr 14, 2021, 8:41:29 AM)
+[2021.04.14-22.41.29:092][826]LogOnline: OSS: Creating online subsystem instance for: NULL
+[2021.04.14-22.41.29:093][826]LogOnline: OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for module [NULL]
+[2021.04.14-22.41.29:093][826]LogPlayLevel: Creating play world package: /Game/Maps/UEDPIE_0_World
+[2021.04.14-22.41.29:137][826]LogPlayLevel: PIE: StaticDuplicateObject took: (0.044161s)
+[2021.04.14-22.41.29:138][826]LogAIModule: Creating AISystem for world World
+[2021.04.14-22.41.29:139][826]LogPlayLevel: PIE: World Init took: (0.001355s)
+[2021.04.14-22.41.29:139][826]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Maps/World.World to /Game/Maps/UEDPIE_0_World.World (0.045713s)
+[2021.04.14-22.41.29:145][826]LogTemp: Error: AStageManager destructor called!
+[2021.04.14-22.41.29:145][826]LogTemp: Error: AStageManager destructor called!
+[2021.04.14-22.41.29:146][826]LogUObjectHash: Compacting FUObjectHashTables data took   0.90ms
+[2021.04.14-22.41.29:147][826]LogAudio: Display: Creating Audio Device:                 Id: 2, Scope: Unique, Realtime: True
+[2021.04.14-22.41.29:147][826]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.04.14-22.41.29:147][826]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.04.14-22.41.29:147][826]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.04.14-22.41.29:147][826]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.04.14-22.41.29:147][826]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2021.04.14-22.41.29:147][826]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2021.04.14-22.41.29:148][826]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2021.04.14-22.41.29:148][826]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.04.14-22.41.29:148][826]LogAudio: Display: Using built-in audio occlusion.
+[2021.04.14-22.41.29:148][826]LogAudioMixer: Display: Initializing audio mixer.
+[2021.04.14-22.41.29:151][826]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.41.29:151][826]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.41.29:152][826]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.41.29:152][826]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.41.29:153][826]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.41.29:153][826]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.41.29:154][826]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.41.29:154][826]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.41.29:156][826]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.41.29:156][826]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.41.29:166][826]LogAudioMixer: Display: Using Audio Device Headphones (Oculus Virtual Audio Device)
+[2021.04.14-22.41.29:166][826]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.04.14-22.41.29:166][826]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.04.14-22.41.29:166][826]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.04.14-22.41.29:166][826]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.04.14-22.41.29:166][826]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.04.14-22.41.29:166][826]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.04.14-22.41.29:182][826]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.04.14-22.41.29:182][826]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.04.14-22.41.29:182][826]LogInit: FAudioDevice initialized.
+[2021.04.14-22.41.29:182][826]LogAudio: Display: Audio Device (ID: 2) registered with world 'World'.
+[2021.04.14-22.41.29:186][826]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.41.29:196][826]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.41.29:287][826]LogLoad: Game class is 'BP_VRGameMode_C'
+[2021.04.14-22.41.29:301][826]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/UEDPIE_0_World.World:PersistentLevel.BP_FiverrErrol_3.CharacterMesh0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.41.29:301][826]PIE: Error: Blueprint Runtime Error: "Accessed None trying to read property PlayerCamera". Blueprint:  AB_FiverrBody Function:  Execute Ubergraph AB Fiverr Body Graph:  AnimGraph Node:  Look At - Bone: Head_JNT
+[2021.04.14-22.41.29:301][826]LogWorld: Bringing World /Game/Maps/UEDPIE_0_World.World up for play (max tick rate 0) at 2021.04.14-15.41.29
+[2021.04.14-22.41.29:302][826]LogWorld: Bringing up level for play took: 0.013904
+[2021.04.14-22.41.29:303][826]LogOnline: OSS: Creating online subsystem instance for: :Context_1
+[2021.04.14-22.41.29:341][826]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'MovieSceneCapture' in 0.0004 seconds. Added 20 classes and 0 folders.
+[2021.04.14-22.41.29:343][826]LogTemp: Warning: BladeCollision cast failed in Chainsaw.cpp
+[2021.04.14-22.41.29:349][826]PIE: Server logged in
+[2021.04.14-22.41.29:350][826]PIE: Play in editor total start time 0.262 seconds.
+[2021.04.14-22.41.29:352][826]LogEngine: Changing dynamic resolution state.
+[2021.04.14-22.41.29:374][827]LogRenderer: Warning: Resizing VR buffer to 3136 by 1728
+[2021.04.14-22.41.29:375][827]LogRenderer: Reallocating scene render targets to support 3136x1728 Format 10 NumSamples 4 (Frame:1).
+[2021.04.14-22.41.29:375][827]LogHMD: Allocating Oculus 3136 x 1728 depth rendertarget swapchain
+[2021.04.14-22.41.40:246][345]LogTemp: Warning: Sprint
+[2021.04.14-22.41.40:667][370]LogTemp: Warning: StopSprint
+[2021.04.14-22.41.40:694][371]LogTemp: Warning: Left Step
+[2021.04.14-22.41.40:694][371]LogAudio: Display: Cached duration for Sound Cue SoundCue /Game/UltimateRealismFootstepsCollection/UltimateRealismFootsteps/Wood/Light_Wood/GameReady/LightWood_GameReady.LightWood_GameReady was zero and has changed. Consider manually Re-saving the asset
+[2021.04.14-22.41.43:220][462]LogTemp: Warning: Right Step
+[2021.04.14-22.41.43:504][477]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.41.45:073][533]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.41.48:245][640]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.41.48:245][640]LogWorld: BeginTearingDown for /Game/Maps/UEDPIE_0_World
+[2021.04.14-22.41.48:246][640]LogSlate: Window 'ArchitectureExplorer Preview [NetMode: Standalone]  (64-bit/Windows) OculusHMD' being destroyed
+[2021.04.14-22.41.48:283][640]LogWorld: UWorld::CleanupWorld for World, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.41.48:285][640]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.41.48:294][640]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.04.14-22.41.48:297][640]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.41.48:304][640]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.14-22.41.48:305][640]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.14-22.41.48:328][640]LogUObjectHash: Compacting FUObjectHashTables data took   1.02ms
+[2021.04.14-22.41.48:343][640]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.41.48:371][640]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.41.48:401][640]LogSlate: Took 0.000235 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/DroidSansMono.ttf' (77K)
+[2021.04.14-22.41.48:415][641]LogPlayLevel: Display: Destroying online subsystem :Context_1
+[2021.04.14-22.41.48:420][641]LogEngine: Changing dynamic resolution state.
+[2021.04.14-22.41.50:094][696]LogSlate: Window 'Message Log' being destroyed
+[2021.04.14-22.41.50:137][696]LogSlate: Window 'Message Log' being destroyed
+[2021.04.14-22.41.50:991][745]LogEditorViewport: Clicking on Actor (LMB): BP_Saw_C (BP_Saw)
+[2021.04.14-22.41.52:283][784]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.41.52:305][784]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.14-22.41.52:437][784]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.41.53:483][784]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'BlueprintGraph' in 0.0007 seconds. Added 126 classes and 0 folders.
+[2021.04.14-22.41.54:973][784]LogSlate: Took 0.009204 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2021.04.14-22.41.55:099][785]LogSlate: Took 0.000245 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Italic.ttf' (157K)
+[2021.04.14-22.42.12:975][446]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.42.13:138][446]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/BP_Saw20E2BBCE425258F0D227B999FE551364.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Models/Flashlight/BP_Saw.uasset'
+[2021.04.14-22.42.13:158][446]AssetCheck: New page: Asset Save: BP_Saw
+[2021.04.14-22.42.13:158][446]LogContentValidation: Display: Validating Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.14-22.42.13:378][453]BlueprintLog: New page: Compile BP_Saw
+[2021.04.14-22.42.13:440][453]LogUObjectHash: Compacting FUObjectHashTables data took   2.64ms
+[2021.04.14-22.42.13:929][466]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.42.14:088][466]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/BP_Saw450A6ED34866A2CD78EE9DA47582621B.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Models/Flashlight/BP_Saw.uasset'
+[2021.04.14-22.42.14:102][466]AssetCheck: New page: Asset Save: BP_Saw
+[2021.04.14-22.42.14:102][466]LogContentValidation: Display: Validating Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.14-22.42.14:763][496]LogSlate: Window 'BP_Saw' being destroyed
+[2021.04.14-22.42.14:771][496]LogSlate: Window 'BP_Saw' being destroyed
+[2021.04.14-22.42.14:783][496]LogWorld: UWorld::CleanupWorld for World_0, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.42.14:783][496]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.42.29:861][604]LogTemp: Repeating last play command: VR Preview
+[2021.04.14-22.42.29:874][604]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.04.14-22.42.29:874][604]LogHMD: Initializing OVRPlugin session
+[2021.04.14-22.42.30:052][604]LogHMD: Allocating Oculus 3136 x 1728 rendertarget swapchain
+[2021.04.14-22.42.30:054][604]PIE: New page: PIE session: World (Apr 14, 2021, 8:42:30 AM)
+[2021.04.14-22.42.30:054][604]LogPlayLevel: Creating play world package: /Game/Maps/UEDPIE_0_World
+[2021.04.14-22.42.30:101][604]LogPlayLevel: PIE: StaticDuplicateObject took: (0.047264s)
+[2021.04.14-22.42.30:102][604]LogAIModule: Creating AISystem for world World
+[2021.04.14-22.42.30:102][604]LogPlayLevel: PIE: World Init took: (0.001252s)
+[2021.04.14-22.42.30:103][604]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Maps/World.World to /Game/Maps/UEDPIE_0_World.World (0.048697s)
+[2021.04.14-22.42.30:129][604]LogUObjectHash: Compacting FUObjectHashTables data took   2.58ms
+[2021.04.14-22.42.30:130][604]LogAudio: Display: Creating Audio Device:                 Id: 3, Scope: Unique, Realtime: True
+[2021.04.14-22.42.30:130][604]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.04.14-22.42.30:130][604]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.04.14-22.42.30:130][604]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.04.14-22.42.30:130][604]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.04.14-22.42.30:130][604]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2021.04.14-22.42.30:130][604]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2021.04.14-22.42.30:130][604]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2021.04.14-22.42.30:130][604]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.04.14-22.42.30:131][604]LogAudio: Display: Using built-in audio occlusion.
+[2021.04.14-22.42.30:131][604]LogAudioMixer: Display: Initializing audio mixer.
+[2021.04.14-22.42.30:134][604]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.42.30:134][604]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.42.30:136][604]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.42.30:136][604]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.42.30:137][604]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.42.30:137][604]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.42.30:139][604]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.42.30:139][604]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.42.30:142][604]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.42.30:142][604]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.42.30:150][604]LogAudioMixer: Display: Using Audio Device Headphones (Oculus Virtual Audio Device)
+[2021.04.14-22.42.30:151][604]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.04.14-22.42.30:151][604]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.04.14-22.42.30:151][604]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.04.14-22.42.30:151][604]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.04.14-22.42.30:151][604]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.04.14-22.42.30:151][604]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.04.14-22.42.30:168][604]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.04.14-22.42.30:168][604]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.04.14-22.42.30:168][604]LogInit: FAudioDevice initialized.
+[2021.04.14-22.42.30:168][604]LogAudio: Display: Audio Device (ID: 3) registered with world 'World'.
+[2021.04.14-22.42.30:171][604]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.42.30:181][604]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.42.30:277][604]LogLoad: Game class is 'BP_VRGameMode_C'
+[2021.04.14-22.42.30:289][604]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/UEDPIE_0_World.World:PersistentLevel.BP_FiverrErrol_3.CharacterMesh0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.42.30:289][604]PIE: Error: Blueprint Runtime Error: "Accessed None trying to read property PlayerCamera". Blueprint:  AB_FiverrBody Function:  Execute Ubergraph AB Fiverr Body Graph:  AnimGraph Node:  Look At - Bone: Head_JNT
+[2021.04.14-22.42.30:289][604]LogWorld: Bringing World /Game/Maps/UEDPIE_0_World.World up for play (max tick rate 0) at 2021.04.14-15.42.30
+[2021.04.14-22.42.30:290][604]LogWorld: Bringing up level for play took: 0.012463
+[2021.04.14-22.42.30:290][604]LogOnline: OSS: Creating online subsystem instance for: :Context_6
+[2021.04.14-22.42.30:293][604]LogTemp: Warning: BladeCollision cast failed in Chainsaw.cpp
+[2021.04.14-22.42.30:301][604]PIE: Server logged in
+[2021.04.14-22.42.30:305][604]PIE: Play in editor total start time 0.435 seconds.
+[2021.04.14-22.42.30:305][604]LogEngine: Changing dynamic resolution state.
+[2021.04.14-22.42.30:325][605]LogHMD: Allocating Oculus 3136 x 1728 depth rendertarget swapchain
+[2021.04.14-22.42.33:624][741]LogTemp: Warning: Sprint
+[2021.04.14-22.42.34:350][767]LogTemp: Warning: Left Step
+[2021.04.14-22.42.34:517][773]LogTemp: Warning: StopSprint
+[2021.04.14-22.42.34:991][790]LogTemp: Warning: BP_Ball_2
+[2021.04.14-22.42.40:281][  3]LogTemp: Warning: Right Step
+[2021.04.14-22.42.40:728][ 19]LogTemp: Warning: BP_Ball_2
+[2021.04.14-22.42.44:189][169]LogTemp: Warning: Left Step
+[2021.04.14-22.42.46:512][272]LogTemp: Warning: Right Step
+[2021.04.14-22.42.48:505][369]LogTemp: Warning: Left Step
+[2021.04.14-22.42.52:820][518]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.42.52:820][518]LogWorld: BeginTearingDown for /Game/Maps/UEDPIE_0_World
+[2021.04.14-22.42.52:821][518]LogSlate: Window 'ArchitectureExplorer Preview [NetMode: Standalone]  (64-bit/Windows) OculusHMD' being destroyed
+[2021.04.14-22.42.52:862][518]LogWorld: UWorld::CleanupWorld for World, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.42.52:865][518]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.42.52:872][518]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.04.14-22.42.52:885][518]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.42.52:901][518]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2021.04.14-22.42.52:901][518]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.14-22.42.52:902][518]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.14-22.42.52:928][518]LogUObjectHash: Compacting FUObjectHashTables data took   2.16ms
+[2021.04.14-22.42.52:944][518]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.42.52:962][518]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.42.53:025][519]LogPlayLevel: Display: Destroying online subsystem :Context_6
+[2021.04.14-22.42.53:034][519]LogEngine: Changing dynamic resolution state.
+[2021.04.14-22.42.56:144][662]LogSlate: Window 'Message Log' being destroyed
+[2021.04.14-22.42.56:174][662]LogSlate: Window 'Message Log' being destroyed
+[2021.04.14-22.42.59:138][890]Cmd: SELECT NONE
+[2021.04.14-22.44.16:460][605]LogTemp: Repeating last play command: VR Preview
+[2021.04.14-22.44.16:470][605]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.04.14-22.44.16:470][605]LogHMD: Initializing OVRPlugin session
+[2021.04.14-22.44.16:627][605]LogHMD: Allocating Oculus 3136 x 1728 rendertarget swapchain
+[2021.04.14-22.44.16:628][605]PIE: New page: PIE session: World (Apr 14, 2021, 8:44:16 AM)
+[2021.04.14-22.44.16:628][605]LogPlayLevel: Creating play world package: /Game/Maps/UEDPIE_0_World
+[2021.04.14-22.44.16:680][605]LogPlayLevel: PIE: StaticDuplicateObject took: (0.052295s)
+[2021.04.14-22.44.16:681][605]LogAIModule: Creating AISystem for world World
+[2021.04.14-22.44.16:682][605]LogPlayLevel: PIE: World Init took: (0.001251s)
+[2021.04.14-22.44.16:682][605]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Maps/World.World to /Game/Maps/UEDPIE_0_World.World (0.053735s)
+[2021.04.14-22.44.16:699][605]LogUObjectHash: Compacting FUObjectHashTables data took   2.07ms
+[2021.04.14-22.44.16:702][605]LogAudio: Display: Creating Audio Device:                 Id: 4, Scope: Unique, Realtime: True
+[2021.04.14-22.44.16:702][605]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.04.14-22.44.16:702][605]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.04.14-22.44.16:702][605]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.04.14-22.44.16:702][605]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.04.14-22.44.16:702][605]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2021.04.14-22.44.16:702][605]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2021.04.14-22.44.16:702][605]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2021.04.14-22.44.16:702][605]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.04.14-22.44.16:702][605]LogAudio: Display: Using built-in audio occlusion.
+[2021.04.14-22.44.16:702][605]LogAudioMixer: Display: Initializing audio mixer.
+[2021.04.14-22.44.16:706][605]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.44.16:706][605]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.44.16:707][605]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.44.16:707][605]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.44.16:708][605]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.44.16:708][605]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.44.16:709][605]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.44.16:709][605]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.44.16:712][605]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.44.16:712][605]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.44.16:719][605]LogAudioMixer: Display: Using Audio Device Headphones (Oculus Virtual Audio Device)
+[2021.04.14-22.44.16:719][605]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.04.14-22.44.16:719][605]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.04.14-22.44.16:719][605]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.04.14-22.44.16:720][605]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.04.14-22.44.16:720][605]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.04.14-22.44.16:720][605]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.04.14-22.44.16:736][605]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.04.14-22.44.16:736][605]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.04.14-22.44.16:736][605]LogInit: FAudioDevice initialized.
+[2021.04.14-22.44.16:736][605]LogAudio: Display: Audio Device (ID: 4) registered with world 'World'.
+[2021.04.14-22.44.16:739][605]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.44.16:750][605]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.44.16:844][605]LogLoad: Game class is 'BP_VRGameMode_C'
+[2021.04.14-22.44.16:855][605]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/UEDPIE_0_World.World:PersistentLevel.BP_FiverrErrol_3.CharacterMesh0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.44.16:855][605]PIE: Error: Blueprint Runtime Error: "Accessed None trying to read property PlayerCamera". Blueprint:  AB_FiverrBody Function:  Execute Ubergraph AB Fiverr Body Graph:  AnimGraph Node:  Look At - Bone: Head_JNT
+[2021.04.14-22.44.16:856][605]LogWorld: Bringing World /Game/Maps/UEDPIE_0_World.World up for play (max tick rate 0) at 2021.04.14-15.44.16
+[2021.04.14-22.44.16:856][605]LogWorld: Bringing up level for play took: 0.011970
+[2021.04.14-22.44.16:857][605]LogOnline: OSS: Creating online subsystem instance for: :Context_7
+[2021.04.14-22.44.16:860][605]LogTemp: Warning: BladeCollision cast failed in Chainsaw.cpp
+[2021.04.14-22.44.16:864][605]PIE: Server logged in
+[2021.04.14-22.44.16:865][605]PIE: Play in editor total start time 0.396 seconds.
+[2021.04.14-22.44.16:865][605]LogEngine: Changing dynamic resolution state.
+[2021.04.14-22.44.16:886][606]LogHMD: Allocating Oculus 3136 x 1728 depth rendertarget swapchain
+[2021.04.14-22.44.21:225][805]LogTemp: Warning: Sprint
+[2021.04.14-22.44.21:690][830]LogTemp: Warning: Left Step
+[2021.04.14-22.44.22:034][855]LogTemp: Warning: Right Step
+[2021.04.14-22.44.22:408][881]LogTemp: Warning: Left Step
+[2021.04.14-22.44.22:782][907]LogTemp: Warning: Right Step
+[2021.04.14-22.44.23:041][925]LogTemp: Warning: StopSprint
+[2021.04.14-22.44.23:079][928]LogTemp: Warning: BP_Flashlight_2
+[2021.04.14-22.44.24:844][  4]LogTemp: Warning: BP_Flashlight_2
+[2021.04.14-22.44.29:940][193]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.44.29:940][193]LogWorld: BeginTearingDown for /Game/Maps/UEDPIE_0_World
+[2021.04.14-22.44.29:941][193]LogSlate: Window 'ArchitectureExplorer Preview [NetMode: Standalone]  (64-bit/Windows) OculusHMD' being destroyed
+[2021.04.14-22.44.29:983][193]LogWorld: UWorld::CleanupWorld for World, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.44.29:985][193]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.44.29:994][193]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.04.14-22.44.29:999][193]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.44.30:015][193]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.14-22.44.30:016][193]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.14-22.44.30:041][193]LogUObjectHash: Compacting FUObjectHashTables data took   2.79ms
+[2021.04.14-22.44.30:056][193]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.44.30:080][193]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.44.30:128][194]LogPlayLevel: Display: Destroying online subsystem :Context_7
+[2021.04.14-22.44.30:135][194]LogEngine: Changing dynamic resolution state.
+[2021.04.14-22.44.31:423][243]LogSlate: Window 'Message Log' being destroyed
+[2021.04.14-22.44.31:450][243]LogSlate: Window 'Message Log' being destroyed
+[2021.04.14-22.45.06:732][471]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.45.06:867][471]LogUObjectHash: Compacting FUObjectHashTables data took   3.06ms
+[2021.04.14-22.45.07:081][471]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/World2143778E465AFD339ACBBEBA6C3D91D0.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World.umap'
+[2021.04.14-22.45.07:146][471]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/World_BuiltData69BDBD13447BAC118EDBDA979FB346A8.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World_BuiltData.uasset'
+[2021.04.14-22.45.07:171][471]AssetCheck: New page: Asset Save: multiple assets
+[2021.04.14-22.45.07:171][471]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Maps/World_BuiltData.World_BuiltData
+[2021.04.14-22.45.07:172][471]LogContentValidation: Display: Validating World /Game/Maps/World.World
+[2021.04.14-22.45.07:503][489]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.45.07:506][489]Candidate modules for hot reload:
+[2021.04.14-22.45.07:506][489]  ArchitectureExplorer
+[2021.04.14-22.45.07:506][489]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ArchitectureExplorer,9157 ArchitectureExplorerEditor Win64 Development -Project="C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/ArchitectureExplorer.uproject" "C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/ArchitectureExplorer.uproject"  -IgnoreJunk]
+[2021.04.14-22.45.07:512][489]Warning: Starting HotReload took  0.0s.
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: New page: Compilation - Apr 14, 2021, 8:45:34 AM
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1).
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: Invalidating makefile for ArchitectureExplorerEditor (HandController.cpp modified)
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: Building ArchitectureExplorerEditor...
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: Using Visual Studio 2017 14.16.27035 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: [Upgrade]
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: [Upgrade] Using backward-compatible build settings. The latest version of UE4 sets the following values by default, which may require code changes:
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: [Upgrade]     bLegacyPublicIncludePaths = false                 => Omits subfolders from public include paths to reduce compiler command line length. (Previously: true).
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: [Upgrade]     ShadowVariableWarningLevel = WarningLevel.Error   => Treats shadowed variable warnings as errors. (Previously: WarningLevel.Warning).
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: [Upgrade]
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: Building 4 actions with 12 processes...
+[2021.04.14-22.45.34:739][747]CompilerResultsLog:   [1/4] HandController.cpp
+[2021.04.14-22.45.34:739][747]CompilerResultsLog:   [2/4] UE4Editor-ArchitectureExplorer-9157.lib
+[2021.04.14-22.45.34:739][747]CompilerResultsLog:      Creating library C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-9157.lib and object C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-9157.exp
+[2021.04.14-22.45.34:739][747]CompilerResultsLog:   [3/4] UE4Editor-ArchitectureExplorer-9157.dll
+[2021.04.14-22.45.34:739][747]CompilerResultsLog:      Creating library C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-9157.suppressed.lib and object C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-9157.suppressed.exp
+[2021.04.14-22.45.34:739][747]CompilerResultsLog:   [4/4] ArchitectureExplorerEditor.target
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: Total time in Parallel executor: 24.03 seconds
+[2021.04.14-22.45.34:739][747]CompilerResultsLog: Total execution time: 27.10 seconds
+[2021.04.14-22.45.34:739][747]LogMainFrame: MainFrame: Module compiling took 27.249 seconds
+[2021.04.14-22.45.34:840][747]LogClass: AnimState HotReload.
+[2021.04.14-22.45.34:840][747]LogClass: ErrolState HotReload.
+[2021.04.14-22.45.34:853][747]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.45.34:853][747]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.45.34:853][747]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.45.34:853][747]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.45.34:853][747]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.45.34:853][747]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.45.34:853][747]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.45.34:854][747]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.14-22.45.34:854][747]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.14-22.45.34:864][747]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ArchitectureExplorer' in 0.0003 seconds. Added 27 classes and 2 folders.
+[2021.04.14-22.45.34:880][747]Display: HotReload successful (53 functions remapped  0 scriptstructs remapped)
+[2021.04.14-22.45.34:966][747]LogNativeClassHierarchy: Verbose: Native class hierarchy populated in 0.0153 seconds. Added 3820 classes and 914 folders.
+[2021.04.14-22.45.34:966][747]Display: HotReload took 27.5s.
+[2021.04.14-22.45.49:495][714]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_7:PersistentLevel.BP_FiverrErrol_C_0.CharacterMesh0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.49:581][716]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_9:PersistentLevel.SkeletalMeshActor_0.SkeletalMeshComponent0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.54:499][859]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.45.54:835][859]LogAssetEditorSubsystem: Opening Asset editor for AnimBlueprint /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody
+[2021.04.14-22.45.54:890][859]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'SkeletonEditor' in 0.0003 seconds. Added 1 classes and 2 folders.
+[2021.04.14-22.45.55:032][859]LogActorComponent: RegisterComponentWithWorld: (/Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0) Already registered. Aborting.
+[2021.04.14-22.45.55:032][859]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.55:040][859]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'PinnedCommandList' in 0.0004 seconds. Added 1 classes and 0 folders.
+[2021.04.14-22.45.55:080][859]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.45.56:343][859]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.56:664][859]LogPropertyNode: Warning: UI Min (1) >= UI Max (1) for Ranged Numeric property /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ScaleMultiplier
+[2021.04.14-22.45.56:698][860]LogPropertyNode: Warning: UI Min (1) >= UI Max (1) for Ranged Numeric property /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ScaleMultiplier
+[2021.04.14-22.45.56:765][862]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.56:785][863]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.56:906][864]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.57:046][865]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.57:109][866]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.57:287][867]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.57:314][868]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.45.57:337][869]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Engine/Transient.World_11:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:0046
+[2021.04.14-22.46.05:678][340]LogPropertyNode: Warning: UI Min (1) >= UI Max (1) for Ranged Numeric property /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ScaleMultiplier
+[2021.04.14-22.46.18:433][ 33]LogPropertyNode: Warning: UI Min (1) >= UI Max (1) for Ranged Numeric property /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ScaleMultiplier
+[2021.04.14-22.46.21:296][208]LogPropertyNode: Warning: UI Min (1) >= UI Max (1) for Ranged Numeric property /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ScaleMultiplier
+[2021.04.14-22.46.31:611][777]LogSlate: Window 'AB_FiverrBody' being destroyed
+[2021.04.14-22.46.31:619][777]LogSlate: Window 'AB_FiverrBody' being destroyed
+[2021.04.14-22.46.31:628][777]LogWorld: UWorld::CleanupWorld for World_11, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.46.31:628][777]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.46.31:643][777]LogWorld: UWorld::CleanupWorld for World_10, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.46.31:643][777]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.46.31:756][777]LogWorld: UWorld::CleanupWorld for World_12, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.46.31:756][777]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.46.35:301][971]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.46.35:635][971]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/FiverrAnim/BP_FiverrErrol.BP_FiverrErrol
+[2021.04.14-22.46.35:681][971]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.46.50:240][780]LogSlate: Window 'BP_FiverrErrol' being destroyed
+[2021.04.14-22.46.50:268][780]LogSlate: Window 'BP_FiverrErrol' being destroyed
+[2021.04.14-22.46.50:274][780]LogWorld: UWorld::CleanupWorld for World_13, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.46.50:274][780]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.46.51:758][824]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.46.52:094][824]LogAssetEditorSubsystem: Opening Asset editor for AnimBlueprint /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody
+[2021.04.14-22.46.52:102][824]LogActorComponent: RegisterComponentWithWorld: (/Engine/Transient.World_15:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0) Already registered. Aborting.
+[2021.04.14-22.46.52:139][824]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.46.53:023][824]LogPropertyNode: Warning: UI Min (1) >= UI Max (1) for Ranged Numeric property /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ScaleMultiplier
+[2021.04.14-22.46.53:080][825]LogPropertyNode: Warning: UI Min (1) >= UI Max (1) for Ranged Numeric property /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ScaleMultiplier
+[2021.04.14-22.46.55:607][961]LogPropertyNode: Warning: UI Min (1) >= UI Max (1) for Ranged Numeric property /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ScaleMultiplier
+[2021.04.14-22.47.01:197][241]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.47.13:223][823]LogSlate: Window 'AB_FiverrBody' being destroyed
+[2021.04.14-22.47.13:245][823]LogSlate: Window 'AB_FiverrBody' being destroyed
+[2021.04.14-22.47.13:257][823]LogWorld: UWorld::CleanupWorld for World_15, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.47.13:257][823]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.47.13:272][823]LogWorld: UWorld::CleanupWorld for World_14, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.47.13:272][823]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.47.13:379][823]LogWorld: UWorld::CleanupWorld for World_16, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.47.13:379][823]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.47.15:280][925]LogTemp: Repeating last play command: VR Preview
+[2021.04.14-22.47.15:293][925]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.04.14-22.47.15:293][925]LogHMD: Initializing OVRPlugin session
+[2021.04.14-22.47.15:475][925]LogHMD: Allocating Oculus 3136 x 1728 rendertarget swapchain
+[2021.04.14-22.47.15:476][925]PIE: New page: PIE session: World (Apr 14, 2021, 8:47:15 AM)
+[2021.04.14-22.47.15:477][925]LogPlayLevel: Creating play world package: /Game/Maps/UEDPIE_0_World
+[2021.04.14-22.47.15:530][925]LogPlayLevel: PIE: StaticDuplicateObject took: (0.053586s)
+[2021.04.14-22.47.15:531][925]LogAIModule: Creating AISystem for world World
+[2021.04.14-22.47.15:532][925]LogPlayLevel: PIE: World Init took: (0.001267s)
+[2021.04.14-22.47.15:532][925]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Maps/World.World to /Game/Maps/UEDPIE_0_World.World (0.055067s)
+[2021.04.14-22.47.15:624][925]LogTemp: Error: AStageManager destructor called!
+[2021.04.14-22.47.15:640][925]LogTemp: Error: AStageManager destructor called!
+[2021.04.14-22.47.15:705][925]LogUObjectHash: Compacting FUObjectHashTables data took   5.93ms
+[2021.04.14-22.47.15:713][925]LogAudio: Display: Creating Audio Device:                 Id: 5, Scope: Unique, Realtime: True
+[2021.04.14-22.47.15:713][925]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.04.14-22.47.15:713][925]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.04.14-22.47.15:713][925]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.04.14-22.47.15:713][925]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.04.14-22.47.15:713][925]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2021.04.14-22.47.15:713][925]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2021.04.14-22.47.15:713][925]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2021.04.14-22.47.15:713][925]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.04.14-22.47.15:714][925]LogAudio: Display: Using built-in audio occlusion.
+[2021.04.14-22.47.15:714][925]LogAudioMixer: Display: Initializing audio mixer.
+[2021.04.14-22.47.15:716][925]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.47.15:716][925]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.47.15:718][925]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.47.15:718][925]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.47.15:719][925]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.47.15:719][925]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.47.15:720][925]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.47.15:720][925]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.47.15:722][925]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.14-22.47.15:722][925]LogAudioMixer: Display: 1: FrontRight
+[2021.04.14-22.47.15:729][925]LogAudioMixer: Display: Using Audio Device Headphones (Oculus Virtual Audio Device)
+[2021.04.14-22.47.15:729][925]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.04.14-22.47.15:729][925]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.04.14-22.47.15:729][925]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.04.14-22.47.15:730][925]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.04.14-22.47.15:730][925]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.04.14-22.47.15:730][925]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.04.14-22.47.15:747][925]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.04.14-22.47.15:747][925]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.04.14-22.47.15:747][925]LogInit: FAudioDevice initialized.
+[2021.04.14-22.47.15:747][925]LogAudio: Display: Audio Device (ID: 5) registered with world 'World'.
+[2021.04.14-22.47.15:750][925]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.47.15:758][925]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.47.15:851][925]LogLoad: Game class is 'BP_VRGameMode_C'
+[2021.04.14-22.47.15:864][925]PIE: Error: Blueprint Runtime Error: "Accessed None trying to read property PlayerCamera". Blueprint:  AB_FiverrBody Function:  Execute Ubergraph AB Fiverr Body Graph:  AnimGraph Node:  Look At - Bone: Head_JNT
+[2021.04.14-22.47.15:865][925]LogWorld: Bringing World /Game/Maps/UEDPIE_0_World.World up for play (max tick rate 0) at 2021.04.14-15.47.15
+[2021.04.14-22.47.15:865][925]LogWorld: Bringing up level for play took: 0.013326
+[2021.04.14-22.47.15:865][925]LogOnline: OSS: Creating online subsystem instance for: :Context_21
+[2021.04.14-22.47.15:868][925]LogTemp: Warning: BladeCollision cast failed in Chainsaw.cpp
+[2021.04.14-22.47.15:874][925]PIE: Server logged in
+[2021.04.14-22.47.15:877][925]PIE: Play in editor total start time 0.586 seconds.
+[2021.04.14-22.47.15:877][925]LogEngine: Changing dynamic resolution state.
+[2021.04.14-22.47.15:897][926]LogHMD: Allocating Oculus 3136 x 1728 depth rendertarget swapchain
+[2021.04.14-22.47.19:962][109]LogTemp: Warning: Sprint
+[2021.04.14-22.47.20:364][134]LogTemp: Warning: Left Step
+[2021.04.14-22.47.20:736][160]LogTemp: Warning: Right Step
+[2021.04.14-22.47.20:847][168]LogTemp: Warning: StopSprint
+[2021.04.14-22.47.20:914][171]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.20:914][171]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.20:943][172]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.20:943][172]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.21:901][204]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.21:901][204]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.24:215][315]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.26:892][452]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.29:398][564]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.30:590][640]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.30:590][640]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.30:785][647]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.30:896][651]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.31:998][713]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.31:998][713]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.33:197][765]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.33:198][765]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.35:881][907]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.40:039][103]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.40:039][103]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.40:092][107]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.41:285][172]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.41:817][193]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.41:817][193]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.41:967][201]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.42:568][223]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.42:596][224]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.42:596][224]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.43:686][263]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.43:686][263]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.43:713][264]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.43:713][264]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.44:424][293]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.44:605][305]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.44:605][305]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.44:645][308]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.45:086][330]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.45:087][330]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.45:941][360]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.45:997][362]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.45:997][362]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.46:220][370]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.46:470][379]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.46:498][380]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.46:706][394]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.46:706][394]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.46:786][399]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.46:786][399]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.46:799][400]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.47:135][414]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.47:135][414]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.48:002][445]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.48:030][446]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.48:030][446]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.48:141][450]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.48:141][450]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.48:169][451]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.48:169][451]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.48:169][451]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.48:169][451]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.50:093][520]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.50:094][520]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.50:818][546]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.50:818][546]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.51:375][566]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.51:403][567]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.51:403][567]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.51:626][575]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.51:653][576]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.51:681][577]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.52:573][609]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.52:573][609]LogTemp: Warning: Can Grab!
+[2021.04.14-22.47.52:809][620]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.55:141][746]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.55:456][768]LogTemp: Warning: BP_Saw_2
+[2021.04.14-22.47.55:456][768]LogTemp: Warning: Can Grab!
+[2021.04.14-22.48.03:931][100]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.14-22.48.03:931][100]LogWorld: BeginTearingDown for /Game/Maps/UEDPIE_0_World
+[2021.04.14-22.48.03:931][100]LogSlate: Window 'ArchitectureExplorer Preview [NetMode: Standalone]  (64-bit/Windows) OculusHMD' being destroyed
+[2021.04.14-22.48.03:963][100]LogWorld: UWorld::CleanupWorld for World, bSessionEnded=true, bCleanupResources=true
+[2021.04.14-22.48.03:966][100]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.48.03:974][100]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.04.14-22.48.03:978][100]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.14-22.48.03:995][100]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.14-22.48.03:996][100]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.14-22.48.04:023][100]LogUObjectHash: Compacting FUObjectHashTables data took   4.82ms
+[2021.04.14-22.48.04:040][100]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.48.04:065][100]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.14-22.48.04:111][101]LogPlayLevel: Display: Destroying online subsystem :Context_21
+[2021.04.14-22.48.04:118][101]LogEngine: Changing dynamic resolution state.
+[2021.04.14-22.48.05:328][144]LogSlate: Window 'Message Log' being destroyed
+[2021.04.14-22.48.05:356][144]LogSlate: Window 'Message Log' being destroyed
+[2021.04.15-02.51.44:167][361]LogTcpMessaging: Started Connection to '127.0.0.1:6666'
+[2021.04.15-02.52.12:272][555]LogTemp: Repeating last play command: VR Preview
+[2021.04.15-02.52.12:311][555]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2021.04.15-02.52.12:311][555]LogHMD: Initializing OVRPlugin session
+[2021.04.15-02.52.12:503][555]LogHMD: Allocating Oculus 3136 x 1728 rendertarget swapchain
+[2021.04.15-02.52.12:505][555]PIE: New page: PIE session: World (Apr 14, 2021, 12:52:12 PM)
+[2021.04.15-02.52.12:506][555]LogPlayLevel: Creating play world package: /Game/Maps/UEDPIE_0_World
+[2021.04.15-02.52.12:674][555]LogPlayLevel: PIE: StaticDuplicateObject took: (0.167066s)
+[2021.04.15-02.52.12:680][555]LogAIModule: Creating AISystem for world World
+[2021.04.15-02.52.12:681][555]LogPlayLevel: PIE: World Init took: (0.007238s)
+[2021.04.15-02.52.12:682][555]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Maps/World.World to /Game/Maps/UEDPIE_0_World.World (0.175212s)
+[2021.04.15-02.52.12:779][555]LogUObjectHash: Compacting FUObjectHashTables data took   8.45ms
+[2021.04.15-02.52.12:830][555]LogAudio: Display: Creating Audio Device:                 Id: 6, Scope: Unique, Realtime: True
+[2021.04.15-02.52.12:830][555]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2021.04.15-02.52.12:830][555]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2021.04.15-02.52.12:830][555]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2021.04.15-02.52.12:830][555]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2021.04.15-02.52.12:830][555]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2021.04.15-02.52.12:830][555]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2021.04.15-02.52.12:830][555]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2021.04.15-02.52.12:830][555]LogAudio: Display: AudioDevice MaxSources: 32
+[2021.04.15-02.52.12:831][555]LogAudio: Display: Using built-in audio occlusion.
+[2021.04.15-02.52.12:831][555]LogAudioMixer: Display: Initializing audio mixer.
+[2021.04.15-02.52.12:836][555]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.15-02.52.12:836][555]LogAudioMixer: Display: 1: FrontRight
+[2021.04.15-02.52.12:838][555]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.15-02.52.12:839][555]LogAudioMixer: Display: 1: FrontRight
+[2021.04.15-02.52.12:840][555]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.15-02.52.12:840][555]LogAudioMixer: Display: 1: FrontRight
+[2021.04.15-02.52.12:841][555]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.15-02.52.12:841][555]LogAudioMixer: Display: 1: FrontRight
+[2021.04.15-02.52.12:843][555]LogAudioMixer: Display: 0: FrontLeft
+[2021.04.15-02.52.12:843][555]LogAudioMixer: Display: 1: FrontRight
+[2021.04.15-02.52.12:852][555]LogAudioMixer: Display: Using Audio Device Headphones (Oculus Virtual Audio Device)
+[2021.04.15-02.52.12:855][555]LogAudioMixer: Display: Initializing Sound Submixes...
+[2021.04.15-02.52.12:855][555]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2021.04.15-02.52.12:855][555]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2021.04.15-02.52.12:857][555]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2021.04.15-02.52.12:857][555]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2021.04.15-02.52.12:858][555]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2021.04.15-02.52.12:870][555]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2021.04.15-02.52.12:870][555]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2021.04.15-02.52.12:870][555]LogInit: FAudioDevice initialized.
+[2021.04.15-02.52.12:870][555]LogAudio: Display: Audio Device (ID: 6) registered with world 'World'.
+[2021.04.15-02.52.12:877][555]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.52.12:886][555]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.15-02.52.12:982][555]LogLoad: Game class is 'BP_VRGameMode_C'
+[2021.04.15-02.52.13:007][555]PIE: Error: Blueprint Runtime Error: "Accessed None trying to read property PlayerCamera". Blueprint:  AB_FiverrBody Function:  Execute Ubergraph AB Fiverr Body Graph:  AnimGraph Node:  Look At - Bone: Head_JNT
+[2021.04.15-02.52.13:008][555]LogWorld: Bringing World /Game/Maps/UEDPIE_0_World.World up for play (max tick rate 0) at 2021.04.14-19.52.13
+[2021.04.15-02.52.13:010][555]LogWorld: Bringing up level for play took: 0.025797
+[2021.04.15-02.52.13:011][555]LogOnline: OSS: Creating online subsystem instance for: :Context_22
+[2021.04.15-02.52.13:018][555]LogTemp: Warning: BladeCollision cast failed in Chainsaw.cpp
+[2021.04.15-02.52.13:045][555]PIE: Server logged in
+[2021.04.15-02.52.13:049][555]PIE: Play in editor total start time 0.742 seconds.
+[2021.04.15-02.52.13:050][555]LogEngine: Changing dynamic resolution state.
+[2021.04.15-02.52.13:085][556]LogHMD: Allocating Oculus 3136 x 1728 depth rendertarget swapchain
+[2021.04.15-02.52.17:218][742]LogTemp: Warning: Sprint
+[2021.04.15-02.52.17:763][761]LogTemp: Warning: Left Step
+[2021.04.15-02.52.17:873][765]LogTemp: Warning: StopSprint
+[2021.04.15-02.52.29:289][483]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.29:289][483]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.30:155][514]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.30:155][514]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.32:992][648]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.33:653][672]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.33:653][672]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.41:122][ 24]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.41:122][ 24]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.43:042][ 93]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.43:043][ 93]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.43:936][134]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.43:936][134]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.50:703][461]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.50:703][461]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.51:173][480]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.51:173][480]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.51:647][497]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.51:647][497]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.51:841][504]LogTemp: Warning: BP_Saw_2
+[2021.04.15-02.52.51:841][504]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.56:500][772]LogTemp: Warning: Right Step
+[2021.04.15-02.52.56:603][779]LogTemp: Warning: Sprint
+[2021.04.15-02.52.56:927][802]LogTemp: Warning: Left Step
+[2021.04.15-02.52.57:420][826]LogTemp: Warning: StopSprint
+[2021.04.15-02.52.57:532][830]LogTemp: Warning: BP_Flashlight_2
+[2021.04.15-02.52.57:532][830]LogTemp: Warning: Can Grab!
+[2021.04.15-02.52.57:588][832]LogTemp: Warning: Right Step
+[2021.04.15-02.52.58:173][856]LogTemp: Warning: BP_Flashlight_2
+[2021.04.15-02.52.58:173][856]LogTemp: Warning: Can Grab!
+[2021.04.15-02.53.00:211][950]LogTemp: Warning: Sprint
+[2021.04.15-02.53.00:240][952]LogTemp: Warning: Left Step
+[2021.04.15-02.53.00:842][975]LogTemp: Warning: Right Step
+[2021.04.15-02.53.01:387][998]LogTemp: Warning: Left Step
+[2021.04.15-02.53.01:497][  5]LogTemp: Warning: StopSprint
+[2021.04.15-02.53.01:768][ 19]LogTemp: Warning: Sprint
+[2021.04.15-02.53.02:107][ 31]LogTemp: Warning: Right Step
+[2021.04.15-02.53.02:618][ 49]LogTemp: Warning: StopSprint
+[2021.04.15-02.53.03:037][ 64]LogTemp: Warning: Left Step
+[2021.04.15-02.53.04:047][123]LogTemp: Warning: Right Step
+[2021.04.15-02.53.04:328][142]LogTemp: Warning: Sprint
+[2021.04.15-02.53.04:700][159]LogTemp: Warning: Left Step
+[2021.04.15-02.53.05:397][184]LogTemp: Warning: Right Step
+[2021.04.15-02.53.05:452][186]LogTemp: Warning: StopSprint
+[2021.04.15-02.53.05:776][208]LogTemp: Warning: Sprint
+[2021.04.15-02.53.05:987][223]LogTemp: Warning: Left Step
+[2021.04.15-02.53.06:339][248]LogTemp: Warning: Right Step
+[2021.04.15-02.53.06:702][274]LogTemp: Warning: Left Step
+[2021.04.15-02.53.07:080][301]LogTemp: Warning: Right Step
+[2021.04.15-02.53.07:465][328]LogTemp: Warning: Left Step
+[2021.04.15-02.53.07:821][353]LogTemp: Warning: Right Step
+[2021.04.15-02.53.08:182][378]LogTemp: Warning: Left Step
+[2021.04.15-02.53.08:562][405]LogTemp: Warning: Right Step
+[2021.04.15-02.53.08:946][432]LogTemp: Warning: Left Step
+[2021.04.15-02.53.09:257][454]LogTemp: Warning: StopSprint
+[2021.04.15-02.53.09:415][465]LogTemp: Warning: Right Step
+[2021.04.15-02.53.10:225][523]LogTemp: Warning: Left Step
+[2021.04.15-02.53.10:403][535]LogTemp: Warning: Sprint
+[2021.04.15-02.53.10:679][555]LogTemp: Warning: Right Step
+[2021.04.15-02.53.11:040][580]LogTemp: Warning: Left Step
+[2021.04.15-02.53.11:269][597]LogTemp: Warning: StopSprint
+[2021.04.15-02.53.11:545][616]LogTemp: Warning: Right Step
+[2021.04.15-02.53.13:179][732]LogTemp: Warning: Sprint
+[2021.04.15-02.53.13:314][741]LogTemp: Warning: Left Step
+[2021.04.15-02.53.13:639][764]LogTemp: Warning: Right Step
+[2021.04.15-02.53.13:973][787]LogTemp: Warning: Left Step
+[2021.04.15-02.53.14:283][810]LogTemp: Warning: Right Step
+[2021.04.15-02.53.14:607][833]LogTemp: Warning: Left Step
+[2021.04.15-02.53.14:942][856]LogTemp: Warning: Right Step
+[2021.04.15-02.53.15:255][879]LogTemp: Warning: Left Step
+[2021.04.15-02.53.15:585][902]LogTemp: Warning: Right Step
+[2021.04.15-02.53.15:917][925]LogTemp: Warning: Left Step
+[2021.04.15-02.53.16:244][949]LogTemp: Warning: Right Step
+[2021.04.15-02.53.16:599][974]LogTemp: Warning: Left Step
+[2021.04.15-02.53.17:003][  3]LogTemp: Warning: Right Step
+[2021.04.15-02.53.17:387][ 30]LogTemp: Warning: Left Step
+[2021.04.15-02.53.17:754][ 56]LogTemp: Warning: Right Step
+[2021.04.15-02.53.18:039][ 77]LogTemp: Warning: StopSprint
+[2021.04.15-02.53.18:209][ 88]LogTemp: Warning: Left Step
+[2021.04.15-02.53.18:997][145]LogTemp: Warning: Right Step
+[2021.04.15-02.53.19:354][170]LogTemp: Warning: Sprint
+[2021.04.15-02.53.19:568][185]LogTemp: Warning: Left Step
+[2021.04.15-02.53.19:933][211]LogTemp: Warning: Right Step
+[2021.04.15-02.53.20:127][225]LogTemp: Warning: StopSprint
+[2021.04.15-02.53.20:502][252]LogTemp: Warning: Left Step
+[2021.04.15-02.53.21:303][309]LogTemp: Warning: Right Step
+[2021.04.15-02.53.21:538][325]LogTemp: Warning: Sprint
+[2021.04.15-02.53.21:802][344]LogTemp: Warning: Left Step
+[2021.04.15-02.53.22:153][369]LogTemp: Warning: Right Step
+[2021.04.15-02.53.22:527][395]LogTemp: Warning: Left Step
+[2021.04.15-02.53.22:891][421]LogTemp: Warning: Right Step
+[2021.04.15-02.53.23:266][448]LogTemp: Warning: Left Step
+[2021.04.15-02.53.23:407][458]LogTemp: Warning: StopSprint
+[2021.04.15-02.53.23:930][495]LogTemp: Warning: Right Step
+[2021.04.15-02.53.24:729][552]LogTemp: Warning: Left Step
+[2021.04.15-02.53.29:123][864]LogTemp: Warning: Sprint
+[2021.04.15-02.53.29:177][868]LogTemp: Warning: Right Step
+[2021.04.15-02.53.29:501][891]LogTemp: Warning: Left Step
+[2021.04.15-02.53.29:841][915]LogTemp: Warning: Right Step
+[2021.04.15-02.53.30:251][940]LogTemp: Warning: Left Step
+[2021.04.15-02.53.30:401][951]LogTemp: Warning: StopSprint
+[2021.04.15-02.53.30:861][984]LogTemp: Warning: Right Step
+[2021.04.15-02.53.31:658][ 41]LogTemp: Warning: Left Step
+[2021.04.15-02.53.33:559][172]LogTemp: Warning: Right Step
+[2021.04.15-02.53.34:360][229]LogTemp: Warning: Left Step
+[2021.04.15-02.53.35:185][287]LogTemp: Warning: Right Step
+[2021.04.15-02.53.35:992][344]LogTemp: Warning: Left Step
+[2021.04.15-02.53.37:244][433]LogTemp: Warning: Right Step
+[2021.04.15-02.53.40:141][639]LogTemp: Warning: Left Step
+[2021.04.15-02.53.40:940][696]LogTemp: Warning: Right Step
+[2021.04.15-02.53.41:745][753]LogTemp: Warning: Left Step
+[2021.04.15-02.53.42:548][810]LogTemp: Warning: Right Step
+[2021.04.15-02.53.43:363][867]LogTemp: Warning: Left Step
+[2021.04.15-02.53.49:483][303]LogTemp: Warning: Right Step
+[2021.04.15-02.53.56:720][802]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2021.04.15-02.53.56:720][802]LogWorld: BeginTearingDown for /Game/Maps/UEDPIE_0_World
+[2021.04.15-02.53.56:721][802]LogSlate: Window 'ArchitectureExplorer Preview [NetMode: Standalone]  (64-bit/Windows) OculusHMD' being destroyed
+[2021.04.15-02.53.56:762][802]LogWorld: UWorld::CleanupWorld for World, bSessionEnded=true, bCleanupResources=true
+[2021.04.15-02.53.56:764][802]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.15-02.53.56:775][802]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2021.04.15-02.53.56:780][802]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.15-02.53.56:797][802]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.15-02.53.56:797][802]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called
+[2021.04.15-02.53.56:821][802]LogUObjectHash: Compacting FUObjectHashTables data took   2.42ms
+[2021.04.15-02.53.56:839][802]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.53.56:856][802]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.53.56:912][803]LogPlayLevel: Display: Destroying online subsystem :Context_22
+[2021.04.15-02.53.56:919][803]LogEngine: Changing dynamic resolution state.
+[2021.04.15-02.53.58:935][873]LogSlate: Window 'Message Log' being destroyed
+[2021.04.15-02.53.58:963][873]LogSlate: Window 'Message Log' being destroyed
+[2021.04.15-02.54.11:849][756]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.54.11:961][756]LogAssetEditorSubsystem: Opening Asset editor for AnimSequence /Game/FiverrAnim/Mocap/HeadShake.HeadShake
+[2021.04.15-02.54.12:112][756]LogActorComponent: RegisterComponentWithWorld: (/Engine/Transient.World_17:PersistentLevel.AnimationEditorPreviewActor_0.DebugSkelMeshComponent_0) Already registered. Aborting.
+[2021.04.15-02.54.12:146][756]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.54.13:190][756]LogContentBrowser: Verbose: The majority of assets in the view are of type: AnimSequence
+[2021.04.15-02.54.19:416][121]LogSlate: Window 'HeadShake' being destroyed
+[2021.04.15-02.54.19:444][121]LogSlate: Window 'HeadShake' being destroyed
+[2021.04.15-02.54.19:445][121]LogWorld: UWorld::CleanupWorld for World_17, bSessionEnded=true, bCleanupResources=true
+[2021.04.15-02.54.19:445][121]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.15-02.54.19:546][121]LogWorld: UWorld::CleanupWorld for World_18, bSessionEnded=true, bCleanupResources=true
+[2021.04.15-02.54.19:546][121]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.15-02.54.25:017][679]LogEditorViewport: Clicking on Actor (LMB): BP_Saw_C (BP_Saw)
+[2021.04.15-02.54.26:228][758]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.54.26:248][758]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-02.54.26:589][758]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.54.36:375][288]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.54.41:734][534]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.54.54:609][318]Cmd: MODE GRID=0
+[2021.04.15-02.54.55:985][390]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.54.56:926][423]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.54.57:621][457]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.55.06:704][ 26]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.55.09:385][172]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.55.11:368][274]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.55.21:662][886]BlueprintLog: New page: Compile BP_Saw
+[2021.04.15-02.55.21:870][886]LogUObjectHash: Compacting FUObjectHashTables data took   4.81ms
+[2021.04.15-02.55.21:887][886]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.55.21:953][886]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/BP_Saw23F23BA44CAFFBE674CC18B53C4F82E5.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Models/Flashlight/BP_Saw.uasset'
+[2021.04.15-02.55.21:971][886]AssetCheck: New page: Asset Save: BP_Saw
+[2021.04.15-02.55.21:971][886]LogContentValidation: Display: Validating Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-02.55.23:225][950]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.55.29:868][227]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.55.42:364][923]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.55.59:369][960]BlueprintLog: New page: Compile BP_Saw
+[2021.04.15-02.55.59:492][960]LogUObjectHash: Compacting FUObjectHashTables data took   3.54ms
+[2021.04.15-02.55.59:511][960]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.55.59:575][960]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/BP_Saw675B081E4BB861066022AAA792E3F8AB.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Models/Flashlight/BP_Saw.uasset'
+[2021.04.15-02.55.59:589][960]AssetCheck: New page: Asset Save: BP_Saw
+[2021.04.15-02.55.59:589][960]LogContentValidation: Display: Validating Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-02.55.59:997][974]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.56.00:115][974]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/BP_Saw18F383A34D88C717ADCBAAB26B7B5C4A.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Models/Flashlight/BP_Saw.uasset'
+[2021.04.15-02.56.00:129][974]AssetCheck: New page: Asset Save: BP_Saw
+[2021.04.15-02.56.00:129][974]LogContentValidation: Display: Validating Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-02.56.02:821][154]LogSlate: Window 'BP_Saw' being destroyed
+[2021.04.15-02.56.02:846][154]LogSlate: Window 'BP_Saw' being destroyed
+[2021.04.15-02.56.02:852][154]LogWorld: UWorld::CleanupWorld for World_19, bSessionEnded=true, bCleanupResources=true
+[2021.04.15-02.56.02:852][154]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.15-02.56.20:431][489]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.56.29:407][515]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-02.56.29:451][515]LogUObjectHash: Compacting FUObjectHashTables data took   2.67ms
+[2021.04.15-02.56.29:642][515]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/World_Auto1AF310FFE497CF29C4AB1C7A920C46D2C.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Autosaves/Game/Maps/World_Auto1.umap'
+[2021.04.15-02.56.29:645][515]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Maps/World' took 0.213
+[2021.04.15-02.56.29:645][515]LogFileHelpers: Editor autosave (incl. sublevels & external actors) for all levels took 0.213
+[2021.04.15-03.00.00:597][180]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.00.00:618][180]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-03.00.00:958][180]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.00.09:967][645]BlueprintLog: New page: Compile BP_Saw
+[2021.04.15-03.00.10:025][645]LogUObjectHash: Compacting FUObjectHashTables data took   2.62ms
+[2021.04.15-03.00.10:045][645]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.00.10:110][645]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/BP_SawD1A5CB3545AA030A8481E196DD8232ED.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Models/Flashlight/BP_Saw.uasset'
+[2021.04.15-03.00.10:128][645]AssetCheck: New page: Asset Save: BP_Saw
+[2021.04.15-03.00.10:128][645]LogContentValidation: Display: Validating Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-03.00.10:581][661]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.00.10:699][661]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/BP_Saw5855B944420BF864F06F1AB4269D0145.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Models/Flashlight/BP_Saw.uasset'
+[2021.04.15-03.00.10:717][661]AssetCheck: New page: Asset Save: BP_Saw
+[2021.04.15-03.00.10:717][661]LogContentValidation: Display: Validating Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-03.00.15:450][883]BlueprintLog: New page: Compile BP_Saw
+[2021.04.15-03.00.15:504][883]LogUObjectHash: Compacting FUObjectHashTables data took   3.04ms
+[2021.04.15-03.00.15:524][883]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.00.15:587][883]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/BP_Saw0F39F3F84D7BBCD9E2E90395B6FB0CD6.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Models/Flashlight/BP_Saw.uasset'
+[2021.04.15-03.00.15:609][883]AssetCheck: New page: Asset Save: BP_Saw
+[2021.04.15-03.00.15:609][883]LogContentValidation: Display: Validating Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-03.00.16:119][902]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.00.16:236][902]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/BP_SawBB9AF74B44578602521E958DA01E9D4A.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Models/Flashlight/BP_Saw.uasset'
+[2021.04.15-03.00.16:250][902]AssetCheck: New page: Asset Save: BP_Saw
+[2021.04.15-03.00.16:250][902]LogContentValidation: Display: Validating Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-03.00.19:411][ 62]BlueprintLog: New page: Compile BP_Saw
+[2021.04.15-03.00.19:466][ 62]LogUObjectHash: Compacting FUObjectHashTables data took   2.85ms
+[2021.04.15-03.00.19:967][ 76]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.00.20:107][ 76]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/BP_SawA95CCBFB42B254352312FEA21582EB9E.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Models/Flashlight/BP_Saw.uasset'
+[2021.04.15-03.00.20:127][ 76]AssetCheck: New page: Asset Save: BP_Saw
+[2021.04.15-03.00.20:127][ 76]LogContentValidation: Display: Validating Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-03.00.20:834][114]LogSlate: Window 'BP_Saw' being destroyed
+[2021.04.15-03.00.20:860][114]LogSlate: Window 'BP_Saw' being destroyed
+[2021.04.15-03.00.20:869][114]LogWorld: UWorld::CleanupWorld for World_20, bSessionEnded=true, bCleanupResources=true
+[2021.04.15-03.00.20:869][114]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.15-03.02.38:436][779]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.02.38:455][779]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Models/Flashlight/BP_Saw.BP_Saw
+[2021.04.15-03.02.38:796][779]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.02.42:632][958]LogSlate: Window 'BP_Saw' being destroyed
+[2021.04.15-03.02.42:659][958]LogSlate: Window 'BP_Saw' being destroyed
+[2021.04.15-03.02.42:665][958]LogWorld: UWorld::CleanupWorld for World_21, bSessionEnded=true, bCleanupResources=true
+[2021.04.15-03.02.42:665][958]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2021.04.15-03.05.53:055][733]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.05.53:188][733]LogUObjectHash: Compacting FUObjectHashTables data took   2.98ms
+[2021.04.15-03.05.53:378][733]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/WorldAE7DC02A447CBD4BD73BF88D6525F677.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World.umap'
+[2021.04.15-03.05.53:440][733]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/World_BuiltData8BC0660049B86F56E45E72A8375E8FF7.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World_BuiltData.uasset'
+[2021.04.15-03.05.53:455][733]AssetCheck: New page: Asset Save: multiple assets
+[2021.04.15-03.05.53:455][733]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Maps/World_BuiltData.World_BuiltData
+[2021.04.15-03.05.53:455][733]LogContentValidation: Display: Validating World /Game/Maps/World.World
+[2021.04.15-03.05.54:608][793]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.05.54:610][793]Candidate modules for hot reload:
+[2021.04.15-03.05.54:610][793]  ArchitectureExplorer
+[2021.04.15-03.05.54:611][793]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ArchitectureExplorer,4637 ArchitectureExplorerEditor Win64 Development -Project="C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/ArchitectureExplorer.uproject" "C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/ArchitectureExplorer.uproject"  -IgnoreJunk]
+[2021.04.15-03.05.54:616][793]Warning: Starting HotReload took  0.0s.
+[2021.04.15-03.06.03:976][346]CompilerResultsLog: New page: Compilation - Apr 14, 2021, 1:06:03 PM
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1).
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: Building ArchitectureExplorerEditor...
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: Using Visual Studio 2017 14.16.27035 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: [Upgrade]
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: [Upgrade] Using backward-compatible build settings. The latest version of UE4 sets the following values by default, which may require code changes:
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: [Upgrade]     bLegacyPublicIncludePaths = false                 => Omits subfolders from public include paths to reduce compiler command line length. (Previously: true).
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: [Upgrade]     ShadowVariableWarningLevel = WarningLevel.Error   => Treats shadowed variable warnings as errors. (Previously: WarningLevel.Warning).
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: [Upgrade]
+[2021.04.15-03.06.03:977][346]CompilerResultsLog: Building 6 actions with 12 processes...
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:   [1/6] HandController.cpp
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:    C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\HandController.cpp(111) : error C2955: 'TArray': use of class template requires template argument list
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:   C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Containers/Array.h(288): note: see declaration of 'TArray'
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:   C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\HandController.cpp(111): warning C4458: declaration of 'GripSize' hides class member
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:   c:\users\skouty\documents\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\HandController.h(51): note: see declaration of 'AHandController::GripSize'
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:    C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\HandController.cpp(111) : error C2514: 'TArray': class has no constructors
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:   C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Core\Public\Containers/Array.h(288): note: see declaration of 'TArray'
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:    C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\HandController.cpp(113) : error C2039: 'GetComponentsByTa': is not a member of 'AGrabbable'
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:   c:\users\skouty\documents\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\Grabbable.h(10): note: see declaration of 'AGrabbable'
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:    C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\HandController.cpp(113) : error C2143: syntax error: missing ';' before '}'
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:   [2/6] Bottle.gen.cpp
+[2021.04.15-03.06.03:977][346]CompilerResultsLog:   [3/6] ErrolCharacter.cpp
+[2021.04.15-03.06.03:977][346]LogMainFrame: MainFrame: Module compiling took 9.372 seconds
+[2021.04.15-03.06.04:002][346]Warning: HotReload failed, recompile failed
+[2021.04.15-03.06.08:309][636]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.06.20:189][190]LogSlate: Window 'Message Log' being destroyed
+[2021.04.15-03.06.20:223][190]LogSlate: Window 'Message Log' being destroyed
+[2021.04.15-03.06.52:285][419]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.06.52:638][419]LogUObjectHash: Compacting FUObjectHashTables data took   2.53ms
+[2021.04.15-03.06.52:831][419]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/World5BFE3D594CA3FADFB4F664AFE5569520.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World.umap'
+[2021.04.15-03.06.52:889][419]LogSavePackage: Moving '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/World_BuiltData2F8F4D4540883245121B11BCA7478A50.tmp' to '../../../../../../Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Maps/World_BuiltData.uasset'
+[2021.04.15-03.06.52:906][419]AssetCheck: New page: Asset Save: multiple assets
+[2021.04.15-03.06.52:906][419]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Maps/World_BuiltData.World_BuiltData
+[2021.04.15-03.06.52:906][419]LogContentValidation: Display: Validating World /Game/Maps/World.World
+[2021.04.15-03.06.53:070][436]LogD3D11RHI: CreateSwapChainForHwnd failed with result 'DXGI_ERROR_INVALID_CALL' (0x887A0001), falling back to legacy CreateSwapChain.
+[2021.04.15-03.06.53:071][436]Candidate modules for hot reload:
+[2021.04.15-03.06.53:071][436]  ArchitectureExplorer
+[2021.04.15-03.06.53:071][436]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.26/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=ArchitectureExplorer,3346 ArchitectureExplorerEditor Win64 Development -Project="C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/ArchitectureExplorer.uproject" "C:/Users/Skouty/Documents/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/ArchitectureExplorer.uproject"  -IgnoreJunk]
+[2021.04.15-03.06.53:077][436]Warning: Starting HotReload took  0.0s.
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: New page: Compilation - Apr 14, 2021, 1:06:56 PM
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1).
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: Building ArchitectureExplorerEditor...
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: Using Visual Studio 2017 14.16.27035 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: [Upgrade]
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: [Upgrade] Using backward-compatible build settings. The latest version of UE4 sets the following values by default, which may require code changes:
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: [Upgrade]     bLegacyPublicIncludePaths = false                 => Omits subfolders from public include paths to reduce compiler command line length. (Previously: true).
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: [Upgrade]     ShadowVariableWarningLevel = WarningLevel.Error   => Treats shadowed variable warnings as errors. (Previously: WarningLevel.Warning).
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: [Upgrade]
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: Building 3 actions with 12 processes...
+[2021.04.15-03.06.56:386][640]CompilerResultsLog:   [1/3] UE4Editor-ArchitectureExplorer-3346.lib
+[2021.04.15-03.06.56:386][640]CompilerResultsLog:      Creating library C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-3346.lib and object C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-3346.exp
+[2021.04.15-03.06.56:386][640]CompilerResultsLog:   [2/3] UE4Editor-ArchitectureExplorer-3346.dll
+[2021.04.15-03.06.56:386][640]CompilerResultsLog:      Creating library C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-3346.suppressed.lib and object C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-3346.suppressed.exp
+[2021.04.15-03.06.56:386][640]CompilerResultsLog:   [3/3] ArchitectureExplorerEditor.target
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: Total time in Parallel executor: 2.23 seconds
+[2021.04.15-03.06.56:386][640]CompilerResultsLog: Total execution time: 3.22 seconds
+[2021.04.15-03.06.56:386][640]LogMainFrame: MainFrame: Module compiling took 3.320 seconds
+[2021.04.15-03.06.56:426][640]LogClass: Could not find existing class Bottle in package /Script/ArchitectureExplorer for HotReload, assuming new class
+[2021.04.15-03.06.56:426][640]LogClass: Could not find existing class Grabbable in package /Script/ArchitectureExplorer for HotReload, assuming new class
+[2021.04.15-03.06.56:426][640]LogClass: Function NotifyErrolCharacter is new.
+[2021.04.15-03.06.56:429][640]LogClass: Could not find existing class Chainsaw in package /Script/ArchitectureExplorer for HotReload, assuming new class
+[2021.04.15-03.06.56:429][640]LogClass: Function BladeBeginOverlap is new.
+[2021.04.15-03.06.56:451][640]LogClass: Could not find existing class Flashlight in package /Script/ArchitectureExplorer for HotReload, assuming new class
+[2021.04.15-03.06.56:456][640]LogClass: Could not find existing class Phone in package /Script/ArchitectureExplorer for HotReload, assuming new class
+[2021.04.15-03.06.56:484][640]LogClass: AnimState HotReload.
+[2021.04.15-03.06.56:484][640]LogClass: ErrolState HotReload.
+[2021.04.15-03.06.56:498][640]LogHotReload: Re-instancing Bottle after hot-reload.
+[2021.04.15-03.06.56:523][640]LogHotReload: Re-instancing Chainsaw after hot-reload.
+[2021.04.15-03.06.56:578][640]LogHotReload: Re-instancing Flashlight after hot-reload.
+[2021.04.15-03.06.56:623][640]LogHotReload: Re-instancing Grabbable after hot-reload.
+[2021.04.15-03.06.56:660][640]LogHotReload: Re-instancing Phone after hot-reload.
+[2021.04.15-03.06.56:676][640]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.15-03.06.56:676][640]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.15-03.06.56:676][640]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.15-03.06.56:676][640]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.15-03.06.56:676][640]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.15-03.06.56:677][640]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.15-03.06.56:677][640]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.15-03.06.56:677][640]LogScript: Warning: Script Msg: A null object was passed as a world context object to UEngine::GetWorldFromContextObject().
+[2021.04.15-03.06.56:677][640]LogTemp: Warning: TriggerManager cast failed!
+[2021.04.15-03.06.56:687][640]LogNativeClassHierarchy: Verbose: Native class hierarchy updated for 'ArchitectureExplorer' in 0.0008 seconds. Added 27 classes and 2 folders.
+[2021.04.15-03.06.56:710][640]Display: HotReload successful (51 functions remapped  0 scriptstructs remapped)
