@@ -55,7 +55,7 @@ void AHandController::Tick(float DeltaTime)
 
 	DeltaLocation = DeltaLocation - GetActorLocation();
 
-	DrawDebugLines(DeltaTime);	///////////////////// DEBUG HELPER
+	//DrawDebugLines(DeltaTime);	///////////////////// DEBUG HELPER
 
 	if (bIsClimbing)
 	{
@@ -281,6 +281,8 @@ void AHandController::Grip()
 				CurrentDoor->PassController(this);
 				CurrentDoor->SetIsBeingUsed(true);
 				GripSize = 80.f;
+				
+				AttachHandMeshToDoor(CurrentDoor);
 
 				// Attach this hand controller's skeletal mesh to the doorknob.
 
@@ -318,6 +320,8 @@ void AHandController::Release()
 			CurrentDoor->SetIsBeingUsed(false);
 		}
 
+		DetachHandMeshAndReattachToHC();
+
 		// Attach HandMesh to this hand controller
 
 		//free(OverlappingDoor);
@@ -349,9 +353,8 @@ void AHandController::Release()
 			// two handed mechanics
 			if (ActorBeingGrabbed != nullptr)
 			{
-				HandMesh->DetachFromParent();
-				HandMesh->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::SnapToTargetIncludingScale);
-				HandMesh->SetRelativeTransform(HandMeshRelativeTransform);
+				DetachHandMeshAndReattachToHC();
+
 				if (bIsControllingItem)
 				{
 					ActorBeingGrabbed->bBeingHeld = false;
@@ -613,4 +616,28 @@ void AHandController::PrintSocketOffsets(float DeltaTime)
 		}
 		
 	}
+}
+
+void AHandController::DetachHandMeshAndReattachToHC()
+{
+	HandMesh->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+	HandMesh->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::SnapToTargetIncludingScale);
+	HandMesh->SetRelativeTransform(HandMeshRelativeTransform);
+}
+
+void AHandController::AttachHandMeshToDoor(AActor* TheDoor)
+{
+	HandMesh->AttachToComponent(OverlappingKnob, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+
+	if (bLeft)
+	{
+		HandMesh->AddLocalOffset(FVector(-2.795609f,16.379856f,0.054878f));
+		HandMesh->AddLocalRotation(FRotator(38.562122f, -8.343560f, 3.542102f));
+	}
+	else
+	{
+		HandMesh->AddLocalOffset(HandMeshDoorOffset);
+		HandMesh->AddLocalRotation(FRotator(38.562122f, -167.167526f, 8.788214f));
+	}
+	
 }

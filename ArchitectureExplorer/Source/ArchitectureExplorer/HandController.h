@@ -141,6 +141,11 @@ public:
 
 private:
 
+	void DetachHandMeshAndReattachToHC();
+	void AttachHandMeshToDoor(AActor* TheDoor);
+
+	const FVector HandMeshDoorOffset = FVector(3.182271, 15.935795, 1.304686);
+
 	// Stops the player is they are holding on to door handle and moving too far away
 	void CheckDoorDistance();
 

@@ -1,3 +1,20 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1).
-  Target is up to date
-  Total execution time: 0.67 seconds
+  Invalidating makefile for ArchitectureExplorerEditor (HandController.cpp modified)
+  Building ArchitectureExplorerEditor...
+  Using Visual Studio 2017 14.16.27035 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  [Upgrade]
+  [Upgrade] Using backward-compatible build settings. The latest version of UE4 sets the following values by default, which may require code changes:
+  [Upgrade]     bLegacyPublicIncludePaths = false                 => Omits subfolders from public include paths to reduce compiler command line length. (Previously: true).
+  [Upgrade]     ShadowVariableWarningLevel = WarningLevel.Error   => Treats shadowed variable warnings as errors. (Previously: WarningLevel.Warning).
+  [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
+  [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
+  [Upgrade]
+  Building 4 actions with 12 processes...
+    [1/4] HandController.cpp
+    [2/4] UE4Editor-ArchitectureExplorer-0012.lib
+       Creating library C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0012.lib and object C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0012.exp
+    [3/4] UE4Editor-ArchitectureExplorer-0012.dll
+       Creating library C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0012.suppressed.lib and object C:\Users\Skouty\Documents\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0012.suppressed.exp
+    [4/4] ArchitectureExplorerEditor.target
+  Total time in Parallel executor: 7.72 seconds
+  Total execution time: 10.45 seconds
