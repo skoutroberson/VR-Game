@@ -221,14 +221,14 @@ void AVRCharacter::PlayFootStepSound()
 			{
 				//UE_LOG(LogTemp, Warning, TEXT("Right Step"));
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), RightFootstepSound, 
-					VRRoot->GetComponentLocation() + GetActorRightVector() * 2.f, V*2.f);
+					VRRoot->GetComponentLocation() + Camera->GetRightVector() * 2.f, V*2.f);
 				bRightStep = false;
 			}
 			else
 			{
 				//UE_LOG(LogTemp, Warning, TEXT("Left Step"));
 				UGameplayStatics::PlaySoundAtLocation(GetWorld(), LeftFootstepSound, 
-					VRRoot->GetComponentLocation() + -GetActorRightVector() * 2.f, V*2.f);
+					VRRoot->GetComponentLocation() + -Camera->GetRightVector() * 2.f, V*2.f);
 				bRightStep = true;
 			}
 		}
@@ -428,15 +428,18 @@ void AVRCharacter::StopSprint()
 
 void AVRCharacter::MoveForward(float throttle)
 {
+	FVector CFV = Camera->GetForwardVector();
+	CFV.Z = 0;
+	CFV.Normalize();
 	if(!bSprint)
 	{
 		//AddMovementInput(throttle * Camera->GetForwardVector(), 0.4f);
-		AddMovementInput(throttle * GetActorForwardVector(), 0.4f);
+		AddMovementInput(throttle * CFV, 0.4f);
 		
 	}
 	else
 	{
-		AddMovementInput(throttle * GetActorForwardVector());
+		AddMovementInput(throttle * CFV);
 	}
 }
 

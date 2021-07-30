@@ -73,6 +73,7 @@ void AChainsaw::Gripped(int HandHoldNum)
 				ControllingHandHold = HandHold1;
 				bInterpToMC = true;
 				bRotateOneHand = true;
+				
 			}
 		}
 		else 
