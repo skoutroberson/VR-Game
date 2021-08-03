@@ -54,9 +54,9 @@ void ALightManager::BeginPlay()
     */
 	FillLightsMap();
 
-	if (LightsMap.Contains(TEXT("BP_Lamp_Wall_2")))
+	if (LightsMap.Contains(TEXT("BP_Lamp1")))
 	{
-		FString LN = "BP_Lamp_Wall_2";
+		FString LN = "BP_Lamp1";
 		TurnOn(LN, 1.6f, 25.f);
 	}
 	else
@@ -93,19 +93,13 @@ void ALightManager::FillLightsMap()
 			ThisLight->MatInterface = SM->GetMaterial(0);
 			ThisLight->DynamicMaterial = UMaterialInstanceDynamic::Create(ThisLight->MatInterface, SM);
 			ThisLight->Mesh->SetMaterial(0, ThisLight->DynamicMaterial);
-			
-			UPointLightComponent * PLC; 
-			PLC = Cast<UPointLightComponent>(Actor->GetComponentByClass(UPointLightComponent::StaticClass()));
 
-			if (PLC != nullptr)
+			TArray<UActorComponent*> TempArray = Actor->GetComponentsByClass(UPointLightComponent::StaticClass());
+			for (auto lc : TempArray)
 			{
-				ThisLight->LightComponent = PLC;
+				ThisLight->LightComponents.Add(Cast<UPointLightComponent>(lc));
 			}
-			else
-			{
-				UE_LOG(LogTemp, Warning, TEXT("PLC cast failed in Lightmanager.cpp in FillLightsMap()"));
-			}
-
+			UE_LOG(LogTemp, Warning, TEXT("name: %s"), *Actor->GetName());
 			LightsMap.Add(Actor->GetName(), ThisLight);
 		}
 		else
@@ -121,7 +115,14 @@ void ALightManager::TurnOn(FString Name, float LightIntensity, float EmissiveVal
 	{
 		Light * ThisLight = LightsMap[Name];
 		ThisLight->Mesh->SetScalarParameterValueOnMaterials(TEXT("EmissiveWeight"), EmissiveValue);
-		ThisLight->LightComponent->SetIntensity(LightIntensity);
+
+		for (auto lc : ThisLight->LightComponents)
+		{
+			if (lc != nullptr)
+			{
+				lc->SetIntensity(LightIntensity);
+			}
+		}
 	}
 	else
 	{
@@ -135,7 +136,13 @@ void ALightManager::TurnOff(FString Name, float LightIntensity, float EmissiveVa
 	{
 		Light * ThisLight = LightsMap[Name];
 		ThisLight->Mesh->SetScalarParameterValueOnMaterials(TEXT("EmissiveWeight"), EmissiveValue);
-		ThisLight->LightComponent->SetIntensity(LightIntensity);
+		for (auto lc : ThisLight->LightComponents)
+		{
+			if (lc != nullptr)
+			{
+				lc->SetIntensity(LightIntensity);
+			}
+		}
 	}
 	else
 	{

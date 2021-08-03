@@ -16,5 +16,7 @@ class ARCHITECTUREEXPLORER_API AFlashlight : public AGrabbable
 
 public:
 	AFlashlight();
+
+	virtual void BeginPlay() override;
 	
 };

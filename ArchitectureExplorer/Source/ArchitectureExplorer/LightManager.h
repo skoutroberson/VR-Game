@@ -33,7 +33,7 @@ public:
 		UStaticMeshComponent * Mesh = nullptr;
 		UMaterialInterface * MatInterface = nullptr;
 		UMaterialInstanceDynamic* DynamicMaterial = nullptr;
-		UPointLightComponent* LightComponent = nullptr;
+		TArray<UPointLightComponent*> LightComponents;
 		bool bOn = false;
 	};
 

@@ -47,7 +47,6 @@ void AChainsaw::Tick(float DeltaTime)
 	{
 		InterpToMC(DeltaTime);
 	}
-	
 	if (AGrabbable::bRotateTwoHand)
 	{
 		RotateTwoHand(DeltaTime);

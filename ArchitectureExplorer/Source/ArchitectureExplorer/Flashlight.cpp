@@ -8,3 +8,10 @@ AFlashlight::AFlashlight()
 {
 	AGrabbable::ItemGripSize = 55.f;
 }
+
+void AFlashlight::BeginPlay()
+{
+	Super::BeginPlay();
+
+
+}
