@@ -101,6 +101,8 @@ private:
 	bool bStageLock = false;
 	float CloseDoorFastVelocity = 0.0001f;
 
+public:
+	UPROPERTY(BlueprintReadWrite)
 	bool bLocked = false;
 
 private:

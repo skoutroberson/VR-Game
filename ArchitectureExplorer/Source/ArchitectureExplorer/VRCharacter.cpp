@@ -123,6 +123,15 @@ void AVRCharacter::BeginPlay()
 	*/
 
 	DeltaLocation = GetActorLocation();
+
+	TArray<AActor*> GrabActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AGrabbable::StaticClass(), GrabActors);
+	for (auto a : GrabActors)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("UPDATE2"));
+		GetCapsuleComponent()->MoveIgnoreActors.Push(a);
+	}
+	
 }
 
 void AVRCharacter::UpdateCapsuleHeight()

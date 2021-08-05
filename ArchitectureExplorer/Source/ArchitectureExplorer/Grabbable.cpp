@@ -2,6 +2,8 @@
 
 
 #include "Grabbable.h"
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "VRCharacter.h"
 
 // Sets default values
 AGrabbable::AGrabbable()
@@ -28,6 +30,15 @@ void AGrabbable::BeginPlay()
 	{
 		HandHoldOffset2 = GetActorLocation() - HandHold2->GetComponentLocation();
 	}
+
+	AActor* VRChar = UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass());
+	TArray<UActorComponent*> Meshes;
+	Meshes = GetComponentsByClass(UMeshComponent::StaticClass());
+	for (auto m : Meshes)
+	{
+		Cast<UPrimitiveComponent>(m)->MoveIgnoreActors.Push(VRChar);
+	}
+
 }
 
 void AGrabbable::Tick(float DeltaTime)

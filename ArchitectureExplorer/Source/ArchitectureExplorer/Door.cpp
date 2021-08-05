@@ -79,7 +79,7 @@ void ADoor::Tick(float DeltaTime)
 	{
 		CloseDoorFast(DeltaTime);
 	}
-	else if (!bStageLock && bIsBeingUsed)
+	else if (!bLocked && bIsBeingUsed)
 	{
 		UseDoor(DeltaTime);
 	}
