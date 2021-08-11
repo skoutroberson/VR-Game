@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include <vector>
-#include "Stage1.h"
+#include "Stage.h"
 #include "BoxTrigger.h"
 #include "Door.h"
 #include "StageManager.generated.h"
@@ -47,6 +47,8 @@ private:
 
 	StageNode * CurrentNode = nullptr;
 	AActor * CurrentStageActor = nullptr;
+
+
 
 
 	void InitializeStageNodes();
