@@ -12,6 +12,14 @@
 
 using namespace std;
 
+UENUM(BlueprintType)
+enum class EStageNum : uint8
+{
+	STAGE_1			UMETA(DisplayName = "Stage1"),
+	STAGE_2			UMETA(DisplayName = "Stage2"),
+	STAGE_3			UMETA(DisplayName = "Stage3"),
+};
+
 UCLASS()
 class ARCHITECTUREEXPLORER_API AStageManager : public AActor
 {
@@ -39,6 +47,7 @@ private:
 	{
 		TSubclassOf<AStage> StageClass;
 		vector<StageNode*> NextStage;
+		vector<EStageNum> NextStageEnums;
 	};
 
 	StageNode * StageNode1 = nullptr;	// Root
@@ -46,16 +55,35 @@ private:
 	StageNode * StageNode3 = nullptr;
 
 	StageNode * CurrentNode = nullptr;
+
 	AActor * CurrentStageActor = nullptr;
 
+public:
 
+	//UPROPERTY(BlueprintReadOnly)
+	//AStage * CurrentStage = nullptr;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	EStageNum CurrentStageNum;
 
 	void InitializeStageNodes();
 
-	void TESTLIGHTFUNCTION();
-
+	UFUNCTION(BlueprintCallable)
 	bool CurrentStageCompleted();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	UPROPERTY(VisibleAnywhere)
 		UBoxComponent * StartDoorTrigger;
@@ -72,6 +100,9 @@ private:
 		void BeginOverlapEndDoorTrigger(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
 
 private:
+
+	void TESTLIGHTFUNCTION();
+
 	// Initializers
 
 	void InitializeDoorTriggers();

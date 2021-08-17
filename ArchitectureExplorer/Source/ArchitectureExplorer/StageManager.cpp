@@ -56,12 +56,15 @@ void AStageManager::InitializeStageNodes()
 	StageNode3 = new StageNode;
 
 	CurrentNode = StageNode1;
+	CurrentStageNum = EStageNum::STAGE_1;
 
 	StageNode1->StageClass = AStage1::StaticClass();
 	StageNode1->NextStage.push_back(StageNode2);
+	StageNode1->NextStageEnums.push_back(EStageNum::STAGE_2);
 
 	StageNode2->StageClass = AStage2::StaticClass();
 	StageNode2->NextStage.push_back(StageNode3);
+	StageNode2->NextStageEnums.push_back(EStageNum::STAGE_3);
 
 	StageNode3->StageClass = AStage3::StaticClass();
 	// ...
@@ -117,9 +120,15 @@ bool AStageManager::CurrentStageCompleted()
 			}
 		}
 
-		
+		//	Destroy current stage actor
 		GetWorld()->DestroyActor(TestStage);
-		CurrentStageActor = GetWorld()->SpawnActor<AStage>(CurrentNode->NextStage[0]->StageClass);
+
+		//	Change stage and spawn new stage actor
+		CurrentStageNum = CurrentNode->NextStageEnums[0];
+		CurrentNode = CurrentNode->NextStage[0];
+
+		CurrentStageActor = GetWorld()->SpawnActor<AStage>(CurrentNode->StageClass);
+		
 		//CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode2->StageClass);
 	}
 	

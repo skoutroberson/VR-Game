@@ -16,20 +16,22 @@ struct FHitResult;
 #endif
 #define ARCHITECTUREEXPLORER_StageManager_generated_h
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_RPC_WRAPPERS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_SPARSE_DATA
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execBeginOverlapEndDoorTrigger); \
-	DECLARE_FUNCTION(execBeginOverlapStartDoorTrigger);
+	DECLARE_FUNCTION(execBeginOverlapStartDoorTrigger); \
+	DECLARE_FUNCTION(execCurrentStageCompleted);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execBeginOverlapEndDoorTrigger); \
-	DECLARE_FUNCTION(execBeginOverlapStartDoorTrigger);
+	DECLARE_FUNCTION(execBeginOverlapStartDoorTrigger); \
+	DECLARE_FUNCTION(execCurrentStageCompleted);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_INCLASS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAStageManager(); \
 	friend struct Z_Construct_UClass_AStageManager_Statics; \
@@ -38,7 +40,7 @@ public: \
 	DECLARE_SERIALIZER(AStageManager)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_INCLASS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_INCLASS \
 private: \
 	static void StaticRegisterNativesAStageManager(); \
 	friend struct Z_Construct_UClass_AStageManager_Statics; \
@@ -47,7 +49,7 @@ public: \
 	DECLARE_SERIALIZER(AStageManager)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_STANDARD_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AStageManager(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AStageManager) \
@@ -60,7 +62,7 @@ private: \
 public:
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_ENHANCED_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AStageManager(AStageManager&&); \
@@ -71,32 +73,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AStageManager); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AStageManager)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__StartDoorTrigger() { return STRUCT_OFFSET(AStageManager, StartDoorTrigger); } \
-	FORCEINLINE static uint32 __PPO__EndDoorTrigger() { return STRUCT_OFFSET(AStageManager, EndDoorTrigger); }
-
-
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_15_PROLOG
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_GENERATED_BODY_LEGACY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_PRIVATE_PROPERTY_OFFSET
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_23_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_RPC_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_INCLASS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_STANDARD_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_INCLASS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_GENERATED_BODY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_INCLASS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_18_ENHANCED_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_INCLASS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -106,5 +104,13 @@ template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<class AStageManager>();
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h
 
+
+#define FOREACH_ENUM_ESTAGENUM(op) \
+	op(EStageNum::STAGE_1) \
+	op(EStageNum::STAGE_2) \
+	op(EStageNum::STAGE_3) 
+
+enum class EStageNum : uint8;
+template<> ARCHITECTUREEXPLORER_API UEnum* StaticEnum<EStageNum>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

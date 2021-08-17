@@ -54,6 +54,7 @@ void ALightManager::BeginPlay()
     */
 	FillLightsMap();
 
+	/*
 	if (LightsMap.Contains(TEXT("BP_Lamp1")))
 	{
 		FString LN = "BP_Lamp1";
@@ -63,7 +64,7 @@ void ALightManager::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("FUCK didn't work!!"));
 	}
-
+	*/
 }
 
 // Called every frame

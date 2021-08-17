@@ -37,6 +37,9 @@ void AStage1::BeginPlay()
 
 	UE_LOG(LogTemp, Warning, TEXT("Stage1 BeginPlay()"));
 	
+	ALightManager * LM = Cast<ALightManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass()));
+	LM->TurnOn(FString("BP_Lamp1"), 1.6f, 25.f);
+	LM->TurnOn(FString("BP_Lamp2"), 1.6f, 25.f);
 }
 
 void AStage1::EndPlay(const EEndPlayReason::Type EndPlayReason)

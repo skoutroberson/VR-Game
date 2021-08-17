@@ -24,20 +24,6 @@ void AStage2::BeginPlay()
 {
 	Super::BeginPlay();
 
-	AActor * LM = UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass());
-	ALightManager * LightManager = Cast<ALightManager>(LM);
-
-	if (LightManager != nullptr)
-	{
-		//LMClass->SetEmmissive(0, 0);
-		FString LN = "BP_Lamp1_2";
-		LightManager->TurnOff(LN);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("LightManager cast failed in Stage2"));
-	}
-
 	UE_LOG(LogTemp, Warning, TEXT("Stage 2 beginplay"));
 	Trigger0 = TriggerManager->Triggers[0];
 	Trigger0->SetGenerateOverlapEvents(true);
