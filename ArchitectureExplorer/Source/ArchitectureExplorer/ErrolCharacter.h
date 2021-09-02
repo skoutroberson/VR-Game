@@ -35,6 +35,16 @@ public:
 private:
 	bool bHasClothes = true;
 
+	//	cut in half stuff
+
+	TArray<int32> TopHalfBones;
+	TArray<int32> BottomHalfBones;
+	int CutInHalfBone = 3;
+	void SetupBoneArrays();
+
+public:
+	void CutInHalf();
+
 	//class UDestructibleComponent * DC = nullptr;
 
 protected:
@@ -56,6 +66,8 @@ private:
 	USceneComponent * PlayerCamera = nullptr;
 	USceneComponent * ErrolEye = nullptr;
 	UNavigationSystemV1 * NavigationSystem = nullptr;
+
+	USkeletalMeshComponent * SkeletalMeshComp = nullptr;
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

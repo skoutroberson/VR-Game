@@ -47,9 +47,9 @@ void AErrolCharacter::BeginPlay()
 	// I have to call this a bit after the game starts so the player and hand controllers are spawned in
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
 
-	//EnterIdleState();
-	EnterPatrolState();
-	State = ErrolState::STATE_PATROL;
+	EnterIdleState();
+	//EnterPatrolState();
+	//State = ErrolState::STATE_PATROL;
 	UpdateAnimation(State);
 
 	NavigationSystem = UNavigationSystemV1::GetCurrent(World);
@@ -59,8 +59,64 @@ void AErrolCharacter::BeginPlay()
 	//DC = Cast<UDestructibleComponent>(B->GetComponentByClass(UDestructibleComponent::StaticClass()));
 	//DC = Cast<UDestructibleComponent>(B->GetComponentByClass(UDestructibleComponent::StaticClass()));
 
-	USkeletalMeshComponent* SM = Cast<USkeletalMeshComponent>(GetComponentByClass(USkeletalMeshComponent::StaticClass()));
-	SM->HideBoneByName(TEXT("Head"), EPhysBodyOp::PBO_None);
+	
+	SetupBoneArrays();
+	CutInHalf();
+
+}
+
+void AErrolCharacter::SetupBoneArrays()
+{
+	SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+	SkeletalMeshComp->HideBoneByName(TEXT("Head_JNT"), EPhysBodyOp::PBO_None);
+	int32 CutIndex = SkeletalMeshComp->GetBoneIndex(TEXT("Spine01_JNT"));
+	TArray<int32> BoneArray;
+	USkeleton* Skel = SkeletalMeshComp->SkeletalMesh->Skeleton;
+	SkeletalMeshComp->SkeletalMesh->Skeleton->GetChildBones(1, BoneArray);
+	UE_LOG(LogTemp, Warning, TEXT("CutIndex: %d"), CutIndex);
+	UE_LOG(LogTemp, Warning, TEXT("Size: %d"), BoneArray.Num());
+	bool bHalfSwap = false;
+
+	TArray<int32> BonesToVisit;
+	BonesToVisit.Push(0);
+	BottomHalfBones.Push(0);
+
+	while (BonesToVisit.Num() > 0)
+	{
+		int32 Current = BonesToVisit.Pop();
+
+		if (Current == CutIndex)
+		{
+			bHalfSwap = true;
+		}
+
+		TArray<int32> CurrentChildBones;
+		Skel->GetChildBones(Current, CurrentChildBones);
+
+		for (int i = 0; i < CurrentChildBones.Num(); i++)
+		{
+			int32 CurrentChild = CurrentChildBones[i];
+			BonesToVisit.Push(CurrentChild);
+
+			if (!bHalfSwap)
+			{
+				BottomHalfBones.Push(CurrentChild);
+			}
+			else
+			{
+				TopHalfBones.Push(CurrentChild);
+			}
+		}
+
+	}
+}
+
+void AErrolCharacter::CutInHalf()
+{
+	for (int i = 0; i < TopHalfBones.Num(); i++)
+	{
+		SkeletalMeshComp->HideBone(TopHalfBones[i], EPhysBodyOp::PBO_MAX);
+	}
 }
 
 // Called every frame

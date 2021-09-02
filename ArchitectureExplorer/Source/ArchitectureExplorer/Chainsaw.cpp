@@ -191,7 +191,7 @@ void AChainsaw::InterpToMC(float DeltaTime)
 	const FVector AL = GetActorLocation();
 	ControllingOffset = GetActorLocation() - ControllingHandHold->GetComponentLocation();
 	const FVector TL = AGrabbable::ControllingMC->GetActorLocation() + ControllingOffset;
-	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 300.f), true);
+	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 300.f));
 }
 
 void AChainsaw::RotateOneHand(float DeltaTime)
