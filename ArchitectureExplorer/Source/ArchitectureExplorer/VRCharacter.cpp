@@ -30,6 +30,7 @@
 #include "IXRTrackingSystem.h"
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
+#include "Flashlight.h"
 
 
 // Sets default values
@@ -211,6 +212,41 @@ void AVRCharacter::UpdateCapsuleHeight()
 		*/
 }
 
+void AVRCharacter::PressA(bool bLeft)
+{
+	AHandController * CurrentController = nullptr;
+	if (bLeft)
+	{
+		CurrentController = LeftController;
+	}
+	else
+	{
+		CurrentController = RightController;
+	}
+
+	if (CurrentController->bIsHoldingFlashlight)
+	{
+		AActor * GA = CurrentController->GrabActor;
+		AFlashlight * FL = Cast<AFlashlight>(GA);
+		bool bOn = FL->bOn;
+		
+		if (bOn)
+		{
+			FL->TurnOff();
+		}
+		else
+		{
+			FL->TurnOn();
+		}
+	}
+	
+}
+
+void AVRCharacter::ReleaseA(bool bLeft)
+{
+	
+}
+
 void AVRCharacter::PlayFootStepSound()
 {
 	const float DeltaTime = GetWorld()->DeltaTimeSeconds;
@@ -380,11 +416,12 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Released, this, &AVRCharacter::ReleaseLeft);
 	PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Released, this, &AVRCharacter::ReleaseRight);
 
-	PlayerInputComponent->BindAction(TEXT("PressA"), IE_Pressed, this, &AVRCharacter::PressA);
-	PlayerInputComponent->BindAction(TEXT("PressA"), IE_Released, this, &AVRCharacter::ReleaseA);
+	DECLARE_DELEGATE_OneParam(FCustomInputDelegate, const bool);
+	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressA"), IE_Pressed, this, &AVRCharacter::PressA, false);
+	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressA"), IE_Released, this, &AVRCharacter::ReleaseA, false);
 
-	PlayerInputComponent->BindAction(TEXT("PressX"), IE_Pressed, this, &AVRCharacter::PressX);
-	PlayerInputComponent->BindAction(TEXT("PressX"), IE_Released, this, &AVRCharacter::ReleaseX);
+	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressX"), IE_Pressed, this, &AVRCharacter::PressA, true);
+	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressX"), IE_Released, this, &AVRCharacter::ReleaseA, true);
 
 	// Debug inputs for rotating item being carried.
 

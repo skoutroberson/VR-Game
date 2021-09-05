@@ -67,7 +67,10 @@ void AErrolCharacter::BeginPlay()
 
 void AErrolCharacter::SetupBoneArrays()
 {
-	SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+	//SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+	SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), TEXT("Bot"))[0]);
+	TopHalfMesh = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), TEXT("Top"))[0]);
+
 	SkeletalMeshComp->HideBoneByName(TEXT("Head_JNT"), EPhysBodyOp::PBO_None);
 	int32 CutIndex = SkeletalMeshComp->GetBoneIndex(TEXT("Spine01_JNT"));
 	TArray<int32> BoneArray;
@@ -113,10 +116,20 @@ void AErrolCharacter::SetupBoneArrays()
 
 void AErrolCharacter::CutInHalf()
 {
+	TopHalfMesh->HideBoneByName(TEXT("R_Leg_JNT"), EPhysBodyOp::PBO_MAX);
+	TopHalfMesh->HideBoneByName(TEXT("L_Leg_JNT"), EPhysBodyOp::PBO_MAX);
+	
 	for (int i = 0; i < TopHalfBones.Num(); i++)
 	{
 		SkeletalMeshComp->HideBone(TopHalfBones[i], EPhysBodyOp::PBO_MAX);
 	}
+
+	//TopHalfMesh->SetAllBodiesSimulatePhysics(true);
+	//TopHalfMesh->SetSimulatePhysics(true);
+	//TopHalfMesh->WakeAllRigidBodies();
+	//SkeletalMeshComp->SetAllBodiesSimulatePhysics(true);
+	//SkeletalMeshComp->SetSimulatePhysics(true);
+	//SkeletalMeshComp->WakeAllRigidBodies();
 }
 
 // Called every frame

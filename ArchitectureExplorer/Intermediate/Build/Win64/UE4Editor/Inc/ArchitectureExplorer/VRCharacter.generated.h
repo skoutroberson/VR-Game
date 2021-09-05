@@ -16,7 +16,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execPressA); \
 	DECLARE_FUNCTION(execReleaseRight); \
 	DECLARE_FUNCTION(execGripRight); \
 	DECLARE_FUNCTION(execReleaseLeft); \
@@ -25,7 +24,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execPressA); \
 	DECLARE_FUNCTION(execReleaseRight); \
 	DECLARE_FUNCTION(execGripRight); \
 	DECLARE_FUNCTION(execReleaseLeft); \

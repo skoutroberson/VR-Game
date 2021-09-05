@@ -68,6 +68,7 @@ private:
 	UNavigationSystemV1 * NavigationSystem = nullptr;
 
 	USkeletalMeshComponent * SkeletalMeshComp = nullptr;
+	USkeletalMeshComponent * TopHalfMesh = nullptr;
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

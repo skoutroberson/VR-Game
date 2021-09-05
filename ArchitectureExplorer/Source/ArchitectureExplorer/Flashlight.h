@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Grabbable.h"
+#include "LightManager.h"
 #include "Flashlight.generated.h"
 
 /**
@@ -18,5 +19,13 @@ public:
 	AFlashlight();
 
 	virtual void BeginPlay() override;
+
+	void TurnOn();
+	void TurnOff();
+
+	bool bOn = false;
+
+private:
+	ALightManager * LM = nullptr;
 	
 };

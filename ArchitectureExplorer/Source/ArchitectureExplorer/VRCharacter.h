@@ -104,9 +104,8 @@ public:
 	UFUNCTION()
 	void ReleaseRight() { RightController->Release(); }
 
-	UFUNCTION()
-	void PressA() { RightController->PressFlashlightButton(); }
-	void ReleaseA() { RightController->ReleaseFlashlightButton(); }
+	void PressA(bool bLeft);
+	void ReleaseA(bool bLeft);
 
 	void PressX() { LeftController->PressFlashlightButton(); }
 	void ReleaseX() { LeftController->ReleaseFlashlightButton(); }

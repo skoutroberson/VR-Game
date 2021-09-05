@@ -26,13 +26,6 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(AVRCharacter::execPressA)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->PressA();
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(AVRCharacter::execReleaseRight)
 	{
 		P_FINISH;
@@ -67,7 +60,6 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GripLeft", &AVRCharacter::execGripLeft },
 			{ "GripRight", &AVRCharacter::execGripRight },
-			{ "PressA", &AVRCharacter::execPressA },
 			{ "ReleaseLeft", &AVRCharacter::execReleaseLeft },
 			{ "ReleaseRight", &AVRCharacter::execReleaseRight },
 		};
@@ -114,28 +106,6 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AVRCharacter_GripRight_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AVRCharacter_PressA_Statics
-	{
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AVRCharacter_PressA_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "VRCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AVRCharacter_PressA_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AVRCharacter, nullptr, "PressA", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AVRCharacter_PressA_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AVRCharacter_PressA_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AVRCharacter_PressA()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AVRCharacter_PressA_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -265,7 +235,6 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AVRCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AVRCharacter_GripLeft, "GripLeft" }, // 3386932330
 		{ &Z_Construct_UFunction_AVRCharacter_GripRight, "GripRight" }, // 3027521148
-		{ &Z_Construct_UFunction_AVRCharacter_PressA, "PressA" }, // 676381643
 		{ &Z_Construct_UFunction_AVRCharacter_ReleaseLeft, "ReleaseLeft" }, // 563455975
 		{ &Z_Construct_UFunction_AVRCharacter_ReleaseRight, "ReleaseRight" }, // 3157770404
 	};
@@ -436,7 +405,7 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AVRCharacter, 3564147935);
+	IMPLEMENT_CLASS(AVRCharacter, 3403539520);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AVRCharacter>()
 	{
 		return AVRCharacter::StaticClass();

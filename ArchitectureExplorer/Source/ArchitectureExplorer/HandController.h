@@ -127,11 +127,16 @@ private:
 	
 
 	// Actor that the hand controller can pick up
+
+public:
+
 	AActor * GrabActor = nullptr;
+
+
 	FQuat GrabQuat;
 
 	AGrabbable * ActorBeingGrabbed = nullptr;
-
+private:
 	USkeletalMeshComponent * HandMesh;
 
 	FTransform HandMeshRelativeTransform;

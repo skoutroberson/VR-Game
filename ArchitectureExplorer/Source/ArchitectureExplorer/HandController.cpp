@@ -137,7 +137,10 @@ void AHandController::Grip()
 							//need to apply rotation as well
 						}
 
-						
+						if (GrabActor->ActorHasTag(TEXT("Flashlight")))
+						{
+							bIsHoldingFlashlight = true;
+						}
 
 						/*
 						// attach handmesh to chainsaw
