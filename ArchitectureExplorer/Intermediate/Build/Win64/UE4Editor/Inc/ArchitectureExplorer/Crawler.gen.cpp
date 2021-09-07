@@ -19,8 +19,6 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ACrawler();
 	ENGINE_API UClass* Z_Construct_UClass_APawn();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
-	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 // End Cross Module References
 	static UEnum* CrawlerState_StaticEnum()
 	{
@@ -36,7 +34,7 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 		return CrawlerState_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_CrawlerState(CrawlerState_StaticEnum, TEXT("/Script/ArchitectureExplorer"), TEXT("CrawlerState"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_CrawlerState_Hash() { return 592746629U; }
+	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_CrawlerState_Hash() { return 184837030U; }
 	UEnum* Z_Construct_UEnum_ArchitectureExplorer_CrawlerState()
 	{
 #if WITH_HOT_RELOAD
@@ -50,11 +48,14 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
 				{ "CrawlerState::STATE_IDLE", (int64)CrawlerState::STATE_IDLE },
 				{ "CrawlerState::STATE_MOVE", (int64)CrawlerState::STATE_MOVE },
+				{ "CrawlerState::STATE_FALL", (int64)CrawlerState::STATE_FALL },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
 				{ "BlueprintType", "true" },
 				{ "ModuleRelativePath", "Crawler.h" },
+				{ "STATE_FALL.DisplayName", "Fall" },
+				{ "STATE_FALL.Name", "CrawlerState::STATE_FALL" },
 				{ "STATE_IDLE.DisplayName", "Idle" },
 				{ "STATE_IDLE.Name", "CrawlerState::STATE_IDLE" },
 				{ "STATE_MOVE.DisplayName", "Move" },
@@ -138,14 +139,6 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Root_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Root;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Mesh_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Mesh;
 		static const UE4CodeGen_Private::FBytePropertyParams NewProp_State_Underlying;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_State_MetaData[];
@@ -169,22 +162,6 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 		{ "ModuleRelativePath", "Crawler.h" },
 	};
 #endif
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACrawler_Statics::NewProp_Root_MetaData[] = {
-		{ "Category", "Crawler" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Crawler.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACrawler_Statics::NewProp_Root = { "Root", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACrawler, Root), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACrawler_Statics::NewProp_Root_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACrawler_Statics::NewProp_Root_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACrawler_Statics::NewProp_Mesh_MetaData[] = {
-		{ "Category", "Crawler" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Crawler.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACrawler_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACrawler, Mesh), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACrawler_Statics::NewProp_Mesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACrawler_Statics::NewProp_Mesh_MetaData)) };
 	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_ACrawler_Statics::NewProp_State_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACrawler_Statics::NewProp_State_MetaData[] = {
@@ -194,8 +171,6 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ACrawler_Statics::NewProp_State = { "State", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACrawler, State), Z_Construct_UEnum_ArchitectureExplorer_CrawlerState, METADATA_PARAMS(Z_Construct_UClass_ACrawler_Statics::NewProp_State_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACrawler_Statics::NewProp_State_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACrawler_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACrawler_Statics::NewProp_Root,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACrawler_Statics::NewProp_Mesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACrawler_Statics::NewProp_State_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACrawler_Statics::NewProp_State,
 	};
@@ -226,7 +201,7 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACrawler, 1527381787);
+	IMPLEMENT_CLASS(ACrawler, 4239938191);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ACrawler>()
 	{
 		return ACrawler::StaticClass();

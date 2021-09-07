@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Engine/World.h"
+#include "TimerManager.h"
 #include "Crawler.generated.h"
 
 UENUM(BlueprintType)
@@ -12,6 +13,7 @@ enum class CrawlerState : uint8
 {
 	STATE_IDLE			UMETA(DisplayName = "Idle"),
 	STATE_MOVE			UMETA(DisplayName = "Move"),
+	STATE_FALL			UMETA(DisplayName = "Fall"),
 };
 
 UCLASS()
@@ -31,22 +33,36 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere)
-	class USceneComponent* Root;
-
-	UPROPERTY(EditAnywhere)
-	class USkeletalMeshComponent* Mesh;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	CrawlerState State;
 
 private:
 	UWorld * World = nullptr;
+
 	FHitResult HitResult;
+	FCollisionQueryParams TraceParams;
+
 	float Speed = 40.f;
 
 	bool ForwardTrace(float DeltaTime);
+	bool DownTrace(float DeltaTime);
+
 	void MoveForward(float DeltaTime);
+
+	bool bSwerveLeft = false;
+	bool bShouldSwerve = false;
+	float SwerveSpeed = 10.f;
+	float SwerveTime = 0.4f;
+	FTimerHandle SwerveTimer;
+
+	void Swerve(float DeltaTime);
+	void StartSwerve();
+
+
+
+	FTimerHandle IdleTimer;
+	int Laziness = 4;
+
 
 	UFUNCTION(BlueprintCallable, Category="Crawler")
 	void RotateToNormal(UPARAM()FVector NormalVector);
