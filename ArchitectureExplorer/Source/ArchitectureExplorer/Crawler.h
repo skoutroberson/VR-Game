@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Engine/World.h"
 #include "TimerManager.h"
+#include "Components/BoxComponent.h"
 #include "Crawler.generated.h"
 
 UENUM(BlueprintType)
@@ -35,6 +36,12 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	CrawlerState State;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector GravityDir = FVector(0, 0, 0);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UBoxComponent * CrawlerRoot = nullptr;
 
 private:
 	UWorld * World = nullptr;
@@ -66,5 +73,8 @@ private:
 
 	UFUNCTION(BlueprintCallable, Category="Crawler")
 	void RotateToNormal(UPARAM()FVector NormalVector);
+
+	UFUNCTION(BlueprintCallable, Category = "Crawler")
+	void HitRigidBody(UPARAM(ref)FHitResult HitResult);
 
 };

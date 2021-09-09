@@ -18,7 +18,9 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ACrawler_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ACrawler();
 	ENGINE_API UClass* Z_Construct_UClass_APawn();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 // End Cross Module References
 	static UEnum* CrawlerState_StaticEnum()
 	{
@@ -79,6 +81,14 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(ACrawler::execHitRigidBody)
+	{
+		P_GET_STRUCT_REF(FHitResult,Z_Param_Out_HitResult);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->HitRigidBody(Z_Param_Out_HitResult);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ACrawler::execRotateToNormal)
 	{
 		P_GET_STRUCT(FVector,Z_Param_NormalVector);
@@ -91,9 +101,43 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 	{
 		UClass* Class = ACrawler::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "HitRigidBody", &ACrawler::execHitRigidBody },
 			{ "RotateToNormal", &ACrawler::execRotateToNormal },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ACrawler_HitRigidBody_Statics
+	{
+		struct Crawler_eventHitRigidBody_Parms
+		{
+			FHitResult HitResult;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HitResult;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACrawler_HitRigidBody_Statics::NewProp_HitResult = { "HitResult", nullptr, (EPropertyFlags)0x0010008008000180, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Crawler_eventHitRigidBody_Parms, HitResult), Z_Construct_UScriptStruct_FHitResult, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACrawler_HitRigidBody_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACrawler_HitRigidBody_Statics::NewProp_HitResult,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACrawler_HitRigidBody_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Crawler" },
+		{ "ModuleRelativePath", "Crawler.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ACrawler_HitRigidBody_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACrawler, nullptr, "HitRigidBody", nullptr, nullptr, sizeof(Crawler_eventHitRigidBody_Parms), Z_Construct_UFunction_ACrawler_HitRigidBody_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACrawler_HitRigidBody_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04440401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ACrawler_HitRigidBody_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ACrawler_HitRigidBody_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ACrawler_HitRigidBody()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ACrawler_HitRigidBody_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ACrawler_RotateToNormal_Statics
 	{
@@ -144,6 +188,14 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_State_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_State;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GravityDir_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_GravityDir;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CrawlerRoot_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CrawlerRoot;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -153,6 +205,7 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACrawler_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ACrawler_HitRigidBody, "HitRigidBody" }, // 73153486
 		{ &Z_Construct_UFunction_ACrawler_RotateToNormal, "RotateToNormal" }, // 355089931
 	};
 #if WITH_METADATA
@@ -170,9 +223,26 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ACrawler_Statics::NewProp_State = { "State", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACrawler, State), Z_Construct_UEnum_ArchitectureExplorer_CrawlerState, METADATA_PARAMS(Z_Construct_UClass_ACrawler_Statics::NewProp_State_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACrawler_Statics::NewProp_State_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACrawler_Statics::NewProp_GravityDir_MetaData[] = {
+		{ "Category", "Crawler" },
+		{ "ModuleRelativePath", "Crawler.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACrawler_Statics::NewProp_GravityDir = { "GravityDir", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACrawler, GravityDir), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ACrawler_Statics::NewProp_GravityDir_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACrawler_Statics::NewProp_GravityDir_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACrawler_Statics::NewProp_CrawlerRoot_MetaData[] = {
+		{ "Category", "Crawler" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Crawler.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACrawler_Statics::NewProp_CrawlerRoot = { "CrawlerRoot", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACrawler, CrawlerRoot), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACrawler_Statics::NewProp_CrawlerRoot_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACrawler_Statics::NewProp_CrawlerRoot_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACrawler_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACrawler_Statics::NewProp_State_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACrawler_Statics::NewProp_State,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACrawler_Statics::NewProp_GravityDir,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACrawler_Statics::NewProp_CrawlerRoot,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACrawler_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACrawler>::IsAbstract,
@@ -201,7 +271,7 @@ void EmptyLinkFunctionForGeneratedCodeCrawler() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACrawler, 4239938191);
+	IMPLEMENT_CLASS(ACrawler, 1667215535);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ACrawler>()
 	{
 		return ACrawler::StaticClass();
