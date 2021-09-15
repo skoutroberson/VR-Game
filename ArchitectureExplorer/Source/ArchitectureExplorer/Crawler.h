@@ -41,7 +41,20 @@ public:
 	FVector GravityDir = FVector(0, 0, 0);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector TraverseForce = FVector(0, 0, 0);
+
+	bool bShouldTraverse = false;
+
+	FVector HitPoint = FVector::ZeroVector;
+	float Magni = 0;
+
+	FVector MoveDir = FVector::ZeroVector;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UBoxComponent * CrawlerRoot = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Speed = 3.0f;
 
 private:
 	UWorld * World = nullptr;
@@ -49,7 +62,7 @@ private:
 	FHitResult HitResult;
 	FCollisionQueryParams TraceParams;
 
-	float Speed = 40.f;
+	
 
 	bool ForwardTrace(float DeltaTime);
 	bool DownTrace(float DeltaTime);
@@ -75,6 +88,6 @@ private:
 	void RotateToNormal(UPARAM()FVector NormalVector);
 
 	UFUNCTION(BlueprintCallable, Category = "Crawler")
-	void HitRigidBody(UPARAM(ref)FHitResult HitResult);
+	void HitRigidBody(UPARAM(ref)FHitResult HitResult, UPARAM()FVector ImpulseNormal);
 
 };

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ // Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Crawler.h"
@@ -45,6 +45,12 @@ void ACrawler::Tick(float DeltaTime)
 
 	case CrawlerState::STATE_MOVE:
 		
+		DownTrace(DeltaTime);
+		CrawlerRoot->AddForce(GravityDir);
+		CrawlerRoot->AddForce(MoveDir * Speed);
+
+		//CrawlerRoot->AddForceAtLocation(TraverseForce, GetActorLocation() + GetActorForwardVector() * (CrawlerRoot->GetScaledBoxExtent().X * 0.5f));
+
 		break;
 	}
 }
@@ -57,8 +63,41 @@ bool ACrawler::ForwardTrace(float DeltaTime)
 
 bool ACrawler::DownTrace(float DeltaTime)
 {
+	FVector AL = GetActorLocation();
+	FVector UV = GetActorUpVector();
+	FVector FV = GetActorForwardVector();
+	bool bTrace = World->LineTraceSingleByChannel(HitResult, AL + UV * 0.1f, AL - UV * 6.8f, ECollisionChannel::ECC_PhysicsBody, TraceParams);
+
+	DrawDebugPoint(World, AL + FV * (CrawlerRoot->GetScaledBoxExtent().X), 4.f, FColor::Purple, false, DeltaTime * 2.f);
+	DrawDebugPoint(World, AL - FV * (CrawlerRoot->GetScaledBoxExtent().X * 0.8f), 4.f, FColor::White, false, DeltaTime * 2.f);
 	
-	return false;
+
+	if (bTrace)
+	{
+		FVector N = HitResult.ImpactNormal;
+		float Dot = FVector::DotProduct(UV, N);
+		
+		if (Dot < 0)
+		{
+			N = -N;
+		}
+		GravityDir = -N * 2.f;
+		SetActorLocation(HitResult.ImpactPoint, true);
+		
+		Dot = FVector::DotProduct(N, FV);
+		N *= Dot;
+		MoveDir = FV - N;
+
+	}
+	else
+	{
+
+		//CrawlerRoot->PutRigidBodyToSleep();
+		//CrawlerRoot->WakeRigidBody();
+		//CrawlerRoot->AddTorqueInRadians(GetActorRightVector() * World->DeltaTimeSeconds * 10.f);
+	}
+
+	return bTrace;
 }
 
 void ACrawler::MoveForward(float DeltaTime)
@@ -94,6 +133,33 @@ void ACrawler::RotateToNormal(UPARAM()FVector NormalVector)
 	SetActorRotation(NewQuat);
 }
 
-void ACrawler::HitRigidBody(UPARAM(ref)FHitResult HitResult)
+void ACrawler::HitRigidBody(UPARAM(ref)FHitResult HitResult, UPARAM()FVector ImpulseNormal)
 {
+
+	CrawlerRoot->PutRigidBodyToSleep();
+
+	FVector AL = GetActorLocation();
+	FVector FV = GetActorForwardVector();
+	FVector UV = GetActorUpVector();
+
+	HitPoint = HitResult.ImpactPoint;
+	FVector Disp = HitPoint - AL;
+
+	FVector Extent = CrawlerRoot->GetScaledBoxExtent();
+
+	float LengthSquared = (Extent.X * 0.5f) * (Extent.X * 0.5f);
+	float MagSquared = Disp.SizeSquared();
+	float Dot = FVector::DotProduct(Disp, FV);
+
+	//UE_LOG(LogTemp, Warning, TEXT("MAG: %f"), MagSquared);
+
+	CrawlerRoot->WakeRigidBody();
+
+	if (Dot > 0 && MagSquared > 6.7f)
+	{
+		CrawlerRoot->AddTorqueInRadians(GetActorRightVector() * World->DeltaTimeSeconds * -100 * Dot);
+	}
+
+	
+	
 }
