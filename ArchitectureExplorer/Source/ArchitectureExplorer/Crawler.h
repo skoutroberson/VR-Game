@@ -50,6 +50,8 @@ public:
 
 	FVector MoveDir = FVector::ZeroVector;
 
+	bool bNewGrav = false;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UBoxComponent * CrawlerRoot = nullptr;
 
@@ -62,7 +64,7 @@ private:
 	FHitResult HitResult;
 	FCollisionQueryParams TraceParams;
 
-	
+	TArray<AActor*> TraceIgnoreActors;
 
 	bool ForwardTrace(float DeltaTime);
 	bool DownTrace(float DeltaTime);

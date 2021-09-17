@@ -9,6 +9,6 @@
   [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
   [Upgrade]
   Building 4 actions with 12 processes...
-    [1/4] Crawler.cpp
+    [1/4] Cockroach.cpp
 cl : Command line error D8049: cannot execute 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX64\x64\c1xx.dll': command line is too long to fit in debug record
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.MakeFile.Targets(44,5): error MSB3073: The command ""C:\Program Files\Epic Games\UE_4.26\Engine\Build\BatchFiles\Build.bat" ArchitectureExplorerEditor Win64 Development -Project="E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\ArchitectureExplorer.uproject" -WaitMutex -FromMsBuild" exited with code 6.

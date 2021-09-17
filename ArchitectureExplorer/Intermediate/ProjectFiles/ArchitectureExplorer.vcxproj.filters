@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ArchitectureExplorer.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{394B43FA-433A-41DC-AD9F-22527A52048E}</UniqueIdentifier>
+      <UniqueIdentifier>{E78D6225-9056-4BF8-8051-692F9C6B2166}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ArchitectureExplorer.Target.cs">
       <Filter>Source</Filter>
@@ -11,13 +11,8 @@
     <None Include="..\..\Source\ArchitectureExplorerEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
-    <None Include="..\..\AdvancedGlassPack414.png" />
-    <None Include="..\..\DoorsPack.png" />
-    <None Include="..\..\DoorsPack2V2.png" />
-    <None Include="..\..\DoorsPackV3.png" />
-    <None Include="..\..\SovietWindows.png" />
     <Filter Include="Config">
-      <UniqueIdentifier>{5D4E0C9E-AB10-4506-9FF0-B44C90FAD9DD}</UniqueIdentifier>
+      <UniqueIdentifier>{ECFBECE4-ABD4-4167-81E7-8E8C8C4D718F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -34,8 +29,11 @@
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultScalability.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\ArchitectureExplorer">
-      <UniqueIdentifier>{DEEFD707-3ECB-4568-A6F8-A7E34320F1FC}</UniqueIdentifier>
+      <UniqueIdentifier>{A9C1BCB0-4618-4619-B4EA-9003E97CC1BD}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ArchitectureExplorer\ArchitectureExplorer.Build.cs">
       <Filter>Source\ArchitectureExplorer</Filter>
@@ -68,6 +66,12 @@
       <Filter>Source\ArchitectureExplorer</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ArchitectureExplorer\Chainsaw.h">
+      <Filter>Source\ArchitectureExplorer</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ArchitectureExplorer\Cockroach.cpp">
+      <Filter>Source\ArchitectureExplorer</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArchitectureExplorer\Cockroach.h">
       <Filter>Source\ArchitectureExplorer</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\ArchitectureExplorer\cPlayerHandAnimBP.cpp">
