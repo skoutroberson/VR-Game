@@ -211,9 +211,18 @@ void EmptyLinkFunctionForGeneratedCodeCockroach() {}
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_MoveDirection;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxSpeed_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxSpeed;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Speed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Speed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bShouldHit_MetaData[];
+#endif
+		static void NewProp_bShouldHit_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bShouldHit;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -271,12 +280,30 @@ void EmptyLinkFunctionForGeneratedCodeCockroach() {}
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACockroach_Statics::NewProp_MoveDirection = { "MoveDirection", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACockroach, MoveDirection), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ACockroach_Statics::NewProp_MoveDirection_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACockroach_Statics::NewProp_MoveDirection_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACockroach_Statics::NewProp_MaxSpeed_MetaData[] = {
+		{ "Category", "Cockroach" },
+		{ "ModuleRelativePath", "Cockroach.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACockroach_Statics::NewProp_MaxSpeed = { "MaxSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACockroach, MaxSpeed), METADATA_PARAMS(Z_Construct_UClass_ACockroach_Statics::NewProp_MaxSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACockroach_Statics::NewProp_MaxSpeed_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACockroach_Statics::NewProp_Speed_MetaData[] = {
 		{ "Category", "Cockroach" },
 		{ "ModuleRelativePath", "Cockroach.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACockroach_Statics::NewProp_Speed = { "Speed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACockroach, Speed), METADATA_PARAMS(Z_Construct_UClass_ACockroach_Statics::NewProp_Speed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACockroach_Statics::NewProp_Speed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACockroach_Statics::NewProp_bShouldHit_MetaData[] = {
+		{ "Category", "Cockroach" },
+		{ "ModuleRelativePath", "Cockroach.h" },
+	};
+#endif
+	void Z_Construct_UClass_ACockroach_Statics::NewProp_bShouldHit_SetBit(void* Obj)
+	{
+		((ACockroach*)Obj)->bShouldHit = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACockroach_Statics::NewProp_bShouldHit = { "bShouldHit", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ACockroach), &Z_Construct_UClass_ACockroach_Statics::NewProp_bShouldHit_SetBit, METADATA_PARAMS(Z_Construct_UClass_ACockroach_Statics::NewProp_bShouldHit_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACockroach_Statics::NewProp_bShouldHit_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACockroach_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACockroach_Statics::NewProp_Root,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACockroach_Statics::NewProp_Mesh,
@@ -284,7 +311,9 @@ void EmptyLinkFunctionForGeneratedCodeCockroach() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACockroach_Statics::NewProp_State,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACockroach_Statics::NewProp_GravityDirection,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACockroach_Statics::NewProp_MoveDirection,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACockroach_Statics::NewProp_MaxSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACockroach_Statics::NewProp_Speed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACockroach_Statics::NewProp_bShouldHit,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACockroach_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACockroach>::IsAbstract,
@@ -313,7 +342,7 @@ void EmptyLinkFunctionForGeneratedCodeCockroach() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACockroach, 4123855893);
+	IMPLEMENT_CLASS(ACockroach, 4214531778);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ACockroach>()
 	{
 		return ACockroach::StaticClass();

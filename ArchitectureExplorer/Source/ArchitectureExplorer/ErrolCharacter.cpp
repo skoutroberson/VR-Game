@@ -26,7 +26,7 @@ AErrolCharacter::AErrolCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	State = ErrolState::STATE_IDLE;
+	State = ErrolState::STATE_PATROL;
 }
 
 // Called when the game starts or when spawned
@@ -47,9 +47,9 @@ void AErrolCharacter::BeginPlay()
 	// I have to call this a bit after the game starts so the player and hand controllers are spawned in
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
 
-	EnterIdleState();
-	//EnterPatrolState();
-	//State = ErrolState::STATE_PATROL;
+	//EnterIdleState();
+	EnterPatrolState();
+	State = ErrolState::STATE_PATROL;
 	UpdateAnimation(State);
 
 	NavigationSystem = UNavigationSystemV1::GetCurrent(World);
@@ -60,8 +60,8 @@ void AErrolCharacter::BeginPlay()
 	//DC = Cast<UDestructibleComponent>(B->GetComponentByClass(UDestructibleComponent::StaticClass()));
 
 	
-	SetupBoneArrays();
-	CutInHalf();
+	//SetupBoneArrays();
+	//CutInHalf();
 
 }
 

@@ -48,7 +48,13 @@ public:
 	FVector MoveDirection = FVector::ZeroVector;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float MaxSpeed = 4.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Speed = 1.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bShouldHit = true;
 
 private:
 
@@ -72,5 +78,15 @@ private:
 	FVector WorldGravity = FVector(0, 0, -1.f);
 
 	bool bToggle = true;
+
+	FVector LastLocation = FVector::ZeroVector;
+
+	FVector LastDirection = FVector::ZeroVector;
+
+	FVector AverageLocation = FVector::ZeroVector;
+	FVector LastAverageLocation = FVector::ZeroVector;
+
+	void SetMeshTransform(float DeltaTime);
+
 
 };

@@ -27,6 +27,10 @@ void ACockroach::BeginPlay()
 	World = GetWorld();
 	TraceParams.AddIgnoredActor(this);
 	TraceIgnoreActors.Add(this);
+
+	LastDirection = MoveDirection;
+
+	HitsThisFrame = 1;
 	
 	State = RoachState::STATE_MOVE;
 }
@@ -46,14 +50,23 @@ void ACockroach::Tick(float DeltaTime)
 	{
 	case RoachState::STATE_MOVE:
 
-		Root->AddForce(GravityDirection * 2.f);
+		Root->AddForce(GravityDirection * 4.f);
 		Move(DeltaTime);
+		MoveDirection = MoveDirection.RotateAngleAxis(DeltaTime * 14.f, GravityDirection);
 
-		if (HitsThisFrame == 0 && bToggle)
+		if (HitsThisFrame == 0)
 		{
 			DownTrace(DeltaTime);
 		}
+		else
+		{
+			SetMeshTransform(DeltaTime);
+		}
 
+		break;
+	case RoachState::STATE_FALL:
+		Root->AddForce(WorldGravity * 2.f);
+		DownTrace(DeltaTime);
 		break;
 	}
 
@@ -65,12 +78,14 @@ void ACockroach::Tick(float DeltaTime)
 	{
 		bToggle = true;
 	}
+
+	LastLocation = GetActorLocation();
+	LastDirection = MoveDirection;
 }
 
 void ACockroach::Move(float DeltaTime)
 {
 	Root->AddForce(MoveDirection * Speed);
-
 }
 
 void ACockroach::DownTrace(float DeltaTime)
@@ -80,57 +95,191 @@ void ACockroach::DownTrace(float DeltaTime)
 
 	if (HitsThisFrame == 0)
 	{
-		bool Result = UKismetSystemLibrary::SphereTraceSingle(World, AL + GravityDirection, AL + GravityDirection * 1.01f, Radius * 1.5f, ETraceTypeQuery::TraceTypeQuery1,
-			false, TraceIgnoreActors, EDrawDebugTrace::ForDuration, HitResult, true, FLinearColor::Red, FLinearColor::Green, DeltaTime * 1.1f);
+		FVector Disp = LastLocation - AL;
+		float MovedDistance = Disp.Size();
+		GravityDirection = GravityDirection.GetSafeNormal();
+
+		bool Result = UKismetSystemLibrary::SphereTraceSingle(World, 
+			AL,
+			AL + GravityDirection * Radius - MoveDirection * Speed, //* 5.f, // need to base the "5.f" on Speed
+			Radius,								// need to base radius on speed
+			ETraceTypeQuery::TraceTypeQuery_MAX,
+			true, TraceIgnoreActors, EDrawDebugTrace::ForDuration, 
+			HitResult, true, FLinearColor::Red, FLinearColor::Green, DeltaTime * 1.1f);
 
 		if (Result)
 		{
 			FVector N = HitResult.ImpactNormal;
 			FVector HL = HitResult.ImpactPoint;
 
-			GravityDirection = GravityDirection.GetSafeNormal();
+			FVector Disp = HL - AL;
+
+			//float Dot = FVector::DotProduct(Disp, MoveDirection);
 
 			float Dot = fabsf(FVector::DotProduct(N, GravityDirection));
 
-			if (fabsf(Dot) < 1 - 0.0001f)
+			if (fabsf(Dot) < 1)
 			{
+				/*
+				MoveDirection = MoveDirection.GetSafeNormal();
+				GravityDirection = -N;
+
+				Dot = FVector::DotProduct(MoveDirection, N);
+
+				FVector Proj = N;
+
+				Proj *= Dot;
+				MoveDirection = MoveDirection - Proj;
+				MoveDirection = MoveDirection.GetSafeNormal();
+
+				FVector V = Root->GetPhysicsLinearVelocity();
+				Dot = FVector::DotProduct(V, N);
+
+				Proj = N;
+
+				Proj *= Dot;
+				V = V - Proj;
+
+				Root->SetPhysicsLinearVelocity(V);
+				SetActorLocation(HL, true);
+				*/
+				
 				float Theta = acosf(Dot) * (180.f / PI);
 
 				MoveDirection = MoveDirection.GetSafeNormal();
 
 				FVector Axis = FVector::CrossProduct(N, GravityDirection);
+				Axis = Axis.GetSafeNormal();
 
 				MoveDirection = MoveDirection.RotateAngleAxis(Theta, Axis);
+
 				GravityDirection = -N;
 
 				FVector V = Root->GetPhysicsLinearVelocity();
 				V = V.RotateAngleAxis(Theta, Axis);
 				Root->SetPhysicsLinearVelocity(V);
 
-				SetActorLocation(HL, true);
-				DrawDebugLine(World, HL, HL + N * 10.f, FColor::Purple, false, DeltaTime * 1.1f);
+				SetActorLocation(HL, true, nullptr, ETeleportType::None);
+				//DrawDebugLine(World, HL, HL + N * 10.f, FColor::Purple, false, DeltaTime * 1.1f);
+
+				AverageLocation += HL;
+				
 				HitsThisFrame++;
 				bToggle = false;
 			}
+			else
+			{
+				if (State == RoachState::STATE_FALL)
+				{
+					State = RoachState::STATE_MOVE;
+				}
+				GravityDirection = -N;
+			}
+			
 			
 		}
 		else
 		{
-			State = RoachState::STATE_FALL;
-			Root->PutRigidBodyToSleep();
+			//DrawDebugLine(World, AL, AL + Disp * 10.f, FColor::Cyan, true);
+			//DrawDebugLine(World, AL, AL - GravityDirection * 10.f, FColor::Orange, true);
+			
+			if (State != RoachState::STATE_FALL)
+			{
+				State = RoachState::STATE_FALL;
+				Root->PutRigidBodyToSleep();
+			}
 		}
 	}
 }
 
 void ACockroach::HitRigidBody(UPARAM(ref)FHitResult HitResult, UPARAM()FVector ImpulseNormal)
 {
-	FVector AL = GetActorLocation();
-	FVector HL = HitResult.ImpactPoint;
-	FVector N = ImpulseNormal;
-	N = N.GetSafeNormal();
+	UE_LOG(LogTemp, Warning, TEXT("Hit: %s"), *HitResult.Actor->GetName());
+	if (bShouldHit)
+	{
+		FVector AL = GetActorLocation();
+		FVector HL = HitResult.ImpactPoint;
+		FVector N = HitResult.ImpactNormal;
+		FVector Disp = HL - AL;
+		Disp = Disp.GetSafeNormal();
 
-	//DrawDebugPoint(World, HL, 4.f, FColor::Blue, false, 2 * World->DeltaTimeSeconds);
+		DrawDebugPoint(World, HL, 4.f, FColor::Cyan, false, 1.2f * World->DeltaTimeSeconds, ESceneDepthPriorityGroup::SDPG_MAX);
 
+		float Dot = FVector::DotProduct(Disp, GravityDirection);
+
+		if (fabsf(Dot) < 0.99f)
+		{
+			//Dot = FVector::DotProduct(Disp, MoveDirection);
+
+			//if (Dot > 0.01f)
+			//{
+				//Root->PutRigidBodyToSleep();
+				
+
+				MoveDirection = MoveDirection.GetSafeNormal();
+
+				FVector Add = (MoveDirection - GravityDirection).GetSafeNormal();
+
+				Dot = FVector::DotProduct(Add, N);
+
+				FVector Proj = N * Dot;
+
+				MoveDirection = Add - Proj;
+				MoveDirection = MoveDirection.GetSafeNormal();
+
+				float V = Root->GetPhysicsLinearVelocity().Size();
+
+				//FVector V = Root->GetPhysicsLinearVelocity();
+
+				//Add = (V + GravityDirection).GetSafeNormal();
+				//Dot = FVector::DotProduct(Add, N);
+				//Proj = N * Dot;
+
+				//V = Add - Proj;
+
+				Root->SetPhysicsLinearVelocity(MoveDirection * V);
+
+				//Root->SetPhysicsLinearVelocity(MoveDirection * V);
+
+				bShouldHit = false;
+				GravityDirection = -N;
+				SetActorLocation(HL, true, nullptr, ETeleportType::None);
+
+				AverageLocation += HL;
+				
+				/*
+				Dot = FVector::DotProduct(N, GravityDirection);
+				float Theta = acosf(Dot) * (180.f / PI);
+
+				MoveDirection = MoveDirection.GetSafeNormal();
+
+				FVector Axis = FVector::CrossProduct(N, GravityDirection);
+				Axis = Axis.GetSafeNormal();
+
+				MoveDirection = MoveDirection.RotateAngleAxis(Theta, Axis);
+				GravityDirection = -N;
+
+				Dot = FVector::DotProduct(N, MoveDirection);
+
+				FVector Proj = N * Dot;
+
+				MoveDirection = MoveDirection - Proj;
+				MoveDirection = MoveDirection.GetSafeNormal();
+
+				FVector V = Root->GetPhysicsLinearVelocity();
+				V = V.RotateAngleAxis(Theta, Axis);
+				Root->SetPhysicsLinearVelocity(V);
+				bToggle = false;
+				*/
+				//Root->WakeRigidBody();
+				
+			//
+		}
+	}
+	else
+	{
+		bShouldHit = true;
+	}
 	HitsThisFrame++;
 }
 
@@ -146,4 +295,14 @@ void ACockroach::RotateToNormal(UPARAM()FVector NormalVector)
 	FQuat NewQuat = RotQuat * MyQuat;
 
 	SetActorRotation(NewQuat);
+}
+
+void ACockroach::SetMeshTransform(float DeltaTime)
+{
+	AverageLocation /= HitsThisFrame;
+
+	
+
+	
+	LastAverageLocation = AverageLocation;
 }
