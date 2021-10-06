@@ -34,6 +34,8 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	UBoxComponent* Trigger0 = nullptr;
 
+	class ARadio * Radio;
+
 protected:
 	// overloads
 	virtual void BOTrigger0() override;

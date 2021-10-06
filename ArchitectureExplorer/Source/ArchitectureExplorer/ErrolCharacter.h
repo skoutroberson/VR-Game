@@ -90,7 +90,7 @@ private:
 		ATargetPoint* GetRandomWaypoint();
 public:
 	UFUNCTION()
-		void GoToRandomWaypoint();
+	void GoToRandomWaypoint();
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "AIAnimation")
 	void UpdateAnimation(ErrolState CurrentState);

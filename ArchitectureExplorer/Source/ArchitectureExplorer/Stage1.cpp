@@ -8,6 +8,7 @@
 #include "LightManager.h"
 #include "Door.h"
 #include "DrawDebugHelpers.h"
+#include "Radio.h"
 
 
 // Sets default values
@@ -36,10 +37,16 @@ void AStage1::BeginPlay()
 	AddTriggerDelegates();
 
 	UE_LOG(LogTemp, Warning, TEXT("Stage1 BeginPlay()"));
+
+	//	Have a reference to LightManager exist in StageManager, not every stage?
 	
 	ALightManager * LM = Cast<ALightManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass()));
 	LM->TurnOn(FString("BP_Lamp1"), 1.6f, 25.f);
 	LM->TurnOn(FString("BP_Lamp2"), 1.6f, 25.f);
+	LM->TurnOn(FString("BP_Radio_2"), 1.f, 10.f);
+
+	Radio = Cast<ARadio>(UGameplayStatics::GetActorOfClass(GetWorld(), ARadio::StaticClass()));
+	Radio->TurnOn();
 }
 
 void AStage1::EndPlay(const EEndPlayReason::Type EndPlayReason)

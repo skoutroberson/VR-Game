@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Radio.h"
 #include "Door.generated.h"
 
 UCLASS()
@@ -96,6 +97,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void CloseDoorFast(UPARAM(DisplayName = "DeltaTime") float DeltaTime);
+
 
 private:
 	bool bStageLock = false;

@@ -13,7 +13,10 @@
 #include "GameFramework/PlayerController.h"
 #include "Components/PrimitiveComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "BoxTrigger.h"
+#include "Door.h"
+#include "Radio.h"
 
 // Sets default values
 APortalRoom::APortalRoom()
@@ -27,7 +30,6 @@ APortalRoom::APortalRoom()
 void APortalRoom::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
 
 // Called every frame
