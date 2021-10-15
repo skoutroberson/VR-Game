@@ -8,6 +8,7 @@
 #include "LightManager.h"
 #include "Door.h"
 #include "DrawDebugHelpers.h"
+#include "Phone.h"
 #include "Radio.h"
 
 
@@ -45,8 +46,8 @@ void AStage1::BeginPlay()
 	LM->TurnOn(FString("BP_Lamp2"), 1.6f, 25.f);
 	LM->TurnOn(FString("BP_Radio_2"), 1.f, 10.f);
 
-	Radio = Cast<ARadio>(UGameplayStatics::GetActorOfClass(GetWorld(), ARadio::StaticClass()));
-	Radio->TurnOn();
+	Phone = Cast<APhone>(UGameplayStatics::GetActorOfClass(GetWorld(), APhone::StaticClass()));
+	Phone->CallPhone();
 }
 
 void AStage1::EndPlay(const EEndPlayReason::Type EndPlayReason)

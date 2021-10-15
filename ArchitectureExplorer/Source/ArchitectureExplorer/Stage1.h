@@ -34,7 +34,7 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	UBoxComponent* Trigger0 = nullptr;
 
-	class ARadio * Radio;
+	class APhone * Phone = nullptr;
 
 protected:
 	// overloads

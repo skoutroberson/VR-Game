@@ -17,7 +17,15 @@ class ARCHITECTUREEXPLORER_API APhone : public AGrabbable
 public:
 	APhone();
 
-	protected:
+protected:
 	virtual void BeginPlay() override;
+
+public:
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Phone")
+	void CallPhone();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Phone")
+	void AnswerPhone();
 	
 };

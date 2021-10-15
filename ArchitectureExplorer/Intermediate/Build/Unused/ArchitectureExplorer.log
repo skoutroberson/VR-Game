@@ -1,9 +1,4 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal Projects\ArchitectureExplorer1).
-  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Binaries\Win64\UE4Editor-ArchitectureExplorer-0011.dll
-  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Binaries\Win64\UE4Editor-ArchitectureExplorer-0329.dll
-  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0011.lib
-  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0144.lib
-  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0329.lib
   Building ArchitectureExplorerEditor...
   Using Visual Studio 2017 14.16.27045 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   [Upgrade]
@@ -14,13 +9,10 @@
   [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
   [Upgrade]
   Building 3 actions with 12 processes...
-    [1/3] UE4Editor-ArchitectureExplorer.lib
-Radio.gen.cpp.obj : warning LNK4006: "public: void __cdecl ARadio::TurnOff(void)" (?TurnOff@ARadio@@QEAAXXZ) already defined in Radio.cpp.obj; second definition ignored
-Radio.gen.cpp.obj : warning LNK4006: "public: void __cdecl ARadio::TurnOn(void)" (?TurnOn@ARadio@@QEAAXXZ) already defined in Radio.cpp.obj; second definition ignored
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer.exp
-    [2/3] UE4Editor-ArchitectureExplorer.dll
-Radio.gen.cpp.obj : error LNK2005: "public: void __cdecl ARadio::TurnOff(void)" (?TurnOff@ARadio@@QEAAXXZ) already defined in Radio.cpp.obj
-Radio.gen.cpp.obj : error LNK2005: "public: void __cdecl ARadio::TurnOn(void)" (?TurnOn@ARadio@@QEAAXXZ) already defined in Radio.cpp.obj
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer.suppressed.exp
-E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Binaries\Win64\UE4Editor-ArchitectureExplorer.dll : fatal error LNK1169: one or more multiply defined symbols found
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.MakeFile.Targets(44,5): error MSB3073: The command ""C:\Program Files\Epic Games\UE_4.26\Engine\Build\BatchFiles\Build.bat" ArchitectureExplorerEditor Win64 Development -Project="E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\ArchitectureExplorer.uproject" -WaitMutex -FromMsBuild" exited with code 6.
+    [1/3] UE4Editor-ArchitectureExplorer-0021.lib
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0021.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0021.exp
+    [2/3] UE4Editor-ArchitectureExplorer-0021.dll
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0021.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0021.suppressed.exp
+    [3/3] ArchitectureExplorerEditor.target
+  Total time in Parallel executor: 1.94 seconds
+  Total execution time: 3.05 seconds
