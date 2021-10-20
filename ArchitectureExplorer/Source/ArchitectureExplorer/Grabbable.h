@@ -26,6 +26,8 @@ public:
 	virtual void Gripped(int HandHoldNum);
 	virtual void Released(int HandHoldNum);
 
+	UPrimitiveComponent * Mesh = nullptr;
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Grabbable)
 	float ItemGripSize = 100.f;
@@ -95,5 +97,11 @@ protected:
 	
 	bool b1Held = false;
 	bool b2Held = false;
+
+	float TwoHandDropThreshold = 15.f;
+	float TwoHandDistance = 22.f;
+	void RotateTwoHand(float DeltaTime);
+	void RotateOneHand(float DeltaTime);
+	void InterpToMC(float DeltaTime);
 
 };

@@ -60,8 +60,8 @@ private:
 
 public:
 
-	//UPROPERTY(BlueprintReadOnly)
-	//AStage * CurrentStage = nullptr;
+	UPROPERTY(EditAnywhere)
+	AStage * CurrentStage = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	EStageNum CurrentStageNum;
@@ -70,15 +70,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	bool CurrentStageCompleted();
-
-
-
-
-
-
-
-
-
 
 
 

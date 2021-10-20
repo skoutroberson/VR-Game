@@ -21,6 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
+	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AStage_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 // End Cross Module References
 	static UEnum* EStageNum_StaticEnum()
@@ -335,6 +336,10 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentStage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CurrentStage;
 		static const UE4CodeGen_Private::FBytePropertyParams NewProp_CurrentStageNum_Underlying;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentStageNum_MetaData[];
@@ -367,13 +372,18 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 		{ "ModuleRelativePath", "StageManager.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStage_MetaData[] = {
+		{ "Category", "StageManager" },
+		{ "ModuleRelativePath", "StageManager.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStage = { "CurrentStage", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStageManager, CurrentStage), Z_Construct_UClass_AStage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStage_MetaData)) };
 	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_MetaData[] = {
 		{ "Category", "StageManager" },
-		{ "Comment", "//UPROPERTY(BlueprintReadOnly)\n//AStage * CurrentStage = nullptr;\n" },
 		{ "ModuleRelativePath", "StageManager.h" },
-		{ "ToolTip", "UPROPERTY(BlueprintReadOnly)\nAStage * CurrentStage = nullptr;" },
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum = { "CurrentStageNum", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStageManager, CurrentStageNum), Z_Construct_UEnum_ArchitectureExplorer_EStageNum, METADATA_PARAMS(Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_MetaData)) };
@@ -394,6 +404,7 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStageManager_Statics::NewProp_EndDoorTrigger = { "EndDoorTrigger", nullptr, (EPropertyFlags)0x00100000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStageManager, EndDoorTrigger), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStageManager_Statics::NewProp_EndDoorTrigger_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStageManager_Statics::NewProp_EndDoorTrigger_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AStageManager_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStageManager_Statics::NewProp_StartDoorTrigger,
@@ -426,7 +437,7 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AStageManager, 1426671118);
+	IMPLEMENT_CLASS(AStageManager, 482534462);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AStageManager>()
 	{
 		return AStageManager::StaticClass();

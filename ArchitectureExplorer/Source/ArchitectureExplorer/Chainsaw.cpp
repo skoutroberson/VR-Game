@@ -51,7 +51,7 @@ void AChainsaw::Tick(float DeltaTime)
 	{
 		RotateTwoHand(DeltaTime);
 	}
-	else if (bRotateOneHand)
+	else if (AGrabbable::bRotateOneHand)
 	{
 		RotateOneHand(DeltaTime);
 	}
