@@ -302,6 +302,7 @@ void ADoor::CloseDoorFast(UPARAM(DisplayName = "DeltaTime") float DeltaTime)
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 		bCloseDoorFast = false;
+		bSwing = false;
 		DoorHinge->SetWorldRotation(MinRotation);
 		///////////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
@@ -375,21 +376,28 @@ FQuat ADoor::CalcGoalQuat(FVector GoalVec)
 
 void ADoor::PassController(AActor * HC)
 {
-	HandController = HC;
-	LastHCLocation = HandController->GetActorLocation();
-	
-	float Dot = FVector::DotProduct(HandController->GetActorForwardVector(), DoorHinge->GetForwardVector());
-	if (Dot > 0)
+	if (!bLocked)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("PULL TO OPEN"));
-		Push = 1;
+		bIsBeingUsed = true;
+		HandController = HC;
+		LastHCLocation = HandController->GetActorLocation();
+
+		float Dot = FVector::DotProduct(HandController->GetActorForwardVector(), DoorHinge->GetForwardVector());
+		if (Dot > 0)
+		{
+			Push = 1;
+		}
+		else
+		{
+			Push = -1;
+		}
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), OpenSound, GetActorLocation());
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("PUSH TO OPEN"));
-		Push = -1;
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), LockedSound, Doorknob->GetComponentLocation());
 	}
-	UGameplayStatics::PlaySoundAtLocation(GetWorld(), OpenSound, GetActorLocation());
+	
 }
 
 void ADoor::SetIsBeingUsed(bool Value)

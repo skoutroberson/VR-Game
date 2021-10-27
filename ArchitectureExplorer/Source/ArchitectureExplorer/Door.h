@@ -120,6 +120,8 @@ private:
 	class USoundCue * SwingOpenSound;
 	UPROPERTY(EditDefaultsOnly)
 	class USoundCue * SwingCloseSound;
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * LockedSound;
 
 	UAudioComponent * SwingAudioComponent = nullptr;
 

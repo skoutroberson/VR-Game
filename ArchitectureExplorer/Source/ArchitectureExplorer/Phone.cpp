@@ -6,6 +6,8 @@
 APhone::APhone()
 {
 	AGrabbable::ItemGripSize = 55.f;
+	AGrabbable::ValidOneHandHandHolds.SetNum(1);
+	AGrabbable::ValidOneHandHandHolds.Insert(1, 0);
 }
 
 void APhone::BeginPlay()

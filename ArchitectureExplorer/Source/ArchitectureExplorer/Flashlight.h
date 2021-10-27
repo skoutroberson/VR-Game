@@ -24,6 +24,11 @@ public:
 	void TurnOff();
 
 	bool bOn = false;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	class UStaticMeshComponent * Mesh = nullptr;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	class UAudioComponent * ButtonPressAudio = nullptr;
 
 private:
 	ALightManager * LM = nullptr;

@@ -282,7 +282,6 @@ void AHandController::Grip()
 			if (CurrentDoor != nullptr)
 			{
 				CurrentDoor->PassController(this);
-				CurrentDoor->SetIsBeingUsed(true);
 				GripSize = 80.f;
 				
 				AttachHandMeshToDoor(CurrentDoor);
@@ -318,7 +317,7 @@ void AHandController::Release()
 		bIsUsingDoor = false;
 		ADoor* CurrentDoor = Cast<ADoor>(OverlappingDoor);
 
-		if (CurrentDoor != nullptr)
+		if (CurrentDoor != nullptr && !CurrentDoor->bLocked)
 		{
 			CurrentDoor->SetIsBeingUsed(false);
 		}

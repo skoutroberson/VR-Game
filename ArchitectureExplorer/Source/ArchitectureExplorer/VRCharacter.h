@@ -107,8 +107,9 @@ public:
 	void PressA(bool bLeft);
 	void ReleaseA(bool bLeft);
 
-	void PressX() { LeftController->PressFlashlightButton(); }
-	void ReleaseX() { LeftController->ReleaseFlashlightButton(); }
+	void PressTrigger(bool bLeft);
+	void ReleaseTrigger(bool bLeft);
+	int TriggersPressed = 0;
 
 private:
 	bool bAction1 = false;

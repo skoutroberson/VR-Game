@@ -11,8 +11,7 @@
 AGrabbable::AGrabbable()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = false;
-
+	PrimaryActorTick.bCanEverTick = true;
 }
 
 // Called when the game starts or when spawned
@@ -122,6 +121,7 @@ void AGrabbable::Gripped(int HandHoldNum)
 	// disable physics
 	if (bInterpToMC)
 	{
+		SetActorTickEnabled(true);
 		Mesh->SetSimulatePhysics(false);
 		Mesh->SetEnableGravity(false);
 	}
@@ -160,6 +160,7 @@ void AGrabbable::Released(int HandHoldNum)
 			}
 			else
 			{
+				SetActorTickEnabled(false);
 				bInterpToMC = false;
 				bRotateTwoHand = false;
 				bRotateOneHand = false;
@@ -181,6 +182,7 @@ void AGrabbable::Released(int HandHoldNum)
 			}
 			else
 			{
+				SetActorTickEnabled(false);
 				bInterpToMC = false;
 				bRotateTwoHand = false;
 				bRotateOneHand = false;

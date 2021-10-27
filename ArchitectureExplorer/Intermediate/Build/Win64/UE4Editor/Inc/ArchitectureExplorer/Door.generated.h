@@ -71,6 +71,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADoor); \
 	FORCEINLINE static uint32 __PPO__CloseSound() { return STRUCT_OFFSET(ADoor, CloseSound); } \
 	FORCEINLINE static uint32 __PPO__SwingOpenSound() { return STRUCT_OFFSET(ADoor, SwingOpenSound); } \
 	FORCEINLINE static uint32 __PPO__SwingCloseSound() { return STRUCT_OFFSET(ADoor, SwingCloseSound); } \
+	FORCEINLINE static uint32 __PPO__LockedSound() { return STRUCT_OFFSET(ADoor, LockedSound); } \
 	FORCEINLINE static uint32 __PPO__bBackwards() { return STRUCT_OFFSET(ADoor, bBackwards); }
 
 

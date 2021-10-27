@@ -247,6 +247,68 @@ void AVRCharacter::ReleaseA(bool bLeft)
 	
 }
 
+void AVRCharacter::PressTrigger(bool bLeft)
+{
+	TriggersPressed++;
+	//	if holding chainsaw (or shotgun)
+
+	AHandController * CurrentController = nullptr;
+	if (bLeft)
+	{
+		//	to keep this DRY, I need to call something like:
+		//	LeftController->PressTrigger()
+		//	then in HandController in PressTrigger:
+		//	check if this is holding chainsaw handhold1 and if sister controller is holding chainsaw
+		//	if so then REV CHAINSAW!
+		//	same type of thing for HandController::ReleaseTrigger()
+		CurrentController = LeftController;
+	}
+	else
+	{
+		CurrentController = RightController;
+	}
+
+	if (CurrentController->bIsHoldingChainsaw)
+	{
+
+	}
+
+	//	else
+
+	if (TriggersPressed > 1)
+	{
+		bSprint = true;
+	}
+}
+
+void AVRCharacter::ReleaseTrigger(bool bLeft)
+{
+	TriggersPressed--;
+	//	if holding chainsaw (or shotgun)
+
+	AHandController * CurrentController = nullptr;
+	if (bLeft)
+	{
+		CurrentController = LeftController;
+	}
+	else
+	{
+		CurrentController = RightController;
+	}
+
+	if (CurrentController->bIsHoldingChainsaw)
+	{
+
+	}
+
+	//	else
+
+	if (bSprint)
+	{
+		bSprint = false;
+	}
+}
+
 void AVRCharacter::PlayFootStepSound()
 {
 	const float DeltaTime = GetWorld()->DeltaTimeSeconds;
@@ -403,10 +465,13 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis(TEXT("TurnRight"), this, &AVRCharacter::TurnRight);
 	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &AVRCharacter::LookUp);
 	PlayerInputComponent->BindAction(TEXT("Teleport"), IE_Released, this, &AVRCharacter::BeginTeleport);
-	PlayerInputComponent->BindAction(TEXT("Action1"), IE_Pressed, this, &AVRCharacter::EnableAction1);
-	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Pressed, this, &AVRCharacter::EnableAction2);
-	PlayerInputComponent->BindAction(TEXT("Action1"), IE_Released, this, &AVRCharacter::DisableAction1);
-	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Released, this, &AVRCharacter::DisableAction2);
+
+	PlayerInputComponent->BindAction(TEXT("Action1"), IE_Pressed, this, &AVRCharacter::PressTrigger, true);
+	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Pressed, this, &AVRCharacter::PressTrigger, false);
+
+	PlayerInputComponent->BindAction(TEXT("Action1"), IE_Released, this, &AVRCharacter::ReleaseTrigger, true);
+	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Released, this, &AVRCharacter::ReleaseTrigger, false);
+
 	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Pressed, this, &AVRCharacter::Sprint);
 	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Released, this, &AVRCharacter::StopSprint);
 	//PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
@@ -533,26 +598,6 @@ void AVRCharacter::FinishTeleport()
 	{
 		PC->PlayerCameraManager->StartCameraFade(1, 0, TeleportFadeTime, FLinearColor::Black);
 	}
-}
-
-void AVRCharacter::EnableAction1()
-{
-	bAction1 = true;
-	if (bAction2)
-	{
-		Sprint();
-	}
-	//UE_LOG(LogTemp, Warning, TEXT("Action1"));
-}
-
-void AVRCharacter::EnableAction2()
-{
-	bAction2 = true;
-	if (bAction1)
-	{
-		Sprint();
-	}
-	//UE_LOG(LogTemp, Warning, TEXT("Action2"));
 }
 
 void AVRCharacter::DisableAction1()
