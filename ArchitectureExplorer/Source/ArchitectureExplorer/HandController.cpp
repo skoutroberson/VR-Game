@@ -16,6 +16,7 @@
 #include "Math/RotationAboutPointMatrix.h"
 #include "Bottle.h"
 #include "DestructibleComponent.h"
+#include "Chainsaw.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -140,6 +141,10 @@ void AHandController::Grip()
 						if (GrabActor->ActorHasTag(TEXT("Flashlight")))
 						{
 							bIsHoldingFlashlight = true;
+						}
+						else if (GrabActor->ActorHasTag(TEXT("Saw")))
+						{
+							bIsHoldingChainsaw = true;
 						}
 
 						/*
@@ -339,9 +344,16 @@ void AHandController::Release()
 			{
 				bIsHoldingFlashlight = false;
 			}
-			else if (GrabActor->ActorHasTag(TEXT("Chainsaw")))
+			else if (GrabActor->ActorHasTag(TEXT("Saw")))
 			{
 				bIsHoldingChainsaw = false;
+
+				if (bRevvingChainsaw)
+				{
+					bRevvingChainsaw = false;
+					AChainsaw * C = Cast<AChainsaw>(GrabActor);
+					C->ReleaseTrigger();
+				}
 			}
 			else if (GrabActor->ActorHasTag(TEXT("Bot")))
 			{

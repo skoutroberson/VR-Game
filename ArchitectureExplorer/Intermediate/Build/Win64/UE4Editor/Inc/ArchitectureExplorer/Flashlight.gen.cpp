@@ -20,8 +20,35 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAudioComponent_NoRegister();
 // End Cross Module References
+	static FName NAME_AFlashlight_PlayButtonPressAudio = FName(TEXT("PlayButtonPressAudio"));
+	void AFlashlight::PlayButtonPressAudio()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AFlashlight_PlayButtonPressAudio),NULL);
+	}
 	void AFlashlight::StaticRegisterNativesAFlashlight()
 	{
+	}
+	struct Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Flashlight.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFlashlight, nullptr, "PlayButtonPressAudio", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_AFlashlight_NoRegister()
 	{
@@ -30,6 +57,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	struct Z_Construct_UClass_AFlashlight_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -48,6 +76,9 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	UObject* (*const Z_Construct_UClass_AFlashlight_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AGrabbable,
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AFlashlight_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio, "PlayButtonPressAudio" }, // 3221636658
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlashlight_Statics::Class_MetaDataParams[] = {
@@ -84,11 +115,11 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_AFlashlight_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_AFlashlight_Statics::PropPointers),
 		0,
 		0x009000A4u,
@@ -103,7 +134,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFlashlight, 767519436);
+	IMPLEMENT_CLASS(AFlashlight, 406060556);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AFlashlight>()
 	{
 		return AFlashlight::StaticClass();

@@ -41,8 +41,9 @@ void AChainsaw::BeginPlay()
 
 void AChainsaw::Tick(float DeltaTime)
 {
+	Super::Tick(DeltaTime);
 	//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + SkeletalMesh->GetRightVector() * 100.f, FColor::Red, false, 2 * DeltaTime);
-	
+	/*
 	if (AGrabbable::bInterpToMC)
 	{
 		InterpToMC(DeltaTime);
@@ -55,10 +56,13 @@ void AChainsaw::Tick(float DeltaTime)
 	{
 		RotateOneHand(DeltaTime);
 	}
+	*/
 }
 
 void AChainsaw::Gripped(int HandHoldNum)
 {
+	Super::Gripped(HandHoldNum);
+	/*
 	if (HandHoldNum == 1)
 	{
 		b1Held = true;
@@ -138,10 +142,13 @@ void AChainsaw::Gripped(int HandHoldNum)
 			bControllingMCLeft = false;
 		}
 	}
+	*/
 }
 
 void AChainsaw::Released(int HandHoldNum)
 {
+	Super::Released(HandHoldNum);
+	/*
 	if (HandHoldNum == 1)
 	{
 		b1Held = false;
@@ -184,27 +191,33 @@ void AChainsaw::Released(int HandHoldNum)
 			}
 		}
 	}
+	*/
 }
 
 void AChainsaw::InterpToMC(float DeltaTime)
 {
+	/*
 	const FVector AL = GetActorLocation();
 	ControllingOffset = GetActorLocation() - ControllingHandHold->GetComponentLocation();
 	const FVector TL = AGrabbable::ControllingMC->GetActorLocation() + ControllingOffset;
 	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 300.f));
+	*/
 }
 
 void AChainsaw::RotateOneHand(float DeltaTime)
 {
-
+	/*
 	// this only works for the chainsaw
 	FRotator MCRot = ControllingMC->GetActorRotation();
 	MCRot.Roll = (bControllingMCLeft) ? MCRot.Roll - 90.f : MCRot.Roll += 90.f;
 	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), MCRot, 5.f * DeltaTime, true));
+	*/
 }
 
 void AChainsaw::RotateTwoHand(float DeltaTime)
 {
+
+	/*
 	const AHandController * HC = Cast<AHandController>(NonControllingMC);
 	const FVector CO = HC->ChainsawOffset->GetComponentLocation();
 	const FVector MCDif = (CO - ControllingMC->GetActorLocation()).GetSafeNormal();

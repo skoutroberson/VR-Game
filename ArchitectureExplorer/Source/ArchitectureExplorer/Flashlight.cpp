@@ -29,13 +29,31 @@ void AFlashlight::BeginPlay()
 void AFlashlight::TurnOn()
 {
 	LM->TurnOn(FString("BP_Flashlight"), 5000.f, 200.f);
-	ButtonPressAudio->Play();
+	PlayButtonPressAudio();
+	//ButtonPressAudio->Play();
 	bOn = true;
 }
 
 void AFlashlight::TurnOff()
 {
 	LM->TurnOff(FString("BP_Flashlight"), 0, 0);
-	ButtonPressAudio->Play();
+	PlayButtonPressAudio();
 	bOn = false;
+}
+
+void AFlashlight::PressButton()
+{
+	if (bOn)
+	{
+		LM->TurnOff(FString("BP_Flashlight"), 0, 0);
+		PlayButtonPressAudio();
+		bOn = false;
+	}
+	else
+	{
+		LM->TurnOn(FString("BP_Flashlight"), 5000.f, 200.f);
+		PlayButtonPressAudio();
+		//ButtonPressAudio->Play();
+		bOn = true;
+	}
 }

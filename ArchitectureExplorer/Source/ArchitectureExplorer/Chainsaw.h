@@ -40,4 +40,15 @@ private:
 	void RotateOneHand(float DeltaTime);
 	void InterpToMC(float DeltaTime);
 
+public:
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void PressTrigger();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ReleaseTrigger();
+
+	//	set in blueprints with PressTrigger() and ReleaseTrigger() events
+	bool bPressingTrigger = false;
+
 };

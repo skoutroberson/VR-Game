@@ -31,6 +31,7 @@
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
 #include "Flashlight.h"
+#include "Chainsaw.h"
 
 
 // Sets default values
@@ -230,14 +231,7 @@ void AVRCharacter::PressA(bool bLeft)
 		AFlashlight * FL = Cast<AFlashlight>(GA);
 		bool bOn = FL->bOn;
 		
-		if (bOn)
-		{
-			FL->TurnOff();
-		}
-		else
-		{
-			FL->TurnOn();
-		}
+		FL->PressButton();
 	}
 	
 }
@@ -268,9 +262,12 @@ void AVRCharacter::PressTrigger(bool bLeft)
 		CurrentController = RightController;
 	}
 
-	if (CurrentController->bIsHoldingChainsaw)
+	if (CurrentController->bIsHoldingChainsaw && CurrentController->bHandHold1)
 	{
-
+		CurrentController->bRevvingChainsaw = true;
+		AActor * GA = CurrentController->GrabActor;
+		AChainsaw * C = Cast<AChainsaw>(GA);
+		C->PressTrigger();
 	}
 
 	//	else
@@ -296,9 +293,12 @@ void AVRCharacter::ReleaseTrigger(bool bLeft)
 		CurrentController = RightController;
 	}
 
-	if (CurrentController->bIsHoldingChainsaw)
+	if (CurrentController->bIsHoldingChainsaw && CurrentController->bHandHold1)
 	{
-
+		CurrentController->bRevvingChainsaw = false;
+		AActor * GA = CurrentController->GrabActor;
+		AChainsaw * C = Cast<AChainsaw>(GA);
+		C->ReleaseTrigger();
 	}
 
 	//	else
@@ -466,12 +466,6 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &AVRCharacter::LookUp);
 	PlayerInputComponent->BindAction(TEXT("Teleport"), IE_Released, this, &AVRCharacter::BeginTeleport);
 
-	PlayerInputComponent->BindAction(TEXT("Action1"), IE_Pressed, this, &AVRCharacter::PressTrigger, true);
-	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Pressed, this, &AVRCharacter::PressTrigger, false);
-
-	PlayerInputComponent->BindAction(TEXT("Action1"), IE_Released, this, &AVRCharacter::ReleaseTrigger, true);
-	PlayerInputComponent->BindAction(TEXT("Action2"), IE_Released, this, &AVRCharacter::ReleaseTrigger, false);
-
 	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Pressed, this, &AVRCharacter::Sprint);
 	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Released, this, &AVRCharacter::StopSprint);
 	//PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
@@ -487,6 +481,12 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressX"), IE_Pressed, this, &AVRCharacter::PressA, true);
 	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressX"), IE_Released, this, &AVRCharacter::ReleaseA, true);
+
+	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action1"), IE_Pressed, this, &AVRCharacter::PressTrigger, true);
+	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action2"), IE_Pressed, this, &AVRCharacter::PressTrigger, false);
+
+	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action1"), IE_Released, this, &AVRCharacter::ReleaseTrigger, true);
+	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action2"), IE_Released, this, &AVRCharacter::ReleaseTrigger, false);
 
 	// Debug inputs for rotating item being carried.
 

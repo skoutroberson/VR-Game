@@ -34,6 +34,16 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		P_THIS->BladeBeginOverlap(Z_Param_FirstComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult);
 		P_NATIVE_END;
 	}
+	static FName NAME_AChainsaw_PressTrigger = FName(TEXT("PressTrigger"));
+	void AChainsaw::PressTrigger()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AChainsaw_PressTrigger),NULL);
+	}
+	static FName NAME_AChainsaw_ReleaseTrigger = FName(TEXT("ReleaseTrigger"));
+	void AChainsaw::ReleaseTrigger()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AChainsaw_ReleaseTrigger),NULL);
+	}
 	void AChainsaw::StaticRegisterNativesAChainsaw()
 	{
 		UClass* Class = AChainsaw::StaticClass();
@@ -123,6 +133,50 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AChainsaw_PressTrigger_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AChainsaw, nullptr, "PressTrigger", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AChainsaw_PressTrigger()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AChainsaw, nullptr, "ReleaseTrigger", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AChainsaw_ReleaseTrigger()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AChainsaw_NoRegister()
 	{
 		return AChainsaw::StaticClass();
@@ -143,6 +197,8 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AChainsaw_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AChainsaw_BladeBeginOverlap, "BladeBeginOverlap" }, // 3480068420
+		{ &Z_Construct_UFunction_AChainsaw_PressTrigger, "PressTrigger" }, // 2284209483
+		{ &Z_Construct_UFunction_AChainsaw_ReleaseTrigger, "ReleaseTrigger" }, // 2469482063
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::Class_MetaDataParams[] = {
@@ -178,7 +234,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AChainsaw, 1088436934);
+	IMPLEMENT_CLASS(AChainsaw, 3377824636);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AChainsaw>()
 	{
 		return AChainsaw::StaticClass();

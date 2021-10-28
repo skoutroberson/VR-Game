@@ -77,6 +77,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
 	bool bIsHoldingBottle = false;
 
+
+
 private:
 	// Default sub object
 	UPROPERTY(VisibleAnywhere)
@@ -122,13 +124,13 @@ private:
 
 	bool bIsControllingItem = false;
 
+public:
 	bool bHandHold1 = false;
 	bool bHandHold2 = false;
-	
+
+	bool bRevvingChainsaw = false;
 
 	// Actor that the hand controller can pick up
-
-public:
 
 	AActor * GrabActor = nullptr;
 
