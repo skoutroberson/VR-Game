@@ -7,6 +7,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "HandController.h"
+#include "Math/UnrealMathUtility.h"
 
 AChainsaw::AChainsaw()
 {
@@ -42,6 +43,12 @@ void AChainsaw::BeginPlay()
 void AChainsaw::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	if (bRandomShake)
+	{
+		RandomShake(DeltaTime);
+	}
+
 	//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + SkeletalMesh->GetRightVector() * 100.f, FColor::Red, false, 2 * DeltaTime);
 	/*
 	if (AGrabbable::bInterpToMC)
@@ -57,6 +64,21 @@ void AChainsaw::Tick(float DeltaTime)
 		RotateOneHand(DeltaTime);
 	}
 	*/
+}
+
+void AChainsaw::RandomShake(float DeltaTime)	//	calling this every frame is not ideal?
+{
+	float x = FMath::RandRange(-0.5f, 0.5f);
+	float y =  FMath::RandRange(-0.5f, 0.5f);
+	float z = FMath::RandRange(-0.5f, 0.5f);
+	FRotator ShakeRotator = FRotator(x, y, z);
+	SkeletalMesh->AddRelativeRotation(ShakeRotator);
+}
+
+void AChainsaw::StopShake()
+{
+	bRandomShake = false;
+	SetActorRelativeRotation(FRotator::ZeroRotator);
 }
 
 void AChainsaw::Gripped(int HandHoldNum)

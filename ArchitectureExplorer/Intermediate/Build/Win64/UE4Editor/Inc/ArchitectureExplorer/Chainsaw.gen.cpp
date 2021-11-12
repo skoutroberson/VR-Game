@@ -188,6 +188,12 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bRandomShake_MetaData[];
+#endif
+		static void NewProp_bRandomShake_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bRandomShake;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -207,6 +213,22 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		{ "ModuleRelativePath", "Chainsaw.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "Comment", "//\x09state for shaking the chainsaw when pulling the trigger\n" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+		{ "ToolTip", "state for shaking the chainsaw when pulling the trigger" },
+	};
+#endif
+	void Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake_SetBit(void* Obj)
+	{
+		((AChainsaw*)Obj)->bRandomShake = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake = { "bRandomShake", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AChainsaw), &Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake_SetBit, METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AChainsaw_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AChainsaw_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AChainsaw>::IsAbstract,
 	};
@@ -216,11 +238,11 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_AChainsaw_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::Class_MetaDataParams))
@@ -234,7 +256,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AChainsaw, 3377824636);
+	IMPLEMENT_CLASS(AChainsaw, 492511243);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AChainsaw>()
 	{
 		return AChainsaw::StaticClass();

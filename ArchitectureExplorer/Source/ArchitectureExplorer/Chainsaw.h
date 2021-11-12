@@ -51,4 +51,14 @@ public:
 	//	set in blueprints with PressTrigger() and ReleaseTrigger() events
 	bool bPressingTrigger = false;
 
+	//	state for shaking the chainsaw when pulling the trigger
+	UPROPERTY(BlueprintReadWrite)
+	bool bRandomShake = false;
+
+	//	Randomly sets RelativeRotation when revving the chainsaw
+	void RandomShake(float DeltaTime);
+
+	//	Sets relative rotation to 0 and stops shake
+	void StopShake();
+
 };
