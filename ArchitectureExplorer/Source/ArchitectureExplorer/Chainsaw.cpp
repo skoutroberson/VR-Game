@@ -68,9 +68,9 @@ void AChainsaw::Tick(float DeltaTime)
 
 void AChainsaw::RandomShake(float DeltaTime)	//	calling this every frame is not ideal?
 {
-	float x = FMath::RandRange(-0.5f, 0.5f);
-	float y =  FMath::RandRange(-0.5f, 0.5f);
-	float z = FMath::RandRange(-0.5f, 0.5f);
+	float x = FMath::RandRange(-0.2f, 0.2f);
+	float y =  FMath::RandRange(-0.25f, 0.2f);
+	float z = FMath::RandRange(-0.2f, 0.2f);
 	FRotator ShakeRotator = FRotator(x, y, z);
 	SkeletalMesh->AddRelativeRotation(ShakeRotator);
 }

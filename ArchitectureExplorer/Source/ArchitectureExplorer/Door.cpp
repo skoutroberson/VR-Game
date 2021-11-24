@@ -30,6 +30,8 @@ void ADoor::BeginPlay()
 {
 	Super::BeginPlay();
 
+	World = GetWorld();
+
 	TArray<UStaticMeshComponent*> StaticComps;
 	GetComponents<UStaticMeshComponent>(StaticComps);
 	DoorMesh = StaticComps[0];
@@ -69,6 +71,10 @@ void ADoor::BeginPlay()
 
 	SwingOpenSoundDuration = SwingOpenSound->GetDuration();
 	SwingCloseSoundDuration = SwingCloseSound->GetDuration();
+
+	//DrawDebugLine(World, DoorHinge->GetComponentLocation(), DoorHinge->GetForwardVector() * 1000.f, FColor::Red, true, -1, ESceneDepthPriorityGroup::SDPG_MAX, 5.f);
+	//DrawDebugLine(World, DoorHinge->GetComponentLocation(), DoorHinge->GetRightVector() * 1000.f, FColor::Blue, true, -1, ESceneDepthPriorityGroup::SDPG_MAX, 5.f);
+	//DrawDebugLine(World, DoorHinge->GetComponentLocation(), DoorHinge->GetLeftVector() * 1000.f, FColor::Green, true, -1, ESceneDepthPriorityGroup::SDPG_MAX, 5.f);
 }
 // Called every frame
 void ADoor::Tick(float DeltaTime)

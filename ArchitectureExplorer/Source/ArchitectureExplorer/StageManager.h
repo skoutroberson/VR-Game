@@ -60,7 +60,7 @@ private:
 
 public:
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite)
 	AStage * CurrentStage = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
@@ -98,5 +98,7 @@ private:
 
 	void InitializeDoorTriggers();
 	void InitializeStartEndDoors();
+
+	class UWorld *World = nullptr;
 
 };

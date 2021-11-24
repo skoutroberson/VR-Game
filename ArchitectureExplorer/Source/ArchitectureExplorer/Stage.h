@@ -29,10 +29,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	
-	// I think I can make these variables static but they can't be static if I want to see them in editor/blueprints
 
-	UPROPERTY(VisibleAnywhere, Category = "Flags")
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Flags")
 	TArray<bool> Flags;
 	//bool Flags[16];
 

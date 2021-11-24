@@ -35,6 +35,9 @@ AStageManager::~AStageManager()
 void AStageManager::BeginPlay()
 {
 	Super::BeginPlay();
+
+	World = GetWorld();
+
 	InitializeStageNodes();
 	//InitializeStartEndDoors();
 }
@@ -70,7 +73,8 @@ void AStageManager::InitializeStageNodes()
 	// ...
 	// StageNodeN->...
 
-	CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode1->StageClass);
+	CurrentStage = World->SpawnActor<AStage>(StageNode1->StageClass);
+	//CurrentStage = Cast<AStage>(CurrentStageActor);
 	
 	//GetWorld()->DestroyActor(CurrentStage);
 }
@@ -104,35 +108,28 @@ void AStageManager::TESTLIGHTFUNCTION()
 
 bool AStageManager::CurrentStageCompleted()
 {
-	
-	AStage * TestStage = Cast<AStage>(CurrentStageActor);
+	UE_LOG(LogTemp, Warning, TEXT("completed?"));
+	int FlagCount = CurrentStage->FlagCount;
 
-	if (TestStage != nullptr)
+	// check if all stage flags are true; this can be modified so it can do cool things if only some of them are true;
+	for (int i = 0; i < FlagCount; i++)
 	{
-		int FlagCount = TestStage->FlagCount;
-
-		// check if all stage flags are true; this can be edited so it can do stuff if only some of them are true;
-		for (int i = 0; i < FlagCount; i++)
+		if (CurrentStage->Flags[i] == false)
 		{
-			if (TestStage->Flags[i] == false)
-			{
-				return false;
-			}
+			UE_LOG(LogTemp, Warning, TEXT("Flag %d failed"), i);
+			return false;
 		}
-
-		//	Destroy current stage actor
-		GetWorld()->DestroyActor(TestStage);
-
-		//	Change stage and spawn new stage actor
-		CurrentStageNum = CurrentNode->NextStageEnums[0];
-		CurrentNode = CurrentNode->NextStage[0];
-
-		CurrentStageActor = GetWorld()->SpawnActor<AStage>(CurrentNode->StageClass);
-		
-		//CurrentStageActor = GetWorld()->SpawnActor<AStage>(StageNode2->StageClass);
 	}
-	
-	return false;
+
+	GetWorld()->DestroyActor(CurrentStage);
+
+	//	Change stage and spawn new stage actor
+	CurrentStageNum = CurrentNode->NextStageEnums[0];
+	CurrentNode = CurrentNode->NextStage[0];
+
+	CurrentStage = World->SpawnActor<AStage>(CurrentNode->StageClass);
+	UE_LOG(LogTemp, Warning, TEXT("yayaya"));
+	return true;
 }
 
 void AStageManager::BeginOverlapStartDoorTrigger(UPrimitiveComponent * FirstComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)

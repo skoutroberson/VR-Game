@@ -1420,12 +1420,10 @@ void EmptyLinkFunctionForGeneratedCodeStage() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStage_Statics::NewProp_Flags_MetaData[] = {
 		{ "Category", "Flags" },
-		{ "Comment", "// I think I can make these variables static but they can't be static if I want to see them in editor/blueprints\n" },
 		{ "ModuleRelativePath", "Stage.h" },
-		{ "ToolTip", "I think I can make these variables static but they can't be static if I want to see them in editor/blueprints" },
 	};
 #endif
-	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AStage_Statics::NewProp_Flags = { "Flags", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage, Flags), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AStage_Statics::NewProp_Flags_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage_Statics::NewProp_Flags_MetaData)) };
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AStage_Statics::NewProp_Flags = { "Flags", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage, Flags), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AStage_Statics::NewProp_Flags_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage_Statics::NewProp_Flags_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStage_Statics::NewProp_FlagCount_MetaData[] = {
 		{ "Category", "Flags" },
@@ -1467,7 +1465,7 @@ void EmptyLinkFunctionForGeneratedCodeStage() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AStage, 1348925563);
+	IMPLEMENT_CLASS(AStage, 583240497);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AStage>()
 	{
 		return AStage::StaticClass();

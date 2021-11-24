@@ -70,6 +70,8 @@ public:
 	FVector LastCALocation = FVector::ZeroVector;
 
 private:
+
+	class UWorld *World;
 	
 	float SlerpSize;
 	const float HingeFriction = 0.008f;
@@ -104,7 +106,7 @@ private:
 	float CloseDoorFastVelocity = 0.0001f;
 
 public:
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Door")
 	bool bLocked = false;
 
 private:

@@ -61,7 +61,7 @@ void AStage1::EndPlay(const EEndPlayReason::Type EndPlayReason)
 void AStage1::BOTrigger0()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Stage1 Trigger 0 Begin Overlap!"));
-	AStage::Flags[0] = true;
+	//AStage::Flags[0] = true;
 	Trigger0->SetGenerateOverlapEvents(false);
 }
 
