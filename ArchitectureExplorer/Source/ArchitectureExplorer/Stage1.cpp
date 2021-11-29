@@ -47,7 +47,7 @@ void AStage1::BeginPlay()
 	LM->TurnOn(FString("BP_Radio_2"), 1.f, 10.f);
 
 	Phone = Cast<APhone>(UGameplayStatics::GetActorOfClass(GetWorld(), APhone::StaticClass()));
-	Phone->CallPhone();
+	//Phone->CallPhone();
 }
 
 void AStage1::EndPlay(const EEndPlayReason::Type EndPlayReason)
