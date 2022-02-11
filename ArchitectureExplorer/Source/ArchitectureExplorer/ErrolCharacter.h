@@ -103,6 +103,7 @@ public:
 	void EnterInvestigateState();
 	void EnterKillState();
 	void EnterLookAroundState();
+	void EnterPeekState();
 
 	// State exit functions for clearing timers
 	void ExitIdleState();
@@ -110,6 +111,7 @@ public:
 	void ExitChaseState();
 	void ExitInvestigateState();
 	void ExitLookAroundState();
+	void ExitPeekState();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float PatrolSpeed = 140.f;

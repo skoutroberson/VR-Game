@@ -42,7 +42,7 @@ void AErrolCharacter::BeginPlay()
 	ErrolController = Cast<AErrolController>(GetController());
 	ErrolController->InitializeLookAroundTimer();
 
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATargetPoint::StaticClass(), Waypoints);
+	UGameplayStatics::GetAllActorsOfClassWithTag(World, ATargetPoint::StaticClass(), FName("Patrol1"), Waypoints);
 
 	// I have to call this a bit after the game starts so the player and hand controllers are spawned in
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
@@ -242,6 +242,16 @@ void AErrolCharacter::EnterLookAroundState()
 	LastState = State;
 	State = ErrolState::STATE_LOOKAROUND;
 	UpdateAnimation(State);
+}
+
+void AErrolCharacter::EnterPeekState()
+{
+
+}
+
+void AErrolCharacter::ExitPeekState()
+{
+
 }
 
 void AErrolCharacter::ExitIdleState()

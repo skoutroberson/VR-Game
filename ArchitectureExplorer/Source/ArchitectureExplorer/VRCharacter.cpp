@@ -364,7 +364,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	CorrectCameraOffset();
 
 	//	Updates the capsule height to be the height from the floor to the HMD
-	//UpdateCapsuleHeight();
+	//();
 	
 
 	if (bTeleportEnabled)

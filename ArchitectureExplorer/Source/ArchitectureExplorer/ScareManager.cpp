@@ -15,6 +15,8 @@ AScareManager::AScareManager()
 void AScareManager::BeginPlay()
 {
 	Super::BeginPlay();
+
+	StartScare1();
 	
 }
 

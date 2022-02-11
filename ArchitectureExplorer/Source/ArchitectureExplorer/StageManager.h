@@ -58,6 +58,8 @@ private:
 
 	AActor * CurrentStageActor = nullptr;
 
+	float test = 0;
+
 public:
 
 	UPROPERTY(BlueprintReadWrite)

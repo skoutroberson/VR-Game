@@ -194,7 +194,7 @@ void ACockroach::DownTrace(float DeltaTime)
 
 void ACockroach::HitRigidBody(UPARAM(ref)FHitResult HitResult, UPARAM()FVector ImpulseNormal)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Hit: %s"), *HitResult.Actor->GetName());
+	//UE_LOG(LogTemp, Warning, TEXT("Hit: %s"), *HitResult.Actor->GetName());
 	if (bShouldHit)
 	{
 		FVector AL = GetActorLocation();
@@ -203,7 +203,7 @@ void ACockroach::HitRigidBody(UPARAM(ref)FHitResult HitResult, UPARAM()FVector I
 		FVector Disp = HL - AL;
 		Disp = Disp.GetSafeNormal();
 
-		DrawDebugPoint(World, HL, 4.f, FColor::Cyan, false, 1.2f * World->DeltaTimeSeconds, ESceneDepthPriorityGroup::SDPG_MAX);
+		//DrawDebugPoint(World, HL, 4.f, FColor::Cyan, false, 1.2f * World->DeltaTimeSeconds, ESceneDepthPriorityGroup::SDPG_MAX);
 
 		float Dot = FVector::DotProduct(Disp, GravityDirection);
 
@@ -299,10 +299,24 @@ void ACockroach::RotateToNormal(UPARAM()FVector NormalVector)
 
 void ACockroach::SetMeshTransform(float DeltaTime)
 {
-	AverageLocation /= HitsThisFrame;
+	if (HitsThisFrame != 0)
+	{
+		AverageLocation /= HitsThisFrame;
+	}
+
+	DrawDebugPoint(World, AverageLocation, 4.f, FColor::Magenta, false, 1.1f * DeltaTime, ESceneDepthPriorityGroup::SDPG_MAX);
 
 	
+	Mesh->SetWorldLocation(GetActorLocation());
+	Mesh->SetWorldRotation(MoveDirection.Rotation());
 
+	FVector UV = Mesh->GetUpVector();
+	FVector RotationAxis = Mesh->GetForwardVector();
+	FQuat RotQuat = FQuat(RotationAxis, HALF_PI);
+	FQuat MyQuat = Mesh->GetComponentQuat();
+	FQuat NewQuat = RotQuat * MyQuat;
+
+	SetActorRotation(NewQuat);
 	
 	LastAverageLocation = AverageLocation;
 }
