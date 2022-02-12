@@ -113,6 +113,10 @@ public:
 	void ExitLookAroundState();
 	void ExitPeekState();
 
+	//	Peek stuff
+
+	void FindValidPeekPoint();
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float PatrolSpeed = 140.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite);

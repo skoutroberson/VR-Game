@@ -246,6 +246,16 @@ void AErrolCharacter::EnterLookAroundState()
 
 void AErrolCharacter::EnterPeekState()
 {
+	//	Try to find a "valid" PeekPoint
+	//	Move ErrolCharacter to the PeekPoint
+	//	Start the peek animation
+	//	Wait for a specified time, or until the player looks at Errol
+	//	EndPeek
+	//	Choose to either, Disappear, Stand still and wait for the player to come closer, Chase the player, find a different path to the player and stalk them
+}
+
+void AErrolCharacter::FindValidPeekPoint()
+{
 
 }
 
