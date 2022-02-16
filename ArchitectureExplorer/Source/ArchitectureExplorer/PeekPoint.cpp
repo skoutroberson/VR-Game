@@ -4,6 +4,11 @@
 #include "PeekPoint.h"
 #include "Components/ArrowComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Camera/CameraComponent.h"
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "VRCharacter.h"
+#include "ErrolCharacter.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 APeekPoint::APeekPoint()
@@ -36,6 +41,23 @@ void APeekPoint::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	World = GetWorld();
+	Player = Cast<AVRCharacter>(UGameplayStatics::GetActorOfClass(World, AVRCharacter::StaticClass()));
+	PlayerCamera = Cast<UCameraComponent>(Player->GetComponentByClass(UCameraComponent::StaticClass()));
+
+	//	Initialize LeftHandController and RightHandController after they are spawned in
+	World->GetTimerManager().SetTimer(InitializerHandle, this, &APeekPoint::InitializeHandControllerPointers, 0.1f, false, 0.2f);
+
+	//HeadLocation = GetActorLocation() + GetActorUpVector() * 200.f + RightPeekVector->GetForwardVector() * 10.f + LeftPeekVector->GetForwardVector() * 10.f;
+	HeadLocation = GetActorLocation() + GetActorUpVector() * 200.f - RightPeekVector->GetForwardVector() * 8.f - LeftPeekVector->GetForwardVector() * 8.f;
+
+	//DrawDebugSphere(World, HeadLocation, 4.f, 20.f, FColor::Cyan, true);
+
+	ErrolActor = UGameplayStatics::GetActorOfClass(World, AErrolCharacter::StaticClass());
+	QueryParams.AddIgnoredActor(ErrolActor);
+	QueryParams.AddIgnoredActor(Player);
+	QueryParams.AddIgnoredActor(LeftHandController);
+	QueryParams.AddIgnoredActor(RightHandController);
 }
 
 // Called every frame
@@ -45,3 +67,30 @@ void APeekPoint::Tick(float DeltaTime)
 
 }
 
+bool APeekPoint::IsValid(const float Threshold)
+{
+	const FVector Disp = GetActorLocation() - PlayerCamera->GetComponentLocation();
+	const float Magnitude = Disp.Size();
+	const FVector Dir = Disp.GetSafeNormal();
+	const FVector CFV = PlayerCamera->GetForwardVector();
+	const FVector CL = PlayerCamera->GetComponentLocation();
+	const float Dot = FVector::DotProduct(Dir, CFV);
+	
+	bool bIsValid = true;
+	if (Dot > Threshold)
+	{
+		FHitResult HitResult;
+		
+		bIsValid = !World->LineTraceSingleByChannel(HitResult, HeadLocation, CL, ECollisionChannel::ECC_MAX, QueryParams);
+	}
+
+	return bIsValid;
+}
+
+void APeekPoint::InitializeHandControllerPointers()
+{
+	LeftHandController = Player->LeftController;
+	RightHandController = Player->RightController;
+	//	setting errol's state here for debug purposes
+	Cast<AErrolCharacter>(ErrolActor)->EnterPeekState();
+}

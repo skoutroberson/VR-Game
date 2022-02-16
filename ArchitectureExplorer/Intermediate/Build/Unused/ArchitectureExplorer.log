@@ -1,8 +1,4 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal Projects\ArchitectureExplorer1).
-  Invalidating makefile for ArchitectureExplorerEditor (ArchitectureExplorer.Build.cs modified)
-  Parsing headers for ArchitectureExplorerEditor
-    Running UnrealHeaderTool "E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\ArchitectureExplorer.uproject" "E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\ArchitectureExplorerEditor\Development\ArchitectureExplorerEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Skouty\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for ArchitectureExplorerEditor in 2.7761421 seconds
   Building ArchitectureExplorerEditor...
   Using Visual Studio 2017 14.16.27045 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   [Upgrade]
@@ -13,34 +9,13 @@
   [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
   [Upgrade]
   [Adaptive unity build] Excluded from ArchitectureExplorer unity file: ErrolCharacter.cpp, PeekPoint.cpp
-  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, PeekPoint.gen.cpp
-  Building 9 actions with 24 processes...
-    [1/9] ArchitectureExplorer.init.gen.cpp
-    [2/9] PeekPoint.cpp
-    [3/9] PeekPoint.gen.cpp
-    [4/9] ErrolCharacter.cpp
-    [5/9] Module.ArchitectureExplorer.gen.cpp
-    [6/9] Module.ArchitectureExplorer.cpp
-E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Cockroach.cpp(115): warning C4456: declaration of 'Disp' hides previous local declaration
-    E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Cockroach.cpp(98): note: see declaration of 'Disp'
-E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Cockroach.cpp(195): warning C4458: declaration of 'HitResult' hides class member
-    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\Cockroach.h(63): note: see declaration of 'ACockroach::HitResult'
-E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Crawler.cpp(156): warning C4458: declaration of 'HitResult' hides class member
-    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\Crawler.h(64): note: see declaration of 'ACrawler::HitResult'
-E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Door.cpp(264): warning C4458: declaration of 'World' hides class member
-    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\Door.h(74): note: see declaration of 'ADoor::World'
-E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Grabbable.cpp(37): warning C4996: 'AActor::GetComponentsByClass': Use one of the GetComponents implementations as appropriate Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
-    C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Actor.h(3056): note: see declaration of 'AActor::GetComponentsByClass'
-E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/LightManager.cpp(98): warning C4996: 'AActor::GetComponentsByClass': Use one of the GetComponents implementations as appropriate Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
-    C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Actor.h(3056): note: see declaration of 'AActor::GetComponentsByClass'
-E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/PortalRoom.cpp(99): warning C4458: declaration of 'TargetLocation' hides class member
-    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\PortalRoom.h(31): note: see declaration of 'APortalRoom::TargetLocation'
-E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Roach.cpp(161): warning C4458: declaration of 'GoalVec' hides class member
-    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\Roach.h(50): note: see declaration of 'ARoach::GoalVec'
-    [7/9] UE4Editor-ArchitectureExplorer-0001.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0001.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0001.exp
-    [8/9] UE4Editor-ArchitectureExplorer-0001.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0001.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0001.suppressed.exp
-    [9/9] ArchitectureExplorerEditor.target
-  Total time in Parallel executor: 7.20 seconds
-  Total execution time: 11.50 seconds
+  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, ErrolCharacter.gen.cpp
+  Building 4 actions with 24 processes...
+    [1/4] ErrolCharacter.cpp
+    [2/4] UE4Editor-ArchitectureExplorer-0014.lib
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0014.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0014.exp
+    [3/4] UE4Editor-ArchitectureExplorer-0014.dll
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0014.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0014.suppressed.exp
+    [4/4] ArchitectureExplorerEditor.target
+  Total time in Parallel executor: 4.52 seconds
+  Total execution time: 5.33 seconds

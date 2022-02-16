@@ -8,6 +8,7 @@
 #include "TimerManager.h"
 #include "ErrolController.h"
 #include "NavigationSystem.h"
+#include "PeekPoint.h"
 #include "ErrolCharacter.generated.h"
 
 UENUM(BlueprintType)
@@ -115,7 +116,34 @@ public:
 
 	//	Peek stuff
 
+	UPROPERTY(VisibleAnywhere)
+	TArray<APeekPoint*> PeekPoints;
+
 	void FindValidPeekPoint();
+	int PeekCounter = 0;
+	bool bPeekFound = false;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	APeekPoint *ValidPeekPoint = nullptr;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bPeeking = false;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartPeek();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void EndPeek();
+
+	void ShouldEndPeek(float DeltaTime);
+	
+	float MaxPeekTime = 5.f;
+	float PeekTime = 0;
+	//	When PeekScareLevel goes over this value, start end peek
+	float EndPeekThreshold = 1.f;
+	//	Used to keep track of how long the player has looked at Errol while he's peeking and how much they are looking at him
+	float PeekScareLevel = 0;
+
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float PatrolSpeed = 140.f;

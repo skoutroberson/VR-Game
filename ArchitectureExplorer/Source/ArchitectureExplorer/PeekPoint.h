@@ -36,4 +36,29 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	//	Determine if this point is valid for Errol to peek from based on if the player is looking and if Errol will have a line of sight to the player when peeking
+	bool IsValid(const float Threshold);
+
+	bool bDisabled = false;
+	
+private:
+	AActor * ErrolActor = nullptr;
+
+	FCollisionQueryParams QueryParams;
+
+	FTimerHandle InitializerHandle;
+	//	called after a small delay to insure that the player's hand controllers are spawned in
+	void InitializeHandControllerPointers();
+	
+	class AVRCharacter * Player = nullptr;
+
+	//	Used for the starting point of the line of sight trace
+	FVector HeadLocation = FVector::ZeroVector;
+
+	UWorld * World = nullptr;
+
+	class UCameraComponent * PlayerCamera = nullptr;
+	AActor * LeftHandController = nullptr;
+	AActor * RightHandController = nullptr;
+
 };

@@ -19,6 +19,7 @@
 #include "AI/Navigation/NavigationTypes.h"
 #include "Bottle.h"
 #include "DestructibleComponent.h"
+#include "PeekPoint.h"
 
 // Sets default values
 AErrolCharacter::AErrolCharacter()
@@ -37,7 +38,6 @@ void AErrolCharacter::BeginPlay()
 	World = GetWorld();
 
 	ErrolEye = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), FName("ET"))[0]);
-	
 
 	ErrolController = Cast<AErrolController>(GetController());
 	ErrolController->InitializeLookAroundTimer();
@@ -48,11 +48,21 @@ void AErrolCharacter::BeginPlay()
 	GetWorld()->GetTimerManager().SetTimer(SetUpCanSeeHandle, this, &AErrolCharacter::InitializeCanSeeVariables, SeeTimerRate, false, 0.2f);
 
 	//EnterIdleState();
-	EnterPatrolState();
-	State = ErrolState::STATE_PATROL;
+	//EnterPatrolState();
+	//State = ErrolState::STATE_PATROL;
+
 	UpdateAnimation(State);
 
 	NavigationSystem = UNavigationSystemV1::GetCurrent(World);
+
+	TArray<AActor*> PeekPointActors;
+	UGameplayStatics::GetAllActorsOfClass(World, APeekPoint::StaticClass(), PeekPointActors);
+
+	for (auto &PP : PeekPointActors)
+	{
+		APeekPoint *Current = Cast<APeekPoint>(PP);
+		PeekPoints.Add(Current);
+	}
 
 	//ABottle * B;
 	//B = Cast<ABottle>(UGameplayStatics::GetActorOfClass(World, ABottle::StaticClass()));
@@ -151,6 +161,17 @@ void AErrolCharacter::Tick(float DeltaTime)
 			//UE_LOG(LogTemp, Warning, TEXT("CHASE"));
 			ShouldKill();
 			break;
+		case ErrolState::STATE_PEEK:
+			if (!bPeekFound)
+			{
+				FindValidPeekPoint();
+			}
+			else if(bPeeking)
+			{
+				ShouldEndPeek(DeltaTime);
+			}
+			
+			break;
 		}
 
 }
@@ -246,6 +267,8 @@ void AErrolCharacter::EnterLookAroundState()
 
 void AErrolCharacter::EnterPeekState()
 {
+	UE_LOG(LogTemp, Warning, TEXT("PEEK!"));
+	State = ErrolState::STATE_PEEK;
 	//	Try to find a "valid" PeekPoint
 	//	Move ErrolCharacter to the PeekPoint
 	//	Start the peek animation
@@ -256,7 +279,29 @@ void AErrolCharacter::EnterPeekState()
 
 void AErrolCharacter::FindValidPeekPoint()
 {
+	
+	int CurrentFrameChecks = 0;
+	while (CurrentFrameChecks < 1 && PeekCounter < PeekPoints.Num())
+	{
+		if (PeekPoints[PeekCounter]->IsValid(0))
+		{
+			ValidPeekPoint = PeekPoints[PeekCounter];
+			bPeekFound = true;
+			break;
+		}
 
+		++CurrentFrameChecks;
+		++PeekCounter;
+	}
+	if (PeekCounter >= PeekPoints.Num())
+	{
+		PeekCounter = 0;
+	}
+	if (bPeekFound)
+	{
+		//	StartPeek
+	}
+	
 }
 
 void AErrolCharacter::ExitPeekState()
@@ -518,4 +563,8 @@ void AErrolCharacter::HearSound(AActor * Bottle, int ActorInt, int Loudness)
 	//DrawDebugSphere(World, BL, Distance, 20, FColor::Orange, true);
 	DrawDebugSphere(World, NavLoc.Location, 10.f, 10, FColor::Red, true);
 	//Enter Investigate State
+}
+
+void AErrolCharacter::ShouldEndPeek(float DeltaTime)
+{
 }
