@@ -50,6 +50,11 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Sphere_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Sphere;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bDisabled_MetaData[];
+#endif
+		static void NewProp_bDisabled_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bDisabled;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -100,11 +105,23 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APeekPoint_Statics::NewProp_Sphere = { "Sphere", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APeekPoint, Sphere), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APeekPoint_Statics::NewProp_Sphere_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APeekPoint_Statics::NewProp_Sphere_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_MetaData[] = {
+		{ "Category", "PeekPoint" },
+		{ "ModuleRelativePath", "PeekPoint.h" },
+	};
+#endif
+	void Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_SetBit(void* Obj)
+	{
+		((APeekPoint*)Obj)->bDisabled = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled = { "bDisabled", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APeekPoint), &Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_SetBit, METADATA_PARAMS(Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APeekPoint_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekRoot,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_LeftPeekVector,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_RightPeekVector,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_Sphere,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APeekPoint_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APeekPoint>::IsAbstract,
@@ -133,7 +150,7 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APeekPoint, 2181746893);
+	IMPLEMENT_CLASS(APeekPoint, 4144478252);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<APeekPoint>()
 	{
 		return APeekPoint::StaticClass();

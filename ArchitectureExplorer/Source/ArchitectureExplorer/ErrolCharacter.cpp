@@ -19,6 +19,7 @@
 #include "AI/Navigation/NavigationTypes.h"
 #include "Bottle.h"
 #include "DestructibleComponent.h"
+#include "Components/ArrowComponent.h"
 #include "PeekPoint.h"
 
 // Sets default values
@@ -55,6 +56,7 @@ void AErrolCharacter::BeginPlay()
 
 	NavigationSystem = UNavigationSystemV1::GetCurrent(World);
 
+	//	Peek stuff
 	TArray<AActor*> PeekPointActors;
 	UGameplayStatics::GetAllActorsOfClass(World, APeekPoint::StaticClass(), PeekPointActors);
 
@@ -72,6 +74,9 @@ void AErrolCharacter::BeginPlay()
 	
 	//SetupBoneArrays();
 	//CutInHalf();
+
+	BodyMesh = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), FName("Body"))[0]);
+	SawMesh = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), FName("Saw"))[0]);
 
 }
 
@@ -267,8 +272,13 @@ void AErrolCharacter::EnterLookAroundState()
 
 void AErrolCharacter::EnterPeekState()
 {
-	UE_LOG(LogTemp, Warning, TEXT("PEEK!"));
 	State = ErrolState::STATE_PEEK;
+	UpdateAnimation(State);
+	
+	SetActorEnableCollision(false);
+	DisableComponentsSimulatePhysics();
+	BodyMesh->SetVisibility(false, true);
+	SawMesh->SetVisibility(false, true);
 	//	Try to find a "valid" PeekPoint
 	//	Move ErrolCharacter to the PeekPoint
 	//	Start the peek animation
@@ -283,10 +293,12 @@ void AErrolCharacter::FindValidPeekPoint()
 	int CurrentFrameChecks = 0;
 	while (CurrentFrameChecks < 1 && PeekCounter < PeekPoints.Num())
 	{
-		if (PeekPoints[PeekCounter]->IsValid(0))
+		APeekPoint *Current = PeekPoints[PeekCounter];
+		if (Current->IsValid(0) && Current->bDisabled == false)
 		{
 			ValidPeekPoint = PeekPoints[PeekCounter];
 			bPeekFound = true;
+			StartPeek();
 			break;
 		}
 
@@ -565,6 +577,31 @@ void AErrolCharacter::HearSound(AActor * Bottle, int ActorInt, int Loudness)
 	//Enter Investigate State
 }
 
+void AErrolCharacter::StartPeek()
+{
+	UE_LOG(LogTemp, Warning, TEXT("PEEEEEEEEEK:)"));
+	FVector PeekLocation = ValidPeekPoint->GetActorLocation();
+	FVector LeftPeekVector = ValidPeekPoint->LeftPeekVector->GetForwardVector();
+	FVector RightPeekVector = ValidPeekPoint->RightPeekVector->GetForwardVector();
+	//	Find whether this is a right or left peek
+	FVector Disp = GetActorLocation() - PeekLocation;
+	float LDot = FVector::DotProduct(Disp, LeftPeekVector);
+	float RDot = FVector::DotProduct(Disp, RightPeekVector);
+
+	//	if The dots equal eachother, I will have issues
+
+	if (LDot > RDot)
+	{
+		bLeftPeek = true;
+		SetActorScale3D(FVector(1.0f, -1.0f, 1.0f));
+	}
+
+	SetActorRotation(Disp.Rotation());
+	SetActorLocation(PeekLocation);
+	BodyMesh->SetVisibility(true);
+}
+
 void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 {
+
 }

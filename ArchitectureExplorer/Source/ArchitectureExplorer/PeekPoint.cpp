@@ -51,7 +51,7 @@ void APeekPoint::BeginPlay()
 	//HeadLocation = GetActorLocation() + GetActorUpVector() * 200.f + RightPeekVector->GetForwardVector() * 10.f + LeftPeekVector->GetForwardVector() * 10.f;
 	HeadLocation = GetActorLocation() + GetActorUpVector() * 200.f - RightPeekVector->GetForwardVector() * 8.f - LeftPeekVector->GetForwardVector() * 8.f;
 
-	//DrawDebugSphere(World, HeadLocation, 4.f, 20.f, FColor::Cyan, true);
+	DrawDebugSphere(World, HeadLocation, 4.f, 20.f, FColor::Cyan, true);
 
 	ErrolActor = UGameplayStatics::GetActorOfClass(World, AErrolCharacter::StaticClass());
 	QueryParams.AddIgnoredActor(ErrolActor);

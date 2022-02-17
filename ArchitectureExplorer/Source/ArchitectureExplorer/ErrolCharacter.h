@@ -71,6 +71,9 @@ private:
 	USkeletalMeshComponent * SkeletalMeshComp = nullptr;
 	USkeletalMeshComponent * TopHalfMesh = nullptr;
 
+	USkeletalMeshComponent * BodyMesh = nullptr;
+	USkeletalMeshComponent * SawMesh = nullptr;
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	ErrolState State;
@@ -128,8 +131,10 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool bPeeking = false;
 
-	UFUNCTION(BlueprintImplementableEvent)
 	void StartPeek();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bLeftPeek = false;
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void EndPeek();
