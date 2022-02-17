@@ -41,6 +41,9 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	bool bDisabled = false;
+
+	//	Used for the starting point of the line of sight trace
+	FVector HeadLocation = FVector::ZeroVector;
 	
 private:
 	AActor * ErrolActor = nullptr;
@@ -53,8 +56,7 @@ private:
 	
 	class AVRCharacter * Player = nullptr;
 
-	//	Used for the starting point of the line of sight trace
-	FVector HeadLocation = FVector::ZeroVector;
+	
 
 	UWorld * World = nullptr;
 

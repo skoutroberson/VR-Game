@@ -579,21 +579,25 @@ void AErrolCharacter::HearSound(AActor * Bottle, int ActorInt, int Loudness)
 
 void AErrolCharacter::StartPeek()
 {
-	UE_LOG(LogTemp, Warning, TEXT("PEEEEEEEEEK:)"));
-	FVector PeekLocation = ValidPeekPoint->GetActorLocation();
+	UE_LOG(LogTemp, Warning, TEXT("PEEEEEEEEEK :)"));
+	FVector PeekLocation = ValidPeekPoint->HeadLocation;
 	FVector LeftPeekVector = ValidPeekPoint->LeftPeekVector->GetForwardVector();
 	FVector RightPeekVector = ValidPeekPoint->RightPeekVector->GetForwardVector();
 	//	Find whether this is a right or left peek
-	FVector Disp = GetActorLocation() - PeekLocation;
-	float LDot = FVector::DotProduct(Disp, LeftPeekVector);
-	float RDot = FVector::DotProduct(Disp, RightPeekVector);
+	FVector Disp = PlayerCamera->GetComponentLocation() - PeekLocation;
 
-	//	if The dots equal eachother, I will have issues
+	DrawDebugLine(World, PeekLocation, PlayerCamera->GetComponentLocation(), FColor::Red, true);
+	
+	//	if player is on the left side of the peek vector, make Errol do a left peek, right side: vice versa
+	float Dot = FVector::DotProduct(Disp, RightPeekVector);
 
-	if (LDot > RDot)
+	UE_LOG(LogTemp, Warning, TEXT("Dot: %f"), Dot);
+
+	//	if Dot = 0 then 50/50 it will be a wrong sided peek
+	if (Dot < 0)
 	{
-		bLeftPeek = true;
 		SetActorScale3D(FVector(1.0f, -1.0f, 1.0f));
+		bLeftPeek = true;
 	}
 
 	SetActorRotation(Disp.Rotation());

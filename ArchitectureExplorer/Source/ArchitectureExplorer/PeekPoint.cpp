@@ -55,9 +55,6 @@ void APeekPoint::BeginPlay()
 
 	ErrolActor = UGameplayStatics::GetActorOfClass(World, AErrolCharacter::StaticClass());
 	QueryParams.AddIgnoredActor(ErrolActor);
-	QueryParams.AddIgnoredActor(Player);
-	QueryParams.AddIgnoredActor(LeftHandController);
-	QueryParams.AddIgnoredActor(RightHandController);
 }
 
 // Called every frame
@@ -69,19 +66,25 @@ void APeekPoint::Tick(float DeltaTime)
 
 bool APeekPoint::IsValid(const float Threshold)
 {
-	const FVector Disp = GetActorLocation() - PlayerCamera->GetComponentLocation();
-	const float Magnitude = Disp.Size();
-	const FVector Dir = Disp.GetSafeNormal();
 	const FVector CFV = PlayerCamera->GetForwardVector();
 	const FVector CL = PlayerCamera->GetComponentLocation();
-	const float Dot = FVector::DotProduct(Dir, CFV);
+	const FVector Disp = CL - HeadLocation;
+	const float Magnitude = Disp.Size();
+	const FVector Dir = Disp.GetSafeNormal();
+	const float Dot = FVector::DotProduct(Disp, CFV);
+
+	DrawDebugLine(World, HeadLocation, CL, FColor::Cyan, false, 1.1 * World->DeltaTimeSeconds);
 	
-	bool bIsValid = true;
+	bool bIsValid = false;
 	if (Dot > Threshold)
 	{
 		FHitResult HitResult;
 		
-		bIsValid = !World->LineTraceSingleByChannel(HitResult, HeadLocation, CL, ECollisionChannel::ECC_MAX, QueryParams);
+		const bool Trace = World->LineTraceSingleByChannel(HitResult, HeadLocation, CL, ECollisionChannel::ECC_PhysicsBody, QueryParams);
+		if (Trace && HitResult.Actor->ActorHasTag(FName("Player"))) 
+		{
+			bIsValid = true;
+		}
 	}
 
 	return bIsValid;
