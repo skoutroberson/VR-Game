@@ -74,6 +74,8 @@ private:
 	USkeletalMeshComponent * BodyMesh = nullptr;
 	USkeletalMeshComponent * SawMesh = nullptr;
 
+	const USkeletalMeshSocket *EyeSocket = nullptr;
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	ErrolState State;
@@ -139,7 +141,10 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void EndPeek();
 
+	//	determines when Errol should end the peek
 	void ShouldEndPeek(float DeltaTime);
+	//	updates the location and rotation so the peek looks right
+	void UpdatePeekPosition();
 	
 	float MaxPeekTime = 5.f;
 	float PeekTime = 0;

@@ -20,7 +20,9 @@
 #include "Bottle.h"
 #include "DestructibleComponent.h"
 #include "Components/ArrowComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "PeekPoint.h"
+#include "Engine/SkeletalMeshSocket.h"
 
 // Sets default values
 AErrolCharacter::AErrolCharacter()
@@ -78,6 +80,7 @@ void AErrolCharacter::BeginPlay()
 	BodyMesh = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), FName("Body"))[0]);
 	SawMesh = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), FName("Saw"))[0]);
 
+	EyeSocket = BodyMesh->GetSocketByName(FName("EyeSocket"));
 }
 
 void AErrolCharacter::SetupBoneArrays()
@@ -173,6 +176,7 @@ void AErrolCharacter::Tick(float DeltaTime)
 			}
 			else if(bPeeking)
 			{
+				UpdatePeekPosition();
 				ShouldEndPeek(DeltaTime);
 			}
 			
@@ -579,7 +583,7 @@ void AErrolCharacter::HearSound(AActor * Bottle, int ActorInt, int Loudness)
 
 void AErrolCharacter::StartPeek()
 {
-	UE_LOG(LogTemp, Warning, TEXT("PEEEEEEEEEK :)"));
+	bPeeking = true;
 	FVector PeekLocation = ValidPeekPoint->HeadLocation;
 	FVector LeftPeekVector = ValidPeekPoint->LeftPeekVector->GetForwardVector();
 	FVector RightPeekVector = ValidPeekPoint->RightPeekVector->GetForwardVector();
@@ -591,7 +595,7 @@ void AErrolCharacter::StartPeek()
 	//	if player is on the left side of the peek vector, make Errol do a left peek, right side: vice versa
 	float Dot = FVector::DotProduct(Disp, RightPeekVector);
 
-	UE_LOG(LogTemp, Warning, TEXT("Dot: %f"), Dot);
+	//UE_LOG(LogTemp, Warning, TEXT("Dot: %f"), Dot);
 
 	//	if Dot = 0 then 50/50 it will be a wrong sided peek
 	if (Dot < 0)
@@ -600,12 +604,25 @@ void AErrolCharacter::StartPeek()
 		bLeftPeek = true;
 	}
 
-	SetActorRotation(Disp.Rotation());
-	SetActorLocation(PeekLocation);
+	FRotator Rot = Disp.Rotation();
+	Rot.Pitch = 0;
+	SetActorRotation(Rot);
+	FVector ErrolPeekLocation = ValidPeekPoint->GetActorLocation();
+	ErrolPeekLocation.Z += GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+	SetActorLocation(ErrolPeekLocation);
 	BodyMesh->SetVisibility(true);
 }
 
 void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 {
 
+}
+
+void AErrolCharacter::UpdatePeekPosition()
+{
+	FVector Disp = PlayerCamera->GetComponentLocation() - EyeSocket->GetSocketLocation(BodyMesh);
+	FRotator Rot = Disp.Rotation();
+	Rot.Pitch = 0;
+	SetActorRotation(Rot);
+	
 }

@@ -49,7 +49,7 @@ void APeekPoint::BeginPlay()
 	World->GetTimerManager().SetTimer(InitializerHandle, this, &APeekPoint::InitializeHandControllerPointers, 0.1f, false, 0.2f);
 
 	//HeadLocation = GetActorLocation() + GetActorUpVector() * 200.f + RightPeekVector->GetForwardVector() * 10.f + LeftPeekVector->GetForwardVector() * 10.f;
-	HeadLocation = GetActorLocation() + GetActorUpVector() * 200.f - RightPeekVector->GetForwardVector() * 8.f - LeftPeekVector->GetForwardVector() * 8.f;
+	HeadLocation = GetActorLocation() + GetActorUpVector() * 140.f - RightPeekVector->GetForwardVector() * 15.f - LeftPeekVector->GetForwardVector() * 15.f;
 
 	DrawDebugSphere(World, HeadLocation, 4.f, 20.f, FColor::Cyan, true);
 
