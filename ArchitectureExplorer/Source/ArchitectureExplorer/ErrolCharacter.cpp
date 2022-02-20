@@ -81,6 +81,7 @@ void AErrolCharacter::BeginPlay()
 	SawMesh = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), FName("Saw"))[0]);
 
 	EyeSocket = BodyMesh->GetSocketByName(FName("EyeSocket"));
+	NeckSocket = BodyMesh->GetSocketByName(FName("NeckSocket"));
 }
 
 void AErrolCharacter::SetupBoneArrays()
@@ -301,6 +302,9 @@ void AErrolCharacter::FindValidPeekPoint()
 		if (Current->IsValid(0) && Current->bDisabled == false)
 		{
 			ValidPeekPoint = PeekPoints[PeekCounter];
+			LeftPeekVector = ValidPeekPoint->LeftPeekVector->GetForwardVector();
+			RightPeekVector = ValidPeekPoint->RightPeekVector->GetForwardVector();
+
 			bPeekFound = true;
 			StartPeek();
 			break;
@@ -585,8 +589,6 @@ void AErrolCharacter::StartPeek()
 {
 	bPeeking = true;
 	FVector PeekLocation = ValidPeekPoint->HeadLocation;
-	FVector LeftPeekVector = ValidPeekPoint->LeftPeekVector->GetForwardVector();
-	FVector RightPeekVector = ValidPeekPoint->RightPeekVector->GetForwardVector();
 	//	Find whether this is a right or left peek
 	FVector Disp = PlayerCamera->GetComponentLocation() - PeekLocation;
 
@@ -604,9 +606,18 @@ void AErrolCharacter::StartPeek()
 		bLeftPeek = true;
 	}
 
-	FRotator Rot = Disp.Rotation();
+	FRotator Rot;
+	if (bLeftPeek)
+	{
+		Rot = LeftPeekVector.Rotation();
+	}
+	else
+	{
+		Rot = RightPeekVector.Rotation();
+	}
 	Rot.Pitch = 0;
 	SetActorRotation(Rot);
+
 	FVector ErrolPeekLocation = ValidPeekPoint->GetActorLocation();
 	ErrolPeekLocation.Z += GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
 	SetActorLocation(ErrolPeekLocation);
@@ -620,9 +631,44 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 
 void AErrolCharacter::UpdatePeekPosition()
 {
-	FVector Disp = PlayerCamera->GetComponentLocation() - EyeSocket->GetSocketLocation(BodyMesh);
-	FRotator Rot = Disp.Rotation();
-	Rot.Pitch = 0;
-	SetActorRotation(Rot);
+	FVector PlayerCameraLocation = PlayerCamera->GetComponentLocation();
+	FVector EyeLocation = EyeSocket->GetSocketLocation(BodyMesh);
+	FVector NeckLocation = NeckSocket->GetSocketLocation(BodyMesh);
+
+	FVector DispEye = PlayerCameraLocation - EyeLocation;
+	FVector DispNeck = PlayerCameraLocation - NeckLocation;
+	DispEye = DispEye.GetSafeNormal();
+	DispNeck = DispNeck.GetSafeNormal();
+
+	FHitResult HitResult;
+
+	bool bEyeTrace = World->LineTraceSingleByChannel(HitResult, EyeLocation, EyeLocation + DispEye * 60.f, ECC_WorldDynamic);
+	bool bNeckTrace = World->LineTraceSingleByChannel(HitResult, NeckLocation, NeckLocation + DispNeck * 60.f, ECC_WorldDynamic);
 	
+	UE_LOG(LogTemp, Warning, TEXT("Eye: %d"), bEyeTrace);
+	UE_LOG(LogTemp, Warning, TEXT("Neck: %d"), bNeckTrace);
+
+	DrawDebugLine(World, NeckLocation, NeckLocation + DispNeck * 60.f, FColor::Red, false, 1.1f * World->DeltaTimeSeconds);
+
+	FVector DeltaLocation = ValidPeekPoint->GetActorLocation();
+
+	
+	
+	if (!bNeckTrace)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("HIDE!"));
+		if (bLeftPeek)
+		{
+			AddActorWorldOffset(RightPeekVector * 5.f);
+		}
+		else
+		{
+			AddActorWorldOffset(LeftPeekVector * 5.f);
+		}
+		
+	}
+
+	//FRotator Rot = DispEye.Rotation();
+	//Rot.Pitch = 0;
+	//SetActorRotation(Rot);
 }

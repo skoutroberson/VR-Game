@@ -75,6 +75,10 @@ private:
 	USkeletalMeshComponent * SawMesh = nullptr;
 
 	const USkeletalMeshSocket *EyeSocket = nullptr;
+	const USkeletalMeshSocket *NeckSocket = nullptr;
+
+	FVector LeftPeekVector = FVector::ZeroVector;
+	FVector RightPeekVector = FVector::ZeroVector;
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

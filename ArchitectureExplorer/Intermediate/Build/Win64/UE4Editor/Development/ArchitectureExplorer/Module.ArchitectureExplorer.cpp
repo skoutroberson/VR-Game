@@ -15,6 +15,7 @@
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Grabbable.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/HandController.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/LightManager.cpp"
+#include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/PeekPoint.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Phone.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Portal.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/PortalRoom.cpp"
