@@ -23,6 +23,7 @@
 #include "Components/CapsuleComponent.h"
 #include "PeekPoint.h"
 #include "Engine/SkeletalMeshSocket.h"
+#include "Engine.h"
 
 // Sets default values
 AErrolCharacter::AErrolCharacter()
@@ -626,7 +627,44 @@ void AErrolCharacter::StartPeek()
 
 void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 {
+	//	End the peek after:
+	//	- A certain time if the player doesn't look
+	//	- If the player looks at Errol for too long: DotProduct(Disp, CameraVector) * DeltaTime > LookThreshold
+	//	- If the peek angle is too shallow
 
+	PeekTime += DeltaTime;
+	if (PeekTime > MaxPeekTime)
+	{
+		EndPeek();
+	}
+
+	//	Is on screen:
+	FVector Disp = EyeSocket->GetSocketLocation(BodyMesh) - PlayerCamera->GetComponentLocation();
+	Disp = Disp.GetSafeNormal();
+	FVector CFV = PlayerCamera->GetForwardVector();
+	float Dot = FVector::DotProduct(Disp, CFV);
+
+	FVector2D ScreenPosition;
+	APlayerController *PlayerController = UGameplayStatics::GetPlayerController(World, 0);
+	UGameplayStatics::ProjectWorldToScreen(PlayerController, EyeSocket->GetSocketLocation(BodyMesh), ScreenPosition, false);
+	
+	const FVector2D ViewportSize = FVector2D(GEngine->GameViewport->Viewport->GetSizeXY());
+
+	if (ScreenPosition.X > 1.f && ScreenPosition.X < ViewportSize.X)
+	{
+		if (ScreenPosition.Y > 1.f && ScreenPosition.Y < ViewportSize.Y)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("ON SCREEN"));
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+	}
 }
 
 void AErrolCharacter::UpdatePeekPosition()
@@ -642,17 +680,10 @@ void AErrolCharacter::UpdatePeekPosition()
 
 	FHitResult HitResult;
 
-	bool bEyeTrace = World->LineTraceSingleByChannel(HitResult, EyeLocation, EyeLocation + DispEye * 60.f, ECC_WorldDynamic);
+	//bool bEyeTrace = World->LineTraceSingleByChannel(HitResult, EyeLocation, EyeLocation + DispEye * 60.f, ECC_WorldDynamic);
 	bool bNeckTrace = World->LineTraceSingleByChannel(HitResult, NeckLocation, NeckLocation + DispNeck * 60.f, ECC_WorldDynamic);
-	
-	UE_LOG(LogTemp, Warning, TEXT("Eye: %d"), bEyeTrace);
-	UE_LOG(LogTemp, Warning, TEXT("Neck: %d"), bNeckTrace);
-
-	DrawDebugLine(World, NeckLocation, NeckLocation + DispNeck * 60.f, FColor::Red, false, 1.1f * World->DeltaTimeSeconds);
 
 	FVector DeltaLocation = ValidPeekPoint->GetActorLocation();
-
-	
 	
 	if (!bNeckTrace)
 	{

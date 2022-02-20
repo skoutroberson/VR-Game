@@ -150,14 +150,17 @@ public:
 	//	updates the location and rotation so the peek looks right
 	void UpdatePeekPosition();
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float MaxPeekTime = 5.f;
+
+	UPROPERTY(VisibleAnywhere)
 	float PeekTime = 0;
 	//	When PeekScareLevel goes over this value, start end peek
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float EndPeekThreshold = 1.f;
 	//	Used to keep track of how long the player has looked at Errol while he's peeking and how much they are looking at him
+	UPROPERTY(VisibleAnywhere)
 	float PeekScareLevel = 0;
-
-
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float PatrolSpeed = 140.f;
