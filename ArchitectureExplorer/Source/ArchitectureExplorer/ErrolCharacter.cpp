@@ -297,7 +297,7 @@ void AErrolCharacter::FindValidPeekPoint()
 {
 	
 	int CurrentFrameChecks = 0;
-	while (CurrentFrameChecks < 1 && PeekCounter < PeekPoints.Num())
+	while (CurrentFrameChecks < 3 && PeekCounter < PeekPoints.Num())
 	{
 		APeekPoint *Current = PeekPoints[PeekCounter];
 		if (Current->IsValid(0) && Current->bDisabled == false)
@@ -308,7 +308,7 @@ void AErrolCharacter::FindValidPeekPoint()
 
 			bPeekFound = true;
 			StartPeek();
-			break;
+			return;
 		}
 
 		++CurrentFrameChecks;
@@ -317,10 +317,6 @@ void AErrolCharacter::FindValidPeekPoint()
 	if (PeekCounter >= PeekPoints.Num())
 	{
 		PeekCounter = 0;
-	}
-	if (bPeekFound)
-	{
-		//	StartPeek
 	}
 	
 }
@@ -593,7 +589,7 @@ void AErrolCharacter::StartPeek()
 	//	Find whether this is a right or left peek
 	FVector Disp = PlayerCamera->GetComponentLocation() - PeekLocation;
 
-	DrawDebugLine(World, PeekLocation, PlayerCamera->GetComponentLocation(), FColor::Red, true);
+	//DrawDebugLine(World, PeekLocation, PlayerCamera->GetComponentLocation(), FColor::Red, true);
 	
 	//	if player is on the left side of the peek vector, make Errol do a left peek, right side: vice versa
 	float Dot = FVector::DotProduct(Disp, RightPeekVector);
@@ -625,6 +621,7 @@ void AErrolCharacter::StartPeek()
 	BodyMesh->SetVisibility(true);
 }
 
+
 void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 {
 	//	End the peek after:
@@ -654,16 +651,16 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 	{
 		if (ScreenPosition.Y > 1.f && ScreenPosition.Y < ViewportSize.Y)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("ON SCREEN"));
+			//UE_LOG(LogTemp, Warning, TEXT("ON SCREEN"));
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+			//UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
 		}
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+		//UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
 	}
 }
 
@@ -680,14 +677,14 @@ void AErrolCharacter::UpdatePeekPosition()
 
 	FHitResult HitResult;
 
-	//bool bEyeTrace = World->LineTraceSingleByChannel(HitResult, EyeLocation, EyeLocation + DispEye * 60.f, ECC_WorldDynamic);
+	bool bEyeTrace = World->LineTraceSingleByChannel(HitResult, EyeLocation, EyeLocation + DispEye * 60.f, ECC_WorldDynamic);
 	bool bNeckTrace = World->LineTraceSingleByChannel(HitResult, NeckLocation, NeckLocation + DispNeck * 60.f, ECC_WorldDynamic);
 
 	FVector DeltaLocation = ValidPeekPoint->GetActorLocation();
 	
+	//	If the neck trace doesn't hit, too much of Errol is visible so move him out of view more
 	if (!bNeckTrace)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("HIDE!"));
 		if (bLeftPeek)
 		{
 			AddActorWorldOffset(RightPeekVector * 5.f);
@@ -696,7 +693,17 @@ void AErrolCharacter::UpdatePeekPosition()
 		{
 			AddActorWorldOffset(LeftPeekVector * 5.f);
 		}
-		
+	}
+	else if (bEyeTrace)	//	If this trace hits, then Errol is hidden too much, so he moves more in view
+	{
+		if (bLeftPeek)
+		{
+			AddActorWorldOffset(-RightPeekVector * 5.f);
+		}
+		else
+		{
+			AddActorWorldOffset(-LeftPeekVector * 5.f);
+		}
 	}
 
 	//FRotator Rot = DispEye.Rotation();
