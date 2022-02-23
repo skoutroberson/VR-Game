@@ -55,8 +55,6 @@ void AErrolCharacter::BeginPlay()
 	//EnterPatrolState();
 	//State = ErrolState::STATE_PATROL;
 
-	UpdateAnimation(State);
-
 	NavigationSystem = UNavigationSystemV1::GetCurrent(World);
 
 	//	Peek stuff
@@ -83,6 +81,9 @@ void AErrolCharacter::BeginPlay()
 
 	EyeSocket = BodyMesh->GetSocketByName(FName("EyeSocket"));
 	NeckSocket = BodyMesh->GetSocketByName(FName("NeckSocket"));
+
+	EnterPeekState();
+	UpdateAnimation(State);
 }
 
 void AErrolCharacter::SetupBoneArrays()
@@ -698,11 +699,11 @@ void AErrolCharacter::UpdatePeekPosition()
 	{
 		if (bLeftPeek)
 		{
-			AddActorWorldOffset(-RightPeekVector * 5.f);
+			AddActorWorldOffset(-RightPeekVector * 10.f);
 		}
 		else
 		{
-			AddActorWorldOffset(-LeftPeekVector * 5.f);
+			AddActorWorldOffset(-LeftPeekVector * 10.f);
 		}
 	}
 
