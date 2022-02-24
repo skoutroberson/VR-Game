@@ -25,6 +25,8 @@ enum class ErrolState : uint8;
 	DECLARE_FUNCTION(execSetHearGauge); \
 	DECLARE_FUNCTION(execSetSeeGauge); \
 	DECLARE_FUNCTION(execInitializeCanSeeVariables); \
+	DECLARE_FUNCTION(execExitPeekState); \
+	DECLARE_FUNCTION(execEnterPeekState); \
 	DECLARE_FUNCTION(execGoToRandomWaypoint); \
 	DECLARE_FUNCTION(execGetRandomWaypoint);
 
@@ -38,6 +40,8 @@ enum class ErrolState : uint8;
 	DECLARE_FUNCTION(execSetHearGauge); \
 	DECLARE_FUNCTION(execSetSeeGauge); \
 	DECLARE_FUNCTION(execInitializeCanSeeVariables); \
+	DECLARE_FUNCTION(execExitPeekState); \
+	DECLARE_FUNCTION(execEnterPeekState); \
 	DECLARE_FUNCTION(execGoToRandomWaypoint); \
 	DECLARE_FUNCTION(execGetRandomWaypoint);
 

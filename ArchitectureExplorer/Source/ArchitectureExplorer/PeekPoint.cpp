@@ -19,18 +19,27 @@ APeekPoint::APeekPoint()
 	PeekRoot = CreateDefaultSubobject<USceneComponent>(TEXT("PeekRoot"));
 	LeftPeekVector = CreateDefaultSubobject<UArrowComponent>(TEXT("LeftPeekVector"));
 	RightPeekVector = CreateDefaultSubobject<UArrowComponent>(TEXT("RightPeekVector"));
+	LeftPeekVectorMax = CreateDefaultSubobject<UArrowComponent>(TEXT("LeftPeekVectorMax"));
+	RightPeekVectorMax = CreateDefaultSubobject<UArrowComponent>(TEXT("RightPeekVectorMax"));
 	Sphere = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Sphere"));
 
 	SetRootComponent(PeekRoot);
 
 	LeftPeekVector->SetupAttachment(PeekRoot);
 	RightPeekVector->SetupAttachment(PeekRoot);
+	LeftPeekVectorMax->SetupAttachment(PeekRoot);
+	RightPeekVectorMax->SetupAttachment(PeekRoot);
 	Sphere->SetupAttachment(PeekRoot);
 
 	LeftPeekVector->ArrowSize = 0.2f;
 	RightPeekVector->ArrowSize = 0.2f;
 	LeftPeekVector->SetArrowColor(FColor::Magenta);
 	RightPeekVector->SetArrowColor(FColor::Cyan);
+
+	LeftPeekVectorMax->ArrowSize = 0.1f;
+	RightPeekVectorMax->ArrowSize = 0.1f;
+	LeftPeekVectorMax->SetArrowColor(FColor::Yellow);
+	RightPeekVectorMax->SetArrowColor(FColor::Yellow);
 
 	Sphere->SetHiddenInGame(true);
 	Sphere->SetWorldScale3D(FVector(0.01f, 0.01f, 0.01f));
@@ -66,17 +75,38 @@ void APeekPoint::Tick(float DeltaTime)
 
 bool APeekPoint::IsValid(const float Threshold)
 {
+	bool bIsValid = false;
 	const FVector CFV = PlayerCamera->GetForwardVector();
 	const FVector CL = PlayerCamera->GetComponentLocation();
-	const FVector Disp = CL - HeadLocation;
-	const float Magnitude = Disp.Size();
-	const FVector Dir = Disp.GetSafeNormal();
-	const float Dot = FVector::DotProduct(Disp, CFV);
+	const FVector AL = GetActorLocation();
+	FVector Disp = CL - HeadLocation;
+	FVector Dir = Disp.GetSafeNormal();
+	const float DotLook = FVector::DotProduct(Dir, CFV);
+	Disp = CL - AL;
+	Disp.Z = 0;
+	Dir = Disp.GetSafeNormal();
+	const float DotLeft = FVector::DotProduct(Dir, LeftPeekVector->GetForwardVector());
+	const float DotRight = FVector::DotProduct(Dir, RightPeekVector->GetForwardVector());
+
+	bool bLeft = false;
+	
+	if (DotLeft > DotRight)
+	{
+		bLeft = true;
+	}
+
+	if (bLeft && DotLeft < MinDot && DotRight < 0)
+	{
+		return bIsValid;
+	}
+	else if (!bLeft && DotRight < MinDot && DotRight < 0)
+	{
+		return bIsValid;
+	}
 
 	DrawDebugLine(World, HeadLocation, CL, FColor::Cyan, false, 1.1 * World->DeltaTimeSeconds);
 	
-	bool bIsValid = false;
-	if (Dot > Threshold)
+	if (DotLook > Threshold)
 	{
 		FHitResult HitResult;
 		
@@ -84,6 +114,14 @@ bool APeekPoint::IsValid(const float Threshold)
 		if (Trace && HitResult.Actor->ActorHasTag(FName("Player"))) 
 		{
 			bIsValid = true;
+			if (bLeft)
+			{
+				ErrolPeekSide = Left;
+			}
+			else
+			{
+				ErrolPeekSide = Right;
+			}
 		}
 	}
 
@@ -95,5 +133,5 @@ void APeekPoint::InitializeHandControllerPointers()
 	LeftHandController = Player->LeftController;
 	RightHandController = Player->RightController;
 	//	setting errol's state here for debug purposes
-	Cast<AErrolCharacter>(ErrolActor)->EnterPeekState();
+	//Cast<AErrolCharacter>(ErrolActor)->EnterPeekState();
 }

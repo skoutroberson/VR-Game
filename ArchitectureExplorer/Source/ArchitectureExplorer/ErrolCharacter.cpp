@@ -82,7 +82,6 @@ void AErrolCharacter::BeginPlay()
 	EyeSocket = BodyMesh->GetSocketByName(FName("EyeSocket"));
 	NeckSocket = BodyMesh->GetSocketByName(FName("NeckSocket"));
 
-	EnterPeekState();
 	UpdateAnimation(State);
 }
 
@@ -284,7 +283,7 @@ void AErrolCharacter::EnterPeekState()
 	
 	SetActorEnableCollision(false);
 	DisableComponentsSimulatePhysics();
-	BodyMesh->SetVisibility(false, true);
+	//BodyMesh->SetVisibility(false, true);
 	SawMesh->SetVisibility(false, true);
 	//	Try to find a "valid" PeekPoint
 	//	Move ErrolCharacter to the PeekPoint
@@ -324,7 +323,20 @@ void AErrolCharacter::FindValidPeekPoint()
 
 void AErrolCharacter::ExitPeekState()
 {
+	State = ErrolState::STATE_IDLE;
 
+	bLeftPeek = false;
+	
+	bPeekFound = false;
+	bPeeking = false;
+	PeekScareLevel = 0;
+	PeekTime = 0;
+	BodyMesh->SetVisibility(false, true);
+
+	if (ValidPeekPoint != nullptr)
+	{
+		ValidPeekPoint->ErrolPeekSide = APeekPoint::PeekSide::Uninitialized;
+	}
 }
 
 void AErrolCharacter::ExitIdleState()
@@ -364,6 +376,8 @@ void AErrolCharacter::InitializeCanSeeVariables()
 	UActorComponent * TempAC = Player->GetComponentByClass(UCameraComponent::StaticClass());
 	PlayerCamera = Cast<UCameraComponent>(TempAC);
 	InitializePerceptionTimers();
+	//	Debug
+	//EnterPeekState();
 }
 
 void AErrolCharacter::InitializePerceptionTimers()
@@ -589,6 +603,7 @@ void AErrolCharacter::StartPeek()
 	FVector PeekLocation = ValidPeekPoint->HeadLocation;
 	//	Find whether this is a right or left peek
 	FVector Disp = PlayerCamera->GetComponentLocation() - PeekLocation;
+	Disp.Z = 0;
 
 	//DrawDebugLine(World, PeekLocation, PlayerCamera->GetComponentLocation(), FColor::Red, true);
 	
@@ -597,20 +612,29 @@ void AErrolCharacter::StartPeek()
 
 	//UE_LOG(LogTemp, Warning, TEXT("Dot: %f"), Dot);
 
+	/*
 	//	if Dot = 0 then 50/50 it will be a wrong sided peek
 	if (Dot < 0)
 	{
 		SetActorScale3D(FVector(1.0f, -1.0f, 1.0f));
 		bLeftPeek = true;
 	}
+	*/
+
+	if (ValidPeekPoint->ErrolPeekSide == APeekPoint::PeekSide::Left)
+	{
+		bLeftPeek = true;
+	}
 
 	FRotator Rot;
 	if (bLeftPeek)
 	{
+		//	set animation to left peek animation here
 		Rot = LeftPeekVector.Rotation();
 	}
 	else
 	{
+		//	set animation to right peek animation here
 		Rot = RightPeekVector.Rotation();
 	}
 	Rot.Pitch = 0;
@@ -634,7 +658,10 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 	if (PeekTime > MaxPeekTime)
 	{
 		EndPeek();
+		return;
 	}
+
+	//UE_LOG(LogTemp, Warning, TEXT("Peek Time: %f"), PeekTime);
 
 	//	Is on screen:
 	FVector Disp = EyeSocket->GetSocketLocation(BodyMesh) - PlayerCamera->GetComponentLocation();
@@ -653,6 +680,14 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 		if (ScreenPosition.Y > 1.f && ScreenPosition.Y < ViewportSize.Y)
 		{
 			//UE_LOG(LogTemp, Warning, TEXT("ON SCREEN"));
+			UE_LOG(LogTemp, Warning, TEXT("Scare Level: %f"), PeekScareLevel);
+			PeekScareLevel += (1 / (1 - Dot)) * DeltaTime;
+
+			if (PeekScareLevel > PeekScareThreshold)
+			{
+				EndPeek();
+				return;
+			}
 		}
 		else
 		{

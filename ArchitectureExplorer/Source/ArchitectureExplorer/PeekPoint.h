@@ -10,8 +10,10 @@ UCLASS()
 class ARCHITECTUREEXPLORER_API APeekPoint : public AActor
 {
 	GENERATED_BODY()
+
+public:
+	enum PeekSide {Left, Right, Uninitialized};
 	
-public:	
 	// Sets default values for this actor's properties
 	APeekPoint();
 
@@ -24,9 +26,16 @@ public:
 	UPROPERTY(EditAnywhere)
 	class UArrowComponent * RightPeekVector = nullptr;
 
+	UPROPERTY(EditAnywhere)
+	class UArrowComponent * LeftPeekVectorMax = nullptr;
+	UPROPERTY(EditAnywhere)
+	class UArrowComponent * RightPeekVectorMax = nullptr;
+
 	//	Used for visualizing where the peek point is. This will always be hidden in game
 	UPROPERTY(EditAnywhere)
 	class UStaticMeshComponent * Sphere = nullptr;
+
+	PeekSide ErrolPeekSide = Uninitialized;
 
 protected:
 	// Called when the game starts or when spawned
@@ -41,6 +50,9 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	bool bDisabled = false;
+
+	UPROPERTY(EditAnywhere)
+	float MinDot = 0.4f;
 
 	//	Used for the starting point of the line of sight trace
 	FVector HeadLocation = FVector::ZeroVector;

@@ -113,6 +113,8 @@ public:
 	void EnterInvestigateState();
 	void EnterKillState();
 	void EnterLookAroundState();
+
+	UFUNCTION(BlueprintCallable)
 	void EnterPeekState();
 
 	// State exit functions for clearing timers
@@ -121,6 +123,7 @@ public:
 	void ExitChaseState();
 	void ExitInvestigateState();
 	void ExitLookAroundState();
+	UFUNCTION(BlueprintCallable)
 	void ExitPeekState();
 
 	//	Peek stuff
@@ -130,6 +133,7 @@ public:
 
 	void FindValidPeekPoint();
 	int PeekCounter = 0;
+	UPROPERTY(BlueprintReadWrite)
 	bool bPeekFound = false;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	APeekPoint *ValidPeekPoint = nullptr;
@@ -151,15 +155,15 @@ public:
 	void UpdatePeekPosition();
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float MaxPeekTime = 5.f;
+	float MaxPeekTime = 10.f;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	float PeekTime = 0;
 	//	When PeekScareLevel goes over this value, start end peek
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float EndPeekThreshold = 1.f;
+	float PeekScareThreshold = 4.f;
 	//	Used to keep track of how long the player has looked at Errol while he's peeking and how much they are looking at him
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	float PeekScareLevel = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
