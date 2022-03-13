@@ -24,6 +24,15 @@ enum class ErrolState : uint8
 	STATE_SCARE1		UMETA(DisplayName="Scare1"),
 };
 
+UENUM(BlueprintType)
+enum class ErrolPeekState : uint8
+{
+	STATE_IDLE				UMETA(DisplayName = "Idle"),
+	STATE_WAITPEEK			UMETA(DisplayName = "WaitPeek"),
+	STATE_LEFTPEEK			UMETA(DisplayName = "LeftPeek"),
+	STATE_RIGHTPEEK			UMETA(DisplayName = "RightPeek"),
+};
+
 UCLASS()
 class ARCHITECTUREEXPLORER_API AErrolCharacter : public ACharacter
 {
@@ -105,6 +114,10 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "AIAnimation")
 	void UpdateAnimation(ErrolState CurrentState);
 
+	UFUNCTION(BlueprintImplementableEvent, Category = "AIAnimation")
+	void EndPeekAnimation();
+	UFUNCTION(BlueprintImplementableEvent, Category = "AIAnimation")
+	void StartPeekAnimation();
 	// State entry functions for starting timers and setting variables
 public:
 	void EnterIdleState();
@@ -127,6 +140,9 @@ public:
 	void ExitPeekState();
 
 	//	Peek stuff
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ErrolPeekState PeekState;
 
 	UPROPERTY(VisibleAnywhere)
 	TArray<APeekPoint*> PeekPoints;
@@ -155,7 +171,7 @@ public:
 	void UpdatePeekPosition();
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float MaxPeekTime = 10.f;
+	float MaxPeekTime = 1000.f;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	float PeekTime = 0;

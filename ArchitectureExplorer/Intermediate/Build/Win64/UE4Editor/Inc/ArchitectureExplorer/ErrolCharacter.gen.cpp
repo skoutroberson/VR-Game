@@ -13,8 +13,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 // Cross Module References
-	ARCHITECTUREEXPLORER_API UEnum* Z_Construct_UEnum_ArchitectureExplorer_ErrolState();
+	ARCHITECTUREEXPLORER_API UEnum* Z_Construct_UEnum_ArchitectureExplorer_ErrolPeekState();
 	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
+	ARCHITECTUREEXPLORER_API UEnum* Z_Construct_UEnum_ArchitectureExplorer_ErrolState();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AErrolCharacter_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AErrolCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
@@ -22,6 +23,68 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_APeekPoint_NoRegister();
 // End Cross Module References
+	static UEnum* ErrolPeekState_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_ArchitectureExplorer_ErrolPeekState, Z_Construct_UPackage__Script_ArchitectureExplorer(), TEXT("ErrolPeekState"));
+		}
+		return Singleton;
+	}
+	template<> ARCHITECTUREEXPLORER_API UEnum* StaticEnum<ErrolPeekState>()
+	{
+		return ErrolPeekState_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_ErrolPeekState(ErrolPeekState_StaticEnum, TEXT("/Script/ArchitectureExplorer"), TEXT("ErrolPeekState"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_ErrolPeekState_Hash() { return 1366567073U; }
+	UEnum* Z_Construct_UEnum_ArchitectureExplorer_ErrolPeekState()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_ArchitectureExplorer();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("ErrolPeekState"), 0, Get_Z_Construct_UEnum_ArchitectureExplorer_ErrolPeekState_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "ErrolPeekState::STATE_IDLE", (int64)ErrolPeekState::STATE_IDLE },
+				{ "ErrolPeekState::STATE_WAITPEEK", (int64)ErrolPeekState::STATE_WAITPEEK },
+				{ "ErrolPeekState::STATE_LEFTPEEK", (int64)ErrolPeekState::STATE_LEFTPEEK },
+				{ "ErrolPeekState::STATE_RIGHTPEEK", (int64)ErrolPeekState::STATE_RIGHTPEEK },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "ModuleRelativePath", "ErrolCharacter.h" },
+				{ "STATE_IDLE.DisplayName", "Idle" },
+				{ "STATE_IDLE.Name", "ErrolPeekState::STATE_IDLE" },
+				{ "STATE_LEFTPEEK.DisplayName", "LeftPeek" },
+				{ "STATE_LEFTPEEK.Name", "ErrolPeekState::STATE_LEFTPEEK" },
+				{ "STATE_RIGHTPEEK.DisplayName", "RightPeek" },
+				{ "STATE_RIGHTPEEK.Name", "ErrolPeekState::STATE_RIGHTPEEK" },
+				{ "STATE_WAITPEEK.DisplayName", "WaitPeek" },
+				{ "STATE_WAITPEEK.Name", "ErrolPeekState::STATE_WAITPEEK" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
+				nullptr,
+				"ErrolPeekState",
+				"ErrolPeekState",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 	static UEnum* ErrolState_StaticEnum()
 	{
 		static UEnum* Singleton = nullptr;
@@ -178,6 +241,16 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AErrolCharacter_EndPeek),NULL);
 	}
+	static FName NAME_AErrolCharacter_EndPeekAnimation = FName(TEXT("EndPeekAnimation"));
+	void AErrolCharacter::EndPeekAnimation()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AErrolCharacter_EndPeekAnimation),NULL);
+	}
+	static FName NAME_AErrolCharacter_StartPeekAnimation = FName(TEXT("StartPeekAnimation"));
+	void AErrolCharacter::StartPeekAnimation()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AErrolCharacter_StartPeekAnimation),NULL);
+	}
 	static FName NAME_AErrolCharacter_UpdateAnimation = FName(TEXT("UpdateAnimation"));
 	void AErrolCharacter::UpdateAnimation(ErrolState CurrentState)
 	{
@@ -222,6 +295,29 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_EndPeek_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation_Statics::Function_MetaDataParams[] = {
+		{ "Category", "AIAnimation" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "EndPeekAnimation", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -479,6 +575,29 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AErrolCharacter_StartPeekAnimation_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_StartPeekAnimation_Statics::Function_MetaDataParams[] = {
+		{ "Category", "AIAnimation" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_StartPeekAnimation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "StartPeekAnimation", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_StartPeekAnimation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_StartPeekAnimation_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_StartPeekAnimation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_StartPeekAnimation_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics
 	{
 		static const UE4CodeGen_Private::FBytePropertyParams NewProp_CurrentState_Underlying;
@@ -537,6 +656,11 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Waypoints_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_Waypoints;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_PeekState_Underlying;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PeekState_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_PeekState;
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PeekPoints_Inner;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PeekPoints_MetaData[];
@@ -607,6 +731,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AErrolCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AErrolCharacter_EndPeek, "EndPeek" }, // 3061781572
+		{ &Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation, "EndPeekAnimation" }, // 3368898706
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterPeekState, "EnterPeekState" }, // 3880286838
 		{ &Z_Construct_UFunction_AErrolCharacter_ExitPeekState, "ExitPeekState" }, // 195118670
 		{ &Z_Construct_UFunction_AErrolCharacter_GetRandomWaypoint, "GetRandomWaypoint" }, // 623349707
@@ -618,6 +743,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_SetSeeGauge, "SetSeeGauge" }, // 3549294918
 		{ &Z_Construct_UFunction_AErrolCharacter_ShouldChase, "ShouldChase" }, // 3491407210
 		{ &Z_Construct_UFunction_AErrolCharacter_ShouldKill, "ShouldKill" }, // 674555953
+		{ &Z_Construct_UFunction_AErrolCharacter_StartPeekAnimation, "StartPeekAnimation" }, // 1380945858
 		{ &Z_Construct_UFunction_AErrolCharacter_UpdateAnimation, "UpdateAnimation" }, // 935012373
 	};
 #if WITH_METADATA
@@ -650,13 +776,21 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints = { "Waypoints", nullptr, (EPropertyFlags)0x0040000000000000, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, Waypoints), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints_MetaData)) };
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekPoints_Inner = { "PeekPoints", nullptr, (EPropertyFlags)0x0000000000020000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_APeekPoint_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekPoints_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
 		{ "Comment", "//\x09Peek stuff\n" },
 		{ "ModuleRelativePath", "ErrolCharacter.h" },
 		{ "ToolTip", "Peek stuff" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState = { "PeekState", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, PeekState), Z_Construct_UEnum_ArchitectureExplorer_ErrolPeekState, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekPoints_Inner = { "PeekPoints", nullptr, (EPropertyFlags)0x0000000000020000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_APeekPoint_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekPoints_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekPoints = { "PeekPoints", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, PeekPoints), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekPoints_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekPoints_MetaData)) };
@@ -774,6 +908,8 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_LastState,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekPoints_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekPoints,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPeekFound,
@@ -817,7 +953,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 907613825);
+	IMPLEMENT_CLASS(AErrolCharacter, 480807416);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

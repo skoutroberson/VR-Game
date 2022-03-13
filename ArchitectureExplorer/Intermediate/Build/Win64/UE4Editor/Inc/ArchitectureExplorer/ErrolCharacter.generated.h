@@ -15,8 +15,8 @@ enum class ErrolState : uint8;
 #endif
 #define ARCHITECTUREEXPLORER_ErrolCharacter_generated_h
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_RPC_WRAPPERS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_SPARSE_DATA
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execShouldKill); \
 	DECLARE_FUNCTION(execShouldChase); \
@@ -31,7 +31,7 @@ enum class ErrolState : uint8;
 	DECLARE_FUNCTION(execGetRandomWaypoint);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execShouldKill); \
 	DECLARE_FUNCTION(execShouldChase); \
@@ -46,15 +46,15 @@ enum class ErrolState : uint8;
 	DECLARE_FUNCTION(execGetRandomWaypoint);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_EVENT_PARMS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_EVENT_PARMS \
 	struct ErrolCharacter_eventUpdateAnimation_Parms \
 	{ \
 		ErrolState CurrentState; \
 	};
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_CALLBACK_WRAPPERS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_INCLASS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_CALLBACK_WRAPPERS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAErrolCharacter(); \
 	friend struct Z_Construct_UClass_AErrolCharacter_Statics; \
@@ -63,7 +63,7 @@ public: \
 	DECLARE_SERIALIZER(AErrolCharacter)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_INCLASS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_INCLASS \
 private: \
 	static void StaticRegisterNativesAErrolCharacter(); \
 	friend struct Z_Construct_UClass_AErrolCharacter_Statics; \
@@ -72,7 +72,7 @@ public: \
 	DECLARE_SERIALIZER(AErrolCharacter)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_STANDARD_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AErrolCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AErrolCharacter) \
@@ -85,7 +85,7 @@ private: \
 public:
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_ENHANCED_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AErrolCharacter(AErrolCharacter&&); \
@@ -96,36 +96,36 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AErrolCharacter); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AErrolCharacter)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_PRIVATE_PROPERTY_OFFSET \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__Waypoints() { return STRUCT_OFFSET(AErrolCharacter, Waypoints); }
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_27_PROLOG \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_EVENT_PARMS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_36_PROLOG \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_EVENT_PARMS
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_GENERATED_BODY_LEGACY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_RPC_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_CALLBACK_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_INCLASS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_STANDARD_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_CALLBACK_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_INCLASS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_GENERATED_BODY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_CALLBACK_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_INCLASS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_30_ENHANCED_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_CALLBACK_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_INCLASS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h_39_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -135,6 +135,15 @@ template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<class AErrolCharacter>()
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID ArchitectureExplorer_Source_ArchitectureExplorer_ErrolCharacter_h
 
+
+#define FOREACH_ENUM_ERROLPEEKSTATE(op) \
+	op(ErrolPeekState::STATE_IDLE) \
+	op(ErrolPeekState::STATE_WAITPEEK) \
+	op(ErrolPeekState::STATE_LEFTPEEK) \
+	op(ErrolPeekState::STATE_RIGHTPEEK) 
+
+enum class ErrolPeekState : uint8;
+template<> ARCHITECTUREEXPLORER_API UEnum* StaticEnum<ErrolPeekState>();
 
 #define FOREACH_ENUM_ERROLSTATE(op) \
 	op(ErrolState::STATE_IDLE) \

@@ -32,6 +32,7 @@ AErrolCharacter::AErrolCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 
 	State = ErrolState::STATE_PATROL;
+	PeekState = ErrolPeekState::STATE_IDLE;
 }
 
 // Called when the game starts or when spawned
@@ -279,8 +280,9 @@ void AErrolCharacter::EnterLookAroundState()
 void AErrolCharacter::EnterPeekState()
 {
 	State = ErrolState::STATE_PEEK;
+	PeekState = ErrolPeekState::STATE_WAITPEEK;
+	bPeeking = true;
 	UpdateAnimation(State);
-	
 	SetActorEnableCollision(false);
 	DisableComponentsSimulatePhysics();
 	//BodyMesh->SetVisibility(false, true);
@@ -324,7 +326,7 @@ void AErrolCharacter::FindValidPeekPoint()
 void AErrolCharacter::ExitPeekState()
 {
 	State = ErrolState::STATE_IDLE;
-
+	PeekState = ErrolPeekState::STATE_IDLE;
 	bLeftPeek = false;
 	
 	bPeekFound = false;
@@ -337,6 +339,8 @@ void AErrolCharacter::ExitPeekState()
 	{
 		ValidPeekPoint->ErrolPeekSide = APeekPoint::PeekSide::Uninitialized;
 	}
+	EndPeekAnimation();
+	UpdateAnimation(State);
 }
 
 void AErrolCharacter::ExitIdleState()
@@ -623,11 +627,16 @@ void AErrolCharacter::StartPeek()
 
 	if (ValidPeekPoint->ErrolPeekSide == APeekPoint::PeekSide::Left)
 	{
-		bLeftPeek = true;
+		PeekState = ErrolPeekState::STATE_LEFTPEEK;
 	}
+	else
+	{
+		PeekState = ErrolPeekState::STATE_RIGHTPEEK;
+	}
+	StartPeekAnimation();
 
 	FRotator Rot;
-	if (bLeftPeek)
+	if (PeekState == ErrolPeekState::STATE_LEFTPEEK)
 	{
 		//	set animation to left peek animation here
 		Rot = LeftPeekVector.Rotation();
@@ -721,7 +730,7 @@ void AErrolCharacter::UpdatePeekPosition()
 	//	If the neck trace doesn't hit, too much of Errol is visible so move him out of view more
 	if (!bNeckTrace)
 	{
-		if (bLeftPeek)
+		if (PeekState == ErrolPeekState::STATE_LEFTPEEK)
 		{
 			AddActorWorldOffset(RightPeekVector * 5.f);
 		}
@@ -732,7 +741,7 @@ void AErrolCharacter::UpdatePeekPosition()
 	}
 	else if (bEyeTrace)	//	If this trace hits, then Errol is hidden too much, so he moves more in view
 	{
-		if (bLeftPeek)
+		if (PeekState == ErrolPeekState::STATE_LEFTPEEK)
 		{
 			AddActorWorldOffset(-RightPeekVector * 10.f);
 		}
