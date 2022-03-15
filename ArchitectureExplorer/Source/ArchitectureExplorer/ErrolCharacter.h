@@ -151,7 +151,7 @@ public:
 	int PeekCounter = 0;
 	UPROPERTY(BlueprintReadWrite)
 	bool bPeekFound = false;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	APeekPoint *ValidPeekPoint = nullptr;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)

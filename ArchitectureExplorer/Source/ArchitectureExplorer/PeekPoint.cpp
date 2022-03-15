@@ -117,10 +117,12 @@ bool APeekPoint::IsValid(const float Threshold)
 			if (bLeft)
 			{
 				ErrolPeekSide = Left;
+				PeekPositionVector = RightPeekVector->GetForwardVector();
 			}
 			else
 			{
 				ErrolPeekSide = Right;
+				PeekPositionVector = LeftPeekVector->GetForwardVector();
 			}
 		}
 	}

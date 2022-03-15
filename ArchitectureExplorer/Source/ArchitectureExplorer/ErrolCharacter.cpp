@@ -603,7 +603,6 @@ void AErrolCharacter::HearSound(AActor * Bottle, int ActorInt, int Loudness)
 
 void AErrolCharacter::StartPeek()
 {
-	bPeeking = true;
 	FVector PeekLocation = ValidPeekPoint->HeadLocation;
 	//	Find whether this is a right or left peek
 	FVector Disp = PlayerCamera->GetComponentLocation() - PeekLocation;
@@ -666,6 +665,7 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 	PeekTime += DeltaTime;
 	if (PeekTime > MaxPeekTime)
 	{
+		bPeeking = false;
 		EndPeek();
 		return;
 	}
@@ -694,6 +694,7 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 
 			if (PeekScareLevel > PeekScareThreshold)
 			{
+				bPeeking = false;
 				EndPeek();
 				return;
 			}

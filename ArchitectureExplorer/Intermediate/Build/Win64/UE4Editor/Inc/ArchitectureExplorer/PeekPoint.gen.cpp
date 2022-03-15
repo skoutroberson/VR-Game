@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UArrowComponent_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 // End Cross Module References
 	void APeekPoint::StaticRegisterNativesAPeekPoint()
@@ -54,6 +55,10 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RightPeekVectorMax_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RightPeekVectorMax;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PeekPositionVector_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_PeekPositionVector;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Sphere_MetaData[];
 #endif
@@ -124,6 +129,13 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APeekPoint_Statics::NewProp_RightPeekVectorMax = { "RightPeekVectorMax", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APeekPoint, RightPeekVectorMax), Z_Construct_UClass_UArrowComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APeekPoint_Statics::NewProp_RightPeekVectorMax_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APeekPoint_Statics::NewProp_RightPeekVectorMax_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekPositionVector_MetaData[] = {
+		{ "Category", "PeekPoint" },
+		{ "ModuleRelativePath", "PeekPoint.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekPositionVector = { "PeekPositionVector", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APeekPoint, PeekPositionVector), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekPositionVector_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekPositionVector_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APeekPoint_Statics::NewProp_Sphere_MetaData[] = {
 		{ "Category", "PeekPoint" },
 		{ "Comment", "//\x09Used for visualizing where the peek point is. This will always be hidden in game\n" },
@@ -157,6 +169,7 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_RightPeekVector,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_LeftPeekVectorMax,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_RightPeekVectorMax,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekPositionVector,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_Sphere,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_MinDot,
@@ -188,7 +201,7 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APeekPoint, 1628360694);
+	IMPLEMENT_CLASS(APeekPoint, 3932615102);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<APeekPoint>()
 	{
 		return APeekPoint::StaticClass();

@@ -31,6 +31,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	class UArrowComponent * RightPeekVectorMax = nullptr;
 
+	UPROPERTY(BlueprintReadWrite)
+	FVector PeekPositionVector;
+
 	//	Used for visualizing where the peek point is. This will always be hidden in game
 	UPROPERTY(EditAnywhere)
 	class UStaticMeshComponent * Sphere = nullptr;
