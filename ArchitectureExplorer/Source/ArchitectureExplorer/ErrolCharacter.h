@@ -141,6 +141,9 @@ public:
 
 	//	Peek stuff
 
+	//	for checking if the peek was on the screen but is now off the screen
+	bool bPeekOnScreen = false;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	ErrolPeekState PeekState;
 

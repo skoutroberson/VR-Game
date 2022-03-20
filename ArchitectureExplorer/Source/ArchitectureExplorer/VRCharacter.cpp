@@ -394,7 +394,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	//LeftHandMesh->SetWorldLocationAndRotation(LeftController->GetActorLocation(), LeftController->GetActorQuat());
 	//RightHandMesh->SetWorldLocationAndRotation(RightController->GetActorLocation(), RightController->GetActorQuat());
 
-	//PlayFootStepSound();
+	PlayFootStepSound();
 	DeltaLocation = GetActorLocation();
 }
 

@@ -179,8 +179,8 @@ void AErrolCharacter::Tick(float DeltaTime)
 			}
 			else if(bPeeking)
 			{
-				UpdatePeekPosition();
 				ShouldEndPeek(DeltaTime);
+				UpdatePeekPosition();
 			}
 			
 			break;
@@ -331,6 +331,7 @@ void AErrolCharacter::ExitPeekState()
 	
 	bPeekFound = false;
 	bPeeking = false;
+	bPeekOnScreen = false;
 	PeekScareLevel = 0;
 	PeekTime = 0;
 	BodyMesh->SetVisibility(false, true);
@@ -680,33 +681,52 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 
 	FVector2D ScreenPosition;
 	APlayerController *PlayerController = UGameplayStatics::GetPlayerController(World, 0);
-	UGameplayStatics::ProjectWorldToScreen(PlayerController, EyeSocket->GetSocketLocation(BodyMesh), ScreenPosition, false);
+	UGameplayStatics::ProjectWorldToScreen(PlayerController, EyeSocket->GetSocketLocation(BodyMesh), ScreenPosition, true);
+
+	bool bPeekCurrentlyOnScreen = false;
 	
 	const FVector2D ViewportSize = FVector2D(GEngine->GameViewport->Viewport->GetSizeXY());
 
-	if (ScreenPosition.X > 1.f && ScreenPosition.X < ViewportSize.X)
-	{
-		if (ScreenPosition.Y > 1.f && ScreenPosition.Y < ViewportSize.Y)
-		{
-			//UE_LOG(LogTemp, Warning, TEXT("ON SCREEN"));
-			UE_LOG(LogTemp, Warning, TEXT("Scare Level: %f"), PeekScareLevel);
-			PeekScareLevel += (1 / (1 - Dot)) * DeltaTime;
+	//UE_LOG(LogTemp, Warning, TEXT("%f, %f"), ScreenPosition.X, ScreenPosition.Y);
 
-			if (PeekScareLevel > PeekScareThreshold)
+	if (Dot > 0)
+	{
+		if (ScreenPosition.X > 1.f && ScreenPosition.X < ViewportSize.X)
+		{
+			if (ScreenPosition.Y > 1.f && ScreenPosition.Y < ViewportSize.Y)
 			{
-				bPeeking = false;
-				EndPeek();
-				return;
+				//UE_LOG(LogTemp, Warning, TEXT("ON SCREEN"));
+				UE_LOG(LogTemp, Warning, TEXT("Scare Level: %f"), PeekScareLevel);
+				bPeekOnScreen = true;
+				bPeekCurrentlyOnScreen = true;
+				PeekScareLevel += (1 / (1 - Dot)) * DeltaTime;
+
+				if (PeekScareLevel > PeekScareThreshold)
+				{
+					bPeeking = false;
+					EndPeek();
+					return;
+				}
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+
 			}
 		}
 		else
 		{
-			//UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+			UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+
 		}
 	}
-	else
+	
+
+	if (bPeekOnScreen && !bPeekCurrentlyOnScreen && PeekScareLevel > 0.01f)
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+		UE_LOG(LogTemp, Warning, TEXT("ENDPEEK"));
+		//bPeeking = false;
+		//EndPeek();
 	}
 }
 

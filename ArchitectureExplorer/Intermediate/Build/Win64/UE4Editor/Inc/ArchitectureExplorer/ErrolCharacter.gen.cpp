@@ -780,9 +780,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
-		{ "Comment", "//\x09Peek stuff\n" },
 		{ "ModuleRelativePath", "ErrolCharacter.h" },
-		{ "ToolTip", "Peek stuff" },
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState = { "PeekState", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, PeekState), Z_Construct_UEnum_ArchitectureExplorer_ErrolPeekState, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_MetaData)) };
@@ -953,7 +951,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 300693638);
+	IMPLEMENT_CLASS(AErrolCharacter, 2064066774);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();
