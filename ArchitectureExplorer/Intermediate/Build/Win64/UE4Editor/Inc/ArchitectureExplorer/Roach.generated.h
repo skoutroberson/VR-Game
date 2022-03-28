@@ -14,18 +14,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ARCHITECTUREEXPLORER_Roach_generated_h
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_RPC_WRAPPERS \
- \
-	DECLARE_FUNCTION(execReachedGoal); \
-	DECLARE_FUNCTION(execStopWait);
-
-
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execReachedGoal); \
-	DECLARE_FUNCTION(execStopWait);
-
-
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_RPC_WRAPPERS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_RPC_WRAPPERS_NO_PURE_DECLS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesARoach(); \

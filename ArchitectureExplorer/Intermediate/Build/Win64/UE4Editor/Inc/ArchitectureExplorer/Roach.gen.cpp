@@ -19,72 +19,8 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(ARoach::execReachedGoal)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->ReachedGoal();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(ARoach::execStopWait)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->StopWait();
-		P_NATIVE_END;
-	}
 	void ARoach::StaticRegisterNativesARoach()
 	{
-		UClass* Class = ARoach::StaticClass();
-		static const FNameNativePtrPair Funcs[] = {
-			{ "ReachedGoal", &ARoach::execReachedGoal },
-			{ "StopWait", &ARoach::execStopWait },
-		};
-		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_ARoach_ReachedGoal_Statics
-	{
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARoach_ReachedGoal_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Roach.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoach_ReachedGoal_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoach, nullptr, "ReachedGoal", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoach_ReachedGoal_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoach_ReachedGoal_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ARoach_ReachedGoal()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoach_ReachedGoal_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_ARoach_StopWait_Statics
-	{
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARoach_StopWait_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Roach.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoach_StopWait_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoach, nullptr, "StopWait", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoach_StopWait_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoach_StopWait_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ARoach_StopWait()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoach_StopWait_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_ARoach_NoRegister()
 	{
@@ -93,7 +29,6 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 	struct Z_Construct_UClass_ARoach_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
-		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -108,10 +43,6 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 	UObject* (*const Z_Construct_UClass_ARoach_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AActor,
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
-	};
-	const FClassFunctionLinkInfo Z_Construct_UClass_ARoach_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ARoach_ReachedGoal, "ReachedGoal" }, // 3646094857
-		{ &Z_Construct_UFunction_ARoach_StopWait, "StopWait" }, // 569530865
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::Class_MetaDataParams[] = {
@@ -138,11 +69,11 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		FuncInfo,
+		nullptr,
 		Z_Construct_UClass_ARoach_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		UE_ARRAY_COUNT(FuncInfo),
+		0,
 		UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::PropPointers),
 		0,
 		0x009000A4u,
@@ -157,7 +88,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoach, 1417285359);
+	IMPLEMENT_CLASS(ARoach, 3729100334);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoach>()
 	{
 		return ARoach::StaticClass();
