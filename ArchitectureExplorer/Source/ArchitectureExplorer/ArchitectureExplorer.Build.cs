@@ -17,6 +17,8 @@ public class ArchitectureExplorer : ModuleRules
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "ApexDestruction" });
 
+        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "StateMachine" });
+
         bLegacyPublicIncludePaths = false;
 
         // Uncomment if you are using Slate UI

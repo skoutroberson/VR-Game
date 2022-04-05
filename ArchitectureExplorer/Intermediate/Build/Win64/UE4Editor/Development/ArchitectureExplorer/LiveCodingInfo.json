@@ -33,10 +33,10 @@
 			"StageManager.cpp.obj",
 			"TriggerManager.cpp.obj",
 			"VRCharacter.cpp.obj",
+			"Quest.cpp.obj",
 			"Roach.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.cpp.obj": [
-			"ArchitectureExplorer.init.gen.cpp.obj",
 			"ArchitectureExplorerGameModeBase.gen.cpp.obj",
 			"Bottle.gen.cpp.obj",
 			"BoxTrigger.gen.cpp.obj",
@@ -59,7 +59,6 @@
 			"PortalRoom.gen.cpp.obj",
 			"QuatRotLib.gen.cpp.obj",
 			"Radio.gen.cpp.obj",
-			"Roach.gen.cpp.obj",
 			"ScareManager.gen.cpp.obj",
 			"Stage.gen.cpp.obj",
 			"Stage1.gen.cpp.obj",
@@ -67,7 +66,10 @@
 			"Stage3.gen.cpp.obj",
 			"StageManager.gen.cpp.obj",
 			"TriggerManager.gen.cpp.obj",
-			"VRCharacter.gen.cpp.obj"
+			"VRCharacter.gen.cpp.obj",
+			"ArchitectureExplorer.init.gen.cpp.obj",
+			"Quest.gen.cpp.obj",
+			"Roach.gen.cpp.obj"
 		]
 	}
 }

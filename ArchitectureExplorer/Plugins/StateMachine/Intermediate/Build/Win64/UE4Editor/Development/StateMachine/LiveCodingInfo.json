@@ -1,0 +1,14 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.StateMachine.cpp.obj": [
+			"SM_State.cpp.obj",
+			"StateMachine.cpp.obj"
+		],
+		"Module.StateMachine.gen.cpp.obj": [
+			"DummyObject.gen.cpp.obj",
+			"SM_State.gen.cpp.obj",
+			"StateMachine.init.gen.cpp.obj"
+		]
+	}
+}

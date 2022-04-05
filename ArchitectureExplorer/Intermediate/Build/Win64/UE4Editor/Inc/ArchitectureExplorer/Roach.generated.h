@@ -8,15 +8,27 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FHitResult;
+enum class CockroachState : uint8;
 #ifdef ARCHITECTUREEXPLORER_Roach_generated_h
 #error "Roach.generated.h already included, missing '#pragma once' in Roach.h"
 #endif
 #define ARCHITECTUREEXPLORER_Roach_generated_h
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_RPC_WRAPPERS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_RPC_WRAPPERS_NO_PURE_DECLS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_INCLASS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_SPARSE_DATA
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execHitRigidBody); \
+	DECLARE_FUNCTION(execChangeState);
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execHitRigidBody); \
+	DECLARE_FUNCTION(execChangeState);
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesARoach(); \
 	friend struct Z_Construct_UClass_ARoach_Statics; \
@@ -25,7 +37,7 @@ public: \
 	DECLARE_SERIALIZER(ARoach)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_INCLASS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_INCLASS \
 private: \
 	static void StaticRegisterNativesARoach(); \
 	friend struct Z_Construct_UClass_ARoach_Statics; \
@@ -34,7 +46,7 @@ public: \
 	DECLARE_SERIALIZER(ARoach)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_STANDARD_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ARoach(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ARoach) \
@@ -47,7 +59,7 @@ private: \
 public:
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_ENHANCED_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ARoach(ARoach&&); \
@@ -58,28 +70,32 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ARoach); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ARoach)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_PRIVATE_PROPERTY_OFFSET
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_10_PROLOG
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_GENERATED_BODY_LEGACY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__TurnSpeed() { return STRUCT_OFFSET(ARoach, TurnSpeed); } \
+	FORCEINLINE static uint32 __PPO__MoveSpeed() { return STRUCT_OFFSET(ARoach, MoveSpeed); }
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_37_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_RPC_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_INCLASS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_STANDARD_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_INCLASS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_GENERATED_BODY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_INCLASS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_13_ENHANCED_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_INCLASS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -89,5 +105,15 @@ template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<class ARoach>();
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h
 
+
+#define FOREACH_ENUM_COCKROACHSTATE(op) \
+	op(CockroachState::STATE_IDLE) \
+	op(CockroachState::STATE_WAIT) \
+	op(CockroachState::STATE_MOVE) \
+	op(CockroachState::STATE_FALL) \
+	op(CockroachState::STATE_COPULATE) 
+
+enum class CockroachState : uint8;
+template<> ARCHITECTUREEXPLORER_API UEnum* StaticEnum<CockroachState>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

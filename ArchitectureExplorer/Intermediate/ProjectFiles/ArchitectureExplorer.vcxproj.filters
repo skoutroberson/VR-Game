@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ArchitectureExplorer.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{C7B890FE-6B53-4C52-B6DA-6942B639DC53}</UniqueIdentifier>
+      <UniqueIdentifier>{74B8C8A4-C7D5-4463-B0B0-7B60F3D2EBD0}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ArchitectureExplorer.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{F6CAA679-9F5C-4AD8-8FCE-11AE189A7105}</UniqueIdentifier>
+      <UniqueIdentifier>{A4878662-CCCC-441E-B053-76A0E062DE3A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,8 +32,56 @@
     <None Include="..\..\Config\DefaultScalability.ini">
       <Filter>Config</Filter>
     </None>
+    <Filter Include="Plugins">
+      <UniqueIdentifier>{7AE36473-65F3-4663-9133-530B66CD36EA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\StateMachine">
+      <UniqueIdentifier>{78E67DFE-3B86-48C0-9328-C28BDE3F877E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\StateMachine\Source">
+      <UniqueIdentifier>{19517595-3A75-4E92-8E9D-92123800A76D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\StateMachine\Source\StateMachine">
+      <UniqueIdentifier>{2DC7DCF1-8277-4AD2-AEAE-8A49C27A9275}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\StateMachine\Source\StateMachine\StateMachine.Build.cs">
+      <Filter>Plugins\StateMachine\Source\StateMachine</Filter>
+    </None>
+    <Filter Include="Plugins\StateMachine\Source\StateMachine\Classes">
+      <UniqueIdentifier>{29B5567E-0104-493A-98D7-C8FF0A272C53}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\StateMachine\Source\StateMachine\Classes\DummyObject.h">
+      <Filter>Plugins\StateMachine\Source\StateMachine\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\StateMachine\Source\StateMachine\Classes\SM_State.h">
+      <Filter>Plugins\StateMachine\Source\StateMachine\Classes</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\StateMachine\Source\StateMachine\Private">
+      <UniqueIdentifier>{C04BC17D-CEF5-490C-A7F7-B5AF3D1134BC}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\StateMachine\Source\StateMachine\Private\SM_State.cpp">
+      <Filter>Plugins\StateMachine\Source\StateMachine\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\StateMachine\Source\StateMachine\Private\StateMachine.cpp">
+      <Filter>Plugins\StateMachine\Source\StateMachine\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\StateMachine\Source\StateMachine\Public">
+      <UniqueIdentifier>{5F0ACF13-65DA-4580-861E-BE674FB7C71A}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\StateMachine\Source\StateMachine\Public\StateMachine.h">
+      <Filter>Plugins\StateMachine\Source\StateMachine\Public</Filter>
+    </ClInclude>
+    <None Include="..\..\Plugins\StateMachine\StateMachine.uplugin">
+      <Filter>Plugins\StateMachine</Filter>
+    </None>
+    <Filter Include="Plugins\StateMachine\Resources">
+      <UniqueIdentifier>{D2739FCE-0D68-4C4E-8107-03EBCECA0C8E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\StateMachine\Resources\Icon128.png">
+      <Filter>Plugins\StateMachine\Resources</Filter>
+    </None>
     <Filter Include="Source\ArchitectureExplorer">
-      <UniqueIdentifier>{A02AFE42-8830-4641-87B6-E86A0A5D4F70}</UniqueIdentifier>
+      <UniqueIdentifier>{FB17963A-573F-46E7-87B4-AAF9C68D9BC7}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ArchitectureExplorer\ArchitectureExplorer.Build.cs">
       <Filter>Source\ArchitectureExplorer</Filter>
@@ -168,6 +216,12 @@
       <Filter>Source\ArchitectureExplorer</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ArchitectureExplorer\QuatRotLib.h">
+      <Filter>Source\ArchitectureExplorer</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ArchitectureExplorer\Quest.cpp">
+      <Filter>Source\ArchitectureExplorer</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArchitectureExplorer\Quest.h">
       <Filter>Source\ArchitectureExplorer</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\ArchitectureExplorer\Radio.cpp">
