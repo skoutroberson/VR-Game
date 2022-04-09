@@ -38,6 +38,8 @@ void ARoach::BeginPlay()
 
 	Root = Cast<USphereComponent>(GetRootComponent());
 
+	Radius = Root->GetScaledSphereRadius();
+
 	//CurrentState.Enter.ExecuteIfBound();
 	//(this->*(CurrentState.Enter))();
 	//EnterState(CurrentState);
@@ -136,25 +138,31 @@ void ARoach::HitRigidBody(UPARAM(ref)FHitResult HitResult)
 {
 	const FVector AL = GetActorLocation();
 	FVector Disp = AL - HitResult.ImpactPoint;
-	Disp.Z = 0;
-	float DispSize = Disp.Size2D();
+	//Disp.Z = 0;
+	float DispSize = Disp.Size();
 
 	FVector DispNormal = Disp.GetSafeNormal();
 	
 	float OffsetSize = Root->GetScaledSphereRadius() - DispSize;
 
-	Turn(World->DeltaTimeSeconds);
-
 	AddActorWorldOffset(DispNormal * OffsetSize);
+
+	const float RDot = FVector::DotProduct(Disp, GetActorRightVector());
+
+	bTurnLeft = (RDot > 0) ? false : true;
+
+	Turn(World->DeltaTimeSeconds);
 }
 
 void ARoach::Turn(float DeltaTime)
 {
-	const bool bTurnLeft = (bTurnTheOtherWay) ? 1 : -1;
+	//const bool bTurnLeft = (bTurnTheOtherWay) ? 1 : -1;
+
+	const float TurnDirection = (bTurnLeft) ? -1.0f : 1.0f;
 
 	FRotator NewRotation = GetActorRotation();
 
-	float ScaledYaw = NewRotation.Yaw + (TurnSpeed * DeltaTime * bTurnLeft);
+	float ScaledYaw = NewRotation.Yaw + (TurnSpeed * DeltaTime * TurnDirection);
 	NewRotation.Yaw = ScaledYaw;
 	
 	SetActorRotation(NewRotation);
@@ -223,11 +231,11 @@ bool ARoach::ShouldAvoidCollision()
 bool ARoach::ShouldTurnImmediately()
 {
 	FHitResult HitResult;
-	const FVector FV = GetActorForwardVector() * 4.f;
+	const FVector FV = GetActorForwardVector();
 	const FVector UV = GetActorUpVector();
 	const FVector AL = GetActorLocation();
 
-	const FVector TS = AL + FV + (UV * 0.1f);
+	const FVector TS = AL + (FV * Radius) - (UV * Radius * 0.99f);
 	const FVector TE = TS - (UV * 2.6f);
 
 	bool bDownTrace = World->LineTraceSingleByChannel(HitResult, TS, TE, ECollisionChannel::ECC_WorldStatic, QueryParams);

@@ -45,6 +45,7 @@ void AGrabbable::BeginPlay()
 
 void AGrabbable::Tick(float DeltaTime)
 {
+	Super::Tick(DeltaTime);
 	if (bInterpToMC)
 	{
 		InterpToMC(DeltaTime);

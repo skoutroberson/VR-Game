@@ -171,6 +171,7 @@ void AErrolCharacter::Tick(float DeltaTime)
 		case ErrolState::STATE_CHASE:
 			//UE_LOG(LogTemp, Warning, TEXT("CHASE"));
 			ShouldKill();
+			// update speed based on player camera rotation but don't change footstep noise speed
 			break;
 		case ErrolState::STATE_PEEK:
 			if (!bPeekFound)
@@ -182,6 +183,14 @@ void AErrolCharacter::Tick(float DeltaTime)
 				ShouldEndPeek(DeltaTime);
 				UpdatePeekPosition();
 			}
+			break;
+		case ErrolState::STATE_SHOULDERPEEK:
+			/**
+			- When the player looks to their right and sees Errol,
+			have Errol end the peek and disappear out of view.
+			- Move Errol to a random location out of the player's view.
+			*/
+			
 			
 			break;
 		}
@@ -285,7 +294,7 @@ void AErrolCharacter::EnterPeekState()
 	UpdateAnimation(State);
 	SetActorEnableCollision(false);
 	DisableComponentsSimulatePhysics();
-	//BodyMesh->SetVisibility(false, true);
+	BodyMesh->SetVisibility(false, true);
 	SawMesh->SetVisibility(false, true);
 	//	Try to find a "valid" PeekPoint
 	//	Move ErrolCharacter to the PeekPoint
@@ -342,6 +351,25 @@ void AErrolCharacter::ExitPeekState()
 	}
 	EndPeekAnimation();
 	UpdateAnimation(State);
+}
+
+void AErrolCharacter::ExitShoulderPeekState()
+{
+}
+
+void AErrolCharacter::EnterShoulderPeekState()
+{
+	/**
+		- Remove all collision and shadows.
+		- Attach Errol to the player camera and move him directly behind it.
+		- Move Errol to the right side of the player's camera out of view.
+		- Change animation to a shoulder peek blend space
+	*/
+	SetActorEnableCollision(false);
+	DisableComponentsSimulatePhysics();
+	//BodyMesh->SetVisibility(false, true);
+	SawMesh->SetVisibility(false, true);
+	AttachToComponent(PlayerCamera, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 }
 
 void AErrolCharacter::ExitIdleState()

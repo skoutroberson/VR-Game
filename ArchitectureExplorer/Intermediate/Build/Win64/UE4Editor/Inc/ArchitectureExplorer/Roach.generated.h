@@ -72,7 +72,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ARoach); \
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_40_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__TurnSpeed() { return STRUCT_OFFSET(ARoach, TurnSpeed); } \
-	FORCEINLINE static uint32 __PPO__MoveSpeed() { return STRUCT_OFFSET(ARoach, MoveSpeed); }
+	FORCEINLINE static uint32 __PPO__MoveSpeed() { return STRUCT_OFFSET(ARoach, MoveSpeed); } \
+	FORCEINLINE static uint32 __PPO__bTurnLeft() { return STRUCT_OFFSET(ARoach, bTurnLeft); }
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_37_PROLOG

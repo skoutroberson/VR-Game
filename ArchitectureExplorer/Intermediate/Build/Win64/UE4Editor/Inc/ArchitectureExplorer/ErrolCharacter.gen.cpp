@@ -99,7 +99,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		return ErrolState_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_ErrolState(ErrolState_StaticEnum, TEXT("/Script/ArchitectureExplorer"), TEXT("ErrolState"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_ErrolState_Hash() { return 2579776283U; }
+	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_ErrolState_Hash() { return 3218922422U; }
 	UEnum* Z_Construct_UEnum_ArchitectureExplorer_ErrolState()
 	{
 #if WITH_HOT_RELOAD
@@ -119,6 +119,8 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 				{ "ErrolState::STATE_KILL", (int64)ErrolState::STATE_KILL },
 				{ "ErrolState::STATE_PEEK", (int64)ErrolState::STATE_PEEK },
 				{ "ErrolState::STATE_SCARE1", (int64)ErrolState::STATE_SCARE1 },
+				{ "ErrolState::STATE_SHOULDERPEEK", (int64)ErrolState::STATE_SHOULDERPEEK },
+				{ "ErrolState::STATE_FLYAT", (int64)ErrolState::STATE_FLYAT },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
@@ -126,6 +128,8 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 				{ "ModuleRelativePath", "ErrolCharacter.h" },
 				{ "STATE_CHASE.DisplayName", "Chase" },
 				{ "STATE_CHASE.Name", "ErrolState::STATE_CHASE" },
+				{ "STATE_FLYAT.DisplayName", "FlyAt" },
+				{ "STATE_FLYAT.Name", "ErrolState::STATE_FLYAT" },
 				{ "STATE_IDLE.DisplayName", "Idle" },
 				{ "STATE_IDLE.Name", "ErrolState::STATE_IDLE" },
 				{ "STATE_INVESTIGATE.DisplayName", "Investigate" },
@@ -140,6 +144,8 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 				{ "STATE_PEEK.Name", "ErrolState::STATE_PEEK" },
 				{ "STATE_SCARE1.DisplayName", "Scare1" },
 				{ "STATE_SCARE1.Name", "ErrolState::STATE_SCARE1" },
+				{ "STATE_SHOULDERPEEK.DisplayName", "ShoulderPeek" },
+				{ "STATE_SHOULDERPEEK.Name", "ErrolState::STATE_SHOULDERPEEK" },
 			};
 #endif
 			static const UE4CodeGen_Private::FEnumParams EnumParams = {
@@ -208,11 +214,25 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		P_THIS->InitializeCanSeeVariables();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AErrolCharacter::execExitShoulderPeekState)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ExitShoulderPeekState();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AErrolCharacter::execExitPeekState)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->ExitPeekState();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AErrolCharacter::execEnterShoulderPeekState)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->EnterShoulderPeekState();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AErrolCharacter::execEnterPeekState)
@@ -263,7 +283,9 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		UClass* Class = AErrolCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "EnterPeekState", &AErrolCharacter::execEnterPeekState },
+			{ "EnterShoulderPeekState", &AErrolCharacter::execEnterShoulderPeekState },
 			{ "ExitPeekState", &AErrolCharacter::execExitPeekState },
+			{ "ExitShoulderPeekState", &AErrolCharacter::execExitShoulderPeekState },
 			{ "GetRandomWaypoint", &AErrolCharacter::execGetRandomWaypoint },
 			{ "GoToRandomWaypoint", &AErrolCharacter::execGoToRandomWaypoint },
 			{ "InitializeCanSeeVariables", &AErrolCharacter::execInitializeCanSeeVariables },
@@ -343,6 +365,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "EnterShoulderPeekState", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AErrolCharacter_ExitPeekState_Statics
 	{
 #if WITH_METADATA
@@ -362,6 +406,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_ExitPeekState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AErrolCharacter_ExitShoulderPeekState_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_ExitShoulderPeekState_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_ExitShoulderPeekState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "ExitShoulderPeekState", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_ExitShoulderPeekState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_ExitShoulderPeekState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_ExitShoulderPeekState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_ExitShoulderPeekState_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -733,7 +799,9 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_EndPeek, "EndPeek" }, // 3061781572
 		{ &Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation, "EndPeekAnimation" }, // 3368898706
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterPeekState, "EnterPeekState" }, // 3880286838
+		{ &Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState, "EnterShoulderPeekState" }, // 4160678110
 		{ &Z_Construct_UFunction_AErrolCharacter_ExitPeekState, "ExitPeekState" }, // 195118670
+		{ &Z_Construct_UFunction_AErrolCharacter_ExitShoulderPeekState, "ExitShoulderPeekState" }, // 3425939680
 		{ &Z_Construct_UFunction_AErrolCharacter_GetRandomWaypoint, "GetRandomWaypoint" }, // 623349707
 		{ &Z_Construct_UFunction_AErrolCharacter_GoToRandomWaypoint, "GoToRandomWaypoint" }, // 453690708
 		{ &Z_Construct_UFunction_AErrolCharacter_InitializeCanSeeVariables, "InitializeCanSeeVariables" }, // 3381494788
@@ -951,7 +1019,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 2064066774);
+	IMPLEMENT_CLASS(AErrolCharacter, 2130903710);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

@@ -207,6 +207,11 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MoveSpeed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MoveSpeed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bTurnLeft_MetaData[];
+#endif
+		static void NewProp_bTurnLeft_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bTurnLeft;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -257,12 +262,24 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_MoveSpeed = { "MoveSpeed", nullptr, (EPropertyFlags)0x0040000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, MoveSpeed), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_MoveSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_MoveSpeed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_bTurnLeft_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	void Z_Construct_UClass_ARoach_Statics::NewProp_bTurnLeft_SetBit(void* Obj)
+	{
+		((ARoach*)Obj)->bTurnLeft = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_bTurnLeft = { "bTurnLeft", nullptr, (EPropertyFlags)0x0040000000000001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARoach), &Z_Construct_UClass_ARoach_Statics::NewProp_bTurnLeft_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_bTurnLeft_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_bTurnLeft_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARoach_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_RoachRoot,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_StateEnum_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_StateEnum,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_TurnSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_MoveSpeed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_bTurnLeft,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ARoach_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARoach>::IsAbstract,
@@ -291,7 +308,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoach, 324960076);
+	IMPLEMENT_CLASS(ARoach, 2497539315);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoach>()
 	{
 		return ARoach::StaticClass();

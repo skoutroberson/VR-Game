@@ -22,6 +22,8 @@ enum class ErrolState : uint8
 	STATE_KILL			UMETA(DisplayName="Kill"),
 	STATE_PEEK			UMETA(DisplayName="Peek"),
 	STATE_SCARE1		UMETA(DisplayName="Scare1"),
+	STATE_SHOULDERPEEK	UMETA(DisplayName="ShoulderPeek"),
+	STATE_FLYAT			UMETA(DisplayName="FlyAt"),
 };
 
 UENUM(BlueprintType)
@@ -130,7 +132,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void EnterPeekState();
 
-	// State exit functions for clearing timers
+	UFUNCTION(BlueprintCallable)
+	void EnterShoulderPeekState();
+
 	void ExitIdleState();
 	void ExitPatrolState();
 	void ExitChaseState();
@@ -138,6 +142,9 @@ public:
 	void ExitLookAroundState();
 	UFUNCTION(BlueprintCallable)
 	void ExitPeekState();
+
+	UFUNCTION(BlueprintCallable)
+	void ExitShoulderPeekState();
 
 	//	Peek stuff
 

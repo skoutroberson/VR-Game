@@ -101,6 +101,8 @@ private:
 
 	UWorld* World;
 
+	float Radius;
+
 	/** Performs two traces (down and forward) to check for the edge of the movement plane.
 	If the forward trace hits, then the roach must turn to avoid the blocking object.
 	If the down trace misses, then the roach must turn to avoid falling.
@@ -121,6 +123,9 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Roach")
 	float MoveSpeed = 5.f;
+
+	UPROPERTY(EditAnywhere, Category = "Roach")
+	bool bTurnLeft = false;
 
 	FCollisionQueryParams QueryParams;
 
