@@ -112,6 +112,10 @@ private:
 	bool bNewCanUseDoor = false;
 	FVector UsingDoorLocation;
 
+	bool bCanUseDrawer = false;
+	bool bIsUsingDrawer = false;
+	bool bNewCanUseDrawer = false;
+
 	bool bCanGrab = false;
 	bool bIsGrabbing = false;
 	bool bNewCanGrab = false;
@@ -155,6 +159,8 @@ private:
 
 	// Stops the player is they are holding on to door handle and moving too far away
 	void CheckDoorDistance();
+
+	void PlayCanGrabHapticEffect();
 
 private:
 	// Debug functions

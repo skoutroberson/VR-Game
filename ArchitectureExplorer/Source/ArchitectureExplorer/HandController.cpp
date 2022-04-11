@@ -17,6 +17,7 @@
 #include "Bottle.h"
 #include "DestructibleComponent.h"
 #include "Chainsaw.h"
+#include "Drawer.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -287,7 +288,7 @@ void AHandController::Grip()
 			if (CurrentDoor != nullptr)
 			{
 				CurrentDoor->PassController(this);
-				GripSize = 80.f;
+				//GripSize = 80.f;
 				
 				AttachHandMeshToDoor(CurrentDoor);
 
@@ -302,6 +303,20 @@ void AHandController::Grip()
 				UE_LOG(LogTemp, Warning, TEXT("CurrentDoor cast failed!!!"));
 			}
 			//UsingDoorLocation = GetActorLocation();
+		}
+	}
+	else if (bCanUseDrawer)
+	{
+		if (!bIsUsingDrawer)
+		{
+			bIsUsingDrawer = true;
+
+			ADrawer * CurrentDrawer = Cast<ADrawer>(GrabActor);
+			
+			if (CurrentDrawer != nullptr)
+			{
+				CurrentDrawer->GrabDrawer(this);
+			}
 		}
 	}
 	GripSize = GripSizeMax;
@@ -438,16 +453,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 			//UE_LOG(LogTemp, Warning, TEXT("Can Grab!"));
 			GripSize = GripSizeCanGrab;
 
-			APawn* Pawn = Cast<APawn>(GetAttachParentActor());
-			if (Pawn != nullptr)
-			{
-				APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
-
-				if (Controller != nullptr)
-				{
-					Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
-				}
-			}
+			PlayCanGrabHapticEffect();
 		}
 		bCanGrab = bNewCanGrab;
 		// Climb mechanics
@@ -456,16 +462,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 			//UE_LOG(LogTemp, Warning, TEXT("Can Climb!"));
 			GripSize = GripSizeCanGrab;
 
-			APawn* Pawn = Cast<APawn>(GetAttachParentActor());
-			if (Pawn != nullptr)
-			{
-				APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
-
-				if (Controller != nullptr)
-				{
-					Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
-				}
-			}
+			PlayCanGrabHapticEffect();
 		}
 		bCanClimb = bNewCanClimb;
 		// Door mechanics
@@ -474,18 +471,16 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 			//UE_LOG(LogTemp, Warning, TEXT("Can use door!"));
 			GripSize = GripSizeCanGrab;
 
-			APawn* Pawn = Cast<APawn>(GetAttachParentActor());
-			if (Pawn != nullptr)
-			{
-				APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
-
-				if (Controller != nullptr)
-				{
-					Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
-				}
-			}
+			PlayCanGrabHapticEffect();
 		}
 		bCanUseDoor = bNewCanUseDoor;
+
+		if (!bIsUsingDrawer && !bCanUseDrawer && bNewCanUseDrawer)
+		{
+			GripSize = GripSizeCanGrab;
+
+			PlayCanGrabHapticEffect();
+		}
 	}
 }
 
@@ -543,6 +538,11 @@ void AHandController::CanInteract()
 			bNewCanUseDoor = true;
 			OverlappingKnob = OC;
 			OverlappingDoor = OC->GetOwner();
+			return;
+		}
+		else if (OC->ComponentHasTag(TEXT("Drawer")))
+		{
+			bNewCanUseDrawer = true;
 			return;
 		}
 	}
@@ -654,4 +654,18 @@ void AHandController::AttachHandMeshToDoor(AActor* TheDoor)
 		HandMesh->AddLocalRotation(FRotator(38.562122f, -167.167526f, 8.788214f));
 	}
 	
+}
+
+void AHandController::PlayCanGrabHapticEffect()
+{
+	APawn* Pawn = Cast<APawn>(GetAttachParentActor());
+	if (Pawn != nullptr)
+	{
+		APlayerController* Controller = Cast<APlayerController>(Pawn->GetController());
+
+		if (Controller != nullptr)
+		{
+			Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
+		}
+	}
 }

@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ArchitectureExplorer.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{ADA1D9C0-06C2-43FA-9D95-5334543D5CF3}</UniqueIdentifier>
+      <UniqueIdentifier>{E6B80DA5-832A-409E-AB2E-A91BEFD4B501}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ArchitectureExplorer.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{1B950F74-2467-4939-97C2-443438F0AD84}</UniqueIdentifier>
+      <UniqueIdentifier>{5F143C64-0E99-4371-B456-032F1FA588FE}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -33,22 +33,22 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Plugins">
-      <UniqueIdentifier>{85EE86D4-4482-4EC4-A273-7F56C594ABBB}</UniqueIdentifier>
+      <UniqueIdentifier>{EA080CBB-B154-4AD5-8589-82A8E3442855}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\StateMachine">
-      <UniqueIdentifier>{D4686000-9B32-4DB3-9471-0485581659D4}</UniqueIdentifier>
+      <UniqueIdentifier>{540E64F3-1208-4584-9C91-F50FB843D2BE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\StateMachine\Source">
-      <UniqueIdentifier>{61DFE949-1B4D-412A-8D06-981FB59491B2}</UniqueIdentifier>
+      <UniqueIdentifier>{9DB76409-6396-4638-83E7-8C82131412C9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\StateMachine\Source\StateMachine">
-      <UniqueIdentifier>{612813EF-167D-4E74-96A9-4FFE28521935}</UniqueIdentifier>
+      <UniqueIdentifier>{11DBE6B4-9C4A-41E9-9E96-0222225F0566}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\StateMachine\Source\StateMachine\StateMachine.Build.cs">
       <Filter>Plugins\StateMachine\Source\StateMachine</Filter>
     </None>
     <Filter Include="Plugins\StateMachine\Source\StateMachine\Classes">
-      <UniqueIdentifier>{3E9C0EE5-F713-4835-B890-C86DE35BB3DA}</UniqueIdentifier>
+      <UniqueIdentifier>{EF2D8812-6577-4BD9-8155-EEA862C928F6}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Plugins\StateMachine\Source\StateMachine\Classes\DummyObject.h">
       <Filter>Plugins\StateMachine\Source\StateMachine\Classes</Filter>
@@ -57,7 +57,7 @@
       <Filter>Plugins\StateMachine\Source\StateMachine\Classes</Filter>
     </ClInclude>
     <Filter Include="Plugins\StateMachine\Source\StateMachine\Private">
-      <UniqueIdentifier>{E964A765-4AEF-4994-B742-B337B4FB0662}</UniqueIdentifier>
+      <UniqueIdentifier>{6B16FD76-508D-4C88-9FFD-7F530112AE8D}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Plugins\StateMachine\Source\StateMachine\Private\SM_State.cpp">
       <Filter>Plugins\StateMachine\Source\StateMachine\Private</Filter>
@@ -66,7 +66,7 @@
       <Filter>Plugins\StateMachine\Source\StateMachine\Private</Filter>
     </ClCompile>
     <Filter Include="Plugins\StateMachine\Source\StateMachine\Public">
-      <UniqueIdentifier>{2C0A6802-7E2B-4DC9-9B5F-2E9A94D05304}</UniqueIdentifier>
+      <UniqueIdentifier>{53DA7F3C-1C17-49CC-A4A3-427E7B71A4A1}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Plugins\StateMachine\Source\StateMachine\Public\StateMachine.h">
       <Filter>Plugins\StateMachine\Source\StateMachine\Public</Filter>
@@ -75,13 +75,13 @@
       <Filter>Plugins\StateMachine</Filter>
     </None>
     <Filter Include="Plugins\StateMachine\Resources">
-      <UniqueIdentifier>{581969E9-2392-4E73-BBC3-3DD1F07A426B}</UniqueIdentifier>
+      <UniqueIdentifier>{65F77BD2-18CE-4146-ADCA-4B387CB928C6}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\StateMachine\Resources\Icon128.png">
       <Filter>Plugins\StateMachine\Resources</Filter>
     </None>
     <Filter Include="Source\ArchitectureExplorer">
-      <UniqueIdentifier>{1F555DE8-B5DE-48D4-A703-3B246D9D5A0C}</UniqueIdentifier>
+      <UniqueIdentifier>{4DFBF597-1B98-4FBA-8744-66198C63A094}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ArchitectureExplorer\ArchitectureExplorer.Build.cs">
       <Filter>Source\ArchitectureExplorer</Filter>
@@ -144,6 +144,12 @@
       <Filter>Source\ArchitectureExplorer</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ArchitectureExplorer\DoorManager.h">
+      <Filter>Source\ArchitectureExplorer</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ArchitectureExplorer\Drawer.cpp">
+      <Filter>Source\ArchitectureExplorer</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArchitectureExplorer\Drawer.h">
       <Filter>Source\ArchitectureExplorer</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\ArchitectureExplorer\Errol.cpp">
