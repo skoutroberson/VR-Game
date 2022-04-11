@@ -35,8 +35,15 @@ public:
 
 	AActor * HandController;
 
+	UPROPERTY(EditAnywhere)
+	float MaxSlideSize = 10.f;
+
 private:
 
 	FVector LastHCLocation;
+
+	FVector FV;
+
+	FVector ClosedPosition;
 
 };

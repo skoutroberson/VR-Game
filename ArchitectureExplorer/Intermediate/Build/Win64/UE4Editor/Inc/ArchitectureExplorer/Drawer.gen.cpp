@@ -36,6 +36,10 @@ void EmptyLinkFunctionForGeneratedCodeDrawer() {}
 #endif
 		static void NewProp_bBeingGrabbed_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bBeingGrabbed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxSlideSize_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxSlideSize;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -63,8 +67,16 @@ void EmptyLinkFunctionForGeneratedCodeDrawer() {}
 		((ADrawer*)Obj)->bBeingGrabbed = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADrawer_Statics::NewProp_bBeingGrabbed = { "bBeingGrabbed", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADrawer), &Z_Construct_UClass_ADrawer_Statics::NewProp_bBeingGrabbed_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADrawer_Statics::NewProp_bBeingGrabbed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADrawer_Statics::NewProp_bBeingGrabbed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADrawer_Statics::NewProp_MaxSlideSize_MetaData[] = {
+		{ "Category", "Drawer" },
+		{ "ModuleRelativePath", "Drawer.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADrawer_Statics::NewProp_MaxSlideSize = { "MaxSlideSize", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADrawer, MaxSlideSize), METADATA_PARAMS(Z_Construct_UClass_ADrawer_Statics::NewProp_MaxSlideSize_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADrawer_Statics::NewProp_MaxSlideSize_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADrawer_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADrawer_Statics::NewProp_bBeingGrabbed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADrawer_Statics::NewProp_MaxSlideSize,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADrawer_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADrawer>::IsAbstract,
@@ -93,7 +105,7 @@ void EmptyLinkFunctionForGeneratedCodeDrawer() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADrawer, 2201605526);
+	IMPLEMENT_CLASS(ADrawer, 3903632808);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ADrawer>()
 	{
 		return ADrawer::StaticClass();

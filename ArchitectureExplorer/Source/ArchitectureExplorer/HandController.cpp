@@ -315,7 +315,10 @@ void AHandController::Grip()
 			
 			if (CurrentDrawer != nullptr)
 			{
+				UE_LOG(LogTemp, Warning, TEXT("BIG DRAWER!!!!!"));
 				CurrentDrawer->GrabDrawer(this);
+				HandMesh->AttachToComponent(GrabActor->GetRootComponent(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+				// need to change hand animation and add an offset here to grab the handle
 			}
 		}
 	}
@@ -347,6 +350,16 @@ void AHandController::Release()
 		// Attach HandMesh to this hand controller
 
 		//free(OverlappingDoor);
+	}
+	else if (bIsUsingDrawer)
+	{
+		bIsUsingDrawer = false;
+		ADrawer * CurrentDrawer = Cast<ADrawer>(GrabActor);
+		if (CurrentDrawer != nullptr)
+		{
+			CurrentDrawer->bBeingGrabbed = false;
+		}
+		DetachHandMeshAndReattachToHC();
 	}
 
 	if (bIsGrabbing)
@@ -493,6 +506,7 @@ void AHandController::ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActo
 		bCanClimb = bNewCanClimb;
 		bCanUseDoor = bNewCanUseDoor;
 		bCanGrab = bNewCanGrab;
+		bCanUseDrawer = bNewCanUseDrawer;
 
 		if (GripSize == GripSizeCanGrab)
 		{
@@ -543,6 +557,7 @@ void AHandController::CanInteract()
 		else if (OC->ComponentHasTag(TEXT("Drawer")))
 		{
 			bNewCanUseDrawer = true;
+			GrabActor = OC->GetAttachmentRootActor();
 			return;
 		}
 	}

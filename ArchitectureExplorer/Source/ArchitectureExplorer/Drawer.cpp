@@ -16,6 +16,8 @@ void ADrawer::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	FV = GetActorForwardVector();
+	ClosedPosition = GetActorLocation();
 }
 
 // Called every frame
@@ -25,6 +27,7 @@ void ADrawer::Tick(float DeltaTime)
 
 	if (bBeingGrabbed)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("Grabbing Drawer"));
 		UseDrawer(DeltaTime);
 	}
 
@@ -32,10 +35,17 @@ void ADrawer::Tick(float DeltaTime)
 
 void ADrawer::UseDrawer(float DeltaTime)
 {
+	FVector AL = GetActorLocation();
 	FVector NewHCLocation = HandController->GetActorLocation();
 	FVector HCDisp = NewHCLocation - LastHCLocation;
+	const float DispSize = HCDisp.Size();
+	HCDisp = HCDisp.GetSafeNormal();
+	const float Dot = FVector::DotProduct(HCDisp, FV);
+	float MoveAmount = DispSize * Dot;
+	FVector NewLocation = AL + (FV * MoveAmount);
+	float SlideSize = (ClosedPosition - NewLocation).Size();
 
-
+	SetActorLocation(NewLocation);
 	// move drawer and stuff
 
 	LastHCLocation = NewHCLocation;
