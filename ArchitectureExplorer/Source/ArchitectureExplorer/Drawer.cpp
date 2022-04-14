@@ -18,6 +18,7 @@ void ADrawer::BeginPlay()
 	
 	FV = GetActorForwardVector();
 	ClosedPosition = GetActorLocation();
+	OpenPosition = GetActorLocation() + FV;
 }
 
 // Called every frame
@@ -27,28 +28,81 @@ void ADrawer::Tick(float DeltaTime)
 
 	if (bBeingGrabbed)
 	{
+		if (bFullyClosed || bFullyOpen)
+		{
+			FullyOpenClosedChecker();
+		}
+		else
+		{
+			UseDrawer(DeltaTime);
+		}
 		UE_LOG(LogTemp, Warning, TEXT("Grabbing Drawer"));
-		UseDrawer(DeltaTime);
 	}
 
 }
 
 void ADrawer::UseDrawer(float DeltaTime)
 {
+	/**
+	If HandController distance to the handhold is greater than...
+	I don't think I need to do ^ actually
+	*/
+	
+
+	//FV = GetActorForwardVector();
 	FVector AL = GetActorLocation();
 	FVector NewHCLocation = HandController->GetActorLocation();
 	FVector HCDisp = NewHCLocation - LastHCLocation;
 	const float DispSize = HCDisp.Size();
 	HCDisp = HCDisp.GetSafeNormal();
-	const float Dot = FVector::DotProduct(HCDisp, FV);
+	float Dot = FVector::DotProduct(HCDisp, FV);
 	float MoveAmount = DispSize * Dot;
 	FVector NewLocation = AL + (FV * MoveAmount);
 	float SlideSize = (ClosedPosition - NewLocation).Size();
-
+	
+	// fully open correction
+	if (SlideSize > MaxSlideSize)
+	{
+		bFullyOpen = true;
+		NewLocation = OpenPosition;
+	}
+	
+	// fully closed correction
+	FVector Disp = NewLocation - ClosedPosition;
+	Dot = FVector::DotProduct(Disp, FV);
+	if (Dot <= 0)
+	{
+		bFullyClosed = true;
+		NewLocation = ClosedPosition;
+	}
+	
 	SetActorLocation(NewLocation);
 	// move drawer and stuff
 
 	LastHCLocation = NewHCLocation;
+}
+
+void ADrawer::FullyOpenClosedChecker()
+{
+	const FVector HCL = HandController->GetActorLocation();
+	FVector Disp;
+
+	if (bFullyOpen)
+	{
+		Disp = OpenPosition - HCL;
+	}
+	else // bFullyClosed = true
+	{
+		Disp = HCL - ClosedPosition;
+	}
+	float Dot = FVector::DotProduct(Disp, FV);
+
+	if (Dot > 0)
+	{
+		bFullyClosed = false;
+		bFullyOpen = false;
+	}
+
 }
 
 void ADrawer::GrabDrawer(AActor * HC)

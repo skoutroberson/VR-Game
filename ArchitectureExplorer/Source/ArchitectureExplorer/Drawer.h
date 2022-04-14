@@ -46,4 +46,15 @@ private:
 
 	FVector ClosedPosition;
 
+	FVector OpenPosition;
+
+	/**
+	If the drawer is fully open or closed, we only want to move it if the hand controller is back at the location where it was
+	when the drawer was fully opened or closed. This will greatly improve the feel of the drawer.
+	*/
+	void FullyOpenClosedChecker();
+
+	bool bFullyClosed = false;
+	bool bFullyOpen = false;
+
 };
