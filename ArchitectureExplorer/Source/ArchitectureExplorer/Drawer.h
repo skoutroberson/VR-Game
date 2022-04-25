@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/SphereComponent.h"
 #include "Drawer.generated.h"
 
 UCLASS()
@@ -35,10 +36,16 @@ public:
 
 	AActor * HandController;
 
+	// needs to be set before BeginPlay()
 	UPROPERTY(EditAnywhere)
 	float MaxSlideSize = 10.f;
 
+	bool bFullyClosed = false;
+	bool bFullyOpen = false;
+
 private:
+
+	USceneComponent * Handle = nullptr;
 
 	FVector LastHCLocation;
 
@@ -53,8 +60,5 @@ private:
 	when the drawer was fully opened or closed. This will greatly improve the feel of the drawer.
 	*/
 	void FullyOpenClosedChecker();
-
-	bool bFullyClosed = false;
-	bool bFullyOpen = false;
 
 };

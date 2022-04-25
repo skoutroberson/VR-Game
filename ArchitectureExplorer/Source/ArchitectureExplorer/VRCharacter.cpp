@@ -464,31 +464,35 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis(TEXT("Right"), this, &AVRCharacter::MoveRight);
 	PlayerInputComponent->BindAxis(TEXT("TurnRight"), this, &AVRCharacter::TurnRight);
 	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &AVRCharacter::LookUp);
-	PlayerInputComponent->BindAction(TEXT("Teleport"), IE_Released, this, &AVRCharacter::BeginTeleport);
 
-	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Pressed, this, &AVRCharacter::Sprint);
-	PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Released, this, &AVRCharacter::StopSprint);
-	//PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
+	PlayerInputComponent->BindAxis(TEXT("RightTriggerAxis"), this, &AVRCharacter::RightTriggerAxis);
+	PlayerInputComponent->BindAxis(TEXT("LeftTriggerAxis"), this, &AVRCharacter::LeftTriggerAxis);
 
-	PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Pressed, this, &AVRCharacter::GripLeft);
-	PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Pressed, this, &AVRCharacter::GripRight);
-	PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Released, this, &AVRCharacter::ReleaseLeft);
-	PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Released, this, &AVRCharacter::ReleaseRight);
+PlayerInputComponent->BindAction(TEXT("Teleport"), IE_Released, this, &AVRCharacter::BeginTeleport);
 
-	DECLARE_DELEGATE_OneParam(FCustomInputDelegate, const bool);
-	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressA"), IE_Pressed, this, &AVRCharacter::PressA, false);
-	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressA"), IE_Released, this, &AVRCharacter::ReleaseA, false);
+PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Pressed, this, &AVRCharacter::Sprint);
+PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Released, this, &AVRCharacter::StopSprint);
+//PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
 
-	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressX"), IE_Pressed, this, &AVRCharacter::PressA, true);
-	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressX"), IE_Released, this, &AVRCharacter::ReleaseA, true);
+PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Pressed, this, &AVRCharacter::GripLeft);
+PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Pressed, this, &AVRCharacter::GripRight);
+PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Released, this, &AVRCharacter::ReleaseLeft);
+PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Released, this, &AVRCharacter::ReleaseRight);
 
-	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action1"), IE_Pressed, this, &AVRCharacter::PressTrigger, true);
-	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action2"), IE_Pressed, this, &AVRCharacter::PressTrigger, false);
+DECLARE_DELEGATE_OneParam(FCustomInputDelegate, const bool);
+PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressA"), IE_Pressed, this, &AVRCharacter::PressA, false);
+PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressA"), IE_Released, this, &AVRCharacter::ReleaseA, false);
 
-	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action1"), IE_Released, this, &AVRCharacter::ReleaseTrigger, true);
-	PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action2"), IE_Released, this, &AVRCharacter::ReleaseTrigger, false);
+PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressX"), IE_Pressed, this, &AVRCharacter::PressA, true);
+PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("PressX"), IE_Released, this, &AVRCharacter::ReleaseA, true);
 
-	// Debug inputs for rotating item being carried.
+PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action1"), IE_Pressed, this, &AVRCharacter::PressTrigger, true);
+PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action2"), IE_Pressed, this, &AVRCharacter::PressTrigger, false);
+
+PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action1"), IE_Released, this, &AVRCharacter::ReleaseTrigger, true);
+PlayerInputComponent->BindAction<FCustomInputDelegate>(TEXT("Action2"), IE_Released, this, &AVRCharacter::ReleaseTrigger, false);
+
+// Debug inputs for rotating item being carried.
 
 }
 
@@ -508,16 +512,16 @@ void AVRCharacter::Click()
 		int NodeDist = AErrol::NodeDist;
 		int FloorHeight = AErrol::FloorHeight;
 		FVector ClosestNode = FVector(
-		roundf(Outhit.Location.X / NodeDist) * NodeDist,
-		roundf(Outhit.Location.Y / NodeDist) * NodeDist,
+			roundf(Outhit.Location.X / NodeDist) * NodeDist,
+			roundf(Outhit.Location.Y / NodeDist) * NodeDist,
 			Outhit.Location.Z);
 
 		DrawDebugSphere(GetWorld(), ClosestNode, 10, 8, FColor::White, false, 1.0f);
 
-		UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f"), 
+		UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f"),
 			roundf(Outhit.Location.X / NodeDist),
 			roundf(Outhit.Location.Y / NodeDist),
-			roundf(Outhit.Location.Z/FloorHeight));
+			roundf(Outhit.Location.Z / FloorHeight));
 	}
 }
 
@@ -542,11 +546,11 @@ void AVRCharacter::MoveForward(float throttle)
 	FVector CFV = Camera->GetForwardVector();
 	CFV.Z = 0;
 	CFV.Normalize();
-	if(!bSprint)
+	if (!bSprint)
 	{
 		//AddMovementInput(throttle * Camera->GetForwardVector(), 0.4f);
 		AddMovementInput(throttle * CFV, 0.4f);
-		
+
 	}
 	else
 	{
@@ -556,11 +560,29 @@ void AVRCharacter::MoveForward(float throttle)
 
 void AVRCharacter::MoveRight(float throttle)
 {
-	if (!bDodge)
+	//AddMovementInput(throttle * Camera->GetRightVector(), 0.4f);
+	AddMovementInput(throttle * GetActorRightVector(), 0.4f);
+}
+
+void AVRCharacter::RightTriggerAxis(float Value)
+{
+	if ((Controller != NULL) && (Value > 0.001f))
 	{
-		//AddMovementInput(throttle * Camera->GetRightVector(), 0.4f);
-		AddMovementInput(throttle * GetActorRightVector(), 0.4f);
+		UE_LOG(LogTemp, Warning, TEXT("RT: %f"), Value);
+
+		RightTriggerAxisValue = Value;
 	}
+	
+}
+
+void AVRCharacter::LeftTriggerAxis(float Value)
+{
+	if ((Controller != NULL) && (Value > 0.001f))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("LT: %f"), Value);
+		LeftTriggerAxisValue = Value;
+	}
+	
 }
 
 void AVRCharacter::TurnRight(float throttle)

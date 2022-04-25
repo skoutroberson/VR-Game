@@ -36,12 +36,21 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector DeltaLocation = FVector::ZeroVector;
 
+	float RightTriggerAxisValue = 0;
+	float LeftTriggerAxisValue = 0;
+	
+
+
 private:
 
 	void UpdateDestinationMarker();
 
 	void MoveForward(float throttle);
 	void MoveRight(float throttle);
+
+	void RightTriggerAxis(float Value);
+	void LeftTriggerAxis(float Value);
+	
 
 	void TurnRight(float throttle);
 	void LookUp(float throttle);
@@ -172,5 +181,7 @@ private:
 	float HMDZPos = 0;
 
 	float StepVolumeMultiplier = 1.5f;
+
+
 
 };

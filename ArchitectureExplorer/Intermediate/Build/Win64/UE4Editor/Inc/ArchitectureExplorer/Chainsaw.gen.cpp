@@ -145,7 +145,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		{ "ModuleRelativePath", "Chainsaw.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AChainsaw, nullptr, "PressTrigger", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AChainsaw, nullptr, "PressTrigger", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AChainsaw_PressTrigger_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AChainsaw_PressTrigger()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -167,7 +167,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		{ "ModuleRelativePath", "Chainsaw.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AChainsaw, nullptr, "ReleaseTrigger", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AChainsaw, nullptr, "ReleaseTrigger", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AChainsaw_ReleaseTrigger_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AChainsaw_ReleaseTrigger()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -193,6 +193,14 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 #endif
 		static void NewProp_bRandomShake_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bRandomShake;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RevShakeMaxIntensity_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RevShakeMaxIntensity;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RevStartupIntensityMultiplier_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RevStartupIntensityMultiplier;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -203,8 +211,8 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AChainsaw_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AChainsaw_BladeBeginOverlap, "BladeBeginOverlap" }, // 3480068420
-		{ &Z_Construct_UFunction_AChainsaw_PressTrigger, "PressTrigger" }, // 2284209483
-		{ &Z_Construct_UFunction_AChainsaw_ReleaseTrigger, "ReleaseTrigger" }, // 2469482063
+		{ &Z_Construct_UFunction_AChainsaw_PressTrigger, "PressTrigger" }, // 3910340088
+		{ &Z_Construct_UFunction_AChainsaw_ReleaseTrigger, "ReleaseTrigger" }, // 2371513027
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::Class_MetaDataParams[] = {
@@ -226,8 +234,24 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		((AChainsaw*)Obj)->bRandomShake = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake = { "bRandomShake", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AChainsaw), &Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake_SetBit, METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_RevShakeMaxIntensity_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_RevShakeMaxIntensity = { "RevShakeMaxIntensity", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, RevShakeMaxIntensity), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_RevShakeMaxIntensity_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_RevShakeMaxIntensity_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_RevStartupIntensityMultiplier_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_RevStartupIntensityMultiplier = { "RevStartupIntensityMultiplier", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, RevStartupIntensityMultiplier), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_RevStartupIntensityMultiplier_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_RevStartupIntensityMultiplier_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AChainsaw_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_RevShakeMaxIntensity,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_RevStartupIntensityMultiplier,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AChainsaw_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AChainsaw>::IsAbstract,
@@ -256,7 +280,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AChainsaw, 492511243);
+	IMPLEMENT_CLASS(AChainsaw, 2526020926);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AChainsaw>()
 	{
 		return AChainsaw::StaticClass();

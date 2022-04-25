@@ -18,7 +18,6 @@ AGrabbable::AGrabbable()
 void AGrabbable::BeginPlay()
 {
 	Super::BeginPlay();
-
 	
 	HandHold1 = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), TEXT("1"))[0]);
 	HandHoldOffset1 = GetActorLocation() - HandHold1->GetComponentLocation();
@@ -90,6 +89,9 @@ void AGrabbable::Gripped(int HandHoldNum)
 			bRotateOneHand = false;
 			bRotateTwoHand = true;
 		}
+
+		// chainsaw mechanics
+
 	}
 	else if (HandHoldNum == 2)
 	{

@@ -70,7 +70,9 @@ void EmptyLinkFunctionForGeneratedCodeDrawer() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADrawer_Statics::NewProp_MaxSlideSize_MetaData[] = {
 		{ "Category", "Drawer" },
+		{ "Comment", "// needs to be set before BeginPlay()\n" },
 		{ "ModuleRelativePath", "Drawer.h" },
+		{ "ToolTip", "needs to be set before BeginPlay()" },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADrawer_Statics::NewProp_MaxSlideSize = { "MaxSlideSize", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADrawer, MaxSlideSize), METADATA_PARAMS(Z_Construct_UClass_ADrawer_Statics::NewProp_MaxSlideSize_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADrawer_Statics::NewProp_MaxSlideSize_MetaData)) };
@@ -105,7 +107,7 @@ void EmptyLinkFunctionForGeneratedCodeDrawer() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADrawer, 3903632808);
+	IMPLEMENT_CLASS(ADrawer, 427246228);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ADrawer>()
 	{
 		return ADrawer::StaticClass();

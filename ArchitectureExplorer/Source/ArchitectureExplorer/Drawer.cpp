@@ -15,10 +15,12 @@ ADrawer::ADrawer()
 void ADrawer::BeginPlay()
 {
 	Super::BeginPlay();
+
+	Handle = Cast<USphereComponent>(GetComponentByClass(USphereComponent::StaticClass()));
 	
 	FV = GetActorForwardVector();
-	ClosedPosition = GetActorLocation();
-	OpenPosition = GetActorLocation() + FV;
+	ClosedPosition = GetActorLocation() - (FV * 0.1f);
+	OpenPosition = GetActorLocation() + (FV * MaxSlideSize * 0.9f);
 }
 
 // Called every frame
@@ -48,9 +50,9 @@ void ADrawer::UseDrawer(float DeltaTime)
 	I don't think I need to do ^ actually
 	*/
 	
-
 	//FV = GetActorForwardVector();
 	FVector AL = GetActorLocation();
+	AL.Z = 0;
 	FVector NewHCLocation = HandController->GetActorLocation();
 	FVector HCDisp = NewHCLocation - LastHCLocation;
 	const float DispSize = HCDisp.Size();
@@ -85,6 +87,8 @@ void ADrawer::UseDrawer(float DeltaTime)
 void ADrawer::FullyOpenClosedChecker()
 {
 	const FVector HCL = HandController->GetActorLocation();
+	LastHCLocation = HCL;
+
 	FVector Disp;
 
 	if (bFullyOpen)
@@ -95,14 +99,13 @@ void ADrawer::FullyOpenClosedChecker()
 	{
 		Disp = HCL - ClosedPosition;
 	}
-	float Dot = FVector::DotProduct(Disp, FV);
+	const float Dot = FVector::DotProduct(Disp, FV);
 
 	if (Dot > 0)
 	{
 		bFullyClosed = false;
 		bFullyOpen = false;
 	}
-
 }
 
 void ADrawer::GrabDrawer(AActor * HC)
@@ -110,6 +113,8 @@ void ADrawer::GrabDrawer(AActor * HC)
 	HandController = HC;
 	bBeingGrabbed = true;
 	LastHCLocation = HC->GetActorLocation();
+	bFullyClosed = false;
+	bFullyOpen = false;
 }
 
 void ADrawer::ReleaseDrawer()

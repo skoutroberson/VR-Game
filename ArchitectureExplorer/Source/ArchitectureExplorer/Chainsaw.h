@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Grabbable.h"
+#include "HandController.h"
+#include "VRCharacter.h"
+#include "Components/AudioComponent.h"
 #include "Chainsaw.generated.h"
 
 /**
@@ -42,10 +45,10 @@ private:
 
 public:
 
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void PressTrigger();
 
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void ReleaseTrigger();
 
 	//	set in blueprints with PressTrigger() and ReleaseTrigger() events
@@ -55,10 +58,28 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bRandomShake = false;
 
+	UPROPERTY(BlueprintReadWrite)
+	float RevShakeMaxIntensity = 0.2f;
+
+	UPROPERTY(BlueprintReadWrite)
+	float RevStartupIntensityMultiplier = 0;
+
+	void TriggerAxisUpdates();
+
 	//	Randomly sets RelativeRotation when revving the chainsaw
 	void RandomShake(float DeltaTime);
 
 	//	Sets relative rotation to 0 and stops shake
 	void StopShake();
+
+	AVRCharacter * Player;
+
+	UAudioComponent * EngineAudio;
+
+	/**
+		used to determine if the controller's left or right trigger is controlling the chainsaw trigger.
+		This is set by HandController when the chainsaw is grabbed
+	*/
+	bool bLeftHandIsControllingTrigger = false;
 
 };

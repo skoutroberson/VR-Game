@@ -8,6 +8,9 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "HandController.h"
 #include "Math/UnrealMathUtility.h"
+#include "Haptics/HapticFeedbackEffect_Base.h"
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+
 
 AChainsaw::AChainsaw()
 {
@@ -21,6 +24,8 @@ AChainsaw::AChainsaw()
 void AChainsaw::BeginPlay()
 {
 	Super::BeginPlay();
+
+	Player = Cast<AVRCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass()));
 
 	UActorComponent * AC = GetComponentByClass(UBoxComponent::StaticClass());
 	BladeCollision = Cast<UBoxComponent>(AC);
@@ -36,6 +41,8 @@ void AChainsaw::BeginPlay()
 
 	SkeletalMesh = Cast<USkeletalMeshComponent>(GetComponentByClass(USkeletalMeshComponent::StaticClass()));
 
+	EngineAudio = Cast<UAudioComponent>(GetComponentsByTag(UAudioComponent::StaticClass(), FName("rev"))[0]);
+
 	//BladeCollision->OnComponentBeginOverlap.AddDynamic(this, &AChainsaw::BladeBeginOverlap);
 
 }
@@ -44,9 +51,9 @@ void AChainsaw::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (bRandomShake)
+	if (b1Held)
 	{
-		RandomShake(DeltaTime);
+		TriggerAxisUpdates();
 	}
 
 	//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + SkeletalMesh->GetRightVector() * 100.f, FColor::Red, false, 2 * DeltaTime);
@@ -66,11 +73,22 @@ void AChainsaw::Tick(float DeltaTime)
 	*/
 }
 
+void AChainsaw::TriggerAxisUpdates()
+{
+	// update pitch of engine
+	// update chain rotation speed
+	// update shake value
+	// update haptic intensity? (maybe not this one)
+	const float TriggerAxisValue = (bLeftHandIsControllingTrigger) ? Player->LeftTriggerAxisValue : Player->RightTriggerAxisValue;
+	EngineAudio->SetPitchMultiplier(TriggerAxisValue * 2.f);
+}
+
 void AChainsaw::RandomShake(float DeltaTime)	//	calling this every frame is not ideal?
 {
-	float x = FMath::RandRange(-0.2f, 0.2f);
-	float y =  FMath::RandRange(-0.25f, 0.2f);
-	float z = FMath::RandRange(-0.2f, 0.2f);
+	float ShakeIntensity = RevShakeMaxIntensity * RevStartupIntensityMultiplier;
+	float x = FMath::RandRange(-ShakeIntensity, ShakeIntensity);
+	float y =  FMath::RandRange(-ShakeIntensity, ShakeIntensity);
+	float z = FMath::RandRange(-ShakeIntensity, ShakeIntensity);
 	FRotator ShakeRotator = FRotator(x, y, z);
 	SkeletalMesh->AddRelativeRotation(ShakeRotator);
 }
@@ -84,136 +102,26 @@ void AChainsaw::StopShake()
 void AChainsaw::Gripped(int HandHoldNum)
 {
 	Super::Gripped(HandHoldNum);
-	/*
+	
 	if (HandHoldNum == 1)
 	{
-		b1Held = true;
-		if (!b2Held)
-		{
-			if (AGrabbable::ValidOneHandHandHolds.Contains(HandHoldNum))
-			{
-				AGrabbable::ControllingMC = AGrabbable::MotionController1;
-				AGrabbable::NonControllingMC = AGrabbable::MotionController2;
-				ControllingOffset = HandHoldOffset1;
-				ControllingHandHold = HandHold1;
-				bInterpToMC = true;
-				bRotateOneHand = true;
-				
-			}
-		}
-		else 
-		{
-			// two hand mechanics
-			AGrabbable::ControllingMC = AGrabbable::MotionController1;
-			AGrabbable::NonControllingMC = AGrabbable::MotionController2;
-			ControllingOffset = HandHoldOffset1;
-			ControllingHandHold = HandHold1;
+		const AHandController * HC = Cast<AHandController>(MotionController1);
 
-			bInterpToMC = true;
-			bRotateOneHand = false;
-			bRotateTwoHand = true;
-		}
-	}
-	else if (HandHoldNum == 2)
-	{
-		b2Held = true;
-		if (!b1Held)
+		if (HC->bLeft)
 		{
-			if (AGrabbable::ValidOneHandHandHolds.Contains(HandHoldNum))
-			{
-				AGrabbable::ControllingMC = AGrabbable::MotionController2;
-				AGrabbable::NonControllingMC = AGrabbable::MotionController1;
-				ControllingOffset = HandHoldOffset2;
-				ControllingHandHold = HandHold2;
-				bInterpToMC = true;
-				bRotateOneHand = true;
-			}
+			bLeftHandIsControllingTrigger = true;
 		}
 		else
 		{
-			AGrabbable::ControllingMC = AGrabbable::MotionController1;
-			AGrabbable::NonControllingMC = AGrabbable::MotionController2;
-			ControllingOffset = HandHoldOffset1;
-			ControllingHandHold = HandHold1;
-			bInterpToMC = true;
-			bRotateOneHand = false;
-			bRotateTwoHand = true;
-			// two hand mechanics
+			bLeftHandIsControllingTrigger = false;
 		}
 	}
-
-	// disable physics
-	if (bInterpToMC)
-	{
-		SkeletalMesh->SetSimulatePhysics(false);
-		SkeletalMesh->SetEnableGravity(false);
-	}
-
-	// check if ControllingMC is left or right for different rotations
-
-	if (ControllingMC != nullptr)
-	{
-		AHandController* HCCast = Cast<AHandController>(ControllingMC);
-
-		if (HCCast->bLeft)
-		{
-			bControllingMCLeft = true;
-		}
-		else
-		{
-			bControllingMCLeft = false;
-		}
-	}
-	*/
 }
 
 void AChainsaw::Released(int HandHoldNum)
 {
 	Super::Released(HandHoldNum);
-	/*
-	if (HandHoldNum == 1)
-	{
-		b1Held = false;
-		if (ControllingMC == MotionController1)
-		{
-			if (b2Held && ValidOneHandHandHolds.Contains(2))
-			{
-				ControllingMC = MotionController2;
-				ControllingOffset = HandHoldOffset2;
-				ControllingHandHold = HandHold2;
-				bRotateTwoHand = false;
-				bRotateOneHand = true;
-			}
-			else
-			{
-				bInterpToMC = false;
-				bRotateTwoHand = false;
-				bRotateOneHand = false;
-			}
-		}
-	}
-	else if (HandHoldNum == 2)
-	{
-		b2Held = false;
-		if (ControllingMC == MotionController2)
-		{
-			if (b2Held && ValidOneHandHandHolds.Contains(1))
-			{
-				ControllingMC = MotionController1;
-				ControllingOffset = HandHoldOffset1;
-				ControllingHandHold = HandHold1;
-				bRotateTwoHand = false;
-				bRotateOneHand = true;
-			}
-			else
-			{
-				bInterpToMC = false;
-				bRotateTwoHand = false;
-				bRotateOneHand = false;
-			}
-		}
-	}
-	*/
+
 }
 
 void AChainsaw::InterpToMC(float DeltaTime)
