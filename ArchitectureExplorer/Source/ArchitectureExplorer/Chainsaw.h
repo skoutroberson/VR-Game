@@ -54,6 +54,25 @@ public:
 	//	set in blueprints with PressTrigger() and ReleaseTrigger() events
 	bool bPressingTrigger = false;
 
+	float LastTriggerAxisValue;
+
+	//	this will control how fast the saw revs back down when the trigger is not pressed anymore.
+	//	the heat level will rise to MaxHeat and go down by DeltaTime * CooldownSpeed
+	UPROPERTY(VisibleAnywhere)
+	float Heat = 0.0f;
+
+	UPROPERTY(EditAnywhere)
+	float MaxHeat = 5.0f;
+
+	UPROPERTY(EditAnywhere)
+	float HeatUpSpeed = 5.0f;
+
+	UPROPERTY(EditAnywhere)
+	float CooldownSpeed = 2.0f;
+
+	UPROPERTY(VisibleAnywhere)
+	float CurrentEngineValue = 0;
+
 	//	state for shaking the chainsaw when pulling the trigger
 	UPROPERTY(BlueprintReadWrite)
 	bool bRandomShake = false;
@@ -64,7 +83,7 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	float RevStartupIntensityMultiplier = 0;
 
-	void TriggerAxisUpdates();
+	void TriggerAxisUpdates(float DeltaTime);
 
 	//	Randomly sets RelativeRotation when revving the chainsaw
 	void RandomShake(float DeltaTime);

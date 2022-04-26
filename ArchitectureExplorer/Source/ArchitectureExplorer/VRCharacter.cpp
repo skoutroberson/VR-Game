@@ -568,7 +568,7 @@ void AVRCharacter::RightTriggerAxis(float Value)
 {
 	if ((Controller != NULL) && (Value > 0.001f))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("RT: %f"), Value);
+		//UE_LOG(LogTemp, Warning, TEXT("RT: %f"), Value);
 
 		RightTriggerAxisValue = Value;
 	}
@@ -579,7 +579,7 @@ void AVRCharacter::LeftTriggerAxis(float Value)
 {
 	if ((Controller != NULL) && (Value > 0.001f))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("LT: %f"), Value);
+		//UE_LOG(LogTemp, Warning, TEXT("LT: %f"), Value);
 		LeftTriggerAxisValue = Value;
 	}
 	

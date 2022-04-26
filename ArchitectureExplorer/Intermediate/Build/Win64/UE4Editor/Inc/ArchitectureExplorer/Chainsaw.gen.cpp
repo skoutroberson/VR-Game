@@ -189,6 +189,26 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Heat_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Heat;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxHeat_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxHeat;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HeatUpSpeed_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_HeatUpSpeed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CooldownSpeed_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_CooldownSpeed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentEngineValue_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_CurrentEngineValue;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bRandomShake_MetaData[];
 #endif
 		static void NewProp_bRandomShake_SetBit(void* Obj);
@@ -222,6 +242,43 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_Heat_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "Comment", "//\x09this will control how fast the saw revs back down when the trigger is not pressed anymore.\n//\x09the heat level will rise to MaxHeat and go down by DeltaTime * CooldownSpeed\n" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+		{ "ToolTip", "this will control how fast the saw revs back down when the trigger is not pressed anymore.\nthe heat level will rise to MaxHeat and go down by DeltaTime * CooldownSpeed" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_Heat = { "Heat", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, Heat), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_Heat_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_Heat_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxHeat_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxHeat = { "MaxHeat", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, MaxHeat), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxHeat_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxHeat_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_HeatUpSpeed_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_HeatUpSpeed = { "HeatUpSpeed", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, HeatUpSpeed), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_HeatUpSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_HeatUpSpeed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_CooldownSpeed_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_CooldownSpeed = { "CooldownSpeed", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, CooldownSpeed), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_CooldownSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_CooldownSpeed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_CurrentEngineValue_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_CurrentEngineValue = { "CurrentEngineValue", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, CurrentEngineValue), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_CurrentEngineValue_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_CurrentEngineValue_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake_MetaData[] = {
 		{ "Category", "Chainsaw" },
 		{ "Comment", "//\x09state for shaking the chainsaw when pulling the trigger\n" },
@@ -249,6 +306,11 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_RevStartupIntensityMultiplier = { "RevStartupIntensityMultiplier", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, RevStartupIntensityMultiplier), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_RevStartupIntensityMultiplier_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_RevStartupIntensityMultiplier_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AChainsaw_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_Heat,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxHeat,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_HeatUpSpeed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_CooldownSpeed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_CurrentEngineValue,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_RevShakeMaxIntensity,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_RevStartupIntensityMultiplier,
@@ -280,7 +342,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AChainsaw, 2526020926);
+	IMPLEMENT_CLASS(AChainsaw, 3818094216);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AChainsaw>()
 	{
 		return AChainsaw::StaticClass();

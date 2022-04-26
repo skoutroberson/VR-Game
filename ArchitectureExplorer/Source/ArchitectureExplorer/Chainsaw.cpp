@@ -53,7 +53,7 @@ void AChainsaw::Tick(float DeltaTime)
 
 	if (b1Held)
 	{
-		TriggerAxisUpdates();
+		TriggerAxisUpdates(DeltaTime);
 	}
 
 	//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + SkeletalMesh->GetRightVector() * 100.f, FColor::Red, false, 2 * DeltaTime);
@@ -73,14 +73,53 @@ void AChainsaw::Tick(float DeltaTime)
 	*/
 }
 
-void AChainsaw::TriggerAxisUpdates()
+void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 {
 	// update pitch of engine
 	// update chain rotation speed
 	// update shake value
 	// update haptic intensity? (maybe not this one)
 	const float TriggerAxisValue = (bLeftHandIsControllingTrigger) ? Player->LeftTriggerAxisValue : Player->RightTriggerAxisValue;
-	EngineAudio->SetPitchMultiplier(TriggerAxisValue * 2.f);
+	//EngineAudio->SetPitchMultiplier(TriggerAxisValue * 2.f);
+	
+	
+	if (TriggerAxisValue > 0.1f)
+	{
+		Heat += HeatUpSpeed * DeltaTime;
+		if (Heat > MaxHeat)	// clamp
+		{
+			Heat = MaxHeat;
+		}
+	}
+	else
+	{
+		Heat -= CooldownSpeed * DeltaTime;
+		if (Heat < 0) // clamp
+		{
+			Heat = 0;
+		}
+	}
+
+	if (TriggerAxisValue > LastTriggerAxisValue)
+	{
+		EngineAudio->SetFloatParameter(FName("TAVP"), TriggerAxisValue);
+		EngineAudio->SetFloatParameter(FName("TAVV"), TriggerAxisValue);
+		CurrentEngineValue = TriggerAxisValue;
+	}
+	else if (TriggerAxisValue < 0.5f)
+	{
+		CurrentEngineValue -= (1 / Heat) * CooldownSpeed * DeltaTime;
+		if (CurrentEngineValue > 0)
+		{
+			EngineAudio->SetFloatParameter(FName("TAVP"), CurrentEngineValue);
+			EngineAudio->SetFloatParameter(FName("TAVV"), CurrentEngineValue);
+		}
+	}
+	
+	UE_LOG(LogTemp, Warning, TEXT("Heat: %f"), Heat);
+	UE_LOG(LogTemp, Warning, TEXT("Engine: %f"), CurrentEngineValue);
+
+	LastTriggerAxisValue = TriggerAxisValue;
 }
 
 void AChainsaw::RandomShake(float DeltaTime)	//	calling this every frame is not ideal?
