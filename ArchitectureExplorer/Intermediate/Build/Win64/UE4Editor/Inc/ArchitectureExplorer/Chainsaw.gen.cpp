@@ -209,6 +209,10 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_CurrentEngineValue;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxEngineValue_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxEngineValue;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bRandomShake_MetaData[];
 #endif
 		static void NewProp_bRandomShake_SetBit(void* Obj);
@@ -279,6 +283,13 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_CurrentEngineValue = { "CurrentEngineValue", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, CurrentEngineValue), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_CurrentEngineValue_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_CurrentEngineValue_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxEngineValue_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxEngineValue = { "MaxEngineValue", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, MaxEngineValue), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxEngineValue_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxEngineValue_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake_MetaData[] = {
 		{ "Category", "Chainsaw" },
 		{ "Comment", "//\x09state for shaking the chainsaw when pulling the trigger\n" },
@@ -311,6 +322,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_HeatUpSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_CooldownSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_CurrentEngineValue,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxEngineValue,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_bRandomShake,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_RevShakeMaxIntensity,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_RevStartupIntensityMultiplier,
@@ -342,7 +354,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AChainsaw, 3818094216);
+	IMPLEMENT_CLASS(AChainsaw, 4156532609);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AChainsaw>()
 	{
 		return AChainsaw::StaticClass();

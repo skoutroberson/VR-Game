@@ -54,6 +54,7 @@ void AChainsaw::Tick(float DeltaTime)
 	if (b1Held)
 	{
 		TriggerAxisUpdates(DeltaTime);
+		UE_LOG(LogTemp, Warning, TEXT("%f"), CurrentEngineValue);
 	}
 
 	//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + SkeletalMesh->GetRightVector() * 100.f, FColor::Red, false, 2 * DeltaTime);
@@ -85,7 +86,7 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 	
 	if (TriggerAxisValue > 0.1f)
 	{
-		Heat += HeatUpSpeed * DeltaTime;
+		Heat += HeatUpSpeed * (1/Heat) * DeltaTime;
 		if (Heat > MaxHeat)	// clamp
 		{
 			Heat = MaxHeat;
@@ -93,31 +94,76 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 	}
 	else
 	{
-		Heat -= CooldownSpeed * DeltaTime;
+		if (Heat > MaxHeat * 0.5f)
+		{
+			Heat -= CooldownSpeed * (1 / Heat) * DeltaTime;
+		}
+		else
+		{
+			Heat -= CooldownSpeed * Heat * 0.2f * DeltaTime;
+		}
+
+
 		if (Heat < 0) // clamp
 		{
 			Heat = 0;
 		}
 	}
 
-	if (TriggerAxisValue > LastTriggerAxisValue)
+	if (TriggerAxisValue > LastTriggerAxisValue || TriggerAxisValue >= 0.9f)
 	{
-		EngineAudio->SetFloatParameter(FName("TAVP"), TriggerAxisValue);
-		EngineAudio->SetFloatParameter(FName("TAVV"), TriggerAxisValue);
-		CurrentEngineValue = TriggerAxisValue;
+		CurrentEngineValue += HeatUpSpeed * Heat * (1 / TriggerAxisValue);
+
+		if (CurrentEngineValue > MaxEngineValue)
+		{
+			CurrentEngineValue = MaxEngineValue;
+		}
+
+		EngineAudio->SetFloatParameter(FName("TAVP"), CurrentEngineValue);
+		EngineAudio->SetFloatParameter(FName("TAVV"), CurrentEngineValue);
+		if (CurrentEngineValue > 0.7f)
+		{
+			EngineAudio->SetVolumeMultiplier(CurrentEngineValue);
+		}
 	}
-	else if (TriggerAxisValue < 0.5f)
+	else if(TriggerAxisValue < LastTriggerAxisValue || TriggerAxisValue < 0.9f)
 	{
-		CurrentEngineValue -= (1 / Heat) * CooldownSpeed * DeltaTime;
+		if (CurrentEngineValue > 0.8f)
+		{
+			CurrentEngineValue -= CooldownSpeed * CooldownSpeed * CooldownSpeed * (1 / (Heat * CurrentEngineValue)) * 75.f * DeltaTime;
+		}
+		else
+		{
+			if (Heat > 0.1f)
+			{
+				CurrentEngineValue -= CooldownSpeed * Heat * CurrentEngineValue * 0.6f * DeltaTime;
+			}
+			else
+			{
+				CurrentEngineValue -= CooldownSpeed * DeltaTime * 0.5f;
+			}
+			
+		}
+
+		if (CurrentEngineValue < 0) // clamp
+		{
+			CurrentEngineValue = 0;
+		}
+
 		if (CurrentEngineValue > 0)
 		{
 			EngineAudio->SetFloatParameter(FName("TAVP"), CurrentEngineValue);
 			EngineAudio->SetFloatParameter(FName("TAVV"), CurrentEngineValue);
+
+			if (CurrentEngineValue > 0.7f)
+			{
+				EngineAudio->SetVolumeMultiplier(CurrentEngineValue);
+			}
+			
 		}
 	}
 	
-	UE_LOG(LogTemp, Warning, TEXT("Heat: %f"), Heat);
-	UE_LOG(LogTemp, Warning, TEXT("Engine: %f"), CurrentEngineValue);
+	//UE_LOG(LogTemp, Warning, TEXT("Heat: %f"), Heat);
 
 	LastTriggerAxisValue = TriggerAxisValue;
 }

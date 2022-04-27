@@ -73,6 +73,9 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	float CurrentEngineValue = 0;
 
+	UPROPERTY(EditAnywhere)
+	float MaxEngineValue = 2.f;
+
 	//	state for shaking the chainsaw when pulling the trigger
 	UPROPERTY(BlueprintReadWrite)
 	bool bRandomShake = false;
