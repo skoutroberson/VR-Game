@@ -43,6 +43,9 @@ void AChainsaw::BeginPlay()
 
 	EngineAudio = Cast<UAudioComponent>(GetComponentsByTag(UAudioComponent::StaticClass(), FName("rev"))[0]);
 
+	EngineAudio->SetFloatParameter(FName("RPM"), 0.0f);
+	EngineAudio->SetBoolParameter(FName("CD"), false);
+
 	//BladeCollision->OnComponentBeginOverlap.AddDynamic(this, &AChainsaw::BladeBeginOverlap);
 
 }
@@ -54,7 +57,11 @@ void AChainsaw::Tick(float DeltaTime)
 	if (b1Held)
 	{
 		TriggerAxisUpdates(DeltaTime);
-		UE_LOG(LogTemp, Warning, TEXT("%f"), CurrentEngineValue);
+		UE_LOG(LogTemp, Warning, TEXT("%f"), LastTriggerAxisValue);
+	}
+	else if (CurrentEngineValue > 0)
+	{
+
 	}
 
 	//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + SkeletalMesh->GetRightVector() * 100.f, FColor::Red, false, 2 * DeltaTime);
@@ -82,8 +89,20 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 	// update haptic intensity? (maybe not this one)
 	const float TriggerAxisValue = (bLeftHandIsControllingTrigger) ? Player->LeftTriggerAxisValue : Player->RightTriggerAxisValue;
 	//EngineAudio->SetPitchMultiplier(TriggerAxisValue * 2.f);
+
+	/*
+	if (TriggerAxisValue > LastTriggerAxisValue)
+	{
+		EngineAudio->SetBoolParameter(FName("CD"), false);
+	}
+	else if(TriggerAxisValue < LastTriggerAxisValue)
+	{
+		EngineAudio->SetBoolParameter(FName("CD"), true);
+	}
+	*/
+	EngineAudio->SetFloatParameter(FName("RPM"), TriggerAxisValue);
 	
-	
+	/*
 	if (TriggerAxisValue > 0.1f)
 	{
 		Heat += HeatUpSpeed * (1/Heat) * DeltaTime;
@@ -110,6 +129,10 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 		}
 	}
 
+	//EngineAudio->SetFloatParameter(FName("TAVP"), TriggerAxisValue);
+	//EngineAudio->SetFloatParameter(FName("TAVV"), TriggerAxisValue);
+
+	
 	if (TriggerAxisValue > LastTriggerAxisValue || TriggerAxisValue >= 0.9f)
 	{
 		CurrentEngineValue += HeatUpSpeed * Heat * (1 / TriggerAxisValue);
@@ -128,15 +151,15 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 	}
 	else if(TriggerAxisValue < LastTriggerAxisValue || TriggerAxisValue < 0.9f)
 	{
-		if (CurrentEngineValue > 0.8f)
+		if (CurrentEngineValue > 0.9f)
 		{
-			CurrentEngineValue -= CooldownSpeed * CooldownSpeed * CooldownSpeed * (1 / (Heat * CurrentEngineValue)) * 75.f * DeltaTime;
+			CurrentEngineValue -= CooldownSpeed * CooldownSpeed * CooldownSpeed * (1 / (Heat * CurrentEngineValue)) * 18.f * DeltaTime;
 		}
 		else
 		{
 			if (Heat > 0.1f)
 			{
-				CurrentEngineValue -= CooldownSpeed * Heat * CurrentEngineValue * 0.6f * DeltaTime;
+				CurrentEngineValue -= CooldownSpeed * Heat * CurrentEngineValue * 0.8f * DeltaTime;
 			}
 			else
 			{
@@ -163,7 +186,8 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 		}
 	}
 	
-	//UE_LOG(LogTemp, Warning, TEXT("Heat: %f"), Heat);
+	UE_LOG(LogTemp, Warning, TEXT("Heat: %f"), Heat);
+	*/
 
 	LastTriggerAxisValue = TriggerAxisValue;
 }

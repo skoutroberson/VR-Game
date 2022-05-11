@@ -104,4 +104,6 @@ public:
 	*/
 	bool bLeftHandIsControllingTrigger = false;
 
+	bool bIsCoolingDown = false;
+
 };

@@ -560,8 +560,8 @@ void AVRCharacter::MoveForward(float throttle)
 
 void AVRCharacter::MoveRight(float throttle)
 {
-	//AddMovementInput(throttle * Camera->GetRightVector(), 0.4f);
-	AddMovementInput(throttle * GetActorRightVector(), 0.4f);
+	AddMovementInput(throttle * Camera->GetRightVector(), 0.4f);
+	//AddMovementInput(throttle * GetActorRightVector(), 0.4f);
 }
 
 void AVRCharacter::RightTriggerAxis(float Value)
