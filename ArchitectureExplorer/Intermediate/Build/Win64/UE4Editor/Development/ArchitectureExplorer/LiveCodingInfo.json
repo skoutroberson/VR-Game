@@ -6,6 +6,7 @@
 			"ArchitectureExplorerGameModeBase.cpp.obj",
 			"Bottle.cpp.obj",
 			"BoxTrigger.cpp.obj",
+			"Chainsaw.cpp.obj",
 			"Cockroach.cpp.obj",
 			"cPlayerHandAnimBP.cpp.obj",
 			"Crawler.cpp.obj",
@@ -13,7 +14,6 @@
 			"DoorManager.cpp.obj",
 			"Drawer.cpp.obj",
 			"Errol.cpp.obj",
-			"ErrolCharacter.cpp.obj",
 			"ErrolController.cpp.obj",
 			"Flashlight.cpp.obj",
 			"Grabbable.cpp.obj",
@@ -34,11 +34,10 @@
 			"Stage3.cpp.obj",
 			"StageManager.cpp.obj",
 			"TriggerManager.cpp.obj",
-			"Chainsaw.cpp.obj",
-			"VRCharacter.cpp.obj"
+			"VRCharacter.cpp.obj",
+			"ErrolCharacter.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.cpp.obj": [
-			"ArchitectureExplorer.init.gen.cpp.obj",
 			"ArchitectureExplorerGameModeBase.gen.cpp.obj",
 			"Bottle.gen.cpp.obj",
 			"BoxTrigger.gen.cpp.obj",
@@ -50,7 +49,6 @@
 			"DoorManager.gen.cpp.obj",
 			"Drawer.gen.cpp.obj",
 			"Errol.gen.cpp.obj",
-			"ErrolCharacter.gen.cpp.obj",
 			"ErrolController.gen.cpp.obj",
 			"Flashlight.gen.cpp.obj",
 			"Grabbable.gen.cpp.obj",
@@ -71,7 +69,9 @@
 			"Stage3.gen.cpp.obj",
 			"StageManager.gen.cpp.obj",
 			"TriggerManager.gen.cpp.obj",
-			"VRCharacter.gen.cpp.obj"
+			"VRCharacter.gen.cpp.obj",
+			"ArchitectureExplorer.init.gen.cpp.obj",
+			"ErrolCharacter.gen.cpp.obj"
 		]
 	}
 }

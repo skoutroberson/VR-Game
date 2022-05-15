@@ -74,7 +74,7 @@ void AErrolCharacter::BeginPlay()
 	//DC = Cast<UDestructibleComponent>(B->GetComponentByClass(UDestructibleComponent::StaticClass()));
 
 	
-	//SetupBoneArrays();
+	SetupBoneArrays();
 	//CutInHalf();
 
 	BodyMesh = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), FName("Body"))[0]);
@@ -89,50 +89,20 @@ void AErrolCharacter::BeginPlay()
 void AErrolCharacter::SetupBoneArrays()
 {
 	//SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetComponentByClass(USkeletalMeshComponent::StaticClass()));
-	SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), TEXT("Bot"))[0]);
-	TopHalfMesh = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), TEXT("Top"))[0]);
+	SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), TEXT("Body"))[0]);
 
-	SkeletalMeshComp->HideBoneByName(TEXT("Head_JNT"), EPhysBodyOp::PBO_None);
-	int32 CutIndex = SkeletalMeshComp->GetBoneIndex(TEXT("Spine01_JNT"));
-	TArray<int32> BoneArray;
-	USkeleton* Skel = SkeletalMeshComp->SkeletalMesh->Skeleton;
-	SkeletalMeshComp->SkeletalMesh->Skeleton->GetChildBones(1, BoneArray);
-	UE_LOG(LogTemp, Warning, TEXT("CutIndex: %d"), CutIndex);
-	UE_LOG(LogTemp, Warning, TEXT("Size: %d"), BoneArray.Num());
-	bool bHalfSwap = false;
+	USkeletalMeshComponent * TopHalf = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), TEXT("Top"))[0]);
 
-	TArray<int32> BonesToVisit;
-	BonesToVisit.Push(0);
-	BottomHalfBones.Push(0);
-
-	while (BonesToVisit.Num() > 0)
-	{
-		int32 Current = BonesToVisit.Pop();
-
-		if (Current == CutIndex)
-		{
-			bHalfSwap = true;
-		}
-
-		TArray<int32> CurrentChildBones;
-		Skel->GetChildBones(Current, CurrentChildBones);
-
-		for (int i = 0; i < CurrentChildBones.Num(); i++)
-		{
-			int32 CurrentChild = CurrentChildBones[i];
-			BonesToVisit.Push(CurrentChild);
-
-			if (!bHalfSwap)
-			{
-				BottomHalfBones.Push(CurrentChild);
-			}
-			else
-			{
-				TopHalfBones.Push(CurrentChild);
-			}
-		}
-
-	}
+	//SkeletalMeshComp->HideBoneByName(TEXT("Head_JNT"), EPhysBodyOp::PBO_None);
+	
+	//SkeletalMeshComp->HideBoneByName(TEXT("Head_JNT"), EPhysBodyOp::PBO_None);
+	//SkeletalMeshComp->HideBoneByName(TEXT("Spine02_JNT"), EPhysBodyOp::PBO_None);
+	SkeletalMeshComp->HideBoneByName(TEXT("Neck_JNT"), EPhysBodyOp::PBO_None);
+	SkeletalMeshComp->HideBoneByName(TEXT("R_Clavicle_JNT"), EPhysBodyOp::PBO_None);
+	SkeletalMeshComp->HideBoneByName(TEXT("L_Clavicle_JNT"), EPhysBodyOp::PBO_None);
+	TopHalf->HideBoneByName(TEXT("Root_JNT"), EPhysBodyOp::PBO_None);
+	
+	
 }
 
 void AErrolCharacter::CutInHalf()

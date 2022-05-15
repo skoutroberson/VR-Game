@@ -24,6 +24,7 @@ enum class ErrolState : uint8
 	STATE_SCARE1		UMETA(DisplayName="Scare1"),
 	STATE_SHOULDERPEEK	UMETA(DisplayName="ShoulderPeek"),
 	STATE_FLYAT			UMETA(DisplayName="FlyAt"),
+	STATE_BEINGCUT		UMETA(DisplayName="BeingCut"),
 };
 
 UENUM(BlueprintType)

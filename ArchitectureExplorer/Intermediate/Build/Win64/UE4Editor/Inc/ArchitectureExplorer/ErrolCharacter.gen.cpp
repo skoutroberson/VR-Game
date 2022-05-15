@@ -99,7 +99,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		return ErrolState_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_ErrolState(ErrolState_StaticEnum, TEXT("/Script/ArchitectureExplorer"), TEXT("ErrolState"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_ErrolState_Hash() { return 3218922422U; }
+	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_ErrolState_Hash() { return 3015014137U; }
 	UEnum* Z_Construct_UEnum_ArchitectureExplorer_ErrolState()
 	{
 #if WITH_HOT_RELOAD
@@ -121,11 +121,14 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 				{ "ErrolState::STATE_SCARE1", (int64)ErrolState::STATE_SCARE1 },
 				{ "ErrolState::STATE_SHOULDERPEEK", (int64)ErrolState::STATE_SHOULDERPEEK },
 				{ "ErrolState::STATE_FLYAT", (int64)ErrolState::STATE_FLYAT },
+				{ "ErrolState::STATE_BEINGCUT", (int64)ErrolState::STATE_BEINGCUT },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
 				{ "BlueprintType", "true" },
 				{ "ModuleRelativePath", "ErrolCharacter.h" },
+				{ "STATE_BEINGCUT.DisplayName", "BeingCut" },
+				{ "STATE_BEINGCUT.Name", "ErrolState::STATE_BEINGCUT" },
 				{ "STATE_CHASE.DisplayName", "Chase" },
 				{ "STATE_CHASE.Name", "ErrolState::STATE_CHASE" },
 				{ "STATE_FLYAT.DisplayName", "FlyAt" },
