@@ -69,6 +69,17 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
 	FVector LastCALocation = FVector::ZeroVector;
 
+	// modifiers
+	UPROPERTY(EditAnywhere)
+	float CloseAudioMultiplier = 10.f;
+
+	UPROPERTY(EditAnywhere)
+	float MinSwingAudioVelocity = 0.001f;
+
+	bool bSwingingPositive = false;
+	// used for determining if we should stop the current swing audio and play another wave on direction changes.
+	bool bSwingingDirectionChange = false;
+
 private:
 
 	class UWorld *World;
@@ -136,6 +147,8 @@ private:
 	float SwingCloseSoundDuration = 0;
 
 	void PlaySwingSound(const float Velocity, const float Ratio);
+
+	void PlaySwingAudio(const float Velocity);
 
 	float MaxSwingVelocity = 0;
 

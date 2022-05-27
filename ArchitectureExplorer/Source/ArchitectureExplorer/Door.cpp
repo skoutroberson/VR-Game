@@ -123,14 +123,15 @@ void ADoor::Swing(float DeltaTime)
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 		bSwing = false;
 		DoorHinge->SetWorldRotation(MinRotation);
-		///////////////////////////////////////////////////////////////////////////////////////////
-		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
-		///////////////////////////////////////////////////////////////////////////////////////////
+
+		SwingAudioComponent->Stop();
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SwingVelocity * CloseAudioMultiplier, 0.0f, 1.0f));
 		SwingVelocity = 0;
-		UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation());
 	}
 	else if (MinDistance > MaxAngleRadians)
 	{
+		SwingAudioComponent->Stop();
+		// play a door collision sound here
 		if (KnobCollision)
 		{
 			SwingVelocity = -SwingVelocity * 0.16f;
@@ -143,10 +144,13 @@ void ADoor::Swing(float DeltaTime)
 	else
 	{
 		DoorHinge->AddLocalRotation(DQ, true);
+
+		PlaySwingAudio(SwingVelocity);
+		// play swing sound
 	}
-	PlaySwingSound(SwingVelocity, MinDistance / MaxAngleRadians);
 }
 
+// might be deprecated
 void ADoor::CollisionSwing(float DeltaTime)
 {
 	FVector CL = CollisionActor->GetActorLocation();
@@ -209,28 +213,57 @@ void ADoor::UseDoor(float DeltaTime)
 	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector() * 300.f, FColor::Cyan, false, 2 * DeltaTime);
 
 	//UE_LOG(LogTemp, Warning, TEXT("D: %f"), Dot);
-	//UE_LOG(LogTemp, Warning, TEXT("V: %f"), SlerpSize);
+	//UE_LOG(LogTemp, Warning, TEXT("V: %f"), SlerpSize * 100.f);
 
 	//UE_LOG(LogTemp, Warning, TEXT("Max: %f"), MaxDistance);
 	//UE_LOG(LogTemp, Warning, TEXT("Min: %f"), MinDistance);
 	//UE_LOG(LogTemp, Warning, TEXT("MAR: %f"), MaxAngleRadians);
 
-	PlaySwingSound(SlerpSize, MinDistance / MaxAngleRadians);
-
 	if (MaxDistance > MaxAngleRadians)
 	{
 		DoorHinge->SetWorldRotation(MinRotation);
+
+		SwingAudioComponent->Stop();
 		
+		// stop swing sound
+		// play door shut sound
+
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 	}
 	else if (MinDistance > MaxAngleRadians)
 	{
 		DoorHinge->SetWorldRotation(MaxRotation);
+
+		SwingAudioComponent->Stop();
+		// stop swing sound
+		// play door collision sound
+
 		//UE_LOG(LogTemp, Warning, TEXT("MAX"));
 	}
 	else
 	{
 		DoorHinge->AddLocalRotation(DQ);
+
+		if (SlerpSize > 0)
+		{
+			if (!bSwingingPositive)
+			{
+				bSwingingDirectionChange = true;
+			}
+			bSwingingPositive = true;
+		}
+		else
+		{
+			if (bSwingingPositive)
+			{
+				bSwingingDirectionChange = true;
+			}
+			bSwingingPositive = false;
+		}
+
+		PlaySwingAudio(SlerpSize);
+
+		// play swing sound
 	}
 
 	LastHCLocation = HandController->GetActorLocation();
@@ -239,8 +272,37 @@ void ADoor::UseDoor(float DeltaTime)
 	{
 		MaxSwingVelocity = SlerpSize;
 	}
-	UE_LOG(LogTemp, Warning, TEXT("Max: %f"), MaxSwingVelocity);
-	UE_LOG(LogTemp, Warning, TEXT("SV: %f"), SlerpSize); 
+	//UE_LOG(LogTemp, Warning, TEXT("Max: %f"), MaxSwingVelocity);
+	//UE_LOG(LogTemp, Warning, TEXT("SV: %f"), SlerpSize); 
+}
+
+void ADoor::PlaySwingAudio(const float Velocity)
+{
+	const float AbsVel = fabsf(Velocity);
+	const float SwingVolumeMultiplier = FMath::Clamp(AbsVel * 50.f, 0.0f, 1.0f);
+	const float SwingPitchMultiplier = FMath::Clamp(Velocity * 100.f, 0.7f, 1.4f);
+	SwingAudioComponent->SetVolumeMultiplier(SwingVolumeMultiplier);
+
+	UE_LOG(LogTemp, Warning, TEXT("Volume: %f"), SwingVolumeMultiplier);
+
+	if (AbsVel > MinSwingAudioVelocity)
+	{
+
+		if (bSwingingDirectionChange)
+		{
+			bSwingingDirectionChange = false;
+			SwingAudioComponent->Stop();
+			SwingAudioComponent->Play();
+		}
+		else if(!SwingAudioComponent->IsPlaying())
+		{
+			SwingAudioComponent->Play();
+		}
+	}
+	else
+	{
+		SwingAudioComponent->Stop();
+	}
 }
 
 // Helper function to find the max swing angle for the doors (angle where the door hits an object so it can't open all the way). Called in BeginPlay().
