@@ -36,6 +36,8 @@ void ADoor::BeginPlay()
 	GetComponents<UStaticMeshComponent>(StaticComps);
 	DoorMesh = StaticComps[0];
 
+	
+
 	DoorHinge = GetRootComponent()->GetChildComponent(0);
 
 	float MaxAngle = BinarySearchForMaxAngle();

@@ -24,12 +24,20 @@ APortalRoom::APortalRoom()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
+	
 }
 
 // Called when the game starts or when spawned
 void APortalRoom::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// get hand controller mesh pointers so we can teleport them with the player if they are currently grabbing an item
+	VRCharacter = Cast<AVRCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass()));
+	
+	LHandMesh = VRCharacter->LeftController->HandMesh;
+	RHandMesh = VRCharacter->RightController->HandMesh;
+
 }
 
 // Called every frame
@@ -95,7 +103,7 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 	FRotator PlayerRotation = Player->GetActorRotation();
 	FVector DeltaPosition = Player->GetActorLocation() - GetActorLocation();
 	//FVector NewDeltaPosition = DeltaPosition.RotateAngleAxis(DeltaRotation, FVector(0,0,1));		// This works but RotateAngleAxis() has a bit of error past the second decimal (this is fine to use, just not perfect though)
-	FVector NewDeltaPosition = FVector(-DeltaPosition.Y, DeltaPosition.X, DeltaPosition.Z);			// This only works for a 90 degree delta rotation
+	FVector NewDeltaPosition = FVector(DeltaPosition.Y, -DeltaPosition.X, DeltaPosition.Z);			// This only works for a 90 degree delta rotation
 	FVector TargetLocation = TargetRoom->GetActorLocation() + NewDeltaPosition;
 	float TeleportYaw = PlayerRotation.Yaw + DeltaRotation;
 	FRotator TeleportRotation = FRotator(PlayerRotation.Pitch, TeleportYaw, PlayerRotation.Roll);
@@ -103,6 +111,15 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 	FVector TargetNormal = TeleportRotation.Vector().GetSafeNormal();
 	float VelocityLength = SavedVelocity.Size();
 	FVector ResultVector = TargetNormal * VelocityLength;
+
+	// Teleport Hands with items if they are currently gripping something as well:
+
+	// For both hand controllers: if(bIsGrabbing == true)
+	// Get GrabActors DeltaPosition and Rotation
+	// Add the delta to the targetposition
+	// apply the position and rotation to GrabActor
+
+	
 
 	UE_LOG(LogTemp, Warning, TEXT("1: %f %f %f"), DeltaPosition.X, DeltaPosition.Y, DeltaPosition.Z);
 	UE_LOG(LogTemp, Warning, TEXT("2: %f %f %f"), NewDeltaPosition.X, NewDeltaPosition.Y, NewDeltaPosition.Z);

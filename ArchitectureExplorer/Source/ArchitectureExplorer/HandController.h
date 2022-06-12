@@ -143,7 +143,7 @@ public:
 	FQuat GrabQuat;
 
 	AGrabbable * ActorBeingGrabbed = nullptr;
-private:
+public:
 	USkeletalMeshComponent * HandMesh;
 
 	FTransform HandMeshRelativeTransform;

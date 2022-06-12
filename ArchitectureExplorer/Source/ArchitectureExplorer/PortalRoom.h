@@ -5,8 +5,10 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "VRCharacter.h"
+#include "HandController.h"
 #include "Math/Vector.h"
 #include "BoxTrigger.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "PortalRoom.generated.h"
 
 UCLASS()
@@ -31,7 +33,7 @@ private:
 	FVector TargetLocation = FVector(-833, 0, 17);
 
 	//	Difference in yaw rotation from source portal room doors to target room doors
-	float DeltaRotation = 90.f;
+	float DeltaRotation = -90.f;
 
 	void FakeFunction();
 
@@ -41,4 +43,9 @@ private:
 public:
 	void Teleport();
 
+	AVRCharacter * VRCharacter = nullptr;
+	
+	USkeletalMeshComponent *LHandMesh = nullptr;
+	USkeletalMeshComponent *RHandMesh = nullptr;
+	
 };

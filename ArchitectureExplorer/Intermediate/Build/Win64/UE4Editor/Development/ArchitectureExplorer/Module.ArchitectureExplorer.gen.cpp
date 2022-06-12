@@ -6,6 +6,7 @@
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Cockroach.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/cPlayerHandAnimBP.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Crawler.gen.cpp"
+#include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/CrawlingMan.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/DoorManager.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Drawer.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Errol.gen.cpp"

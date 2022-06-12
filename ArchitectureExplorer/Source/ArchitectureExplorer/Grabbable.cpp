@@ -212,6 +212,7 @@ void AGrabbable::InterpToMC(float DeltaTime)
 	const FVector AL = GetActorLocation();
 	ControllingOffset = GetActorLocation() - ControllingHandHold->GetComponentLocation();
 	const FVector TL = AGrabbable::ControllingMC->GetActorLocation() + ControllingOffset;
+
 	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 300.f));
 }
 
@@ -221,7 +222,9 @@ void AGrabbable::RotateOneHand(float DeltaTime)
 	// this only works for the chainsaw
 	FRotator MCRot = ControllingMC->GetActorRotation();
 	MCRot.Roll = (bControllingMCLeft) ? MCRot.Roll - 90.f : MCRot.Roll += 90.f;
+
 	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), MCRot, 5.f * DeltaTime, true));
+	
 }
 
 void AGrabbable::RotateTwoHand(float DeltaTime)
@@ -232,7 +235,10 @@ void AGrabbable::RotateTwoHand(float DeltaTime)
 	FRotator NewRot = MCDif.ToOrientationRotator();
 	NewRot.Roll = ControllingMC->GetActorRotation().Roll;
 
+	
 	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), NewRot, 5.f * DeltaTime, true));
+	
+	
 
 	/*
 	const FVector SMFV = SkeletalMesh->GetForwardVector();

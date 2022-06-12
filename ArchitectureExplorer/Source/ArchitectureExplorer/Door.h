@@ -152,6 +152,8 @@ private:
 
 	float MaxSwingVelocity = 0;
 
+public:
+
 	UPROPERTY(EditAnywhere)
 	bool bBackwards = false;
 };
