@@ -118,7 +118,6 @@ private:
 	bool bNewCanUseDrawer = false;
 
 	bool bCanGrab = false;
-	bool bIsGrabbing = false;
 	bool bNewCanGrab = false;
 
 	bool bIsGripping = false;
@@ -130,6 +129,9 @@ private:
 	bool bIsControllingItem = false;
 
 public:
+
+	bool bIsGrabbing = false;
+
 	bool bHandHold1 = false;
 	bool bHandHold2 = false;
 

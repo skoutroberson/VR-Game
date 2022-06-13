@@ -45,7 +45,11 @@ public:
 
 	AVRCharacter * VRCharacter = nullptr;
 	
-	USkeletalMeshComponent *LHandMesh = nullptr;
-	USkeletalMeshComponent *RHandMesh = nullptr;
+	AHandController *LeftHandController = nullptr;
+	AHandController *RightHandController = nullptr;
+
+	// this set keeps track of all items that the player is grabbing or has placed in the portal room so we can teleport these with the player
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	TSet<AActor*> OverlappingGrabbables;
 	
 };

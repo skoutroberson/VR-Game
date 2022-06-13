@@ -84,6 +84,12 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OverlappingGrabbables_ElementProp;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OverlappingGrabbables_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FSetPropertyParams NewProp_OverlappingGrabbables;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -100,6 +106,20 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		{ "ModuleRelativePath", "PortalRoom.h" },
 	};
 #endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables_ElementProp = { "OverlappingGrabbables", nullptr, (EPropertyFlags)0x0000000000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables_MetaData[] = {
+		{ "Category", "PortalRoom" },
+		{ "Comment", "// this set keeps track of all items that the player is grabbing or has placed in the portal room so we can teleport these with the player\n" },
+		{ "ModuleRelativePath", "PortalRoom.h" },
+		{ "ToolTip", "this set keeps track of all items that the player is grabbing or has placed in the portal room so we can teleport these with the player" },
+	};
+#endif
+	const UE4CodeGen_Private::FSetPropertyParams Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables = { "OverlappingGrabbables", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Set, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APortalRoom, OverlappingGrabbables), METADATA_PARAMS(Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APortalRoom_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables_ElementProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APortalRoom_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APortalRoom>::IsAbstract,
 	};
@@ -109,11 +129,11 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_APortalRoom_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_APortalRoom_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_APortalRoom_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_APortalRoom_Statics::Class_MetaDataParams))
@@ -127,7 +147,7 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APortalRoom, 63966909);
+	IMPLEMENT_CLASS(APortalRoom, 427814698);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<APortalRoom>()
 	{
 		return APortalRoom::StaticClass();

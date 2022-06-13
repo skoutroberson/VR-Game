@@ -35,8 +35,8 @@ void APortalRoom::BeginPlay()
 	// get hand controller mesh pointers so we can teleport them with the player if they are currently grabbing an item
 	VRCharacter = Cast<AVRCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass()));
 	
-	LHandMesh = VRCharacter->LeftController->HandMesh;
-	RHandMesh = VRCharacter->RightController->HandMesh;
+	RightHandController = VRCharacter->RightController;
+	LeftHandController = VRCharacter->LeftController;
 
 }
 
@@ -97,14 +97,16 @@ void APortalRoom::FakeFunction()
 
 void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AActor * Player)
 {
+	FVector PL = GetActorLocation();
+	FVector TPL = TargetRoom->GetActorLocation();
 	APlayerController * PlayerController = GetWorld()->GetFirstPlayerController();
 	AVRCharacter* VRChar = Cast<AVRCharacter>(Player);
 	FVector SavedVelocity = VRChar->GetCharacterMovement()->GetLastUpdateVelocity();
 	FRotator PlayerRotation = Player->GetActorRotation();
-	FVector DeltaPosition = Player->GetActorLocation() - GetActorLocation();
+	FVector DeltaPosition = Player->GetActorLocation() - PL;
 	//FVector NewDeltaPosition = DeltaPosition.RotateAngleAxis(DeltaRotation, FVector(0,0,1));		// This works but RotateAngleAxis() has a bit of error past the second decimal (this is fine to use, just not perfect though)
 	FVector NewDeltaPosition = FVector(DeltaPosition.Y, -DeltaPosition.X, DeltaPosition.Z);			// This only works for a 90 degree delta rotation
-	FVector TargetLocation = TargetRoom->GetActorLocation() + NewDeltaPosition;
+	FVector TargetLocation = TPL + NewDeltaPosition;
 	float TeleportYaw = PlayerRotation.Yaw + DeltaRotation;
 	FRotator TeleportRotation = FRotator(PlayerRotation.Pitch, TeleportYaw, PlayerRotation.Roll);
 	FVector NewVelocity = SavedVelocity.RotateAngleAxis(DeltaRotation, FVector(0, 0, 1.f));
@@ -112,17 +114,31 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 	float VelocityLength = SavedVelocity.Size();
 	FVector ResultVector = TargetNormal * VelocityLength;
 
-	// Teleport Hands with items if they are currently gripping something as well:
 
-	// For both hand controllers: if(bIsGrabbing == true)
-	// Get GrabActors DeltaPosition and Rotation
-	// Add the delta to the targetposition
-	// apply the position and rotation to GrabActor
+	// get all overlapping grabbable actors in the portal room bounds,
+	// teleport them to the target portal with the player
 
-	
+	for (auto i : OverlappingGrabbables)
+	{
+		// position
+		FVector GrabDeltaPosition = i->GetActorLocation() - PL;
+		FVector GrabNewDeltaPosition = FVector(GrabDeltaPosition.Y, -GrabDeltaPosition.X, GrabDeltaPosition.Z);
+		FVector GrabTargetLocation = TPL + GrabNewDeltaPosition;
+		// rotation
+		FRotator GrabRotation = i->GetActorRotation();
+		float GrabTeleportYaw = GrabRotation.Yaw + DeltaRotation;
+		FRotator GrabTeleportRotation = FRotator(GrabRotation.Pitch, GrabTeleportYaw, GrabRotation.Roll);
+		// velocity
+		FVector GrabSavedVelocity = i->GetVelocity();
+		FVector GrabNewVelocity = GrabSavedVelocity.RotateAngleAxis(DeltaRotation, FVector(0, 0, 1.f));
 
-	UE_LOG(LogTemp, Warning, TEXT("1: %f %f %f"), DeltaPosition.X, DeltaPosition.Y, DeltaPosition.Z);
-	UE_LOG(LogTemp, Warning, TEXT("2: %f %f %f"), NewDeltaPosition.X, NewDeltaPosition.Y, NewDeltaPosition.Z);
+		i->GetVelocity().Set(GrabNewVelocity.X, GrabNewVelocity.Y, GrabNewVelocity.Z);
+		i->SetActorLocationAndRotation(GrabTargetLocation, GrabTeleportRotation);
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("Items: %d"), OverlappingGrabbables.Num());
+	//UE_LOG(LogTemp, Warning, TEXT("1: %f %f %f"), DeltaPosition.X, DeltaPosition.Y, DeltaPosition.Z);
+	//UE_LOG(LogTemp, Warning, TEXT("2: %f %f %f"), NewDeltaPosition.X, NewDeltaPosition.Y, NewDeltaPosition.Z);
 	VRChar->GetCharacterMovement()->Velocity.Set(NewVelocity.X, NewVelocity.Y, NewVelocity.Z);
 	PlayerController->SetControlRotation(TeleportRotation);
 	Player->SetActorLocationAndRotation(TargetLocation, TeleportRotation);

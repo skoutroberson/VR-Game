@@ -325,7 +325,7 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 	{
 		((ADoor*)Obj)->bBackwards = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards = { "bBackwards", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADoor), &Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards = { "bBackwards", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADoor), &Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADoor_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_HapticEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_DoorRoot,
@@ -372,7 +372,7 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADoor, 3673983846);
+	IMPLEMENT_CLASS(ADoor, 789821559);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ADoor>()
 	{
 		return ADoor::StaticClass();

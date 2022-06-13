@@ -154,6 +154,6 @@ private:
 
 public:
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool bBackwards = false;
 };

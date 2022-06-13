@@ -11,12 +11,15 @@
 			"cPlayerHandAnimBP.cpp.obj",
 			"Crawler.cpp.obj",
 			"CrawlingMan.cpp.obj",
+			"Door.cpp.obj",
 			"DoorManager.cpp.obj",
 			"Drawer.cpp.obj",
 			"Errol.cpp.obj",
 			"ErrolCharacter.cpp.obj",
 			"ErrolController.cpp.obj",
 			"Flashlight.cpp.obj",
+			"Grabbable.cpp.obj",
+			"HandController.cpp.obj",
 			"LightManager.cpp.obj",
 			"PeekPoint.cpp.obj",
 			"Phone.cpp.obj",
@@ -33,9 +36,6 @@
 			"StageManager.cpp.obj",
 			"TriggerManager.cpp.obj",
 			"VRCharacter.cpp.obj",
-			"Door.cpp.obj",
-			"Grabbable.cpp.obj",
-			"HandController.cpp.obj",
 			"PortalRoom.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.cpp.obj": [
@@ -59,7 +59,6 @@
 			"PeekPoint.gen.cpp.obj",
 			"Phone.gen.cpp.obj",
 			"Portal.gen.cpp.obj",
-			"PortalRoom.gen.cpp.obj",
 			"QuatRotLib.gen.cpp.obj",
 			"Quest.gen.cpp.obj",
 			"Radio.gen.cpp.obj",
@@ -73,7 +72,8 @@
 			"TriggerManager.gen.cpp.obj",
 			"VRCharacter.gen.cpp.obj",
 			"ArchitectureExplorer.init.gen.cpp.obj",
-			"Door.gen.cpp.obj"
+			"Door.gen.cpp.obj",
+			"PortalRoom.gen.cpp.obj"
 		]
 	}
 }
