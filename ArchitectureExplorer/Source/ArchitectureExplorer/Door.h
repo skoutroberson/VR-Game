@@ -92,10 +92,14 @@ private:
 	bool KnobCollision = false;
 
 	int Push = 0;
+public:
 
+	UPROPERTY(VisibleAnywhere)
 	FQuat MinRotation;
+	UPROPERTY(VisibleAnywhere)
 	FQuat MaxRotation;
 
+private:
 	// Helpers
 
 	FVector2D ConvertVector3D(FVector Vec);
@@ -156,4 +160,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool bBackwards = false;
+
+	UFUNCTION(BlueprintCallable)
+	void SetDoorBackwards();
 };

@@ -32,6 +32,8 @@
 #include "Sound/SoundCue.h"
 #include "Flashlight.h"
 #include "Chainsaw.h"
+#include "Components/PostProcessComponent.h"
+#include "Materials/MaterialInstanceDynamic.h"
 
 
 // Sets default values
@@ -65,6 +67,12 @@ AVRCharacter::AVRCharacter()
 	DestinationMarker->SetupAttachment(GetRootComponent());
 
 	CamHeightParams.AddIgnoredActor(this);
+
+	PostProcessComponent = CreateDefaultSubobject<UPostProcessComponent> (TEXT("PostProcessComponent"));
+	DestinationMarker->SetupAttachment(GetRootComponent());
+
+	
+	//PostProcessComponent->GetProperties().Settings.
 
 	//HeadCollisionSphere = Cast<USphereComponent*>(Camera->GetChildComponent(0));
 }
@@ -132,6 +140,13 @@ void AVRCharacter::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("UPDATE2"));
 		GetCapsuleComponent()->MoveIgnoreActors.Push(a);
+	}
+	
+	if (BlinkerMaterialBase != nullptr)
+	{
+		BlinkerMaterialInstance = UMaterialInstanceDynamic::Create(BlinkerMaterialBase, this);
+		PostProcessComponent->AddOrUpdateBlendable(BlinkerMaterialInstance);
+		BlinkerMaterialInstance->SetScalarParameterValue(FName("Radius"), 2.f);
 	}
 	
 }
@@ -356,7 +371,11 @@ void AVRCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	
+	if (bBlinkersEnabled)
+	{
+		float PlayerVelocityScaled = GetVelocity().Size() * 0.01f;
+		BlinkerMaterialInstance->SetScalarParameterValue(FName("Radius"), RadiusVsVelocity->GetFloatValue(PlayerVelocityScaled));
+	}
 
 	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
 

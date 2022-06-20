@@ -58,10 +58,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AStage1); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AStage1)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Stage1_h_20_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__Trigger0() { return STRUCT_OFFSET(AStage1, Trigger0); }
-
-
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Stage1_h_20_PRIVATE_PROPERTY_OFFSET
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Stage1_h_17_PROLOG
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Stage1_h_20_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

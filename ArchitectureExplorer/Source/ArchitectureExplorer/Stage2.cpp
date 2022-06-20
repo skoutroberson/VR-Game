@@ -10,9 +10,6 @@
 AStage2::AStage2()
 {
 	PrimaryActorTick.bCanEverTick = false;
-
-	AStage::FlagCount = 2;
-	AStage::Flags.Init(false, FlagCount);
 }
 
 AStage2::~AStage2()
@@ -25,32 +22,10 @@ void AStage2::BeginPlay()
 	Super::BeginPlay();
 
 	UE_LOG(LogTemp, Warning, TEXT("Stage 2 beginplay"));
-	Trigger0 = TriggerManager->Triggers[0];
-	Trigger0->SetGenerateOverlapEvents(true);
-
-	AddTriggerDelegates();
 }
 
 void AStage2::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
 
-	RemoveTriggerDelegates();
-}
-
-void AStage2::BOTrigger0()
-{
-	UE_LOG(LogTemp, Warning, TEXT("Stage2 trigger"));
-	AStage::Flags[0] = true;
-	Trigger0->SetGenerateOverlapEvents(false);
-}
-
-void AStage2::AddTriggerDelegates()
-{
-	Trigger0->OnComponentBeginOverlap.AddDynamic(this, &AStage::BeginOverlapTrigger0);
-}
-
-void AStage2::RemoveTriggerDelegates()
-{
-	Trigger0->OnComponentBeginOverlap.RemoveDynamic(this, &AStage::BeginOverlapTrigger0);
 }

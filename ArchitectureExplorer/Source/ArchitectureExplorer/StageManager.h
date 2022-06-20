@@ -28,7 +28,6 @@ class ARCHITECTUREEXPLORER_API AStageManager : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AStageManager();
-	~AStageManager();
 
 protected:
 	// Called when the game starts or when spawned
@@ -74,32 +73,9 @@ public:
 	bool CurrentStageCompleted();
 
 
-
-
-
-
-	UPROPERTY(VisibleAnywhere)
-		UBoxComponent * StartDoorTrigger;
-	UPROPERTY(VisibleAnywhere)
-		UBoxComponent * EndDoorTrigger;
-
-	ADoor * StartDoor = nullptr;
-	ADoor * EndDoor = nullptr;
-
-	UFUNCTION()
-		void BeginOverlapStartDoorTrigger(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
-
-	UFUNCTION()
-		void BeginOverlapEndDoorTrigger(class UPrimitiveComponent* FirstComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
-
 private:
 
 	void TESTLIGHTFUNCTION();
-
-	// Initializers
-
-	void InitializeDoorTriggers();
-	void InitializeStartEndDoors();
 
 	class UWorld *World = nullptr;
 

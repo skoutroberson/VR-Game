@@ -16,11 +16,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execSetDoorBackwards); \
 	DECLARE_FUNCTION(execCloseDoorFast);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetDoorBackwards); \
 	DECLARE_FUNCTION(execCloseDoorFast);
 
 

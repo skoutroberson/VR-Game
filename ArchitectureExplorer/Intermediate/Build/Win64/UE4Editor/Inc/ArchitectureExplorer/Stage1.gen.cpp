@@ -17,7 +17,6 @@ void EmptyLinkFunctionForGeneratedCodeStage1() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AStage1();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AStage();
 	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
-	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 // End Cross Module References
 	void AStage1::StaticRegisterNativesAStage1()
 	{
@@ -32,11 +31,6 @@ void EmptyLinkFunctionForGeneratedCodeStage1() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Trigger0_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Trigger0;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -51,17 +45,6 @@ void EmptyLinkFunctionForGeneratedCodeStage1() {}
 		{ "ModuleRelativePath", "Stage1.h" },
 	};
 #endif
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStage1_Statics::NewProp_Trigger0_MetaData[] = {
-		{ "Category", "Stage1" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Stage1.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStage1_Statics::NewProp_Trigger0 = { "Trigger0", nullptr, (EPropertyFlags)0x00400000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage1, Trigger0), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStage1_Statics::NewProp_Trigger0_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage1_Statics::NewProp_Trigger0_MetaData)) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AStage1_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStage1_Statics::NewProp_Trigger0,
-	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AStage1_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AStage1>::IsAbstract,
 	};
@@ -71,11 +54,11 @@ void EmptyLinkFunctionForGeneratedCodeStage1() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		Z_Construct_UClass_AStage1_Statics::PropPointers,
+		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		UE_ARRAY_COUNT(Z_Construct_UClass_AStage1_Statics::PropPointers),
+		0,
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AStage1_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AStage1_Statics::Class_MetaDataParams))
@@ -89,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeStage1() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AStage1, 654392635);
+	IMPLEMENT_CLASS(AStage1, 512634596);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AStage1>()
 	{
 		return AStage1::StaticClass();

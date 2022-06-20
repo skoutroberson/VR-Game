@@ -75,6 +75,15 @@ private:
 
 	USphereComponent* HeadCollisionSphere;
 
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface *BlinkerMaterialBase;
+
+	UPROPERTY()
+	class UMaterialInstanceDynamic * BlinkerMaterialInstance;
+
+	UPROPERTY(EditAnywhere)
+	class UCurveFloat *RadiusVsVelocity;
+
 public:
 
 	UPROPERTY(EditAnywhere)
@@ -101,6 +110,9 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AHandController> HandControllerClass;
 
+	UPROPERTY()
+	class UPostProcessComponent *PostProcessComponent;
+
 public:
 
 	UFUNCTION()
@@ -126,6 +138,7 @@ private:
 	bool bSprint = false;
 	bool bDodge = false;
 	bool bTeleportEnabled = false;
+	bool bBlinkersEnabled = false;
 	bool bIsMovingForward = false;
 	bool bIsMovingUpDown = false;
 

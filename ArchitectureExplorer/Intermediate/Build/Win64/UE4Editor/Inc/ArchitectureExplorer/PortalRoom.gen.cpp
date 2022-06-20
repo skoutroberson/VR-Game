@@ -28,6 +28,16 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		P_THIS->TeleportPlayer(Z_Param_Out_TargetRoom,Z_Param_Out_Player);
 		P_NATIVE_END;
 	}
+	static FName NAME_APortalRoom_DisablePortal = FName(TEXT("DisablePortal"));
+	void APortalRoom::DisablePortal()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_APortalRoom_DisablePortal),NULL);
+	}
+	static FName NAME_APortalRoom_EnablePortal = FName(TEXT("EnablePortal"));
+	void APortalRoom::EnablePortal()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_APortalRoom_EnablePortal),NULL);
+	}
 	void APortalRoom::StaticRegisterNativesAPortalRoom()
 	{
 		UClass* Class = APortalRoom::StaticClass();
@@ -35,6 +45,54 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 			{ "TeleportPlayer", &APortalRoom::execTeleportPlayer },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_APortalRoom_DisablePortal_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APortalRoom_DisablePortal_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// hides portal, shows intersecting meshes, and removes portal collisions. MUST BE CALLED ON THE TARGET PORTAL AS WELL OR ELSE BAD\n" },
+		{ "ModuleRelativePath", "PortalRoom.h" },
+		{ "ToolTip", "hides portal, shows intersecting meshes, and removes portal collisions. MUST BE CALLED ON THE TARGET PORTAL AS WELL OR ELSE BAD" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APortalRoom_DisablePortal_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APortalRoom, nullptr, "DisablePortal", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APortalRoom_DisablePortal_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APortalRoom_DisablePortal_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APortalRoom_DisablePortal()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APortalRoom_DisablePortal_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_APortalRoom_EnablePortal_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APortalRoom_EnablePortal_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// shows portal, hides intersecting meshes, and adds collision to portal. MUST BE CALLED ON THE TARGET PORTAL AS WELL OR ELSE BAD\n" },
+		{ "ModuleRelativePath", "PortalRoom.h" },
+		{ "ToolTip", "shows portal, hides intersecting meshes, and adds collision to portal. MUST BE CALLED ON THE TARGET PORTAL AS WELL OR ELSE BAD" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APortalRoom_EnablePortal_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APortalRoom, nullptr, "EnablePortal", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APortalRoom_EnablePortal_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APortalRoom_EnablePortal_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APortalRoom_EnablePortal()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APortalRoom_EnablePortal_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_APortalRoom_TeleportPlayer_Statics
 	{
@@ -98,6 +156,8 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_APortalRoom_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_APortalRoom_DisablePortal, "DisablePortal" }, // 169310758
+		{ &Z_Construct_UFunction_APortalRoom_EnablePortal, "EnablePortal" }, // 2786161211
 		{ &Z_Construct_UFunction_APortalRoom_TeleportPlayer, "TeleportPlayer" }, // 4208780132
 	};
 #if WITH_METADATA
@@ -147,7 +207,7 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APortalRoom, 427814698);
+	IMPLEMENT_CLASS(APortalRoom, 3026735527);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<APortalRoom>()
 	{
 		return APortalRoom::StaticClass();

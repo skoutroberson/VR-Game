@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 // End Cross Module References
 	void AGrabbable::StaticRegisterNativesAGrabbable()
 	{
@@ -102,6 +103,10 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MotionController2_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_MotionController2;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StartingPoint_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_StartingPoint;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -260,6 +265,15 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_MotionController2 = { "MotionController2", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, MotionController2), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_MotionController2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_MotionController2_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_StartingPoint_MetaData[] = {
+		{ "Category", "Grabbable" },
+		{ "Comment", "/** \n\x09\x09Starting point of the item, set by the current stage.\n\x09\x09The item will be sent to this location if the player teleports in the portal room and the item isn't in the player's hands, or the staring PortalRoom.\n\x09*/" },
+		{ "ModuleRelativePath", "Grabbable.h" },
+		{ "ToolTip", "Starting point of the item, set by the current stage.\nThe item will be sent to this location if the player teleports in the portal room and the item isn't in the player's hands, or the staring PortalRoom." },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_StartingPoint = { "StartingPoint", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, StartingPoint), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_StartingPoint_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_StartingPoint_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGrabbable_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemGripSize,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bBeingHeld,
@@ -276,6 +290,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_ControllingHandHold,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_MotionController1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_MotionController2,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_StartingPoint,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGrabbable_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AGrabbable>::IsAbstract,
@@ -304,7 +319,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGrabbable, 3718827041);
+	IMPLEMENT_CLASS(AGrabbable, 2526904040);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AGrabbable>()
 	{
 		return AGrabbable::StaticClass();

@@ -51,5 +51,12 @@ public:
 	// this set keeps track of all items that the player is grabbing or has placed in the portal room so we can teleport these with the player
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	TSet<AActor*> OverlappingGrabbables;
+
+	// shows portal, hides intersecting meshes, and adds collision to portal. MUST BE CALLED ON THE TARGET PORTAL AS WELL OR ELSE BAD
+	UFUNCTION(BlueprintImplementableEvent)
+	void EnablePortal();
+	// hides portal, shows intersecting meshes, and removes portal collisions. MUST BE CALLED ON THE TARGET PORTAL AS WELL OR ELSE BAD
+	UFUNCTION(BlueprintImplementableEvent)
+	void DisablePortal();
 	
 };

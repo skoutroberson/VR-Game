@@ -83,6 +83,8 @@ void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	DrawDebugLine(World, DoorMesh->GetComponentLocation(), DoorMesh->GetComponentLocation() + DoorHinge->GetForwardVector() * 100.f, FColor::Green, false, 1.f);
+
 	if (bCloseDoorFast)
 	{
 		CloseDoorFast(DeltaTime);
@@ -489,4 +491,9 @@ FVector2D ADoor::ConvertVector3D(FVector Vec)
 	Result.Y = Vec.Y;
 	
 	return Result;
+}
+
+void ADoor::SetDoorBackwards()
+{
+
 }

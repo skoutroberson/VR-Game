@@ -8,9 +8,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UPrimitiveComponent;
-class AActor;
-struct FHitResult;
 #ifdef ARCHITECTUREEXPLORER_Stage_generated_h
 #error "Stage.generated.h already included, missing '#pragma once' in Stage.h"
 #endif
@@ -19,42 +16,16 @@ struct FHitResult;
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Stage_h_17_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Stage_h_17_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execEndOverlapTrigger7); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger7); \
-	DECLARE_FUNCTION(execEndOverlapTrigger6); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger6); \
-	DECLARE_FUNCTION(execEndOverlapTrigger5); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger5); \
-	DECLARE_FUNCTION(execEndOverlapTrigger4); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger4); \
-	DECLARE_FUNCTION(execEndOverlapTrigger3); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger3); \
-	DECLARE_FUNCTION(execEndOverlapTrigger2); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger2); \
-	DECLARE_FUNCTION(execEndOverlapTrigger1); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger1); \
-	DECLARE_FUNCTION(execEndOverlapTrigger0); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger0);
+	DECLARE_FUNCTION(execResetStage); \
+	DECLARE_FUNCTION(execEndStage); \
+	DECLARE_FUNCTION(execBeginStage);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Stage_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execEndOverlapTrigger7); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger7); \
-	DECLARE_FUNCTION(execEndOverlapTrigger6); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger6); \
-	DECLARE_FUNCTION(execEndOverlapTrigger5); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger5); \
-	DECLARE_FUNCTION(execEndOverlapTrigger4); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger4); \
-	DECLARE_FUNCTION(execEndOverlapTrigger3); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger3); \
-	DECLARE_FUNCTION(execEndOverlapTrigger2); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger2); \
-	DECLARE_FUNCTION(execEndOverlapTrigger1); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger1); \
-	DECLARE_FUNCTION(execEndOverlapTrigger0); \
-	DECLARE_FUNCTION(execBeginOverlapTrigger0);
+	DECLARE_FUNCTION(execResetStage); \
+	DECLARE_FUNCTION(execEndStage); \
+	DECLARE_FUNCTION(execBeginStage);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Stage_h_17_INCLASS_NO_PURE_DECLS \

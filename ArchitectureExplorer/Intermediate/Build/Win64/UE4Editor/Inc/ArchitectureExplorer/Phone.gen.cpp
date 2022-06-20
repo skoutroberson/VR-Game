@@ -133,7 +133,7 @@ void EmptyLinkFunctionForGeneratedCodePhone() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APhone, 2764339124);
+	IMPLEMENT_CLASS(APhone, 4246442393);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<APhone>()
 	{
 		return APhone::StaticClass();

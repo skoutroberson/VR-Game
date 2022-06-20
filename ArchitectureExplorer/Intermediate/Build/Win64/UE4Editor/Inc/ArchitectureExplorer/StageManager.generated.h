@@ -8,9 +8,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UPrimitiveComponent;
-class AActor;
-struct FHitResult;
 #ifdef ARCHITECTUREEXPLORER_StageManager_generated_h
 #error "StageManager.generated.h already included, missing '#pragma once' in StageManager.h"
 #endif
@@ -19,15 +16,11 @@ struct FHitResult;
 #define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execBeginOverlapEndDoorTrigger); \
-	DECLARE_FUNCTION(execBeginOverlapStartDoorTrigger); \
 	DECLARE_FUNCTION(execCurrentStageCompleted);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execBeginOverlapEndDoorTrigger); \
-	DECLARE_FUNCTION(execBeginOverlapStartDoorTrigger); \
 	DECLARE_FUNCTION(execCurrentStageCompleted);
 
 

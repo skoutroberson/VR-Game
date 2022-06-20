@@ -23,14 +23,6 @@ AStageManager::AStageManager()
 	//InitializeDoorTriggers();
 }
 
-AStageManager::~AStageManager()
-{
-	delete StageNode1;
-	delete StageNode2;
-	delete StageNode3;
-	UE_LOG(LogTemp, Error, TEXT("AStageManager destructor called!"));
-}
-
 // Called when the game starts or when spawned
 void AStageManager::BeginPlay()
 {
@@ -54,26 +46,6 @@ void AStageManager::Tick(float DeltaTime)
 
 void AStageManager::InitializeStageNodes()
 {
-	StageNode1 = new StageNode;
-	StageNode2 = new StageNode;
-	StageNode3 = new StageNode;
-
-	CurrentNode = StageNode1;
-	CurrentStageNum = EStageNum::STAGE_1;
-
-	StageNode1->StageClass = AStage1::StaticClass();
-	StageNode1->NextStage.push_back(StageNode2);
-	StageNode1->NextStageEnums.push_back(EStageNum::STAGE_2);
-
-	StageNode2->StageClass = AStage2::StaticClass();
-	StageNode2->NextStage.push_back(StageNode3);
-	StageNode2->NextStageEnums.push_back(EStageNum::STAGE_3);
-
-	StageNode3->StageClass = AStage3::StaticClass();
-	// ...
-	// StageNodeN->...
-
-	CurrentStage = World->SpawnActor<AStage>(StageNode1->StageClass);
 	//CurrentStage = Cast<AStage>(CurrentStageActor);
 	
 	//GetWorld()->DestroyActor(CurrentStage);
@@ -108,112 +80,6 @@ void AStageManager::TESTLIGHTFUNCTION()
 
 bool AStageManager::CurrentStageCompleted()
 {
-	UE_LOG(LogTemp, Warning, TEXT("completed?"));
-	int FlagCount = CurrentStage->FlagCount;
-
-	// check if all stage flags are true; this can be modified so it can do cool things if only some of them are true;
-	for (int i = 0; i < FlagCount; i++)
-	{
-		if (CurrentStage->Flags[i] == false)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("Flag %d failed"), i);
-			return false;
-		}
-	}
-
-	GetWorld()->DestroyActor(CurrentStage);
-
-	//	Change stage and spawn new stage actor
-	CurrentStageNum = CurrentNode->NextStageEnums[0];
-	CurrentNode = CurrentNode->NextStage[0];
-
-	CurrentStage = World->SpawnActor<AStage>(CurrentNode->StageClass);
-	UE_LOG(LogTemp, Warning, TEXT("yayaya"));
+	
 	return true;
-}
-
-void AStageManager::BeginOverlapStartDoorTrigger(UPrimitiveComponent * FirstComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
-{
-	TArray<AActor*> OverlappingActors;
-	StartDoorTrigger->GetOverlappingActors(OverlappingActors, AVRCharacter::StaticClass());
-
-	for (AActor* OverlappingActor : OverlappingActors)
-	{
-		if (OverlappingActor->ActorHasTag(TEXT("Player")))
-		{
-			//	Close door
-			UE_LOG(LogTemp, Warning, TEXT("Door overlap bro!!!"));
-			StartDoorTrigger->SetGenerateOverlapEvents(false);
-			EndDoorTrigger->SetGenerateOverlapEvents(true);
-
-			StartDoor->bCloseDoorFast = true;
-
-			//CurrentNode->StageClass->
-
-			// Advance to new stage?
-
-			break;
-		}
-	}
-}
-
-void AStageManager::BeginOverlapEndDoorTrigger(UPrimitiveComponent * FirstComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
-{
-	TArray<AActor*> OverlappingActors;
-	EndDoorTrigger->GetOverlappingActors(OverlappingActors, AVRCharacter::StaticClass());
-
-	for (AActor* OverlappingActor : OverlappingActors)
-	{
-		if (OverlappingActor->ActorHasTag(TEXT("Player")))
-		{
-			//	Close door and teleport player when its fully closed.
-			UE_LOG(LogTemp, Warning, TEXT("End Door overlap bro!!!"));
-			EndDoorTrigger->SetGenerateOverlapEvents(false);
-			StartDoorTrigger->SetGenerateOverlapEvents(true);
-
-			EndDoor->bCloseDoorFast = true;
-
-			CurrentStageCompleted();
-
-			break;
-		}
-	}
-}
-
-void AStageManager::InitializeStartEndDoors()
-{
-
-	AActor * DM = UGameplayStatics::GetActorOfClass(GetWorld(), ADoorManager::StaticClass());
-	ADoorManager * DoorManager = Cast<ADoorManager>(DM);
-
-	for (auto Elem : DoorManager->DoorsMap)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("KEY: %s"), *Elem.Key);
-	}
-
-	if (DoorManager != nullptr)
-	{
-		FString SDN = "BP_Door1";
-		FString EDN = "BP_Door2";
-		StartDoor = DoorManager->GetDoor(SDN);
-		EndDoor = DoorManager->GetDoor(EDN);
-	}
-
-	StartDoorTrigger->SetWorldLocation(FVector(2089, 190, 140));
-	EndDoorTrigger->SetWorldLocation(FVector(504.0, -386.0, 100.0));
-
-	StartDoorTrigger->SetBoxExtent(FVector(88, 8, 140));
-	EndDoorTrigger->SetBoxExtent(FVector(10.0, 74.0, 100.0));
-}
-
-void AStageManager::InitializeDoorTriggers()
-{
-	StartDoorTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("StartDoorTrigger"));
-	EndDoorTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("EndDoorTrigger"));
-
-	StartDoorTrigger->SetCollisionProfileName(TEXT("PlayerTrigger"));
-	EndDoorTrigger->SetCollisionProfileName(TEXT("PlayerTrigger"));
-
-	//StartDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapStartDoorTrigger);
-	//EndDoorTrigger->OnComponentBeginOverlap.AddDynamic(this, &AStageManager::BeginOverlapEndDoorTrigger);
 }

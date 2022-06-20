@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeStage3() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AStage3, 3887134959);
+	IMPLEMENT_CLASS(AStage3, 3746076079);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AStage3>()
 	{
 		return AStage3::StaticClass();

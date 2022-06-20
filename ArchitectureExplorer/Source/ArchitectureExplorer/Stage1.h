@@ -29,17 +29,5 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
-private:
-
-	UPROPERTY(VisibleAnywhere)
-	UBoxComponent* Trigger0 = nullptr;
-
 	class APhone * Phone = nullptr;
-
-protected:
-	// overloads
-	virtual void BOTrigger0() override;
-
-	virtual void AddTriggerDelegates() override;
-	virtual void RemoveTriggerDelegates() override;
 };

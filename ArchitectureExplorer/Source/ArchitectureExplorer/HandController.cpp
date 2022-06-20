@@ -47,7 +47,7 @@ void AHandController::BeginPlay()
 	HandMeshRelativeTransform = HandMesh->GetRelativeTransform();
 	ChainsawOffset = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), FName("Saw"))[0]);
 
-	DeltaLocation = GetActorLocation();
+	DeltaLocation = MotionController->GetComponentLocation();
 }
 
 // Called every frame
@@ -55,7 +55,10 @@ void AHandController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	DeltaLocation = DeltaLocation - GetActorLocation();
+	DeltaLocation = MotionController->GetComponentLocation() - DeltaLocation;
+	HandControllerVelocity = DeltaLocation;
+
+	UE_LOG(LogTemp, Warning, TEXT("DL: %f, %f, %f"), DeltaLocation.X, DeltaLocation.Y, DeltaLocation.Z);
 
 	//DrawDebugLines(DeltaTime);	///////////////////// DEBUG HELPER
 
@@ -69,6 +72,8 @@ void AHandController::Tick(float DeltaTime)
 	{
 		CheckDoorDistance();
 	}
+
+	DeltaLocation = MotionController->GetComponentLocation();
 }
 
 void AHandController::Grip()

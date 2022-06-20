@@ -23,8 +23,12 @@ public:
 	void Grip();
 	void Release();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	// AKA the velocity vector of the hand controller
+	UPROPERTY(BlueprintReadOnly)
 	FVector DeltaLocation = FVector::ZeroVector;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector HandControllerVelocity = FVector::ZeroVector;
 
 protected:
 	// Called when the game starts or when spawned
