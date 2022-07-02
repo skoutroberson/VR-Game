@@ -139,6 +139,13 @@ private:
 	class USoundCue * SwingCloseSound;
 	UPROPERTY(EditDefaultsOnly)
 	class USoundCue * LockedSound;
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * UnlockSound;
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * HandCollisionSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * CapsuleCollisionSound;
 
 	UAudioComponent * SwingAudioComponent = nullptr;
 
@@ -157,6 +164,14 @@ private:
 	float MaxSwingVelocity = 0;
 
 public:
+
+	// Set to true on component start overlap, false on end overlap.
+	UPROPERTY(BlueprintReadWrite)
+	bool bColliding = false;
+
+	// this needs to be manually set to false if the door is open at the start
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bFullyClosed = true;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool bBackwards = false;

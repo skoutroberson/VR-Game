@@ -58,7 +58,7 @@ void AHandController::Tick(float DeltaTime)
 	DeltaLocation = MotionController->GetComponentLocation() - DeltaLocation;
 	HandControllerVelocity = DeltaLocation;
 
-	UE_LOG(LogTemp, Warning, TEXT("DL: %f, %f, %f"), DeltaLocation.X, DeltaLocation.Y, DeltaLocation.Z);
+	//UE_LOG(LogTemp, Warning, TEXT("DL: %f, %f, %f"), DeltaLocation.X, DeltaLocation.Y, DeltaLocation.Z);
 
 	//DrawDebugLines(DeltaTime);	///////////////////// DEBUG HELPER
 

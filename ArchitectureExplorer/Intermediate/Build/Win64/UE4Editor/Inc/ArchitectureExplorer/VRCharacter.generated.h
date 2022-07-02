@@ -13,8 +13,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ARCHITECTUREEXPLORER_VRCharacter_generated_h
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_RPC_WRAPPERS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_SPARSE_DATA
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execReleaseRight); \
 	DECLARE_FUNCTION(execGripRight); \
@@ -22,7 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execGripLeft);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execReleaseRight); \
 	DECLARE_FUNCTION(execGripRight); \
@@ -30,7 +30,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execGripLeft);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_INCLASS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAVRCharacter(); \
 	friend struct Z_Construct_UClass_AVRCharacter_Statics; \
@@ -39,7 +39,7 @@ public: \
 	DECLARE_SERIALIZER(AVRCharacter)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_INCLASS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_INCLASS \
 private: \
 	static void StaticRegisterNativesAVRCharacter(); \
 	friend struct Z_Construct_UClass_AVRCharacter_Statics; \
@@ -48,7 +48,7 @@ public: \
 	DECLARE_SERIALIZER(AVRCharacter)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_STANDARD_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AVRCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AVRCharacter) \
@@ -61,7 +61,7 @@ private: \
 public:
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_ENHANCED_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AVRCharacter(AVRCharacter&&); \
@@ -72,39 +72,45 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AVRCharacter); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AVRCharacter)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_PRIVATE_PROPERTY_OFFSET \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__BlinkerMaterialBase() { return STRUCT_OFFSET(AVRCharacter, BlinkerMaterialBase); } \
 	FORCEINLINE static uint32 __PPO__BlinkerMaterialInstance() { return STRUCT_OFFSET(AVRCharacter, BlinkerMaterialInstance); } \
 	FORCEINLINE static uint32 __PPO__RadiusVsVelocity() { return STRUCT_OFFSET(AVRCharacter, RadiusVsVelocity); } \
 	FORCEINLINE static uint32 __PPO__MaxTeleportDistance() { return STRUCT_OFFSET(AVRCharacter, MaxTeleportDistance); } \
 	FORCEINLINE static uint32 __PPO__LeftFootstepSound() { return STRUCT_OFFSET(AVRCharacter, LeftFootstepSound); } \
-	FORCEINLINE static uint32 __PPO__RightFootstepSound() { return STRUCT_OFFSET(AVRCharacter, RightFootstepSound); } \
+	FORCEINLINE static uint32 __PPO__FootstepSound() { return STRUCT_OFFSET(AVRCharacter, FootstepSound); } \
+	FORCEINLINE static uint32 __PPO__WoodFootStepSound() { return STRUCT_OFFSET(AVRCharacter, WoodFootStepSound); } \
+	FORCEINLINE static uint32 __PPO__DirtFootStepSound() { return STRUCT_OFFSET(AVRCharacter, DirtFootStepSound); } \
+	FORCEINLINE static uint32 __PPO__ConcreteFootStepSound() { return STRUCT_OFFSET(AVRCharacter, ConcreteFootStepSound); } \
+	FORCEINLINE static uint32 __PPO__TileFootstepSound() { return STRUCT_OFFSET(AVRCharacter, TileFootstepSound); } \
+	FORCEINLINE static uint32 __PPO__StairFootstepSound() { return STRUCT_OFFSET(AVRCharacter, StairFootstepSound); } \
 	FORCEINLINE static uint32 __PPO__DistanceThreshold() { return STRUCT_OFFSET(AVRCharacter, DistanceThreshold); } \
 	FORCEINLINE static uint32 __PPO__DistanceMovedDecrementAmount() { return STRUCT_OFFSET(AVRCharacter, DistanceMovedDecrementAmount); } \
-	FORCEINLINE static uint32 __PPO__VelocityThreshold() { return STRUCT_OFFSET(AVRCharacter, VelocityThreshold); }
+	FORCEINLINE static uint32 __PPO__VelocityThreshold() { return STRUCT_OFFSET(AVRCharacter, VelocityThreshold); } \
+	FORCEINLINE static uint32 __PPO__FootstepMap() { return STRUCT_OFFSET(AVRCharacter, FootstepMap); }
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_15_PROLOG
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_GENERATED_BODY_LEGACY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_16_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_RPC_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_INCLASS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_STANDARD_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_INCLASS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_GENERATED_BODY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_INCLASS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_18_ENHANCED_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_INCLASS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

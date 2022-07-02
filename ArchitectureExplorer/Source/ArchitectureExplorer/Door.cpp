@@ -129,7 +129,13 @@ void ADoor::Swing(float DeltaTime)
 		DoorHinge->SetWorldRotation(MinRotation);
 
 		SwingAudioComponent->Stop();
-		UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SwingVelocity * CloseAudioMultiplier, 0.0f, 1.0f));
+
+		if (!bFullyClosed)
+		{
+			bFullyClosed = true;
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SwingVelocity * CloseAudioMultiplier, 0.0f, 1.0f));
+		}
+		
 		SwingVelocity = 0;
 	}
 	else if (MinDistance > MaxAngleRadians)
@@ -144,6 +150,7 @@ void ADoor::Swing(float DeltaTime)
 		{
 			SwingVelocity = -SwingVelocity * 0.16f;
 		}
+		bFullyClosed = false;
 	}
 	else
 	{
@@ -151,10 +158,12 @@ void ADoor::Swing(float DeltaTime)
 
 		PlaySwingAudio(SwingVelocity);
 		// play swing sound
+
+		bFullyClosed = false;
 	}
 }
 
-// might be deprecated
+// DEPRICATED
 void ADoor::CollisionSwing(float DeltaTime)
 {
 	FVector CL = CollisionActor->GetActorLocation();
@@ -232,6 +241,13 @@ void ADoor::UseDoor(float DeltaTime)
 		// stop swing sound
 		// play door shut sound
 
+		if (!bFullyClosed)
+		{
+			bFullyClosed = true;
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SlerpSize * CloseAudioMultiplier, 0.0f, 1.0f));
+		}
+		
+
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 	}
 	else if (MinDistance > MaxAngleRadians)
@@ -243,6 +259,7 @@ void ADoor::UseDoor(float DeltaTime)
 		// play door collision sound
 
 		//UE_LOG(LogTemp, Warning, TEXT("MAX"));
+		bFullyClosed = false;
 	}
 	else
 	{
@@ -266,6 +283,8 @@ void ADoor::UseDoor(float DeltaTime)
 		}
 
 		PlaySwingAudio(SlerpSize);
+
+		bFullyClosed = false;
 
 		// play swing sound
 	}

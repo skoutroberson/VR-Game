@@ -10,6 +10,7 @@
 #include "cPlayerHandAnimBP.h"
 #include "Components/SphereComponent.h"
 #include "HandController.h"
+#include "Sound/SoundCue.h"
 #include "VRCharacter.generated.h"
 
 UCLASS()
@@ -166,7 +167,22 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	class USoundCue * LeftFootstepSound;
 	UPROPERTY(EditDefaultsOnly)
-	class USoundCue * RightFootstepSound;
+	class USoundCue * FootstepSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * WoodFootStepSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * DirtFootStepSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * ConcreteFootStepSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * TileFootstepSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * StairFootstepSound;
 
 	bool bRightStep = false;
 	float DistanceMoved = 0;
@@ -184,6 +200,11 @@ private:
 	// This function plays a footstep sound if MoveDistance goes over MoveThreshold.
 	void PlayFootStepSound();
 
+	// returns true if the player is grounded. Also updates the footstep sound.
+	bool CheckFloor();
+
+	void UpdateFootStepAudio();
+
 	// CAMERA CONTROLS FOR CUTSCENES
 	bool bLockCameraPosition = false;
 	void LockCameraPosition();
@@ -195,6 +216,8 @@ private:
 
 	float StepVolumeMultiplier = 1.5f;
 
-
+	// holds the key/value pairs of what tag corresponds with what sound cue
+	UPROPERTY(VisibleAnywhere);
+	TMap<FName, USoundCue *> FootstepMap;
 
 };

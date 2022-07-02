@@ -148,7 +148,12 @@ void AVRCharacter::BeginPlay()
 		PostProcessComponent->AddOrUpdateBlendable(BlinkerMaterialInstance);
 		BlinkerMaterialInstance->SetScalarParameterValue(FName("Radius"), 2.f);
 	}
-	
+
+	FootstepMap.Add(FName("wood"), WoodFootStepSound);
+	FootstepMap.Add(FName("tile"), TileFootstepSound);
+	FootstepMap.Add(FName("conc"), ConcreteFootStepSound);
+	FootstepMap.Add(FName("stai"), StairFootstepSound);
+	FootstepMap.Add(FName("dirt"), DirtFootStepSound);
 }
 
 void AVRCharacter::UpdateCapsuleHeight()
@@ -339,31 +344,59 @@ void AVRCharacter::PlayFootStepSound()
 		{
 			// Play Sound
 			DistanceMoved = 0.f;
-			if (bRightStep)
-			{
-				//UE_LOG(LogTemp, Warning, TEXT("Right Step"));
-				UGameplayStatics::PlaySoundAtLocation(GetWorld(), RightFootstepSound, 
-					VRRoot->GetComponentLocation() + Camera->GetRightVector() * 2.f, V*2.f);
+			
+			//UE_LOG(LogTemp, Warning, TEXT("Right Step"));
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), FootstepSound, 
+				VRRoot->GetComponentLocation() + Camera->GetRightVector() * 2.f, V*2.f);
 				bRightStep = false;
-			}
-			else
-			{
-				//UE_LOG(LogTemp, Warning, TEXT("Left Step"));
-				UGameplayStatics::PlaySoundAtLocation(GetWorld(), LeftFootstepSound, 
-					VRRoot->GetComponentLocation() + -Camera->GetRightVector() * 2.f, V*2.f);
-				bRightStep = true;
-			}
+			
 		}
 	}
 	else
 	{
-		if (DistanceMoved > 0)
+		if (DistanceMoved > 0)	// why did i do this? im too lazy to check this right now
 		{
 			DistanceMoved -= DistanceMovedDecrementAmount * DeltaTime;
 			if (DistanceMoved < 0) { DistanceMoved = 0; }
 		}
 		
 	}
+}
+
+bool AVRCharacter::CheckFloor()
+{
+
+	FVector FootLocation = GetActorLocation();
+	FootLocation.Z -= GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+
+	FVector UV = GetActorUpVector();
+
+	bool FloorTrace = GetWorld()->LineTraceSingleByChannel(HitResult, FootLocation + UV * 5.f, FootLocation - UV * 15.f, ECollisionChannel::ECC_WorldStatic, CamHeightParams);
+
+	if (FloorTrace)
+	{
+		TArray<FName> &Tags = HitResult.Component->ComponentTags;
+
+		if (Tags.Num() > 0)
+		{
+			for (auto &t : Tags)
+			{
+				USoundCue * Ptr = FootstepMap.FindRef(t);
+				if (Ptr != nullptr)
+				{
+					FootstepSound = Ptr;
+				}
+			}
+		}
+		
+		return true;
+	}
+
+	return false;
+}
+
+void AVRCharacter::UpdateFootStepAudio()
+{
 }
 
 // Called every frame
@@ -413,7 +446,12 @@ void AVRCharacter::Tick(float DeltaTime)
 	//LeftHandMesh->SetWorldLocationAndRotation(LeftController->GetActorLocation(), LeftController->GetActorQuat());
 	//RightHandMesh->SetWorldLocationAndRotation(RightController->GetActorLocation(), RightController->GetActorQuat());
 
-	PlayFootStepSound();
+	if (CheckFloor())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Step"));
+		PlayFootStepSound();
+	}
+	
 	DeltaLocation = GetActorLocation();
 }
 

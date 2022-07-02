@@ -73,7 +73,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADoor); \
 	FORCEINLINE static uint32 __PPO__CloseSound() { return STRUCT_OFFSET(ADoor, CloseSound); } \
 	FORCEINLINE static uint32 __PPO__SwingOpenSound() { return STRUCT_OFFSET(ADoor, SwingOpenSound); } \
 	FORCEINLINE static uint32 __PPO__SwingCloseSound() { return STRUCT_OFFSET(ADoor, SwingCloseSound); } \
-	FORCEINLINE static uint32 __PPO__LockedSound() { return STRUCT_OFFSET(ADoor, LockedSound); }
+	FORCEINLINE static uint32 __PPO__LockedSound() { return STRUCT_OFFSET(ADoor, LockedSound); } \
+	FORCEINLINE static uint32 __PPO__UnlockSound() { return STRUCT_OFFSET(ADoor, UnlockSound); } \
+	FORCEINLINE static uint32 __PPO__HandCollisionSound() { return STRUCT_OFFSET(ADoor, HandCollisionSound); } \
+	FORCEINLINE static uint32 __PPO__CapsuleCollisionSound() { return STRUCT_OFFSET(ADoor, CapsuleCollisionSound); }
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_10_PROLOG
