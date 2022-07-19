@@ -255,9 +255,16 @@ public:
 private:
 	void UpdateSpeedBasedOnRotation();
 
-	public:
-		// Called by VRCharacter, Bottle, or Door. The int will represent the actor so I don't have to do casts for better performance
-		// 1 = Player, 2 = Door, 3 = Bottle
-		void HearSound(AActor * Bottle, int ActorInt, int Loudness = 100);
-		FVector InvestigateLocation = FVector::ZeroVector;
+public:
+	// Called by VRCharacter, Bottle, or Door. The int will represent the actor so I don't have to do casts for better performance
+	// 1 = Player, 2 = Door, 3 = Bottle
+	void HearSound(AActor * Bottle, int ActorInt, int Loudness = 100);
+	FVector InvestigateLocation = FVector::ZeroVector;
+
+// Dismember stuff
+
+public:
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bCutInHalf = false;
 };

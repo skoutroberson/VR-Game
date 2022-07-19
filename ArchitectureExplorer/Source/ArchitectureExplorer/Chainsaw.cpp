@@ -34,6 +34,10 @@ void AChainsaw::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("BladeCollision cast failed in Chainsaw.cpp"));
 	}
+	else
+	{
+		BladeOffset = GetActorLocation() - BladeCollision->GetComponentLocation();
+	}
 
 	// THESE TWO LINES NEED TO BE IN EVERY TWO HANDED GRABBABLE ACTOR
 	AGrabbable::HandHold1 = Cast<USceneComponent>(GetComponentsByTag(UActorComponent::StaticClass(), TEXT("1"))[0]);
@@ -57,11 +61,13 @@ void AChainsaw::Tick(float DeltaTime)
 	if (b1Held)
 	{
 		TriggerAxisUpdates(DeltaTime);
-		UE_LOG(LogTemp, Warning, TEXT("%f"), LastTriggerAxisValue);
+		//UE_LOG(LogTemp, Warning, TEXT("%f"), LastTriggerAxisValue);
 	}
-	else if (CurrentEngineValue > 0)
+	
+	if (bDismembering)
 	{
-
+		TickDismember(DeltaTime);
+		// cut animation until the saw is all the way through
 	}
 
 	//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + SkeletalMesh->GetRightVector() * 100.f, FColor::Red, false, 2 * DeltaTime);
@@ -89,7 +95,7 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 	// update haptic intensity? (maybe not this one)
 	const float TriggerAxisValue = (bLeftHandIsControllingTrigger) ? Player->LeftTriggerAxisValue : Player->RightTriggerAxisValue;
 	//EngineAudio->SetPitchMultiplier(TriggerAxisValue * 2.f);
-
+	CurrentEngineValue = TriggerAxisValue;
 	/*
 	if (TriggerAxisValue > LastTriggerAxisValue)
 	{
@@ -206,6 +212,102 @@ void AChainsaw::StopShake()
 {
 	bRandomShake = false;
 	SetActorRelativeRotation(FRotator::ZeroRotator);
+}
+
+void AChainsaw::StartDismember()
+{
+	// move saw to the starting location
+	// rotate saw correctly
+	// start blood spray VFX
+	// start dismbember tick
+
+	// rotate right vector to equal the dismember up vector (arrow component in ErrolCharacter)
+
+	bInterpToMC = false;
+	bRotateTwoHand = false;
+	bRotateOneHand = false;
+
+	BladeOffset = GetActorLocation() - BladeCollision->GetComponentLocation();
+	SetActorLocation(CutStartLocation->GetComponentLocation() + BladeOffset);
+
+	
+	const AHandController * HC = Cast<AHandController>(NonControllingMC);
+	const FVector CO = HC->ChainsawOffset->GetComponentLocation();
+	const FVector MCDif = (CO - ControllingMC->GetActorLocation()).GetSafeNormal();
+
+	float DotProduct = FVector::DotProduct(MCDif, CutVectors->GetForwardVector());
+	float RotationAngle = acosf(DotProduct) * (PI/180.f);
+
+	FRotator NewRotation = CutVectors->GetComponentRotation();
+	//NewRotation.Pitch = MCDif.Rotation().Pitch;
+
+	SetActorRotation(NewRotation);
+	
+
+	/*
+	FVector RightVector = GetActorRightVector();
+	FVector RotationAxis = FVector::CrossProduct(RightVector, CutUpVector);
+	RotationAxis.Normalize();
+	float DotProduct = FVector::DotProduct(RightVector, CutUpVector);
+	float RotationAngle = acosf(DotProduct);
+	FQuat RotQuat(RotationAxis, RotationAngle);
+	FQuat ActorQuat = GetActorQuat();
+	FQuat NewQuat = RotQuat * ActorQuat;
+	
+	SetActorRotation(NewQuat);
+	*/
+
+	bDismembering = true;
+	
+}
+
+void AChainsaw::EndDismember()
+{
+	// move saw back to player control
+	// ragdoll top and bottom half of body
+	// update current stage perhaps? maybe end the game?
+
+	bDismembering = false;
+}
+
+void AChainsaw::TickDismember(float DeltaTime)
+{
+	// move saw along dismember path until the saw is all the way through.
+	// check the saw trigger and hand locations to see if the dismember should stop early
+	// check if the saw is finished cutting and then end dismember
+
+	
+	BladeOffset = GetActorLocation() - BladeCollision->GetComponentLocation();
+	SetActorLocation(CutStartLocation->GetComponentLocation() + BladeOffset);
+
+	const AHandController * HC = Cast<AHandController>(NonControllingMC);
+	const FVector CO = HC->ChainsawOffset->GetComponentLocation();
+	const FVector MCDif = (CO - ControllingMC->GetActorLocation()).GetSafeNormal();
+
+	const FRotator MCRot = MCDif.Rotation();
+
+	const FRotator SawRotation = GetActorRotation();
+
+	FRotator NewRotation(MCRot.Pitch, SawRotation.Yaw, SawRotation.Roll);
+
+	float PitchDiff = MCRot.Pitch - SawRotation.Pitch;
+	float PitchCheck = CutVectors->GetForwardVector().Rotation().Pitch - GetActorRotation().Pitch;
+
+	if (PitchDiff < 0.0f && PitchCheck < 10.0f || PitchDiff > 0.0f && PitchCheck > -50.f)
+	{
+		AddActorLocalRotation(FRotator(PitchDiff, 0, 0));
+	}
+
+	
+
+	
+	
+	DrawDebugLine(GetWorld(), ControllingMC->GetActorLocation(), ControllingMC->GetActorLocation() + MCDif * 100.f, FColor::Green, false, DeltaTime * 1.1f);
+	
+	GEngine->AddOnScreenDebugMessage(-1, DeltaTime * 1.1f, FColor::Cyan, FString::Printf(TEXT("PitchDiff: %f"), PitchDiff));
+	GEngine->AddOnScreenDebugMessage(-1, DeltaTime * 1.1f, FColor::Green, FString::Printf(TEXT("PitchCheck: %f"), PitchCheck));
+
+	//AddActorLocalOffset(BladeOffset);
 }
 
 void AChainsaw::Gripped(int HandHoldNum)

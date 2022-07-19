@@ -448,7 +448,6 @@ void AVRCharacter::Tick(float DeltaTime)
 
 	if (CheckFloor())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Step"));
 		PlayFootStepSound();
 	}
 	

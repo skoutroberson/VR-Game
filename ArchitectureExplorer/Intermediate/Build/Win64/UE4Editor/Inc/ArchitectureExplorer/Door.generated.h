@@ -76,6 +76,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADoor); \
 	FORCEINLINE static uint32 __PPO__LockedSound() { return STRUCT_OFFSET(ADoor, LockedSound); } \
 	FORCEINLINE static uint32 __PPO__UnlockSound() { return STRUCT_OFFSET(ADoor, UnlockSound); } \
 	FORCEINLINE static uint32 __PPO__HandCollisionSound() { return STRUCT_OFFSET(ADoor, HandCollisionSound); } \
+	FORCEINLINE static uint32 __PPO__KeyTag() { return STRUCT_OFFSET(ADoor, KeyTag); } \
 	FORCEINLINE static uint32 __PPO__CapsuleCollisionSound() { return STRUCT_OFFSET(ADoor, CapsuleCollisionSound); }
 
 

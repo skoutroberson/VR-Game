@@ -144,6 +144,10 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	class USoundCue * HandCollisionSound;
 
+	// A key with this tag will unlock this door.
+	UPROPERTY(EditInstanceOnly)
+	FName KeyTag;
+
 	UPROPERTY(EditDefaultsOnly)
 	class USoundCue * CapsuleCollisionSound;
 

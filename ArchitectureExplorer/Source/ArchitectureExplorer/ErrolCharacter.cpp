@@ -31,7 +31,7 @@ AErrolCharacter::AErrolCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	State = ErrolState::STATE_PATROL;
+	State = ErrolState::STATE_IDLE;
 	PeekState = ErrolPeekState::STATE_IDLE;
 }
 
@@ -74,7 +74,7 @@ void AErrolCharacter::BeginPlay()
 	//DC = Cast<UDestructibleComponent>(B->GetComponentByClass(UDestructibleComponent::StaticClass()));
 
 	
-	SetupBoneArrays();
+	//SetupBoneArrays();
 	//CutInHalf();
 
 	BodyMesh = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), FName("Body"))[0]);
@@ -86,8 +86,9 @@ void AErrolCharacter::BeginPlay()
 	UpdateAnimation(State);
 }
 
+
 void AErrolCharacter::SetupBoneArrays()
-{
+{/*
 	//SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetComponentByClass(USkeletalMeshComponent::StaticClass()));
 	SkeletalMeshComp = Cast<USkeletalMeshComponent>(GetComponentsByTag(USkeletalMeshComponent::StaticClass(), TEXT("Body"))[0]);
 
@@ -101,7 +102,7 @@ void AErrolCharacter::SetupBoneArrays()
 	SkeletalMeshComp->HideBoneByName(TEXT("R_Clavicle_JNT"), EPhysBodyOp::PBO_None);
 	SkeletalMeshComp->HideBoneByName(TEXT("L_Clavicle_JNT"), EPhysBodyOp::PBO_None);
 	TopHalf->HideBoneByName(TEXT("Root_JNT"), EPhysBodyOp::PBO_None);
-	
+	*/
 	
 }
 
@@ -140,7 +141,7 @@ void AErrolCharacter::Tick(float DeltaTime)
 			break;
 		case ErrolState::STATE_CHASE:
 			//UE_LOG(LogTemp, Warning, TEXT("CHASE"));
-			ShouldKill();
+			//ShouldKill();
 			// update speed based on player camera rotation but don't change footstep noise speed
 			break;
 		case ErrolState::STATE_PEEK:

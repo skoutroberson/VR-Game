@@ -7,6 +7,7 @@
 #include "HandController.h"
 #include "VRCharacter.h"
 #include "Components/AudioComponent.h"
+#include "Components/ArrowComponent.h"
 #include "Chainsaw.generated.h"
 
 /**
@@ -70,7 +71,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	float CooldownSpeed = 2.0f;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float CurrentEngineValue = 0;
 
 	UPROPERTY(EditAnywhere)
@@ -105,5 +106,44 @@ public:
 	bool bLeftHandIsControllingTrigger = false;
 
 	bool bIsCoolingDown = false;
+
+	// Dismember stuff
+	
+public:
+
+	// set in blueprints by BP_FiverrErrol1
+	UPROPERTY(BlueprintReadWrite)
+	USceneComponent * CutEndLocation;
+
+	UPROPERTY(BlueprintReadWrite)
+	USceneComponent * CutStartLocation;
+
+	UPROPERTY(BlueprintReadWrite)
+	USceneComponent * Cut1Location;
+
+	UPROPERTY(BlueprintReadWrite)
+	USceneComponent * Cut2Location;
+
+	UPROPERTY(BlueprintReadWrite)
+	UArrowComponent * CutVectors;
+
+	UPROPERTY(BlueprintReadWrite)
+	FVector CutUpVector;
+
+	UFUNCTION(BlueprintCallable)
+	void StartDismember();
+
+	void EndDismember();
+
+	void TickDismember(float DeltaTime);
+
+	UPROPERTY(BlueprintReadOnly)
+	FVector BladeOffset = FVector::ZeroVector;
+
+private:
+
+	
+
+	bool bDismembering = false;
 
 };
