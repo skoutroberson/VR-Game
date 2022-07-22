@@ -111,6 +111,14 @@ public:
 	
 public:
 
+	// speed that the saw cuts through the body.
+	UPROPERTY(EditAnywhere)
+	float DismemberCutSpeed = 10.f;
+	// speed at which the chainsaw can change pitch during dismemberment
+	UPROPERTY(EditAnywhere)
+	float DismemberRotateSpeedModifier = 1.f;
+
+
 	// set in blueprints by BP_FiverrErrol1
 	UPROPERTY(BlueprintReadWrite)
 	USceneComponent * CutEndLocation;
@@ -126,6 +134,12 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	UArrowComponent * CutVectors;
+
+	UPROPERTY(BlueprintReadWrite)
+	UArrowComponent * MinCutVector;
+
+	UPROPERTY(BlueprintReadWrite)
+	UArrowComponent * MaxCutVector;
 
 	UPROPERTY(BlueprintReadWrite)
 	FVector CutUpVector;

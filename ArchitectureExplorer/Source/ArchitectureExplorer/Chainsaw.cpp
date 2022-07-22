@@ -226,10 +226,6 @@ void AChainsaw::StartDismember()
 	bInterpToMC = false;
 	bRotateTwoHand = false;
 	bRotateOneHand = false;
-
-	BladeOffset = GetActorLocation() - BladeCollision->GetComponentLocation();
-	SetActorLocation(CutStartLocation->GetComponentLocation() + BladeOffset);
-
 	
 	const AHandController * HC = Cast<AHandController>(NonControllingMC);
 	const FVector CO = HC->ChainsawOffset->GetComponentLocation();
@@ -242,6 +238,9 @@ void AChainsaw::StartDismember()
 	//NewRotation.Pitch = MCDif.Rotation().Pitch;
 
 	SetActorRotation(NewRotation);
+
+	BladeOffset = GetActorLocation() - BladeCollision->GetComponentLocation();
+	SetActorLocation(CutStartLocation->GetComponentLocation() + BladeOffset);
 	
 
 	/*
@@ -276,10 +275,7 @@ void AChainsaw::TickDismember(float DeltaTime)
 	// check the saw trigger and hand locations to see if the dismember should stop early
 	// check if the saw is finished cutting and then end dismember
 
-	
-	BladeOffset = GetActorLocation() - BladeCollision->GetComponentLocation();
-	SetActorLocation(CutStartLocation->GetComponentLocation() + BladeOffset);
-
+	// rotation stuff
 	const AHandController * HC = Cast<AHandController>(NonControllingMC);
 	const FVector CO = HC->ChainsawOffset->GetComponentLocation();
 	const FVector MCDif = (CO - ControllingMC->GetActorLocation()).GetSafeNormal();
@@ -290,17 +286,50 @@ void AChainsaw::TickDismember(float DeltaTime)
 
 	FRotator NewRotation(MCRot.Pitch, SawRotation.Yaw, SawRotation.Roll);
 
+	const float MaxPitch = 10.f;
+	const float MinPitch = -40.f;
+	const float HalfPitch = 25.f;
+
 	float PitchDiff = MCRot.Pitch - SawRotation.Pitch;
 	float PitchCheck = CutVectors->GetForwardVector().Rotation().Pitch - GetActorRotation().Pitch;
 
-	if (PitchDiff < 0.0f && PitchCheck < 10.0f || PitchDiff > 0.0f && PitchCheck > -50.f)
+	if (PitchDiff < 0.0f && PitchCheck < MaxPitch || PitchDiff > 0.0f && PitchCheck > MinPitch)
 	{
-		AddActorLocalRotation(FRotator(PitchDiff, 0, 0));
+		// this next piece of code will smooth out the rotation so it doesn't suddenly stop rotating when the saw rotation is at max/min
+		// but instead slowly eases to a stop.
+
+		float SlowDownMultiplier = 0.5f;
+
+		if (PitchCheck >= (MaxPitch + MinPitch) * 0.5f && PitchDiff < 0)
+		{
+			SlowDownMultiplier = ((MaxPitch + 180.f) - (PitchCheck + 180.f)) * 0.01f;
+		}
+		else if(PitchCheck <= (MaxPitch + MinPitch) * 0.5f && PitchDiff > 0)
+		{
+			SlowDownMultiplier = ((PitchCheck + 180.f) - (MinPitch + 180.f)) * 0.01f;
+		}
+		
+		SlowDownMultiplier = (SlowDownMultiplier < 0.001f) ? 0.001f : SlowDownMultiplier;
+
+		GEngine->AddOnScreenDebugMessage(-1, DeltaTime * 1.1f, FColor::Magenta, FString::Printf(TEXT("Slow: %f"), SlowDownMultiplier));
+
+		float TotalPitchChange = PitchDiff * DismemberRotateSpeedModifier * SlowDownMultiplier;
+
+		AddActorLocalRotation(FRotator(TotalPitchChange, 0, 0));
 	}
 
-	
+	BladeOffset = GetActorLocation() - BladeCollision->GetComponentLocation();
+	SetActorLocation(FMath::VInterpTo(GetActorLocation(), CutEndLocation->GetComponentLocation() + BladeOffset, DeltaTime, DismemberCutSpeed));
+	//SetActorLocation(CutStartLocation->GetComponentLocation() + BladeOffset);
 
 	
+	/*
+	FVector MinCutV = MinCutVector->GetForwardVector();
+	FVector MaxCutV = MaxCutVector->GetForwardVector();
+
+	float MinDot = FVector::DotProduct(GetActorForwardVector(), MinCutV);
+	float MaxDot = FVector::DotProduct(GetActorForwardVector(), MaxCutV);
+	*/
 	
 	DrawDebugLine(GetWorld(), ControllingMC->GetActorLocation(), ControllingMC->GetActorLocation() + MCDif * 100.f, FColor::Green, false, DeltaTime * 1.1f);
 	
