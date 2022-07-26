@@ -267,6 +267,10 @@ void AChainsaw::EndDismember()
 	// update current stage perhaps? maybe end the game?
 
 	bDismembering = false;
+
+	// this will cause some issues if the player lets go of the chainsaw while dismembering... I need to think of a way to deal with this
+	bInterpToMC = true;
+	bRotateTwoHand = true;
 }
 
 void AChainsaw::TickDismember(float DeltaTime)
@@ -318,11 +322,25 @@ void AChainsaw::TickDismember(float DeltaTime)
 		AddActorLocalRotation(FRotator(TotalPitchChange, 0, 0));
 	}
 
-	BladeOffset = GetActorLocation() - BladeCollision->GetComponentLocation();
-	SetActorLocation(FMath::VInterpTo(GetActorLocation(), CutEndLocation->GetComponentLocation() + BladeOffset, DeltaTime, DismemberCutSpeed));
+	const FVector EndLocation = CutEndLocation->GetComponentLocation();
+	const FVector EndLocationPlusOffset = EndLocation + BladeOffset;
+	const FVector BladeLocation = BladeCollision->GetComponentLocation();
+
+	BladeOffset = GetActorLocation() - BladeLocation;
+	SetActorLocation(FMath::VInterpTo(GetActorLocation(), EndLocationPlusOffset, DeltaTime, DismemberCutSpeed));
 	//SetActorLocation(CutStartLocation->GetComponentLocation() + BladeOffset);
 
-	
+
+	// check if cut is finished, if so then end dismember
+
+	const float DistanceToEnd = FVector::DistSquared(EndLocation, BladeLocation);
+
+	if (DistanceToEnd < 14.0f)
+	{
+		EndDismember();
+	}
+
+	GEngine->AddOnScreenDebugMessage(-1, DeltaTime * 1.1f, FColor::Cyan, FString::Printf(TEXT("Distance: %f"), DistanceToEnd));
 	/*
 	FVector MinCutV = MinCutVector->GetForwardVector();
 	FVector MaxCutV = MaxCutVector->GetForwardVector();
@@ -331,10 +349,10 @@ void AChainsaw::TickDismember(float DeltaTime)
 	float MaxDot = FVector::DotProduct(GetActorForwardVector(), MaxCutV);
 	*/
 	
-	DrawDebugLine(GetWorld(), ControllingMC->GetActorLocation(), ControllingMC->GetActorLocation() + MCDif * 100.f, FColor::Green, false, DeltaTime * 1.1f);
+	//DrawDebugLine(GetWorld(), ControllingMC->GetActorLocation(), ControllingMC->GetActorLocation() + MCDif * 100.f, FColor::Green, false, DeltaTime * 1.1f);
 	
-	GEngine->AddOnScreenDebugMessage(-1, DeltaTime * 1.1f, FColor::Cyan, FString::Printf(TEXT("PitchDiff: %f"), PitchDiff));
-	GEngine->AddOnScreenDebugMessage(-1, DeltaTime * 1.1f, FColor::Green, FString::Printf(TEXT("PitchCheck: %f"), PitchCheck));
+	//GEngine->AddOnScreenDebugMessage(-1, DeltaTime * 1.1f, FColor::Cyan, FString::Printf(TEXT("PitchDiff: %f"), PitchDiff));
+	//GEngine->AddOnScreenDebugMessage(-1, DeltaTime * 1.1f, FColor::Green, FString::Printf(TEXT("PitchCheck: %f"), PitchCheck));
 
 	//AddActorLocalOffset(BladeOffset);
 }
