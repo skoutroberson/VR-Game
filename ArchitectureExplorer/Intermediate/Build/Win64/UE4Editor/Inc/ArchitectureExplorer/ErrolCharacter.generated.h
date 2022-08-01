@@ -27,6 +27,10 @@ enum class ErrolState : uint8;
 	DECLARE_FUNCTION(execInitializeCanSeeVariables); \
 	DECLARE_FUNCTION(execExitShoulderPeekState); \
 	DECLARE_FUNCTION(execExitPeekState); \
+	DECLARE_FUNCTION(execEndFlyAtState); \
+	DECLARE_FUNCTION(execTickFlyAtState); \
+	DECLARE_FUNCTION(execEnterFlyAtState); \
+	DECLARE_FUNCTION(execTickChaseState); \
 	DECLARE_FUNCTION(execEnterShoulderPeekState); \
 	DECLARE_FUNCTION(execEnterPeekState); \
 	DECLARE_FUNCTION(execGoToRandomWaypoint); \
@@ -44,6 +48,10 @@ enum class ErrolState : uint8;
 	DECLARE_FUNCTION(execInitializeCanSeeVariables); \
 	DECLARE_FUNCTION(execExitShoulderPeekState); \
 	DECLARE_FUNCTION(execExitPeekState); \
+	DECLARE_FUNCTION(execEndFlyAtState); \
+	DECLARE_FUNCTION(execTickFlyAtState); \
+	DECLARE_FUNCTION(execEnterFlyAtState); \
+	DECLARE_FUNCTION(execTickChaseState); \
 	DECLARE_FUNCTION(execEnterShoulderPeekState); \
 	DECLARE_FUNCTION(execEnterPeekState); \
 	DECLARE_FUNCTION(execGoToRandomWaypoint); \

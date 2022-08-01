@@ -40,7 +40,8 @@ public:
 	float RightTriggerAxisValue = 0;
 	float LeftTriggerAxisValue = 0;
 	
-
+	float RightGripAxisValue = 0;
+	float LeftGripAxisValue = 0;
 
 private:
 
@@ -51,6 +52,9 @@ private:
 
 	void RightTriggerAxis(float Value);
 	void LeftTriggerAxis(float Value);
+
+	void RightGripAxis(float Value);
+	void LeftGripAxis(float Value);
 	
 
 	void TurnRight(float throttle);

@@ -7,6 +7,11 @@
 #include "TimerManager.h"
 #include "Engine/World.h"
 
+void AErrolController::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
 ATargetPoint * AErrolController::GetRandomWaypoint()
 {
 	return nullptr;
@@ -29,8 +34,9 @@ void AErrolController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollow
 		break;
 	case ErrolState::STATE_CHASE:
 		UE_LOG(LogTemp, Warning, TEXT("IM CHASING U MOTHAFUCKA!"));
-		ErrolCharacter->ExitChaseState();
-		ErrolCharacter->EnterKillState();
+		//ErrolCharacter->ExitChaseState();
+		//ErrolCharacter->EnterKillState();
+		UE_LOG(LogTemp, Warning, TEXT("Result: %s"), *Result.ToString());
 		break;
 	case ErrolState::STATE_INVESTIGATE:
 		UE_LOG(LogTemp, Warning, TEXT("IM INVESTIGATING THE NOISE!"));

@@ -524,6 +524,9 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis(TEXT("RightTriggerAxis"), this, &AVRCharacter::RightTriggerAxis);
 	PlayerInputComponent->BindAxis(TEXT("LeftTriggerAxis"), this, &AVRCharacter::LeftTriggerAxis);
 
+	PlayerInputComponent->BindAxis(TEXT("RightGripAxis"), this, &AVRCharacter::RightGripAxis);
+	PlayerInputComponent->BindAxis(TEXT("LeftGripAxis"), this, &AVRCharacter::LeftGripAxis);
+
 PlayerInputComponent->BindAction(TEXT("Teleport"), IE_Released, this, &AVRCharacter::BeginTeleport);
 
 PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Pressed, this, &AVRCharacter::Sprint);
@@ -639,6 +642,26 @@ void AVRCharacter::LeftTriggerAxis(float Value)
 		LeftTriggerAxisValue = Value;
 	}
 	
+}
+
+void AVRCharacter::RightGripAxis(float Value)
+{
+	if ((Controller != NULL) && (Value > 0.001f))
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("RT: %f"), Value);
+
+		RightGripAxisValue = Value;
+	}
+}
+
+void AVRCharacter::LeftGripAxis(float Value)
+{
+	if ((Controller != NULL) && (Value > 0.001f))
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("RT: %f"), Value);
+
+		LeftGripAxisValue = Value;
+	}
 }
 
 void AVRCharacter::TurnRight(float throttle)

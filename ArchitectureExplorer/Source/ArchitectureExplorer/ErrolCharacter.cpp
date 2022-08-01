@@ -82,8 +82,6 @@ void AErrolCharacter::BeginPlay()
 
 	EyeSocket = BodyMesh->GetSocketByName(FName("EyeSocket"));
 	NeckSocket = BodyMesh->GetSocketByName(FName("NeckSocket"));
-
-	UpdateAnimation(State);
 }
 
 
@@ -129,7 +127,6 @@ void AErrolCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	
 		switch (State)
 		{
 		case ErrolState::STATE_IDLE:
@@ -142,7 +139,9 @@ void AErrolCharacter::Tick(float DeltaTime)
 		case ErrolState::STATE_CHASE:
 			//UE_LOG(LogTemp, Warning, TEXT("CHASE"));
 			//ShouldKill();
-			// update speed based on player camera rotation but don't change footstep noise speed
+
+			TickChaseState(DeltaTime);
+
 			break;
 		case ErrolState::STATE_PEEK:
 			if (!bPeekFound)
@@ -161,8 +160,9 @@ void AErrolCharacter::Tick(float DeltaTime)
 			have Errol end the peek and disappear out of view.
 			- Move Errol to a random location out of the player's view.
 			*/
-			
-			
+			break;
+		case ErrolState::STATE_FLYAT:
+			TickFlyAtState(DeltaTime);
 			break;
 		}
 
@@ -225,9 +225,50 @@ void AErrolCharacter::EnterPatrolState()
 void AErrolCharacter::EnterChaseState()
 {
 	State = ErrolState::STATE_CHASE;
-	GetCharacterMovement()->MaxWalkSpeed = ChaseSpeed;
+
+	// smoothly increase errols speed to ChaseSpeed
+	// update the animation in case we are not in a state connected to the idle/walk/run blend space.
+	// start TickChaseState()
+
+	// TickChaseState:
+	// Update Speed and kill radius based on if the player is looking at Errol or not.
+	// TryToMarkForDeath();
+	
+	// If Errol gets in the KillRadius, then fly at the player and 'mark them for death' where we roll based on the GameState to see if
+	// we should kill the player.
+
+	// GameState will have a float called fShouldKill representing the GetRandomNumber between 0 and fShouldKill that decides if we should kill the player.
+	// EachState decrement fShouldKill and if the player is killed then increase fShouldKill by a lot so they are very unlucky if they are killed.
+
+	bSprintAtPlayer = true;
+	
 	UpdateAnimation(State);
-	ErrolController->MoveToActor(Player, KillRadius);
+	ErrolController->MoveToActor(Player); //KillRadius);
+}
+
+void AErrolCharacter::TickChaseState(float DeltaTime)
+{
+	
+	if (bSprintAtPlayer)
+	{
+		SprintAtPlayer(DeltaTime);
+	}
+	else if (bUpdateMoveSpeedBasedOnPlayerCamera)
+	{
+		UpdateMoveSpeedBasedOnPlayerCamera(DeltaTime);
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size());
+	
+	/*
+	if (ShouldIMarkPlayerForDeath())
+	{
+		ExitChaseState();
+		EnterFlyAtState();
+		return;
+	}
+	*/
+	UpdateAnimation(State);
 }
 
 void AErrolCharacter::EnterInvestigateState()
@@ -355,7 +396,69 @@ void AErrolCharacter::ExitPatrolState()
 	ErrolController->StopMovement();
 }
 
+void AErrolCharacter::UpdateMoveSpeedBasedOnPlayerCamera(float DeltaTime)
+{
+	FVector CV = PlayerCamera->GetForwardVector();
+	FVector Disp = EyeSocket->GetSocketLocation(BodyMesh) - PlayerCamera->GetComponentLocation();
+	Disp = Disp.GetSafeNormal();
+
+	float Dot = FVector::DotProduct(CV, Disp) + 0.5f;
+
+	const float CurrentSpeed = GetCharacterMovement()->MaxWalkSpeed;
+
+	if (Dot < 0.5f)
+	{
+		Dot = 0.5f;
+	}
+	else if (Dot > 0.7f)
+	{
+		Dot = 1.0f;
+	}
+
+	GetCharacterMovement()->MaxWalkSpeed = FMath::FInterpTo(CurrentSpeed, ChaseSpeed * Dot, DeltaTime, UpdateSpeedBasedOnPlayerCameraSpeed);
+}
+
+void AErrolCharacter::SprintAtPlayer(float DeltaTime)
+{
+	float MaxWalkSpeed = GetCharacterMovement()->MaxWalkSpeed;
+	GetCharacterMovement()->MaxWalkSpeed = FMath::FInterpTo(MaxWalkSpeed, ChaseSpeed, DeltaTime, SprintSpeedUpSpeed);
+
+	if (GetCharacterMovement()->MaxWalkSpeed == ChaseSpeed)
+	{
+		bSprintAtPlayer = false;
+		bUpdateMoveSpeedBasedOnPlayerCamera = true;
+	}
+}
+
+bool AErrolCharacter::ShouldIMarkPlayerForDeath()
+{
+	int DeathNum = FMath::RandRange(1, KillChance);
+
+	if (DeathNum == 1)
+	{
+		return true;
+	}
+	return false;
+}
+
 void AErrolCharacter::ExitChaseState()
+{
+	bSprintAtPlayer = true;
+	bUpdateMoveSpeedBasedOnPlayerCamera = false;
+}
+
+void AErrolCharacter::EnterFlyAtState()
+{
+	State = ErrolState::STATE_FLYAT;
+	UpdateAnimation(State);
+	GetCharacterMovement()->MaxWalkSpeed = FlyAtSpeed;
+}
+
+void AErrolCharacter::TickFlyAtState(float DeltaTime)
+{
+}
+
+void AErrolCharacter::EndFlyAtState()
 {
 }
 
@@ -382,6 +485,8 @@ void AErrolCharacter::InitializeCanSeeVariables()
 	InitializePerceptionTimers();
 	//	Debug
 	//EnterPeekState();
+
+	EnterChaseState();
 }
 
 void AErrolCharacter::InitializePerceptionTimers()

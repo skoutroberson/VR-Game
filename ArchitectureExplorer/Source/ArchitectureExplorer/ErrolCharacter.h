@@ -125,7 +125,7 @@ public:
 public:
 	void EnterIdleState();
 	void EnterPatrolState();
-	void EnterChaseState();
+	
 	void EnterInvestigateState();
 	void EnterKillState();
 	void EnterLookAroundState();
@@ -136,9 +136,61 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void EnterShoulderPeekState();
 
+	// CHASE
+
+	void EnterChaseState();
+
+	UFUNCTION(BlueprintCallable)
+	void TickChaseState(float DeltaTime);
+
+	// tick stuff
+
+	// this is turned on once I am sprinting.
+	bool bUpdateMoveSpeedBasedOnPlayerCamera = false;
+	void UpdateMoveSpeedBasedOnPlayerCamera(float DeltaTime);
+
+	// this is turned on in EnterChaseState().
+	// smoothly increase MoveSpeed to a sprint. Once I am sprinting, bSprintAtPlayer is changed to false.
+	bool bSprintAtPlayer = false;
+	void SprintAtPlayer(float DeltaTime);
+
+	// If I get inside KillRadius, then exit ChaseState and change state to FlyAt while marking the player for death.
+	bool ShouldIMarkPlayerForDeath();
+
+	float MoveTargetValue;
+
+	void ExitChaseState();
+
+	// this is how fast Errol will increase his speed into a sprint
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float SprintSpeedUpSpeed = 2.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float UpdateSpeedBasedOnPlayerCameraSpeed = 1.0f;
+
+	// FLYAT
+
+	// Change Errols animation into a scary pose animation of him brandishing the chainsaw and have him move through the player camera until he is out of view
+	// then disappear him and roll to see if the player should get killed.
+
+	UFUNCTION(BlueprintCallable)
+	void EnterFlyAtState();
+
+	UFUNCTION(BlueprintCallable)
+	void TickFlyAtState(float DeltaTime);
+
+	UFUNCTION(BlueprintCallable)
+	void EndFlyAtState();
+
+	// this it the number that will be rolled
+	UPROPERTY(EditAnywhere)
+	int KillChance = 1;
+
+
+
+
 	void ExitIdleState();
 	void ExitPatrolState();
-	void ExitChaseState();
 	void ExitInvestigateState();
 	void ExitLookAroundState();
 	UFUNCTION(BlueprintCallable)
@@ -194,6 +246,10 @@ public:
 	float PeekScareLevel = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float IdleSpeed = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FlyAtSpeed = 360.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float PatrolSpeed = 140.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	float ChaseSpeed = 220.f;
@@ -203,7 +259,7 @@ public:
 	float KillSpeed = 0.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	float Speed = 0;
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	float KillRadius = 50.f;
 
 	// Errol local senses funcitonality
