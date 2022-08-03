@@ -82,6 +82,19 @@ void AErrolCharacter::BeginPlay()
 
 	EyeSocket = BodyMesh->GetSocketByName(FName("EyeSocket"));
 	NeckSocket = BodyMesh->GetSocketByName(FName("NeckSocket"));
+
+	SawTip = SawMesh->GetChildComponent(0);
+
+	// i need to make sure all grab actors are spawned before this is called
+	TArray<AActor*> GrabActors;
+	UGameplayStatics::GetAllActorsOfClass(World, AGrabbable::StaticClass(), GrabActors);
+
+	CanPlayerSeeMeTraceParams.AddIgnoredActors(GrabActors);
+
+	// for easier editing of starting position for the Upper Window Scare:
+	TArray<AActor*> UppWinScareStartingPos;
+	UGameplayStatics::GetAllActorsWithTag(World, FName("UpWinScare"), UppWinScareStartingPos);
+	UpperWindowStartingPoint = UppWinScareStartingPos[0];
 }
 
 
@@ -126,6 +139,8 @@ void AErrolCharacter::CutInHalf()
 void AErrolCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	UE_LOG(LogTemp, Warning, TEXT("See: %d"), CanThePlayerSeeMe());
 
 		switch (State)
 		{
@@ -207,6 +222,102 @@ void AErrolCharacter::GoToRandomWaypoint()
 	//AICon->MoveToActor(GetRandomWaypoint(), -1.f, true, true, true);
 }
 
+bool AErrolCharacter::CanThePlayerSeeMe()
+{
+	bool bCanThePlayerSeeMe = false;
+
+	TArray<FVector> BoneLocations;
+
+	const FVector HeadLocation = BodyMesh->GetBoneLocation(FName("joint8"));
+	const FVector ChestLocation = BodyMesh->GetBoneLocation(FName("Spine01_JNT"));
+	const FVector CrotchLocation = BodyMesh->GetBoneLocation(FName("COG_JNT"));
+
+	const FVector RightShoulderLocation = BodyMesh->GetBoneLocation(FName("R_Shoulder_JNT"));
+	const FVector LeftShoulderLocation = BodyMesh->GetBoneLocation(FName("L_Shoulder_JNT"));
+	const FVector RightKneeLocation = BodyMesh->GetBoneLocation(FName("R_Knee_JNT"));
+	const FVector LeftKneeLocation = BodyMesh->GetBoneLocation(FName("L_Knee_JNT"));
+
+	const FVector RightElbowLocation = BodyMesh->GetBoneLocation(FName("R_Elbow_JNT"));
+	const FVector LeftElbowLocation = BodyMesh->GetBoneLocation(FName("L_Elbow_JNT"));
+
+	const FVector RightHandLocation = BodyMesh->GetBoneLocation(FName("R_Hand_JNT"));
+	const FVector LeftHandLocation = BodyMesh->GetBoneLocation(FName("L_Hand_JNT"));
+	const FVector RightFootLocation = BodyMesh->GetBoneLocation(FName("R_Ankle_JNT"));
+	const FVector LeftFootLocation = BodyMesh->GetBoneLocation(FName("L_Ankle_JNT"));
+	const FVector SawTipLocation = SawTip->GetComponentLocation();
+
+	BoneLocations.Add(HeadLocation);
+	BoneLocations.Add(ChestLocation);
+	BoneLocations.Add(CrotchLocation);
+	BoneLocations.Add(RightHandLocation);
+	BoneLocations.Add(LeftHandLocation);
+	BoneLocations.Add(RightFootLocation);
+	BoneLocations.Add(LeftFootLocation);
+	BoneLocations.Add(RightShoulderLocation);
+	BoneLocations.Add(LeftShoulderLocation);
+	BoneLocations.Add(RightKneeLocation);
+	BoneLocations.Add(LeftKneeLocation);
+	BoneLocations.Add(RightElbowLocation);
+	BoneLocations.Add(LeftElbowLocation);
+
+	BoneLocations.Add(SawTipLocation);
+
+	APlayerController * PlayerController = UGameplayStatics::GetPlayerController(World, 0);
+
+	const FVector2D ViewportSize = FVector2D(GEngine->GameViewport->Viewport->GetSizeXY());
+
+	for (FVector BoneLocation : BoneLocations)
+	{
+
+		// trace from player camera to bone location
+		// if trace hits ErrolCharacter
+		// project ImpactPoint to screen
+		// if on screen then return true.
+
+		if (PlayerCamera != nullptr)
+		{
+			const FVector CL = PlayerCamera->GetComponentLocation();
+			FHitResult HitResult;
+			bool bCameraTrace = World->LineTraceSingleByChannel(HitResult, CL, BoneLocation, ECollisionChannel::ECC_Pawn, CanPlayerSeeMeTraceParams);
+
+			// trace hit me
+			if (bCameraTrace && HitResult.Actor == this)
+			{
+				const FVector HitLocation = HitResult.ImpactPoint;
+
+				FVector2D HitLocationOnScreen;
+				PlayerController->ProjectWorldLocationToScreen(HitLocation, HitLocationOnScreen, true);
+
+				if (HitLocationOnScreen.X > 0.1f && HitLocationOnScreen.X <= ViewportSize.X)
+				{
+					if (HitLocationOnScreen.Y > 0.1f && HitLocationOnScreen.Y <= ViewportSize.Y)
+					{
+						bCanThePlayerSeeMe = true;
+						break;
+					}
+				}
+			}
+		}
+		
+
+		/*
+		FVector2D BoneLocationOnScreen;
+		PlayerController->ProjectWorldLocationToScreen(BoneLocation, BoneLocationOnScreen, true);
+
+		if (BoneLocationOnScreen.X > 0.1f && BoneLocationOnScreen.X <= ViewportSize.X)
+		{
+			if (BoneLocationOnScreen.Y > 0.1f && BoneLocationOnScreen.Y <= ViewportSize.Y)
+			{
+				bCanThePlayerSeeMe = true;
+				break;
+			}
+		}
+		*/
+	}
+
+	return bCanThePlayerSeeMe;
+}
+
 void AErrolCharacter::EnterIdleState()
 {
 	State = ErrolState::STATE_IDLE;
@@ -258,7 +369,7 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 		UpdateMoveSpeedBasedOnPlayerCamera(DeltaTime);
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size());
+	//UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size());
 	
 	/*
 	if (ShouldIMarkPlayerForDeath())
@@ -483,10 +594,12 @@ void AErrolCharacter::InitializeCanSeeVariables()
 	UActorComponent * TempAC = Player->GetComponentByClass(UCameraComponent::StaticClass());
 	PlayerCamera = Cast<UCameraComponent>(TempAC);
 	InitializePerceptionTimers();
+
+	CanPlayerSeeMeTraceParams.AddIgnoredActor(Player);
 	//	Debug
 	//EnterPeekState();
 
-	EnterChaseState();
+	EnterUpperWindowScareState();
 }
 
 void AErrolCharacter::InitializePerceptionTimers()
@@ -879,4 +992,27 @@ void AErrolCharacter::UpdatePeekPosition()
 	//FRotator Rot = DispEye.Rotation();
 	//Rot.Pitch = 0;
 	//SetActorRotation(Rot);
+}
+
+void AErrolCharacter::EnterUpperWindowScareState()
+{
+	State = ErrolState::STATE_UPPERWINDOWSCARE;
+	PeekState = ErrolPeekState::STATE_LEFTPEEK;
+	StartPeekAnimation();
+	UpdateAnimation(State);
+	SetActorLocationAndRotation(UpperWindowStartingPoint->GetActorLocation(), UpperWindowStartingPoint->GetActorRotation());
+	SawMesh->SetVisibility(false);
+	// move into position
+	// set animation to left peek, set look at alpha to 0.8, tick and wait for the player to look at Errol directly for a few seconds
+	// then set Errol's state to chase state.
+}
+
+void AErrolCharacter::TickUpperWindowScareState(float DeltaTime)
+{
+
+}
+
+void AErrolCharacter::ExitUpperWindowScareState()
+{
+
 }

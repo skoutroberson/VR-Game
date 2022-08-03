@@ -9,6 +9,7 @@
 #include "ErrolController.h"
 #include "NavigationSystem.h"
 #include "PeekPoint.h"
+#include "CollisionQueryParams.h"
 #include "ErrolCharacter.generated.h"
 
 UENUM(BlueprintType)
@@ -25,6 +26,7 @@ enum class ErrolState : uint8
 	STATE_SHOULDERPEEK	UMETA(DisplayName="ShoulderPeek"),
 	STATE_FLYAT			UMETA(DisplayName="FlyAt"),
 	STATE_BEINGCUT		UMETA(DisplayName="BeingCut"),
+	STATE_UPPERWINDOWSCARE UMETA(DisplayName="UpperWindowScare"),
 };
 
 UENUM(BlueprintType)
@@ -80,6 +82,8 @@ private:
 	USceneComponent * ErrolEye = nullptr;
 	UNavigationSystemV1 * NavigationSystem = nullptr;
 
+	USceneComponent * SawTip = nullptr;
+
 	USkeletalMeshComponent * SkeletalMeshComp = nullptr;
 	USkeletalMeshComponent * TopHalfMesh = nullptr;
 
@@ -91,6 +95,8 @@ private:
 
 	FVector LeftPeekVector = FVector::ZeroVector;
 	FVector RightPeekVector = FVector::ZeroVector;
+
+	// State Stuff
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -113,6 +119,12 @@ private:
 public:
 	UFUNCTION()
 	void GoToRandomWaypoint();
+
+	// returns false if the player can MOST LIKELY not see me. This uses 14 raycasts from the player camera to bones on the meshes to determine this.
+	UFUNCTION(BlueprintCallable)
+	bool CanThePlayerSeeMe();
+
+	FCollisionQueryParams CanPlayerSeeMeTraceParams;
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "AIAnimation")
 	void UpdateAnimation(ErrolState CurrentState);
@@ -244,6 +256,25 @@ public:
 	//	Used to keep track of how long the player has looked at Errol while he's peeking and how much they are looking at him
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	float PeekScareLevel = 0;
+
+	// SCARE STATES:
+
+	// These states control Errol's behavior during a specific scare created in blueprints.
+
+	// Upper Window Scare State
+
+	UFUNCTION(BlueprintCallable)
+	void EnterUpperWindowScareState();
+	UFUNCTION(BlueprintCallable)
+	void TickUpperWindowScareState(float DeltaTime);
+	UFUNCTION(BlueprintCallable)
+	void ExitUpperWindowScareState();
+
+private:
+	AActor * UpperWindowStartingPoint = nullptr;
+
+public:
+	// Various settings
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float IdleSpeed = 0;
