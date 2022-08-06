@@ -94,7 +94,7 @@ void AErrolCharacter::BeginPlay()
 	// for easier editing of starting position for the Upper Window Scare:
 	TArray<AActor*> UppWinScareStartingPos;
 	UGameplayStatics::GetAllActorsWithTag(World, FName("UpWinScare"), UppWinScareStartingPos);
-	UpperWindowStartingPoint = UppWinScareStartingPos[0];
+	//UpperWindowStartingPoint = UppWinScareStartingPos[0];
 }
 
 
@@ -140,8 +140,6 @@ void AErrolCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UE_LOG(LogTemp, Warning, TEXT("See: %d"), CanThePlayerSeeMe());
-
 		switch (State)
 		{
 		case ErrolState::STATE_IDLE:
@@ -178,6 +176,9 @@ void AErrolCharacter::Tick(float DeltaTime)
 			break;
 		case ErrolState::STATE_FLYAT:
 			TickFlyAtState(DeltaTime);
+			break;
+		case ErrolState::STATE_UPPERWINDOWSCARE:
+			TickUpperWindowScareState(DeltaTime);
 			break;
 		}
 
@@ -278,7 +279,7 @@ bool AErrolCharacter::CanThePlayerSeeMe()
 		{
 			const FVector CL = PlayerCamera->GetComponentLocation();
 			FHitResult HitResult;
-			bool bCameraTrace = World->LineTraceSingleByChannel(HitResult, CL, BoneLocation, ECollisionChannel::ECC_Pawn, CanPlayerSeeMeTraceParams);
+			bool bCameraTrace = World->LineTraceSingleByChannel(HitResult, CL, BoneLocation, ECollisionChannel::ECC_Visibility, CanPlayerSeeMeTraceParams);
 
 			// trace hit me
 			if (bCameraTrace && HitResult.Actor == this)
@@ -333,7 +334,7 @@ void AErrolCharacter::EnterPatrolState()
 }
 
 
-void AErrolCharacter::EnterChaseState()
+void AErrolCharacter::EnterChaseState(float MaxSpeed)
 {
 	State = ErrolState::STATE_CHASE;
 
@@ -352,6 +353,8 @@ void AErrolCharacter::EnterChaseState()
 	// EachState decrement fShouldKill and if the player is killed then increase fShouldKill by a lot so they are very unlucky if they are killed.
 
 	bSprintAtPlayer = true;
+
+	ChaseSpeed = MaxSpeed;
 	
 	UpdateAnimation(State);
 	ErrolController->MoveToActor(Player); //KillRadius);
@@ -599,7 +602,7 @@ void AErrolCharacter::InitializeCanSeeVariables()
 	//	Debug
 	//EnterPeekState();
 
-	EnterUpperWindowScareState();
+	//EnterUpperWindowScareState();
 }
 
 void AErrolCharacter::InitializePerceptionTimers()
@@ -699,11 +702,11 @@ void AErrolCharacter::SetSeeGauge()
 				{
 				case ErrolState::STATE_PATROL:
 					ExitPatrolState();
-					EnterChaseState();
+					//EnterChaseState();
 					break;
 				case ErrolState::STATE_LOOKAROUND:
 					ExitLookAroundState();
-					EnterChaseState();
+					//EnterChaseState();
 					break;
 				case ErrolState::STATE_CHASE:
 					//	Move to random point on sphere where player is, moving farther away depending on how high ChaseGauge is.
@@ -738,7 +741,7 @@ void AErrolCharacter::ShouldChase()
 {
 	if (DetectionGauge > DetectionThreshold)
 	{
-		EnterChaseState();
+		EnterChaseState(ChaseSpeed);
 		// Exit Current State
 	}
 }
@@ -1009,10 +1012,34 @@ void AErrolCharacter::EnterUpperWindowScareState()
 
 void AErrolCharacter::TickUpperWindowScareState(float DeltaTime)
 {
+	bool bCanPlayerSeeMe = CanThePlayerSeeMe();
+	if (bCanPlayerSeeMe == true)
+	{
+		const FVector CFV = PlayerCamera->GetForwardVector();
+		const FVector CL = PlayerCamera->GetComponentLocation();
+		const FVector ChestLocation = BodyMesh->GetBoneLocation(FName("Spine01_JNT"));
+		FVector Disp = ChestLocation - CL;
+		Disp = Disp.GetSafeNormal();
 
+		float Dot = FVector::DotProduct(CFV, Disp) - 0.5f;
+
+		if (Dot < 0) // i don't think dot will ever be 0 but i'm doing this check just in case...
+		{
+			Dot = 0;
+		}
+
+		UpperWindowScareStareValue += Dot * DeltaTime;
+
+		if (UpperWindowScareStareValue > UpperWindowScareChaseThreshold)
+		{
+			ExitUpperWindowScareState();
+		}
+	}
 }
 
 void AErrolCharacter::ExitUpperWindowScareState()
 {
-
+	EndPeekAnimation();
+	SawMesh->SetVisibility(true);
+	EnterChaseState(110.f);
 }

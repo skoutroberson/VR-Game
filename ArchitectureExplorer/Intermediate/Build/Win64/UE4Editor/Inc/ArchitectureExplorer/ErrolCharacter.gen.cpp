@@ -554,9 +554,9 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_EnterUpperWindowScareState_Statics::Function_MetaDataParams[] = {
-		{ "Comment", "// Upper Window Scare State\n" },
+		{ "Comment", "// Upper Window Scare State:\n" },
 		{ "ModuleRelativePath", "ErrolCharacter.h" },
-		{ "ToolTip", "Upper Window Scare State" },
+		{ "ToolTip", "Upper Window Scare State:" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_EnterUpperWindowScareState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "EnterUpperWindowScareState", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_EnterUpperWindowScareState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_EnterUpperWindowScareState_Statics::Function_MetaDataParams)) };
@@ -1132,7 +1132,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterFlyAtState, "EnterFlyAtState" }, // 4091144147
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterPeekState, "EnterPeekState" }, // 3880286838
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState, "EnterShoulderPeekState" }, // 4160678110
-		{ &Z_Construct_UFunction_AErrolCharacter_EnterUpperWindowScareState, "EnterUpperWindowScareState" }, // 2473648598
+		{ &Z_Construct_UFunction_AErrolCharacter_EnterUpperWindowScareState, "EnterUpperWindowScareState" }, // 636383724
 		{ &Z_Construct_UFunction_AErrolCharacter_ExitPeekState, "ExitPeekState" }, // 195118670
 		{ &Z_Construct_UFunction_AErrolCharacter_ExitShoulderPeekState, "ExitShoulderPeekState" }, // 3425939680
 		{ &Z_Construct_UFunction_AErrolCharacter_ExitUpperWindowScareState, "ExitUpperWindowScareState" }, // 676053072
@@ -1320,7 +1320,9 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseSpeed_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
+		{ "Comment", "// This can be anywhere between 0 and 220.f;\n" },
 		{ "ModuleRelativePath", "ErrolCharacter.h" },
+		{ "ToolTip", "This can be anywhere between 0 and 220.f;" },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseSpeed = { "ChaseSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, ChaseSpeed), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseSpeed_MetaData)) };
@@ -1422,7 +1424,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 2817418513);
+	IMPLEMENT_CLASS(AErrolCharacter, 3665434214);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

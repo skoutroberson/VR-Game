@@ -266,6 +266,13 @@ void AChainsaw::EndDismember()
 	// ragdoll top and bottom half of body
 	// update current stage perhaps? maybe end the game?
 
+	ErrolMainMesh->SetVisibility(false);
+	ErrolTopHalfMesh->SetVisibility(true);
+	ErrolBottomHalfMesh->SetVisibility(true);
+	ErrolChainsawMesh->SetSimulatePhysics(true);
+	ErrolTopHalfMesh->SetSimulatePhysics(true);
+	ErrolBottomHalfMesh->SetSimulatePhysics(true);
+
 	bDismembering = false;
 
 	// this will cause some issues if the player lets go of the chainsaw while dismembering... I need to think of a way to deal with this

@@ -83,7 +83,7 @@ void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	DrawDebugLine(World, DoorMesh->GetComponentLocation(), DoorMesh->GetComponentLocation() + DoorHinge->GetForwardVector() * 100.f, FColor::Green, false, 1.f);
+	//DrawDebugLine(World, DoorMesh->GetComponentLocation(), DoorMesh->GetComponentLocation() + DoorHinge->GetForwardVector() * 100.f, FColor::Green, false, 1.f);
 
 	if (bCloseDoorFast)
 	{
@@ -92,10 +92,6 @@ void ADoor::Tick(float DeltaTime)
 	else if (!bLocked && bIsBeingUsed)
 	{
 		UseDoor(DeltaTime);
-	}
-	else if (bCollisionSwing)
-	{
-		CollisionSwing(DeltaTime);
 	}
 	else if (bSwing)
 	{
@@ -134,6 +130,11 @@ void ADoor::Swing(float DeltaTime)
 		{
 			bFullyClosed = true;
 			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SwingVelocity * CloseAudioMultiplier, 0.0f, 1.0f));
+
+			if (bPortalRoomStartDoor)
+			{
+				// do things on door close for portal room.
+			}
 		}
 		
 		SwingVelocity = 0;
@@ -306,7 +307,7 @@ void ADoor::PlaySwingAudio(const float Velocity)
 	const float SwingPitchMultiplier = FMath::Clamp(Velocity * 100.f, 0.7f, 1.4f);
 	SwingAudioComponent->SetVolumeMultiplier(SwingVolumeMultiplier);
 
-	UE_LOG(LogTemp, Warning, TEXT("Volume: %f"), SwingVolumeMultiplier);
+	//UE_LOG(LogTemp, Warning, TEXT("Volume: %f"), SwingVolumeMultiplier);
 
 	if (AbsVel > MinSwingAudioVelocity)
 	{

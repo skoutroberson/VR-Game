@@ -99,6 +99,18 @@ public:
 
 	UAudioComponent * EngineAudio;
 
+	UPROPERTY(BlueprintReadWrite)
+	USkeletalMeshComponent * ErrolMainMesh;
+
+	UPROPERTY(BlueprintReadWrite)
+	USkeletalMeshComponent * ErrolTopHalfMesh;
+
+	UPROPERTY(BlueprintReadWrite)
+	USkeletalMeshComponent * ErrolBottomHalfMesh;
+
+	UPROPERTY(BlueprintReadWrite)
+	USkeletalMeshComponent * ErrolChainsawMesh;
+
 	/**
 		used to determine if the controller's left or right trigger is controlling the chainsaw trigger.
 		This is set by HandController when the chainsaw is grabbed

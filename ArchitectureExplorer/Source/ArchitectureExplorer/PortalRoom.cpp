@@ -118,25 +118,31 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 	// get all overlapping grabbable actors in the portal room bounds,
 	// teleport them to the target portal with the player
 
-	for (auto i : OverlappingGrabbables)
+	int counter = 0;
+
+	int n = OverlappingGrabbables.Num();
+
+	for (int i = 0; i < n; i++)
 	{
 		// position
-		FVector GrabDeltaPosition = i->GetActorLocation() - PL;
+		FVector GrabDeltaPosition = OverlappingGrabbables[i]->GetActorLocation() - PL;
 		FVector GrabNewDeltaPosition = FVector(GrabDeltaPosition.Y, -GrabDeltaPosition.X, GrabDeltaPosition.Z);
 		FVector GrabTargetLocation = TPL + GrabNewDeltaPosition;
 		// rotation
-		FRotator GrabRotation = i->GetActorRotation();
+		FRotator GrabRotation = OverlappingGrabbables[i]->GetActorRotation();
 		float GrabTeleportYaw = GrabRotation.Yaw + DeltaRotation;
 		FRotator GrabTeleportRotation = FRotator(GrabRotation.Pitch, GrabTeleportYaw, GrabRotation.Roll);
 		// velocity
-		FVector GrabSavedVelocity = i->GetVelocity();
+		FVector GrabSavedVelocity = OverlappingGrabbables[i]->GetVelocity();
 		FVector GrabNewVelocity = GrabSavedVelocity.RotateAngleAxis(DeltaRotation, FVector(0, 0, 1.f));
 
-		i->GetVelocity().Set(GrabNewVelocity.X, GrabNewVelocity.Y, GrabNewVelocity.Z);
-		i->SetActorLocationAndRotation(GrabTargetLocation, GrabTeleportRotation);
+		OverlappingGrabbables[i]->GetVelocity().Set(GrabNewVelocity.X, GrabNewVelocity.Y, GrabNewVelocity.Z);
+		OverlappingGrabbables[i]->SetActorLocationAndRotation(GrabTargetLocation, GrabTeleportRotation);
+
+		counter++;
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("Items: %d"), OverlappingGrabbables.Num());
+	UE_LOG(LogTemp, Warning, TEXT("Items: %d"), counter);
 	//UE_LOG(LogTemp, Warning, TEXT("1: %f %f %f"), DeltaPosition.X, DeltaPosition.Y, DeltaPosition.Z);
 	//UE_LOG(LogTemp, Warning, TEXT("2: %f %f %f"), NewDeltaPosition.X, NewDeltaPosition.Y, NewDeltaPosition.Z);
 	VRChar->GetCharacterMovement()->Velocity.Set(NewVelocity.X, NewVelocity.Y, NewVelocity.Z);

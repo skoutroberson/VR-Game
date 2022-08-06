@@ -150,7 +150,7 @@ public:
 
 	// CHASE
 
-	void EnterChaseState();
+	void EnterChaseState(float MaxSpeed);
 
 	UFUNCTION(BlueprintCallable)
 	void TickChaseState(float DeltaTime);
@@ -261,7 +261,7 @@ public:
 
 	// These states control Errol's behavior during a specific scare created in blueprints.
 
-	// Upper Window Scare State
+	// Upper Window Scare State:
 
 	UFUNCTION(BlueprintCallable)
 	void EnterUpperWindowScareState();
@@ -269,6 +269,14 @@ public:
 	void TickUpperWindowScareState(float DeltaTime);
 	UFUNCTION(BlueprintCallable)
 	void ExitUpperWindowScareState();
+
+	// measures how long the player has looked at Errol staring at them through the window.
+	float UpperWindowScareStareValue = 0.0f;
+	float UpperWindowScareChaseThreshold = 1.6f;
+
+	float UpperWindowChaseSpeed = 110.f;
+
+
 
 private:
 	AActor * UpperWindowStartingPoint = nullptr;
@@ -282,6 +290,7 @@ public:
 	float FlyAtSpeed = 360.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float PatrolSpeed = 140.f;
+	// This can be anywhere between 0 and 220.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	float ChaseSpeed = 220.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite);

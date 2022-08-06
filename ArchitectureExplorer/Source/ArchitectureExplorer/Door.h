@@ -69,6 +69,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
 	FVector LastCALocation = FVector::ZeroVector;
 
+	// if this bool is true, then do certain things on door close like turn off flashlight, radio, and change Errol behavior.
+	UPROPERTY(EditAnywhere)
+	bool bPortalRoomStartDoor = false;
+
 	// modifiers
 	UPROPERTY(EditAnywhere)
 	float CloseAudioMultiplier = 10.f;
