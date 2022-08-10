@@ -214,6 +214,20 @@ void AChainsaw::StopShake()
 	SetActorRelativeRotation(FRotator::ZeroRotator);
 }
 
+void AChainsaw::SpawnBlood(float DeltaTime)
+{
+	BloodSpawnCounter += DeltaTime;
+
+	if (BloodSpawnCounter > BloodSpawnTime)
+	{
+		BloodSpawnCounter = 0;
+
+		FActorSpawnParameters SpawnParams;
+
+		World->SpawnActor<AActor>(BloodFXActor, BladeCollision->GetComponentTransform());
+	}
+}
+
 void AChainsaw::StartDismember()
 {
 	// move saw to the starting location
@@ -342,7 +356,7 @@ void AChainsaw::TickDismember(float DeltaTime)
 
 	const float DistanceToEnd = FVector::DistSquared(EndLocation, BladeLocation);
 
-	if (DistanceToEnd < 14.0f)
+	if (DistanceToEnd < 110.0f)
 	{
 		EndDismember();
 	}
@@ -362,6 +376,9 @@ void AChainsaw::TickDismember(float DeltaTime)
 	//GEngine->AddOnScreenDebugMessage(-1, DeltaTime * 1.1f, FColor::Green, FString::Printf(TEXT("PitchCheck: %f"), PitchCheck));
 
 	//AddActorLocalOffset(BladeOffset);
+
+	// spawn blood:
+	SpawnBlood(DeltaTime);
 }
 
 void AChainsaw::Gripped(int HandHoldNum)

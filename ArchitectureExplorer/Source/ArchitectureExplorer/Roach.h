@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/SphereComponent.h"
+#include "GameFramework/ProjectileMovementComponent.h"
 #include "Roach.generated.h"
 
 UENUM(BlueprintType)
@@ -53,6 +54,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* RoachRoot;
+
+	UPROPERTY(EditAnywhere)
+	UProjectileMovementComponent* MovementComponent;
 
 	void PrintTest();
 
@@ -135,5 +139,64 @@ private:
 	void ExitState(FStateInfo *State);
 	void EnterState(FStateInfo *State);
 	void TickState(FStateInfo *State, float DeltaTime);
+
+	// climbing abilities
+
+	void ClimbUp(FVector Normal);
+	void ClimbDown(float DeltaTime);
+
+	bool RotateToGroundNormal();
+
+	// If surface is found: Returns true and gives HitResult the surface info. If not found: returns false
+	bool CheckSurfaceAtLocation(FVector Location, FHitResult &HitResult);
+
+	void MoveAndRotateToSurface(FHitResult &SurfaceInfo);
+
+	// how many
+	uint8 FrameSweepIterations = 0;
+	uint8 MaxSweepIterations = 5;
+
+	FVector TargetLocation = FVector::ZeroVector;
+
+	// Move State stuff:
+
+	FVector GoalLocation = FVector::ZeroVector;
+	FVector GoalNormal = FVector::ZeroVector;
+
+	TArray<FVector> GoalLocations;
+
+
+	/**
+	Sphere trace forward and check for blocking hit, ignores scrapes.
+	Returns true if hit found and sets GoalLocation and GoalNormal to the impact info.
+	*/
+	bool CheckForward(float DeltaTime);
+	//hit: set bMoveToGoal to true
+
+	//no hit:
+	/**
+	Loop of Line Traces Down until we find a hit.
+	Returns true if a hit was found and sets GoalLocation and GoalNormal.
+	*/
+	bool CheckDown(float DeltaTime);
+	//hit: set bMoveToGoal to true
+	//no hit: turn
+
+	uint8 DownTraceIterations = 0;
+	uint8 MaxDownTraceIterations = 3;
+
+
+	// sweeps to goal, if sweep fails then we move to X location above the GoalLocation first, then we move to Goal.
+	void MoveToGoal(float DeltaTime);
+
+	void MoveAndRotateToGoal(float DeltaTime);
+
+
+	UPROPERTY(VisibleAnywhere, Category = "Roach")
+	bool bMoveToGoal = false;
+	UPROPERTY(EditAnywhere, Category = "Roach")
+	bool bTurn = false;
+
+	void UpdateTurnDirection(FVector ImpactNormal, bool bDownTrace);
 
 };

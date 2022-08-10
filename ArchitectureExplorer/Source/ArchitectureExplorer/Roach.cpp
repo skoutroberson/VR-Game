@@ -26,6 +26,8 @@ ARoach::ARoach()
 	PrimaryActorTick.bCanEverTick = true;
 	CurrentState = &MoveState;
 
+	MovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("MovementComponent"));
+
 	QueryParams.AddIgnoredActor(this);
 }
 
@@ -40,6 +42,13 @@ void ARoach::BeginPlay()
 
 	Radius = Root->GetScaledSphereRadius();
 
+	MovementComponent->SetUpdatedComponent(Root);
+
+	TArray<AActor*> RoachActors;
+	UGameplayStatics::GetAllActorsOfClass(World, ARoach::StaticClass(), RoachActors);
+
+	QueryParams.AddIgnoredActors(RoachActors);
+
 	//CurrentState.Enter.ExecuteIfBound();
 	//(this->*(CurrentState.Enter))();
 	//EnterState(CurrentState);
@@ -50,6 +59,8 @@ void ARoach::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	TickState(CurrentState, DeltaTime);
+
+	FrameSweepIterations = 0;
 }
 
 /*
@@ -117,41 +128,45 @@ void ARoach::TickWaitState(float DeltaTime)
 
 void ARoach::TickMoveState(float DeltaTime)
 {
-	if (ShouldTurnImmediately())
+	if (bMoveToGoal)
+	{
+		DrawDebugPoint(World, GoalLocation, 5.f, FColor::Cyan, false, DeltaTime * 1.1f);
+		MoveAndRotateToGoal(DeltaTime);
+	}
+	else if (bTurn)
 	{
 		Turn(DeltaTime);
+		bTurn = false;
+	}
+	else if (CheckForward(DeltaTime))
+	{
+		bMoveToGoal = true;
+		MoveAndRotateToGoal(DeltaTime);
+	}
+	else if(CheckDown(DeltaTime))
+	{
+		bMoveToGoal = true;
+		MoveAndRotateToGoal(DeltaTime);
 	}
 	else
 	{
-		MoveForward(DeltaTime);
-		/** 
-		MoveForward();
-		//Swerve();
-		//Wiggle();
-
-		// flock or flee based on public boolean
-		*/	
+		bTurn = true;
+		Turn(DeltaTime);
 	}
+
+	DrawDebugPoint(World, GoalLocation, 5.f, FColor::Red, false, DeltaTime * 1.1f);
+	DrawDebugLine(World, GoalLocation, GoalLocation + GoalNormal * 10.f, FColor::Red, false, DeltaTime * 1.1f);
+
+	DownTraceIterations = 0;
 }
 
 void ARoach::HitRigidBody(UPARAM(ref)FHitResult HitResult)
 {
-	const FVector AL = GetActorLocation();
-	FVector Disp = AL - HitResult.ImpactPoint;
-	//Disp.Z = 0;
-	float DispSize = Disp.Size();
+	//DrawDebugPoint(World, HitResult.ImpactPoint, 4.f, FColor::Magenta, false, World->DeltaTimeSeconds * 1.1f);
 
-	FVector DispNormal = Disp.GetSafeNormal();
-	
-	float OffsetSize = Root->GetScaledSphereRadius() - DispSize;
+	// this will be used during MOVETOGOAL
 
-	AddActorWorldOffset(DispNormal * OffsetSize);
-
-	const float RDot = FVector::DotProduct(Disp, GetActorRightVector());
-
-	bTurnLeft = (RDot > 0) ? false : true;
-
-	Turn(World->DeltaTimeSeconds);
+	UE_LOG(LogTemp, Warning, TEXT("Hit"));
 }
 
 void ARoach::Turn(float DeltaTime)
@@ -160,40 +175,24 @@ void ARoach::Turn(float DeltaTime)
 
 	const float TurnDirection = (bTurnLeft) ? -1.0f : 1.0f;
 
-	FRotator NewRotation = GetActorRotation();
+	const FVector Axis = GetActorUpVector() * TurnDirection;
+	const FQuat DeltaRotation(Axis, HALF_PI);
+	const FQuat ActorQuat = GetActorQuat();
+	const FQuat NewRotation = DeltaRotation * ActorQuat;
 
-	float ScaledYaw = NewRotation.Yaw + (TurnSpeed * DeltaTime * TurnDirection);
-	NewRotation.Yaw = ScaledYaw;
-	
-	SetActorRotation(NewRotation);
-
-	FHitResult HitResult;
-	const FVector UV = GetActorUpVector();
-	const FVector TS = GetActorLocation() + (UV * 0.1f);
-	const FVector TE = TS - (UV * 2.f);
+	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewRotation, DeltaTime, MoveSpeed * 0.1f));
 
 	/*
-	bool bDownTrace = World->LineTraceSingleByChannel(HitResult, TS, TE, ECollisionChannel::ECC_WorldStatic, QueryParams);
-
-	if (!bDownTrace)
-	{
-		if (bTurnTheOtherWay)
-		{
-			bTurnTheOtherWay = false;
-		}
-		else
-		{
-			bTurnTheOtherWay = true;
-		}
-		// change state to wait
-	}
+	FRotator NewRotation = GetActorRotation();
+	float ScaledYaw = NewRotation.Yaw + (TurnSpeed * DeltaTime * TurnDirection);
+	NewRotation.Yaw = ScaledYaw;
+	SetActorRotation(NewRotation);
 	*/
 }
 
 void ARoach::MoveForward(float DeltaTime)
 {
-	const FVector FV = GetActorForwardVector();
-	AddActorWorldOffset(FV * MoveSpeed * DeltaTime, true);
+	
 }
 
 bool ARoach::ShouldAvoidCollision()
@@ -236,7 +235,7 @@ bool ARoach::ShouldTurnImmediately()
 	const FVector AL = GetActorLocation();
 
 	const FVector TS = AL + (FV * Radius) - (UV * Radius * 0.99f);
-	const FVector TE = TS - (UV * 2.6f);
+	const FVector TE = TS - (UV * Radius * 1.1f);
 
 	bool bDownTrace = World->LineTraceSingleByChannel(HitResult, TS, TE, ECollisionChannel::ECC_WorldStatic, QueryParams);
 	DrawDebugLine(World, TS, TE, FColor::Green, false, World->DeltaTimeSeconds * 1.1f);
@@ -292,4 +291,263 @@ void ARoach::EnterState(FStateInfo* State)
 void ARoach::TickState(FStateInfo* State, float DeltaTime)
 {
 	(this->*(State->Tick))(DeltaTime);
+}
+
+void ARoach::ClimbUp(FVector Normal)
+{
+	const FVector FV = GetActorForwardVector();
+	const FVector RV = GetActorRightVector();
+	const FVector UV = GetActorUpVector();
+
+	const float Dot = FVector::DotProduct(UV, Normal);
+	const float Angle = FMath::Acos(Dot);
+
+	FVector Axis = FVector::CrossProduct(UV, Normal);
+	if (Axis.Size() == 0)
+	{
+		Axis = GetActorRightVector();
+	}
+
+	const FQuat DeltaRotation = FQuat(Axis, Angle);
+	const FQuat ActorQuat = GetActorQuat();
+	const FQuat NewRotation = DeltaRotation * ActorQuat;
+
+	/*
+	float ClimbSpeed = FMath::Abs(Dot);
+
+	if (ClimbSpeed < 0.1f)
+	{
+		ClimbSpeed = 0.1f;
+	}
+	*/
+	UE_LOG(LogTemp, Warning, TEXT("Climb"));
+
+	
+	SetActorRotation(NewRotation);
+	
+	//SetActorRotation(FMath::QInterpTo(ActorQuat, NewRotation, World->DeltaTimeSeconds, MoveSpeed * 0.5));
+	
+	
+}
+
+void ARoach::ClimbDown(float DeltaTime)
+{
+	const FVector Axis = -GetActorRightVector();
+	const FQuat DeltaRotation = FQuat(Axis, PI);
+	const FQuat ActorQuat = GetActorQuat();
+	const FQuat NewRotation = DeltaRotation * ActorQuat;
+
+	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewRotation, DeltaTime, 1.0f));
+}
+
+bool ARoach::RotateToGroundNormal()
+{
+	FHitResult HitResult;
+	FVector AL = GetActorLocation();
+	FVector UV = GetActorUpVector();
+	FVector TE = AL - UV * Radius * 3.f;
+
+	bool bDownTrace = World->LineTraceSingleByChannel(HitResult, AL, TE, ECollisionChannel::ECC_WorldStatic, QueryParams);
+
+	DrawDebugLine(World, AL, TE, FColor::Red, true);
+
+	if (bDownTrace)
+	{
+		DrawDebugPoint(World, HitResult.ImpactPoint, 4.f, FColor::Green, true);
+		const FVector Normal = HitResult.ImpactNormal;
+		FVector FV = GetActorForwardVector();
+		FVector Axis = FVector::CrossProduct(UV, Normal);
+		Axis.Normalize();
+		float Angle = FMath::Acos(FVector::DotProduct(Normal, UV));
+		FQuat RotationQuat(Axis, Angle);
+		FQuat ActorQuat = GetActorQuat();
+		FQuat NewQuat = RotationQuat * ActorQuat;
+
+		SetActorRotation(NewQuat);
+
+		SetActorLocation(HitResult.ImpactPoint + GetActorUpVector() * Radius);
+
+		return true;
+	}
+	return false;
+}
+
+bool ARoach::CheckSurfaceAtLocation(FVector Location, FHitResult &HitResult)
+{
+	const float TraceDistance = Radius * 3.f;
+	const FVector UV = GetActorUpVector();
+
+	return World->LineTraceSingleByChannel(HitResult, Location, Location - UV * TraceDistance, ECollisionChannel::ECC_WorldStatic, QueryParams);
+}
+
+void ARoach::MoveAndRotateToSurface(FHitResult &SurfaceInfo)
+{
+	const FVector UV = GetActorUpVector();
+	const FVector Normal = SurfaceInfo.ImpactNormal;
+	FVector FV = GetActorForwardVector();
+	FVector Axis = FVector::CrossProduct(UV, Normal);
+	Axis.Normalize();
+	float Angle = FMath::Acos(FVector::DotProduct(Normal, UV));
+	FQuat RotationQuat(Axis, Angle);
+	FQuat ActorQuat = GetActorQuat();
+	FQuat NewQuat = RotationQuat * ActorQuat;
+
+	SetActorRotation(NewQuat);
+	SetActorLocation(SurfaceInfo.ImpactPoint + SurfaceInfo.Normal * Radius, true);
+}
+
+bool ARoach::CheckForward(float DeltaTime)
+{
+	FVector AL = GetActorLocation();
+	FVector FV = GetActorForwardVector();
+	FQuat ActorQuat = GetActorQuat();
+	GoalLocation = AL + FV * MoveSpeed * DeltaTime;
+	FHitResult HitResult;
+	FCollisionShape SweepSphere;
+	SweepSphere.SetSphere(Radius * 0.8f);
+	bool bSweep = World->SweepSingleByChannel(HitResult, AL, GoalLocation, ActorQuat, ECollisionChannel::ECC_WorldStatic, SweepSphere, QueryParams);
+
+	DrawDebugPoint(World, GoalLocation, 4.f, FColor::Black, false, DeltaTime * 1.1f);
+
+	if (bSweep)
+	{
+		GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
+		GoalNormal = HitResult.ImpactNormal;
+
+		UpdateTurnDirection(HitResult.ImpactNormal, false);
+
+		return true;
+	}
+
+	return false;
+}
+
+bool ARoach::CheckDown(float DeltaTime)
+{
+	FVector AL = GetActorLocation();
+	FVector UV = GetActorUpVector();
+	FVector TS = GoalLocation;
+	FVector TE = GoalLocation - UV * Radius * 2.f;
+	FHitResult HitResult;
+
+	bool bDownTrace = World->LineTraceSingleByChannel(HitResult, TS, TE, ECollisionChannel::ECC_WorldStatic, QueryParams);
+
+	if (bDownTrace)
+	{
+		DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Purple, false, DeltaTime * 1.1f);
+		GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
+		GoalNormal = HitResult.ImpactNormal;
+
+		UpdateTurnDirection(HitResult.ImpactNormal, true);
+
+		return true;
+	}
+	else
+	{
+		TS = TE;
+		while (DownTraceIterations < MaxDownTraceIterations)
+		{
+			++DownTraceIterations;
+
+			TE = AL - UV * DownTraceIterations;
+
+			bDownTrace = World->LineTraceSingleByChannel(HitResult, TS, TE, ECollisionChannel::ECC_WorldStatic, QueryParams);
+
+			if (bDownTrace)
+			{
+				DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Purple, false, DeltaTime * 1.1f);
+				GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
+				GoalNormal = HitResult.ImpactNormal;
+
+				UpdateTurnDirection(HitResult.ImpactNormal, true);
+
+				return true;
+			}
+		}
+	}
+
+	
+	return false;
+}
+
+void ARoach::MoveToGoal(float DeltaTime)
+{
+	const FVector AL = GetActorLocation();
+	//FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.1f);
+	SetActorLocation(GoalLocation, true);
+	
+}
+
+void ARoach::MoveAndRotateToGoal(float DeltaTime)
+{
+	// sweep to GoalLocation (ignoring scrapes)
+	// if sweep doesn't hit
+	FVector AL = GetActorLocation();
+	FQuat ActorQuat = GetActorQuat();
+	FHitResult HitResult;
+	FCollisionShape SweepSphere;
+	SweepSphere.SetSphere(Radius * 0.4f);
+
+	const FVector UV = GetActorUpVector();
+	FVector FV = GetActorForwardVector();
+	FVector Axis = FVector::CrossProduct(UV, GoalNormal);
+	Axis.Normalize();
+	float Angle = FMath::Acos(FVector::DotProduct(GoalNormal, UV));
+	FQuat RotationQuat(Axis, Angle);
+
+	FQuat NewQuat = RotationQuat * ActorQuat;
+
+
+	//SetActorRotation(FMath::QInterpTo(ActorQuat, NewQuat, DeltaTime, TurnSpeed));
+	//SetActorLocation(FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.5f));
+
+	float DistanceFromGoal = FVector::Distance(AL, GoalLocation);
+	float AngleFromGoal = FVector::DotProduct(GetActorUpVector(), GoalNormal);
+
+	if (DistanceFromGoal < 0.1f && AngleFromGoal > 0.99f)
+	{
+		bMoveToGoal = false;
+	}
+	
+	
+	bool bSweep = World->SweepSingleByChannel(HitResult, AL, GoalLocation, ActorQuat, ECollisionChannel::ECC_WorldStatic, SweepSphere, QueryParams);
+
+	if (bSweep)
+	{
+		bMoveToGoal = false;
+
+		UpdateTurnDirection(HitResult.ImpactNormal, true);
+
+		bTurn = true;
+		Turn(DeltaTime);
+	}
+	else
+	{
+		const FVector UV = GetActorUpVector();
+		FVector FV = GetActorForwardVector();
+		FVector Axis = FVector::CrossProduct(UV, GoalNormal);
+		Axis.Normalize();
+		float Angle = FMath::Acos(FVector::DotProduct(GoalNormal, UV));
+		FQuat RotationQuat(Axis, Angle);
+
+		FQuat NewQuat = RotationQuat * ActorQuat;
+
+
+		SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.3f));
+		SetActorLocation(FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed));
+
+		//SetActorRotation(NewQuat);
+		//SetActorLocation(GoalLocation);
+
+		bMoveToGoal = false;
+	}
+	
+	
+}
+
+void ARoach::UpdateTurnDirection(FVector ImpactNormal, bool bDownTrace)
+{
+	const float DotMultiplier = (bDownTrace) ? 1.0f : -1.0f;
+	const float RDot = FVector::DotProduct(GetActorRightVector(), ImpactNormal) * DotMultiplier;
+	bTurnLeft = (RDot > 0) ? true : false;
 }

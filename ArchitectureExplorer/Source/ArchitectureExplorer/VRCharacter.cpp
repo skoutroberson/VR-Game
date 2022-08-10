@@ -615,6 +615,7 @@ void AVRCharacter::MoveForward(float throttle)
 	{
 		AddMovementInput(throttle * CFV);
 	}
+	GetCharacterMovement()->MaxStepHeight;
 }
 
 void AVRCharacter::MoveRight(float throttle)

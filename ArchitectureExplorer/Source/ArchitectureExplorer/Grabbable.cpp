@@ -18,6 +18,8 @@ AGrabbable::AGrabbable()
 void AGrabbable::BeginPlay()
 {
 	Super::BeginPlay();
+
+	World = GetWorld();
 	
 	HandHold1 = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), TEXT("1"))[0]);
 	HandHoldOffset1 = GetActorLocation() - HandHold1->GetComponentLocation();

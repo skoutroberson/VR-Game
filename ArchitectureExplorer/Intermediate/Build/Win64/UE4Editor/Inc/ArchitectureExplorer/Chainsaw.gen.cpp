@@ -21,6 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UArrowComponent_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
@@ -276,6 +277,10 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ErrolChainsawMesh;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BloodFXActor_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_BloodFXActor;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DismemberCutSpeed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_DismemberCutSpeed;
@@ -283,6 +288,10 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DismemberRotateSpeedModifier_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_DismemberRotateSpeedModifier;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BloodSpawnTime_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_BloodSpawnTime;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CutEndLocation_MetaData[];
 #endif
@@ -444,6 +453,13 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_ErrolChainsawMesh = { "ErrolChainsawMesh", nullptr, (EPropertyFlags)0x001000000008000c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, ErrolChainsawMesh), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_ErrolChainsawMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_ErrolChainsawMesh_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_BloodFXActor_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_BloodFXActor = { "BloodFXActor", nullptr, (EPropertyFlags)0x0014000000000001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, BloodFXActor), Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_BloodFXActor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_BloodFXActor_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_DismemberCutSpeed_MetaData[] = {
 		{ "Category", "Chainsaw" },
 		{ "Comment", "// speed that the saw cuts through the body.\n" },
@@ -461,6 +477,15 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_DismemberRotateSpeedModifier = { "DismemberRotateSpeedModifier", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, DismemberRotateSpeedModifier), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_DismemberRotateSpeedModifier_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_DismemberRotateSpeedModifier_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_BloodSpawnTime_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "Comment", "// How often to spawn blood fx\n" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+		{ "ToolTip", "How often to spawn blood fx" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_BloodSpawnTime = { "BloodSpawnTime", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, BloodSpawnTime), METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_BloodSpawnTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_BloodSpawnTime_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_CutEndLocation_MetaData[] = {
 		{ "Category", "Chainsaw" },
@@ -547,8 +572,10 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_ErrolTopHalfMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_ErrolBottomHalfMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_ErrolChainsawMesh,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_BloodFXActor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_DismemberCutSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_DismemberRotateSpeedModifier,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_BloodSpawnTime,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_CutEndLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_CutStartLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_Cut1Location,
@@ -586,7 +613,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AChainsaw, 1218370530);
+	IMPLEMENT_CLASS(AChainsaw, 1791415059);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AChainsaw>()
 	{
 		return AChainsaw::StaticClass();

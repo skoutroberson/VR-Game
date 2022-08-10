@@ -111,6 +111,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	USkeletalMeshComponent * ErrolChainsawMesh;
 
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> BloodFXActor = nullptr;
+
 	/**
 		used to determine if the controller's left or right trigger is controlling the chainsaw trigger.
 		This is set by HandController when the chainsaw is grabbed
@@ -129,6 +132,15 @@ public:
 	// speed at which the chainsaw can change pitch during dismemberment
 	UPROPERTY(EditAnywhere)
 	float DismemberRotateSpeedModifier = 1.f;
+
+	// How often to spawn blood fx
+	UPROPERTY(EditAnywhere)
+	float BloodSpawnTime = 0.2f;
+
+	// keeps track of how much time has passed since last blood spawn, gets reset each spawn.
+	float BloodSpawnCounter = 0;
+
+	void SpawnBlood(float DeltaTime);
 
 
 	// set in blueprints by BP_FiverrErrol1
