@@ -163,6 +163,8 @@ private:
 	FVector GoalLocation = FVector::ZeroVector;
 	FVector GoalNormal = FVector::ZeroVector;
 
+	FVector ClimbDownLocation = FVector::ZeroVector;
+
 	TArray<FVector> GoalLocations;
 
 
@@ -198,5 +200,11 @@ private:
 	bool bTurn = false;
 
 	void UpdateTurnDirection(FVector ImpactNormal, bool bDownTrace);
+
+	bool bClimbDown = false;
+	void MoveToClimbDownPosition(float DeltaTime);
+
+	FVector ClimbDownStartingLocation = FVector::ZeroVector;
+
 
 };

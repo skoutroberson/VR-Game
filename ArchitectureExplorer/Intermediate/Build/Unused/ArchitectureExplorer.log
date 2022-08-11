@@ -9,30 +9,17 @@
   [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
   [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
   [Upgrade]
-  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: Chainsaw.cpp, Grabbable.cpp, Roach.cpp, VRCharacter.cpp
-  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, Chainsaw.gen.cpp, Roach.gen.cpp
+  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: Roach.cpp
   Building 6 actions with 24 processes...
-    [1/6] UE4Editor-StateMachine-0080.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0080.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0080.exp
-    [2/6] UE4Editor-StateMachine-0080.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0080.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0080.suppressed.exp
+    [1/6] UE4Editor-StateMachine-0118.lib
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0118.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0118.exp
+    [2/6] UE4Editor-StateMachine-0118.dll
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0118.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0118.suppressed.exp
     [3/6] Roach.cpp
-E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(526): warning C4456: declaration of 'UV' hides previous local declaration
-    E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(491): note: see declaration of 'UV'
-E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(527): warning C4456: declaration of 'FV' hides previous local declaration
-    E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(492): note: see declaration of 'FV'
-E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(528): warning C4456: declaration of 'Axis' hides previous local declaration
-    E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(493): note: see declaration of 'Axis'
-E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(530): warning C4456: declaration of 'Angle' hides previous local declaration
-    E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(495): note: see declaration of 'Angle'
-E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(531): warning C4456: declaration of 'RotationQuat' hides previous local declaration
-    E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(496): note: see declaration of 'RotationQuat'
-E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(533): warning C4456: declaration of 'NewQuat' hides previous local declaration
-    E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\Roach.cpp(498): note: see declaration of 'NewQuat'
-    [4/6] UE4Editor-ArchitectureExplorer-0080.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0080.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0080.exp
-    [5/6] UE4Editor-ArchitectureExplorer-0080.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0080.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0080.suppressed.exp
+    [4/6] UE4Editor-ArchitectureExplorer-0118.lib
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0118.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0118.exp
+    [5/6] UE4Editor-ArchitectureExplorer-0118.dll
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0118.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0118.suppressed.exp
     [6/6] ArchitectureExplorerEditor.target
-  Total time in Parallel executor: 2.45 seconds
-  Total execution time: 17.33 seconds
+  Total time in Parallel executor: 2.67 seconds
+  Total execution time: 7.08 seconds
