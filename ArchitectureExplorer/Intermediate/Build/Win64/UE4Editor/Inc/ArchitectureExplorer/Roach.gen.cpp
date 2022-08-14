@@ -227,6 +227,18 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 #endif
 		static void NewProp_bTurn_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bTurn;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DistanceMovedLastFrame_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_DistanceMovedLastFrame;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxMoveSpeed_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxMoveSpeed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MinMoveSpeed_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MinMoveSpeed;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -318,6 +330,27 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		((ARoach*)Obj)->bTurn = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_bTurn = { "bTurn", nullptr, (EPropertyFlags)0x0040000000000001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARoach), &Z_Construct_UClass_ARoach_Statics::NewProp_bTurn_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_bTurn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_bTurn_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_DistanceMovedLastFrame_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_DistanceMovedLastFrame = { "DistanceMovedLastFrame", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, DistanceMovedLastFrame), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_DistanceMovedLastFrame_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_DistanceMovedLastFrame_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_MaxMoveSpeed_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_MaxMoveSpeed = { "MaxMoveSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, MaxMoveSpeed), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_MaxMoveSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_MaxMoveSpeed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_MinMoveSpeed_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_MinMoveSpeed = { "MinMoveSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, MinMoveSpeed), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_MinMoveSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_MinMoveSpeed_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARoach_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_RoachRoot,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_MovementComponent,
@@ -328,6 +361,9 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_bTurnLeft,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_bMoveToGoal,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_bTurn,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_DistanceMovedLastFrame,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_MaxMoveSpeed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_MinMoveSpeed,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ARoach_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARoach>::IsAbstract,
@@ -356,7 +392,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoach, 1419407062);
+	IMPLEMENT_CLASS(ARoach, 866484593);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoach>()
 	{
 		return ARoach::StaticClass();

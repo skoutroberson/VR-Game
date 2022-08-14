@@ -13,20 +13,22 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ARCHITECTUREEXPLORER_Door_generated_h
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_RPC_WRAPPERS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_SPARSE_DATA
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execCloseDoorUsingCurve); \
 	DECLARE_FUNCTION(execSetDoorBackwards); \
 	DECLARE_FUNCTION(execCloseDoorFast);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execCloseDoorUsingCurve); \
 	DECLARE_FUNCTION(execSetDoorBackwards); \
 	DECLARE_FUNCTION(execCloseDoorFast);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_INCLASS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADoor(); \
 	friend struct Z_Construct_UClass_ADoor_Statics; \
@@ -35,7 +37,7 @@ public: \
 	DECLARE_SERIALIZER(ADoor)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_INCLASS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_INCLASS \
 private: \
 	static void StaticRegisterNativesADoor(); \
 	friend struct Z_Construct_UClass_ADoor_Statics; \
@@ -44,7 +46,7 @@ public: \
 	DECLARE_SERIALIZER(ADoor)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_STANDARD_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ADoor(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ADoor) \
@@ -57,7 +59,7 @@ private: \
 public:
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_ENHANCED_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ADoor(ADoor&&); \
@@ -68,7 +70,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADoor); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ADoor)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_PRIVATE_PROPERTY_OFFSET \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__OpenSound() { return STRUCT_OFFSET(ADoor, OpenSound); } \
 	FORCEINLINE static uint32 __PPO__CloseSound() { return STRUCT_OFFSET(ADoor, CloseSound); } \
 	FORCEINLINE static uint32 __PPO__SwingOpenSound() { return STRUCT_OFFSET(ADoor, SwingOpenSound); } \
@@ -80,27 +82,27 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADoor); \
 	FORCEINLINE static uint32 __PPO__CapsuleCollisionSound() { return STRUCT_OFFSET(ADoor, CapsuleCollisionSound); }
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_10_PROLOG
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_GENERATED_BODY_LEGACY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_11_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_RPC_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_INCLASS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_STANDARD_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_INCLASS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_GENERATED_BODY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_INCLASS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_13_ENHANCED_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_INCLASS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

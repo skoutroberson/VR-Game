@@ -59,8 +59,6 @@ void ARoach::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	TickState(CurrentState, DeltaTime);
-
-	FrameSweepIterations = 0;
 }
 
 /*
@@ -162,12 +160,18 @@ void ARoach::TickMoveState(float DeltaTime)
 		if (bClimbDown)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Climb Down Start"));
-			MoveToClimbDownPosition(DeltaTime);
+			//MoveToClimbDownPosition(DeltaTime);
+			bMoveToGoal = false;
+			bTurn = true;
+			Turn(DeltaTime);
+
 		}
 		else
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Down Trace Hit"));
 			MoveAndRotateToGoal(DeltaTime);
+			// swerve
+			// wiggle
 		}
 	}
 	else
@@ -179,6 +183,10 @@ void ARoach::TickMoveState(float DeltaTime)
 
 	DrawDebugPoint(World, GoalLocation, 5.f, FColor::Red, false, DeltaTime * 1.1f);
 	DrawDebugLine(World, GoalLocation, GoalLocation + GoalNormal * 10.f, FColor::Red, false, DeltaTime * 1.1f);
+
+	DistanceMovedLastFrame = DistanceMovedThisFrame();
+	LastFrameLocation = GetActorLocation();
+	LastFrameForwardVector = GetActorForwardVector();
 
 	UE_LOG(LogTemp, Warning, TEXT("---------------------------------"));
 
@@ -464,7 +472,7 @@ bool ARoach::CheckDown(float DeltaTime)
 		GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
 		GoalNormal = HitResult.ImpactNormal;
 
-		//UpdateTurnDirection(HitResult.ImpactNormal, true);
+		//UpdateTurnDirection(HitResult.ImpactNormal, false);
 
 		return true;
 	}
@@ -487,7 +495,7 @@ bool ARoach::CheckDown(float DeltaTime)
 				GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
 				GoalNormal = HitResult.ImpactNormal;
 
-				UpdateTurnDirection(HitResult.ImpactNormal, true);
+				//UpdateTurnDirection(HitResult.ImpactNormal, true);
 
 				return true;
 			}
@@ -542,12 +550,12 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 
 		bTurn = true;
 		Turn(DeltaTime);
-		GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
-		GoalNormal = HitResult.ImpactNormal;
+		//GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
+		//GoalNormal = HitResult.ImpactNormal;
 	}
 	else
 	{
-		SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.1f));
+		SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.08f));
 		SetActorLocation(FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.4));
 
 		UE_LOG(LogTemp, Warning, TEXT("Actually moving to goal."));
@@ -621,7 +629,18 @@ void ARoach::MoveToClimbDownPosition(float DeltaTime)
 		FQuat RotationQuat(Axis, Angle);
 		FQuat ActorQuat = GetActorQuat();
 		FQuat NewQuat = RotationQuat * ActorQuat;
-		SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.3f));
-		SetActorLocation(FMath::VInterpConstantTo(AL, ClimbDownLocation, DeltaTime, MoveSpeed));
+		SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.08f));
+		SetActorLocation(FMath::VInterpConstantTo(AL, ClimbDownLocation, DeltaTime, MoveSpeed * 0.4f));
 	}
+}
+
+float ARoach::DistanceMovedThisFrame()
+{
+	float D = FVector::Distance(GetActorLocation(), LastFrameLocation);
+	float Dot = 200.0f * (1.0f - FVector::DotProduct(GetActorForwardVector(), LastFrameForwardVector));
+
+	UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), D);
+	UE_LOG(LogTemp, Warning, TEXT("Dot: %f"), Dot);
+
+	return D;
 }

@@ -150,3 +150,25 @@ void ALightManager::TurnOff(FString Name, float LightIntensity, float EmissiveVa
 		UE_LOG(LogTemp, Warning, TEXT("LightsMap doesn't contain the specified key. TurnOff()"));
 	}
 }
+
+void ALightManager::EditLight(AActor *LightActor, float LightIntensity, float EmissiveValue, FVector EmissiveColor)
+{
+	//UStaticMeshComponent * SM = Cast<UStaticMeshComponent>(LightActor->GetRootComponent());
+	UStaticMeshComponent * SM = Cast<UStaticMeshComponent>(LightActor->GetComponentByClass(UStaticMeshComponent::StaticClass()));
+	if (SM != nullptr)
+	{
+		SM->SetScalarParameterValueOnMaterials(TEXT("EmissiveWeight"), EmissiveValue);
+		SM->SetVectorParameterValueOnMaterials(TEXT("Emissive Color"), EmissiveColor);
+	}
+
+	TArray<UActorComponent*> LightComponents = LightActor->GetComponentsByClass(ULightComponent::StaticClass());
+
+	for (int i = 0; i < LightComponents.Num(); i++)
+	{
+		ULightComponent *LC = Cast<ULightComponent>(LightComponents[i]);
+		if (LC != nullptr)
+		{
+			LC->SetIntensity(LightIntensity);
+		}
+	}
+}

@@ -44,8 +44,13 @@ public:
 	// Set Emmissive Value for light material. 0 is off
 	void SetEmmissive(float Value, int index);
 
+	UFUNCTION(BlueprintCallable)
 	void TurnOn(FString Name, float LightIntensity = 100.f, float EmissiveValue = 100.f);
 	void TurnOff(FString Name, float LightIntensity = 0, float EmissiveValue = 0);
+
+	// edits light intensity and material emmisive value
+	UFUNCTION(BlueprintCallable)
+	void EditLight(AActor *LightActor, float LightIntensity = 100.f, float EmissiveValue = 100.f, FVector EmissiveColor = FVector(1.0f,1.0f,1.0f));
 
 private:
 

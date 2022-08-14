@@ -23,7 +23,16 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FQuat();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ADoor::execCloseDoorUsingCurve)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_DeltaTime);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->CloseDoorUsingCurve(Z_Param_DeltaTime);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ADoor::execSetDoorBackwards)
 	{
 		P_FINISH;
@@ -44,6 +53,7 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		UClass* Class = ADoor::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "CloseDoorFast", &ADoor::execCloseDoorFast },
+			{ "CloseDoorUsingCurve", &ADoor::execCloseDoorUsingCurve },
 			{ "SetDoorBackwards", &ADoor::execSetDoorBackwards },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -85,6 +95,38 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADoor_CloseDoorFast_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics
+	{
+		struct Door_eventCloseDoorUsingCurve_Parms
+		{
+			float DeltaTime;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_DeltaTime;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics::NewProp_DeltaTime = { "DeltaTime", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Door_eventCloseDoorUsingCurve_Parms, DeltaTime), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics::NewProp_DeltaTime,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Door.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADoor, nullptr, "CloseDoorUsingCurve", nullptr, nullptr, sizeof(Door_eventCloseDoorUsingCurve_Parms), Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADoor_CloseDoorUsingCurve()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADoor_CloseDoorUsingCurve_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -233,6 +275,23 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 #endif
 		static void NewProp_bBackwards_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bBackwards;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentDoorAngle_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_CurrentDoorAngle;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DoorCloseCurve1_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DoorCloseCurve1;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentCurve_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CurrentCurve;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bCloseDoorUsingCurve_MetaData[];
+#endif
+		static void NewProp_bCloseDoorUsingCurve_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bCloseDoorUsingCurve;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -243,6 +302,7 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADoor_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADoor_CloseDoorFast, "CloseDoorFast" }, // 3360931422
+		{ &Z_Construct_UFunction_ADoor_CloseDoorUsingCurve, "CloseDoorUsingCurve" }, // 3239734767
 		{ &Z_Construct_UFunction_ADoor_SetDoorBackwards, "SetDoorBackwards" }, // 1403971146
 	};
 #if WITH_METADATA
@@ -480,6 +540,40 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		((ADoor*)Obj)->bBackwards = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards = { "bBackwards", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADoor), &Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoor_Statics::NewProp_CurrentDoorAngle_MetaData[] = {
+		{ "Category", "Door" },
+		{ "Comment", "// This represents the angle the door is away from being fully closed. 0 = fully closed.\n" },
+		{ "ModuleRelativePath", "Door.h" },
+		{ "ToolTip", "This represents the angle the door is away from being fully closed. 0 = fully closed." },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_CurrentDoorAngle = { "CurrentDoorAngle", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoor, CurrentDoorAngle), METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_CurrentDoorAngle_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_CurrentDoorAngle_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoor_Statics::NewProp_DoorCloseCurve1_MetaData[] = {
+		{ "Category", "Door" },
+		{ "ModuleRelativePath", "Door.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_DoorCloseCurve1 = { "DoorCloseCurve1", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoor, DoorCloseCurve1), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_DoorCloseCurve1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_DoorCloseCurve1_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoor_Statics::NewProp_CurrentCurve_MetaData[] = {
+		{ "Category", "Door" },
+		{ "ModuleRelativePath", "Door.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_CurrentCurve = { "CurrentCurve", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoor, CurrentCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_CurrentCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_CurrentCurve_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoor_Statics::NewProp_bCloseDoorUsingCurve_MetaData[] = {
+		{ "Category", "Door" },
+		{ "ModuleRelativePath", "Door.h" },
+	};
+#endif
+	void Z_Construct_UClass_ADoor_Statics::NewProp_bCloseDoorUsingCurve_SetBit(void* Obj)
+	{
+		((ADoor*)Obj)->bCloseDoorUsingCurve = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_bCloseDoorUsingCurve = { "bCloseDoorUsingCurve", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADoor), &Z_Construct_UClass_ADoor_Statics::NewProp_bCloseDoorUsingCurve_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_bCloseDoorUsingCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_bCloseDoorUsingCurve_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADoor_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_HapticEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_DoorRoot,
@@ -507,6 +601,10 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_bColliding,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_bFullyClosed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_CurrentDoorAngle,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_DoorCloseCurve1,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_CurrentCurve,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_bCloseDoorUsingCurve,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADoor_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADoor>::IsAbstract,
@@ -535,7 +633,7 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADoor, 1314323759);
+	IMPLEMENT_CLASS(ADoor, 411200343);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ADoor>()
 	{
 		return ADoor::StaticClass();

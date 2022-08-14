@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Radio.h"
+#include "Curves/CurveFloat.h"
 #include "Door.generated.h"
 
 UCLASS()
@@ -186,4 +187,22 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void SetDoorBackwards();
+
+	// This represents the angle the door is away from being fully closed. 0 = fully closed.
+	UPROPERTY(BlueprintReadOnly)
+	float CurrentDoorAngle = 0.0f;
+
+	UPROPERTY(EditAnywhere)
+	UCurveFloat * DoorCloseCurve1 = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadwrite)
+	UCurveFloat * CurrentCurve = nullptr;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bCloseDoorUsingCurve = false;
+
+	float CurrentCurveTime = 0.0f;
+
+	UFUNCTION(BlueprintCallable)
+	void CloseDoorUsingCurve(float DeltaTime);
 };

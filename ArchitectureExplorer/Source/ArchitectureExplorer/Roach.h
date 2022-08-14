@@ -206,5 +206,23 @@ private:
 
 	FVector ClimbDownStartingLocation = FVector::ZeroVector;
 
+	bool bStuck = false;
+
+	FVector LastFrameLocation = FVector::ZeroVector;
+	FVector LastFrameForwardVector = FVector::ZeroVector;
+
+public:
+	UPROPERTY(BlueprintReadOnly)
+	float DistanceMovedLastFrame = 0.0f;
+	float DistanceMovedThisFrame();
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float MaxMoveSpeed = 400.f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float MinMoveSpeed = 100.f;
+
+	float RotationChangeDotThisFrame = 0.0f;
+
 
 };

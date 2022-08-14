@@ -8,14 +8,26 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
+struct FVector;
 #ifdef ARCHITECTUREEXPLORER_LightManager_generated_h
 #error "LightManager.generated.h already included, missing '#pragma once' in LightManager.h"
 #endif
 #define ARCHITECTUREEXPLORER_LightManager_generated_h
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_RPC_WRAPPERS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execEditLight); \
+	DECLARE_FUNCTION(execTurnOn);
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execEditLight); \
+	DECLARE_FUNCTION(execTurnOn);
+
+
 #define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesALightManager(); \
