@@ -69,6 +69,7 @@ void ALightningStrikeScare::UnHideErrolMesh()
 		bSpawnPeekErrolTrigger = false;
 		bEndPeekWhenSeen = true;
 		ErrolMesh2->SetVisibility(true);
+		ErrolMesh->SetVisibility(false);
 	}
 }
 
@@ -78,7 +79,7 @@ void ALightningStrikeScare::EndPeekWhenSeen()
 	FVector Disp = HeadLocation - PlayerCamera->GetComponentLocation();
 	Disp.Normalize();
 	float Dot = FVector::DotProduct(PlayerCamera->GetForwardVector(), Disp);
-	if (Dot > 0.86f)
+	if (Dot > 0.9f || PlayerCamera->GetComponentLocation().Y < 380.0f)
 	{
 		bEndPeekWhenSeen = false;
 		EndWindowPeek();

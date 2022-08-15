@@ -148,4 +148,7 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 	VRChar->GetCharacterMovement()->Velocity.Set(NewVelocity.X, NewVelocity.Y, NewVelocity.Z);
 	PlayerController->SetControlRotation(TeleportRotation);
 	Player->SetActorLocationAndRotation(TargetLocation, TeleportRotation);
+
+	// so a footstep sound doesn't play on teleport
+	VRChar->DeltaLocation = TargetLocation;
 }

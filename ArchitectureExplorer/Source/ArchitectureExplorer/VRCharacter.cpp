@@ -334,6 +334,8 @@ void AVRCharacter::PlayFootStepSound()
 	const float DeltaTime = GetWorld()->DeltaTimeSeconds;
 	const float V = (DeltaLocation - GetActorLocation()).Size();
 
+	//UE_LOG(LogTemp, Warning, TEXT("V: %f"), V);
+
 	// I should also make the noise quieter if the capsule height is smaller
 
 	if (V > VelocityThreshold)
@@ -354,7 +356,7 @@ void AVRCharacter::PlayFootStepSound()
 	}
 	else
 	{
-		if (DistanceMoved > 0)	// why did i do this? im too lazy to check this right now
+		if (DistanceMoved > 0)
 		{
 			DistanceMoved -= DistanceMovedDecrementAmount * DeltaTime;
 			if (DistanceMoved < 0) { DistanceMoved = 0; }
