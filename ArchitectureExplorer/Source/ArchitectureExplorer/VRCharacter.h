@@ -40,7 +40,9 @@ public:
 	float RightTriggerAxisValue = 0;
 	float LeftTriggerAxisValue = 0;
 	
+	UPROPERTY(BlueprintReadOnly)
 	float RightGripAxisValue = 0;
+	UPROPERTY(BlueprintReadOnly)
 	float LeftGripAxisValue = 0;
 
 private:

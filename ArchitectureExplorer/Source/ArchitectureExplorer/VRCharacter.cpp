@@ -649,7 +649,7 @@ void AVRCharacter::RightGripAxis(float Value)
 {
 	if ((Controller != NULL) && (Value > 0.001f))
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("RT: %f"), Value);
+		//UE_LOG(LogTemp, Warning, TEXT("Rg: %f"), Value);
 
 		RightGripAxisValue = Value;
 	}
@@ -659,7 +659,7 @@ void AVRCharacter::LeftGripAxis(float Value)
 {
 	if ((Controller != NULL) && (Value > 0.001f))
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("RT: %f"), Value);
+		//UE_LOG(LogTemp, Warning, TEXT("Lg: %f"), Value);
 
 		LeftGripAxisValue = Value;
 	}

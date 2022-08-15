@@ -11,6 +11,7 @@
 			"cPlayerHandAnimBP.cpp.obj",
 			"Crawler.cpp.obj",
 			"CrawlingMan.cpp.obj",
+			"Door.cpp.obj",
 			"DoorKey.cpp.obj",
 			"DoorManager.cpp.obj",
 			"Drawer.cpp.obj",
@@ -20,6 +21,7 @@
 			"Flashlight.cpp.obj",
 			"Grabbable.cpp.obj",
 			"HandController.cpp.obj",
+			"LightManager.cpp.obj",
 			"PeekPoint.cpp.obj",
 			"Phone.cpp.obj",
 			"Portal.cpp.obj",
@@ -27,6 +29,7 @@
 			"QuatRotLib.cpp.obj",
 			"Quest.cpp.obj",
 			"Radio.cpp.obj",
+			"Roach.cpp.obj",
 			"ScareManager.cpp.obj",
 			"Stage.cpp.obj",
 			"Stage1.cpp.obj",
@@ -34,10 +37,9 @@
 			"Stage3.cpp.obj",
 			"StageManager.cpp.obj",
 			"TriggerManager.cpp.obj",
-			"VRCharacter.cpp.obj",
-			"Door.cpp.obj",
-			"LightManager.cpp.obj",
-			"Roach.cpp.obj"
+			"LightningStrikeScare.cpp.obj",
+			"Scare.cpp.obj",
+			"VRCharacter.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.cpp.obj": [
 			"ArchitectureExplorerGameModeBase.gen.cpp.obj",
@@ -48,6 +50,7 @@
 			"cPlayerHandAnimBP.gen.cpp.obj",
 			"Crawler.gen.cpp.obj",
 			"CrawlingMan.gen.cpp.obj",
+			"Door.gen.cpp.obj",
 			"DoorKey.gen.cpp.obj",
 			"DoorManager.gen.cpp.obj",
 			"Drawer.gen.cpp.obj",
@@ -56,7 +59,7 @@
 			"ErrolController.gen.cpp.obj",
 			"Flashlight.gen.cpp.obj",
 			"Grabbable.gen.cpp.obj",
-			"HandController.gen.cpp.obj",
+			"LightManager.gen.cpp.obj",
 			"PeekPoint.gen.cpp.obj",
 			"Phone.gen.cpp.obj",
 			"Portal.gen.cpp.obj",
@@ -64,6 +67,7 @@
 			"QuatRotLib.gen.cpp.obj",
 			"Quest.gen.cpp.obj",
 			"Radio.gen.cpp.obj",
+			"Roach.gen.cpp.obj",
 			"ScareManager.gen.cpp.obj",
 			"Stage.gen.cpp.obj",
 			"Stage1.gen.cpp.obj",
@@ -71,11 +75,11 @@
 			"Stage3.gen.cpp.obj",
 			"StageManager.gen.cpp.obj",
 			"TriggerManager.gen.cpp.obj",
-			"VRCharacter.gen.cpp.obj",
 			"ArchitectureExplorer.init.gen.cpp.obj",
-			"Door.gen.cpp.obj",
-			"LightManager.gen.cpp.obj",
-			"Roach.gen.cpp.obj"
+			"HandController.gen.cpp.obj",
+			"LightningStrikeScare.gen.cpp.obj",
+			"Scare.gen.cpp.obj",
+			"VRCharacter.gen.cpp.obj"
 		]
 	}
 }

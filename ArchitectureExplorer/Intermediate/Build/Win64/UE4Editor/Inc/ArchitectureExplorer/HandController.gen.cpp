@@ -232,7 +232,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 	{
 		((AHandController*)Obj)->bLeft = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_bLeft = { "bLeft", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AHandController), &Z_Construct_UClass_AHandController_Statics::NewProp_bLeft_SetBit, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_bLeft_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_bLeft_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_bLeft = { "bLeft", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AHandController), &Z_Construct_UClass_AHandController_Statics::NewProp_bLeft_SetBit, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_bLeft_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_bLeft_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_GripSize_MetaData[] = {
 		{ "Category", "HandAnimation" },
@@ -360,7 +360,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHandController, 1832281669);
+	IMPLEMENT_CLASS(AHandController, 3319637759);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AHandController>()
 	{
 		return AHandController::StaticClass();
