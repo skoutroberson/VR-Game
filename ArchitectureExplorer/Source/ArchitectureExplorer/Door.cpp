@@ -92,6 +92,10 @@ void ADoor::Tick(float DeltaTime)
 	{
 		CloseDoorUsingCurve(DeltaTime);
 	}
+	else if (bOpenDoorUsingCurve)
+	{
+		OpenDoorUsingCurve(DeltaTime);
+	}
 	else if (!bLocked && bIsBeingUsed)
 	{
 		UseDoor(DeltaTime);
@@ -569,6 +573,88 @@ void ADoor::CloseDoorUsingCurve(float DeltaTime)
 		bCloseDoorUsingCurve = false;
 		CurrentCurveTime = 0;
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
+	}
+	else
+	{
+		DoorHinge->AddLocalRotation(DQ);
+
+		if (CurveValue > 0)
+		{
+			if (!bSwingingPositive)
+			{
+				bSwingingDirectionChange = true;
+			}
+			bSwingingPositive = true;
+		}
+		else
+		{
+			if (bSwingingPositive)
+			{
+				bSwingingDirectionChange = true;
+			}
+			bSwingingPositive = false;
+		}
+
+		PlaySwingAudio(CurveValue);
+
+		bFullyClosed = false;
+	}
+}
+
+void ADoor::OpenDoorUsingCurve(float DeltaTime)
+{
+	CurrentCurveTime += DeltaTime;
+
+	float CurveValue = (bBackwards) ? -CurrentCurve->GetFloatValue(CurrentCurveTime) : CurrentCurve->GetFloatValue(CurrentCurveTime);
+
+	FQuat DHQ = DoorHinge->GetComponentQuat();
+
+	FQuat DQ = FQuat(DoorHinge->GetUpVector(), CurveValue);
+	FQuat NewQuat = DHQ * DQ;
+
+	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
+	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
+
+	CurrentDoorAngle = MaxAngleRadians - MaxDistance;
+
+	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector() * 300.f, FColor::Cyan, false, 2 * DeltaTime);
+
+	//UE_LOG(LogTemp, Warning, TEXT("D: %f"), Dot);
+	//UE_LOG(LogTemp, Warning, TEXT("V: %f"), SlerpSize * 100.f);
+
+	//UE_LOG(LogTemp, Warning, TEXT("Max: %f"), MaxDistance);
+	//UE_LOG(LogTemp, Warning, TEXT("Min: %f"), MinDistance);
+	//UE_LOG(LogTemp, Warning, TEXT("MAR: %f"), MaxAngleRadians);
+
+	if (MaxDistance > MaxAngleRadians)
+	{
+		DoorHinge->SetWorldRotation(MinRotation);
+
+		SwingAudioComponent->Stop();
+
+		// stop swing sound
+		// play door shut sound
+
+		if (!bFullyClosed)
+		{
+			bFullyClosed = true;
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(CurveValue * CloseAudioMultiplier, 0.0f, 1.0f));
+		}
+
+		bCloseDoorUsingCurve = false;
+		CurrentCurveTime = 0;
+		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
+	}
+	else if (MinDistance > MaxAngleRadians)
+	{
+		DoorHinge->SetWorldRotation(MaxRotation);
+
+		SwingAudioComponent->Stop();
+		// stop swing sound
+		// play door collision sound
+
+		//UE_LOG(LogTemp, Warning, TEXT("MAX"));
+		bFullyClosed = false;
 	}
 	else
 	{

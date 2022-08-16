@@ -1,25 +1,3 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal Projects\ArchitectureExplorer1).
-  Waiting for 'git status' command to complete
-  Building ArchitectureExplorerEditor...
-  Using Visual Studio 2017 14.16.27045 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [Upgrade]
-  [Upgrade] Using backward-compatible build settings. The latest version of UE4 sets the following values by default, which may require code changes:
-  [Upgrade]     bLegacyPublicIncludePaths = false                 => Omits subfolders from public include paths to reduce compiler command line length. (Previously: true).
-  [Upgrade]     ShadowVariableWarningLevel = WarningLevel.Error   => Treats shadowed variable warnings as errors. (Previously: WarningLevel.Warning).
-  [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
-  [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
-  [Upgrade]
-  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: LightningStrikeScare.cpp, PortalRoom.cpp, VRCharacter.cpp
-  Building 6 actions with 24 processes...
-    [1/6] UE4Editor-StateMachine-0008.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0008.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0008.exp
-    [2/6] UE4Editor-StateMachine-0008.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0008.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0008.suppressed.exp
-    [3/6] LightningStrikeScare.cpp
-    [4/6] UE4Editor-ArchitectureExplorer-0008.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0008.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0008.exp
-    [5/6] UE4Editor-ArchitectureExplorer-0008.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0008.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0008.suppressed.exp
-    [6/6] ArchitectureExplorerEditor.target
-  Total time in Parallel executor: 2.53 seconds
-  Total execution time: 3.90 seconds
+  Target is up to date
+  Total execution time: 0.78 seconds

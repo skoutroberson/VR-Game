@@ -48,7 +48,7 @@ void ALightningStrikeScare::ComputePlayerCameraDotValue(float DeltaTime)
 	{
 		PlayerCameraDotValue = PlayerCameraDotThreshold;
 
-		if (PlayerCamera->GetComponentLocation().Z < 219.f && GetPlayerCameraDot() > 0.93f)
+		if (PlayerCamera->GetComponentLocation().Z < 219.f && GetPlayerCameraDot() > 0.9f)
 		{
 			bOverlappingWindowTrigger = false;
 			LightningStrike();

@@ -201,8 +201,14 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bCloseDoorUsingCurve = false;
 
+	UPROPERTY(BlueprintReadWrite)
+	bool bOpenDoorUsingCurve = false;
+
 	float CurrentCurveTime = 0.0f;
 
 	UFUNCTION(BlueprintCallable)
 	void CloseDoorUsingCurve(float DeltaTime);
+
+	UFUNCTION(BlueprintCallable)
+	void OpenDoorUsingCurve(float DeltaTime);
 };
