@@ -169,6 +169,8 @@ void AGrabbable::Released(int HandHoldNum)
 				bInterpToMC = false;
 				bRotateTwoHand = false;
 				bRotateOneHand = false;
+				Mesh->SetSimulatePhysics(true);
+				Mesh->SetEnableGravity(true);
 			}
 		}
 	}
@@ -191,6 +193,8 @@ void AGrabbable::Released(int HandHoldNum)
 				bInterpToMC = false;
 				bRotateTwoHand = false;
 				bRotateOneHand = false;
+				Mesh->SetSimulatePhysics(true);
+				Mesh->SetEnableGravity(true);
 			}
 		}
 	}
@@ -215,7 +219,7 @@ void AGrabbable::InterpToMC(float DeltaTime)
 	ControllingOffset = GetActorLocation() - ControllingHandHold->GetComponentLocation();
 	const FVector TL = AGrabbable::ControllingMC->GetActorLocation() + ControllingOffset;
 
-	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 300.f));
+	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 300.f / ItemWeight));
 }
 
 void AGrabbable::RotateOneHand(float DeltaTime)
@@ -225,7 +229,7 @@ void AGrabbable::RotateOneHand(float DeltaTime)
 	FRotator MCRot = ControllingMC->GetActorRotation();
 	MCRot.Roll = (bControllingMCLeft) ? MCRot.Roll - 90.f : MCRot.Roll += 90.f;
 
-	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), MCRot, 5.f * DeltaTime, true));
+	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), MCRot, (5.f / ItemWeight) * DeltaTime, true));
 	
 }
 

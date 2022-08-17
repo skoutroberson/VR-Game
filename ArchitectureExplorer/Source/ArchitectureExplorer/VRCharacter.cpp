@@ -163,17 +163,39 @@ void AVRCharacter::UpdateCapsuleHeight()
 	FVector DP;
 	UHeadMountedDisplayFunctionLibrary::GetOrientationAndPosition(DR, DP);
 	TArray<AActor*> EmptyActors;
+	/*
 	UKismetSystemLibrary::SphereTraceSingle(GetWorld(), Camera->GetComponentLocation(), Camera->GetComponentLocation() + WorldDownVector * (DP.Z + 20.f),
 		GetCapsuleComponent()->GetScaledCapsuleRadius(), ETraceTypeQuery::TraceTypeQuery1, true, EmptyActors, EDrawDebugTrace::ForOneFrame, CamHeightHit,
 		true, FLinearColor::Red, FLinearColor::Green, 1.f);
+*/
+	UE_LOG(LogTemp, Warning, TEXT("DP.Z: %f"), DP.Z);
 
-	//UE_LOG(LogTemp, Warning, TEXT("DP.Z: %f"), DP.Z);
+	float CapsuleHalfHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+	float NewCapsuleHeight = FMath::FInterpConstantTo(CapsuleHalfHeight, DP.Z * 0.5f, GetWorld()->DeltaTimeSeconds, 10.0f);
+
+	//FMath::FInterpConstantTo(GetCapsuleComponent()-)
+	GetCapsuleComponent()->SetCapsuleHalfHeight(NewCapsuleHeight);
+	
+	FVector CL = GetCapsuleComponent()->GetComponentLocation();
+	CL.Z -= DP.Z * 0.5f;
+
+	FVector RL = VRRoot->GetComponentLocation();
+	RL.Z = CL.Z;
+	VRRoot->SetWorldLocation(RL);
+
+	UE_LOG(LogTemp, Warning, TEXT("H: %f"), GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
+
+	/*
+
+	GetWorld()->SweepSingleByChannel(CamHeightHit, Camera->GetComponentLocation(), Camera->GetComponentLocation() + WorldDownVector * DP.Z )
+
+	
 
 	/*
 	bool Trace = GetWorld()->LineTraceSingleByChannel(CamHeightHit, Camera->GetComponentLocation(),
 		Camera->GetComponentLocation() + WorldDownVector * (DP.Z + 20.f),
 		ECollisionChannel::ECC_WorldDynamic, CamHeightParams);
-	*/
+	
 	//GetCapsuleComponent()->SphereTrace
 
 	DrawDebugSphere(GetWorld(), GetActorLocation(), 5.f, 6, FColor::Red, false, GetWorld()->DeltaTimeSeconds * 2.f);
@@ -189,7 +211,7 @@ void AVRCharacter::UpdateCapsuleHeight()
 		{
 			NewCapsuleHalfHeight = 20.f;
 		}
-		RootVector.Z = CamHeightHit.ImpactPoint.Z;
+		RootVector.Z = CamHeightHit.ImpactPoint.Z - 30.0f;
 		
 		GetCapsuleComponent()->SetCapsuleHalfHeight(NewCapsuleHalfHeight);
 		VRRoot->SetWorldLocation(RootVector);
@@ -199,7 +221,7 @@ void AVRCharacter::UpdateCapsuleHeight()
 		if (GEngine)
 			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("UpdateCapsuleHeight Trace not hitting!!"));
 	}
-	
+	*/
 	//float NewCapsuleHeight = Camera->GetComponentLocation().Z - CamHeightHit.Location.Z;
 	
 	//UE_LOG(LogTemp, Warning, TEXT("Capsule Height: %f"), GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight() * 2.f);
@@ -418,7 +440,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	CorrectCameraOffset();
 
 	//	Updates the capsule height to be the height from the floor to the HMD
-	//();
+	UpdateCapsuleHeight();
 	
 
 	if (bTeleportEnabled)

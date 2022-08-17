@@ -75,7 +75,7 @@ void ADoor::BeginPlay()
 	SwingOpenSoundDuration = SwingOpenSound->GetDuration();
 	SwingCloseSoundDuration = SwingCloseSound->GetDuration();
 
-	DrawDebugLine(World, DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + LV * 100.f, FColor::Red, true, -1, ESceneDepthPriorityGroup::SDPG_MAX, 5.f);
+	//DrawDebugLine(World, DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + LV * 100.f, FColor::Red, true, -1, ESceneDepthPriorityGroup::SDPG_MAX, 5.f);
 
 	//DrawDebugLine(World, DoorHinge->GetComponentLocation(), DoorHinge->GetForwardVector() * 1000.f, FColor::Red, true, -1, ESceneDepthPriorityGroup::SDPG_MAX, 5.f);
 	//DrawDebugLine(World, DoorHinge->GetComponentLocation(), DoorHinge->GetRightVector() * 1000.f, FColor::Blue, true, -1, ESceneDepthPriorityGroup::SDPG_MAX, 5.f);
@@ -605,7 +605,7 @@ void ADoor::OpenDoorUsingCurve(float DeltaTime)
 {
 	CurrentCurveTime += DeltaTime;
 
-	float CurveValue = (bBackwards) ? -CurrentCurve->GetFloatValue(CurrentCurveTime) : CurrentCurve->GetFloatValue(CurrentCurveTime);
+	float CurveValue = (bBackwards) ? CurrentCurve->GetFloatValue(CurrentCurveTime) : -CurrentCurve->GetFloatValue(CurrentCurveTime);
 
 	FQuat DHQ = DoorHinge->GetComponentQuat();
 
@@ -625,7 +625,7 @@ void ADoor::OpenDoorUsingCurve(float DeltaTime)
 	//UE_LOG(LogTemp, Warning, TEXT("Max: %f"), MaxDistance);
 	//UE_LOG(LogTemp, Warning, TEXT("Min: %f"), MinDistance);
 	//UE_LOG(LogTemp, Warning, TEXT("MAR: %f"), MaxAngleRadians);
-
+	/*
 	if (MaxDistance > MaxAngleRadians)
 	{
 		DoorHinge->SetWorldRotation(MinRotation);
@@ -641,11 +641,12 @@ void ADoor::OpenDoorUsingCurve(float DeltaTime)
 			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(CurveValue * CloseAudioMultiplier, 0.0f, 1.0f));
 		}
 
-		bCloseDoorUsingCurve = false;
+		bOpenDoorUsingCurve = false;
 		CurrentCurveTime = 0;
 		//UE_LOG(LogTemp, Warning, TEXT("MIN"));
 	}
-	else if (MinDistance > MaxAngleRadians)
+	*/
+	if (MinDistance > MaxAngleRadians)
 	{
 		DoorHinge->SetWorldRotation(MaxRotation);
 
@@ -655,6 +656,8 @@ void ADoor::OpenDoorUsingCurve(float DeltaTime)
 
 		//UE_LOG(LogTemp, Warning, TEXT("MAX"));
 		bFullyClosed = false;
+		bOpenDoorUsingCurve = false;
+		CurrentCurveTime = 0;
 	}
 	else
 	{

@@ -39,6 +39,10 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ItemGripSize;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ItemWeight_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ItemWeight;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bBeingHeld_MetaData[];
 #endif
 		static void NewProp_bBeingHeld_SetBit(void* Obj);
@@ -128,6 +132,15 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemGripSize = { "ItemGripSize", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, ItemGripSize), METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemGripSize_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemGripSize_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemWeight_MetaData[] = {
+		{ "Category", "Grabbable" },
+		{ "Comment", "//FRotator ItemRotation = FRotator(0, -75.f, -85.f);\n//FVector ItemLocation = FVector(4.f, 11.f, -3.5f);\n" },
+		{ "ModuleRelativePath", "Grabbable.h" },
+		{ "ToolTip", "FRotator ItemRotation = FRotator(0, -75.f, -85.f);\nFVector ItemLocation = FVector(4.f, 11.f, -3.5f);" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemWeight = { "ItemWeight", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, ItemWeight), METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemWeight_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemWeight_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_bBeingHeld_MetaData[] = {
 		{ "Category", "TwoHanded" },
@@ -276,6 +289,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_StartingPoint = { "StartingPoint", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, StartingPoint), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_StartingPoint_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_StartingPoint_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGrabbable_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemGripSize,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemWeight,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bBeingHeld,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bLeftHandHeld,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bRightHandHeld,
@@ -319,7 +333,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGrabbable, 2526904040);
+	IMPLEMENT_CLASS(AGrabbable, 2059230160);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AGrabbable>()
 	{
 		return AGrabbable::StaticClass();

@@ -39,6 +39,9 @@ public:
 	//FRotator ItemRotation = FRotator(0, -75.f, -85.f);
 	//FVector ItemLocation = FVector(4.f, 11.f, -3.5f);
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Grabbable)
+	float ItemWeight = 1.0f;
+
 
 	// For two hand item grabbing.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)
