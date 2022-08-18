@@ -82,16 +82,16 @@ private:
 
 	USphereComponent* HeadCollisionSphere;
 
-	UPROPERTY(EditAnywhere)
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UMaterialInterface *BlinkerMaterialBase;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UMaterialInstanceDynamic * BlinkerMaterialInstance;
 
 	UPROPERTY(EditAnywhere)
 	class UCurveFloat *RadiusVsVelocity;
-
-public:
 
 	UPROPERTY(EditAnywhere)
 	class UCameraComponent* Camera;

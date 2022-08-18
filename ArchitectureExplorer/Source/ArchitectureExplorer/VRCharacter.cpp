@@ -158,101 +158,18 @@ void AVRCharacter::BeginPlay()
 
 void AVRCharacter::UpdateCapsuleHeight()
 {
-	//	NEED TO CHECK IF BLOCKING HIT ACTOR HAS THE TAG "FLOOR".
 	FRotator DR;
 	FVector DP;
 	UHeadMountedDisplayFunctionLibrary::GetOrientationAndPosition(DR, DP);
-	TArray<AActor*> EmptyActors;
-	/*
-	UKismetSystemLibrary::SphereTraceSingle(GetWorld(), Camera->GetComponentLocation(), Camera->GetComponentLocation() + WorldDownVector * (DP.Z + 20.f),
-		GetCapsuleComponent()->GetScaledCapsuleRadius(), ETraceTypeQuery::TraceTypeQuery1, true, EmptyActors, EDrawDebugTrace::ForOneFrame, CamHeightHit,
-		true, FLinearColor::Red, FLinearColor::Green, 1.f);
-*/
-	UE_LOG(LogTemp, Warning, TEXT("DP.Z: %f"), DP.Z);
 
-	float CapsuleHalfHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
-	float NewCapsuleHeight = FMath::FInterpConstantTo(CapsuleHalfHeight, DP.Z * 0.5f, GetWorld()->DeltaTimeSeconds, 10.0f);
-
-	//FMath::FInterpConstantTo(GetCapsuleComponent()-)
-	GetCapsuleComponent()->SetCapsuleHalfHeight(NewCapsuleHeight);
-	
-	FVector CL = GetCapsuleComponent()->GetComponentLocation();
-	CL.Z -= DP.Z * 0.5f;
+	const float CurrentHalfHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+	const float Diff = CurrentHalfHeight - (DP.Z * 0.5f);
+	GetCapsuleComponent()->SetCapsuleHalfHeight(DP.Z * 0.5f);
+	AddActorWorldOffset(FVector(0,0,-Diff), true);
 
 	FVector RL = VRRoot->GetComponentLocation();
-	RL.Z = CL.Z;
+	RL.Z = GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
 	VRRoot->SetWorldLocation(RL);
-
-	UE_LOG(LogTemp, Warning, TEXT("H: %f"), GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
-
-	/*
-
-	GetWorld()->SweepSingleByChannel(CamHeightHit, Camera->GetComponentLocation(), Camera->GetComponentLocation() + WorldDownVector * DP.Z )
-
-	
-
-	/*
-	bool Trace = GetWorld()->LineTraceSingleByChannel(CamHeightHit, Camera->GetComponentLocation(),
-		Camera->GetComponentLocation() + WorldDownVector * (DP.Z + 20.f),
-		ECollisionChannel::ECC_WorldDynamic, CamHeightParams);
-	
-	//GetCapsuleComponent()->SphereTrace
-
-	DrawDebugSphere(GetWorld(), GetActorLocation(), 5.f, 6, FColor::Red, false, GetWorld()->DeltaTimeSeconds * 2.f);
-	DrawDebugPoint(GetWorld(), VRRoot->GetComponentLocation(), 4.f, FColor::Green, false, GetWorld()->DeltaTimeSeconds * 2.f, ESceneDepthPriorityGroup::SDPG_MAX);
-
-	if (CamHeightHit.bBlockingHit)
-	{
-		// I probably need to change this to check if the actor has a tag: "Floor"
-		FVector RootVector = VRRoot->GetComponentLocation();
-		//RootVector.Z = CamHeightHit.ImpactPoint.Z;
-		float NewCapsuleHalfHeight = FVector::Distance(Camera->GetComponentLocation(), CamHeightHit.ImpactPoint) / 2;
-		if (NewCapsuleHalfHeight < 20.f)
-		{
-			NewCapsuleHalfHeight = 20.f;
-		}
-		RootVector.Z = CamHeightHit.ImpactPoint.Z - 30.0f;
-		
-		GetCapsuleComponent()->SetCapsuleHalfHeight(NewCapsuleHalfHeight);
-		VRRoot->SetWorldLocation(RootVector);
-	}
-	else
-	{
-		if (GEngine)
-			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Yellow, TEXT("UpdateCapsuleHeight Trace not hitting!!"));
-	}
-	*/
-	//float NewCapsuleHeight = Camera->GetComponentLocation().Z - CamHeightHit.Location.Z;
-	
-	//UE_LOG(LogTemp, Warning, TEXT("Capsule Height: %f"), GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight() * 2.f);
-	//UE_LOG(LogTemp, Warning, TEXT("Cam Distance: %f"), CamHeightHit.Distance);
-	//UE_LOG(LogTemp, Warning, TEXT("Root: %f"), VRRoot->GetComponentLocation().Z);
-	//UE_LOG(LogTemp, Warning, TEXT("Came: %f"), Camera->GetComponentLocation().Z);
-		//UE_LOG(LogTemp, Warning, TEXT("HMD: %f"), DP.Z);
-		//UE_LOG(LogTemp, Warning, TEXT("CAM: %f"), CamHeightHit.Distance);
-		//UE_LOG(LogTemp, Warning, TEXT("DIF = %f"), CamHeightHit.Distance - DP.Z);
-	
-		/*
-		//UE_LOG(LogTemp, Warning, TEXT("CC: %f"), CamHeightHit.ImpactPoint.Z);
-		if (DP.Z < 3.f)
-		{
-			DP.Z = 3.f;
-			UE_LOG(LogTemp, Warning, TEXT("HMD IS TOO LOW!"));
-		}
-		
-		if (fabsf(DP.Z - HMDZPos) > 8.f)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("CHANGE ROOT POSITION"));
-			HMDZPos = DP.Z;
-			FVector RL = GetActorLocation();
-			RL.Z -= DP.Z * 0.5f;
-			//RL.X = 0;
-			//RL.Y = 0;
-			RootVector.Z = RL.Z;
-			GetCapsuleComponent()->SetCapsuleHalfHeight(DP.Z * 0.5f);
-			VRRoot->SetRelativeLocation(FVector(0,0, RL.Z));
-		}
-		*/
 }
 
 void AVRCharacter::PressA(bool bLeft)

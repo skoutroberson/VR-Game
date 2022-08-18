@@ -73,9 +73,6 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AVRCharacter); \
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_19_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__BlinkerMaterialBase() { return STRUCT_OFFSET(AVRCharacter, BlinkerMaterialBase); } \
-	FORCEINLINE static uint32 __PPO__BlinkerMaterialInstance() { return STRUCT_OFFSET(AVRCharacter, BlinkerMaterialInstance); } \
-	FORCEINLINE static uint32 __PPO__RadiusVsVelocity() { return STRUCT_OFFSET(AVRCharacter, RadiusVsVelocity); } \
 	FORCEINLINE static uint32 __PPO__MaxTeleportDistance() { return STRUCT_OFFSET(AVRCharacter, MaxTeleportDistance); } \
 	FORCEINLINE static uint32 __PPO__LeftFootstepSound() { return STRUCT_OFFSET(AVRCharacter, LeftFootstepSound); } \
 	FORCEINLINE static uint32 __PPO__FootstepSound() { return STRUCT_OFFSET(AVRCharacter, FootstepSound); } \
