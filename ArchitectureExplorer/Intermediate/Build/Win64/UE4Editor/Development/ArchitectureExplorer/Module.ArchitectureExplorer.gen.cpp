@@ -19,7 +19,6 @@
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Grabbable.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/HandController.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/LightManager.gen.cpp"
-#include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/LightningStrikeScare.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/PeekPoint.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Phone.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Portal.gen.cpp"
@@ -36,3 +35,4 @@
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Stage3.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/StageManager.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/TriggerManager.gen.cpp"
+#include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/VRCharacter.gen.cpp"

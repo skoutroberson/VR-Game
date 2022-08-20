@@ -28,6 +28,11 @@ void EmptyLinkFunctionForGeneratedCodeLightningStrikeScare() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_ALightningStrikeScare_LightningStrike),NULL);
 	}
+	static FName NAME_ALightningStrikeScare_PlayLeavesRustleSound = FName(TEXT("PlayLeavesRustleSound"));
+	void ALightningStrikeScare::PlayLeavesRustleSound()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ALightningStrikeScare_PlayLeavesRustleSound),NULL);
+	}
 	static FName NAME_ALightningStrikeScare_UnlockAndOpenWindow = FName(TEXT("UnlockAndOpenWindow"));
 	void ALightningStrikeScare::UnlockAndOpenWindow()
 	{
@@ -77,6 +82,28 @@ void EmptyLinkFunctionForGeneratedCodeLightningStrikeScare() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ALightningStrikeScare_LightningStrike_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ALightningStrikeScare_PlayLeavesRustleSound_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ALightningStrikeScare_PlayLeavesRustleSound_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "LightningStrikeScare.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ALightningStrikeScare_PlayLeavesRustleSound_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ALightningStrikeScare, nullptr, "PlayLeavesRustleSound", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ALightningStrikeScare_PlayLeavesRustleSound_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ALightningStrikeScare_PlayLeavesRustleSound_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ALightningStrikeScare_PlayLeavesRustleSound()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ALightningStrikeScare_PlayLeavesRustleSound_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -148,6 +175,7 @@ void EmptyLinkFunctionForGeneratedCodeLightningStrikeScare() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_ALightningStrikeScare_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ALightningStrikeScare_EndWindowPeek, "EndWindowPeek" }, // 3742706543
 		{ &Z_Construct_UFunction_ALightningStrikeScare_LightningStrike, "LightningStrike" }, // 859540038
+		{ &Z_Construct_UFunction_ALightningStrikeScare_PlayLeavesRustleSound, "PlayLeavesRustleSound" }, // 2529178229
 		{ &Z_Construct_UFunction_ALightningStrikeScare_UnlockAndOpenWindow, "UnlockAndOpenWindow" }, // 2713227268
 	};
 #if WITH_METADATA
@@ -244,7 +272,7 @@ void EmptyLinkFunctionForGeneratedCodeLightningStrikeScare() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ALightningStrikeScare, 2300696352);
+	IMPLEMENT_CLASS(ALightningStrikeScare, 90280283);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ALightningStrikeScare>()
 	{
 		return ALightningStrikeScare::StaticClass();

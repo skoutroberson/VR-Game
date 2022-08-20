@@ -70,6 +70,7 @@ void ALightningStrikeScare::UnHideErrolMesh()
 		bEndPeekWhenSeen = true;
 		ErrolMesh2->SetVisibility(true);
 		ErrolMesh->SetVisibility(false);
+		PlayLeavesRustleSound();
 	}
 }
 

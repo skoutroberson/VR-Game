@@ -62,5 +62,8 @@ public:
 	void EndWindowPeek();
 
 	float GetPlayerCameraDot();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayLeavesRustleSound();
 	
 };

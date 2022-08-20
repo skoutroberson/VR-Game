@@ -111,6 +111,7 @@ void AVRCharacter::BeginPlay()
 	UHeadMountedDisplayFunctionLibrary::GetOrientationAndPosition(DR, DP);
 	HMDZPos = DP.Z;
 
+	// I don't remember why I did this
 	UEngineTypes::ConvertToCollisionChannel(ETraceTypeQuery::TraceTypeQuery1);
 
 	/*

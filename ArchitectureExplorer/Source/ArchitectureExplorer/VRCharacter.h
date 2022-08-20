@@ -78,6 +78,9 @@ private:
 	void UpdateCapsuleHeight();
 	FHitResult CamHeightHit;
 	FCollisionQueryParams CamHeightParams;
+	FCollisionQueryParams HeadCollisionParams;
+
+
 	FVector WorldDownVector = -FVector(0,0,1);
 
 	USphereComponent* HeadCollisionSphere;

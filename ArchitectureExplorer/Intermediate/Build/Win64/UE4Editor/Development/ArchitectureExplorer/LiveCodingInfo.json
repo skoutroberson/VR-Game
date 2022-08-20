@@ -23,7 +23,6 @@
 			"Grabbable.cpp.obj",
 			"HandController.cpp.obj",
 			"LightManager.cpp.obj",
-			"LightningStrikeScare.cpp.obj",
 			"PeekPoint.cpp.obj",
 			"Phone.cpp.obj",
 			"Portal.cpp.obj",
@@ -40,6 +39,8 @@
 			"Stage3.cpp.obj",
 			"StageManager.cpp.obj",
 			"TriggerManager.cpp.obj",
+			"HallwayStareScare.cpp.obj",
+			"LightningStrikeScare.cpp.obj",
 			"VRCharacter.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.cpp.obj": [
@@ -63,7 +64,6 @@
 			"Grabbable.gen.cpp.obj",
 			"HandController.gen.cpp.obj",
 			"LightManager.gen.cpp.obj",
-			"LightningStrikeScare.gen.cpp.obj",
 			"PeekPoint.gen.cpp.obj",
 			"Phone.gen.cpp.obj",
 			"Portal.gen.cpp.obj",
@@ -80,8 +80,10 @@
 			"Stage3.gen.cpp.obj",
 			"StageManager.gen.cpp.obj",
 			"TriggerManager.gen.cpp.obj",
+			"VRCharacter.gen.cpp.obj",
 			"ArchitectureExplorer.init.gen.cpp.obj",
-			"VRCharacter.gen.cpp.obj"
+			"HallwayStareScare.gen.cpp.obj",
+			"LightningStrikeScare.gen.cpp.obj"
 		]
 	}
 }
