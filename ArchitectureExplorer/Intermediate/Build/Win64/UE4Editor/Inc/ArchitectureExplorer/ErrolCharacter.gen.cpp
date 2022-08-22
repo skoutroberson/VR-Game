@@ -256,6 +256,35 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		P_THIS->ExitPeekState();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AErrolCharacter::execKillPlayer)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->KillPlayer();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AErrolCharacter::execEndKillState)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->EndKillState();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AErrolCharacter::execTickKillState)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_DeltaTime);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->TickKillState(Z_Param_DeltaTime);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AErrolCharacter::execEnterKillState)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->EnterKillState();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AErrolCharacter::execEndFlyAtState)
 	{
 		P_FINISH;
@@ -354,7 +383,9 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "CanThePlayerSeeMe", &AErrolCharacter::execCanThePlayerSeeMe },
 			{ "EndFlyAtState", &AErrolCharacter::execEndFlyAtState },
+			{ "EndKillState", &AErrolCharacter::execEndKillState },
 			{ "EnterFlyAtState", &AErrolCharacter::execEnterFlyAtState },
+			{ "EnterKillState", &AErrolCharacter::execEnterKillState },
 			{ "EnterPeekState", &AErrolCharacter::execEnterPeekState },
 			{ "EnterShoulderPeekState", &AErrolCharacter::execEnterShoulderPeekState },
 			{ "EnterUpperWindowScareState", &AErrolCharacter::execEnterUpperWindowScareState },
@@ -364,6 +395,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 			{ "GetRandomWaypoint", &AErrolCharacter::execGetRandomWaypoint },
 			{ "GoToRandomWaypoint", &AErrolCharacter::execGoToRandomWaypoint },
 			{ "InitializeCanSeeVariables", &AErrolCharacter::execInitializeCanSeeVariables },
+			{ "KillPlayer", &AErrolCharacter::execKillPlayer },
 			{ "SetDetectionGauge", &AErrolCharacter::execSetDetectionGauge },
 			{ "SetHearGauge", &AErrolCharacter::execSetHearGauge },
 			{ "SetSeeFlashlightGauge", &AErrolCharacter::execSetSeeFlashlightGauge },
@@ -372,6 +404,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 			{ "ShouldKill", &AErrolCharacter::execShouldKill },
 			{ "TickChaseState", &AErrolCharacter::execTickChaseState },
 			{ "TickFlyAtState", &AErrolCharacter::execTickFlyAtState },
+			{ "TickKillState", &AErrolCharacter::execTickKillState },
 			{ "TickUpperWindowScareState", &AErrolCharacter::execTickUpperWindowScareState },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -434,6 +467,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_EndFlyAtState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AErrolCharacter_EndKillState_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_EndKillState_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_EndKillState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "EndKillState", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_EndKillState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_EndKillState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_EndKillState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_EndKillState_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -503,6 +558,30 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_EnterFlyAtState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AErrolCharacter_EnterKillState_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_EnterKillState_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// KILL\n" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+		{ "ToolTip", "KILL" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_EnterKillState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "EnterKillState", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_EnterKillState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_EnterKillState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_EnterKillState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_EnterKillState_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -738,6 +817,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AErrolCharacter_KillPlayer_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_KillPlayer_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_KillPlayer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "KillPlayer", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_KillPlayer_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_KillPlayer_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_KillPlayer()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_KillPlayer_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AErrolCharacter_SetDetectionGauge_Statics
 	{
 #if WITH_METADATA
@@ -959,6 +1060,38 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics
+	{
+		struct ErrolCharacter_eventTickKillState_Parms
+		{
+			float DeltaTime;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_DeltaTime;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics::NewProp_DeltaTime = { "DeltaTime", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ErrolCharacter_eventTickKillState_Parms, DeltaTime), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics::NewProp_DeltaTime,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "TickKillState", nullptr, nullptr, sizeof(ErrolCharacter_eventTickKillState_Parms), Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_TickKillState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_TickKillState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AErrolCharacter_TickUpperWindowScareState_Statics
 	{
 		struct ErrolCharacter_eventTickUpperWindowScareState_Parms
@@ -1069,6 +1202,10 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FlyThroughDistance_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FlyThroughDistance;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_KillDistance_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_KillDistance;
 		static const UE4CodeGen_Private::FBytePropertyParams NewProp_PeekState_Underlying;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PeekState_MetaData[];
@@ -1162,9 +1299,11 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AErrolCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AErrolCharacter_CanThePlayerSeeMe, "CanThePlayerSeeMe" }, // 2945474745
 		{ &Z_Construct_UFunction_AErrolCharacter_EndFlyAtState, "EndFlyAtState" }, // 1733603055
+		{ &Z_Construct_UFunction_AErrolCharacter_EndKillState, "EndKillState" }, // 2785992446
 		{ &Z_Construct_UFunction_AErrolCharacter_EndPeek, "EndPeek" }, // 3061781572
 		{ &Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation, "EndPeekAnimation" }, // 3368898706
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterFlyAtState, "EnterFlyAtState" }, // 4091144147
+		{ &Z_Construct_UFunction_AErrolCharacter_EnterKillState, "EnterKillState" }, // 428353460
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterPeekState, "EnterPeekState" }, // 3880286838
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState, "EnterShoulderPeekState" }, // 4160678110
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterUpperWindowScareState, "EnterUpperWindowScareState" }, // 636383724
@@ -1175,6 +1314,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_GetRandomWaypoint, "GetRandomWaypoint" }, // 623349707
 		{ &Z_Construct_UFunction_AErrolCharacter_GoToRandomWaypoint, "GoToRandomWaypoint" }, // 453690708
 		{ &Z_Construct_UFunction_AErrolCharacter_InitializeCanSeeVariables, "InitializeCanSeeVariables" }, // 3381494788
+		{ &Z_Construct_UFunction_AErrolCharacter_KillPlayer, "KillPlayer" }, // 4215045179
 		{ &Z_Construct_UFunction_AErrolCharacter_SetDetectionGauge, "SetDetectionGauge" }, // 2628373435
 		{ &Z_Construct_UFunction_AErrolCharacter_SetHearGauge, "SetHearGauge" }, // 727653839
 		{ &Z_Construct_UFunction_AErrolCharacter_SetSeeFlashlightGauge, "SetSeeFlashlightGauge" }, // 781599227
@@ -1184,6 +1324,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_StartPeekAnimation, "StartPeekAnimation" }, // 1380945858
 		{ &Z_Construct_UFunction_AErrolCharacter_TickChaseState, "TickChaseState" }, // 1528248515
 		{ &Z_Construct_UFunction_AErrolCharacter_TickFlyAtState, "TickFlyAtState" }, // 977977375
+		{ &Z_Construct_UFunction_AErrolCharacter_TickKillState, "TickKillState" }, // 555512801
 		{ &Z_Construct_UFunction_AErrolCharacter_TickUpperWindowScareState, "TickUpperWindowScareState" }, // 3579540977
 		{ &Z_Construct_UFunction_AErrolCharacter_UpdateAnimation, "UpdateAnimation" }, // 935012373
 	};
@@ -1241,7 +1382,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ "ToolTip", "this it the number that will be rolled" },
 	};
 #endif
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillChance = { "KillChance", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, KillChance), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillChance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillChance_MetaData)) };
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillChance = { "KillChance", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, KillChance), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillChance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillChance_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyAtDistance_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
@@ -1256,6 +1397,13 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyThroughDistance = { "FlyThroughDistance", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, FlyThroughDistance), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyThroughDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyThroughDistance_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillDistance_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillDistance = { "KillDistance", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, KillDistance), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillDistance_MetaData)) };
 	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_MetaData[] = {
@@ -1427,6 +1575,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillChance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyAtDistance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyThroughDistance,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillDistance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekState,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekPoints_Inner,
@@ -1476,7 +1625,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 2733037718);
+	IMPLEMENT_CLASS(AErrolCharacter, 787894319);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

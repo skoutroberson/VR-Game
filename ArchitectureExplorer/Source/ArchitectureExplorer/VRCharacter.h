@@ -229,4 +229,8 @@ private:
 	UPROPERTY(VisibleAnywhere);
 	TMap<FName, USoundCue *> FootstepMap;
 
+public:
+
+	void SetBlinkerRadius(float NewRadius);
+
 };

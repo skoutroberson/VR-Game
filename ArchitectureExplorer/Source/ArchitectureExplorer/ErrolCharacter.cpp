@@ -95,6 +95,8 @@ void AErrolCharacter::BeginPlay()
 	TArray<AActor*> UppWinScareStartingPos;
 	UGameplayStatics::GetAllActorsWithTag(World, FName("UpWinScare"), UppWinScareStartingPos);
 	//UpperWindowStartingPoint = UppWinScareStartingPos[0];
+
+	
 }
 
 
@@ -176,6 +178,9 @@ void AErrolCharacter::Tick(float DeltaTime)
 			break;
 		case ErrolState::STATE_FLYAT:
 			TickFlyAtState(DeltaTime);
+			break;
+		case ErrolState::STATE_KILL:
+			TickKillState(DeltaTime);
 			break;
 		case ErrolState::STATE_UPPERWINDOWSCARE:
 			TickUpperWindowScareState(DeltaTime);
@@ -412,9 +417,82 @@ void AErrolCharacter::EnterInvestigateState()
 void AErrolCharacter::EnterKillState()
 {
 	State = ErrolState::STATE_KILL;
-	GetWorld()->GetTimerManager().ClearTimer(ChaseTimerHandle);
-	GetCharacterMovement()->MaxWalkSpeed = KillSpeed;
+	bFindKillLocation = true;
+
+	FVector RV = PlayerCamera->GetRightVector();
+	float Dot = FVector::DotProduct(WorldUpVector, RV);
+	const FVector ScaledUp = WorldUpVector * Dot;
+	KillSweepVector = RV - ScaledUp;
+	KillSweepVector.Normalize();
+	//
+
+	//GetWorld()->GetTimerManager().ClearTimer(ChaseTimerHandle);
+	//GetCharacterMovement()->MaxWalkSpeed = KillSpeed;
+	//UpdateAnimation(State);
+}
+
+void AErrolCharacter::TickKillState(float DeltaTime)
+{
+	if (bFindKillLocation)
+	{
+		FindKillLocation();
+	}
+}
+
+void AErrolCharacter::EndKillState()
+{
+}
+
+void AErrolCharacter::FindKillLocation()
+{
+	KillSweepVector = KillSweepVector.RotateAngleAxis(4.0f, WorldUpVector);
+	FVector VRRootLocation = VRRoot->GetComponentLocation();
+	FCollisionShape SweepShape;
+	SweepShape.SetSphere(40.f);
+	const FVector SweepStart = VRRootLocation + (WorldUpVector * 44.0f) + (KillSweepVector * KillDistance);
+	const FVector SweepEnd = SweepStart + WorldUpVector * 120.0f;
+	FHitResult HitResult;
+	bool bSweep = World->SweepSingleByChannel(HitResult, SweepStart, SweepEnd, FQuat(FVector::ZeroVector, 0), ECollisionChannel::ECC_WorldStatic, SweepShape, CanPlayerSeeMeTraceParams);
+
+	DrawDebugLine(World, SweepStart, SweepEnd, FColor::Orange, false, World->DeltaTimeSeconds * 1.1f);
+
+	if (!bSweep)
+	{
+		bFindKillLocation = false;
+		DrawDebugCapsule(World, VRRoot->GetComponentLocation() + KillSweepVector * 30.f, 105.f, 20.f, GetActorQuat(), FColor::Cyan, true);
+		float CapsuleHalfHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+		KillLocation = VRRootLocation + (KillSweepVector * KillDistance) + (WorldUpVector * CapsuleHalfHeight);
+		KillPlayer();
+	}
+	else
+	{
+		DrawDebugSphere(World, HitResult.ImpactPoint, 10.f, 10.f, FColor::Purple, false, World->DeltaTimeSeconds * 1.1f);
+	}
+	// capsule sweep next to the player until one of them hits or we get to the end (no valid spot located).
+}
+
+void AErrolCharacter::KillPlayer()
+{
 	UpdateAnimation(State);
+	FVector KillDisp = PlayerCamera->GetComponentLocation() - KillLocation;
+	FRotator NewRotation = KillDisp.Rotation();
+	FRotator CurrentRotation = GetActorRotation();
+	CurrentRotation.Yaw = NewRotation.Yaw;
+	SetActorRotation(CurrentRotation);
+	SetActorLocation(KillLocation);
+
+	AVRCharacter * VRChar = Cast<AVRCharacter>(Player);
+	VRChar->Controller->SetIgnoreMoveInput(true);
+	VRChar->Controller->SetIgnoreLookInput(true);
+
+	FRotator PlayerRotation = Player->GetActorRotation();
+	NewRotation = (-KillDisp).Rotation();
+	PlayerRotation.Yaw = NewRotation.Yaw;
+	VRChar->Controller->SetControlRotation(PlayerRotation);
+	Player->SetActorRotation(PlayerRotation);
+
+	BodyMesh->SetVisibility(true);
+	SawMesh->SetVisibility(true);
 }
 
 void AErrolCharacter::EnterLookAroundState()
@@ -579,6 +657,12 @@ void AErrolCharacter::EnterFlyAtState()
 	UpdateAnimation(State);
 	GetCharacterMovement()->MaxWalkSpeed = FlyAtSpeed;
 	bFlyAt = true;
+
+	
+	AVRCharacter * VC = Cast<AVRCharacter>(Player);
+	//VC->SetBlinkerRadius(0.12f);
+	UCameraComponent * PC = Cast<UCameraComponent>(PlayerCamera);
+	//PC->bLockToHmd = false;
 }
 
 void AErrolCharacter::TickFlyAtState(float DeltaTime)
@@ -634,6 +718,8 @@ void AErrolCharacter::InitializeCanSeeVariables()
 	RHandController = Cast<AActor>(TempC->RightController);
 	UActorComponent * TempAC = Player->GetComponentByClass(UCameraComponent::StaticClass());
 	PlayerCamera = Cast<UCameraComponent>(TempAC);
+	VRRoot = Cast<USceneComponent>(Player->GetComponentsByTag(USceneComponent::StaticClass(), FName("VRRoot"))[0]);
+
 	InitializePerceptionTimers();
 
 	CanPlayerSeeMeTraceParams.AddIgnoredActor(Player);

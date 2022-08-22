@@ -125,6 +125,7 @@ public:
 	bool CanThePlayerSeeMe();
 
 	FCollisionQueryParams CanPlayerSeeMeTraceParams;
+	FCollisionQueryParams KillSweepParams;
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "AIAnimation")
 	void UpdateAnimation(ErrolState CurrentState);
@@ -139,7 +140,6 @@ public:
 	void EnterPatrolState();
 	
 	void EnterInvestigateState();
-	void EnterKillState();
 	void EnterLookAroundState();
 
 	UFUNCTION(BlueprintCallable)
@@ -195,7 +195,7 @@ public:
 	void EndFlyAtState();
 
 	// this it the number that will be rolled
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int KillChance = 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -207,6 +207,35 @@ public:
 	bool bFlyAt = false;
 	bool bFlyThrough = false;
 
+	// KILL
+
+	UFUNCTION(BlueprintCallable)
+	void EnterKillState();
+
+	UFUNCTION(BlueprintCallable)
+	void TickKillState(float DeltaTime);
+
+	UFUNCTION(BlueprintCallable)
+	void EndKillState();
+
+	bool bFindKillLocation = false;
+	FVector KillLocation = FVector::ZeroVector;
+	// this is used to find KillLocation. It will start at the player camera->right vector and go 360 degrees around the player to find a valid location.
+	FVector KillSweepVector = FVector::ZeroVector;
+	FVector KillSweepVectorStart = FVector::ZeroVector;
+	void FindKillLocation();
+
+	UFUNCTION(BlueprintCallable)
+	void KillPlayer();
+
+	UPROPERTY(EditAnywhere)
+	float KillDistance = 50.0f;
+
+	USceneComponent * VRRoot = nullptr;
+
+	const FVector WorldUpVector = FVector(0.0f, 0.0f, 1.0f);
+
+	//
 
 	void ExitIdleState();
 	void ExitPatrolState();

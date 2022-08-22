@@ -147,7 +147,7 @@ void AVRCharacter::BeginPlay()
 	{
 		BlinkerMaterialInstance = UMaterialInstanceDynamic::Create(BlinkerMaterialBase, this);
 		PostProcessComponent->AddOrUpdateBlendable(BlinkerMaterialInstance);
-		BlinkerMaterialInstance->SetScalarParameterValue(FName("Radius"), 2.f);
+		BlinkerMaterialInstance->SetScalarParameterValue(FName("Radius"), 2.0f);
 	}
 
 	FootstepMap.Add(FName("wood"), WoodFootStepSound);
@@ -662,4 +662,9 @@ void AVRCharacter::CorrectCameraOffset()
 	NewCameraOffset.Z = 0;
 	AddActorWorldOffset(NewCameraOffset);
 	VRRoot->AddWorldOffset(-NewCameraOffset);
+}
+
+void AVRCharacter::SetBlinkerRadius(float NewRadius)
+{
+	BlinkerMaterialInstance->SetScalarParameterValue(FName("Radius"), NewRadius);
 }
