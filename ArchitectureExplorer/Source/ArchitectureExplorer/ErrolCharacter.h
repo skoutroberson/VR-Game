@@ -198,7 +198,14 @@ public:
 	UPROPERTY(EditAnywhere)
 	int KillChance = 1;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FlyAtDistance = 150.0f;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FlyThroughDistance = 60.0f;
+
+	bool bFlyAt = false;
+	bool bFlyThrough = false;
 
 
 	void ExitIdleState();
@@ -287,7 +294,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float IdleSpeed = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float FlyAtSpeed = 360.0f;
+	float FlyAtSpeed = 999999.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float PatrolSpeed = 140.f;
 	// This can be anywhere between 0 and 220.f;
@@ -363,4 +370,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	bool bCutInHalf = false;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void FlyAtPlayer();
 };

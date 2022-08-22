@@ -363,14 +363,26 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed)
 void AErrolCharacter::TickChaseState(float DeltaTime)
 {
 	
-	if (bSprintAtPlayer)
+	if (bSprintAtPlayer) // when chase starts, speed up to a sprint
 	{
 		SprintAtPlayer(DeltaTime);
 	}
-	else if (bUpdateMoveSpeedBasedOnPlayerCamera)
+	else if (bUpdateMoveSpeedBasedOnPlayerCamera) // slow move speed when Errol is not in view
 	{
 		UpdateMoveSpeedBasedOnPlayerCamera(DeltaTime);
 	}
+	// update kill distance based on player camera
+	// ShouldFlyAtPlayer() // check distance to the player, when it is less than KillDistance, then fly at the player
+
+	float Dist = FVector::Dist(GetActorLocation(), Player->GetActorLocation());
+	if (Dist < FlyAtDistance)
+	{
+		ExitChaseState();
+		EnterFlyAtState();
+		FlyAtPlayer();
+		return;
+	}
+	UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), Dist);
 
 	//UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size());
 	
@@ -566,10 +578,36 @@ void AErrolCharacter::EnterFlyAtState()
 	State = ErrolState::STATE_FLYAT;
 	UpdateAnimation(State);
 	GetCharacterMovement()->MaxWalkSpeed = FlyAtSpeed;
+	bFlyAt = true;
 }
 
 void AErrolCharacter::TickFlyAtState(float DeltaTime)
 {
+	if (bFlyThrough)
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("FLYTHOUGH"));
+		FVector CL = PlayerCamera->GetComponentLocation();
+		FVector CBV = -PlayerCamera->GetForwardVector();
+		FVector GoalLocation = CL + CBV * 50.0f;
+		SetActorLocation(FMath::VInterpConstantTo(GetActorLocation(), GoalLocation, DeltaTime, 1000.f));
+
+		float Dist = FVector::Dist(GetActorLocation(), GoalLocation);
+		if (Dist < 1.0f)
+		{
+			BodyMesh->SetVisibility(false);
+			SawMesh->SetVisibility(false);
+		}
+	}
+	else if (bFlyAt)
+	{
+		float Dist = FVector::Dist(GetActorLocation(), Player->GetActorLocation());
+		if (Dist < FlyThroughDistance)
+		{
+			bFlyThrough = true;
+			SetActorEnableCollision(false);
+			ErrolController->StopMovement();
+		}
+	}
 }
 
 void AErrolCharacter::EndFlyAtState()
@@ -603,6 +641,7 @@ void AErrolCharacter::InitializeCanSeeVariables()
 	//EnterPeekState();
 
 	//EnterUpperWindowScareState();
+	EnterChaseState(ChaseSpeed);
 }
 
 void AErrolCharacter::InitializePerceptionTimers()
