@@ -33,6 +33,9 @@ AErrolCharacter::AErrolCharacter()
 
 	State = ErrolState::STATE_IDLE;
 	PeekState = ErrolPeekState::STATE_IDLE;
+
+	MocapMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MocapMesh"));
+	MocapMesh->SetupAttachment(GetRootComponent());
 }
 
 // Called when the game starts or when spawned
@@ -96,7 +99,7 @@ void AErrolCharacter::BeginPlay()
 	UGameplayStatics::GetAllActorsWithTag(World, FName("UpWinScare"), UppWinScareStartingPos);
 	//UpperWindowStartingPoint = UppWinScareStartingPos[0];
 
-	
+	BloodSpawnLocation = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), FName("BSL"))[0]);
 }
 
 
@@ -380,14 +383,28 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 	// ShouldFlyAtPlayer() // check distance to the player, when it is less than KillDistance, then fly at the player
 
 	float Dist = FVector::Dist(GetActorLocation(), Player->GetActorLocation());
-	if (Dist < FlyAtDistance)
-	{
-		ExitChaseState();
-		EnterFlyAtState();
-		FlyAtPlayer();
-		return;
-	}
+
 	UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), Dist);
+
+	if (bKillImmediately)
+	{
+		if (Dist < ChaseKillDistance)
+		{
+			ExitChaseState();
+			EnterKillState();
+			return;
+		}
+	}
+	else
+	{
+		if (Dist < MaxFlyAtDistance)
+		{
+			ExitChaseState();
+			EnterFlyAtState();
+			FlyAtPlayer();
+			return;
+		}
+	}
 
 	//UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size());
 	
@@ -417,13 +434,23 @@ void AErrolCharacter::EnterInvestigateState()
 void AErrolCharacter::EnterKillState()
 {
 	State = ErrolState::STATE_KILL;
-	bFindKillLocation = true;
 
-	FVector RV = PlayerCamera->GetRightVector();
-	float Dot = FVector::DotProduct(WorldUpVector, RV);
-	const FVector ScaledUp = WorldUpVector * Dot;
-	KillSweepVector = RV - ScaledUp;
-	KillSweepVector.Normalize();
+	if (bKillImmediately)
+	{
+		KillLocation = GetActorLocation();
+		bFindKillLocation = false;
+		KillPlayer();
+	}
+	else
+	{
+		bFindKillLocation = true;
+		FVector RV = PlayerCamera->GetRightVector();
+		float Dot = FVector::DotProduct(WorldUpVector, RV);
+		const FVector ScaledUp = WorldUpVector * Dot;
+		KillSweepVector = RV - ScaledUp;
+		KillSweepVector.Normalize();
+	}
+	
 	//
 
 	//GetWorld()->GetTimerManager().ClearTimer(ChaseTimerHandle);
@@ -436,6 +463,11 @@ void AErrolCharacter::TickKillState(float DeltaTime)
 	if (bFindKillLocation)
 	{
 		FindKillLocation();
+	}
+	else if (bSpawnBlood)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Spawnig blood"));
+		SpawnBlood(DeltaTime);
 	}
 }
 
@@ -486,8 +518,11 @@ void AErrolCharacter::KillPlayer()
 	VRChar->Controller->SetIgnoreLookInput(true);
 
 	FRotator PlayerRotation = Player->GetActorRotation();
+	FRotator CameraRotation = PlayerCamera->GetComponentRotation();
+	float CameraDeltaYaw = PlayerRotation.Yaw - CameraRotation.Yaw;
 	NewRotation = (-KillDisp).Rotation();
 	PlayerRotation.Yaw = NewRotation.Yaw;
+	PlayerRotation.Yaw += CameraDeltaYaw;
 	VRChar->Controller->SetControlRotation(PlayerRotation);
 	Player->SetActorRotation(PlayerRotation);
 
@@ -588,6 +623,20 @@ void AErrolCharacter::EnterShoulderPeekState()
 	AttachToComponent(PlayerCamera, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 }
 
+void AErrolCharacter::SpawnBlood(float DeltaTime)
+{
+	BloodSpawnCounter += DeltaTime;
+
+	if (BloodSpawnCounter > BloodSpawnTime)
+	{
+		BloodSpawnCounter = 0;
+
+		FActorSpawnParameters SpawnParams;
+
+		World->SpawnActor<AActor>(BloodFXActor, BloodSpawnLocation->GetComponentTransform());
+	}
+}
+
 void AErrolCharacter::ExitIdleState()
 {
 	
@@ -657,7 +706,6 @@ void AErrolCharacter::EnterFlyAtState()
 	UpdateAnimation(State);
 	GetCharacterMovement()->MaxWalkSpeed = FlyAtSpeed;
 	bFlyAt = true;
-
 	
 	AVRCharacter * VC = Cast<AVRCharacter>(Player);
 	//VC->SetBlinkerRadius(0.12f);

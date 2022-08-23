@@ -73,6 +73,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USkeletalMeshComponent * MocapMesh = nullptr;
+
 private:
 	UWorld * World = nullptr;
 	AActor * Player = nullptr;
@@ -89,6 +92,8 @@ private:
 
 	USkeletalMeshComponent * BodyMesh = nullptr;
 	USkeletalMeshComponent * SawMesh = nullptr;
+
+	
 
 	const USkeletalMeshSocket *EyeSocket = nullptr;
 	const USkeletalMeshSocket *NeckSocket = nullptr;
@@ -155,6 +160,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void TickChaseState(float DeltaTime);
 
+	USceneComponent * BloodSpawnLocation = nullptr;
+
 	// tick stuff
 
 	// this is turned on once I am sprinting.
@@ -199,7 +206,11 @@ public:
 	int KillChance = 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float FlyAtDistance = 150.0f;
+	float MaxFlyAtDistance = 150.0f;
+
+	// if true, Errol will kill the player instead of flying at them and rolling for the kill
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bKillImmediately = true;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float FlyThroughDistance = 60.0f;
@@ -230,6 +241,24 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	float KillDistance = 50.0f;
+
+	UPROPERTY(EditAnywhere)
+	float ChaseKillDistance = 70.0f;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> BloodFXActor = nullptr;
+
+	// How often to spawn blood fx
+	UPROPERTY(EditAnywhere)
+	float BloodSpawnTime = 0.2f;
+
+	// keeps track of how much time has passed since last blood spawn, gets reset each spawn.
+	float BloodSpawnCounter = 0;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bSpawnBlood = false;
+
+	void SpawnBlood(float DeltaTime);
 
 	USceneComponent * VRRoot = nullptr;
 

@@ -94,6 +94,14 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 	// update shake value
 	// update haptic intensity? (maybe not this one)
 	const float TriggerAxisValue = (bLeftHandIsControllingTrigger) ? Player->LeftTriggerAxisValue : Player->RightTriggerAxisValue;
+
+	float NewRPMValue = TriggerAxisValue;
+
+	if(TriggerAxisValue < CurrentEngineValue)
+	{
+		NewRPMValue += 2.0f;
+	}
+
 	//EngineAudio->SetPitchMultiplier(TriggerAxisValue * 2.f);
 	CurrentEngineValue = TriggerAxisValue;
 	/*
