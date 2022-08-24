@@ -100,6 +100,14 @@ void AErrolCharacter::BeginPlay()
 	//UpperWindowStartingPoint = UppWinScareStartingPos[0];
 
 	BloodSpawnLocation = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), FName("BSL"))[0]);
+
+	BloodSpawnCounter = BloodSpawnTime;
+
+	FootstepMap.Add(FName("wood"), WoodFootStepSound);
+	FootstepMap.Add(FName("tile"), TileFootstepSound);
+	FootstepMap.Add(FName("conc"), ConcreteFootStepSound);
+	FootstepMap.Add(FName("stai"), StairFootstepSound);
+	FootstepMap.Add(FName("dirt"), DirtFootStepSound);
 }
 
 
@@ -209,6 +217,45 @@ void AErrolCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void AErrolCharacter::CheckFloor()
+{
+	const FVector WorldDownVector = FVector(0.0f, 0.0f, -1.0f);
+	const FVector RTS = MocapMesh->GetSocketLocation(FName("RStep"));
+	const FVector LTS = MocapMesh->GetSocketLocation(FName("LStep"));
+
+	FHitResult RHitResult;
+	FHitResult LHitResult;
+	
+	bool bRTrace = World->LineTraceSingleByChannel(RHitResult, RTS, RTS + WorldDownVector * 5.0f, ECollisionChannel::ECC_WorldStatic, CanPlayerSeeMeTraceParams);
+	bool bLTrace = World->LineTraceSingleByChannel(RHitResult, LTS, LTS + WorldDownVector * 5.0f, ECollisionChannel::ECC_WorldStatic, CanPlayerSeeMeTraceParams);
+
+	if (bRTrace)
+	{
+		UpdateFootstepSound(RHitResult, false, RightFootStepSound);
+	}
+	if (bLTrace)
+	{
+		UpdateFootstepSound(LHitResult, true, LeftFootStepSound);
+	}
+}
+
+void AErrolCharacter::UpdateFootstepSound(FHitResult & HitResult, bool bLeft, USoundCue * FootstepSound)
+{	
+	TArray<FName> &Tags = HitResult.Component->ComponentTags;
+
+	if (Tags.Num() > 0)
+	{
+		for (auto &t : Tags)
+		{
+			USoundCue * Ptr = FootstepMap.FindRef(t);
+			if (Ptr != nullptr)
+			{
+				FootstepSound = Ptr;
+			}
+		}
+	}
 }
 
 void AErrolCharacter::Patrol()
@@ -384,14 +431,18 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 
 	float Dist = FVector::Dist(GetActorLocation(), Player->GetActorLocation());
 
-	UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), Dist);
+	//UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), Dist);
 
 	if (bKillImmediately)
 	{
 		if (Dist < ChaseKillDistance)
 		{
+			
 			ExitChaseState();
 			EnterKillState();
+			MocapMesh->SetVisibility(false);
+			BodyMesh->SetVisibility(true);
+			UpdateAnimation(State);
 			return;
 		}
 	}
@@ -402,11 +453,13 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 			ExitChaseState();
 			EnterFlyAtState();
 			FlyAtPlayer();
+			MocapMesh->SetVisibility(false);
+			BodyMesh->SetVisibility(true);
 			return;
 		}
 	}
 
-	//UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size());
+	UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size());
 	
 	/*
 	if (ShouldIMarkPlayerForDeath())
@@ -698,6 +751,7 @@ void AErrolCharacter::ExitChaseState()
 {
 	bSprintAtPlayer = true;
 	bUpdateMoveSpeedBasedOnPlayerCamera = false;
+	ErrolController->StopMovement();
 }
 
 void AErrolCharacter::EnterFlyAtState()
@@ -705,6 +759,7 @@ void AErrolCharacter::EnterFlyAtState()
 	State = ErrolState::STATE_FLYAT;
 	UpdateAnimation(State);
 	GetCharacterMovement()->MaxWalkSpeed = FlyAtSpeed;
+	ErrolController->MoveToActor(Player);
 	bFlyAt = true;
 	
 	AVRCharacter * VC = Cast<AVRCharacter>(Player);

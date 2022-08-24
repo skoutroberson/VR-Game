@@ -76,6 +76,41 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USkeletalMeshComponent * MocapMesh = nullptr;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	class USoundCue * RightFootStepSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	class USoundCue * LeftFootStepSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * WoodFootStepSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * DirtFootStepSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * ConcreteFootStepSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * TileFootstepSound;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * StairFootstepSound;
+
+	UPROPERTY(VisibleAnywhere);
+	TMap<FName, USoundCue *> FootstepMap;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool bRightFootOnGround = true;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool bLeftFootOnGround = true;
+
+	// updates the step sound for each foot
+	void CheckFloor();
+
+	void UpdateFootstepSound(FHitResult &HitResult, bool bLeft, USoundCue * FootstepSound);
+
 private:
 	UWorld * World = nullptr;
 	AActor * Player = nullptr;
