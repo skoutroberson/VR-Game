@@ -169,7 +169,7 @@ void AVRCharacter::UpdateCapsuleHeight()
 	AddActorWorldOffset(FVector(0,0,-Diff), true);
 
 	FVector RL = VRRoot->GetComponentLocation();
-	RL.Z = GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+	RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight()) - (DP.Z * 0.1f);
 	VRRoot->SetWorldLocation(RL);
 }
 
@@ -358,8 +358,16 @@ void AVRCharacter::Tick(float DeltaTime)
 	CorrectCameraOffset();
 
 	//	Updates the capsule height to be the height from the floor to the HMD
-	UpdateCapsuleHeight();
-	
+
+	//if (!bClimbing)
+	//{
+		//UE_LOG(LogTemp, Warning, TEXT("NOT CLIMBING"));
+		UpdateCapsuleHeight();
+	//}
+	//else
+	//{
+		//UE_LOG(LogTemp, Warning, TEXT("CLIMBING"));
+	//}
 
 	if (bTeleportEnabled)
 	{

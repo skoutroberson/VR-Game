@@ -233,4 +233,6 @@ public:
 
 	void SetBlinkerRadius(float NewRadius);
 
+	bool bClimbing = false;
+
 };

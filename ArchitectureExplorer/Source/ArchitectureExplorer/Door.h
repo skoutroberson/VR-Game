@@ -53,6 +53,7 @@ public:
 	void CollisionSwing(float DeltaTime);
 
 	// State
+	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
 	bool bIsBeingUsed = false;
 
 	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
@@ -126,7 +127,7 @@ private:
 	float CloseDoorFastVelocity = 0.0001f;
 
 public:
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Door")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Door")
 	bool bLocked = false;
 
 private:

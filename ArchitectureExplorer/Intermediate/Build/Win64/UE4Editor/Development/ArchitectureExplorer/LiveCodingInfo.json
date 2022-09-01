@@ -12,7 +12,6 @@
 			"cPlayerHandAnimBP.cpp.obj",
 			"Crawler.cpp.obj",
 			"CrawlingMan.cpp.obj",
-			"Door.cpp.obj",
 			"DoorKey.cpp.obj",
 			"DoorManager.cpp.obj",
 			"Drawer.cpp.obj",
@@ -21,7 +20,6 @@
 			"Flashlight.cpp.obj",
 			"Grabbable.cpp.obj",
 			"HallwayStareScare.cpp.obj",
-			"HandController.cpp.obj",
 			"LightManager.cpp.obj",
 			"LightningStrikeScare.cpp.obj",
 			"PeekPoint.cpp.obj",
@@ -40,8 +38,11 @@
 			"Stage3.cpp.obj",
 			"StageManager.cpp.obj",
 			"TriggerManager.cpp.obj",
-			"VRCharacter.cpp.obj",
-			"ErrolCharacter.cpp.obj"
+			"CrawlSpaceScare.cpp.obj",
+			"Door.cpp.obj",
+			"ErrolCharacter.cpp.obj",
+			"HandController.cpp.obj",
+			"VRCharacter.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.cpp.obj": [
 			"ArchitectureExplorerGameModeBase.gen.cpp.obj",
@@ -53,11 +54,11 @@
 			"cPlayerHandAnimBP.gen.cpp.obj",
 			"Crawler.gen.cpp.obj",
 			"CrawlingMan.gen.cpp.obj",
-			"Door.gen.cpp.obj",
 			"DoorKey.gen.cpp.obj",
 			"DoorManager.gen.cpp.obj",
 			"Drawer.gen.cpp.obj",
 			"Errol.gen.cpp.obj",
+			"ErrolCharacter.gen.cpp.obj",
 			"ErrolController.gen.cpp.obj",
 			"Flashlight.gen.cpp.obj",
 			"Grabbable.gen.cpp.obj",
@@ -83,7 +84,8 @@
 			"TriggerManager.gen.cpp.obj",
 			"VRCharacter.gen.cpp.obj",
 			"ArchitectureExplorer.init.gen.cpp.obj",
-			"ErrolCharacter.gen.cpp.obj"
+			"CrawlSpaceScare.gen.cpp.obj",
+			"Door.gen.cpp.obj"
 		]
 	}
 }

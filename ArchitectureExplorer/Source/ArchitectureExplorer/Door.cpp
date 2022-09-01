@@ -138,7 +138,8 @@ void ADoor::Swing(float DeltaTime)
 		if (!bFullyClosed)
 		{
 			bFullyClosed = true;
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SwingVelocity * CloseAudioMultiplier, 0.0f, 1.0f));
+
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SwingVelocity * CloseAudioMultiplier, 0.4f, 1.0f));
 
 			if (bPortalRoomStartDoor)
 			{
@@ -258,7 +259,7 @@ void ADoor::UseDoor(float DeltaTime)
 		if (!bFullyClosed)
 		{
 			bFullyClosed = true;
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SlerpSize * CloseAudioMultiplier, 0.0f, 1.0f));
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SlerpSize * CloseAudioMultiplier, 0.4f, 1.0f));
 		}
 		
 
@@ -567,7 +568,7 @@ void ADoor::CloseDoorUsingCurve(float DeltaTime)
 		if (!bFullyClosed)
 		{
 			bFullyClosed = true;
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(CurveValue * CloseAudioMultiplier, 0.0f, 1.0f));
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(CurveValue * CloseAudioMultiplier, 0.4f, 1.0f));
 		}
 
 		bCloseDoorUsingCurve = false;

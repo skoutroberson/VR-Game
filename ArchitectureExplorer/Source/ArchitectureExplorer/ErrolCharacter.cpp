@@ -459,7 +459,7 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 		}
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size());
+	//UE_LOG(LogTemp, Warning, TEXT("Speed: %f"), GetCharacterMovement()->Velocity.Size());
 	
 	/*
 	if (ShouldIMarkPlayerForDeath())

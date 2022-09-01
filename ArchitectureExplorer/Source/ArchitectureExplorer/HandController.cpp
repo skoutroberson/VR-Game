@@ -66,7 +66,6 @@ void AHandController::Tick(float DeltaTime)
 	{
 		FVector HandControllerDelta = GetActorLocation() - ClimbingStartLocation;
 		GetAttachParentActor()->AddActorWorldOffset(-HandControllerDelta);
-		UE_LOG(LogTemp, Warning, TEXT("CLIMBINGGGGGGGG"));
 	}
 	else if (bIsUsingDoor)
 	{
@@ -276,6 +275,10 @@ void AHandController::Grip()
 			bIsClimbing = true;
 			ClimbingStartLocation = GetActorLocation();
 			GripSize = 80.f;
+
+			AVRCharacter * VRChar = Cast<AVRCharacter>(GetAttachParentActor());
+			VRChar->bClimbing = true;
+
 			return;
 		}
 	}
@@ -338,6 +341,14 @@ void AHandController::Release()
 	if (bIsClimbing)
 	{
 		bIsClimbing = false;
+		
+		// Have the player start updating their capsule height again
+		if (!SisterController->bIsClimbing)
+		{
+			AVRCharacter * VRChar = Cast<AVRCharacter>(GetAttachParentActor());
+			VRChar->bClimbing = false;
+		}
+
 	}
 	// door
 	if (bIsUsingDoor)
