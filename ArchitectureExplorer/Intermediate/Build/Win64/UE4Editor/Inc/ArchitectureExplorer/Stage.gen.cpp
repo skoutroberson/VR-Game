@@ -168,7 +168,7 @@ void EmptyLinkFunctionForGeneratedCodeStage() {}
 		{ "ToolTip", "stage num for debugging. Uninitialized is 0." },
 	};
 #endif
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AStage_Statics::NewProp_StageNum = { "StageNum", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage, StageNum), METADATA_PARAMS(Z_Construct_UClass_AStage_Statics::NewProp_StageNum_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage_Statics::NewProp_StageNum_MetaData)) };
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AStage_Statics::NewProp_StageNum = { "StageNum", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage, StageNum), METADATA_PARAMS(Z_Construct_UClass_AStage_Statics::NewProp_StageNum_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage_Statics::NewProp_StageNum_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStage_Statics::NewProp_bCompleted_MetaData[] = {
 		{ "Category", "Stage" },
@@ -211,7 +211,7 @@ void EmptyLinkFunctionForGeneratedCodeStage() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AStage, 924585121);
+	IMPLEMENT_CLASS(AStage, 61936596);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AStage>()
 	{
 		return AStage::StaticClass();

@@ -31,7 +31,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	// stage num for debugging. Uninitialized is 0.
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int StageNum = 0;
 
 	// called when the stage starts

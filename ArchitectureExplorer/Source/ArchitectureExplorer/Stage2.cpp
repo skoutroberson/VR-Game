@@ -10,6 +10,7 @@
 AStage2::AStage2()
 {
 	PrimaryActorTick.bCanEverTick = false;
+	StageNum = 2;
 }
 
 AStage2::~AStage2()

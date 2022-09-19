@@ -172,6 +172,9 @@ void ARoach::TickMoveState(float DeltaTime)
 			MoveAndRotateToGoal(DeltaTime);
 			// swerve
 			// wiggle
+			// flock
+			// avoid
+
 		}
 	}
 	else
