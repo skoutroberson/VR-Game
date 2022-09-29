@@ -44,7 +44,7 @@ void EmptyLinkFunctionForGeneratedCodePhone() {}
 		{ "ModuleRelativePath", "Phone.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APhone_AnswerPhone_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APhone, nullptr, "AnswerPhone", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APhone_AnswerPhone_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APhone_AnswerPhone_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APhone_AnswerPhone_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APhone, nullptr, "AnswerPhone", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APhone_AnswerPhone_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APhone_AnswerPhone_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_APhone_AnswerPhone()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -67,7 +67,7 @@ void EmptyLinkFunctionForGeneratedCodePhone() {}
 		{ "ModuleRelativePath", "Phone.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APhone_CallPhone_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APhone, nullptr, "CallPhone", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APhone_CallPhone_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APhone_CallPhone_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APhone_CallPhone_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APhone, nullptr, "CallPhone", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APhone_CallPhone_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APhone_CallPhone_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_APhone_CallPhone()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -96,8 +96,8 @@ void EmptyLinkFunctionForGeneratedCodePhone() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_APhone_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_APhone_AnswerPhone, "AnswerPhone" }, // 180239429
-		{ &Z_Construct_UFunction_APhone_CallPhone, "CallPhone" }, // 1266495007
+		{ &Z_Construct_UFunction_APhone_AnswerPhone, "AnswerPhone" }, // 3630583880
+		{ &Z_Construct_UFunction_APhone_CallPhone, "CallPhone" }, // 3594050190
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APhone_Statics::Class_MetaDataParams[] = {
@@ -133,7 +133,7 @@ void EmptyLinkFunctionForGeneratedCodePhone() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APhone, 1961376953);
+	IMPLEMENT_CLASS(APhone, 1500900086);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<APhone>()
 	{
 		return APhone::StaticClass();

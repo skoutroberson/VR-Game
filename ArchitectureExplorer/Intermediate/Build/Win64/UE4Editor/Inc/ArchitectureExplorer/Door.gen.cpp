@@ -56,6 +56,16 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		P_THIS->CloseDoorFast(Z_Param_DeltaTime);
 		P_NATIVE_END;
 	}
+	static FName NAME_ADoor_TurnOffSoundsAndLighting = FName(TEXT("TurnOffSoundsAndLighting"));
+	void ADoor::TurnOffSoundsAndLighting()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ADoor_TurnOffSoundsAndLighting),NULL);
+	}
+	static FName NAME_ADoor_TurnOnSoundsAndLighting = FName(TEXT("TurnOnSoundsAndLighting"));
+	void ADoor::TurnOnSoundsAndLighting()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ADoor_TurnOnSoundsAndLighting),NULL);
+	}
 	void ADoor::StaticRegisterNativesADoor()
 	{
 		UClass* Class = ADoor::StaticClass();
@@ -193,6 +203,52 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ADoor_TurnOffSoundsAndLighting_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADoor_TurnOffSoundsAndLighting_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// used by portal room doors to turn off outside sounds and indirect lighting\n" },
+		{ "ModuleRelativePath", "Door.h" },
+		{ "ToolTip", "used by portal room doors to turn off outside sounds and indirect lighting" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADoor_TurnOffSoundsAndLighting_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADoor, nullptr, "TurnOffSoundsAndLighting", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADoor_TurnOffSoundsAndLighting_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADoor_TurnOffSoundsAndLighting_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADoor_TurnOffSoundsAndLighting()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADoor_TurnOffSoundsAndLighting_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ADoor_TurnOnSoundsAndLighting_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADoor_TurnOnSoundsAndLighting_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Door.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADoor_TurnOnSoundsAndLighting_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADoor, nullptr, "TurnOnSoundsAndLighting", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADoor_TurnOnSoundsAndLighting_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADoor_TurnOnSoundsAndLighting_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADoor_TurnOnSoundsAndLighting()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADoor_TurnOnSoundsAndLighting_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ADoor_NoRegister()
 	{
 		return ADoor::StaticClass();
@@ -322,6 +378,11 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		static void NewProp_bBackwards_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bBackwards;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bPortalEnabled_MetaData[];
+#endif
+		static void NewProp_bPortalEnabled_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bPortalEnabled;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentDoorAngle_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_CurrentDoorAngle;
@@ -356,6 +417,8 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		{ &Z_Construct_UFunction_ADoor_CloseDoorUsingCurve, "CloseDoorUsingCurve" }, // 3239734767
 		{ &Z_Construct_UFunction_ADoor_OpenDoorUsingCurve, "OpenDoorUsingCurve" }, // 2153808359
 		{ &Z_Construct_UFunction_ADoor_SetDoorBackwards, "SetDoorBackwards" }, // 1403971146
+		{ &Z_Construct_UFunction_ADoor_TurnOffSoundsAndLighting, "TurnOffSoundsAndLighting" }, // 3134700338
+		{ &Z_Construct_UFunction_ADoor_TurnOnSoundsAndLighting, "TurnOnSoundsAndLighting" }, // 2762121609
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoor_Statics::Class_MetaDataParams[] = {
@@ -606,6 +669,19 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards = { "bBackwards", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADoor), &Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoor_Statics::NewProp_bPortalEnabled_MetaData[] = {
+		{ "Category", "DoorMechanics" },
+		{ "Comment", "// this will be used to do certain things when the portal door is closed. (turn off sounds/lighting)\n" },
+		{ "ModuleRelativePath", "Door.h" },
+		{ "ToolTip", "this will be used to do certain things when the portal door is closed. (turn off sounds/lighting)" },
+	};
+#endif
+	void Z_Construct_UClass_ADoor_Statics::NewProp_bPortalEnabled_SetBit(void* Obj)
+	{
+		((ADoor*)Obj)->bPortalEnabled = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_bPortalEnabled = { "bPortalEnabled", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADoor), &Z_Construct_UClass_ADoor_Statics::NewProp_bPortalEnabled_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_bPortalEnabled_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_bPortalEnabled_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoor_Statics::NewProp_CurrentDoorAngle_MetaData[] = {
 		{ "Category", "Door" },
 		{ "Comment", "// This represents the angle the door is away from being fully closed. 0 = fully closed.\n" },
@@ -678,6 +754,7 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_bColliding,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_bFullyClosed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_bBackwards,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_bPortalEnabled,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_CurrentDoorAngle,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_DoorCloseCurve1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_CurrentCurve,
@@ -711,7 +788,7 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADoor, 2016820493);
+	IMPLEMENT_CLASS(ADoor, 1645775754);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ADoor>()
 	{
 		return ADoor::StaticClass();

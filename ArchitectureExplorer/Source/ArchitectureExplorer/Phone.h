@@ -22,10 +22,10 @@ protected:
 
 public:
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "Phone")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Phone")
 	void CallPhone();
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "Phone")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Phone")
 	void AnswerPhone();
 	
 };

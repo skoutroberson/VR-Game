@@ -30,6 +30,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execCloseDoorFast);
 
 
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_EVENT_PARMS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_CALLBACK_WRAPPERS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADoor(); \
@@ -84,13 +86,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADoor); \
 	FORCEINLINE static uint32 __PPO__CapsuleCollisionSound() { return STRUCT_OFFSET(ADoor, CapsuleCollisionSound); }
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_11_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_11_PROLOG \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_EVENT_PARMS
+
+
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_PRIVATE_PROPERTY_OFFSET \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_SPARSE_DATA \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_CALLBACK_WRAPPERS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_INCLASS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_STANDARD_CONSTRUCTORS \
 public: \
@@ -103,6 +109,7 @@ public: \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_PRIVATE_PROPERTY_OFFSET \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_SPARSE_DATA \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_CALLBACK_WRAPPERS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_INCLASS_NO_PURE_DECLS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Door_h_14_ENHANCED_CONSTRUCTORS \
 private: \

@@ -139,7 +139,7 @@ void ADoor::Swing(float DeltaTime)
 		{
 			bFullyClosed = true;
 
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SwingVelocity * CloseAudioMultiplier, 0.4f, 1.0f));
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SwingVelocity * CloseAudioMultiplier, 0.6f, 1.0f));
 
 			if (bPortalRoomStartDoor)
 			{
@@ -259,7 +259,7 @@ void ADoor::UseDoor(float DeltaTime)
 		if (!bFullyClosed)
 		{
 			bFullyClosed = true;
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SlerpSize * CloseAudioMultiplier, 0.4f, 1.0f));
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(SlerpSize * CloseAudioMultiplier, 0.6f, 1.0f));
 		}
 		
 
@@ -414,6 +414,12 @@ void ADoor::CloseDoorFast(UPARAM(DisplayName = "DeltaTime") float DeltaTime)
 		//////////////////////PLAY DOOR SHUT SOUND!!!!!!!!!!
 		///////////////////////////////////////////////////////////////////////////////////////////
 		UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, GetActorLocation());
+
+		if (bPortalEnabled)
+		{
+			// bluleprint function to turn off all sounds / indirect lighting from lights outside of the portal.
+			TurnOffSoundsAndLighting();
+		}
 	}
 	else
 	{
@@ -498,6 +504,11 @@ void ADoor::PassController(AActor * HC)
 			Push = -1;
 		}
 		UGameplayStatics::PlaySoundAtLocation(GetWorld(), OpenSound, GetActorLocation());
+
+		if (bPortalEnabled)
+		{
+			TurnOnSoundsAndLighting();
+		}
 	}
 	else
 	{
@@ -568,7 +579,7 @@ void ADoor::CloseDoorUsingCurve(float DeltaTime)
 		if (!bFullyClosed)
 		{
 			bFullyClosed = true;
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(CurveValue * CloseAudioMultiplier, 0.4f, 1.0f));
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), CloseSound, Doorknob->GetComponentLocation(), FMath::Clamp(CurveValue * CloseAudioMultiplier, 0.6f, 1.0f));
 		}
 
 		bCloseDoorUsingCurve = false;

@@ -38,6 +38,11 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_APortalRoom_EnablePortal),NULL);
 	}
+	static FName NAME_APortalRoom_TurnOnSoundsAndLighting = FName(TEXT("TurnOnSoundsAndLighting"));
+	void APortalRoom::TurnOnSoundsAndLighting()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_APortalRoom_TurnOnSoundsAndLighting),NULL);
+	}
 	void APortalRoom::StaticRegisterNativesAPortalRoom()
 	{
 		UClass* Class = APortalRoom::StaticClass();
@@ -131,6 +136,28 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_APortalRoom_TurnOnSoundsAndLighting_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APortalRoom_TurnOnSoundsAndLighting_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PortalRoom.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APortalRoom_TurnOnSoundsAndLighting_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APortalRoom, nullptr, "TurnOnSoundsAndLighting", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APortalRoom_TurnOnSoundsAndLighting_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APortalRoom_TurnOnSoundsAndLighting_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APortalRoom_TurnOnSoundsAndLighting()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APortalRoom_TurnOnSoundsAndLighting_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_APortalRoom_NoRegister()
 	{
 		return APortalRoom::StaticClass();
@@ -159,6 +186,7 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		{ &Z_Construct_UFunction_APortalRoom_DisablePortal, "DisablePortal" }, // 169310758
 		{ &Z_Construct_UFunction_APortalRoom_EnablePortal, "EnablePortal" }, // 2786161211
 		{ &Z_Construct_UFunction_APortalRoom_TeleportPlayer, "TeleportPlayer" }, // 4208780132
+		{ &Z_Construct_UFunction_APortalRoom_TurnOnSoundsAndLighting, "TurnOnSoundsAndLighting" }, // 1687070514
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APortalRoom_Statics::Class_MetaDataParams[] = {
@@ -207,7 +235,7 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APortalRoom, 4083172072);
+	IMPLEMENT_CLASS(APortalRoom, 3256377882);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<APortalRoom>()
 	{
 		return APortalRoom::StaticClass();

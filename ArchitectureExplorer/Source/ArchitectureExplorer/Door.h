@@ -71,6 +71,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
 	FVector LastCALocation = FVector::ZeroVector;
 
+
+
 	// if this bool is true, then do certain things on door close like turn off flashlight, radio, and change Errol behavior.
 	UPROPERTY(EditAnywhere)
 	bool bPortalRoomStartDoor = false;
@@ -189,6 +191,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetDoorBackwards();
 
+	// this will be used to do certain things when the portal door is closed. (turn off sounds/lighting)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = DoorMechanics)
+	bool bPortalEnabled = false;
+
 	// This represents the angle the door is away from being fully closed. 0 = fully closed.
 	UPROPERTY(BlueprintReadOnly)
 	float CurrentDoorAngle = 0.0f;
@@ -212,4 +218,13 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void OpenDoorUsingCurve(float DeltaTime);
+
+	// used by portal room doors to turn off outside sounds and indirect lighting
+	UFUNCTION(BlueprintImplementableEvent)
+	void TurnOffSoundsAndLighting();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void TurnOnSoundsAndLighting();
+
+
 };

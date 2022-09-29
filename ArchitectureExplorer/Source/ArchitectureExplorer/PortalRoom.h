@@ -58,5 +58,8 @@ public:
 	// hides portal, shows intersecting meshes, and removes portal collisions. MUST BE CALLED ON THE TARGET PORTAL AS WELL OR ELSE BAD
 	UFUNCTION(BlueprintImplementableEvent)
 	void DisablePortal();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void TurnOnSoundsAndLighting();
 	
 };

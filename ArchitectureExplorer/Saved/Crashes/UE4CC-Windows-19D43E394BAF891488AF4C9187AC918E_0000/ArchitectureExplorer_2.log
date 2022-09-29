@@ -1,0 +1,2112 @@
+﻿Log file open, 09/23/22 16:17:15
+LogInit: LLM is enabled
+LogInit: LLM CsvWriter: off TraceWriter: off
+LogInit: Display: Running engine for game: ArchitectureExplorer
+LogPlatformFile: Not using cached read wrapper
+LogTaskGraph: Started task graph with 5 named threads and 71 total threads with 3 sets of task threads.
+LogStats: Stats thread started at 0.195760
+LogD3D11RHI: Loaded GFSDK_Aftermath_Lib.x64.dll
+LogICUInternationalization: ICU TimeZone Detection - Raw Offset: -8:00, Platform Override: ''
+LogPluginManager: Mounting plugin MegascansPlugin
+LogPluginManager: Mounting plugin MeshPainting
+LogPluginManager: Mounting plugin XGEController
+LogPluginManager: Mounting plugin Paper2D
+LogPluginManager: Mounting plugin LightPropagationVolume
+LogPluginManager: Mounting plugin AnimationSharing
+LogPluginManager: Mounting plugin CLionSourceCodeAccess
+LogPluginManager: Mounting plugin CodeLiteSourceCodeAccess
+LogPluginManager: Mounting plugin KDevelopSourceCodeAccess
+LogPluginManager: Mounting plugin PerforceSourceControl
+LogPluginManager: Mounting plugin NullSourceCodeAccess
+LogPluginManager: Mounting plugin PropertyAccessNode
+LogPluginManager: Mounting plugin GitSourceControl
+LogPluginManager: Mounting plugin PlasticSourceControl
+LogPluginManager: Mounting plugin RiderSourceCodeAccess
+LogPluginManager: Mounting plugin PluginUtils
+LogPluginManager: Mounting plugin VisualStudioCodeSourceCodeAccess
+LogPluginManager: Mounting plugin UObjectPlugin
+LogPluginManager: Mounting plugin SubversionSourceControl
+LogPluginManager: Mounting plugin VisualStudioSourceCodeAccess
+LogPluginManager: Mounting plugin XCodeSourceCodeAccess
+LogPluginManager: Mounting plugin AssetManagerEditor
+LogPluginManager: Mounting plugin CurveEditorTools
+LogPluginManager: Mounting plugin CryptoKeys
+LogPluginManager: Mounting plugin DataValidation
+LogPluginManager: Mounting plugin EditorScriptingUtilities
+LogPluginManager: Mounting plugin GeometryMode
+LogPluginManager: Mounting plugin GameplayTagsEditor
+LogPluginManager: Mounting plugin DatasmithContent
+LogPluginManager: Mounting plugin FacialAnimation
+LogPluginManager: Mounting plugin MaterialAnalyzer
+LogPluginManager: Mounting plugin DataprepEditor
+LogPluginManager: Mounting plugin MeshEditor
+LogPluginManager: Mounting plugin MacGraphicsSwitching
+LogPluginManager: Mounting plugin StaticMeshEditorExtension
+LogPluginManager: Mounting plugin MobileLauncherProfileWizard
+LogPluginManager: Mounting plugin PluginBrowser
+LogPluginManager: Mounting plugin SpeedTreeImporter
+LogPluginManager: Mounting plugin VariantManagerContent
+LogPluginManager: Mounting plugin AlembicImporter
+LogPluginManager: Mounting plugin AutomationUtils
+LogPluginManager: Mounting plugin BackChannel
+LogPluginManager: Mounting plugin ChaosCloth
+LogPluginManager: Mounting plugin BlastPlugin
+LogPluginManager: Mounting plugin ChaosEditor
+LogPluginManager: Mounting plugin ChaosSolverPlugin
+LogPluginManager: Mounting plugin ChaosClothEditor
+LogPluginManager: Mounting plugin ChaosNiagara
+LogPluginManager: Mounting plugin CharacterAI
+LogPluginManager: Mounting plugin GeometryCollectionPlugin
+LogPluginManager: Mounting plugin GeometryCache
+LogPluginManager: Mounting plugin GeometryProcessing
+LogPluginManager: Mounting plugin MotoSynth
+LogPluginManager: Mounting plugin PlanarCut
+LogPluginManager: Mounting plugin PlatformCrypto
+LogPluginManager: Mounting plugin ProxyLODPlugin
+LogPluginManager: Mounting plugin PythonScriptPlugin
+LogPluginManager: Mounting plugin SkeletalReduction
+LogPluginManager: Mounting plugin Niagara
+LogPluginManager: Mounting plugin LuminPlatformFeatures
+LogPluginManager: Mounting plugin MagicLeap
+LogPluginManager: Mounting plugin MagicLeapLightEstimation
+LogPluginManager: Mounting plugin MagicLeapMedia
+LogPluginManager: Mounting plugin MagicLeapPassableWorld
+LogPluginManager: Mounting plugin MLSDK
+LogPluginManager: Mounting plugin AndroidMedia
+LogPluginManager: Mounting plugin AvfMedia
+LogPluginManager: Mounting plugin ImgMedia
+LogPluginManager: Mounting plugin MediaCompositing
+LogPluginManager: Mounting plugin MediaPlayerEditor
+LogPluginManager: Mounting plugin WebMMedia
+LogPluginManager: Mounting plugin WmfMedia
+LogPluginManager: Mounting plugin TcpMessaging
+LogPluginManager: Mounting plugin UdpMessaging
+LogPluginManager: Mounting plugin ActorSequence
+LogPluginManager: Mounting plugin LevelSequenceEditor
+LogPluginManager: Mounting plugin TemplateSequence
+LogPluginManager: Mounting plugin LauncherChunkInstaller
+LogPluginManager: Mounting plugin OnlineSubsystem
+LogPluginManager: Mounting plugin OnlineSubsystemNull
+LogPluginManager: Mounting plugin OnlineSubsystemUtils
+LogPluginManager: Mounting plugin ActorLayerUtilities
+LogPluginManager: Mounting plugin AndroidDeviceProfileSelector
+LogPluginManager: Mounting plugin AndroidPermission
+LogPluginManager: Mounting plugin AndroidMoviePlayer
+LogPluginManager: Mounting plugin ApexDestruction
+LogPluginManager: Mounting plugin AppleImageUtils
+LogPluginManager: Mounting plugin AssetTags
+LogPluginManager: Mounting plugin ArchVisCharacter
+LogPluginManager: Mounting plugin AudioSynesthesia
+LogPluginManager: Mounting plugin MatineeToLevelSequence
+LogPluginManager: Mounting plugin AudioCapture
+LogPluginManager: Mounting plugin ChunkDownloader
+LogPluginManager: Mounting plugin CustomMeshComponent
+LogPluginManager: Mounting plugin ExampleDeviceProfileSelector
+LogPluginManager: Mounting plugin AppleMoviePlayer
+LogPluginManager: Mounting plugin CableComponent
+LogPluginManager: Mounting plugin GoogleCloudMessaging
+LogPluginManager: Mounting plugin EditableMesh
+LogPluginManager: Mounting plugin LinuxDeviceProfileSelector
+LogPluginManager: Mounting plugin LocationServicesBPLibrary
+LogPluginManager: Mounting plugin MobilePatchingUtils
+LogPluginManager: Mounting plugin GooglePAD
+LogPluginManager: Mounting plugin PostSplashScreen
+LogPluginManager: Mounting plugin ProceduralMeshComponent
+LogPluginManager: Mounting plugin PropertyAccessEditor
+LogPluginManager: Mounting plugin PhysXVehicles
+LogPluginManager: Mounting plugin SignificanceManager
+LogPluginManager: Mounting plugin RuntimePhysXCooking
+LogPluginManager: Mounting plugin SoundFields
+LogPluginManager: Mounting plugin SoundVisualizations
+LogPluginManager: Mounting plugin Synthesis
+LogPluginManager: Mounting plugin WebMMoviePlayer
+LogPluginManager: Mounting plugin IOSDeviceProfileSelector
+LogPluginManager: Mounting plugin WindowsMoviePlayer
+LogPluginManager: Mounting plugin ScreenshotTools
+LogPluginManager: Mounting plugin AISupport
+LogPluginManager: Mounting plugin CameraShakePreviewer
+LogPluginManager: Mounting plugin EnvironmentQueryEditor
+LogPluginManager: Mounting plugin ContentBrowserAssetDataSource
+LogPluginManager: Mounting plugin ContentBrowserClassDataSource
+LogPluginManager: Mounting plugin ContentBrowserFileDataSource
+LogPluginManager: Mounting plugin OnlineSubsystemGooglePlay
+LogPluginManager: Mounting plugin OnlineSubsystemIOS
+LogPluginManager: Mounting plugin DatabaseSupport
+LogPluginManager: Mounting plugin SQLiteCore
+LogPluginManager: Mounting plugin SQLiteSupport
+LogPluginManager: Mounting plugin OculusAudio
+LogPluginManager: Mounting plugin OculusVR
+LogPluginManager: Mounting plugin SteamVR
+LogPluginManager: Mounting plugin StateMachine
+LogXGEController: Cannot use XGE Controller as Incredibuild is not installed on this machine.
+LogInit: Using libcurl 7.55.1-DEV
+LogInit:  - built for x86_64-pc-win32
+LogInit:  - supports SSL with OpenSSL/1.1.1
+LogInit:  - supports HTTP deflate (compression) using libz 1.2.8
+LogInit:  - other features:
+LogInit:      CURL_VERSION_SSL
+LogInit:      CURL_VERSION_LIBZ
+LogInit:      CURL_VERSION_IPV6
+LogInit:      CURL_VERSION_ASYNCHDNS
+LogInit:      CURL_VERSION_LARGEFILE
+LogInit:      CURL_VERSION_IDN
+LogInit:  CurlRequestOptions (configurable via config and command line):
+LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
+LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+LogInit:  - MaxHostConnections = 16  - Libcurl will limit the number of connections to a host
+LogInit:  - LocalHostAddr = Default
+LogInit:  - BufferSize = 65536
+LogOnline: OSS: Creating online subsystem instance for: NULL
+LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+LogOnline: OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for module [NULL]
+LogAudio: Display: Oculus Audio: Middleware plugins not found, assuming native UE4 AudioMixer
+LogAudio: Display: Oculus Audio: Attempting to load Oculus Spatializer DLL: ../../../Engine/Binaries/ThirdParty/Oculus/Audio/Win64/ (from ovraudio64)
+LogOculusPluginWrapper: OculusPlugin initialized successfully
+LogHMD: FOculusHMDModule PreInit successfully
+LogInit: Build: ++UE4+Release-4.26-CL-15973114
+LogInit: Engine Version: 4.26.2-15973114+++UE4+Release-4.26
+LogInit: Compatible Engine Version: 4.26.0-14830424+++UE4+Release-4.26
+LogInit: Net CL: 14830424
+LogInit: OS: Windows 10 (Release 2009) (), CPU: AMD Ryzen 9 5900X 12-Core Processor            , GPU: NVIDIA GeForce RTX 3060 Ti
+LogInit: Compiled (64-bit): Apr 12 2021 06:14:10
+LogInit: Compiled with Visual C++: 19.24.28315.00
+LogInit: Build Configuration: Development
+LogInit: Branch Name: ++UE4+Release-4.26
+LogInit: Command Line:  /Game/Maps/WORLDFINAL -game -PIEVIACONSOLE -Multiprocess "GameUserSettingsINI=E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/PIEGameUserSettings0.ini" -MultiprocessSaveConfig -MultiprocessOSS -messaging -SessionName="Play in Standalone Game" -windowed -WinX=320 -WinY=160 SAVEWINPOS=1 -ResX=1280 -ResY=720
+LogInit: Base Directory: C:/Program Files/Epic Games/UE_4.26/Engine/Binaries/Win64/
+LogInit: Allocator: TBB
+LogInit: Installed Engine Build: 1
+LogDevObjectVersion: Number of dev versions registered: 29
+LogDevObjectVersion:   Dev-Blueprints (B0D832E4-1F89-4F0D-ACCF-7EB736FD4AA2): 10
+LogDevObjectVersion:   Dev-Build (E1C64328-A22C-4D53-A36C-8E866417BD8C): 0
+LogDevObjectVersion:   Dev-Core (375EC13C-06E4-48FB-B500-84F0262A717E): 4
+LogDevObjectVersion:   Dev-Editor (E4B068ED-F494-42E9-A231-DA0B2E46BB41): 40
+LogDevObjectVersion:   Dev-Framework (CFFC743F-43B0-4480-9391-14DF171D2073): 37
+LogDevObjectVersion:   Dev-Mobile (B02B49B5-BB20-44E9-A304-32B752E40360): 3
+LogDevObjectVersion:   Dev-Networking (A4E4105C-59A1-49B5-A7C5-40C4547EDFEE): 0
+LogDevObjectVersion:   Dev-Online (39C831C9-5AE6-47DC-9A44-9C173E1C8E7C): 0
+LogDevObjectVersion:   Dev-Physics (78F01B33-EBEA-4F98-B9B4-84EACCB95AA2): 4
+LogDevObjectVersion:   Dev-Platform (6631380F-2D4D-43E0-8009-CF276956A95A): 0
+LogDevObjectVersion:   Dev-Rendering (12F88B9F-8875-4AFC-A67C-D90C383ABD29): 44
+LogDevObjectVersion:   Dev-Sequencer (7B5AE74C-D270-4C10-A958-57980B212A5A): 12
+LogDevObjectVersion:   Dev-VR (D7296918-1DD6-4BDD-9DE2-64A83CC13884): 3
+LogDevObjectVersion:   Dev-LoadTimes (C2A15278-BFE7-4AFE-6C17-90FF531DF755): 1
+LogDevObjectVersion:   Private-Geometry (6EACA3D4-40EC-4CC1-B786-8BED09428FC5): 3
+LogDevObjectVersion:   Dev-AnimPhys (29E575DD-E0A3-4627-9D10-D276232CDCEA): 17
+LogDevObjectVersion:   Dev-Anim (AF43A65D-7FD3-4947-9873-3E8ED9C1BB05): 15
+LogDevObjectVersion:   Dev-ReflectionCapture (6B266CEC-1EC7-4B8F-A30B-E4D90942FC07): 1
+LogDevObjectVersion:   Dev-Automation (0DF73D61-A23F-47EA-B727-89E90C41499A): 1
+LogDevObjectVersion:   FortniteMain (601D1886-AC64-4F84-AA16-D3DE0DEAC7D6): 43
+LogDevObjectVersion:   FortniteRelease (E7086368-6B23-4C58-8439-1B7016265E91): 1
+LogDevObjectVersion:   Dev-Enterprise (9DFFBCD6-494F-0158-E221-12823C92A888): 10
+LogDevObjectVersion:   Dev-Niagara (F2AED0AC-9AFE-416F-8664-AA7FFA26D6FC): 1
+LogDevObjectVersion:   Dev-Destruction (174F1F0B-B4C6-45A5-B13F-2EE8D0FB917D): 10
+LogDevObjectVersion:   Dev-Physics-Ext (35F94A83-E258-406C-A318-09F59610247C): 40
+LogDevObjectVersion:   Dev-PhysicsMaterial-Chaos (B68FC16E-8B1B-42E2-B453-215C058844FE): 1
+LogDevObjectVersion:   Dev-CineCamera (B2E18506-4273-CFC2-A54E-F4BB758BBA07): 1
+LogDevObjectVersion:   Dev-VirtualProduction (64F58936-FD1B-42BA-BA96-7289D5D0FA4E): 1
+LogDevObjectVersion:   Dev-MediaFramework (6F0ED827-A609-4895-9C91-998D90180EA4): 2
+LogInit: Presizing for max 25165824 objects, including 0 objects not considered by GC, pre-allocating 0 bytes for permanent pool.
+LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+LogConfig: Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+LogConfig: Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
+LogConfig: Setting CVar [[s.EventDrivenLoaderEnabled:1]]
+LogConfig: Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
+LogConfig: Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
+LogConfig: Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
+LogConfig: Setting CVar [[s.UseBackgroundLevelStreaming:1]]
+LogConfig: Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+LogConfig: Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+LogConfig: Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+LogConfig: Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+LogConfig: Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+LogConfig: Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
+LogInit: Object subsystem initialized
+LogConfig: Setting CVar [[con.DebugEarlyDefault:1]]
+LogConfig: Setting CVar [[r.setres:1280x720]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[con.DebugEarlyDefault:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.setres:1280x720]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.GPUCrashDebugging:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.MobileHDR:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Mobile.DisableVertexFog:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxMobileCascades:2]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.MobileMSAA:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Mobile.UseHWsRGBEncoding:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Mobile.AllowDitheredLODTransition:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Mobile.AllowSoftwareOcclusion:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DiscardUnusedQuality:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.AllowOcclusionQueries:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForLights:0.030000]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForDepthPrepass:0.030000]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForCSMDepth:0.010000]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.PrecomputedVisibilityWarning:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.TextureStreaming:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[Compat.UseDXT5NormalMaps:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.VirtualTextures:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.VirtualTexturedLightmaps:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.VT.TileSize:128]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.VT.TileBorderSize:4]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.vt.FeedbackFactor:16]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.VT.EnableCompressZlib:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.VT.EnableCompressCrunch:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.ClearCoatNormal:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.ReflectionCaptureResolution:128]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.ReflectionEnvironmentLightmapMixBasedOnRoughness:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.ForwardShading:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.VertexFoggingForOpaque:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.AllowStaticLighting:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.NormalMapsForStaticLighting:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.GenerateMeshDistanceFields:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DistanceFieldBuild.EightBit:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.GenerateLandscapeGIData:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DistanceFieldBuild.Compress:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.TessellationAdaptivePixelsPerTriangle:48.000000]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SeparateTranslucency:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.TranslucentSortPolicy:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.CustomDepth:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.CustomDepthTemporalAAJitter:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.PostProcessing.PropagateAlpha:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultFeature.Bloom:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultFeature.AmbientOcclusion:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultFeature.AmbientOcclusionStaticFraction:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.Method:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.UsePreExposure:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.EyeAdaptation.EditorOnly:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultFeature.MotionBlur:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultFeature.LensFlare:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.TemporalAA.Upsampling:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SSGI.Enable:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultFeature.AntiAliasing:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultFeature.LightUnits:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DefaultBackBufferPixelFormat:4]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Shadow.UnbuiltPreviewInGame:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.StencilForLODDither:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.EarlyZPass:3]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.EarlyZPassOnlyMaterialMasking:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.DBuffer:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.ClearSceneMethod:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.BasePassOutputsVelocity:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SelectiveBasePassOutputs:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[fx.GPUSimulationTextureSizeX:1024]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[fx.GPUSimulationTextureSizeY:1024]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.AllowGlobalClipPlane:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.GBufferFormat:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.MorphTarget.Mode:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[vr.InstancedStereo:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[vr.MobileMultiView:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[vr.RoundRobinOcclusion:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[vr.ODSCapture:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.WireframeCullThreshold:5.000000]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.RayTracing:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.RayTracing.UseTextureLod:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SupportStationarySkylight:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SupportLowQualityLightmaps:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SupportPointLightWholeSceneShadows:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SupportAtmosphericFog:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SupportSkyAtmosphere:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SupportSkyAtmosphereAffectsHeightFog:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SkinCache.CompileShaders:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Mobile.EnableStaticAndCSMShadowReceivers:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableLightCSMShaderCulling:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Mobile.AllowDistanceFieldShadows:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Mobile.AllowMovableDirectionalLights:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.MobileNumDynamicPointLights:4]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.MobileDynamicPointLightsUseStaticBranch:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableSpotlights:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SkinCache.SceneMemoryLimitInMB:128.000000]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.GPUSkin.Limit2BoneInfluences:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SupportDepthOnlyIndexBuffers:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.SupportReversedIndexBuffers:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.LightPropagationVolume:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableSpotlightsShadow:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererOverrideSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2022.09.23-23.17.15:730][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[s.EventDrivenLoaderEnabled:1]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
+[2022.09.23-23.17.15:730][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[s.UseBackgroundLevelStreaming:1]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.GarbageCollectionSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.MaxObjectsNotConsideredByGC:1]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.SizeOfPermanentObjectPool:0]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.FlushStreamingOnGC:0]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.NumRetriesBeforeForcingGC:10]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.AllowParallelGC:1]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.TimeBetweenPurgingPendingKillObjects:61.1]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.MaxObjectsInEditor:25165824]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.IncrementalBeginDestroyEnabled:1]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.CreateGCClusters:1]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.MinGCClusterSize:5]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.ActorClusteringEnabled:0]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.BlueprintClusteringEnabled:0]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.UseDisregardForGCOnDedicatedServers:0]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Setting CVar [[gc.MultithreadedDestructionEnabled:1]]
+[2022.09.23-23.17.15:731][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.NetworkSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2022.09.23-23.17.15:731][  0]LogConfig: Applying CVar settings from Section [/Script/UnrealEd.CookerSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2022.09.23-23.17.15:757][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2022.09.23-23.17.15:757][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.AnisotropicMaterials:1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
+[2022.09.23-23.17.15:758][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+[2022.09.23-23.17.15:759][  0]LogInit: Selected Device Profile: [Windows]
+[2022.09.23-23.17.15:759][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2022.09.23-23.17.15:759][  0]LogHAL: Display: Platform has ~ 32 GB [34300358656 / 34359738368 / 32], which maps to Largest [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+[2022.09.23-23.17.15:759][  0]LogInit: Going up to parent DeviceProfile []
+[2022.09.23-23.17.15:759][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.AnisotropicMaterials:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+[2022.09.23-23.17.15:759][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Applying CVar settings from Section [Startup] File [../../../Engine/Config/ConsoleVariables.ini]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[net.UseAdaptiveNetUpdateFrequency:0]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[p.chaos.AllowCreatePhysxBodies:1]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Setting CVar [[fx.SkipVectorVMBackendOptimizations:1]]
+[2022.09.23-23.17.15:760][  0]LogConfig: Applying CVar settings from Section [ConsoleVariables] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+[2022.09.23-23.17.15:760][  0]LogConfig: Applying CVar settings from Section [ConsoleVariables] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Editor.ini]
+[2022.09.23-23.17.15:760][  0]LogInit: Computer: DESKTOP-Q7OIGVQ
+[2022.09.23-23.17.15:760][  0]LogInit: User: Skouty
+[2022.09.23-23.17.15:760][  0]LogInit: CPU Page size=4096, Cores=12
+[2022.09.23-23.17.15:760][  0]LogInit: High frequency timer resolution =10.000000 MHz
+[2022.09.23-23.17.15:760][  0]LogMemory: Memory total: Physical=31.9GB (32GB approx)
+[2022.09.23-23.17.15:760][  0]LogMemory: Platform Memory Stats for Windows
+[2022.09.23-23.17.15:760][  0]LogMemory: Process Physical Memory: 151.38 MB used, 154.06 MB peak
+[2022.09.23-23.17.15:760][  0]LogMemory: Process Virtual Memory: 134.09 MB used, 134.09 MB peak
+[2022.09.23-23.17.15:760][  0]LogMemory: Physical Memory: 12167.16 MB used,  20544.21 MB free, 32711.37 MB total
+[2022.09.23-23.17.15:760][  0]LogMemory: Virtual Memory: 134194624.00 MB used,  23101.13 MB free, 134217728.00 MB total
+[2022.09.23-23.17.15:765][  0]LogWindows: WindowsPlatformFeatures enabled
+[2022.09.23-23.17.15:797][  0]LogInit: Physics initialised using underlying interface: PhysX
+[2022.09.23-23.17.15:797][  0]LogInit: Using OS detected language (en-US).
+[2022.09.23-23.17.15:797][  0]LogInit: Using OS detected locale (en-US).
+[2022.09.23-23.17.15:803][  0]LogTextLocalizationManager: No specific localization for 'en-US' exists, so the 'en' localization will be used.
+[2022.09.23-23.17.15:944][  0]LogWindowsTextInputMethodSystem: Display: IME system deactivated.
+[2022.09.23-23.17.15:995][  0]LogSlate: New Slate User Created.  User Index 0, Is Virtual User: 0
+[2022.09.23-23.17.15:995][  0]LogSlate: Slate User Registered.  User Index 0, Is Virtual User: 0
+[2022.09.23-23.17.16:044][  0]LogD3D11RHI: D3D11 min allowed feature level: 11_0
+[2022.09.23-23.17.16:044][  0]LogD3D11RHI: D3D11 max allowed feature level: 11_0
+[2022.09.23-23.17.16:044][  0]LogD3D11RHI: D3D11 adapters:
+[2022.09.23-23.17.16:136][  0]LogD3D11RHI:    0. 'NVIDIA GeForce RTX 3060 Ti' (Feature Level 11_0)
+[2022.09.23-23.17.16:136][  0]LogD3D11RHI:       8050/0/16355 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:3, VendorId:0x10de
+[2022.09.23-23.17.16:138][  0]LogD3D11RHI:    1. 'Microsoft Basic Render Driver' (Feature Level 11_0)
+[2022.09.23-23.17.16:138][  0]LogD3D11RHI:       0/0/16355 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1414
+[2022.09.23-23.17.16:138][  0]LogD3D11RHI: Chosen D3D11 Adapter: 0
+[2022.09.23-23.17.16:145][  0]LogD3D11RHI: Creating new Direct3DDevice
+[2022.09.23-23.17.16:145][  0]LogD3D11RHI:     GPU DeviceId: 0x2489 (for the marketing name, search the web for "GPU Device Id")
+[2022.09.23-23.17.16:145][  0]LogWindows: EnumDisplayDevices:
+[2022.09.23-23.17.16:145][  0]LogWindows:    0. 'NVIDIA GeForce RTX 3060 Ti' (P:1 D:1)
+[2022.09.23-23.17.16:146][  0]LogWindows:    1. 'NVIDIA GeForce RTX 3060 Ti' (P:0 D:1)
+[2022.09.23-23.17.16:146][  0]LogWindows:    2. 'NVIDIA GeForce RTX 3060 Ti' (P:0 D:1)
+[2022.09.23-23.17.16:146][  0]LogWindows:    3. 'NVIDIA GeForce RTX 3060 Ti' (P:0 D:0)
+[2022.09.23-23.17.16:146][  0]LogWindows: DebugString: FoundDriverCount:4 
+[2022.09.23-23.17.16:146][  0]LogD3D11RHI:     Adapter Name: NVIDIA GeForce RTX 3060 Ti
+[2022.09.23-23.17.16:146][  0]LogD3D11RHI:   Driver Version: 516.94 (internal:31.0.15.1694, unified:516.94)
+[2022.09.23-23.17.16:146][  0]LogD3D11RHI:      Driver Date: 7-21-2022
+[2022.09.23-23.17.16:146][  0]LogRHI: Texture pool is 5635 MB (70% of 8050 MB)
+[2022.09.23-23.17.16:194][  0]LogD3D11RHI: RHI has support for 64 bit atomics
+[2022.09.23-23.17.16:195][  0]LogD3D11RHI: Async texture creation enabled
+[2022.09.23-23.17.16:195][  0]LogD3D11RHI: Array index from any shader is supported
+[2022.09.23-23.17.16:218][  0]LogD3D11RHI: GPU Timing Frequency: 1000.000000 (Debug: 2 1)
+[2022.09.23-23.17.16:219][  0]LogRHI: GeForceNow SDK initialized: 1
+[2022.09.23-23.17.16:443][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsNoEditor'
+[2022.09.23-23.17.16:447][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Windows'
+[2022.09.23-23.17.16:454][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsClient'
+[2022.09.23-23.17.16:462][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsServer'
+[2022.09.23-23.17.16:462][  0]LogTargetPlatformManager: Display: Building Assets For Windows
+[2022.09.23-23.17.16:468][  0]LogAudioDebug: Display: Lib vorbis DLL was dynamically loaded.
+[2022.09.23-23.17.16:515][  0]LogRendererCore: Ray tracing is disabled. Reason: r.RayTracing=0.
+[2022.09.23-23.17.16:515][  0]LogShaderCompilers: Guid format shader working directory is -15 characters bigger than the processId version (E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Shaders/WorkingDirectory/24312/).
+[2022.09.23-23.17.16:515][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/Skouty/AppData/Local/Temp/UnrealShaderWorkingDir/7E7BE6C241CCEE53E97B738FA3BBD691/'.
+[2022.09.23-23.17.16:515][  0]LogShaderCompilers: Cannot use XGE Shader Compiler as Incredibuild is not installed on this machine.
+[2022.09.23-23.17.16:515][  0]LogShaderCompilers: Display: Using Local Shader Compiler.
+[2022.09.23-23.17.17:071][  0]LogDerivedDataCache: Display: Max Cache Size: 512 MB
+[2022.09.23-23.17.17:107][  0]LogDerivedDataCache: Loaded boot cache 0.04s 96MB C:/Users/Skouty/AppData/Local/UnrealEngine/4.26/DerivedDataCache/Boot.ddc.
+[2022.09.23-23.17.17:107][  0]LogDerivedDataCache: Display: Loaded Boot cache: C:/Users/Skouty/AppData/Local/UnrealEngine/4.26/DerivedDataCache/Boot.ddc
+[2022.09.23-23.17.17:107][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2022.09.23-23.17.17:107][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2022.09.23-23.17.17:107][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  CompressedPak pak cache file E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2022.09.23-23.17.17:107][  0]LogDerivedDataCache: Unable to find inner node CompressedPak for hierarchical cache Hierarchy.
+[2022.09.23-23.17.17:116][  0]LogDerivedDataCache: Display: Pak cache opened for reading ../../../Engine/DerivedDataCache/Compressed.ddp.
+[2022.09.23-23.17.17:117][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  EnterprisePak pak cache file ../../../Enterprise/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2022.09.23-23.17.17:117][  0]LogDerivedDataCache: Unable to find inner node EnterprisePak for hierarchical cache Hierarchy.
+[2022.09.23-23.17.17:129][  0]LogDerivedDataCache: Speed tests for C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache took 0.01 seconds
+[2022.09.23-23.17.17:129][  0]LogDerivedDataCache: Display: Performance to C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache: Latency=0.02ms. RandomReadSpeed=346.51MBs, RandomWriteSpeed=101.09MBs. Assigned SpeedClass 'Local'
+[2022.09.23-23.17.17:129][  0]LogDerivedDataCache: Using Local data cache path C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache: Writable
+[2022.09.23-23.17.17:129][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
+[2022.09.23-23.17.17:129][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
+[2022.09.23-23.17.17:154][  0]LogSlate: Using FreeType 2.10.0
+[2022.09.23-23.17.17:155][  0]LogSlate: SlateFontServices - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2022.09.23-23.17.17:208][  0]LogInit: Using OS detected language (en-US).
+[2022.09.23-23.17.17:208][  0]LogInit: Using OS detected locale (en-US).
+[2022.09.23-23.17.17:208][  0]LogTextLocalizationManager: No localization for 'en-US' exists, so 'en' will be used for the language.
+[2022.09.23-23.17.17:208][  0]LogTextLocalizationManager: No localization for 'en-US' exists, so 'en' will be used for the locale.
+[2022.09.23-23.17.17:208][  0]LogSlate: FontCache flush requested. Reason: Culture for localization was changed
+[2022.09.23-23.17.17:209][  0]LogSlate: FontCache flush requested. Reason: Culture for localization was changed
+[2022.09.23-23.17.17:209][  0]LogTextLocalizationManager: Compacting localization data took   0.01ms
+[2022.09.23-23.17.17:212][  0]LogAssetRegistry: FAssetRegistry took 0.0017 seconds to start up
+[2022.09.23-23.17.17:328][  0]LogPackageLocalizationCache: Processed 29 localized package path(s) for 1 prioritized culture(s) in 0.000965 seconds
+[2022.09.23-23.17.17:366][  0]LogInit: Selected Device Profile: [Windows]
+[2022.09.23-23.17.17:366][  0]LogInit: Active device profile: [000001F17F02D900][000001F175254180 49] Windows
+[2022.09.23-23.17.17:366][  0]LogInit: Profiles: [000001F17F02D900][000001F175254180 49] Windows, [000001F17EFFF500][000001F166278300 49] WindowsNoEditor, [000001F17F02F300][000001F16627C480 49] WindowsServer, [000001F17EFFD000][000001F166280600 49] WindowsClient, [000001F17F02D100][000001F166284780 49] IOS, [000001F17EFFF200][000001F166288900 49] iPadAir, [000001F17F02F200][000001F16628CA80 49] iPadAir2, [000001F17EF96600][000001F166294D40 49] IPadPro, [000001F17EF96700][000001F166290D80 49] iPadAir3, [000001F17F02F700][000001F166298F00 49] iPadAir4, [000001F17EF97C00][000001F16629D080 49] iPadMini2, [000001F17F02DF00][000001F1662751C0 49] iPadMini3, [000001F17EF95B00][000001F1662A1300 49] iPadMini4, [000001F17F02DD00][000001F17B5A9440 49] iPadMini5, [000001F17EFF1F00][000001F17B5B56C0 49] iPhone6, [000001F17EFF2000][000001F17B5AD700 49] iPodTouch6, [000001F17EFFF300][000001F17B5BD9C0 49] iPhone7, [000001F17EFFF400][000001F17B5B9A00 49] iPodTouch7, [000001F17EFF3600][000001F17B5C1B80 49] iPhone5S, [000001F17EFFD800][000001F17B5C5D00 49] iPhone6Plus, [000001F17EFF1900][000001F17B5C81C0 49] iPhone6S, [000001F17EFFFA00][000001F17B5CC340 49] iPhone6SPlus, [000001F17EFF0C00][000001F17B5D04C0 49] iPhone7Plus, [000001F17EFFDD00][000001F17B5D4640 49] iPhoneSE, [000001F17EFF1200][000001F17B5D87C0 49] iPhone8, [000001F17EFFF000][000001F17B5DC940 49] iPhone8Plus, [000001F17EFF0A00][000001F17B5E0AC0 49] iPhoneX, [000001F17EFFD200][000001F17B5E4C40 49] iPhoneXS, [000001F17EFF2500][000001F17B5E8DC0 49] iPhoneXSMax, [000001F17EFFC700][000001F17B5ECF40 49] iPhoneXR, [000001F17EFF3000][000001F17B5F10C0 49] iPhone11, [000001F17EFFE900][000001F17B5B1200 49] iPhone11Pro, [000001F17EFF1800][000001F17B5F5340 49] iPhone11ProMax, [000001F17EFFDF00][000001F17B5F9480 49] iPhoneSE2, [000001F17EFF3C00][000001F17B5FD5C0 49] iPhone12Mini, [000001F17EFFDE00][000001F17B605740 49] iPhone12, [000001F17F02FA00][000001F17B6098C0 49] iPhone12Pro, [000001F17EFF1700][000001F17B60DA40 49] iPhone12ProMax, [000001F17F02FC00][000001F17B611BC0 49] iPadPro105, [000001F17EFF0E00][000001F17B615D40 49] iPadPro129, [000001F17F02ED00][000001F17B618200 49] iPadPro97, [000001F17EFF2C00][000001F17B61C380 49] iPadPro2_129, [000001F17EFFD700][000001F17B620500 49] iPad5, [000001F17EFF3800][000001F17B624680 49] iPad6, [000001F17EFFFF00][000001F17B628800 49] iPad7, [000001F17EFF1100][000001F17B62C980 49] iPad8, [000001F17EFFC200][000001F17B630B00 49] iPadPro11, [000001F17EFF0B00][000001F17B634C80 49] iPadPro2_11, [000001F17EFFEE00][000001F17B638E00 49] iPadPro3_129, [000001F17EFF2E00][000001F17B63CF80 49] iPadPro4_129, [000001F17EFFF100][000001F17B641100 49] AppleTV, [000001F17EFF2600][000001F17B645280 49] AppleTV4K, [000001F17EFFC100][000001F17B6013C0 49] TVOS, [000001F17EFF3A00][000001F17B649500 49] Mac, [000001F17EFFEC00][000001F17B64D640 49] MacClient, [000001F17EFF0700][000001F17B6557C0 49] MacNoEditor, [000001F17EFFF900][000001F17B659940 49] MacServer, [000001F17EFF3200][000001F17B65DAC0 49] Linux, [000001F17EFFE800][000001F17B661C40 49] LinuxAArch64, [000001F17EFF2100][000001F17B664100 49] LinuxNoEditor, [000001F17EFFFD00][000001F17B668280 49] LinuxAArch64NoEditor, [000001F17EFF1400][000001F17B66C400 49] LinuxClient, [000001F17EFFE300][000001F17B670580 49] LinuxAArch64Client, [000001F17EFF1300][000001F17B674700 49] LinuxServer, [000001F17EFFDB00][000001F17B678880 49] LinuxAArch64Server, [000001F17EFF0200][000001F17B67CA00 49] Android, [000001F17EFFCE00][000001F176962B80 49] Android_Low, [000001F17EFF1E00][000001F176966D00 49] Android_Mid, [000001F17EFFE000][000001F17696AE80 49] Android_High, [000001F17EFF2700][000001F17696F000 49] Android_Default, [000001F17EFFD900][000001F176973180 49] Android_Adreno4xx, [000001F17EFF0300][000001F176977300 49] Android_Adreno5xx_Low, [000001F17EFFF700][000001F17B651440 49] Android_Adreno5xx, [000001F17EFF2400][000001F17697B580 49] Android_Adreno6xx, [000001F17EFFED00][000001F17697F6C0 49] Android_Adreno6xx_Vulkan, [000001F17EFF0F00][000001F176987840 49] Android_Mali_T6xx, [000001F17EFFE600][000001F17698B9C0 49] Android_Mali_T7xx, [000001F17EFF3500][000001F17698FB40 49] Android_Mali_T8xx, [000001F17EFFE400][000001F176993CC0 49] Android_Mali_G71, [000001F17EFF3B00][000001F176996180 49] Android_Mali_G72, [000001F17EFFCD00][000001F17699A300 49] Android_Mali_G72_Vulkan, [000001F17EFF2A00][000001F17699E480 49] Android_Mali_G76, [000001F17EFFC900][000001F1769A2600 49] Android_Mali_G76_Vulkan, [000001F17EFF1500][000001F1769A6780 49] Android_Mali_G77, [000001F17EF96E00][000001F1769AA900 49] Android_Mali_G77_Vulkan, [000001F17F02F900][000001F1769AEA80 49] Android_Vulkan_SM5, [000001F17EF94800][000001F1769B2C00 49] Android_PowerVR_G6xxx, [000001F17F02F400][000001F1769B6D80 49] Android_PowerVR_GT7xxx, [000001F17EF94E00][000001F1769BAF00 49] Android_PowerVR_GE8xxx, [000001F17F02D400][000001F1769BF080 49] Android_PowerVR_GM9xxx, [000001F17EF94900][000001F1769C3200 49] Android_PowerVR_GM9xxx_Vulkan, [000001F17F02CE00][000001F1769C7380 49] Android_TegraK1, [000001F17EF94D00][000001F1769834C0 49] Android_Unknown_Vulkan, [000001F17F02CC00][000001F1769CB600 49] Lumin, [000001F17EF95000][000001F1769CF740 49] Lumin_Desktop, [000001F17F02D700][000001F1769D3880 49] HoloLens, 
+[2022.09.23-23.17.17:395][  0]LogMeshReduction: Using QuadricMeshReduction for automatic static mesh reduction
+[2022.09.23-23.17.17:395][  0]LogMeshReduction: Using SimplygonMeshReduction for automatic skeletal mesh reduction
+[2022.09.23-23.17.17:395][  0]LogMeshReduction: Using ProxyLODMeshReduction for automatic mesh merging
+[2022.09.23-23.17.17:396][  0]LogMeshReduction: No distributed automatic mesh merging module available
+[2022.09.23-23.17.17:396][  0]LogMeshMerging: No distributed automatic mesh merging module available
+[2022.09.23-23.17.17:474][  0]LogNetVersion: ArchitectureExplorer 1.0.0, NetCL: 14830424, EngineNetVer: 16, GameNetVer: 0 (Checksum: 4169611960)
+[2022.09.23-23.17.17:665][  0]LogHMD: PokeAHoleMaterial loaded successfully
+[2022.09.23-23.17.17:745][  0]LogMoviePlayer: Initializing movie player
+[2022.09.23-23.17.17:816][  0]LogPython: Using Python 3.7.7
+[2022.09.23-23.17.18:417][  0]LogTcpMessaging: Initializing TcpMessaging bridge
+[2022.09.23-23.17.18:450][  0]LogCollectionManager: Loaded 0 collections in 0.001275 seconds
+[2022.09.23-23.17.18:452][  0]LogFileCache: Scanning file cache for directory 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Collections/' took 0.00s
+[2022.09.23-23.17.18:452][  0]LogFileCache: Scanning file cache for directory 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Developers/Skouty/Collections/' took 0.00s
+[2022.09.23-23.17.18:452][  0]LogFileCache: Scanning file cache for directory 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/Collections/' took 0.00s
+[2022.09.23-23.17.18:452][  0]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000001 seconds (updated 0 objects)
+[2022.09.23-23.17.18:523][  0]SourceControl: Source control is disabled
+[2022.09.23-23.17.18:523][  0]SourceControl: Source control is disabled
+[2022.09.23-23.17.18:525][  0]LogUProjectInfo: Found projects:
+[2022.09.23-23.17.18:529][  0]SourceControl: Source control is disabled
+[2022.09.23-23.17.18:641][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
+[2022.09.23-23.17.18:667][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2022.09.23-23.17.18:667][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2022.09.23-23.17.18:737][  0]LogOcInput: OculusInput pre-init called
+[2022.09.23-23.17.18:741][  0]LogTemp: Warning: STATE MACHINE MODULE LOADED!
+[2022.09.23-23.17.18:748][  0]LogUObjectArray: 21610 objects as part of root set at end of initial load.
+[2022.09.23-23.17.18:748][  0]LogUObjectAllocator: 5920976 out of 0 bytes used by permanent object pool.
+[2022.09.23-23.17.18:748][  0]LogUObjectArray: CloseDisregardForGC: 0/0 objects in disregard for GC pool
+[2022.09.23-23.17.18:784][  0]LogEngine: Initializing Engine...
+[2022.09.23-23.17.18:784][  0]LogHMD: PokeAHoleMaterial loaded successfully
+[2022.09.23-23.17.18:784][  0]LogHMD: Initializing OVRPlugin session
+[2022.09.23-23.17.18:890][  0]LogHMD: Allocating Oculus 3744 x 1888 rendertarget swapchain
+[2022.09.23-23.17.18:891][  0]LogHMD: Oculus plugin initialized. Version: 4.26.2-15973114+++UE4+Release-4.26, OVRPlugin: 1.51.0
+[2022.09.23-23.17.18:892][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.000 s
+[2022.09.23-23.17.18:947][  0]LogInit: Initializing FReadOnlyCVARCache
+[2022.09.23-23.17.18:947][  0]LogAudio: Display: Initializing Audio Device Manager...
+[2022.09.23-23.17.18:950][  0]LogAudio: Display: Audio Device Manager Initialized
+[2022.09.23-23.17.18:950][  0]LogAudio: Display: Creating Audio Device:                 Id: 1, Scope: Shared, Realtime: True
+[2022.09.23-23.17.18:950][  0]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2022.09.23-23.17.18:950][  0]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2022.09.23-23.17.18:950][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2022.09.23-23.17.18:950][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2022.09.23-23.17.18:950][  0]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2022.09.23-23.17.18:950][  0]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2022.09.23-23.17.18:950][  0]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2022.09.23-23.17.18:950][  0]LogAudio: Display: AudioDevice MaxSources: 32
+[2022.09.23-23.17.18:950][  0]LogAudio: Display: Using built-in audio occlusion.
+[2022.09.23-23.17.18:950][  0]LogAudioMixer: Display: Initializing audio mixer.
+[2022.09.23-23.17.18:965][  0]LogAudioMixer: Display: 0: FrontLeft
+[2022.09.23-23.17.18:965][  0]LogAudioMixer: Display: 1: FrontRight
+[2022.09.23-23.17.18:967][  0]LogAudioMixer: Display: 0: FrontLeft
+[2022.09.23-23.17.18:967][  0]LogAudioMixer: Display: 1: FrontRight
+[2022.09.23-23.17.18:985][  0]LogAudioMixer: Display: Using Audio Device Headphones (Oculus Virtual Audio Device)
+[2022.09.23-23.17.19:011][  0]LogAudio: Error: Oculus Audio SDK Error - Failed to set unit scale: Unknown Error
+[2022.09.23-23.17.19:011][  0]LogAudioMixer: Display: Initializing Sound Submixes...
+[2022.09.23-23.17.19:013][  0]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2022.09.23-23.17.19:013][  0]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2022.09.23-23.17.19:013][  0]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2022.09.23-23.17.19:014][  0]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called
+[2022.09.23-23.17.19:014][  0]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048
+[2022.09.23-23.17.19:014][  0]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal()
+[2022.09.23-23.17.19:014][  0]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time
+[2022.09.23-23.17.19:014][  0]LogInit: FAudioDevice initialized.
+[2022.09.23-23.17.19:015][  0]LogNetVersion: Set ProjectVersion to 1.0.0.0. Version Checksum will be recalculated on next use.
+[2022.09.23-23.17.19:018][  0]LogInit: Texture streaming: Enabled
+[2022.09.23-23.17.19:132][  0]LogAudio: Display: Audio Device (ID: 1) registered with world 'Untitled'.
+[2022.09.23-23.17.19:132][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.09.23-23.17.19:132][  0]LogInit: Display: Game Engine Initialized.
+[2022.09.23-23.17.19:133][  0]LogNiagaraEditor: GEditor isn't valid! Particle reset commands will not work for Niagara components!
+[2022.09.23-23.17.19:178][  0]LogInit: Display: Starting Game.
+[2022.09.23-23.17.19:178][  0]LogNet: Browse: /Game/Maps/WORLDFINAL?Name=Player
+[2022.09.23-23.17.19:178][  0]LogHMD: FSplash::DoShow
+[2022.09.23-23.17.19:178][  0]LogLoad: LoadMap: /Game/Maps/WORLDFINAL?Name=Player
+[2022.09.23-23.17.19:178][  0]LogWorld: BeginTearingDown for /Temp/Untitled_0
+[2022.09.23-23.17.19:179][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
+[2022.09.23-23.17.19:180][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.09.23-23.17.19:191][  0]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2022.09.23-23.17.19:192][  0]LogUObjectHash: Compacting FUObjectHashTables data took   0.55ms
+[2022.09.23-23.17.19:633][  0]LogLinker: Warning: Asset 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/HQFurniturePack/Meshes/Chest_of_drawers_old.uasset' has been saved with empty engine version. The asset will be loaded but may be incompatible.
+[2022.09.23-23.17.19:644][  0]LogUObjectGlobals: Warning: Failed to load '/Script/SpeedTreeImporter': Can't find file.
+[2022.09.23-23.17.19:644][  0]LogUObjectGlobals: Warning: Failed to load '/Script/SpeedTreeImporter': Can't find file.
+[2022.09.23-23.17.19:644][  0]LogUObjectGlobals: Warning: Failed to load '/Script/SpeedTreeImporter': Can't find file.
+[2022.09.23-23.17.19:644][  0]LogUObjectGlobals: Warning: Failed to load '/Script/SpeedTreeImporter': Can't find file.
+[2022.09.23-23.17.19:644][  0]LogUObjectGlobals: Warning: Failed to load '/Script/SpeedTreeImporter': Can't find file.
+[2022.09.23-23.17.19:966][  0]LogLinker: Warning: Asset 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/MSPresets/Decal_MasterMaterial/Decal_MasterMaterial.uasset' has been saved with empty engine version. The asset will be loaded but may be incompatible.
+[2022.09.23-23.17.20:375][  0]LogLinker: Warning: Asset 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/HQFurniturePack/Materials/chest_of_drawers_old.uasset' has been saved with empty engine version. The asset will be loaded but may be incompatible.
+[2022.09.23-23.17.20:577][  0]LogLinker: Warning: Asset 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/HQFurniturePack/Textures/Chest_of_drawers_AO.uasset' has been saved with empty engine version. The asset will be loaded but may be incompatible.
+[2022.09.23-23.17.20:577][  0]LogLinker: Warning: Asset 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/HQFurniturePack/Textures/Chest_of_drawers_old_roughness.uasset' has been saved with empty engine version. The asset will be loaded but may be incompatible.
+[2022.09.23-23.17.20:577][  0]LogLinker: Warning: Asset 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/HQFurniturePack/Textures/Chest_of_drawers_old_normal.uasset' has been saved with empty engine version. The asset will be loaded but may be incompatible.
+[2022.09.23-23.17.20:577][  0]LogLinker: Warning: Asset 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/HQFurniturePack/Textures/Chest_of_drawers_old_albedo.uasset' has been saved with empty engine version. The asset will be loaded but may be incompatible.
+[2022.09.23-23.17.20:577][  0]LogLinker: Warning: Asset 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/HQFurniturePack/Textures/Chest_of_drawers_metallic.uasset' has been saved with empty engine version. The asset will be loaded but may be incompatible.
+[2022.09.23-23.17.20:716][  0]LogLinker: Warning: Asset 'E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/MSPresets/Foliage_Material/Foliage_Material.uasset' has been saved with empty engine version. The asset will be loaded but may be incompatible.
+[2022.09.23-23.17.21:865][  0]LogAudio: Display: Audio Device (ID: 1) registered with world 'WORLDFINAL'.
+[2022.09.23-23.17.21:873][  0]LogAIModule: Creating AISystem for world WORLDFINAL
+[2022.09.23-23.17.21:874][  0]LogLoad: Game class is 'BP_VRGameMode_C'
+[2022.09.23-23.17.21:889][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_CrawlingMan_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_ScareWindowCrawl_2.CrawlingMan.AB_CrawlingMan_C_0
+	Function /Game/Scares/WindowCrawl/AB_CrawlingMan.AB_CrawlingMan_C:ExecuteUbergraph_AB_CrawlingMan:0052
+[2022.09.23-23.17.21:889][  0]LogScript: Warning: Script call stack:
+	Function /Game/Scares/WindowCrawl/AB_CrawlingMan.AB_CrawlingMan_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_CrawlingMan_AnimGraphNode_LookAt_819C7DEC45957EFDA01C708B8F0F7A01
+	Function /Game/Scares/WindowCrawl/AB_CrawlingMan.AB_CrawlingMan_C:ExecuteUbergraph_AB_CrawlingMan
+
+[2022.09.23-23.17.21:895][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_LightningStrikeScare_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_HallwayStareScare_2.Errol.AB_LightningStrikeScare_C_0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare:0026
+[2022.09.23-23.17.21:895][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_LightningStrikeScare_AnimGraphNode_LookAt_F8C02F2642140A48D87802B81195D6D0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare
+
+[2022.09.23-23.17.21:895][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_CrawlSpace_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_CrawlSpaceScare_2.Crawler1.AB_CrawlSpace_C_0
+	Function /Game/Models/Errol/Animations/CrawlSpace/AB_CrawlSpace.AB_CrawlSpace_C:ExecuteUbergraph_AB_CrawlSpace:0026
+[2022.09.23-23.17.21:895][  0]LogScript: Warning: Script call stack:
+	Function /Game/Models/Errol/Animations/CrawlSpace/AB_CrawlSpace.AB_CrawlSpace_C:BlueprintUpdateAnimation
+	Function /Game/Models/Errol/Animations/CrawlSpace/AB_CrawlSpace.AB_CrawlSpace_C:ExecuteUbergraph_AB_CrawlSpace
+
+[2022.09.23-23.17.21:895][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_LightningStrikeScare_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_LightingStrikeScare_2.Errol.AB_LightningStrikeScare_C_0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare:0026
+[2022.09.23-23.17.21:895][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_LightningStrikeScare_AnimGraphNode_LookAt_F8C02F2642140A48D87802B81195D6D0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare
+
+[2022.09.23-23.17.21:896][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_LightningWindow_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_LightingStrikeScare_2.Errol2.AB_LightningWindow_C_0
+	Function /Game/FiverrAnim/Mocap/AB_LightningWindow.AB_LightningWindow_C:ExecuteUbergraph_AB_LightningWindow:0026
+[2022.09.23-23.17.21:896][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/Mocap/AB_LightningWindow.AB_LightningWindow_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_LightningWindow_AnimGraphNode_LookAt_88E539344392406252D4C480F7ED666D
+	Function /Game/FiverrAnim/Mocap/AB_LightningWindow.AB_LightningWindow_C:ExecuteUbergraph_AB_LightningWindow
+
+[2022.09.23-23.17.21:896][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_FiverrErrol1_2.CharacterMesh0.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:00F0
+[2022.09.23-23.17.21:896][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_FiverrBody_AnimGraphNode_LookAt_7B51D2FA47733E62AC9B0E9B3B65F637
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody
+
+[2022.09.23-23.17.21:896][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_MocapCleaned_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_FiverrErrol1_2.MocapMesh.AB_MocapCleaned_C_0
+	Function /Game/FiverrAnim/MocapCleaned/Test/AB_MocapCleaned.AB_MocapCleaned_C:ExecuteUbergraph_AB_MocapCleaned:01D6
+[2022.09.23-23.17.21:896][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/MocapCleaned/Test/AB_MocapCleaned.AB_MocapCleaned_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_MocapCleaned_AnimGraphNode_LookAt_0450F62243147671FD4EFDA2373060D2
+	Function /Game/FiverrAnim/MocapCleaned/Test/AB_MocapCleaned.AB_MocapCleaned_C:ExecuteUbergraph_AB_MocapCleaned
+
+[2022.09.23-23.17.21:896][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_FiverrErrol1_2.BotHalf.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:00F0
+[2022.09.23-23.17.21:896][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_FiverrBody_AnimGraphNode_LookAt_7B51D2FA47733E62AC9B0E9B3B65F637
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody
+
+[2022.09.23-23.17.21:897][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_FiverrErrol1_2.TopHalf.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:00F0
+[2022.09.23-23.17.21:897][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_FiverrBody_AnimGraphNode_LookAt_7B51D2FA47733E62AC9B0E9B3B65F637
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody
+
+[2022.09.23-23.17.21:903][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_corner3
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:903][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:903][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_corner3
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:903][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:911][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_corner7
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:911][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:911][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_corner7
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:911][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_corner.BP_Wall_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain71
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain71
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain72
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain72
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain73
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain73
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain74
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain74
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:915][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain75
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain75
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain76
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain76
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain77
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain77
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain78
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain78
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain79
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain79
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:916][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:917][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain80
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:917][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:917][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain80
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:917][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:917][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain81
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:917][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:917][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain81
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:917][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:923][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain85_26
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:923][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:923][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain85_26
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:923][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:925][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain102
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:925][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:925][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain102
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:925][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:925][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain103
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:925][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:925][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain103
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:925][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain105
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain105
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain106
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain106
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain107
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain107
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:926][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:933][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain133
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:933][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:933][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain133
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:933][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:933][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain134
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:933][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:934][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain134
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:934][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:934][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain135
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:934][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:934][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain135
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:934][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:934][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain136
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:934][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:934][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain136
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:934][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:936][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain137_81
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:936][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:936][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain137_81
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:936][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:937][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain143
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:937][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:937][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain143
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:937][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:937][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain145
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:937][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:937][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain145
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:937][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain174
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain174
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain175
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain175
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain176
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain176
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:953][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain177
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Wall_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Wall_out_plain177
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Wall_out_plain.BP_Wall_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner2_2
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner2_2
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner2_2
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner2_2
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain_5
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain_5
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain2
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain2
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:954][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner4
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner4
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner4
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner4
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain3
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain3
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain4
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain4
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner3_6
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner3_6
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner3_6
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner3_6
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner5
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:955][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner5
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner5
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner5
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner6
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner6
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner6
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner6
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain5_17
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain5_17
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:956][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner7
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner7
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner7
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner7
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain7_21
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain7_21
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain8
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain8
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:957][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner8_12
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner8_12
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner8_12
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner8_12
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain9_25
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain9_25
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain10
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain10
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain11
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain11
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain12
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain12
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:958][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain13
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain13
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain14
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain14
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain15
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain15
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain16
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_plain_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_plain16
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_plain.BP_Basement_out_plain_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner9
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner9
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:959][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:960][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner9
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:004F
+[2022.09.23-23.17.21:960][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:960][  0]LogScript: Warning: Accessed None trying to read property Mesh
+	BP_Basement_out_corner_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Basement_out_corner9
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials:01EE
+[2022.09.23-23.17.21:960][  0]LogScript: Warning: Script call stack:
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:UserConstructionScript
+	Function /Game/HQRetroFarmhouse/Blueprints/Modules/BP_Basement_out_corner.BP_Basement_out_corner_C:OverrideMeshMaterials
+
+[2022.09.23-23.17.21:960][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_CrawlingMan_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_ScareWindowCrawl_2.CrawlingMan.AB_CrawlingMan_C_0
+	Function /Game/Scares/WindowCrawl/AB_CrawlingMan.AB_CrawlingMan_C:ExecuteUbergraph_AB_CrawlingMan:0052
+[2022.09.23-23.17.21:960][  0]LogScript: Warning: Script call stack:
+	Function /Game/Scares/WindowCrawl/AB_CrawlingMan.AB_CrawlingMan_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_CrawlingMan_AnimGraphNode_LookAt_819C7DEC45957EFDA01C708B8F0F7A01
+	Function /Game/Scares/WindowCrawl/AB_CrawlingMan.AB_CrawlingMan_C:ExecuteUbergraph_AB_CrawlingMan
+
+[2022.09.23-23.17.21:960][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_CrawlingMan_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_ScareWindowCrawl_2.CrawlingMan.AB_CrawlingMan_C_0
+	Function /Game/Scares/WindowCrawl/AB_CrawlingMan.AB_CrawlingMan_C:ExecuteUbergraph_AB_CrawlingMan:0052
+[2022.09.23-23.17.21:960][  0]LogScript: Warning: Script call stack:
+	Function /Game/Scares/WindowCrawl/AB_CrawlingMan.AB_CrawlingMan_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_CrawlingMan_AnimGraphNode_LookAt_819C7DEC45957EFDA01C708B8F0F7A01
+	Function /Game/Scares/WindowCrawl/AB_CrawlingMan.AB_CrawlingMan_C:ExecuteUbergraph_AB_CrawlingMan
+
+[2022.09.23-23.17.21:992][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_LightningStrikeScare_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_HallwayStareScare_2.Errol.AB_LightningStrikeScare_C_0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare:0026
+[2022.09.23-23.17.21:992][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_LightningStrikeScare_AnimGraphNode_LookAt_F8C02F2642140A48D87802B81195D6D0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare
+
+[2022.09.23-23.17.21:993][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_LightningStrikeScare_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_HallwayStareScare_2.Errol.AB_LightningStrikeScare_C_0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare:0026
+[2022.09.23-23.17.21:993][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_LightningStrikeScare_AnimGraphNode_LookAt_F8C02F2642140A48D87802B81195D6D0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare
+
+[2022.09.23-23.17.21:994][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_CrawlSpace_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_CrawlSpaceScare_2.Crawler1.AB_CrawlSpace_C_0
+	Function /Game/Models/Errol/Animations/CrawlSpace/AB_CrawlSpace.AB_CrawlSpace_C:ExecuteUbergraph_AB_CrawlSpace:0026
+[2022.09.23-23.17.21:994][  0]LogScript: Warning: Script call stack:
+	Function /Game/Models/Errol/Animations/CrawlSpace/AB_CrawlSpace.AB_CrawlSpace_C:BlueprintUpdateAnimation
+	Function /Game/Models/Errol/Animations/CrawlSpace/AB_CrawlSpace.AB_CrawlSpace_C:ExecuteUbergraph_AB_CrawlSpace
+
+[2022.09.23-23.17.21:994][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_CrawlSpace_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_CrawlSpaceScare_2.Crawler1.AB_CrawlSpace_C_0
+	Function /Game/Models/Errol/Animations/CrawlSpace/AB_CrawlSpace.AB_CrawlSpace_C:ExecuteUbergraph_AB_CrawlSpace:0026
+[2022.09.23-23.17.21:994][  0]LogScript: Warning: Script call stack:
+	Function /Game/Models/Errol/Animations/CrawlSpace/AB_CrawlSpace.AB_CrawlSpace_C:BlueprintUpdateAnimation
+	Function /Game/Models/Errol/Animations/CrawlSpace/AB_CrawlSpace.AB_CrawlSpace_C:ExecuteUbergraph_AB_CrawlSpace
+
+[2022.09.23-23.17.22:000][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_LightningStrikeScare_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_LightingStrikeScare_2.Errol.AB_LightningStrikeScare_C_0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare:0026
+[2022.09.23-23.17.22:000][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_LightningStrikeScare_AnimGraphNode_LookAt_F8C02F2642140A48D87802B81195D6D0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare
+
+[2022.09.23-23.17.22:000][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_LightningWindow_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_LightingStrikeScare_2.Errol2.AB_LightningWindow_C_0
+	Function /Game/FiverrAnim/Mocap/AB_LightningWindow.AB_LightningWindow_C:ExecuteUbergraph_AB_LightningWindow:0026
+[2022.09.23-23.17.22:000][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/Mocap/AB_LightningWindow.AB_LightningWindow_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_LightningWindow_AnimGraphNode_LookAt_88E539344392406252D4C480F7ED666D
+	Function /Game/FiverrAnim/Mocap/AB_LightningWindow.AB_LightningWindow_C:ExecuteUbergraph_AB_LightningWindow
+
+[2022.09.23-23.17.22:000][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_LightningStrikeScare_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_LightingStrikeScare_2.Errol.AB_LightningStrikeScare_C_0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare:0026
+[2022.09.23-23.17.22:000][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_LightningStrikeScare_AnimGraphNode_LookAt_F8C02F2642140A48D87802B81195D6D0
+	Function /Game/FiverrAnim/Mocap/AB_LightningStrikeScare.AB_LightningStrikeScare_C:ExecuteUbergraph_AB_LightningStrikeScare
+
+[2022.09.23-23.17.22:000][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_LightningWindow_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_LightingStrikeScare_2.Errol2.AB_LightningWindow_C_0
+	Function /Game/FiverrAnim/Mocap/AB_LightningWindow.AB_LightningWindow_C:ExecuteUbergraph_AB_LightningWindow:0026
+[2022.09.23-23.17.22:000][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/Mocap/AB_LightningWindow.AB_LightningWindow_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_LightningWindow_AnimGraphNode_LookAt_88E539344392406252D4C480F7ED666D
+	Function /Game/FiverrAnim/Mocap/AB_LightningWindow.AB_LightningWindow_C:ExecuteUbergraph_AB_LightningWindow
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property CallFunc_Array_Get_Item_1
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:03F2
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property CallFunc_Array_Get_Item
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:089B
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0B3F
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0BC7
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0C22
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0C7D
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0CEC
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0D5B
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0D91
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0DC7
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0DFD
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0E33
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0E69
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0ED8
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0F0E
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Accessed None trying to read property rain
+	BP_Rain_M1_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_Rain_M1_3
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript:0F44
+[2022.09.23-23.17.22:001][  0]LogScript: Warning: Script call stack:
+	Function /Game/Rain_FX/RainFX_Tools/BP_Rain_M1.BP_Rain_M1_C:UserConstructionScript
+
+[2022.09.23-23.17.22:002][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_FiverrErrol1_2.TopHalf.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:00F0
+[2022.09.23-23.17.22:002][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_FiverrBody_AnimGraphNode_LookAt_7B51D2FA47733E62AC9B0E9B3B65F637
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody
+
+[2022.09.23-23.17.22:002][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_FiverrErrol1_2.BotHalf.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:00F0
+[2022.09.23-23.17.22:002][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_FiverrBody_AnimGraphNode_LookAt_7B51D2FA47733E62AC9B0E9B3B65F637
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody
+
+[2022.09.23-23.17.22:003][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_FiverrErrol1_2.TopHalf.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:00F0
+[2022.09.23-23.17.22:003][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_FiverrBody_AnimGraphNode_LookAt_7B51D2FA47733E62AC9B0E9B3B65F637
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody
+
+[2022.09.23-23.17.22:003][  0]LogScript: Warning: Accessed None trying to read property PlayerCamera
+	AB_FiverrBody_C /Game/Maps/WORLDFINAL.WORLDFINAL:PersistentLevel.BP_FiverrErrol1_2.BotHalf.AB_FiverrBody_C_0
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody:00F0
+[2022.09.23-23.17.22:003][  0]LogScript: Warning: Script call stack:
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:EvaluateGraphExposedInputs_ExecuteUbergraph_AB_FiverrBody_AnimGraphNode_LookAt_7B51D2FA47733E62AC9B0E9B3B65F637
+	Function /Game/FiverrAnim/AB_FiverrBody.AB_FiverrBody_C:ExecuteUbergraph_AB_FiverrBody
+
+[2022.09.23-23.17.22:004][  0]LogWorld: Bringing World /Game/Maps/WORLDFINAL.WORLDFINAL up for play (max tick rate 0) at 2022.09.23-16.17.22
+[2022.09.23-23.17.22:009][  0]LogWorld: Bringing up level for play took: 0.134346
+[2022.09.23-23.17.22:024][  0]LogTemp: Warning: name: BP_Lamp_Wall_2
+[2022.09.23-23.17.22:025][  0]LogTemp: Warning: name: BP_Flashlight2_2
+[2022.09.23-23.17.22:026][  0]LogTemp: Warning: Stage1 BeginPlay()
+[2022.09.23-23.17.22:026][  0]LogTemp: Warning: LightsMap doesn't contain the specified key. TurnOn()
+[2022.09.23-23.17.22:026][  0]LogTemp: Warning: LightsMap doesn't contain the specified key. TurnOn()
+[2022.09.23-23.17.22:026][  0]LogTemp: Warning: LightsMap doesn't contain the specified key. TurnOn()
+[2022.09.23-23.17.22:026][  0]LogBlueprintUserMessages: [BP_VRGameMode_C_0] GameModeBegin
+[2022.09.23-23.17.22:028][  0]LogTemp: Warning: UPDATE2
+[2022.09.23-23.17.22:028][  0]LogTemp: Warning: UPDATE2
+[2022.09.23-23.17.22:028][  0]LogTemp: Warning: UPDATE2
+[2022.09.23-23.17.22:028][  0]LogTemp: Warning: UPDATE2
+[2022.09.23-23.17.22:028][  0]LogTemp: Warning: UPDATE2
+[2022.09.23-23.17.22:028][  0]LogHMD: FSplash::OnPostLoadMap Hide Auto Splash
+[2022.09.23-23.17.22:028][  0]LogLoad: Took 2.849382 seconds to LoadMap(/Game/Maps/WORLDFINAL)
+[2022.09.23-23.17.22:162][  0]LogSlate: Took 0.000114 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
+[2022.09.23-23.17.22:219][  0]LogRenderer: Reallocating scene render targets to support 1280x720 Format 10 NumSamples 1 (Frame:1).
+[2022.09.23-23.17.22:219][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2022.09.23-23.17.22:219][  0]LogLoad: (Engine Initialization) Total time: 7.40 seconds
+[2022.09.23-23.17.22:219][  0]LogLoad: (Engine Initialization) Total Blueprint compile time: 0.00 seconds
+[2022.09.23-23.17.22:219][  0]LogInit: First time updating LLM stats...
+[2022.09.23-23.17.22:241][  0]LogOcInput: OculusInput is initialized
+[2022.09.23-23.17.22:242][  0]LogHMD: FSplash::DoHide
+[2022.09.23-23.17.22:272][  0]LoadErrors: Error: /Game/FiverrAnim/BP_FiverrErrol_DEPRECIATED : Failed import for SkeletalMesh /Game/FiverrAnim/character_rig.character_rig_eye_GEO
+[2022.09.23-23.17.22:338][  0]LogHMD: The app went out of VR focus, seizing rendering...
+[2022.09.23-23.17.22:338][  0]LogCore: Display: AppLifetime: Application will enter background
+[2022.09.23-23.17.22:339][  0]LogRenderer: Warning: Resizing VR buffer to 3744 by 1888
+[2022.09.23-23.17.22:339][  0]LogRenderer: Reallocating scene render targets to support 3744x1888 Format 10 NumSamples 1 (Frame:2).
+[2022.09.23-23.17.22:339][  0]LogHMD: Allocating Oculus 3744 x 1888 depth rendertarget swapchain
+[2022.09.23-23.17.22:339][  0]LogContentStreaming: Texture pool size now 1000 MB
+[2022.09.23-23.17.22:343][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.09.23-23.17.22:355][  0]LogProfilingDebugging: Allocated a 1024 x 1024 texture for HMD canvas layer
+[2022.09.23-23.17.22:372][  1]LogEngine: Changing dynamic resolution state.
+[2022.09.23-23.17.22:380][  1]LogSlate: Took 0.000113 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
+[2022.09.23-23.17.23:372][ 11]LogHMD: The app got VR focus, restoring rendering...
+[2022.09.23-23.17.23:372][ 11]LogHMD: Setting user focus to game viewport since session status is visible...
+[2022.09.23-23.17.23:372][ 11]LogCore: Display: AppLifetime: Application has entered foreground
+[2022.09.23-23.17.27:317][316]LogTemp: Warning: IM CHASING U MOTHAFUCKA!
+[2022.09.23-23.18.04:897][689]LogTemp: Warning: Sprint
+[2022.09.23-23.18.07:012][879]LogTemp: Warning: StopSprint
+[2022.09.23-23.18.07:657][937]LogTemp: Warning: SLRP: 0.008367
+[2022.09.23-23.18.07:669][938]LogTemp: Warning: SLRP: 0.009577
+[2022.09.23-23.18.07:680][939]LogTemp: Warning: SLRP: 0.011594
+[2022.09.23-23.18.07:690][940]LogTemp: Warning: SLRP: 0.011649
+[2022.09.23-23.18.07:701][941]LogTemp: Warning: SLRP: 0.011578
+[2022.09.23-23.18.07:712][942]LogTemp: Warning: SLRP: 0.013761
+[2022.09.23-23.18.07:724][943]LogTemp: Warning: SLRP: 0.015457
+[2022.09.23-23.18.07:735][944]LogTemp: Warning: SLRP: 0.016085
+[2022.09.23-23.18.07:746][945]LogTemp: Warning: SLRP: 0.016938
+[2022.09.23-23.18.07:758][946]LogTemp: Warning: SLRP: 0.016776
+[2022.09.23-23.18.07:768][947]LogTemp: Warning: SLRP: 0.016719
+[2022.09.23-23.18.07:780][948]LogTemp: Warning: SLRP: 0.016122
+[2022.09.23-23.18.07:791][949]LogTemp: Warning: SLRP: 0.016359
+[2022.09.23-23.18.07:802][950]LogTemp: Warning: SLRP: 0.016503
+[2022.09.23-23.18.07:813][951]LogTemp: Warning: SLRP: 0.015362
+[2022.09.23-23.18.07:825][952]LogTemp: Warning: SLRP: 0.016079
+[2022.09.23-23.18.07:836][953]LogTemp: Warning: SLRP: 0.015840
+[2022.09.23-23.18.07:847][954]LogTemp: Warning: SLRP: 0.014990
+[2022.09.23-23.18.07:858][955]LogTemp: Warning: SLRP: 0.016131
+[2022.09.23-23.18.07:869][956]LogTemp: Warning: SLRP: 0.015536
+[2022.09.23-23.18.07:880][957]LogTemp: Warning: SLRP: 0.015430
+[2022.09.23-23.18.07:892][958]LogTemp: Warning: SLRP: 0.015290
+[2022.09.23-23.18.07:903][959]LogTemp: Warning: SLRP: 0.015729
+[2022.09.23-23.18.07:914][960]LogTemp: Warning: SLRP: 0.015873
+[2022.09.23-23.18.07:925][961]LogTemp: Warning: SLRP: 0.013751
+[2022.09.23-23.18.07:937][962]LogTemp: Warning: SLRP: 0.015355
+[2022.09.23-23.18.07:947][963]LogTemp: Warning: SLRP: 0.015311
+[2022.09.23-23.18.07:958][964]LogTemp: Warning: SLRP: 0.014484
+[2022.09.23-23.18.07:969][965]LogTemp: Warning: SLRP: 0.014746
+[2022.09.23-23.18.07:981][966]LogTemp: Warning: SLRP: 0.014770
+[2022.09.23-23.18.07:992][967]LogTemp: Warning: SLRP: 0.015001
+[2022.09.23-23.18.08:003][968]LogTemp: Warning: SLRP: 0.014151
+[2022.09.23-23.18.08:015][969]LogTemp: Warning: SLRP: 0.014599
+[2022.09.23-23.18.08:026][970]LogTemp: Warning: SLRP: 0.014502
+[2022.09.23-23.18.08:037][971]LogTemp: Warning: SLRP: 0.014472
+[2022.09.23-23.18.08:048][972]LogTemp: Warning: SLRP: 0.013186
+[2022.09.23-23.18.08:059][973]LogTemp: Warning: SLRP: 0.014233
+[2022.09.23-23.18.08:070][974]LogTemp: Warning: SLRP: 0.014407
+[2022.09.23-23.18.08:081][975]LogTemp: Warning: SLRP: 0.013125
+[2022.09.23-23.18.08:093][976]LogTemp: Warning: SLRP: 0.013988
+[2022.09.23-23.18.08:103][977]LogTemp: Warning: SLRP: 0.014271
+[2022.09.23-23.18.08:114][978]LogTemp: Warning: SLRP: 0.012877
+[2022.09.23-23.18.08:126][979]LogTemp: Warning: SLRP: 0.014005
+[2022.09.23-23.18.08:137][980]LogTemp: Warning: SLRP: 0.013240
+[2022.09.23-23.18.08:148][981]LogTemp: Warning: SLRP: 0.013432
+[2022.09.23-23.18.08:159][982]LogTemp: Warning: SLRP: 0.012293
+[2022.09.23-23.18.08:170][983]LogTemp: Warning: SLRP: 0.012585
+[2022.09.23-23.18.08:170][983]LogBlueprintUserMessages: [BP_Door2494] END OVERLAP
+[2022.09.23-23.18.08:182][984]LogTemp: Warning: SLRP: 0.013265
+[2022.09.23-23.18.08:193][985]LogTemp: Warning: SLRP: 0.013186
+[2022.09.23-23.18.08:204][986]LogTemp: Warning: SLRP: 0.012367
+[2022.09.23-23.18.08:214][987]LogTemp: Warning: SLRP: 0.013149
+[2022.09.23-23.18.08:226][988]LogTemp: Warning: SLRP: 0.012881
+[2022.09.23-23.18.08:237][989]LogTemp: Warning: SLRP: 0.012868
+[2022.09.23-23.18.08:248][990]LogTemp: Warning: SLRP: 0.012893
+[2022.09.23-23.18.08:259][991]LogTemp: Warning: SLRP: 0.012746
+[2022.09.23-23.18.08:270][992]LogTemp: Warning: SLRP: 0.012061
+[2022.09.23-23.18.08:281][993]LogTemp: Warning: SLRP: 0.012624
+[2022.09.23-23.18.08:292][994]LogTemp: Warning: SLRP: 0.012952
+[2022.09.23-23.18.08:304][995]LogTemp: Warning: SLRP: 0.013415
+[2022.09.23-23.18.08:314][996]LogTemp: Warning: SLRP: 0.013487
+[2022.09.23-23.18.08:326][997]LogTemp: Warning: SLRP: 0.013926
+[2022.09.23-23.18.08:338][998]LogTemp: Warning: SLRP: 0.014039
+[2022.09.23-23.18.08:338][998]LogBlueprintUserMessages: [BP_Door2494] END OVERLAP
+[2022.09.23-23.18.08:348][999]LogTemp: Warning: SLRP: 0.015024
+[2022.09.23-23.18.08:360][  0]LogTemp: Warning: SLRP: 0.013994
+[2022.09.23-23.18.08:371][  1]LogTemp: Warning: SLRP: 0.014019
+[2022.09.23-23.18.08:381][  2]LogTemp: Warning: SLRP: 0.013571
+[2022.09.23-23.18.08:393][  3]LogTemp: Warning: SLRP: 0.013873
+[2022.09.23-23.18.08:404][  4]LogTemp: Warning: SLRP: 0.014536
+[2022.09.23-23.18.08:415][  5]LogTemp: Warning: SLRP: 0.014370
+[2022.09.23-23.18.08:427][  6]LogTemp: Warning: SLRP: 0.015002
+[2022.09.23-23.18.08:437][  7]LogTemp: Warning: SLRP: 0.014950
+[2022.09.23-23.18.13:441][456]LogTemp: Warning: SLRP: 0.002321
+[2022.09.23-23.18.13:452][457]LogTemp: Warning: SLRP: 0.002288
+[2022.09.23-23.18.13:463][458]LogTemp: Warning: SLRP: 0.001904
+[2022.09.23-23.18.13:474][459]LogTemp: Warning: SLRP: 0.001358
+[2022.09.23-23.18.13:485][460]LogTemp: Warning: SLRP: 0.000996
+[2022.09.23-23.18.13:496][461]LogTemp: Warning: SLRP: 0.000434
+[2022.09.23-23.18.13:508][462]LogTemp: Warning: SLRP: 0.000400
+[2022.09.23-23.18.13:519][463]LogTemp: Warning: SLRP: 0.000764
+[2022.09.23-23.18.13:530][464]LogTemp: Warning: SLRP: 0.001178
+[2022.09.23-23.18.13:541][465]LogTemp: Warning: SLRP: 0.001455
+[2022.09.23-23.18.13:552][466]LogTemp: Warning: SLRP: 0.001372
+[2022.09.23-23.18.13:563][467]LogTemp: Warning: SLRP: 0.001238
+[2022.09.23-23.18.13:574][468]LogTemp: Warning: SLRP: 0.001186
+[2022.09.23-23.18.13:586][469]LogTemp: Warning: SLRP: 0.001451
+[2022.09.23-23.18.13:596][470]LogTemp: Warning: SLRP: 0.001676
+[2022.09.23-23.18.13:608][471]LogTemp: Warning: SLRP: 0.001604
+[2022.09.23-23.18.13:619][472]LogTemp: Warning: SLRP: 0.002342
+[2022.09.23-23.18.13:630][473]LogTemp: Warning: SLRP: 0.002911
+[2022.09.23-23.18.13:642][474]LogTemp: Warning: SLRP: 0.003808
+[2022.09.23-23.18.13:652][475]LogTemp: Warning: SLRP: 0.004964
+[2022.09.23-23.18.13:664][476]LogTemp: Warning: SLRP: 0.006560
+[2022.09.23-23.18.13:675][477]LogTemp: Warning: SLRP: 0.007250
+[2022.09.23-23.18.13:687][478]LogTemp: Warning: SLRP: 0.007688
+[2022.09.23-23.18.13:698][479]LogTemp: Warning: SLRP: 0.010049
+[2022.09.23-23.18.13:710][480]LogTemp: Warning: SLRP: 0.009628
+[2022.09.23-23.18.13:721][481]LogTemp: Warning: SLRP: 0.012687
+[2022.09.23-23.18.13:733][482]LogTemp: Warning: SLRP: 0.013198
+[2022.09.23-23.18.13:745][483]LogTemp: Warning: SLRP: 0.013945
+[2022.09.23-23.18.13:757][484]LogTemp: Warning: SLRP: 0.013798
+[2022.09.23-23.18.13:769][485]LogTemp: Warning: SLRP: 0.014941
+[2022.09.23-23.18.13:780][486]LogTemp: Warning: SLRP: 0.014240
+[2022.09.23-23.18.13:791][487]LogTemp: Warning: SLRP: 0.013897
+[2022.09.23-23.18.13:802][488]LogTemp: Warning: SLRP: 0.014650
+[2022.09.23-23.18.13:814][489]LogTemp: Warning: SLRP: 0.013269
+[2022.09.23-23.18.13:825][490]LogTemp: Warning: SLRP: 0.013252
+[2022.09.23-23.18.13:837][491]LogTemp: Warning: SLRP: 0.011349
+[2022.09.23-23.18.13:848][492]LogTemp: Warning: SLRP: 0.008634
+[2022.09.23-23.18.13:859][493]LogTemp: Warning: SLRP: 0.005572
+[2022.09.23-23.18.13:871][494]LogTemp: Warning: SLRP: 0.002684
+[2022.09.23-23.18.13:882][495]LogTemp: Warning: SLRP: -0.003837
+[2022.09.23-23.18.13:894][496]LogTemp: Warning: SLRP: -0.003400
+[2022.09.23-23.18.13:905][497]LogTemp: Warning: SLRP: -0.003643
+[2022.09.23-23.18.13:917][498]LogTemp: Warning: SLRP: -0.004078
+[2022.09.23-23.18.13:928][499]LogTemp: Warning: SLRP: -0.004686
+[2022.09.23-23.18.13:939][500]LogTemp: Warning: SLRP: -0.005820
+[2022.09.23-23.18.13:950][501]LogTemp: Warning: SLRP: -0.006698
+[2022.09.23-23.18.13:961][502]LogTemp: Warning: SLRP: -0.008010
+[2022.09.23-23.18.13:973][503]LogTemp: Warning: SLRP: -0.009308
+[2022.09.23-23.18.13:985][504]LogTemp: Warning: SLRP: -0.009328
+[2022.09.23-23.18.13:996][505]LogTemp: Warning: SLRP: -0.012454
+[2022.09.23-23.18.14:007][506]LogTemp: Warning: SLRP: -0.012762
+[2022.09.23-23.18.14:018][507]LogTemp: Warning: SLRP: -0.013760
+[2022.09.23-23.18.14:029][508]LogTemp: Warning: SLRP: -0.014114
+[2022.09.23-23.18.14:040][509]LogTemp: Warning: SLRP: -0.013353
+[2022.09.23-23.18.14:052][510]LogTemp: Warning: SLRP: -0.015174
+[2022.09.23-23.18.14:052][510]LogBlueprintUserMessages: [DoorEnd_GEN_VARIABLE_BP_Door2_C_CAT_654] END OVERLAP
+[2022.09.23-23.18.14:063][511]LogTemp: Warning: SLRP: -0.014608
+[2022.09.23-23.18.14:074][512]LogTemp: Warning: SLRP: -0.014098
+[2022.09.23-23.18.14:085][513]LogTemp: Warning: SLRP: -0.014395
+[2022.09.23-23.18.14:096][514]LogTemp: Warning: SLRP: -0.013391
+[2022.09.23-23.18.14:107][515]LogTemp: Warning: SLRP: -0.014613
+[2022.09.23-23.18.14:118][516]LogTemp: Warning: SLRP: -0.014249
+[2022.09.23-23.18.14:130][517]LogTemp: Warning: SLRP: -0.014668
+[2022.09.23-23.18.14:141][518]LogTemp: Warning: SLRP: -0.015446
+[2022.09.23-23.18.14:152][519]LogTemp: Warning: SLRP: -0.014197
+[2022.09.23-23.18.14:163][520]LogTemp: Warning: SLRP: -0.014519
+[2022.09.23-23.18.14:174][521]LogTemp: Warning: SLRP: -0.014446
+[2022.09.23-23.18.14:185][522]LogTemp: Warning: SLRP: -0.014302
+[2022.09.23-23.18.14:197][523]LogTemp: Warning: SLRP: -0.013633
+[2022.09.23-23.18.14:208][524]LogTemp: Warning: SLRP: -0.014482
+[2022.09.23-23.18.14:219][525]LogTemp: Warning: SLRP: -0.014694
+[2022.09.23-23.18.14:230][526]LogTemp: Warning: SLRP: -0.014154
+[2022.09.23-23.18.14:241][527]LogTemp: Warning: SLRP: -0.016078
+[2022.09.23-23.18.14:252][528]LogTemp: Warning: SLRP: -0.014114
+[2022.09.23-23.18.14:263][529]LogTemp: Warning: SLRP: -0.014046
+[2022.09.23-23.18.14:275][530]LogTemp: Warning: SLRP: -0.014656
+[2022.09.23-23.18.14:286][531]LogTemp: Warning: SLRP: -0.014910
+[2022.09.23-23.18.14:297][532]LogTemp: Warning: SLRP: -0.014852
+[2022.09.23-23.18.14:308][533]LogTemp: Warning: SLRP: -0.013627
+[2022.09.23-23.18.14:319][534]LogTemp: Warning: SLRP: -0.014787
+[2022.09.23-23.18.14:330][535]LogTemp: Warning: SLRP: -0.014227
+[2022.09.23-23.18.14:341][536]LogTemp: Warning: SLRP: -0.015083
+[2022.09.23-23.18.14:353][537]LogTemp: Warning: SLRP: -0.014667
+[2022.09.23-23.18.14:364][538]LogTemp: Warning: SLRP: -0.015939
+[2022.09.23-23.18.14:375][539]LogTemp: Warning: SLRP: -0.012962
+[2022.09.23-23.18.14:386][540]LogTemp: Warning: SLRP: -0.014437
+[2022.09.23-23.18.14:397][541]LogTemp: Warning: SLRP: -0.014164
+[2022.09.23-23.18.14:408][542]LogTemp: Warning: SLRP: -0.013730
+[2022.09.23-23.18.14:419][543]LogTemp: Warning: SLRP: -0.012870
+[2022.09.23-23.18.14:430][544]LogTemp: Warning: SLRP: -0.014069
+[2022.09.23-23.18.14:442][545]LogTemp: Warning: SLRP: -0.014732
+[2022.09.23-23.18.14:453][546]LogTemp: Warning: SLRP: -0.013898
+[2022.09.23-23.18.14:464][547]LogTemp: Warning: SLRP: -0.014298
+[2022.09.23-23.18.14:476][548]LogTemp: Warning: SLRP: -0.013501
+[2022.09.23-23.18.14:486][549]LogTemp: Warning: SLRP: -0.013561
+[2022.09.23-23.18.14:498][550]LogTemp: Warning: SLRP: -0.013203
+[2022.09.23-23.18.14:509][551]LogTemp: Warning: SLRP: -0.013773
+[2022.09.23-23.18.14:520][552]LogTemp: Warning: SLRP: -0.013150
+[2022.09.23-23.18.14:531][553]LogTemp: Warning: SLRP: -0.013574
+[2022.09.23-23.18.14:542][554]LogTemp: Warning: SLRP: -0.013967
+[2022.09.23-23.18.14:553][555]LogTemp: Warning: SLRP: -0.013532
+[2022.09.23-23.18.14:565][556]LogTemp: Warning: SLRP: -0.013166
+[2022.09.23-23.18.14:575][557]LogTemp: Warning: SLRP: -0.013727
+[2022.09.23-23.18.14:587][558]LogTemp: Warning: SLRP: -0.012403
+[2022.09.23-23.18.14:598][559]LogTemp: Warning: SLRP: -0.013715
+[2022.09.23-23.18.14:609][560]LogTemp: Warning: SLRP: -0.012875
+[2022.09.23-23.18.14:620][561]LogTemp: Warning: SLRP: -0.012885
+[2022.09.23-23.18.14:631][562]LogTemp: Warning: SLRP: -0.013386
+[2022.09.23-23.18.14:643][563]LogTemp: Warning: SLRP: -0.012289
+[2022.09.23-23.18.14:654][564]LogTemp: Warning: SLRP: -0.013432
+[2022.09.23-23.18.14:664][565]LogTemp: Warning: SLRP: -0.012285
+[2022.09.23-23.18.14:676][566]LogTemp: Warning: SLRP: -0.012422
+[2022.09.23-23.18.14:687][567]LogTemp: Warning: SLRP: -0.012316
+[2022.09.23-23.18.14:698][568]LogTemp: Warning: SLRP: -0.011860
+[2022.09.23-23.18.14:710][569]LogTemp: Warning: SLRP: -0.012071
+[2022.09.23-23.18.14:720][570]LogTemp: Warning: SLRP: -0.012336
+[2022.09.23-23.18.14:732][571]LogTemp: Warning: SLRP: -0.011415
+[2022.09.23-23.18.14:742][572]LogTemp: Warning: SLRP: -0.011938
+[2022.09.23-23.18.14:754][573]LogTemp: Warning: SLRP: -0.011436
+[2022.09.23-23.18.14:765][574]LogTemp: Warning: SLRP: -0.011148
+[2022.09.23-23.18.14:776][575]LogTemp: Warning: SLRP: -0.010855
+[2022.09.23-23.18.14:787][576]LogTemp: Warning: SLRP: -0.011450
+[2022.09.23-23.18.14:798][577]LogTemp: Warning: SLRP: -0.010772
+[2022.09.23-23.18.14:809][578]LogTemp: Warning: SLRP: -0.010958
+[2022.09.23-23.18.14:821][579]LogTemp: Warning: SLRP: -0.010730
+[2022.09.23-23.18.14:832][580]LogTemp: Warning: SLRP: -0.011100
+[2022.09.23-23.18.14:843][581]LogTemp: Warning: SLRP: -0.010557
+[2022.09.23-23.18.14:855][582]LogTemp: Warning: SLRP: -0.010629
+[2022.09.23-23.18.14:865][583]LogTemp: Warning: SLRP: -0.011031
+[2022.09.23-23.18.14:876][584]LogTemp: Warning: SLRP: -0.009902
+[2022.09.23-23.18.14:887][585]LogTemp: Warning: SLRP: -0.010792
+[2022.09.23-23.18.14:899][586]LogTemp: Warning: SLRP: -0.009680
+[2022.09.23-23.18.14:909][587]LogTemp: Warning: SLRP: -0.009913
+[2022.09.23-23.18.14:921][588]LogTemp: Warning: SLRP: -0.010007
+[2022.09.23-23.18.14:932][589]LogTemp: Warning: SLRP: -0.009836
+[2022.09.23-23.18.14:943][590]LogTemp: Warning: SLRP: -0.010430
+[2022.09.23-23.18.14:954][591]LogTemp: Warning: SLRP: -0.009348
+[2022.09.23-23.18.14:965][592]LogTemp: Warning: SLRP: -0.008852
+[2022.09.23-23.18.14:977][593]LogBlueprintUserMessages: [BP_Door2508] END OVERLAP
+[2022.09.23-23.18.16:256][708]LogTemp: Warning: Sprint
+[2022.09.23-23.18.16:570][736]LogBlueprintUserMessages: [DoorEnd_GEN_VARIABLE_BP_Door2_C_CAT_654] END OVERLAP

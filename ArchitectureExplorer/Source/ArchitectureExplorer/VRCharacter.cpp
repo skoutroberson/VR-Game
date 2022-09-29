@@ -314,10 +314,11 @@ bool AVRCharacter::CheckFloor()
 	FVector UV = GetActorUpVector();
 
 	bool FloorTrace = GetWorld()->LineTraceSingleByChannel(HitResult, FootLocation + UV * 5.f, FootLocation - UV * 15.f, ECollisionChannel::ECC_WorldStatic, CamHeightParams);
-
+	
 	if (FloorTrace)
 	{
 		TArray<FName> &Tags = HitResult.Component->ComponentTags;
+		//Tags.Append(HitResult.Actor->Tags);
 
 		if (Tags.Num() > 0)
 		{
