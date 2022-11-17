@@ -18,12 +18,14 @@ enum class CockroachState : uint8;
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execChangeWiggleDirection); \
 	DECLARE_FUNCTION(execHitRigidBody); \
 	DECLARE_FUNCTION(execChangeState);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execChangeWiggleDirection); \
 	DECLARE_FUNCTION(execHitRigidBody); \
 	DECLARE_FUNCTION(execChangeState);
 

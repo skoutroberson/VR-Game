@@ -48,6 +48,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -224,5 +226,26 @@ public:
 
 	float RotationChangeDotThisFrame = 0.0f;
 
+	int StuckFrames = 0;
+
+	FTimerHandle SwerveTimerHandle;
+	FTimerHandle WaitTimerHandle;
+	FTimerHandle WiggleTimerHandle;
+
+	// wiggle stuff
+
+	UFUNCTION()
+	void ChangeWiggleDirection();
+
+	bool bWiggleLeft = false;
+
+	// rate that wiggle direction changes
+	UPROPERTY(EditAnywhere)
+	float WiggleRate = 0.3f;
+
+	void Wiggle(float DeltaTime);
+
+	UPROPERTY(EditAnywhere)
+	float WiggleSpeed = 1.0f;
 
 };

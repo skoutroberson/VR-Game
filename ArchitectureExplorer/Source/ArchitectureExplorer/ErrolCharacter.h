@@ -111,6 +111,8 @@ public:
 
 	void UpdateFootstepSound(FHitResult &HitResult, bool bLeft, USoundCue * FootstepSound);
 
+
+
 private:
 	UWorld * World = nullptr;
 	AActor * Player = nullptr;
@@ -194,6 +196,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void TickChaseState(float DeltaTime);
+
+	void OpenDoorBlockingPath();
 
 	USceneComponent * BloodSpawnLocation = nullptr;
 

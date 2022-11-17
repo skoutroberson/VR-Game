@@ -469,7 +469,37 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 		return;
 	}
 	*/
+
+	//OpenDoorBlockingPath();
+
 	UpdateAnimation(State);
+}
+
+void AErrolCharacter::OpenDoorBlockingPath()
+{
+	// set this to call on a timer every 0.3 secs or so...
+	// line trace from 2 path segments, if one hits a door, then set bErrolOpened = true for the door.
+	// if a line trace hits, check if bErrolOpened == false, if so then set it to true,
+	// open the door using curve (when the door is fully opened, bErrolOpened = false again
+	const FVector AL = GetActorLocation();
+	const FVector PL = Player->GetActorLocation();
+
+	UNavigationPath * Path = NavigationSystem->FindPathToLocationSynchronously(World, PL, AL);
+	TArray<FVector> PathPoints = Path->PathPoints;
+	int Distance = 0;
+
+	if (PathPoints.Num() >= 2)
+	{
+		for (int i = PathPoints.Num()-1; i > PathPoints.Num() - 3; --i)
+		{
+			FVector P1 = PathPoints[i];
+			FVector P2 = PathPoints[i - 1];
+			P1.Z += GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+			P2.Z += GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+			DrawDebugLine(World, P1, P2, FColor::Purple, false, World->DeltaTimeSeconds * 1.1f);
+		}
+	}
+
 }
 
 void AErrolCharacter::EnterInvestigateState()

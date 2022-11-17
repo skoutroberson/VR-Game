@@ -87,6 +87,13 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(ARoach::execChangeWiggleDirection)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ChangeWiggleDirection();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ARoach::execHitRigidBody)
 	{
 		P_GET_STRUCT_REF(FHitResult,Z_Param_Out_HitResult);
@@ -108,6 +115,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		UClass* Class = ARoach::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ChangeState", &ARoach::execChangeState },
+			{ "ChangeWiggleDirection", &ARoach::execChangeWiggleDirection },
 			{ "HitRigidBody", &ARoach::execHitRigidBody },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -145,6 +153,30 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoach_ChangeState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ARoach_ChangeWiggleDirection_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARoach_ChangeWiggleDirection_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// wiggle stuff\n" },
+		{ "ModuleRelativePath", "Roach.h" },
+		{ "ToolTip", "wiggle stuff" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoach_ChangeWiggleDirection_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoach, nullptr, "ChangeWiggleDirection", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoach_ChangeWiggleDirection_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoach_ChangeWiggleDirection_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ARoach_ChangeWiggleDirection()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoach_ChangeWiggleDirection_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -239,6 +271,14 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MinMoveSpeed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MinMoveSpeed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_WiggleRate_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_WiggleRate;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_WiggleSpeed_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_WiggleSpeed;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -249,6 +289,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ARoach_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ARoach_ChangeState, "ChangeState" }, // 1593228275
+		{ &Z_Construct_UFunction_ARoach_ChangeWiggleDirection, "ChangeWiggleDirection" }, // 2482595606
 		{ &Z_Construct_UFunction_ARoach_HitRigidBody, "HitRigidBody" }, // 1782708981
 	};
 #if WITH_METADATA
@@ -351,6 +392,22 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_MinMoveSpeed = { "MinMoveSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, MinMoveSpeed), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_MinMoveSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_MinMoveSpeed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_WiggleRate_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "Comment", "// rate that wiggle direction changes\n" },
+		{ "ModuleRelativePath", "Roach.h" },
+		{ "ToolTip", "rate that wiggle direction changes" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_WiggleRate = { "WiggleRate", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, WiggleRate), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_WiggleRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_WiggleRate_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_WiggleSpeed_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_WiggleSpeed = { "WiggleSpeed", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, WiggleSpeed), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_WiggleSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_WiggleSpeed_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARoach_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_RoachRoot,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_MovementComponent,
@@ -364,6 +421,8 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_DistanceMovedLastFrame,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_MaxMoveSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_MinMoveSpeed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_WiggleRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_WiggleSpeed,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ARoach_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARoach>::IsAbstract,
@@ -392,7 +451,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoach, 866484593);
+	IMPLEMENT_CLASS(ARoach, 1751790983);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoach>()
 	{
 		return ARoach::StaticClass();

@@ -49,9 +49,20 @@ void ARoach::BeginPlay()
 
 	QueryParams.AddIgnoredActors(RoachActors);
 
+	bWiggleLeft = FMath::RandBool();
+
+	GetWorldTimerManager().SetTimer(WiggleTimerHandle, this, &ARoach::ChangeWiggleDirection, WiggleRate, true);
+
 	//CurrentState.Enter.ExecuteIfBound();
 	//(this->*(CurrentState.Enter))();
 	//EnterState(CurrentState);
+}
+
+void ARoach::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	World->GetTimerManager().ClearAllTimersForObject(this);
 }
 
 void ARoach::Tick(float DeltaTime)
@@ -130,26 +141,26 @@ void ARoach::TickMoveState(float DeltaTime)
 	{
 		if (bClimbDown)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Climbing down"));
+			//UE_LOG(LogTemp, Warning, TEXT("Climbing down"));
 			MoveToClimbDownPosition(DeltaTime);
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Moving to Goal"));
+			//UE_LOG(LogTemp, Warning, TEXT("Moving to Goal"));
 			MoveAndRotateToGoal(DeltaTime);
 		}
 		DrawDebugPoint(World, GoalLocation, 5.f, FColor::Cyan, false, DeltaTime * 1.1f);
-		
+		Wiggle(DeltaTime);
 	}
 	else if (bTurn)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Turning"));
+		//UE_LOG(LogTemp, Warning, TEXT("Turning"));
 		Turn(DeltaTime);
 		bTurn = false;
 	}
 	else if (CheckForward(DeltaTime))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Forward Hit"));
+		//UE_LOG(LogTemp, Warning, TEXT("Forward Hit"));
 		bMoveToGoal = true;
 		MoveAndRotateToGoal(DeltaTime);
 	}
@@ -159,7 +170,7 @@ void ARoach::TickMoveState(float DeltaTime)
 
 		if (bClimbDown)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Climb Down Start"));
+			//UE_LOG(LogTemp, Warning, TEXT("Climb Down Start"));
 			//MoveToClimbDownPosition(DeltaTime);
 			bMoveToGoal = false;
 			bTurn = true;
@@ -168,8 +179,10 @@ void ARoach::TickMoveState(float DeltaTime)
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Down Trace Hit"));
+			//UE_LOG(LogTemp, Warning, TEXT("Down Trace Hit"));
 			MoveAndRotateToGoal(DeltaTime);
+			UE_LOG(LogTemp, Warning, TEXT("Wiggling"));
+			Wiggle(DeltaTime);
 			// swerve
 			// wiggle
 			// flock
@@ -179,7 +192,7 @@ void ARoach::TickMoveState(float DeltaTime)
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Last Turn"));
+		//UE_LOG(LogTemp, Warning, TEXT("Last Turn"));
 		bTurn = true;
 		Turn(DeltaTime);
 	}
@@ -191,7 +204,23 @@ void ARoach::TickMoveState(float DeltaTime)
 	LastFrameLocation = GetActorLocation();
 	LastFrameForwardVector = GetActorForwardVector();
 
-	UE_LOG(LogTemp, Warning, TEXT("---------------------------------"));
+	// check if stuck
+	if (DistanceMovedLastFrame < 0.0001f)
+	{
+		++StuckFrames;
+
+		if (StuckFrames > 15)
+		{
+			//UE_LOG(LogTemp, Warning, TEXT("STUCKSTUCKSTUCK"));
+			// Roach is "stuck"
+		}
+	}
+	else
+	{
+		StuckFrames = 0;
+	}
+
+	//UE_LOG(LogTemp, Warning, TEXT("---------------------------------"));
 
 	DownTraceIterations = 0;
 }
@@ -202,7 +231,7 @@ void ARoach::HitRigidBody(UPARAM(ref)FHitResult HitResult)
 
 	// this will be used during MOVETOGOAL
 
-	UE_LOG(LogTemp, Warning, TEXT("Hit"));
+	//UE_LOG(LogTemp, Warning, TEXT("Hit"));
 }
 
 void ARoach::Turn(float DeltaTime)
@@ -547,7 +576,7 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 	if (bSweep)
 	{
 		bMoveToGoal = false;
-		UE_LOG(LogTemp, Warning, TEXT("Goal blocked. New Goal inbound."));
+		//UE_LOG(LogTemp, Warning, TEXT("Goal blocked. New Goal inbound."));
 
 		//UpdateTurnDirection(HitResult.ImpactNormal, true);
 
@@ -561,7 +590,7 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 		SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.08f));
 		SetActorLocation(FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.4));
 
-		UE_LOG(LogTemp, Warning, TEXT("Actually moving to goal."));
+		//UE_LOG(LogTemp, Warning, TEXT("Actually moving to goal."));
 		//SetActorRotation(NewQuat);
 		//SetActorLocation(GoalLocation);
 
@@ -640,10 +669,26 @@ void ARoach::MoveToClimbDownPosition(float DeltaTime)
 float ARoach::DistanceMovedThisFrame()
 {
 	float D = FVector::Distance(GetActorLocation(), LastFrameLocation);
-	float Dot = 200.0f * (1.0f - FVector::DotProduct(GetActorForwardVector(), LastFrameForwardVector));
+	//float Dot = 200.0f * (1.0f - FVector::DotProduct(GetActorForwardVector(), LastFrameForwardVector));
 
-	UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), D);
-	UE_LOG(LogTemp, Warning, TEXT("Dot: %f"), Dot);
+	//UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), D);
+	//UE_LOG(LogTemp, Warning, TEXT("Dot: %f"), Dot);
 
 	return D;
+}
+
+void ARoach::ChangeWiggleDirection()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Change Wiggle: %d"), bWiggleLeft);
+	bWiggleLeft = (bWiggleLeft) ? false : true;
+}
+
+void ARoach::Wiggle(float DeltaTime)
+{
+	const FVector Axis = GetActorUpVector();
+	const float Angle = (bWiggleLeft) ? HALF_PI : -HALF_PI;
+	FQuat RotationQuat(Axis, Angle);
+	FQuat ActorQuat = GetActorQuat();
+	FQuat NewQuat = RotationQuat * ActorQuat;
+	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, WiggleSpeed));
 }
