@@ -197,6 +197,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void TickChaseState(float DeltaTime);
 
+	FCollisionQueryParams OpenDoorQueryParams;
+	float OpenDoorDistance = 200.f;
 	void OpenDoorBlockingPath();
 
 	USceneComponent * BloodSpawnLocation = nullptr;

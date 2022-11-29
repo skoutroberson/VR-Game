@@ -23,6 +23,7 @@
 #include "Components/CapsuleComponent.h"
 #include "PeekPoint.h"
 #include "Engine/SkeletalMeshSocket.h"
+#include "Door.h"
 #include "Engine.h"
 
 // Sets default values
@@ -93,6 +94,10 @@ void AErrolCharacter::BeginPlay()
 	UGameplayStatics::GetAllActorsOfClass(World, AGrabbable::StaticClass(), GrabActors);
 
 	CanPlayerSeeMeTraceParams.AddIgnoredActors(GrabActors);
+
+	OpenDoorQueryParams.AddIgnoredActors(GrabActors);
+	OpenDoorQueryParams.AddIgnoredActor(this);
+	
 
 	// for easier editing of starting position for the Upper Window Scare:
 	TArray<AActor*> UppWinScareStartingPos;
@@ -470,7 +475,8 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 	}
 	*/
 
-	//OpenDoorBlockingPath();
+	// NEED TO PUT THIS ON A TIMER TO CALL LESS OFTEN (AROUND 0.2 SECONDS)
+	OpenDoorBlockingPath();
 
 	UpdateAnimation(State);
 }
@@ -490,12 +496,38 @@ void AErrolCharacter::OpenDoorBlockingPath()
 
 	if (PathPoints.Num() >= 2)
 	{
+		float DistanceSum = 0;
 		for (int i = PathPoints.Num()-1; i > PathPoints.Num() - 3; --i)
 		{
 			FVector P1 = PathPoints[i];
 			FVector P2 = PathPoints[i - 1];
 			P1.Z += GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
 			P2.Z += GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+
+			FVector Dir = (P2 - P1);
+			float SegmentDistance = Dir.Size();
+
+			Dir = Dir.GetSafeNormal();
+
+			DistanceSum += SegmentDistance;
+
+			SegmentDistance = (SegmentDistance > OpenDoorDistance) ? OpenDoorDistance : SegmentDistance;
+
+			TArray<FHitResult> HitResults;
+			bool bTrace = World->LineTraceMultiByChannel(HitResults, P1, P1 + Dir * SegmentDistance, ECollisionChannel::ECC_WorldDynamic, OpenDoorQueryParams);
+
+			if (bTrace)
+			{
+				for (FHitResult HR : HitResults)
+				{
+					ADoor * HitDoorCast = Cast<ADoor>(HR.GetActor());
+					if (HitDoorCast != nullptr)
+					{
+
+					}
+				}
+			}
+
 			DrawDebugLine(World, P1, P2, FColor::Purple, false, World->DeltaTimeSeconds * 1.1f);
 		}
 	}
@@ -841,7 +873,7 @@ void AErrolCharacter::ExitLookAroundState()
 	UpdateAnimation(State);
 }
 
-void AErrolCharacter::InitializeCanSeeVariables()
+void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 {
 	//UE_LOG(LogTemp, Warning, TEXT("Initalize can see!"));
 	GetWorld()->GetTimerManager().ClearTimer(SetUpCanSeeHandle);
@@ -852,6 +884,7 @@ void AErrolCharacter::InitializeCanSeeVariables()
 	UActorComponent * TempAC = Player->GetComponentByClass(UCameraComponent::StaticClass());
 	PlayerCamera = Cast<UCameraComponent>(TempAC);
 	VRRoot = Cast<USceneComponent>(Player->GetComponentsByTag(USceneComponent::StaticClass(), FName("VRRoot"))[0]);
+	OpenDoorQueryParams.AddIgnoredActor(Player); 
 
 	InitializePerceptionTimers();
 

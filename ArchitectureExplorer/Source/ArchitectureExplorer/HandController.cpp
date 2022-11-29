@@ -146,6 +146,9 @@ void AHandController::Grip()
 						if (GrabActor->ActorHasTag(TEXT("Flashlight")))
 						{
 							bIsHoldingFlashlight = true;
+							// update animation to holding flashlight pose
+							// update location / rotation 
+							// EACH GRABBABLE SHOULD HAVE A GRABLOCATION OFFSET AND A GRABROTATION OFFSET FOR EACH HANDHOLD
 						}
 						else if (GrabActor->ActorHasTag(TEXT("Saw")))
 						{
