@@ -492,12 +492,13 @@ void AErrolCharacter::OpenDoorBlockingPath()
 
 	UNavigationPath * Path = NavigationSystem->FindPathToLocationSynchronously(World, PL, AL);
 	TArray<FVector> PathPoints = Path->PathPoints;
+	const int n = PathPoints.Num();
 	int Distance = 0;
 
-	if (PathPoints.Num() >= 2)
+	if (n >= 2)
 	{
 		float DistanceSum = 0;
-		for (int i = PathPoints.Num()-1; i > PathPoints.Num() - 3; --i)
+		for (int i = n-1; i > n - 3; --i)
 		{
 			FVector P1 = PathPoints[i];
 			FVector P2 = PathPoints[i - 1];
@@ -516,6 +517,8 @@ void AErrolCharacter::OpenDoorBlockingPath()
 			TArray<FHitResult> HitResults;
 			bool bTrace = World->LineTraceMultiByChannel(HitResults, P1, P1 + Dir * SegmentDistance, ECollisionChannel::ECC_WorldDynamic, OpenDoorQueryParams);
 
+			DrawDebugLine(World, P1, P1 + Dir * SegmentDistance, FColor::Magenta, false, World->DeltaTimeSeconds * 1.1f);
+
 			if (bTrace)
 			{
 				for (FHitResult HR : HitResults)
@@ -523,12 +526,22 @@ void AErrolCharacter::OpenDoorBlockingPath()
 					ADoor * HitDoorCast = Cast<ADoor>(HR.GetActor());
 					if (HitDoorCast != nullptr)
 					{
+						//open door using curve
 
+						// call blueprint function: OpenDoorDuringChase()
+						// sets the door curve, zeroes out the duration, and sets bOpenDoorFast to true
+						DoorBlockingPath = HitDoorCast;
+						OpenDoor();
+
+						return;
 					}
 				}
 			}
 
-			DrawDebugLine(World, P1, P2, FColor::Purple, false, World->DeltaTimeSeconds * 1.1f);
+			if (n < 3 || DistanceSum >= OpenDoorDistance)
+			{
+				break;
+			}
 		}
 	}
 

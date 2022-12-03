@@ -670,6 +670,7 @@ void ADoor::OpenDoorUsingCurve(float DeltaTime)
 		bFullyClosed = false;
 		bOpenDoorUsingCurve = false;
 		CurrentCurveTime = 0;
+		IsErrolOpening = false;
 	}
 	else
 	{

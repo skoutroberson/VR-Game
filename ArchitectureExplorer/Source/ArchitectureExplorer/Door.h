@@ -36,6 +36,7 @@ public:
 
 	class USceneComponent* DoorHinge;
 
+	UPROPERTY(BlueprintReadOnly)
 	class USphereComponent * Doorknob;
 
 	AActor* HandController = nullptr;
@@ -226,5 +227,6 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void TurnOnSoundsAndLighting();
 
-
+	UPROPERTY(BlueprintReadWrite)
+	bool IsErrolOpening = false;
 };

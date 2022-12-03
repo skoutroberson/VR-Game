@@ -1,23 +1,21 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal Projects\ArchitectureExplorer1).
-  Building ArchitectureExplorerEditor...
-  Using Visual Studio 2017 14.16.27045 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [Upgrade]
-  [Upgrade] Using backward-compatible build settings. The latest version of UE4 sets the following values by default, which may require code changes:
-  [Upgrade]     bLegacyPublicIncludePaths = false                 => Omits subfolders from public include paths to reduce compiler command line length. (Previously: true).
-  [Upgrade]     ShadowVariableWarningLevel = WarningLevel.Error   => Treats shadowed variable warnings as errors. (Previously: WarningLevel.Warning).
-  [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
-  [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
-  [Upgrade]
-  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: ErrolCharacter.cpp, HandController.cpp
-  Building 5 actions with 24 processes...
-    [1/5] UE4Editor-StateMachine-0006.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0006.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0006.exp
-    [2/5] UE4Editor-ArchitectureExplorer-0006.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0006.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0006.exp
-    [3/5] UE4Editor-StateMachine-0006.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0006.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0006.suppressed.exp
-    [4/5] UE4Editor-ArchitectureExplorer-0006.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0006.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0006.suppressed.exp
-    [5/5] ArchitectureExplorerEditor.target
-  Total time in Parallel executor: 1.17 seconds
-  Total execution time: 2.06 seconds
+  Waiting for 'git status' command to complete
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Binaries\Win64\UE4Editor-ArchitectureExplorer-0008.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Binaries\Win64\UE4Editor-ArchitectureExplorer-0010.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Binaries\Win64\UE4Editor-ArchitectureExplorer-0011.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0002.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0004.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0005.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0006.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0008.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0010.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0011.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0002.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0004.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0005.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0006.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0008.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0009.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0010.dll
+UnrealBuildTool : error : Unable to delete hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0011.dll
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.MakeFile.Targets(44,5): error MSB3073: The command ""C:\Program Files\Epic Games\UE_4.26\Engine\Build\BatchFiles\Build.bat" ArchitectureExplorerEditor Win64 Development -Project="E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\ArchitectureExplorer.uproject" -WaitMutex -FromMsBuild" exited with code 6.

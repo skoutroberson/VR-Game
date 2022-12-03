@@ -201,6 +201,12 @@ public:
 	float OpenDoorDistance = 200.f;
 	void OpenDoorBlockingPath();
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void OpenDoor();
+
+	UPROPERTY(BlueprintReadOnly);
+	class ADoor * DoorBlockingPath;
+
 	USceneComponent * BloodSpawnLocation = nullptr;
 
 	// tick stuff
