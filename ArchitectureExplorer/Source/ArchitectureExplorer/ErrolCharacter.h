@@ -199,6 +199,8 @@ public:
 
 	FCollisionQueryParams OpenDoorQueryParams;
 	float OpenDoorDistance = 200.f;
+
+	UFUNCTION()
 	void OpenDoorBlockingPath();
 
 	UFUNCTION(BlueprintImplementableEvent)
@@ -206,6 +208,8 @@ public:
 
 	UPROPERTY(BlueprintReadOnly);
 	class ADoor * DoorBlockingPath;
+
+	FTimerHandle OpenBlockingDoorTimer;
 
 	USceneComponent * BloodSpawnLocation = nullptr;
 

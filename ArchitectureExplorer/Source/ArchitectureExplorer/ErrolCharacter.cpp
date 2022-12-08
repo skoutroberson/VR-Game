@@ -97,6 +97,8 @@ void AErrolCharacter::BeginPlay()
 
 	OpenDoorQueryParams.AddIgnoredActors(GrabActors);
 	OpenDoorQueryParams.AddIgnoredActor(this);
+
+	World->GetTimerManager().SetTimer(OpenBlockingDoorTimer, this, &AErrolCharacter::OpenDoorBlockingPath, 0.2f, true, 0.4f);
 	
 
 	// for easier editing of starting position for the Upper Window Scare:
@@ -475,9 +477,6 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 	}
 	*/
 
-	// NEED TO PUT THIS ON A TIMER TO CALL LESS OFTEN (AROUND 0.2 SECONDS)
-	OpenDoorBlockingPath();
-
 	UpdateAnimation(State);
 }
 
@@ -498,8 +497,13 @@ void AErrolCharacter::OpenDoorBlockingPath()
 	if (n >= 2)
 	{
 		float DistanceSum = 0;
-		for (int i = n-1; i > n - 3; --i)
+		for (int i = n-1; i > n - 4; --i)
 		{
+			if (i == n - 3 && n < 4)
+			{
+				break;
+			}
+
 			FVector P1 = PathPoints[i];
 			FVector P2 = PathPoints[i - 1];
 			P1.Z += GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
@@ -517,7 +521,7 @@ void AErrolCharacter::OpenDoorBlockingPath()
 			TArray<FHitResult> HitResults;
 			bool bTrace = World->LineTraceMultiByChannel(HitResults, P1, P1 + Dir * SegmentDistance, ECollisionChannel::ECC_WorldDynamic, OpenDoorQueryParams);
 
-			DrawDebugLine(World, P1, P1 + Dir * SegmentDistance, FColor::Magenta, false, World->DeltaTimeSeconds * 1.1f);
+			//DrawDebugLine(World, P1, P1 + Dir * SegmentDistance, FColor::Magenta, false, World->DeltaTimeSeconds * 1.1f);
 
 			if (bTrace)
 			{
@@ -537,6 +541,7 @@ void AErrolCharacter::OpenDoorBlockingPath()
 					}
 				}
 			}
+
 
 			if (n < 3 || DistanceSum >= OpenDoorDistance)
 			{

@@ -311,6 +311,13 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		P_THIS->EnterFlyAtState();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AErrolCharacter::execOpenDoorBlockingPath)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OpenDoorBlockingPath();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AErrolCharacter::execTickChaseState)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_DeltaTime);
@@ -405,6 +412,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 			{ "GoToRandomWaypoint", &AErrolCharacter::execGoToRandomWaypoint },
 			{ "InitializeCanSeeVariables", &AErrolCharacter::execInitializeCanSeeVariables },
 			{ "KillPlayer", &AErrolCharacter::execKillPlayer },
+			{ "OpenDoorBlockingPath", &AErrolCharacter::execOpenDoorBlockingPath },
 			{ "SetDetectionGauge", &AErrolCharacter::execSetDetectionGauge },
 			{ "SetHearGauge", &AErrolCharacter::execSetHearGauge },
 			{ "SetSeeFlashlightGauge", &AErrolCharacter::execSetSeeFlashlightGauge },
@@ -867,6 +875,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_OpenDoor_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AErrolCharacter_OpenDoorBlockingPath_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_OpenDoorBlockingPath_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_OpenDoorBlockingPath_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "OpenDoorBlockingPath", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_OpenDoorBlockingPath_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_OpenDoorBlockingPath_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_OpenDoorBlockingPath()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_OpenDoorBlockingPath_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -1421,6 +1451,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_InitializeCanSeeVariables, "InitializeCanSeeVariables" }, // 3381494788
 		{ &Z_Construct_UFunction_AErrolCharacter_KillPlayer, "KillPlayer" }, // 4215045179
 		{ &Z_Construct_UFunction_AErrolCharacter_OpenDoor, "OpenDoor" }, // 950942076
+		{ &Z_Construct_UFunction_AErrolCharacter_OpenDoorBlockingPath, "OpenDoorBlockingPath" }, // 3327573011
 		{ &Z_Construct_UFunction_AErrolCharacter_SetDetectionGauge, "SetDetectionGauge" }, // 2628373435
 		{ &Z_Construct_UFunction_AErrolCharacter_SetHearGauge, "SetHearGauge" }, // 727653839
 		{ &Z_Construct_UFunction_AErrolCharacter_SetSeeFlashlightGauge, "SetSeeFlashlightGauge" }, // 781599227
@@ -1892,7 +1923,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 2518983370);
+	IMPLEMENT_CLASS(AErrolCharacter, 3752392980);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

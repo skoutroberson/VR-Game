@@ -14,8 +14,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ARCHITECTUREEXPLORER_Flashlight_generated_h
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_RPC_WRAPPERS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execTurnOff); \
+	DECLARE_FUNCTION(execTurnOn);
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execTurnOff); \
+	DECLARE_FUNCTION(execTurnOn);
+
+
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_EVENT_PARMS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_CALLBACK_WRAPPERS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_INCLASS_NO_PURE_DECLS \

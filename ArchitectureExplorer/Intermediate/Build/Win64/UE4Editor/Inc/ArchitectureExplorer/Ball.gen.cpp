@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeBall() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABall, 4226544899);
+	IMPLEMENT_CLASS(ABall, 1233708042);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ABall>()
 	{
 		return ABall::StaticClass();

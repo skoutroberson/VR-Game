@@ -20,7 +20,9 @@ public:
 
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintCallable)
 	void TurnOn();
+	UFUNCTION(BlueprintCallable)
 	void TurnOff();
 
 	void PressButton();

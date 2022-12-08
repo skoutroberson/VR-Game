@@ -20,6 +20,20 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAudioComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AFlashlight::execTurnOff)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->TurnOff();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AFlashlight::execTurnOn)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->TurnOn();
+		P_NATIVE_END;
+	}
 	static FName NAME_AFlashlight_PlayButtonPressAudio = FName(TEXT("PlayButtonPressAudio"));
 	void AFlashlight::PlayButtonPressAudio()
 	{
@@ -27,6 +41,12 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	}
 	void AFlashlight::StaticRegisterNativesAFlashlight()
 	{
+		UClass* Class = AFlashlight::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "TurnOff", &AFlashlight::execTurnOff },
+			{ "TurnOn", &AFlashlight::execTurnOn },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
 	struct Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio_Statics
 	{
@@ -47,6 +67,50 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AFlashlight_TurnOff_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFlashlight_TurnOff_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Flashlight.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFlashlight_TurnOff_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFlashlight, nullptr, "TurnOff", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFlashlight_TurnOff_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFlashlight_TurnOff_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AFlashlight_TurnOff()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFlashlight_TurnOff_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AFlashlight_TurnOn_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFlashlight_TurnOn_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Flashlight.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFlashlight_TurnOn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFlashlight, nullptr, "TurnOn", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFlashlight_TurnOn_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFlashlight_TurnOn_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AFlashlight_TurnOn()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFlashlight_TurnOn_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -79,6 +143,8 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AFlashlight_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio, "PlayButtonPressAudio" }, // 3221636658
+		{ &Z_Construct_UFunction_AFlashlight_TurnOff, "TurnOff" }, // 2755678298
+		{ &Z_Construct_UFunction_AFlashlight_TurnOn, "TurnOn" }, // 4285305367
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlashlight_Statics::Class_MetaDataParams[] = {
@@ -134,7 +200,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFlashlight, 2908346954);
+	IMPLEMENT_CLASS(AFlashlight, 3849743766);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AFlashlight>()
 	{
 		return AFlashlight::StaticClass();

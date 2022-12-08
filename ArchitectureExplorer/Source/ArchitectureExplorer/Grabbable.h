@@ -100,11 +100,14 @@ public:
 	void Grab();
 
 	/** 
-		Starting point of the item, set by the current stage.
+		Starting point of the item, set by stage.
 		The item will be sent to this location if the player teleports in the portal room and the item isn't in the player's hands, or the staring PortalRoom.
 	*/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FVector StartingPoint = FVector::ZeroVector;
+	FVector StartLocation = FVector::ZeroVector;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FRotator StartRotation = FRotator::ZeroRotator;
 
 protected:
 	
