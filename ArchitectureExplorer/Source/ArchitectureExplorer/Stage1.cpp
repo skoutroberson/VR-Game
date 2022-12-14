@@ -32,14 +32,16 @@ void AStage1::BeginPlay()
 
 	UE_LOG(LogTemp, Warning, TEXT("Stage1 BeginPlay()"));
 
+	bCompleted = true;
+
 	//	Have a reference to LightManager exist in StageManager, not every stage?
 	
-	ALightManager * LM = Cast<ALightManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass()));
-	LM->TurnOn(FString("BP_Lamp1"), 1.6f, 25.f);
-	LM->TurnOn(FString("BP_Lamp2"), 1.6f, 25.f);
-	LM->TurnOn(FString("BP_Radio_2"), 1.f, 10.f);
+	//ALightManager * LM = Cast<ALightManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass()));
+	//LM->TurnOn(FString("BP_Lamp1"), 1.6f, 25.f);
+	//LM->TurnOn(FString("BP_Lamp2"), 1.6f, 25.f);
+	//LM->TurnOn(FString("BP_Radio_2"), 1.f, 10.f);
 
-	Phone = Cast<APhone>(UGameplayStatics::GetActorOfClass(GetWorld(), APhone::StaticClass()));
+	//Phone = Cast<APhone>(UGameplayStatics::GetActorOfClass(GetWorld(), APhone::StaticClass()));
 	//Phone->CallPhone();
 }
 

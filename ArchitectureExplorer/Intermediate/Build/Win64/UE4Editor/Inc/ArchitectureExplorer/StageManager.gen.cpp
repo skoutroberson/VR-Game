@@ -79,24 +79,24 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 		}
 		return ReturnEnum;
 	}
-	DEFINE_FUNCTION(AStageManager::execCurrentStageCompleted)
+	DEFINE_FUNCTION(AStageManager::execIsCurrentStageCompleted)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(bool*)Z_Param__Result=P_THIS->CurrentStageCompleted();
+		*(bool*)Z_Param__Result=P_THIS->IsCurrentStageCompleted();
 		P_NATIVE_END;
 	}
 	void AStageManager::StaticRegisterNativesAStageManager()
 	{
 		UClass* Class = AStageManager::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "CurrentStageCompleted", &AStageManager::execCurrentStageCompleted },
+			{ "IsCurrentStageCompleted", &AStageManager::execIsCurrentStageCompleted },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
-	struct Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics
+	struct Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics
 	{
-		struct StageManager_eventCurrentStageCompleted_Parms
+		struct StageManager_eventIsCurrentStageCompleted_Parms
 		{
 			bool ReturnValue;
 		};
@@ -108,26 +108,26 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	void Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	void Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::NewProp_ReturnValue_SetBit(void* Obj)
 	{
-		((StageManager_eventCurrentStageCompleted_Parms*)Obj)->ReturnValue = 1;
+		((StageManager_eventIsCurrentStageCompleted_Parms*)Obj)->ReturnValue = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(StageManager_eventCurrentStageCompleted_Parms), &Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::NewProp_ReturnValue,
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(StageManager_eventIsCurrentStageCompleted_Parms), &Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::NewProp_ReturnValue,
 	};
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::Function_MetaDataParams[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "StageManager.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AStageManager, nullptr, "CurrentStageCompleted", nullptr, nullptr, sizeof(StageManager_eventCurrentStageCompleted_Parms), Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AStageManager_CurrentStageCompleted()
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AStageManager, nullptr, "IsCurrentStageCompleted", nullptr, nullptr, sizeof(StageManager_eventIsCurrentStageCompleted_Parms), Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AStageManager_CurrentStageCompleted_Statics::FuncParams);
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -146,11 +146,10 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentStage_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CurrentStage;
-		static const UE4CodeGen_Private::FBytePropertyParams NewProp_CurrentStageNum_Underlying;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentStageNum_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_CurrentStageNum;
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_CurrentStageNum;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -160,7 +159,7 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AStageManager_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AStageManager_CurrentStageCompleted, "CurrentStageCompleted" }, // 569506933
+		{ &Z_Construct_UFunction_AStageManager_IsCurrentStageCompleted, "IsCurrentStageCompleted" }, // 1942987180
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStageManager_Statics::Class_MetaDataParams[] = {
@@ -175,17 +174,15 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStage = { "CurrentStage", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStageManager, CurrentStage), Z_Construct_UClass_AStage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStage_MetaData)) };
-	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_MetaData[] = {
 		{ "Category", "StageManager" },
 		{ "ModuleRelativePath", "StageManager.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum = { "CurrentStageNum", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStageManager, CurrentStageNum), Z_Construct_UEnum_ArchitectureExplorer_EStageNum, METADATA_PARAMS(Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_MetaData)) };
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum = { "CurrentStageNum", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStageManager, CurrentStageNum), METADATA_PARAMS(Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AStageManager_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStage,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStageManager_Statics::NewProp_CurrentStageNum,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AStageManager_Statics::StaticCppClassTypeInfo = {
@@ -215,7 +212,7 @@ void EmptyLinkFunctionForGeneratedCodeStageManager() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AStageManager, 1392461852);
+	IMPLEMENT_CLASS(AStageManager, 3045231487);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AStageManager>()
 	{
 		return AStageManager::StaticClass();

@@ -23,6 +23,7 @@ void AStage2::BeginPlay()
 	Super::BeginPlay();
 
 	UE_LOG(LogTemp, Warning, TEXT("Stage 2 beginplay"));
+	bCompleted = true;
 }
 
 void AStage2::EndPlay(const EEndPlayReason::Type EndPlayReason)

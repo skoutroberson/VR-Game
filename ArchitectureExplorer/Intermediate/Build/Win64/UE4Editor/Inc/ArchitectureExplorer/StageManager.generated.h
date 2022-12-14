@@ -16,12 +16,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execCurrentStageCompleted);
+	DECLARE_FUNCTION(execIsCurrentStageCompleted);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execCurrentStageCompleted);
+	DECLARE_FUNCTION(execIsCurrentStageCompleted);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_StageManager_h_26_INCLASS_NO_PURE_DECLS \

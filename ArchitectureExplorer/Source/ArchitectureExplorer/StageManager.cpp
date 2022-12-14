@@ -78,8 +78,11 @@ void AStageManager::TESTLIGHTFUNCTION()
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
-bool AStageManager::CurrentStageCompleted()
+bool AStageManager::IsCurrentStageCompleted()
 {
-	
-	return true;
+	if (CurrentStage != nullptr)
+	{
+		return CurrentStage->bCompleted;
+	}
+	return false;
 }

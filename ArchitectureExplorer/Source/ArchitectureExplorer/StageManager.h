@@ -64,13 +64,16 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	AStage * CurrentStage = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	EStageNum CurrentStageNum;
+	//UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	//EStageNum CurrentStageNum;
 
 	void InitializeStageNodes();
 
 	UFUNCTION(BlueprintCallable)
-	bool CurrentStageCompleted();
+	bool IsCurrentStageCompleted();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int CurrentStageNum = 0;
 
 
 private:
