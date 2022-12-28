@@ -25,6 +25,7 @@
 #include "Engine/SkeletalMeshSocket.h"
 #include "Door.h"
 #include "Engine.h"
+#include "Engine.h"
 
 // Sets default values
 AErrolCharacter::AErrolCharacter()
@@ -100,6 +101,7 @@ void AErrolCharacter::BeginPlay()
 
 	World->GetTimerManager().SetTimer(OpenBlockingDoorTimer, this, &AErrolCharacter::OpenDoorBlockingPath, 0.2f, true, 0.4f);
 	
+	World->GetTimerManager().PauseTimer(OpenBlockingDoorTimer);
 
 	// for easier editing of starting position for the Upper Window Scare:
 	TArray<AActor*> UppWinScareStartingPos;
@@ -415,11 +417,10 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed)
 	// EachState decrement fShouldKill and if the player is killed then increase fShouldKill by a lot so they are very unlucky if they are killed.
 
 	bSprintAtPlayer = true;
-
 	ChaseSpeed = MaxSpeed;
-	
 	UpdateAnimation(State);
 	ErrolController->MoveToActor(Player); //KillRadius);
+	World->GetTimerManager().UnPauseTimer(OpenBlockingDoorTimer);
 }
 
 void AErrolCharacter::TickChaseState(float DeltaTime)
@@ -832,6 +833,7 @@ void AErrolCharacter::ExitChaseState()
 	bSprintAtPlayer = true;
 	bUpdateMoveSpeedBasedOnPlayerCamera = false;
 	ErrolController->StopMovement();
+	World->GetTimerManager().PauseTimer(OpenBlockingDoorTimer);
 }
 
 void AErrolCharacter::EnterFlyAtState()
@@ -911,7 +913,8 @@ void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 	//EnterPeekState();
 
 	//EnterUpperWindowScareState();
-	EnterChaseState(ChaseSpeed);
+
+	//EnterChaseState(ChaseSpeed);
 }
 
 void AErrolCharacter::InitializePerceptionTimers()

@@ -101,6 +101,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void HitRigidBody(UPARAM(ref)FHitResult HitResult);
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Roach")
+	float MoveSpeed = 5.f;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateAnimationSpeed(float NewSpeed);
+
 private:
 
 	USphereComponent *Root;
@@ -126,9 +132,6 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Roach")
 	float TurnSpeed = 3.f;
-
-	UPROPERTY(EditAnywhere, Category = "Roach")
-	float MoveSpeed = 5.f;
 
 	UPROPERTY(EditAnywhere, Category = "Roach")
 	bool bTurnLeft = false;
@@ -219,7 +222,7 @@ public:
 	float DistanceMovedThisFrame();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	float MaxMoveSpeed = 400.f;
+	float MaxMoveSpeed = 220.f;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float MinMoveSpeed = 100.f;
@@ -229,6 +232,7 @@ public:
 	int StuckFrames = 0;
 
 	FTimerHandle SwerveTimerHandle;
+	FTimerHandle SwerveSpeedTimerHandle;
 	FTimerHandle WaitTimerHandle;
 	FTimerHandle WiggleTimerHandle;
 
@@ -247,5 +251,33 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	float WiggleSpeed = 1.0f;
+
+	// swerve stuff
+
+	// random number between 1-10;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Laziness = 1.0f;
+
+	UFUNCTION()
+	void ChangeSwerveDirectionAndRate();
+	bool bSwerveLeft = false;
+
+	// randomly calculated every SwerveRate seconds. Changes with Laziness.
+	float SwerveRate = 0.1f;
+	float SwerveSpeedRate = 0.1f;
+
+	void Swerve(float DeltaTime);
+
+	UFUNCTION()
+	void ChangeSwerveSpeed();
+
+	float SwerveSpeed = 1.0f;
+
+	// wait
+	void WaitIfRolled();
+	float WaitTime = 1.0f;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool bWaiting = false;
 
 };

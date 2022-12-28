@@ -18,6 +18,8 @@ enum class CockroachState : uint8;
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execChangeSwerveSpeed); \
+	DECLARE_FUNCTION(execChangeSwerveDirectionAndRate); \
 	DECLARE_FUNCTION(execChangeWiggleDirection); \
 	DECLARE_FUNCTION(execHitRigidBody); \
 	DECLARE_FUNCTION(execChangeState);
@@ -25,11 +27,21 @@ enum class CockroachState : uint8;
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execChangeSwerveSpeed); \
+	DECLARE_FUNCTION(execChangeSwerveDirectionAndRate); \
 	DECLARE_FUNCTION(execChangeWiggleDirection); \
 	DECLARE_FUNCTION(execHitRigidBody); \
 	DECLARE_FUNCTION(execChangeState);
 
 
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_EVENT_PARMS \
+	struct Roach_eventUpdateAnimationSpeed_Parms \
+	{ \
+		float NewSpeed; \
+	};
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_CALLBACK_WRAPPERS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesARoach(); \
@@ -74,19 +86,22 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ARoach); \
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__TurnSpeed() { return STRUCT_OFFSET(ARoach, TurnSpeed); } \
-	FORCEINLINE static uint32 __PPO__MoveSpeed() { return STRUCT_OFFSET(ARoach, MoveSpeed); } \
 	FORCEINLINE static uint32 __PPO__bTurnLeft() { return STRUCT_OFFSET(ARoach, bTurnLeft); } \
 	FORCEINLINE static uint32 __PPO__bMoveToGoal() { return STRUCT_OFFSET(ARoach, bMoveToGoal); } \
 	FORCEINLINE static uint32 __PPO__bTurn() { return STRUCT_OFFSET(ARoach, bTurn); }
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_38_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_38_PROLOG \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_EVENT_PARMS
+
+
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_PRIVATE_PROPERTY_OFFSET \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_SPARSE_DATA \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_CALLBACK_WRAPPERS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_INCLASS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_STANDARD_CONSTRUCTORS \
 public: \
@@ -99,6 +114,7 @@ public: \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_PRIVATE_PROPERTY_OFFSET \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_SPARSE_DATA \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_CALLBACK_WRAPPERS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_INCLASS_NO_PURE_DECLS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_ENHANCED_CONSTRUCTORS \
 private: \

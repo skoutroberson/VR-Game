@@ -52,6 +52,9 @@ void ARoach::BeginPlay()
 	bWiggleLeft = FMath::RandBool();
 
 	GetWorldTimerManager().SetTimer(WiggleTimerHandle, this, &ARoach::ChangeWiggleDirection, WiggleRate, true);
+	GetWorldTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, SwerveRate, true);
+	GetWorldTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, SwerveSpeedRate, true);
+	GetWorldTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, true);
 
 	//CurrentState.Enter.ExecuteIfBound();
 	//(this->*(CurrentState.Enter))();
@@ -149,8 +152,9 @@ void ARoach::TickMoveState(float DeltaTime)
 			//UE_LOG(LogTemp, Warning, TEXT("Moving to Goal"));
 			MoveAndRotateToGoal(DeltaTime);
 		}
-		DrawDebugPoint(World, GoalLocation, 5.f, FColor::Cyan, false, DeltaTime * 1.1f);
+		//DrawDebugPoint(World, GoalLocation, 5.f, FColor::Cyan, false, DeltaTime * 1.1f);
 		Wiggle(DeltaTime);
+		Swerve(DeltaTime);
 	}
 	else if (bTurn)
 	{
@@ -183,6 +187,7 @@ void ARoach::TickMoveState(float DeltaTime)
 			MoveAndRotateToGoal(DeltaTime);
 			UE_LOG(LogTemp, Warning, TEXT("Wiggling"));
 			Wiggle(DeltaTime);
+			Swerve(DeltaTime);
 			// swerve
 			// wiggle
 			// flock
@@ -197,8 +202,8 @@ void ARoach::TickMoveState(float DeltaTime)
 		Turn(DeltaTime);
 	}
 
-	DrawDebugPoint(World, GoalLocation, 5.f, FColor::Red, false, DeltaTime * 1.1f);
-	DrawDebugLine(World, GoalLocation, GoalLocation + GoalNormal * 10.f, FColor::Red, false, DeltaTime * 1.1f);
+	//DrawDebugPoint(World, GoalLocation, 5.f, FColor::Red, false, DeltaTime * 1.1f);
+	//DrawDebugLine(World, GoalLocation, GoalLocation + GoalNormal * 10.f, FColor::Red, false, DeltaTime * 1.1f);
 
 	DistanceMovedLastFrame = DistanceMovedThisFrame();
 	LastFrameLocation = GetActorLocation();
@@ -414,7 +419,7 @@ bool ARoach::RotateToGroundNormal()
 
 	bool bDownTrace = World->LineTraceSingleByChannel(HitResult, AL, TE, ECollisionChannel::ECC_WorldStatic, QueryParams);
 
-	DrawDebugLine(World, AL, TE, FColor::Red, true);
+	//DrawDebugLine(World, AL, TE, FColor::Red, true);
 
 	if (bDownTrace)
 	{
@@ -472,7 +477,7 @@ bool ARoach::CheckForward(float DeltaTime)
 	SweepSphere.SetSphere(Radius * 0.8f);
 	bool bSweep = World->SweepSingleByChannel(HitResult, AL, GoalLocation, ActorQuat, ECollisionChannel::ECC_WorldStatic, SweepSphere, QueryParams);
 
-	DrawDebugPoint(World, GoalLocation, 4.f, FColor::Black, false, DeltaTime * 1.1f);
+	//DrawDebugPoint(World, GoalLocation, 4.f, FColor::Black, false, DeltaTime * 1.1f);
 
 	if (bSweep)
 	{
@@ -500,7 +505,7 @@ bool ARoach::CheckDown(float DeltaTime)
 
 	if (bDownTrace)
 	{
-		DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Purple, false, DeltaTime * 1.1f);
+		//DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Purple, false, DeltaTime * 1.1f);
 		GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
 		GoalNormal = HitResult.ImpactNormal;
 
@@ -523,7 +528,7 @@ bool ARoach::CheckDown(float DeltaTime)
 			{
 				//bClimbDown = true;
 				ClimbDownLocation = GoalLocation + FV * Radius;
-				DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Purple, false, DeltaTime * 1.1f);
+				//DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Purple, false, DeltaTime * 1.1f);
 				GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
 				GoalNormal = HitResult.ImpactNormal;
 
@@ -691,4 +696,50 @@ void ARoach::Wiggle(float DeltaTime)
 	FQuat ActorQuat = GetActorQuat();
 	FQuat NewQuat = RotationQuat * ActorQuat;
 	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, WiggleSpeed));
+}
+
+void ARoach::ChangeSwerveDirectionAndRate()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Swerve"));
+	bSwerveLeft = UKismetMathLibrary::RandomBool();
+	SwerveRate = UKismetMathLibrary::RandomFloatInRange(0.0f, 1.1f);
+	World->GetTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, 0.1f, false, SwerveRate);
+}
+
+void ARoach::Swerve(float DeltaTime)
+{
+	const FVector Axis = GetActorUpVector();
+	const float Angle = (bSwerveLeft) ? HALF_PI : -HALF_PI;
+	FQuat RotationQuat(Axis, Angle);
+	FQuat ActorQuat = GetActorQuat();
+	FQuat NewQuat = RotationQuat * ActorQuat;
+	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, SwerveSpeed));
+}
+
+void ARoach::ChangeSwerveSpeed()
+{
+	SwerveSpeed = FMath::FRandRange(0.0f, 7.0f);
+	SwerveSpeedRate = SwerveSpeed * 0.2f + 0.2f;
+	World->GetTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, 0.1f, false, SwerveSpeedRate);
+}
+
+void ARoach::WaitIfRolled()
+{
+	SetActorTickEnabled(true);
+	int32 Roll = FMath::RandRange(0, 5 - FMath::CeilToInt(Laziness));
+
+	if (!Roll)
+	{
+		SetActorTickEnabled(false);
+		WaitTime = FMath::RandRange(0.2f, Laziness * Laziness);
+		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, false, WaitTime);
+		MoveSpeed = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
+		UpdateAnimationSpeed(0.0f);
+	}
+	else
+	{
+		WaitTime = FMath::RandRange(0.2f, Laziness);
+		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, false, WaitTime);
+		UpdateAnimationSpeed(MoveSpeed);
+	}
 }
