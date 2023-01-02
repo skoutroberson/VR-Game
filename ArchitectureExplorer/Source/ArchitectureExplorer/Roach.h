@@ -225,7 +225,7 @@ public:
 	float MaxMoveSpeed = 220.f;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	float MinMoveSpeed = 100.f;
+	float MinMoveSpeed = 140.f;
 
 	float RotationChangeDotThisFrame = 0.0f;
 
@@ -271,6 +271,7 @@ public:
 	UFUNCTION()
 	void ChangeSwerveSpeed();
 
+	UPROPERTY(VisibleAnywhere)
 	float SwerveSpeed = 1.0f;
 
 	// wait

@@ -56,6 +56,8 @@ void ARoach::BeginPlay()
 	GetWorldTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, SwerveSpeedRate, true);
 	GetWorldTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, true);
 
+	UpdateAnimationSpeed(MoveSpeed);
+	WaitIfRolled();
 	//CurrentState.Enter.ExecuteIfBound();
 	//(this->*(CurrentState.Enter))();
 	//EnterState(CurrentState);
@@ -140,6 +142,7 @@ void ARoach::TickWaitState(float DeltaTime)
 
 void ARoach::TickMoveState(float DeltaTime)
 {
+	UpdateAnimationSpeed(MoveSpeed);
 	if (bMoveToGoal)
 	{
 		if (bClimbDown)
@@ -702,7 +705,7 @@ void ARoach::ChangeSwerveDirectionAndRate()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Swerve"));
 	bSwerveLeft = UKismetMathLibrary::RandomBool();
-	SwerveRate = UKismetMathLibrary::RandomFloatInRange(0.0f, 1.1f);
+	SwerveRate = UKismetMathLibrary::RandomFloatInRange(0.0f, WaitTime * 0.5f);
 	World->GetTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, 0.1f, false, SwerveRate);
 }
 
@@ -718,7 +721,7 @@ void ARoach::Swerve(float DeltaTime)
 
 void ARoach::ChangeSwerveSpeed()
 {
-	SwerveSpeed = FMath::FRandRange(0.0f, 7.0f);
+	SwerveSpeed = FMath::FRandRange(0.0f, (8.0f - Laziness) * 0.4f);
 	SwerveSpeedRate = SwerveSpeed * 0.2f + 0.2f;
 	World->GetTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, 0.1f, false, SwerveSpeedRate);
 }
@@ -726,19 +729,32 @@ void ARoach::ChangeSwerveSpeed()
 void ARoach::WaitIfRolled()
 {
 	SetActorTickEnabled(true);
-	int32 Roll = FMath::RandRange(0, 5 - FMath::CeilToInt(Laziness));
+	int32 Roll = FMath::RandRange(0, (8 - FMath::CeilToInt(Laziness)) >> 1);
 
 	if (!Roll)
 	{
+		bWaiting = true;
 		SetActorTickEnabled(false);
-		WaitTime = FMath::RandRange(0.2f, Laziness * Laziness);
-		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, false, WaitTime);
+		WaitTime = FMath::RandRange(0.5f, Laziness * Laziness);
+		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, true, WaitTime);
 		MoveSpeed = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
 		UpdateAnimationSpeed(0.0f);
 	}
 	else
 	{
-		WaitTime = FMath::RandRange(0.2f, Laziness);
+		if (bWaiting)
+		{
+			Roll = FMath::RandRange(0, 8 - FMath::CeilToInt(Laziness));
+			if (Roll)
+			{
+				WaitTime = FMath::RandRange(1.0f, Laziness * Laziness);
+				World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, false, WaitTime);
+				return;
+			}
+		}
+
+		bWaiting = false;
+		WaitTime = FMath::RandRange(0.15f, Laziness * 0.3f);
 		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, false, WaitTime);
 		UpdateAnimationSpeed(MoveSpeed);
 	}
