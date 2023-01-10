@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ArchitectureExplorer.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{42C05463-E075-4EBF-9668-F15A1F0464BC}</UniqueIdentifier>
+      <UniqueIdentifier>{7F1066FA-F094-4A46-9814-9ABEF1CF4AB8}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ArchitectureExplorer.Target.cs">
       <Filter>Source</Filter>
@@ -15,7 +15,7 @@
     <None Include="..\..\FootstepsSoundV2.png" />
     <None Include="..\..\GermanShepherd_M.png" />
     <Filter Include="Config">
-      <UniqueIdentifier>{BEFD63F6-16F4-46AC-9AD1-E333BC58FE58}</UniqueIdentifier>
+      <UniqueIdentifier>{0A659003-A8E1-471F-8B6A-F73755D6BCC4}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -36,22 +36,22 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Plugins">
-      <UniqueIdentifier>{357F6470-4C6C-4320-AC3E-2D17A5BAB2C1}</UniqueIdentifier>
+      <UniqueIdentifier>{0FB2B2C7-9973-4472-8359-EC82441D98F8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\StateMachine">
-      <UniqueIdentifier>{69327C77-5B6A-48CA-AA9F-E92D809C264F}</UniqueIdentifier>
+      <UniqueIdentifier>{FB664D05-7826-4497-AB3F-65135AB669FD}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\StateMachine\Source">
-      <UniqueIdentifier>{6C27BAD5-30D3-4324-9F92-1D524EF807B6}</UniqueIdentifier>
+      <UniqueIdentifier>{B72444DD-B2EF-4C4F-83B7-507F39C2BEFE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\StateMachine\Source\StateMachine">
-      <UniqueIdentifier>{F83D1F13-FD98-4E76-8693-DFF11F2DCBE9}</UniqueIdentifier>
+      <UniqueIdentifier>{408ACB9F-8D7F-4539-BC45-AA7114EF15DE}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\StateMachine\Source\StateMachine\StateMachine.Build.cs">
       <Filter>Plugins\StateMachine\Source\StateMachine</Filter>
     </None>
     <Filter Include="Plugins\StateMachine\Source\StateMachine\Classes">
-      <UniqueIdentifier>{FD4A8635-332F-45E9-B22E-00E270E26DCA}</UniqueIdentifier>
+      <UniqueIdentifier>{9947F73B-74BD-4C13-A9A3-F32040FBBE00}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Plugins\StateMachine\Source\StateMachine\Classes\DummyObject.h">
       <Filter>Plugins\StateMachine\Source\StateMachine\Classes</Filter>
@@ -60,7 +60,7 @@
       <Filter>Plugins\StateMachine\Source\StateMachine\Classes</Filter>
     </ClInclude>
     <Filter Include="Plugins\StateMachine\Source\StateMachine\Private">
-      <UniqueIdentifier>{40F77419-13A1-4994-B40B-7E18359C3998}</UniqueIdentifier>
+      <UniqueIdentifier>{0E8EBCDC-1BCF-4E94-A418-310659190DB2}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Plugins\StateMachine\Source\StateMachine\Private\SM_State.cpp">
       <Filter>Plugins\StateMachine\Source\StateMachine\Private</Filter>
@@ -69,7 +69,7 @@
       <Filter>Plugins\StateMachine\Source\StateMachine\Private</Filter>
     </ClCompile>
     <Filter Include="Plugins\StateMachine\Source\StateMachine\Public">
-      <UniqueIdentifier>{6A304344-6025-49F5-A104-43D44D84AECA}</UniqueIdentifier>
+      <UniqueIdentifier>{5FFBD246-D92B-4CF8-9A01-DE7ED6E1492D}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Plugins\StateMachine\Source\StateMachine\Public\StateMachine.h">
       <Filter>Plugins\StateMachine\Source\StateMachine\Public</Filter>
@@ -78,13 +78,13 @@
       <Filter>Plugins\StateMachine</Filter>
     </None>
     <Filter Include="Plugins\StateMachine\Resources">
-      <UniqueIdentifier>{F4B1F3E3-17E6-455E-B967-010087FE53E4}</UniqueIdentifier>
+      <UniqueIdentifier>{47F20798-5613-4637-A644-7031DEA05B67}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\StateMachine\Resources\Icon128.png">
       <Filter>Plugins\StateMachine\Resources</Filter>
     </None>
     <Filter Include="Source\ArchitectureExplorer">
-      <UniqueIdentifier>{915827A4-C147-448B-895F-EEFC9945FEE2}</UniqueIdentifier>
+      <UniqueIdentifier>{B42AFBEE-E02E-4BF6-82BA-454C40D53B98}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ArchitectureExplorer\ArchitectureExplorer.Build.cs">
       <Filter>Source\ArchitectureExplorer</Filter>
@@ -279,6 +279,12 @@
       <Filter>Source\ArchitectureExplorer</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ArchitectureExplorer\Roach.h">
+      <Filter>Source\ArchitectureExplorer</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ArchitectureExplorer\RoachSpawner.cpp">
+      <Filter>Source\ArchitectureExplorer</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArchitectureExplorer\RoachSpawner.h">
       <Filter>Source\ArchitectureExplorer</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\ArchitectureExplorer\Scare.cpp">

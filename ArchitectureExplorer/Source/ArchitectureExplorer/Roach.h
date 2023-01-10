@@ -281,4 +281,12 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	bool bWaiting = false;
 
+	// called when we check if we can move the roach or delete it
+	UFUNCTION()
+	bool CanPlayerSeeMe();
+
+	private:
+
+	class USceneComponent *PlayerCamera;
+
 };

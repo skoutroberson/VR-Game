@@ -87,6 +87,13 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(ARoach::execCanPlayerSeeMe)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->CanPlayerSeeMe();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ARoach::execChangeSwerveSpeed)
 	{
 		P_FINISH;
@@ -135,6 +142,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 	{
 		UClass* Class = ARoach::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "CanPlayerSeeMe", &ARoach::execCanPlayerSeeMe },
 			{ "ChangeState", &ARoach::execChangeState },
 			{ "ChangeSwerveDirectionAndRate", &ARoach::execChangeSwerveDirectionAndRate },
 			{ "ChangeSwerveSpeed", &ARoach::execChangeSwerveSpeed },
@@ -142,6 +150,45 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 			{ "HitRigidBody", &ARoach::execHitRigidBody },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics
+	{
+		struct Roach_eventCanPlayerSeeMe_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((Roach_eventCanPlayerSeeMe_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Roach_eventCanPlayerSeeMe_Parms), &Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// called when we check if we can move the roach or delete it\n" },
+		{ "ModuleRelativePath", "Roach.h" },
+		{ "ToolTip", "called when we check if we can move the roach or delete it" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoach, nullptr, "CanPlayerSeeMe", nullptr, nullptr, sizeof(Roach_eventCanPlayerSeeMe_Parms), Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ARoach_CanPlayerSeeMe()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoach_CanPlayerSeeMe_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ARoach_ChangeState_Statics
 	{
@@ -396,6 +443,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ARoach_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ARoach_CanPlayerSeeMe, "CanPlayerSeeMe" }, // 2472592272
 		{ &Z_Construct_UFunction_ARoach_ChangeState, "ChangeState" }, // 1593228275
 		{ &Z_Construct_UFunction_ARoach_ChangeSwerveDirectionAndRate, "ChangeSwerveDirectionAndRate" }, // 2331979585
 		{ &Z_Construct_UFunction_ARoach_ChangeSwerveSpeed, "ChangeSwerveSpeed" }, // 4275596113
@@ -592,7 +640,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoach, 979328125);
+	IMPLEMENT_CLASS(ARoach, 2995965547);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoach>()
 	{
 		return ARoach::StaticClass();

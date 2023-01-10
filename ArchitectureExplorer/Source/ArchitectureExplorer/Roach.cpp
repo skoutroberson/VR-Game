@@ -13,6 +13,7 @@
 #include "VRCharacter.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/BoxComponent.h"
+#include "Camera/CameraComponent.h"
 
 // Initialize static state structs
 FStateInfo ARoach::IdleState(CockroachState::STATE_IDLE, &ARoach::EnterIdleState, &ARoach::ExitIdleState, &ARoach::TickIdleState);
@@ -52,8 +53,8 @@ void ARoach::BeginPlay()
 	bWiggleLeft = FMath::RandBool();
 
 	GetWorldTimerManager().SetTimer(WiggleTimerHandle, this, &ARoach::ChangeWiggleDirection, WiggleRate, true);
-	GetWorldTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, SwerveRate, true);
-	GetWorldTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, SwerveSpeedRate, true);
+	//GetWorldTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, SwerveRate, true);
+	//GetWorldTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, SwerveSpeedRate, true);
 	GetWorldTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, true);
 
 	UpdateAnimationSpeed(MoveSpeed);
@@ -61,6 +62,11 @@ void ARoach::BeginPlay()
 	//CurrentState.Enter.ExecuteIfBound();
 	//(this->*(CurrentState.Enter))();
 	//EnterState(CurrentState);
+
+	PlayerCamera = Cast<USceneComponent>(
+		UGameplayStatics::GetActorOfClass(
+			World, AVRCharacter::StaticClass())->GetComponentByClass(
+				UCameraComponent::StaticClass()));
 }
 
 void ARoach::EndPlay(const EEndPlayReason::Type EndPlayReason)
@@ -127,17 +133,17 @@ void ARoach::ChangeState(FStateInfo * NewState)
 
 void ARoach::EnterIdleState()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Yo whaddup jyosf"));
+	//UE_LOG(LogTemp, Warning, TEXT("Yo whaddup jyosf"));
 }
 
 void ARoach::TickIdleState(float DeltaTime)
 {
-	UE_LOG(LogTemp, Warning, TEXT("%s is IDLE"), *GetName());
+	//UE_LOG(LogTemp, Warning, TEXT("%s is IDLE"), *GetName());
 }
 
 void ARoach::TickWaitState(float DeltaTime)
 {
-	UE_LOG(LogTemp, Warning, TEXT("%s is Waiting"), *GetName());
+	//UE_LOG(LogTemp, Warning, TEXT("%s is Waiting"), *GetName());
 }
 
 void ARoach::TickMoveState(float DeltaTime)
@@ -188,7 +194,7 @@ void ARoach::TickMoveState(float DeltaTime)
 		{
 			//UE_LOG(LogTemp, Warning, TEXT("Down Trace Hit"));
 			MoveAndRotateToGoal(DeltaTime);
-			UE_LOG(LogTemp, Warning, TEXT("Wiggling"));
+			//UE_LOG(LogTemp, Warning, TEXT("Wiggling"));
 			Wiggle(DeltaTime);
 			Swerve(DeltaTime);
 			// swerve
@@ -393,7 +399,7 @@ void ARoach::ClimbUp(FVector Normal)
 		ClimbSpeed = 0.1f;
 	}
 	*/
-	UE_LOG(LogTemp, Warning, TEXT("Climb"));
+	//UE_LOG(LogTemp, Warning, TEXT("Climb"));
 
 	
 	SetActorRotation(NewRotation);
@@ -609,13 +615,13 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 	float AngleFromGoal = FVector::DotProduct(GetActorUpVector(), GoalNormal);
 	if (DistanceFromGoal < 0.01f && AngleFromGoal > 0.99f)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Move To Goal Completed"));
+		//UE_LOG(LogTemp, Warning, TEXT("Move To Goal Completed"));
 		bMoveToGoal = false;
 
 		// i have to add this here so the roach doesn't stop moving if it just made it this frame (gotta be a better way to do this)
 		if (CheckForward(DeltaTime))
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Forward Hit"));
+			//UE_LOG(LogTemp, Warning, TEXT("Forward Hit"));
 			bMoveToGoal = true;
 			MoveAndRotateToGoal(DeltaTime);
 		}
@@ -625,18 +631,18 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 
 			if (bClimbDown)
 			{
-				UE_LOG(LogTemp, Warning, TEXT("Climb Down Start"));
+				//UE_LOG(LogTemp, Warning, TEXT("Climb Down Start"));
 				MoveToClimbDownPosition(DeltaTime);
 			}
 			else
 			{
-				UE_LOG(LogTemp, Warning, TEXT("Down Trace Hit"));
+				//UE_LOG(LogTemp, Warning, TEXT("Down Trace Hit"));
 				MoveAndRotateToGoal(DeltaTime);
 			}
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Last Turn"));
+			//UE_LOG(LogTemp, Warning, TEXT("Last Turn"));
 			bTurn = true;
 			Turn(DeltaTime);
 		}
@@ -687,7 +693,7 @@ float ARoach::DistanceMovedThisFrame()
 
 void ARoach::ChangeWiggleDirection()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Change Wiggle: %d"), bWiggleLeft);
+	//UE_LOG(LogTemp, Warning, TEXT("Change Wiggle: %d"), bWiggleLeft);
 	bWiggleLeft = (bWiggleLeft) ? false : true;
 }
 
@@ -698,15 +704,15 @@ void ARoach::Wiggle(float DeltaTime)
 	FQuat RotationQuat(Axis, Angle);
 	FQuat ActorQuat = GetActorQuat();
 	FQuat NewQuat = RotationQuat * ActorQuat;
-	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, WiggleSpeed));
+	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed / 40.f));
 }
 
 void ARoach::ChangeSwerveDirectionAndRate()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Swerve"));
+	//UE_LOG(LogTemp, Warning, TEXT("Swerve"));
 	bSwerveLeft = UKismetMathLibrary::RandomBool();
 	SwerveRate = UKismetMathLibrary::RandomFloatInRange(0.0f, WaitTime * 0.5f);
-	World->GetTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, 0.1f, false, SwerveRate);
+	//World->GetTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, 0.1f, false, SwerveRate);
 }
 
 void ARoach::Swerve(float DeltaTime)
@@ -721,41 +727,62 @@ void ARoach::Swerve(float DeltaTime)
 
 void ARoach::ChangeSwerveSpeed()
 {
-	SwerveSpeed = FMath::FRandRange(0.0f, (8.0f - Laziness) * 0.4f);
+	bSwerveLeft = UKismetMathLibrary::RandomBool();
+	SwerveSpeed = (2.8f - WaitTime) * 1.3f;
 	SwerveSpeedRate = SwerveSpeed * 0.2f + 0.2f;
-	World->GetTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, 0.1f, false, SwerveSpeedRate);
+	//World->GetTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, 0.1f, false, SwerveSpeedRate);
 }
 
 void ARoach::WaitIfRolled()
 {
+	UE_LOG(LogTemp, Warning, TEXT("WaitIFROLLED"));
 	SetActorTickEnabled(true);
-	int32 Roll = FMath::RandRange(0, (8 - FMath::CeilToInt(Laziness)) >> 1);
+	bool bRoll = FMath::RandBool();
 
-	if (!Roll)
+	if (bRoll)
 	{
-		bWaiting = true;
 		SetActorTickEnabled(false);
-		WaitTime = FMath::RandRange(0.5f, Laziness * Laziness);
-		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, true, WaitTime);
+		UpdateAnimationSpeed(0);
 		MoveSpeed = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
-		UpdateAnimationSpeed(0.0f);
+
+		int bRoll2 = FMath::RandRange(0, 15 - FMath::CeilToInt(Laziness));
+
+		if (bRoll2)
+		{
+			WaitTime = FMath::RandRange(0.2f, Laziness);
+		}
+		else
+		{
+			WaitTime = FMath::RandRange(Laziness, (Laziness * Laziness) * 0.5f);
+		}
+
+		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, 0.1f, false, WaitTime);
 	}
 	else
 	{
-		if (bWaiting)
-		{
-			Roll = FMath::RandRange(0, 8 - FMath::CeilToInt(Laziness));
-			if (Roll)
-			{
-				WaitTime = FMath::RandRange(1.0f, Laziness * Laziness);
-				World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, false, WaitTime);
-				return;
-			}
-		}
-
-		bWaiting = false;
-		WaitTime = FMath::RandRange(0.15f, Laziness * 0.3f);
-		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, false, WaitTime);
-		UpdateAnimationSpeed(MoveSpeed);
+		WaitTime = FMath::RandRange(0.2f, (10.f - Laziness) * 0.3f);
+		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, 0.1f, false, WaitTime);
+		ChangeSwerveSpeed();
 	}
+}
+
+bool ARoach::CanPlayerSeeMe()
+{
+	// dot product from player camera to roach location
+	// if dot is over 0.33 return true. This is around 140 degrees FOV
+
+	#define HMD_MAX_FOV 0.33f
+
+	const FVector AL = GetActorLocation();
+	const FVector CL = PlayerCamera->GetComponentLocation();
+	const FVector Disp = (AL - CL).GetSafeNormal();
+	const FVector CFV = PlayerCamera->GetForwardVector();
+	const float Dot = FVector::DotProduct(CFV, Disp);
+
+	if (Dot > HMD_MAX_FOV)
+	{
+		return true;
+	}
+
+	return false;
 }
