@@ -245,7 +245,7 @@ public:
 
 	// rate that wiggle direction changes
 	UPROPERTY(EditAnywhere)
-	float WiggleRate = 0.3f;
+	float WiggleRate = 0.2f;
 
 	void Wiggle(float DeltaTime);
 
@@ -257,6 +257,9 @@ public:
 	// random number between 1-10;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Laziness = 1.0f;
+
+	UPROPERTY(VisibleAnywhere)
+	float StartingLaziness;
 
 	UFUNCTION()
 	void ChangeSwerveDirectionAndRate();

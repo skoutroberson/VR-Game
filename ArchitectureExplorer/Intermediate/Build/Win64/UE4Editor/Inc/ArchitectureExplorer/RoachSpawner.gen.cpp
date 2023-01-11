@@ -58,7 +58,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		{ "ToolTip", "spawn 1 roach per frame and increment RoachCount until it equals TargetRoachCount then turn bSpawningRoaches off and tick off" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoachSpawner_SpawnRoach_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoachSpawner, nullptr, "SpawnRoach", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoachSpawner_SpawnRoach_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoachSpawner_SpawnRoach_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoachSpawner_SpawnRoach_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoachSpawner, nullptr, "SpawnRoach", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoachSpawner_SpawnRoach_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoachSpawner_SpawnRoach_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_ARoachSpawner_SpawnRoach()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -128,6 +128,14 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RoachBP_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_RoachBP;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SweepSphereRadius_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_SweepSphereRadius;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SweepLength_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_SweepLength;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -137,7 +145,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ARoachSpawner_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ARoachSpawner_SpawnRoach, "SpawnRoach" }, // 3737078555
+		{ &Z_Construct_UFunction_ARoachSpawner_SpawnRoach, "SpawnRoach" }, // 1308915396
 		{ &Z_Construct_UFunction_ARoachSpawner_SpawnRoaches, "SpawnRoaches" }, // 4153748074
 	};
 #if WITH_METADATA
@@ -173,16 +181,34 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_RoachBP_MetaData[] = {
 		{ "Category", "RoachSpawner" },
+		{ "Comment", "// needs to be set in the editor to the BP_Roach class\n" },
 		{ "ModuleRelativePath", "RoachSpawner.h" },
+		{ "ToolTip", "needs to be set in the editor to the BP_Roach class" },
 	};
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_RoachBP = { "RoachBP", nullptr, (EPropertyFlags)0x0014000000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, RoachBP), Z_Construct_UClass_ARoach_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_RoachBP_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_RoachBP_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepSphereRadius_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepSphereRadius = { "SweepSphereRadius", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, SweepSphereRadius), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepSphereRadius_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepSphereRadius_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepLength_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepLength = { "SweepLength", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, SweepLength), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepLength_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepLength_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARoachSpawner_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_RoachCount,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_Roaches_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_Roaches,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_RoachBP,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepSphereRadius,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepLength,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ARoachSpawner_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARoachSpawner>::IsAbstract,
@@ -211,7 +237,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoachSpawner, 3963436485);
+	IMPLEMENT_CLASS(ARoachSpawner, 59035088);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoachSpawner>()
 	{
 		return ARoachSpawner::StaticClass();

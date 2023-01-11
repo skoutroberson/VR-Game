@@ -50,8 +50,14 @@ void ARoach::BeginPlay()
 
 	QueryParams.AddIgnoredActors(RoachActors);
 
+	MoveSpeed = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
+
+	Laziness = FMath::FRandRange(2.0f, 8.0f);
+	StartingLaziness = Laziness;
+
 	bWiggleLeft = FMath::RandBool();
 
+	WiggleRate = FMath::FRandRange(0.23f, 0.29f);
 	GetWorldTimerManager().SetTimer(WiggleTimerHandle, this, &ARoach::ChangeWiggleDirection, WiggleRate, true);
 	//GetWorldTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, SwerveRate, true);
 	//GetWorldTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, SwerveSpeedRate, true);
@@ -695,6 +701,8 @@ void ARoach::ChangeWiggleDirection()
 {
 	//UE_LOG(LogTemp, Warning, TEXT("Change Wiggle: %d"), bWiggleLeft);
 	bWiggleLeft = (bWiggleLeft) ? false : true;
+	//WiggleRate = FMath::FRandRange(0.2f, MoveSpeed / 50.f);
+	//GetWorldTimerManager().SetTimer(WiggleTimerHandle, this, &ARoach::ChangeWiggleDirection, WiggleRate, false);
 }
 
 void ARoach::Wiggle(float DeltaTime)
@@ -754,12 +762,14 @@ void ARoach::WaitIfRolled()
 		else
 		{
 			WaitTime = FMath::RandRange(Laziness, (Laziness * Laziness) * 0.5f);
+			Laziness = StartingLaziness;
 		}
 
 		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, 0.1f, false, WaitTime);
 	}
 	else
 	{
+		Laziness = FMath::FRandRange(1.0f, 8.0f);
 		WaitTime = FMath::RandRange(0.2f, (10.f - Laziness) * 0.3f);
 		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, 0.1f, false, WaitTime);
 		ChangeSwerveSpeed();

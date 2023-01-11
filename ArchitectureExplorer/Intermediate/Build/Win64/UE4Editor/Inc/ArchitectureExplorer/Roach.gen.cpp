@@ -426,6 +426,10 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Laziness;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StartingLaziness_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_StartingLaziness;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SwerveSpeed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_SwerveSpeed;
@@ -577,6 +581,13 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_Laziness = { "Laziness", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, Laziness), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_Laziness_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_Laziness_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_StartingLaziness_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_StartingLaziness = { "StartingLaziness", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, StartingLaziness), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_StartingLaziness_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_StartingLaziness_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_SwerveSpeed_MetaData[] = {
 		{ "Category", "Roach" },
 		{ "ModuleRelativePath", "Roach.h" },
@@ -610,6 +621,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_WiggleRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_WiggleSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_Laziness,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_StartingLaziness,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_SwerveSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_bWaiting,
 	};
@@ -640,7 +652,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoach, 2995965547);
+	IMPLEMENT_CLASS(ARoach, 3580143603);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoach>()
 	{
 		return ARoach::StaticClass();

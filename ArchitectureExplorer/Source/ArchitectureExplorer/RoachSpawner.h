@@ -37,11 +37,20 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<TSubclassOf<ARoach>> Roaches;
 
-	UFUNCTION() // spawn 1 roach per frame and increment RoachCount until it equals TargetRoachCount then turn bSpawningRoaches off and tick off
+	UFUNCTION(BlueprintCallable) // spawn 1 roach per frame and increment RoachCount until it equals TargetRoachCount then turn bSpawningRoaches off and tick off
 	void SpawnRoach();
 
+	// needs to be set in the editor to the BP_Roach class
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<ARoach> RoachBP;
+
+	UPROPERTY(EditAnywhere)
+	float SweepSphereRadius = 2.f;
+
+	FCollisionShape SweepSphere;
+
+	UPROPERTY(EditAnywhere)
+	float SweepLength = 2000.f;
 
 private:
 
@@ -50,5 +59,9 @@ private:
 	bool bSpawningRoaches = false; // for ticking and spawning a roach per frame
 
 	int TargetRoachCount = 0;
+
+	FCollisionQueryParams QueryParams;
+
+	FQuat AQ;
 
 };
