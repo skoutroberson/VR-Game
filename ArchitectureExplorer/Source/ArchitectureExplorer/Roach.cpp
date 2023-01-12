@@ -30,6 +30,7 @@ ARoach::ARoach()
 	MovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("MovementComponent"));
 
 	QueryParams.AddIgnoredActor(this);
+	QueryParams.bIgnoreTouches = true;
 }
 
 // Called when the game starts or when spawned
@@ -58,7 +59,7 @@ void ARoach::BeginPlay()
 	bWiggleLeft = FMath::RandBool();
 
 	WiggleRate = FMath::FRandRange(0.23f, 0.29f);
-	GetWorldTimerManager().SetTimer(WiggleTimerHandle, this, &ARoach::ChangeWiggleDirection, WiggleRate, true);
+	//GetWorldTimerManager().SetTimer(WiggleTimerHandle, this, &ARoach::ChangeWiggleDirection, WiggleRate, true);
 	//GetWorldTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, SwerveRate, true);
 	//GetWorldTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, SwerveSpeedRate, true);
 	GetWorldTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, true);
@@ -168,7 +169,7 @@ void ARoach::TickMoveState(float DeltaTime)
 			MoveAndRotateToGoal(DeltaTime);
 		}
 		//DrawDebugPoint(World, GoalLocation, 5.f, FColor::Cyan, false, DeltaTime * 1.1f);
-		Wiggle(DeltaTime);
+		//Wiggle(DeltaTime);
 		Swerve(DeltaTime);
 	}
 	else if (bTurn)
@@ -201,7 +202,7 @@ void ARoach::TickMoveState(float DeltaTime)
 			//UE_LOG(LogTemp, Warning, TEXT("Down Trace Hit"));
 			MoveAndRotateToGoal(DeltaTime);
 			//UE_LOG(LogTemp, Warning, TEXT("Wiggling"));
-			Wiggle(DeltaTime);
+			//Wiggle(DeltaTime);
 			Swerve(DeltaTime);
 			// swerve
 			// wiggle
@@ -490,7 +491,7 @@ bool ARoach::CheckForward(float DeltaTime)
 	FHitResult HitResult;
 	FCollisionShape SweepSphere;
 	SweepSphere.SetSphere(Radius * 0.8f);
-	bool bSweep = World->SweepSingleByChannel(HitResult, AL, GoalLocation, ActorQuat, ECollisionChannel::ECC_WorldStatic, SweepSphere, QueryParams);
+	bool bSweep = World->SweepSingleByChannel(HitResult, AL, GoalLocation, ActorQuat, ECollisionChannel::ECC_WorldDynamic, SweepSphere, QueryParams);
 
 	//DrawDebugPoint(World, GoalLocation, 4.f, FColor::Black, false, DeltaTime * 1.1f);
 
@@ -718,7 +719,12 @@ void ARoach::Wiggle(float DeltaTime)
 void ARoach::ChangeSwerveDirectionAndRate()
 {
 	//UE_LOG(LogTemp, Warning, TEXT("Swerve"));
-	bSwerveLeft = UKismetMathLibrary::RandomBool();
+	bool bLastSwerveLeft = bSwerveLeft;
+	bSwerveLeft = FMath::RandBool();
+	if (bSwerveLeft == bLastSwerveLeft)
+	{
+		bSwerveLeft = FMath::RandBool();
+	}
 	SwerveRate = UKismetMathLibrary::RandomFloatInRange(0.0f, WaitTime * 0.5f);
 	//World->GetTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, 0.1f, false, SwerveRate);
 }

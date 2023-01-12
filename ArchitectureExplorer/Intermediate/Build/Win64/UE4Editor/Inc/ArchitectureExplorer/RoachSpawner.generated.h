@@ -13,20 +13,24 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ARCHITECTUREEXPLORER_RoachSpawner_generated_h
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_RPC_WRAPPERS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_SPARSE_DATA
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execDeleteRoach); \
 	DECLARE_FUNCTION(execSpawnRoach); \
+	DECLARE_FUNCTION(execDeleteRoaches); \
 	DECLARE_FUNCTION(execSpawnRoaches);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execDeleteRoach); \
 	DECLARE_FUNCTION(execSpawnRoach); \
+	DECLARE_FUNCTION(execDeleteRoaches); \
 	DECLARE_FUNCTION(execSpawnRoaches);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_INCLASS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesARoachSpawner(); \
 	friend struct Z_Construct_UClass_ARoachSpawner_Statics; \
@@ -35,7 +39,7 @@ public: \
 	DECLARE_SERIALIZER(ARoachSpawner)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_INCLASS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_INCLASS \
 private: \
 	static void StaticRegisterNativesARoachSpawner(); \
 	friend struct Z_Construct_UClass_ARoachSpawner_Statics; \
@@ -44,7 +48,7 @@ public: \
 	DECLARE_SERIALIZER(ARoachSpawner)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_STANDARD_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ARoachSpawner(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ARoachSpawner) \
@@ -57,7 +61,7 @@ private: \
 public:
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_ENHANCED_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ARoachSpawner(ARoachSpawner&&); \
@@ -68,28 +72,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ARoachSpawner); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ARoachSpawner)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_PRIVATE_PROPERTY_OFFSET
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_10_PROLOG
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_GENERATED_BODY_LEGACY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_PRIVATE_PROPERTY_OFFSET
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_11_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_RPC_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_INCLASS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_STANDARD_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_INCLASS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_GENERATED_BODY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_INCLASS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_13_ENHANCED_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_INCLASS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

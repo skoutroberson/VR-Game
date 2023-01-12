@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Roach.h"
+#include "Components/BoxComponent.h"
 #include "RoachSpawner.generated.h"
 
 UCLASS()
@@ -31,14 +32,20 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SpawnRoaches(int NumberOfRoaches);
 
+	UFUNCTION(BlueprintCallable)
+	void DeleteRoaches(int NumberOfRoaches);
+
 	UPROPERTY(VisibleAnywhere)
 	int RoachCount = 0;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	TArray<TSubclassOf<ARoach>> Roaches;
+	TArray<AActor*> Roaches;
 
 	UFUNCTION(BlueprintCallable) // spawn 1 roach per frame and increment RoachCount until it equals TargetRoachCount then turn bSpawningRoaches off and tick off
 	void SpawnRoach();
+
+	UFUNCTION(BlueprintCallable)
+	void DeleteRoach();
 
 	// needs to be set in the editor to the BP_Roach class
 	UPROPERTY(EditDefaultsOnly)
@@ -52,11 +59,17 @@ public:
 	UPROPERTY(EditAnywhere)
 	float SweepLength = 2000.f;
 
+	UPROPERTY(VisibleAnywhere)
+	TArray<UBoxComponent*> SpawnBoxes;
+
+	int SpawnBoxNum = 0;
+
 private:
 
 	UWorld *World = nullptr;
 
 	bool bSpawningRoaches = false; // for ticking and spawning a roach per frame
+	bool bDeletingRoaches = false;
 
 	int TargetRoachCount = 0;
 

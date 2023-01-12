@@ -51,6 +51,15 @@ void ARoachSpawner::BeginPlay()
 
 	SweepSphere.SetSphere(SweepSphereRadius);
 	AQ = GetActorQuat();
+
+	TArray<UActorComponent*> BoxComponents;
+	BoxComponents = GetComponentsByClass(UBoxComponent::StaticClass());
+	SpawnBoxes.Reserve(BoxComponents.Num());
+	for (auto b : BoxComponents)
+	{
+		SpawnBoxes.Add(Cast<UBoxComponent>(b));
+	}
+	SpawnBoxNum = SpawnBoxes.Num();
 }
 
 // Called every frame
@@ -61,6 +70,10 @@ void ARoachSpawner::Tick(float DeltaTime)
 	if (bSpawningRoaches)
 	{
 		SpawnRoach();
+	}
+	else if (bDeletingRoaches)
+	{
+		DeleteRoach();
 	}
 }
 
@@ -83,8 +96,42 @@ void ARoachSpawner::SpawnRoach()
 	}
 
 	FTransform FT;
-	//FT.SetScale3D(FVector(1.0f, 1.0f, 1.0f));
 
+	int RandomIndex = FMath::RandRange(0, SpawnBoxNum - 1);
+
+	UBoxComponent *SpawnBox = SpawnBoxes[RandomIndex];
+
+	const FVector SBL = SpawnBox->GetComponentLocation();
+	const FVector SBRV = SpawnBox->GetRightVector();
+	const FVector SBFV = SpawnBox->GetForwardVector();
+	const FQuat SBQ = SpawnBox->GetComponentQuat();
+	// 2D radii dimensions of the box. NOT USING X
+	const FVector Extent = SpawnBox->GetScaledBoxExtent();
+
+	const float X = FMath::FRandRange(-Extent.Y, Extent.Y);
+	const float Y = FMath::FRandRange(-Extent.Z, Extent.Z);
+
+
+	const FVector Loc = SBL + (SpawnBox->GetRightVector() * X) + (SpawnBox->GetUpVector() * Y);
+
+	#define TWOPI 6.283185f
+	float RandomAngle = FMath::FRand() * TWOPI;
+	FQuat RotQuat = FQuat(SBRV, HALF_PI);
+	FQuat Rot = RotQuat * SBQ;
+	RotQuat = FQuat(SBFV, RandomAngle);
+	Rot = RotQuat * Rot;
+
+	FT.SetLocation(Loc);
+	FT.SetRotation(Rot);
+
+	AActor * NewRoach = World->SpawnActor<AActor>(RoachBP, FT);
+
+	Roaches.Add(NewRoach);
+	++RoachCount;
+
+	// randomly choose child BoxComponent, and spawn at random location within the box with random yaw rotation
+	//FT.SetScale3D(FVector(1.0f, 1.0f, 1.0f));
+/*
 	const FVector AL = GetActorLocation();
 	const FVector SV = FMath::VRand() * SweepLength;
 
@@ -93,6 +140,7 @@ void ARoachSpawner::SpawnRoach()
 
 	bool bSweep = World->SweepSingleByChannel(HitResult, AL, AL + SV, AQ, ECollisionChannel::ECC_WorldDynamic, SweepSphere, QueryParams);
 
+	
 	if (bSweep)
 	{
 		const FVector N = HitResult.ImpactNormal;
@@ -128,4 +176,27 @@ void ARoachSpawner::SpawnRoach()
 
 		++RoachCount;
 	}
+	*/
+}
+
+void ARoachSpawner::DeleteRoach()
+{
+	if (RoachCount == 0)
+	{
+		bDeletingRoaches = false;
+		SetActorTickEnabled(false);
+		return;
+	}
+	Roaches.Pop()->Destroy();
+	--RoachCount;
+}
+
+void ARoachSpawner::DeleteRoaches(int NumberOfRoaches)
+{
+	if (NumberOfRoaches > RoachCount)
+	{
+		NumberOfRoaches = RoachCount;
+	}
+	bDeletingRoaches = true;
+	SetActorTickEnabled(true);
 }
