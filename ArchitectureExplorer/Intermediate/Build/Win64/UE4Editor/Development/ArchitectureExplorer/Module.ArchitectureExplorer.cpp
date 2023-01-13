@@ -30,6 +30,7 @@
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/QuatRotLib.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Quest.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Radio.cpp"
+#include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/RoachSpawner.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Scare.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/ScareManager.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Stage.cpp"

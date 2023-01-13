@@ -30,7 +30,7 @@ ARoach::ARoach()
 	MovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("MovementComponent"));
 
 	QueryParams.AddIgnoredActor(this);
-	QueryParams.bIgnoreTouches = true;
+	QueryParams.IgnoreMask = 3; // ignore all roach hits
 }
 
 // Called when the game starts or when spawned
@@ -74,6 +74,8 @@ void ARoach::BeginPlay()
 		UGameplayStatics::GetActorOfClass(
 			World, AVRCharacter::StaticClass())->GetComponentByClass(
 				UCameraComponent::StaticClass()));
+
+	Cast<USphereComponent>(GetRootComponent())->SetMaskFilterOnBodyInstance(3); // for ignoring other roach sweeps
 }
 
 void ARoach::EndPlay(const EEndPlayReason::Type EndPlayReason)

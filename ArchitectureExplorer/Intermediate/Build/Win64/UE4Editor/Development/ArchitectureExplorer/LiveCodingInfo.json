@@ -33,6 +33,7 @@
 			"QuatRotLib.cpp.obj",
 			"Quest.cpp.obj",
 			"Radio.cpp.obj",
+			"RoachSpawner.cpp.obj",
 			"Scare.cpp.obj",
 			"ScareManager.cpp.obj",
 			"Stage.cpp.obj",
@@ -43,10 +44,10 @@
 			"StairsScare.cpp.obj",
 			"TriggerManager.cpp.obj",
 			"VRCharacter.cpp.obj",
-			"Roach.cpp.obj",
-			"RoachSpawner.cpp.obj"
+			"Roach.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.cpp.obj": [
+			"ArchitectureExplorer.init.gen.cpp.obj",
 			"ArchitectureExplorerGameModeBase.gen.cpp.obj",
 			"Ball.gen.cpp.obj",
 			"Bottle.gen.cpp.obj",
@@ -78,6 +79,7 @@
 			"Quest.gen.cpp.obj",
 			"Radio.gen.cpp.obj",
 			"Roach.gen.cpp.obj",
+			"RoachSpawner.gen.cpp.obj",
 			"Scare.gen.cpp.obj",
 			"ScareManager.gen.cpp.obj",
 			"Stage.gen.cpp.obj",
@@ -87,9 +89,7 @@
 			"StageManager.gen.cpp.obj",
 			"StairsScare.gen.cpp.obj",
 			"TriggerManager.gen.cpp.obj",
-			"VRCharacter.gen.cpp.obj",
-			"ArchitectureExplorer.init.gen.cpp.obj",
-			"RoachSpawner.gen.cpp.obj"
+			"VRCharacter.gen.cpp.obj"
 		]
 	}
 }
