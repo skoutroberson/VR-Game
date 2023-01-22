@@ -42,6 +42,7 @@ void AGrabbable::BeginPlay()
 	}
 
 	Mesh = Cast<UPrimitiveComponent>(GetComponentsByTag(UMeshComponent::StaticClass(), FName("Mesh"))[0]);
+	Mesh->SetMaskFilterOnBodyInstance(3); // so roach sweeps ignore this mesh
 }
 
 void AGrabbable::Tick(float DeltaTime)

@@ -155,6 +155,8 @@ void AVRCharacter::BeginPlay()
 	FootstepMap.Add(FName("conc"), ConcreteFootStepSound);
 	FootstepMap.Add(FName("stai"), StairFootstepSound);
 	FootstepMap.Add(FName("dirt"), DirtFootStepSound);
+
+	GetCapsuleComponent()->SetMaskFilterOnBodyInstance(3); // so roach sweeps ignore the capsule
 }
 
 void AVRCharacter::UpdateCapsuleHeight()

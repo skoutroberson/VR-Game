@@ -153,10 +153,6 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	class USoundCue * HandCollisionSound;
 
-	// A key with this tag will unlock this door.
-	UPROPERTY(EditInstanceOnly)
-	FName KeyTag;
-
 	UPROPERTY(EditDefaultsOnly)
 	class USoundCue * CapsuleCollisionSound;
 
@@ -177,6 +173,10 @@ private:
 	float MaxSwingVelocity = 0;
 
 public:
+
+	// A key with this tag will unlock this door.
+	UPROPERTY(EditInstanceOnly, BlueprintReadWrite)
+	FName KeyTag;
 
 	// Set to true on component start overlap, false on end overlap.
 	UPROPERTY(BlueprintReadWrite)

@@ -53,7 +53,7 @@ void ARoach::BeginPlay()
 
 	MoveSpeed = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
 
-	Laziness = FMath::FRandRange(2.0f, 8.0f);
+	Laziness = FMath::FRandRange(1.0f, 2.0f);
 	StartingLaziness = Laziness;
 
 	bWiggleLeft = FMath::RandBool();
@@ -63,6 +63,7 @@ void ARoach::BeginPlay()
 	//GetWorldTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, SwerveRate, true);
 	//GetWorldTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, SwerveSpeedRate, true);
 	GetWorldTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, true);
+	GetWorldTimerManager().SetTimer(AntennaTimerHandle, this, &ARoach::RollNewAntennaRotations, AntennaRollRate, false);
 
 	UpdateAnimationSpeed(MoveSpeed);
 	WaitIfRolled();
@@ -89,7 +90,10 @@ void ARoach::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//DrawDebugLine(World, GetActorLocation(), GetActorLocation() + GetActorForwardVector() * 5.f, FColor::Cyan, false, DeltaTime * 1.1f);
+
 	TickState(CurrentState, DeltaTime);
+	
 }
 
 /*
@@ -138,6 +142,17 @@ void ARoach::ChangeState(FStateInfo * NewState)
 	ExitState(CurrentState);
 	CurrentState = NewState;
 	EnterState(NewState);
+
+	// for debuggging
+	switch (NewState->StateEnum)
+	{
+	case CockroachState::STATE_MOVE:
+		StateEnum = CockroachState::STATE_MOVE;
+		break;
+	case CockroachState::STATE_WAIT:
+		StateEnum = CockroachState::STATE_WAIT;
+		break;
+	}
 }
 
 void ARoach::EnterIdleState()
@@ -152,12 +167,38 @@ void ARoach::TickIdleState(float DeltaTime)
 
 void ARoach::TickWaitState(float DeltaTime)
 {
+
+	//if (bSlowingDown)
+	//{
+	//	SlowDown(DeltaTime);
+	//	TickMoveState(DeltaTime);
+	//}
+
+	if (bRotateAntenna)
+	{
+		InterpAntennaRotations(DeltaTime);
+	}
 	//UE_LOG(LogTemp, Warning, TEXT("%s is Waiting"), *GetName());
 }
 
 void ARoach::TickMoveState(float DeltaTime)
 {
+	// speed up or slow down
+	
+	if (bSpeedingUp)
+	{
+		SpeedUp(DeltaTime);
+	}
+	else if (bSlowingDown)
+	{
+		SlowDown(DeltaTime);
+		if (!bSlowingDown)
+		{
+			return;
+		}
+	}
 	UpdateAnimationSpeed(MoveSpeed);
+	
 	if (bMoveToGoal)
 	{
 		if (bClimbDown)
@@ -172,7 +213,10 @@ void ARoach::TickMoveState(float DeltaTime)
 		}
 		//DrawDebugPoint(World, GoalLocation, 5.f, FColor::Cyan, false, DeltaTime * 1.1f);
 		//Wiggle(DeltaTime);
-		Swerve(DeltaTime);
+		if (!bSlowingDown)
+		{
+			Swerve(DeltaTime);
+		}
 	}
 	else if (bTurn)
 	{
@@ -205,7 +249,10 @@ void ARoach::TickMoveState(float DeltaTime)
 			MoveAndRotateToGoal(DeltaTime);
 			//UE_LOG(LogTemp, Warning, TEXT("Wiggling"));
 			//Wiggle(DeltaTime);
-			Swerve(DeltaTime);
+			if (!bSlowingDown)
+			{
+				Swerve(DeltaTime);
+			}
 			// swerve
 			// wiggle
 			// flock
@@ -245,6 +292,11 @@ void ARoach::TickMoveState(float DeltaTime)
 
 	//UE_LOG(LogTemp, Warning, TEXT("---------------------------------"));
 
+	if (bRotateAntenna)
+	{
+		InterpAntennaRotations(DeltaTime);
+	}
+
 	DownTraceIterations = 0;
 }
 
@@ -255,6 +307,29 @@ void ARoach::HitRigidBody(UPARAM(ref)FHitResult HitResult)
 	// this will be used during MOVETOGOAL
 
 	//UE_LOG(LogTemp, Warning, TEXT("Hit"));
+}
+
+void ARoach::SpeedUp(float DeltaTime)
+{
+	MoveSpeed = FMath::FInterpTo(MoveSpeed, MoveSpeedGoal, DeltaTime, 25.f); // I could add a random number generated in WaitIfRolled() and multiply it by the interp speed
+	if (MoveSpeed == MoveSpeedGoal)
+	{
+		bSpeedingUp = false;
+	}
+}
+
+void ARoach::SlowDown(float DeltaTime)
+{
+	MoveSpeed = FMath::FInterpTo(MoveSpeed, MoveSpeedGoal, DeltaTime, 18.f);
+	if (MoveSpeed <= 5.f)
+	{
+		bSlowingDown = false;
+		bSpeedingUp = true;
+		MoveSpeedGoal = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
+		//MoveSpeed = MoveSpeedGoal;
+		ChangeState(&WaitState);
+		UpdateAnimationSpeed(0);
+	}
 }
 
 void ARoach::Turn(float DeltaTime)
@@ -611,6 +686,7 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 	else
 	{
 		SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.08f));
+
 		SetActorLocation(FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.4));
 
 		//UE_LOG(LogTemp, Warning, TEXT("Actually moving to goal."));
@@ -721,12 +797,24 @@ void ARoach::Wiggle(float DeltaTime)
 void ARoach::ChangeSwerveDirectionAndRate()
 {
 	//UE_LOG(LogTemp, Warning, TEXT("Swerve"));
+
+	// MAKE IT 1 IN 4 CHANCE THAT THE ROACH DOESN'T CHANGE DIRECTION
+
+	int r = FMath::RandRange(0, 4);
+
+	if (r)
+	{
+		bSwerveLeft = !bSwerveLeft;
+	}
+
+	/*
 	bool bLastSwerveLeft = bSwerveLeft;
 	bSwerveLeft = FMath::RandBool();
 	if (bSwerveLeft == bLastSwerveLeft)
 	{
 		bSwerveLeft = FMath::RandBool();
 	}
+	*/
 	SwerveRate = UKismetMathLibrary::RandomFloatInRange(0.0f, WaitTime * 0.5f);
 	//World->GetTimerManager().SetTimer(SwerveTimerHandle, this, &ARoach::ChangeSwerveDirectionAndRate, 0.1f, false, SwerveRate);
 }
@@ -738,28 +826,39 @@ void ARoach::Swerve(float DeltaTime)
 	FQuat RotationQuat(Axis, Angle);
 	FQuat ActorQuat = GetActorQuat();
 	FQuat NewQuat = RotationQuat * ActorQuat;
-	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, SwerveSpeed));
+	SetActorRotation(FMath::QInterpTo(ActorQuat, NewQuat, DeltaTime, SwerveSpeed));
 }
 
 void ARoach::ChangeSwerveSpeed()
 {
-	bSwerveLeft = UKismetMathLibrary::RandomBool();
-	SwerveSpeed = (2.8f - WaitTime) * 1.3f;
+	int r = FMath::RandRange(0, 7);
+	if (r != 0)
+	{
+		bSwerveLeft = !bSwerveLeft;
+	}
+	SwerveSpeed = (2.8f - WaitTime) * 1.4f;
 	SwerveSpeedRate = SwerveSpeed * 0.2f + 0.2f;
 	//World->GetTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, 0.1f, false, SwerveSpeedRate);
 }
 
 void ARoach::WaitIfRolled()
 {
-	UE_LOG(LogTemp, Warning, TEXT("WaitIFROLLED"));
-	SetActorTickEnabled(true);
+	//UE_LOG(LogTemp, Warning, TEXT("WaitIFROLLED"));
+	//SetActorTickEnabled(true);
 	bool bRoll = FMath::RandBool();
 
 	if (bRoll)
 	{
-		SetActorTickEnabled(false);
-		UpdateAnimationSpeed(0);
-		MoveSpeed = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
+		//SetActorTickEnabled(false);
+
+		//ChangeState(&WaitState);
+		//UpdateAnimationSpeed(0);
+		bSpeedingUp = false;
+		bSlowingDown = true;
+		//MoveSpeed = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
+		//MoveSpeed = 20.f;
+		//MoveSpeed = 0;
+		MoveSpeedGoal = 3.f;
 
 		int bRoll2 = FMath::RandRange(0, 15 - FMath::CeilToInt(Laziness));
 
@@ -777,11 +876,35 @@ void ARoach::WaitIfRolled()
 	}
 	else
 	{
-		Laziness = FMath::FRandRange(1.0f, 8.0f);
-		WaitTime = FMath::RandRange(0.2f, (10.f - Laziness) * 0.3f);
+		ChangeState(&MoveState);
+		Laziness = FMath::FRandRange(1.0f, 2.0f);
+		WaitTime = FMath::RandRange(0.15f, (10.f - Laziness) * 0.25f);
 		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, 0.1f, false, WaitTime);
 		ChangeSwerveSpeed();
+		MoveSpeedGoal = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
+		bSpeedingUp = true;
 	}
+}
+
+void ARoach::InterpAntennaRotations(float DeltaTime)
+{
+	LeftAntennaYRotation = FMath::FInterpConstantTo(LeftAntennaYRotation, LeftAntennaYGoal, DeltaTime, AntennaRotationSpeed * LeftAntennaSpeedMultiplier);
+	LeftAntennaZRotation = FMath::FInterpConstantTo(LeftAntennaZRotation, LeftAntennaZGoal, DeltaTime, AntennaRotationSpeed * LeftAntennaSpeedMultiplier);
+	RightAntennaYRotation = FMath::FInterpConstantTo(RightAntennaYRotation, RightAntennaYGoal, DeltaTime, AntennaRotationSpeed * RightAntennaSpeedMultiplier);
+	RightAntennaZRotation = FMath::FInterpConstantTo(RightAntennaZRotation, RightAntennaZGoal, DeltaTime, AntennaRotationSpeed * RightAntennaSpeedMultiplier);
+}
+
+void ARoach::RollNewAntennaRotations()
+{
+	//UE_LOG(LogTemp, Warning, TEXT("ROlling antenae"));
+	LeftAntennaSpeedMultiplier = FMath::FRandRange(0.8f, 1.2f);
+	RightAntennaSpeedMultiplier = FMath::FRandRange(0.8f, 1.2f);
+	LeftAntennaYGoal = FMath::FRandRange(AntennaMinY, AntennaMaxY);
+	LeftAntennaZGoal = FMath::FRandRange(AntennaMinZ, AntennaMaxZ);
+	RightAntennaYGoal = FMath::FRandRange(AntennaMinY, AntennaMaxY);
+	RightAntennaZGoal = FMath::FRandRange(AntennaMinZ, AntennaMaxZ);
+	AntennaRollRate = FMath::FRandRange(0.1f, 0.18f);
+	GetWorldTimerManager().SetTimer(AntennaTimerHandle, this, &ARoach::RollNewAntennaRotations, AntennaRollRate, false, AntennaRollRate);
 }
 
 bool ARoach::CanPlayerSeeMe()

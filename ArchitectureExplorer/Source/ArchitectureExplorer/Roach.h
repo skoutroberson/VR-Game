@@ -104,6 +104,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Roach")
 	float MoveSpeed = 5.f;
 
+	UPROPERTY(VisibleAnywhere)
+	float MoveSpeedGoal = 0.f;
+
+	bool bSpeedingUp = true;
+	void SpeedUp(float DeltaTime);
+
+	bool bSlowingDown = false;
+	void SlowDown(float DeltaTime);
+
 	UFUNCTION(BlueprintImplementableEvent)
 	void UpdateAnimationSpeed(float NewSpeed);
 
@@ -235,6 +244,7 @@ public:
 	FTimerHandle SwerveSpeedTimerHandle;
 	FTimerHandle WaitTimerHandle;
 	FTimerHandle WiggleTimerHandle;
+	FTimerHandle AntennaTimerHandle;
 
 	// wiggle stuff
 
@@ -283,6 +293,62 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	bool bWaiting = false;
+
+	// antenna
+
+	// turn this off when the roach can't be seen?
+	bool bRotateAntenna = true;
+
+	// interp the current antenna rotation value to the goal rotation value
+	void InterpAntennaRotations(float DeltaTime);
+
+	float AntennaRollRate = 0.1f;
+
+	void RollNewAntennaRotations();
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float AntennaRotationSpeed = 80.0f;
+
+	float LeftAntennaSpeedMultiplier = 1.0f;
+	float RightAntennaSpeedMultiplier = 1.0f;
+
+	// Yaw
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float LeftAntennaZRotation = 0;
+	// Pitch
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float LeftAntennaYRotation = 0;
+	// Yaw
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float RightAntennaZRotation = 0;
+	// Pitch
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float RightAntennaYRotation = 0;
+
+	// Yaw
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float LeftAntennaZGoal = 0;
+	// Pitch
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float LeftAntennaYGoal = 0;
+	// Yaw
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float RightAntennaZGoal = 0;
+	// Pitch
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float RightAntennaYGoal = 0;
+
+
+
+	UPROPERTY(BlueprintReadOnly)
+	float AntennaMinZ = -5.0f;
+	UPROPERTY(BlueprintReadOnly)
+	float AntennaMaxZ = 10.0f;
+	UPROPERTY(BlueprintReadOnly)
+	float AntennaMinY = -5.0f;
+	UPROPERTY(BlueprintReadOnly)
+	float AntennaMaxY = 7.0f;
+	
 
 	// called when we check if we can move the roach or delete it
 	UFUNCTION()
