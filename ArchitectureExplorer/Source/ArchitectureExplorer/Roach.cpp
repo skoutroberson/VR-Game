@@ -55,7 +55,8 @@ void ARoach::BeginPlay()
 
 	MoveSpeed = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
 
-	Laziness = FMath::FRandRange(1.0f, 2.0f);
+	//Laziness = FMath::FRandRange(1.0f, 2.0f);
+	Laziness = LazinessCurve->GetFloatValue(FMath::FRand());
 	StartingLaziness = Laziness;
 
 	bWiggleLeft = FMath::RandBool();
@@ -925,7 +926,8 @@ void ARoach::ChangeSwerveSpeed()
 	{
 		bSwerveLeft = !bSwerveLeft;
 	}
-	SwerveSpeed = (2.8f - WaitTime) * 1.4f;
+	//SwerveSpeed = (2.8f - WaitTime) * 1.6f;
+	SwerveSpeed = SwerveSpeedCurve->GetFloatValue(FMath::FRand());
 	SwerveSpeedRate = SwerveSpeed * 0.2f + 0.2f;
 	//World->GetTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, 0.1f, false, SwerveSpeedRate);
 }
@@ -966,8 +968,10 @@ void ARoach::WaitIfRolled()
 	else
 	{
 		ChangeState(&MoveState);
-		Laziness = FMath::FRandRange(1.0f, 2.0f);
-		WaitTime = FMath::RandRange(0.15f, (10.f - Laziness) * 0.25f);
+		//Laziness = FMath::FRandRange(1.0f, 2.0f);
+		Laziness = LazinessCurve->GetFloatValue(FMath::FRand());
+		//WaitTime = FMath::RandRange(0.1f, (10.f - Laziness) * 0.25f);
+		WaitTime = WaitCurve->GetFloatValue(FMath::FRand());
 		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, 0.1f, false, WaitTime);
 		ChangeSwerveSpeed();
 		MoveSpeedGoal = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);

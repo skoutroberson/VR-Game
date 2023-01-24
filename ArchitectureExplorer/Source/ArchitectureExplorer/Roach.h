@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Curves/CurveFloat.h"
 #include "Roach.generated.h"
 
 UENUM(BlueprintType)
@@ -365,9 +366,20 @@ public:
 
 	// flee
 	//FVector FleeLocation = FVector::ZeroVector;
-	FVector FleeLocation = FVector(-1031.f, 172.f, 163.f);
+	FVector FleeLocation = FVector(-1028.f, 848.f, 323.f);
 	// flock
 	FVector FLockLocation = FVector::ZeroVector;
+
+	// curves
+
+	// used when we roll for WaitTime
+	UPROPERTY(EditDefaultsOnly)
+	UCurveFloat *WaitCurve;
+	// used when we roll for a new laziness
+	UPROPERTY(EditDefaultsOnly)
+	UCurveFloat *LazinessCurve;
+	UPROPERTY(EditDefaultsOnly)
+	UCurveFloat *SwerveSpeedCurve;
 
 	// called when we check if we can move the roach or delete it
 	UFUNCTION()
