@@ -75,7 +75,7 @@ void ADoor::BeginPlay()
 	SwingOpenSoundDuration = SwingOpenSound->GetDuration();
 	SwingCloseSoundDuration = SwingCloseSound->GetDuration();
 
-	DoorMesh->SetMaskFilterOnBodyInstance(3); // so roach sweeps ignore this mesh
+	//DoorMesh->SetMaskFilterOnBodyInstance(3); // so roach sweeps ignore this mesh
 
 	//DrawDebugLine(World, DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + LV * 100.f, FColor::Red, true, -1, ESceneDepthPriorityGroup::SDPG_MAX, 5.f);
 

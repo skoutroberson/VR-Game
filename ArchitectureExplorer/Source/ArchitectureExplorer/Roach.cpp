@@ -38,6 +38,8 @@ void ARoach::BeginPlay()
 {
 	Super::BeginPlay();
 
+	UE_LOG(LogTemp, Warning, TEXT("YOOO"));
+
 	World = GetWorld();
 
 	Root = Cast<USphereComponent>(GetRootComponent());
@@ -64,6 +66,8 @@ void ARoach::BeginPlay()
 	//GetWorldTimerManager().SetTimer(SwerveSpeedTimerHandle, this, &ARoach::ChangeSwerveSpeed, SwerveSpeedRate, true);
 	GetWorldTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, WaitTime, true);
 	GetWorldTimerManager().SetTimer(AntennaTimerHandle, this, &ARoach::RollNewAntennaRotations, AntennaRollRate, false);
+	//GetWorldTimerManager().SetTimer(FleeFlockTimerHandle, this, &ARoach::FleeOrFlock, FleeFlockTimerRate, true, 0.2f);
+	FleeOrFlock();
 
 	UpdateAnimationSpeed(MoveSpeed);
 	WaitIfRolled();
@@ -266,7 +270,7 @@ void ARoach::TickMoveState(float DeltaTime)
 		bTurn = true;
 		Turn(DeltaTime);
 	}
-
+	
 	//DrawDebugPoint(World, GoalLocation, 5.f, FColor::Red, false, DeltaTime * 1.1f);
 	//DrawDebugLine(World, GoalLocation, GoalLocation + GoalNormal * 10.f, FColor::Red, false, DeltaTime * 1.1f);
 
@@ -292,12 +296,12 @@ void ARoach::TickMoveState(float DeltaTime)
 
 	//UE_LOG(LogTemp, Warning, TEXT("---------------------------------"));
 
-	if (bRotateAntenna)
-	{
-		InterpAntennaRotations(DeltaTime);
-	}
+	//if (bRotateAntenna)
+	//{
+	//	InterpAntennaRotations(DeltaTime);
+	//}
 
-	DownTraceIterations = 0;
+	//DownTraceIterations = 0;
 }
 
 void ARoach::HitRigidBody(UPARAM(ref)FHitResult HitResult)
@@ -343,7 +347,7 @@ void ARoach::Turn(float DeltaTime)
 	const FQuat ActorQuat = GetActorQuat();
 	const FQuat NewRotation = DeltaRotation * ActorQuat;
 
-	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewRotation, DeltaTime, MoveSpeed * 0.2f));
+	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewRotation, DeltaTime, MoveSpeed * 0.17f));
 
 	/*
 	FRotator NewRotation = GetActorRotation();
@@ -574,6 +578,21 @@ bool ARoach::CheckForward(float DeltaTime)
 
 	if (bSweep)
 	{
+		AActor* HitActor = HitResult.GetActor();
+		// check if the sweep hit an avoidance volume
+		if (HitActor != nullptr && HitActor->ActorHasTag(FName("Avoid")))
+		{
+			FVector Disp = HitResult.ImpactPoint - AL;
+			Disp.Normalize();
+			const FVector RV = GetActorRightVector();
+			const float TurnDot = FVector::DotProduct(Disp, RV);
+
+			bTurnLeft = (TurnDot > 0) ? true : false;
+			bSwerveLeft = bTurnLeft;
+
+			return false;
+		}
+
 		GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
 		GoalNormal = HitResult.ImpactNormal;
 
@@ -586,18 +605,83 @@ bool ARoach::CheckForward(float DeltaTime)
 }
 
 bool ARoach::CheckDown(float DeltaTime)
-{
+{/*
 	FVector AL = GetActorLocation();
 	FVector UV = GetActorUpVector();
 	FVector FV = GetActorForwardVector();
 	FVector TS = GoalLocation;
-	FVector TE = GoalLocation - UV * Radius * 2.f;
+	FVector TE = GoalLocation - UV * 2.f; // Larger Radius Corner Traversal Problem: this might be a factor?
+	const FQuat ActorQuat = GetActorQuat();
+	FHitResult HitResult;
+
+	FCollisionShape SweepSphere;
+	SweepSphere.SetSphere(Radius * 0.3f);
+
+	bool bDownSweep = World->SweepSingleByChannel(HitResult, TS, TE, ActorQuat, ECollisionChannel::ECC_WorldDynamic, SweepSphere, QueryParams);
+	
+
+	if (bDownSweep)
+	{
+		//DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Purple, false, DeltaTime * 1.1f);
+		GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
+		GoalNormal = HitResult.ImpactNormal;
+
+		//UpdateTurnDirection(HitResult.ImpactNormal, false);
+
+		return true;
+	}
+	
+	else
+	{
+		//uint8 DownTraceIterations = 0;
+		TS = TE;
+
+		//while (DownTraceIterations < MaxDownTraceIterations)
+		//{
+			//++DownTraceIterations;
+
+			TE = AL - UV * Radius;
+
+			//bDownSweep = World->LineTraceSingleByChannel(HitResult, TS, TE, ECollisionChannel::ECC_WorldStatic, QueryParams);
+			bDownSweep = World->SweepSingleByChannel(HitResult, TS, TE, ActorQuat, ECollisionChannel::ECC_WorldDynamic, SweepSphere, QueryParams);
+
+			if (bDownSweep)
+			{
+				//bClimbDown = true;
+				ClimbDownLocation = GoalLocation + FV * Radius;
+				//DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Purple, false, DeltaTime * 1.1f);
+				GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
+				GoalNormal = HitResult.ImpactNormal;
+
+				//UpdateTurnDirection(HitResult.ImpactNormal, true);
+
+				return true;
+			}
+		//}
+	}
+
+
+	return false;
+	*/
+
+	
+	FVector AL = GetActorLocation();
+	FVector UV = GetActorUpVector();
+	FVector FV = GetActorForwardVector();
+	FVector TS = GoalLocation;
+	FVector TE = GoalLocation - UV * Radius * 2.f; // Larger Radius Corner Traversal Problem: this might be a factor?
 	FHitResult HitResult;
 
 	bool bDownTrace = World->LineTraceSingleByChannel(HitResult, TS, TE, ECollisionChannel::ECC_WorldStatic, QueryParams);
 
 	if (bDownTrace)
 	{
+		AActor* HitActor = HitResult.GetActor();
+		if (HitActor != nullptr && HitActor->ActorHasTag(FName("Avoid")))
+		{
+			return false;
+		}
+
 		//DrawDebugPoint(World, HitResult.ImpactPoint, 10.f, FColor::Purple, false, DeltaTime * 1.1f);
 		GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
 		GoalNormal = HitResult.ImpactNormal;
@@ -608,7 +692,9 @@ bool ARoach::CheckDown(float DeltaTime)
 	}
 	else
 	{
+		uint8 DownTraceIterations = 0;
 		TS = TE;
+
 		while (DownTraceIterations < MaxDownTraceIterations)
 		{
 			++DownTraceIterations;
@@ -634,6 +720,7 @@ bool ARoach::CheckDown(float DeltaTime)
 
 	
 	return false;
+
 }
 
 void ARoach::MoveToGoal(float DeltaTime)
@@ -687,7 +774,7 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 	{
 		SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.08f));
 
-		SetActorLocation(FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.4));
+		SetActorLocation(FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.3));
 
 		//UE_LOG(LogTemp, Warning, TEXT("Actually moving to goal."));
 		//SetActorRotation(NewQuat);
@@ -696,6 +783,8 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 		//bMoveToGoal = false;
 	}
 	
+	
+	// is there a better way to do all of this:
 	float DistanceFromGoal = FVector::Distance(AL, GoalLocation);
 	float AngleFromGoal = FVector::DotProduct(GetActorUpVector(), GoalNormal);
 	if (DistanceFromGoal < 0.01f && AngleFromGoal > 0.99f)
@@ -905,6 +994,45 @@ void ARoach::RollNewAntennaRotations()
 	RightAntennaZGoal = FMath::FRandRange(AntennaMinZ, AntennaMaxZ);
 	AntennaRollRate = FMath::FRandRange(0.1f, 0.18f);
 	GetWorldTimerManager().SetTimer(AntennaTimerHandle, this, &ARoach::RollNewAntennaRotations, AntennaRollRate, false, AntennaRollRate);
+}
+
+void ARoach::Flee()
+{
+	const FVector AL = GetActorLocation();
+	const FVector RV = GetActorRightVector();
+	const FVector FV = GetActorForwardVector();
+	FVector Disp = FleeLocation - AL;
+	Disp.Normalize();
+	
+	float VisionDot = FVector::DotProduct(FV, Disp);
+
+	if (VisionDot > 0.2f)
+	{
+		float FleeDot = FVector::DotProduct(RV, Disp);
+		bSwerveLeft = (FleeDot > 0) ? true : false;
+	}
+
+	
+	//bTurnLeft = bSwerveLeft;
+}
+
+void ARoach::Flock()
+{
+}
+
+void ARoach::FleeOrFlock()
+{
+	// I think I need to put flee/flock behavior in a timer
+	if (bFlee)
+	{
+		Flee();
+	}
+	else if (bFlock)
+	{
+		Flock();
+	}
+	FleeFlockTimerRate = FMath::FRandRange(0.2f, 0.5f);
+	GetWorldTimerManager().SetTimer(FleeFlockTimerHandle, this, &ARoach::FleeOrFlock, FleeFlockTimerRate, false, FleeFlockTimerRate);
 }
 
 bool ARoach::CanPlayerSeeMe()

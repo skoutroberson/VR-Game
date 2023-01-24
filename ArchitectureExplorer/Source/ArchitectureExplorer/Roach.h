@@ -198,7 +198,7 @@ private:
 	//hit: set bMoveToGoal to true
 	//no hit: turn
 
-	uint8 DownTraceIterations = 0;
+	//uint8 DownTraceIterations = 0;
 	uint8 MaxDownTraceIterations = 3;
 
 
@@ -245,6 +245,7 @@ public:
 	FTimerHandle WaitTimerHandle;
 	FTimerHandle WiggleTimerHandle;
 	FTimerHandle AntennaTimerHandle;
+	FTimerHandle FleeFlockTimerHandle;
 
 	// wiggle stuff
 
@@ -348,7 +349,25 @@ public:
 	float AntennaMinY = -5.0f;
 	UPROPERTY(BlueprintReadOnly)
 	float AntennaMaxY = 7.0f;
-	
+
+public:
+
+	bool bFlee = true;
+	bool bFlock = false;
+
+	void Flee();
+	void Flock();
+
+	UFUNCTION()
+	void FleeOrFlock();
+
+	float FleeFlockTimerRate = 0.3f;
+
+	// flee
+	//FVector FleeLocation = FVector::ZeroVector;
+	FVector FleeLocation = FVector(-1031.f, 172.f, 163.f);
+	// flock
+	FVector FLockLocation = FVector::ZeroVector;
 
 	// called when we check if we can move the roach or delete it
 	UFUNCTION()

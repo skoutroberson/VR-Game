@@ -94,6 +94,13 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		*(bool*)Z_Param__Result=P_THIS->CanPlayerSeeMe();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ARoach::execFleeOrFlock)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->FleeOrFlock();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ARoach::execChangeSwerveSpeed)
 	{
 		P_FINISH;
@@ -147,6 +154,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 			{ "ChangeSwerveDirectionAndRate", &ARoach::execChangeSwerveDirectionAndRate },
 			{ "ChangeSwerveSpeed", &ARoach::execChangeSwerveSpeed },
 			{ "ChangeWiggleDirection", &ARoach::execChangeWiggleDirection },
+			{ "FleeOrFlock", &ARoach::execFleeOrFlock },
 			{ "HitRigidBody", &ARoach::execHitRigidBody },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -291,6 +299,28 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoach_ChangeWiggleDirection_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ARoach_FleeOrFlock_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARoach_FleeOrFlock_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoach_FleeOrFlock_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoach, nullptr, "FleeOrFlock", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoach_FleeOrFlock_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoach_FleeOrFlock_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ARoach_FleeOrFlock()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoach_FleeOrFlock_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -508,6 +538,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		{ &Z_Construct_UFunction_ARoach_ChangeSwerveDirectionAndRate, "ChangeSwerveDirectionAndRate" }, // 2331979585
 		{ &Z_Construct_UFunction_ARoach_ChangeSwerveSpeed, "ChangeSwerveSpeed" }, // 4275596113
 		{ &Z_Construct_UFunction_ARoach_ChangeWiggleDirection, "ChangeWiggleDirection" }, // 2482595606
+		{ &Z_Construct_UFunction_ARoach_FleeOrFlock, "FleeOrFlock" }, // 3568755622
 		{ &Z_Construct_UFunction_ARoach_HitRigidBody, "HitRigidBody" }, // 1782708981
 		{ &Z_Construct_UFunction_ARoach_UpdateAnimationSpeed, "UpdateAnimationSpeed" }, // 1217354979
 	};
@@ -836,7 +867,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoach, 3005752947);
+	IMPLEMENT_CLASS(ARoach, 2673496659);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoach>()
 	{
 		return ARoach::StaticClass();

@@ -19,6 +19,7 @@ enum class CockroachState : uint8;
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execCanPlayerSeeMe); \
+	DECLARE_FUNCTION(execFleeOrFlock); \
 	DECLARE_FUNCTION(execChangeSwerveSpeed); \
 	DECLARE_FUNCTION(execChangeSwerveDirectionAndRate); \
 	DECLARE_FUNCTION(execChangeWiggleDirection); \
@@ -29,6 +30,7 @@ enum class CockroachState : uint8;
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Roach_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execCanPlayerSeeMe); \
+	DECLARE_FUNCTION(execFleeOrFlock); \
 	DECLARE_FUNCTION(execChangeSwerveSpeed); \
 	DECLARE_FUNCTION(execChangeSwerveDirectionAndRate); \
 	DECLARE_FUNCTION(execChangeWiggleDirection); \
