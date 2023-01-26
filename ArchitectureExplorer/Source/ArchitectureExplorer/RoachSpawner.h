@@ -27,13 +27,18 @@ public:
 
 	// Maximum roaches that this spawner can spawn DONT CHANGE AT RUNTIME
 	UPROPERTY(EditAnywhere, NoClear)
-	int MaxRoachCount = 30;
+	int MaxRoachCount = 100;
 
 	UFUNCTION(BlueprintCallable)
 	void SpawnRoaches(int NumberOfRoaches);
 
+	// deletes all roaches this spawner created
 	UFUNCTION(BlueprintCallable)
 	void DeleteRoaches(int NumberOfRoaches);
+
+	// moves all roaches to new random locations
+	UFUNCTION(BlueprintCallable)
+	void MoveRoaches(int AmountToMove, int NumToMovePerFrame);
 
 	UPROPERTY(VisibleAnywhere)
 	int RoachCount = 0;
@@ -46,6 +51,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void DeleteRoach();
+
+	// moves a roach if they are not visible to the player. Moves NumRoachesMovePerFrame amount of roaches per frame.
+	void MoveRoach();
 
 	// needs to be set in the editor to the BP_Roach class
 	UPROPERTY(EditDefaultsOnly)
@@ -64,12 +72,23 @@ public:
 
 	int SpawnBoxNum = 0;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int NumRoachesMovePerFrame = 1;
+
 private:
 
 	UWorld *World = nullptr;
 
 	bool bSpawningRoaches = false; // for ticking and spawning a roach per frame
 	bool bDeletingRoaches = false;
+	bool bMovingRoaches = false;
+
+	// move values
+	int MoveRoachIndex = 0;
+	int RoachesMoved = 0;
+	int RoachesToMove = 0;
+
+	FTransform GetRandomSpawnLocationAndRotation();
 
 	int TargetRoachCount = 0;
 

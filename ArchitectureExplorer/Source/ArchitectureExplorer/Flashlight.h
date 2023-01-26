@@ -25,6 +25,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void TurnOff();
 
+	UFUNCTION(BlueprintCallable)
 	void PressButton();
 
 	bool bOn = false;

@@ -38,7 +38,7 @@ void ARoach::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UE_LOG(LogTemp, Warning, TEXT("YOOO"));
+	//UE_LOG(LogTemp, Warning, TEXT("YOOO"));
 
 	World = GetWorld();
 
@@ -243,6 +243,8 @@ void ARoach::TickMoveState(float DeltaTime)
 		{
 			//UE_LOG(LogTemp, Warning, TEXT("Climb Down Start"));
 			//MoveToClimbDownPosition(DeltaTime);
+
+			// maybe have a bClimbDown that we check first, if it is true then the roach moves to the climb down position?
 			bMoveToGoal = false;
 			bTurn = true;
 			Turn(DeltaTime);
@@ -572,7 +574,7 @@ bool ARoach::CheckForward(float DeltaTime)
 	GoalLocation = AL + FV * MoveSpeed * DeltaTime;
 	FHitResult HitResult;
 	FCollisionShape SweepSphere;
-	SweepSphere.SetSphere(Radius * 0.8f);
+	SweepSphere.SetSphere(Radius * 0.1f);
 	bool bSweep = World->SweepSingleByChannel(HitResult, AL, GoalLocation, ActorQuat, ECollisionChannel::ECC_WorldDynamic, SweepSphere, QueryParams);
 
 	//DrawDebugPoint(World, GoalLocation, 4.f, FColor::Black, false, DeltaTime * 1.1f);
@@ -606,12 +608,13 @@ bool ARoach::CheckForward(float DeltaTime)
 }
 
 bool ARoach::CheckDown(float DeltaTime)
-{/*
+{
+	/*
 	FVector AL = GetActorLocation();
 	FVector UV = GetActorUpVector();
 	FVector FV = GetActorForwardVector();
 	FVector TS = GoalLocation;
-	FVector TE = GoalLocation - UV * 2.f; // Larger Radius Corner Traversal Problem: this might be a factor?
+	FVector TE = GoalLocation - UV * Radius * 1.5f; // Larger Radius Corner Traversal Problem: this might be a factor?
 	const FQuat ActorQuat = GetActorQuat();
 	FHitResult HitResult;
 
@@ -630,6 +633,16 @@ bool ARoach::CheckDown(float DeltaTime)
 		//UpdateTurnDirection(HitResult.ImpactNormal, false);
 
 		return true;
+	}
+	else
+	{
+		bDownSweep = World->SweepSingleByChannel(HitResult, TE, AL, ActorQuat, ECollisionChannel::ECC_WorldDynamic, SweepSphere, QueryParams);
+		if (bDownSweep)
+		{
+			GoalLocation = HitResult.ImpactPoint + HitResult.ImpactNormal * Radius;
+			GoalNormal = HitResult.ImpactNormal;
+			return true;
+		}
 	}
 	
 	else
@@ -663,8 +676,8 @@ bool ARoach::CheckDown(float DeltaTime)
 
 
 	return false;
-	*/
-
+	
+*/
 	
 	FVector AL = GetActorLocation();
 	FVector UV = GetActorUpVector();
@@ -672,6 +685,8 @@ bool ARoach::CheckDown(float DeltaTime)
 	FVector TS = GoalLocation;
 	FVector TE = GoalLocation - UV * Radius * 2.f; // Larger Radius Corner Traversal Problem: this might be a factor?
 	FHitResult HitResult;
+
+	// I think I need to do a sphere sweep down and backwards to climb down stuff?
 
 	bool bDownTrace = World->LineTraceSingleByChannel(HitResult, TS, TE, ECollisionChannel::ECC_WorldStatic, QueryParams);
 
@@ -740,7 +755,7 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 	FQuat ActorQuat = GetActorQuat();
 	FHitResult HitResult;
 	FCollisionShape SweepSphere;
-	SweepSphere.SetSphere(Radius * 0.4f);
+	SweepSphere.SetSphere(Radius * 0.1f);
 
 	const FVector UV = GetActorUpVector();
 	FVector FV = GetActorForwardVector();
@@ -775,7 +790,7 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 	{
 		SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.08f));
 
-		SetActorLocation(FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.3));
+		SetActorLocation(FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.3f));
 
 		//UE_LOG(LogTemp, Warning, TEXT("Actually moving to goal."));
 		//SetActorRotation(NewQuat);
@@ -1010,11 +1025,11 @@ void ARoach::Flee()
 	
 	float VisionDot = FVector::DotProduct(FV, Disp);
 
-	if (VisionDot > 0.2f)
-	{
+	//if (VisionDot > 0.2f)
+	//{
 		float FleeDot = FVector::DotProduct(RV, Disp);
 		bSwerveLeft = (FleeDot > 0) ? true : false;
-	}
+	//}
 
 	
 	//bTurnLeft = bSwerveLeft;
@@ -1054,7 +1069,13 @@ bool ARoach::CanPlayerSeeMe()
 
 	if (Dot > HMD_MAX_FOV)
 	{
-		return true;
+		FHitResult HitResult;
+		bool bTrace = World->LineTraceSingleByChannel(HitResult, CL, AL, ECollisionChannel::ECC_WorldDynamic, QueryParams);
+
+		if (!bTrace)
+		{
+			return true;
+		}
 	}
 
 	return false;

@@ -20,6 +20,13 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAudioComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AFlashlight::execPressButton)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->PressButton();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AFlashlight::execTurnOff)
 	{
 		P_FINISH;
@@ -43,6 +50,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	{
 		UClass* Class = AFlashlight::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "PressButton", &AFlashlight::execPressButton },
 			{ "TurnOff", &AFlashlight::execTurnOff },
 			{ "TurnOn", &AFlashlight::execTurnOn },
 		};
@@ -67,6 +75,28 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AFlashlight_PressButton_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFlashlight_PressButton_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Flashlight.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFlashlight_PressButton_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFlashlight, nullptr, "PressButton", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFlashlight_PressButton_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFlashlight_PressButton_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AFlashlight_PressButton()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFlashlight_PressButton_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -143,6 +173,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AFlashlight_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio, "PlayButtonPressAudio" }, // 3221636658
+		{ &Z_Construct_UFunction_AFlashlight_PressButton, "PressButton" }, // 2729338754
 		{ &Z_Construct_UFunction_AFlashlight_TurnOff, "TurnOff" }, // 2755678298
 		{ &Z_Construct_UFunction_AFlashlight_TurnOn, "TurnOn" }, // 4285305367
 	};
@@ -200,7 +231,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFlashlight, 3849743766);
+	IMPLEMENT_CLASS(AFlashlight, 2191698072);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AFlashlight>()
 	{
 		return AFlashlight::StaticClass();

@@ -16,12 +16,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execPressButton); \
 	DECLARE_FUNCTION(execTurnOff); \
 	DECLARE_FUNCTION(execTurnOn);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execPressButton); \
 	DECLARE_FUNCTION(execTurnOff); \
 	DECLARE_FUNCTION(execTurnOn);
 

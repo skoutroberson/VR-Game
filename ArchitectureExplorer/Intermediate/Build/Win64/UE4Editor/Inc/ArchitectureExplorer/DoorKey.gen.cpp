@@ -18,8 +18,42 @@ void EmptyLinkFunctionForGeneratedCodeDoorKey() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AGrabbable();
 	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 // End Cross Module References
+	DEFINE_FUNCTION(ADoorKey::execDestroyKey)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->DestroyKey();
+		P_NATIVE_END;
+	}
 	void ADoorKey::StaticRegisterNativesADoorKey()
 	{
+		UClass* Class = ADoorKey::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "DestroyKey", &ADoorKey::execDestroyKey },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ADoorKey_DestroyKey_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADoorKey_DestroyKey_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DoorKey.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADoorKey_DestroyKey_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADoorKey, nullptr, "DestroyKey", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADoorKey_DestroyKey_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADoorKey_DestroyKey_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADoorKey_DestroyKey()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADoorKey_DestroyKey_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_ADoorKey_NoRegister()
 	{
@@ -28,6 +62,7 @@ void EmptyLinkFunctionForGeneratedCodeDoorKey() {}
 	struct Z_Construct_UClass_ADoorKey_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -37,6 +72,9 @@ void EmptyLinkFunctionForGeneratedCodeDoorKey() {}
 	UObject* (*const Z_Construct_UClass_ADoorKey_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AGrabbable,
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_ADoorKey_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ADoorKey_DestroyKey, "DestroyKey" }, // 152644767
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoorKey_Statics::Class_MetaDataParams[] = {
@@ -53,11 +91,11 @@ void EmptyLinkFunctionForGeneratedCodeDoorKey() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		0,
 		0,
 		0x009000A4u,
@@ -72,7 +110,7 @@ void EmptyLinkFunctionForGeneratedCodeDoorKey() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADoorKey, 1389221303);
+	IMPLEMENT_CLASS(ADoorKey, 2148473072);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ADoorKey>()
 	{
 		return ADoorKey::StaticClass();

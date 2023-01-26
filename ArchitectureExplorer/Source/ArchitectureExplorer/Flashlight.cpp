@@ -43,17 +43,16 @@ void AFlashlight::TurnOff()
 
 void AFlashlight::PressButton()
 {
+	PlayButtonPressAudio();
 	if (bOn)
 	{
-		LM->TurnOff(FString("BP_Flashlight2_2"), 0, 0);
-		PlayButtonPressAudio();
+		LM->EditLight(this, 0, 0);
 		bOn = false;
 	}
 	else
 	{
-		LM->TurnOn(FString("BP_Flashlight2_2"), 5000.f, 200.f);
-		PlayButtonPressAudio();
-		//ButtonPressAudio->Play();
+		LM->EditLight(this, 2000.f, 200.f);
+		//LM->TurnOn(FString("BP_Flashlight2_2"), 5000.f, 200.f);
 		bOn = true;
 	}
 }

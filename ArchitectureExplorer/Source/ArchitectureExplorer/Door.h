@@ -178,6 +178,9 @@ public:
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite)
 	FName KeyTag;
 
+	UFUNCTION(BlueprintCallable)
+	void UnlockDoor(FName KeyName);
+
 	// Set to true on component start overlap, false on end overlap.
 	UPROPERTY(BlueprintReadWrite)
 	bool bColliding = false;

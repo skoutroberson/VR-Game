@@ -14,8 +14,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ARCHITECTUREEXPLORER_DoorKey_generated_h
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_DoorKey_h_15_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_DoorKey_h_15_RPC_WRAPPERS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_DoorKey_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_DoorKey_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execDestroyKey);
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_DoorKey_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execDestroyKey);
+
+
 #define ArchitectureExplorer_Source_ArchitectureExplorer_DoorKey_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADoorKey(); \
@@ -36,7 +44,7 @@ public: \
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_DoorKey_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ADoorKey(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API ADoorKey(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ADoorKey) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ADoorKey); \
 DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADoorKey); \
@@ -48,8 +56,6 @@ public:
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_DoorKey_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ADoorKey() { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ADoorKey(ADoorKey&&); \

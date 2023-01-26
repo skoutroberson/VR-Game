@@ -13,5 +13,11 @@ UCLASS()
 class ARCHITECTUREEXPLORER_API ADoorKey : public AGrabbable
 {
 	GENERATED_BODY()
-	
+
+public:
+
+	ADoorKey();
+
+	UFUNCTION(BlueprintCallable)
+	void DestroyKey();
 };

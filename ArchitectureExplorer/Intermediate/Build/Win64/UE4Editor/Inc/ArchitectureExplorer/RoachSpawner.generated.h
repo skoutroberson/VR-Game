@@ -18,6 +18,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
  \
 	DECLARE_FUNCTION(execDeleteRoach); \
 	DECLARE_FUNCTION(execSpawnRoach); \
+	DECLARE_FUNCTION(execMoveRoaches); \
 	DECLARE_FUNCTION(execDeleteRoaches); \
 	DECLARE_FUNCTION(execSpawnRoaches);
 
@@ -26,6 +27,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
  \
 	DECLARE_FUNCTION(execDeleteRoach); \
 	DECLARE_FUNCTION(execSpawnRoach); \
+	DECLARE_FUNCTION(execMoveRoaches); \
 	DECLARE_FUNCTION(execDeleteRoaches); \
 	DECLARE_FUNCTION(execSpawnRoaches);
 

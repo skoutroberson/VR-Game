@@ -19,6 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execOpenDoorUsingCurve); \
 	DECLARE_FUNCTION(execCloseDoorUsingCurve); \
 	DECLARE_FUNCTION(execSetDoorBackwards); \
+	DECLARE_FUNCTION(execUnlockDoor); \
 	DECLARE_FUNCTION(execCloseDoorFast);
 
 
@@ -27,6 +28,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execOpenDoorUsingCurve); \
 	DECLARE_FUNCTION(execCloseDoorUsingCurve); \
 	DECLARE_FUNCTION(execSetDoorBackwards); \
+	DECLARE_FUNCTION(execUnlockDoor); \
 	DECLARE_FUNCTION(execCloseDoorFast);
 
 

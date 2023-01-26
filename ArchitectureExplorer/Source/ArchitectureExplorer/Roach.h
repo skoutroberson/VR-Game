@@ -208,12 +208,13 @@ private:
 
 	void MoveAndRotateToGoal(float DeltaTime);
 
-
+public:
 	UPROPERTY(VisibleAnywhere, Category = "Roach")
 	bool bMoveToGoal = false;
 	UPROPERTY(EditAnywhere, Category = "Roach")
 	bool bTurn = false;
 
+private:
 	void UpdateTurnDirection(FVector ImpactNormal, bool bDownTrace);
 
 	bool bClimbDown = false;

@@ -36,6 +36,15 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		P_THIS->SpawnRoach();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ARoachSpawner::execMoveRoaches)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_AmountToMove);
+		P_GET_PROPERTY(FIntProperty,Z_Param_NumToMovePerFrame);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->MoveRoaches(Z_Param_AmountToMove,Z_Param_NumToMovePerFrame);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ARoachSpawner::execDeleteRoaches)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_NumberOfRoaches);
@@ -58,6 +67,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "DeleteRoach", &ARoachSpawner::execDeleteRoach },
 			{ "DeleteRoaches", &ARoachSpawner::execDeleteRoaches },
+			{ "MoveRoaches", &ARoachSpawner::execMoveRoaches },
 			{ "SpawnRoach", &ARoachSpawner::execSpawnRoach },
 			{ "SpawnRoaches", &ARoachSpawner::execSpawnRoaches },
 		};
@@ -104,7 +114,9 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARoachSpawner_DeleteRoaches_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// deletes all roaches this spawner created\n" },
 		{ "ModuleRelativePath", "RoachSpawner.h" },
+		{ "ToolTip", "deletes all roaches this spawner created" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoachSpawner_DeleteRoaches_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoachSpawner, nullptr, "DeleteRoaches", nullptr, nullptr, sizeof(RoachSpawner_eventDeleteRoaches_Parms), Z_Construct_UFunction_ARoachSpawner_DeleteRoaches_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoachSpawner_DeleteRoaches_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoachSpawner_DeleteRoaches_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoachSpawner_DeleteRoaches_Statics::Function_MetaDataParams)) };
@@ -114,6 +126,44 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoachSpawner_DeleteRoaches_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics
+	{
+		struct RoachSpawner_eventMoveRoaches_Parms
+		{
+			int32 AmountToMove;
+			int32 NumToMovePerFrame;
+		};
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_AmountToMove;
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_NumToMovePerFrame;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::NewProp_AmountToMove = { "AmountToMove", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(RoachSpawner_eventMoveRoaches_Parms, AmountToMove), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::NewProp_NumToMovePerFrame = { "NumToMovePerFrame", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(RoachSpawner_eventMoveRoaches_Parms, NumToMovePerFrame), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::NewProp_AmountToMove,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::NewProp_NumToMovePerFrame,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// moves all roaches to new random locations\n" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+		{ "ToolTip", "moves all roaches to new random locations" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoachSpawner, nullptr, "MoveRoaches", nullptr, nullptr, sizeof(RoachSpawner_eventMoveRoaches_Parms), Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ARoachSpawner_MoveRoaches()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoachSpawner_MoveRoaches_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -214,6 +264,10 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SpawnBoxes_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_SpawnBoxes;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_NumRoachesMovePerFrame_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_NumRoachesMovePerFrame;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -224,7 +278,8 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ARoachSpawner_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ARoachSpawner_DeleteRoach, "DeleteRoach" }, // 183331521
-		{ &Z_Construct_UFunction_ARoachSpawner_DeleteRoaches, "DeleteRoaches" }, // 1696719957
+		{ &Z_Construct_UFunction_ARoachSpawner_DeleteRoaches, "DeleteRoaches" }, // 2084815700
+		{ &Z_Construct_UFunction_ARoachSpawner_MoveRoaches, "MoveRoaches" }, // 4163726484
 		{ &Z_Construct_UFunction_ARoachSpawner_SpawnRoach, "SpawnRoach" }, // 1308915396
 		{ &Z_Construct_UFunction_ARoachSpawner_SpawnRoaches, "SpawnRoaches" }, // 4153748074
 	};
@@ -290,6 +345,13 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SpawnBoxes = { "SpawnBoxes", nullptr, (EPropertyFlags)0x0010008000020009, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, SpawnBoxes), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SpawnBoxes_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SpawnBoxes_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesMovePerFrame_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesMovePerFrame = { "NumRoachesMovePerFrame", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, NumRoachesMovePerFrame), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesMovePerFrame_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesMovePerFrame_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARoachSpawner_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_RoachCount,
@@ -300,6 +362,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SweepLength,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SpawnBoxes_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SpawnBoxes,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesMovePerFrame,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ARoachSpawner_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARoachSpawner>::IsAbstract,
@@ -328,7 +391,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoachSpawner, 2015881391);
+	IMPLEMENT_CLASS(ARoachSpawner, 2396396342);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoachSpawner>()
 	{
 		return ARoachSpawner::StaticClass();

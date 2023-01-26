@@ -60,6 +60,8 @@ void ARoachSpawner::BeginPlay()
 		SpawnBoxes.Add(Cast<UBoxComponent>(b));
 	}
 	SpawnBoxNum = SpawnBoxes.Num();
+
+
 }
 
 // Called every frame
@@ -74,6 +76,10 @@ void ARoachSpawner::Tick(float DeltaTime)
 	else if (bDeletingRoaches)
 	{
 		DeleteRoach();
+	}
+	else if (bMovingRoaches)
+	{
+		MoveRoach();
 	}
 }
 
@@ -95,34 +101,7 @@ void ARoachSpawner::SpawnRoach()
 		return;
 	}
 
-	FTransform FT;
-
-	int RandomIndex = FMath::RandRange(0, SpawnBoxNum - 1);
-
-	UBoxComponent *SpawnBox = SpawnBoxes[RandomIndex];
-
-	const FVector SBL = SpawnBox->GetComponentLocation();
-	const FVector SBRV = SpawnBox->GetRightVector();
-	const FVector SBFV = SpawnBox->GetForwardVector();
-	const FQuat SBQ = SpawnBox->GetComponentQuat();
-	// 2D radii dimensions of the box. NOT USING X
-	const FVector Extent = SpawnBox->GetScaledBoxExtent();
-
-	const float X = FMath::FRandRange(-Extent.Y, Extent.Y);
-	const float Y = FMath::FRandRange(-Extent.Z, Extent.Z);
-
-
-	const FVector Loc = SBL + (SpawnBox->GetRightVector() * X) + (SpawnBox->GetUpVector() * Y);
-
-	#define TWOPI 6.283185f
-	float RandomAngle = FMath::FRand() * TWOPI;
-	FQuat RotQuat = FQuat(SBRV, HALF_PI);
-	FQuat Rot = RotQuat * SBQ;
-	RotQuat = FQuat(SBFV, RandomAngle);
-	Rot = RotQuat * Rot;
-
-	FT.SetLocation(Loc);
-	FT.SetRotation(Rot);
+	FTransform FT = GetRandomSpawnLocationAndRotation();
 
 	AActor * NewRoach = World->SpawnActor<AActor>(RoachBP, FT);
 
@@ -191,6 +170,61 @@ void ARoachSpawner::DeleteRoach()
 	--RoachCount;
 }
 
+void ARoachSpawner::MoveRoach()
+{
+	for (int i = 0; i < NumRoachesMovePerFrame; ++i)
+	{
+		if (RoachesMoved < RoachesToMove && MoveRoachIndex < Roaches.Num())
+		{
+			ARoach *RoachToMove = Cast<ARoach>(Roaches[MoveRoachIndex]);
+			const FTransform NewLocationAndRotation = GetRandomSpawnLocationAndRotation();
+			//RoachToMove->SetActorLocationAndRotation(NewLocationAndRotation.GetLocation(), NewLocationAndRotation.GetRotation());
+			RoachToMove->SetActorTransform(NewLocationAndRotation);
+			RoachToMove->bMoveToGoal = false;
+			++RoachesMoved;
+			++MoveRoachIndex;
+			//UE_LOG(LogTemp, Warning, TEXT("Roach Moved %d"), MoveRoachIndex - 1);
+		}
+		else
+		{
+			bMovingRoaches = false;
+			SetActorTickEnabled(false);
+			return;
+		}
+	}
+}
+
+FTransform ARoachSpawner::GetRandomSpawnLocationAndRotation()
+{
+	FTransform FT;
+
+	int RandomIndex = FMath::RandRange(0, SpawnBoxNum - 1);
+	UBoxComponent *SpawnBox = SpawnBoxes[RandomIndex];
+	const FVector SBL = SpawnBox->GetComponentLocation();
+	const FVector SBRV = SpawnBox->GetRightVector();
+	const FVector SBFV = SpawnBox->GetForwardVector();
+	const FQuat SBQ = SpawnBox->GetComponentQuat();
+	// 2D radii dimensions of the box. NOT USING X
+	const FVector Extent = SpawnBox->GetScaledBoxExtent();
+
+	const float X = FMath::FRandRange(-Extent.Y, Extent.Y);
+	const float Y = FMath::FRandRange(-Extent.Z, Extent.Z);
+
+	const FVector Loc = SBL + (SpawnBox->GetRightVector() * X) + (SpawnBox->GetUpVector() * Y);
+
+	#define TWOPI 6.283185f
+	float RandomAngle = FMath::FRand() * TWOPI;
+	FQuat RotQuat = FQuat(SBRV, HALF_PI);
+	FQuat Rot = RotQuat * SBQ;
+	RotQuat = FQuat(SBFV, RandomAngle);
+	Rot = RotQuat * Rot;
+
+	FT.SetLocation(Loc);
+	FT.SetRotation(Rot);
+
+	return FT;
+}
+
 void ARoachSpawner::DeleteRoaches(int NumberOfRoaches)
 {
 	if (NumberOfRoaches > RoachCount)
@@ -198,5 +232,15 @@ void ARoachSpawner::DeleteRoaches(int NumberOfRoaches)
 		NumberOfRoaches = RoachCount;
 	}
 	bDeletingRoaches = true;
+	SetActorTickEnabled(true);
+}
+
+void ARoachSpawner::MoveRoaches(int AmountToMove, int NumToMovePerFrame)
+{
+	RoachesMoved = 0;
+	MoveRoachIndex = 0;
+	RoachesToMove = AmountToMove;
+	NumRoachesMovePerFrame = NumToMovePerFrame;
+	bMovingRoaches = true;
 	SetActorTickEnabled(true);
 }

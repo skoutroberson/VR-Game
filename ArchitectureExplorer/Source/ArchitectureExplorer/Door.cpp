@@ -345,6 +345,12 @@ void ADoor::PlaySwingAudio(const float Velocity)
 	}
 }
 
+void ADoor::UnlockDoor(FName KeyName)
+{
+	UGameplayStatics::PlaySoundAtLocation(World, UnlockSound, Doorknob->GetComponentLocation());
+	bLocked = false;
+}
+
 // Helper function to find the max swing angle for the doors (angle where the door hits an object so it can't open all the way). Called in BeginPlay().
 float ADoor::BinarySearchForMaxAngle()
 {
