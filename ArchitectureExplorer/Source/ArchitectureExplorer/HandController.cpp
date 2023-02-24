@@ -18,6 +18,7 @@
 #include "DestructibleComponent.h"
 #include "Chainsaw.h"
 #include "Drawer.h"
+#include "Ball.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -153,6 +154,11 @@ void AHandController::Grip()
 						else if (GrabActor->ActorHasTag(TEXT("Saw")))
 						{
 							bIsHoldingChainsaw = true;
+						}
+						else if (GrabActor->ActorHasTag(TEXT("Ball")))
+						{
+							// change dog's look at actor to this ball
+							// fetch on release
 						}
 
 						/*
@@ -409,6 +415,7 @@ void AHandController::Release()
 			else if (GrabActor->ActorHasTag(TEXT("Ball")))
 			{
 				bIsHoldingBall = false;
+				//tell dog to fetch
 			}
 
 			// two handed mechanics
@@ -545,6 +552,11 @@ void AHandController::CanInteract()
 		if (OverlappingActor->ActorHasTag(TEXT("Grab")))
 		{
 			//UE_LOG(LogTemp, Warning, TEXT("%s"), *OverlappingActor->GetName());
+
+			if (OverlappingActor->IsA(ABall::StaticClass()))
+			{
+				// cant interact if the ball is being fetched
+			}
 
 			bNewCanGrab = true;
 			GrabActor = OverlappingActor;

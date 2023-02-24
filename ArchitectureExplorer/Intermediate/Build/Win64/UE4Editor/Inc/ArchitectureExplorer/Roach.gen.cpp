@@ -537,6 +537,10 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SwerveSpeedCurve_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SwerveSpeedCurve;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MoveSpeedCurve_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_MoveSpeedCurve;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -844,6 +848,13 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_SwerveSpeedCurve = { "SwerveSpeedCurve", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, SwerveSpeedCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_SwerveSpeedCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_SwerveSpeedCurve_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_MoveSpeedCurve_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_MoveSpeedCurve = { "MoveSpeedCurve", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, MoveSpeedCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_MoveSpeedCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_MoveSpeedCurve_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARoach_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_RoachRoot,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_MovementComponent,
@@ -880,6 +891,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_WaitCurve,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_LazinessCurve,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_SwerveSpeedCurve,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_MoveSpeedCurve,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ARoach_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARoach>::IsAbstract,
@@ -908,7 +920,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoach, 2122438769);
+	IMPLEMENT_CLASS(ARoach, 4009310206);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoach>()
 	{
 		return ARoach::StaticClass();

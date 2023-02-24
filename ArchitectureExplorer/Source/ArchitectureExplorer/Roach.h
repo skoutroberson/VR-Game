@@ -200,7 +200,7 @@ private:
 	//no hit: turn
 
 	//uint8 DownTraceIterations = 0;
-	uint8 MaxDownTraceIterations = 3;
+	uint8 MaxDownTraceIterations = 1;
 
 
 	// sweeps to goal, if sweep fails then we move to X location above the GoalLocation first, then we move to Goal.
@@ -226,6 +226,8 @@ private:
 
 	FVector LastFrameLocation = FVector::ZeroVector;
 	FVector LastFrameForwardVector = FVector::ZeroVector;
+
+	bool bDoubleDip = true;
 
 public:
 	UPROPERTY(BlueprintReadOnly)
@@ -365,9 +367,11 @@ public:
 
 	float FleeFlockTimerRate = 0.3f;
 
+	//(X=-1098.000000,Y=942.000000,Z=283.340149)
+
 	// flee
 	//FVector FleeLocation = FVector::ZeroVector;
-	FVector FleeLocation = FVector(-1028.f, 848.f, 323.f);
+	FVector FleeLocation = FVector(-1098.f, 942.f, 283.f);
 	// flock
 	FVector FLockLocation = FVector::ZeroVector;
 
@@ -381,6 +385,9 @@ public:
 	UCurveFloat *LazinessCurve;
 	UPROPERTY(EditDefaultsOnly)
 	UCurveFloat *SwerveSpeedCurve;
+	UPROPERTY(EditDefaultsOnly)
+	UCurveFloat *MoveSpeedCurve;
+
 
 	// called when we check if we can move the roach or delete it
 	UFUNCTION()

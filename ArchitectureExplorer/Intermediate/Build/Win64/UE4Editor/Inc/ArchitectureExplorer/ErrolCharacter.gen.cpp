@@ -1267,6 +1267,10 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FMapPropertyParams NewProp_FootstepMap;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerDeathSound_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayerDeathSound;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bRightFootOnGround_MetaData[];
 #endif
 		static void NewProp_bRightFootOnGround_SetBit(void* Obj);
@@ -1538,6 +1542,13 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FMapPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FootstepMap = { "FootstepMap", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, FootstepMap), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FootstepMap_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FootstepMap_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PlayerDeathSound_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PlayerDeathSound = { "PlayerDeathSound", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, PlayerDeathSound), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PlayerDeathSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PlayerDeathSound_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bRightFootOnGround_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
@@ -1854,6 +1865,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FootstepMap_ValueProp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FootstepMap_Key_KeyProp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FootstepMap,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PlayerDeathSound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bRightFootOnGround,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bLeftFootOnGround,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_State_Underlying,
@@ -1923,7 +1935,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 3752392980);
+	IMPLEMENT_CLASS(AErrolCharacter, 4278424155);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

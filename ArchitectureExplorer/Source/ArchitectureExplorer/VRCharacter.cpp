@@ -150,6 +150,13 @@ void AVRCharacter::BeginPlay()
 		BlinkerMaterialInstance->SetScalarParameterValue(FName("Radius"), 2.0f);
 	}
 
+	if (FadeMaterialBase != nullptr)
+	{
+		FadeMaterialInstance = UMaterialInstanceDynamic::Create(FadeMaterialBase, this);
+		PostProcessComponent->AddOrUpdateBlendable(FadeMaterialInstance);
+		FadeMaterialInstance->SetScalarParameterValue(FName("FadeValue"), 1.0f);
+	}
+
 	FootstepMap.Add(FName("wood"), WoodFootStepSound);
 	FootstepMap.Add(FName("tile"), TileFootstepSound);
 	FootstepMap.Add(FName("conc"), ConcreteFootStepSound);
@@ -172,7 +179,9 @@ void AVRCharacter::UpdateCapsuleHeight()
 	AddActorWorldOffset(FVector(0,0,-Diff), true);
 
 	FVector RL = VRRoot->GetComponentLocation();
-	RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight()) - (DP.Z * 0.1f);
+	RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight()) - (DP.Z * 0.14f);
+	//RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
+
 	VRRoot->SetWorldLocation(RL);
 }
 
@@ -320,10 +329,13 @@ bool AVRCharacter::CheckFloor()
 	
 	if (FloorTrace)
 	{
-		TArray<FName> &Tags = HitResult.Component->ComponentTags;
+		AActor *HitActor = HitResult.GetActor();
+		TArray<FName> &Tags = HitActor->Tags;
+		//TArray<FName> &Tags = HitResult.Component->ComponentTags;
+		
 		//Tags.Append(HitResult.Actor->Tags);
-
-		if (Tags.Num() > 0)
+		
+		if (HitActor != nullptr && Tags.Num() > 0)
 		{
 			for (auto &t : Tags)
 			{
@@ -679,4 +691,16 @@ void AVRCharacter::CorrectCameraOffset()
 void AVRCharacter::SetBlinkerRadius(float NewRadius)
 {
 	BlinkerMaterialInstance->SetScalarParameterValue(FName("Radius"), NewRadius);
+}
+
+void AVRCharacter::Die()
+{
+	// fade screen to black
+	// play death sound
+	// loading screen
+	// reset stage
+	// respawn player
+	
+	bDead = true;
+	FadeScreenToBlack();
 }

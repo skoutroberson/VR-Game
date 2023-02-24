@@ -13,5 +13,7 @@ UCLASS()
 class ARCHITECTUREEXPLORER_API AStairsScare : public AScare
 {
 	GENERATED_BODY()
+
+	// spawn cralwer on the stairs and move up really fast with big stinger
 	
 };

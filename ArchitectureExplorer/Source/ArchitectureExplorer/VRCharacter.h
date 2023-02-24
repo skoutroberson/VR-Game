@@ -93,6 +93,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UMaterialInstanceDynamic * BlinkerMaterialInstance;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UMaterialInterface *FadeMaterialBase;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UMaterialInstanceDynamic * FadeMaterialInstance;
+
 	UPROPERTY(EditAnywhere)
 	class UCurveFloat *RadiusVsVelocity;
 
@@ -234,5 +240,22 @@ public:
 	void SetBlinkerRadius(float NewRadius);
 
 	bool bClimbing = false;
+
+public:
+
+	void Die();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void FadeScreenToBlack();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void UnfadeScreenFromBlack();
+
+	// used when fading the screen to/from black
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	float CameraFadeValue = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	bool bDead = false;
 
 };

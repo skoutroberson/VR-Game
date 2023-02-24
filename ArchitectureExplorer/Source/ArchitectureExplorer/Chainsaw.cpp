@@ -19,6 +19,14 @@ AChainsaw::AChainsaw()
 	AGrabbable::ValidOneHandHandHolds.SetNum(1);
 	AGrabbable::ValidOneHandHandHolds.Insert(2, 0);
 	PrimaryActorTick.bCanEverTick = true;
+
+	IdleAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("IdleAudio"));
+	StartupAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("StartupAudio"));
+	RevvingAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("RevvingAudio"));
+	EndrevAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("EndrevAudio"));
+
+	//StartupAudio->OnAudioFinished.AddDynamic(this, &AChainsaw::ExitStartupState);
+	//EndrevAudio->OnAudioFinished.AddDynamic(this, &AChainsaw::ExitEndrevState);
 }
 
 void AChainsaw::BeginPlay()
@@ -44,6 +52,7 @@ void AChainsaw::BeginPlay()
 	AGrabbable::HandHold2 = Cast<USceneComponent>(GetComponentsByTag(UActorComponent::StaticClass(), TEXT("2"))[0]);
 
 	SkeletalMesh = Cast<USkeletalMeshComponent>(GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+	SetRootComponent(SkeletalMesh);
 
 	EngineAudio = Cast<UAudioComponent>(GetComponentsByTag(UAudioComponent::StaticClass(), FName("rev"))[0]);
 
@@ -52,6 +61,17 @@ void AChainsaw::BeginPlay()
 
 	//BladeCollision->OnComponentBeginOverlap.AddDynamic(this, &AChainsaw::BladeBeginOverlap);
 
+	IdleAudio->AttachToComponent(SkeletalMesh, FAttachmentTransformRules::SnapToTargetIncludingScale);
+	StartupAudio->AttachToComponent(SkeletalMesh, FAttachmentTransformRules::SnapToTargetIncludingScale);
+	RevvingAudio->AttachToComponent(SkeletalMesh, FAttachmentTransformRules::SnapToTargetIncludingScale);
+	EndrevAudio->AttachToComponent(SkeletalMesh, FAttachmentTransformRules::SnapToTargetIncludingScale);
+
+	IdleAudio->bAutoActivate = false;
+	StartupAudio->bAutoActivate = false;
+	RevvingAudio->bAutoActivate = false;
+	EndrevAudio->bAutoActivate = false;
+
+	EnterIdleState();
 }
 
 void AChainsaw::Tick(float DeltaTime)
@@ -68,6 +88,27 @@ void AChainsaw::Tick(float DeltaTime)
 	{
 		TickDismember(DeltaTime);
 		// cut animation until the saw is all the way through
+		return;
+	}
+
+	switch (State)
+	{
+	case SawState::STATE_IDLE:
+		// check if TriggerValue is greater than 0.5f, if so then change state to Startup
+		TickIdleState(DeltaTime);
+		break;
+	case SawState::STATE_STARTUP:
+		// play sound, startup blade, vibration, and shake. when the sound is completed, change state to Revving
+		TickStartupState(DeltaTime);
+		break;
+	case SawState::STATE_REVVING:
+		// loop rev sound, blade spin, vibration, and shake. check if CurrentEngineValue is less than 0.5f, if so then change state to Endrev
+		TickRevvingState(DeltaTime);
+		break;
+	case SawState::STATE_ENDREV:
+		// play end rev, end blade spin, vibration and shake, when sound ends, change state to Idle
+		TickEndrevState(DeltaTime);
+		break;
 	}
 
 	//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + SkeletalMesh->GetRightVector() * 100.f, FColor::Red, false, 2 * DeltaTime);
@@ -93,8 +134,11 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 	// update chain rotation speed
 	// update shake value
 	// update haptic intensity? (maybe not this one)
+
+	// 0.0f -> 1.0f
 	const float TriggerAxisValue = (bLeftHandIsControllingTrigger) ? Player->LeftTriggerAxisValue : Player->RightTriggerAxisValue;
 
+	// this is used for the current engine audio.
 	float NewRPMValue = TriggerAxisValue;
 
 	if(TriggerAxisValue < CurrentEngineValue)
@@ -114,6 +158,7 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 		EngineAudio->SetBoolParameter(FName("CD"), true);
 	}
 	*/
+	UE_LOG(LogTemp, Warning, TEXT("RPM: %f"), TriggerAxisValue);
 	EngineAudio->SetFloatParameter(FName("RPM"), TriggerAxisValue);
 	
 	/*
@@ -483,4 +528,100 @@ void AChainsaw::BladeBeginOverlap(UPrimitiveComponent * FirstComponent, AActor *
 {
 	UE_LOG(LogTemp, Warning, TEXT("Overlap Errol!"));
 	DrawDebugSphere(GetWorld(), SweepResult.ImpactPoint, 5.f, 10.f, FColor::Cyan, true);
+}
+
+void AChainsaw::EnterIdleState()
+{
+	// play looping idle sound
+	State = SawState::STATE_IDLE;
+	/*
+	if (!IdleAudio->IsPlaying())
+	{
+		IdleAudio->Play();
+	}
+	*/
+	//RevvingAudio->SetIntParameter(FName("State"), 1);
+}
+
+void AChainsaw::EnterStartupState()
+{
+	// play startup sound
+	State = SawState::STATE_STARTUP;
+	//StartupAudio->Play();
+	//RevvingAudio->SetIntParameter(FName("State"), 0);
+}
+
+void AChainsaw::EnterRevvingState()
+{
+	// play looping rev sound
+	State = SawState::STATE_REVVING;
+
+	/*
+	if (!RevvingAudio->IsPlaying())
+	{
+		RevvingAudio->Play();
+	}
+	*/
+	//RevvingAudio->SetIntParameter(FName("State"), 2);
+}
+
+void AChainsaw::EnterEndrevState()
+{
+	// play end rev sound
+	State = SawState::STATE_ENDREV;
+	//EndrevAudio->Play();
+	//RevvingAudio->SetIntParameter(FName("State"), 0);
+}
+
+void AChainsaw::TickIdleState(float DeltaTime)
+{
+	// check if TriggerValue is greater than 0.5f, if so then change state to Startup
+	if (CurrentEngineValue > 0.5f)
+	{
+		ExitIdleState();
+		EnterStartupState();
+	}
+}
+
+void AChainsaw::TickStartupState(float DeltaTime)
+{
+	// play sound, startup blade, vibration, and shake. when the sound is completed, change state to Revving
+	
+	// maybe check if CurrentEngineValue goes below 0.5f again, if so then go to EndrevState and play the endrev sound at the same time that this sound finished at.
+}
+
+void AChainsaw::TickRevvingState(float DeltaTime)
+{
+	// loop rev sound, blade spin, vibration, and shake. check if CurrentEngineValue is less than 0.5f, if so then change state to Endrev
+	if (CurrentEngineValue < 0.5f)
+	{
+		ExitRevvingState();
+		EnterEndrevState();
+	}
+}
+
+void AChainsaw::TickEndrevState(float DeltaTime)
+{
+	// play end rev, end blade spin, vibration and shake, when sound ends, change state to Idle
+}
+
+void AChainsaw::ExitIdleState()
+{
+	//IdleAudio->Stop();
+}
+
+void AChainsaw::ExitStartupState()
+{
+	UE_LOG(LogTemp, Warning, TEXT("end startup!!!"));
+	EnterRevvingState();
+}
+
+void AChainsaw::ExitRevvingState()
+{
+	//RevvingAudio->Stop();
+}
+
+void AChainsaw::ExitEndrevState()
+{
+	EnterIdleState();
 }

@@ -7,6 +7,7 @@
 #include "MotionControllerComponent.h"
 #include "MotionControllerComponent.h"
 #include "Grabbable.h"
+#include "Dog.h"
 #include "HandController.generated.h"
 
 UCLASS()
@@ -172,5 +173,7 @@ private:
 private:
 	// Debug functions
 	void DrawDebugLines(float DeltaTime);
+
+	ADog *TheDog;
 
 };

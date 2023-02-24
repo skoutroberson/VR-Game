@@ -10,6 +10,11 @@ ADoorKey::ADoorKey()
 	AGrabbable::ValidOneHandHandHolds.Insert(1, 0);
 }
 
+void ADoorKey::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
 void ADoorKey::DestroyKey()
 {
 	AHandController *HC = Cast<AHandController>(ControllingMC);

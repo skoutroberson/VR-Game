@@ -13,10 +13,11 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 // Cross Module References
+	ARCHITECTUREEXPLORER_API UEnum* Z_Construct_UEnum_ArchitectureExplorer_SawState();
+	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AChainsaw_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AChainsaw();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AGrabbable();
-	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
@@ -25,7 +26,84 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UArrowComponent_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	ENGINE_API UClass* Z_Construct_UClass_UAudioComponent_NoRegister();
 // End Cross Module References
+	static UEnum* SawState_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_ArchitectureExplorer_SawState, Z_Construct_UPackage__Script_ArchitectureExplorer(), TEXT("SawState"));
+		}
+		return Singleton;
+	}
+	template<> ARCHITECTUREEXPLORER_API UEnum* StaticEnum<SawState>()
+	{
+		return SawState_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_SawState(SawState_StaticEnum, TEXT("/Script/ArchitectureExplorer"), TEXT("SawState"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_SawState_Hash() { return 2639784676U; }
+	UEnum* Z_Construct_UEnum_ArchitectureExplorer_SawState()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_ArchitectureExplorer();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("SawState"), 0, Get_Z_Construct_UEnum_ArchitectureExplorer_SawState_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "SawState::STATE_IDLE", (int64)SawState::STATE_IDLE },
+				{ "SawState::STATE_STARTUP", (int64)SawState::STATE_STARTUP },
+				{ "SawState::STATE_REVVING", (int64)SawState::STATE_REVVING },
+				{ "SawState::STATE_ENDREV", (int64)SawState::STATE_ENDREV },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "ModuleRelativePath", "Chainsaw.h" },
+				{ "STATE_ENDREV.DisplayName", "EndRev" },
+				{ "STATE_ENDREV.Name", "SawState::STATE_ENDREV" },
+				{ "STATE_IDLE.DisplayName", "Idle" },
+				{ "STATE_IDLE.Name", "SawState::STATE_IDLE" },
+				{ "STATE_REVVING.DisplayName", "Revving" },
+				{ "STATE_REVVING.Name", "SawState::STATE_REVVING" },
+				{ "STATE_STARTUP.DisplayName", "Startup" },
+				{ "STATE_STARTUP.Name", "SawState::STATE_STARTUP" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
+				nullptr,
+				"SawState",
+				"SawState",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
+	DEFINE_FUNCTION(AChainsaw::execExitEndrevState)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ExitEndrevState();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AChainsaw::execExitStartupState)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ExitStartupState();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AChainsaw::execStartDismember)
 	{
 		P_FINISH;
@@ -61,6 +139,8 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		UClass* Class = AChainsaw::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "BladeBeginOverlap", &AChainsaw::execBladeBeginOverlap },
+			{ "ExitEndrevState", &AChainsaw::execExitEndrevState },
+			{ "ExitStartupState", &AChainsaw::execExitStartupState },
 			{ "StartDismember", &AChainsaw::execStartDismember },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -143,6 +223,50 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AChainsaw_BladeBeginOverlap_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AChainsaw_ExitEndrevState_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AChainsaw_ExitEndrevState_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AChainsaw_ExitEndrevState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AChainsaw, nullptr, "ExitEndrevState", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AChainsaw_ExitEndrevState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AChainsaw_ExitEndrevState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AChainsaw_ExitEndrevState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AChainsaw_ExitEndrevState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AChainsaw_ExitStartupState_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AChainsaw_ExitStartupState_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AChainsaw_ExitStartupState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AChainsaw, nullptr, "ExitStartupState", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AChainsaw_ExitStartupState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AChainsaw_ExitStartupState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AChainsaw_ExitStartupState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AChainsaw_ExitStartupState_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -328,6 +452,22 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BladeOffset_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_BladeOffset;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_IdleAudio_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_IdleAudio;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StartupAudio_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_StartupAudio;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RevvingAudio_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RevvingAudio;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EndrevAudio_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_EndrevAudio;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -338,6 +478,8 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AChainsaw_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AChainsaw_BladeBeginOverlap, "BladeBeginOverlap" }, // 3480068420
+		{ &Z_Construct_UFunction_AChainsaw_ExitEndrevState, "ExitEndrevState" }, // 1618001431
+		{ &Z_Construct_UFunction_AChainsaw_ExitStartupState, "ExitStartupState" }, // 1128432924
 		{ &Z_Construct_UFunction_AChainsaw_PressTrigger, "PressTrigger" }, // 3910340088
 		{ &Z_Construct_UFunction_AChainsaw_ReleaseTrigger, "ReleaseTrigger" }, // 2371513027
 		{ &Z_Construct_UFunction_AChainsaw_StartDismember, "StartDismember" }, // 3726604205
@@ -558,6 +700,38 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_BladeOffset = { "BladeOffset", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, BladeOffset), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_BladeOffset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_BladeOffset_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_IdleAudio_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_IdleAudio = { "IdleAudio", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, IdleAudio), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_IdleAudio_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_IdleAudio_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_StartupAudio_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_StartupAudio = { "StartupAudio", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, StartupAudio), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_StartupAudio_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_StartupAudio_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_RevvingAudio_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_RevvingAudio = { "RevvingAudio", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, RevvingAudio), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_RevvingAudio_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_RevvingAudio_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AChainsaw_Statics::NewProp_EndrevAudio_MetaData[] = {
+		{ "Category", "Chainsaw" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Chainsaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChainsaw_Statics::NewProp_EndrevAudio = { "EndrevAudio", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AChainsaw, EndrevAudio), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AChainsaw_Statics::NewProp_EndrevAudio_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AChainsaw_Statics::NewProp_EndrevAudio_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AChainsaw_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_Heat,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxHeat,
@@ -585,6 +759,10 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_MaxCutVector,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_CutUpVector,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_BladeOffset,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_IdleAudio,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_StartupAudio,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_RevvingAudio,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChainsaw_Statics::NewProp_EndrevAudio,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AChainsaw_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AChainsaw>::IsAbstract,
@@ -613,7 +791,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AChainsaw, 1416030690);
+	IMPLEMENT_CLASS(AChainsaw, 4014314495);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AChainsaw>()
 	{
 		return AChainsaw::StaticClass();

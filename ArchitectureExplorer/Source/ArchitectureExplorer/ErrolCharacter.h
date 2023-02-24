@@ -100,6 +100,9 @@ public:
 	UPROPERTY(VisibleAnywhere);
 	TMap<FName, USoundCue *> FootstepMap;
 
+	UPROPERTY(EditDefaultsOnly)
+	class USoundCue * PlayerDeathSound;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	bool bRightFootOnGround = true;
 

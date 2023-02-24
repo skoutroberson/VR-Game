@@ -28,6 +28,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void PressButton();
 
+	UPROPERTY(BlueprintReadOnly)
 	bool bOn = false;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)

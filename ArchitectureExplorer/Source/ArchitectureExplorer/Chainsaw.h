@@ -10,6 +10,15 @@
 #include "Components/ArrowComponent.h"
 #include "Chainsaw.generated.h"
 
+UENUM(BlueprintType)
+enum class SawState : uint8
+{
+	STATE_IDLE			UMETA(DisplayName = "Idle"),
+	STATE_STARTUP		UMETA(DisplayName = "Startup"),
+	STATE_REVVING		UMETA(DisplayName = "Revving"),
+	STATE_ENDREV		UMETA(DisplayName = "EndRev"),
+};
+
 /**
  * 
  */
@@ -180,8 +189,35 @@ public:
 
 private:
 
-	
-
 	bool bDismembering = false;
+
+public:
+	SawState State = SawState::STATE_IDLE;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UAudioComponent *IdleAudio = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UAudioComponent *StartupAudio = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UAudioComponent *RevvingAudio = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UAudioComponent *EndrevAudio = nullptr;
+
+	void EnterIdleState();
+	void EnterStartupState();
+	void EnterRevvingState();
+	void EnterEndrevState();
+
+	void TickIdleState(float DeltaTime);
+	void TickStartupState(float DeltaTime);
+	void TickRevvingState(float DeltaTime);
+	void TickEndrevState(float DeltaTime);
+
+	void ExitIdleState();
+	UFUNCTION(BlueprintCallable)
+	void ExitStartupState();
+	void ExitRevvingState();
+	UFUNCTION(BlueprintCallable)
+	void ExitEndrevState();
 
 };

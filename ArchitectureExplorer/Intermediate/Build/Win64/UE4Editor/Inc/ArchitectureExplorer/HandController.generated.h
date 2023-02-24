@@ -14,20 +14,20 @@ class AActor;
 #endif
 #define ARCHITECTUREEXPLORER_HandController_generated_h
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_RPC_WRAPPERS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_SPARSE_DATA
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execActorEndOverlap); \
 	DECLARE_FUNCTION(execActorBeginOverlap);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execActorEndOverlap); \
 	DECLARE_FUNCTION(execActorBeginOverlap);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_INCLASS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAHandController(); \
 	friend struct Z_Construct_UClass_AHandController_Statics; \
@@ -36,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(AHandController)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_INCLASS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_INCLASS \
 private: \
 	static void StaticRegisterNativesAHandController(); \
 	friend struct Z_Construct_UClass_AHandController_Statics; \
@@ -45,7 +45,7 @@ public: \
 	DECLARE_SERIALIZER(AHandController)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_STANDARD_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AHandController(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AHandController) \
@@ -58,7 +58,7 @@ private: \
 public:
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_ENHANCED_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AHandController(AHandController&&); \
@@ -69,32 +69,32 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AHandController); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AHandController)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_PRIVATE_PROPERTY_OFFSET \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__MotionController() { return STRUCT_OFFSET(AHandController, MotionController); } \
 	FORCEINLINE static uint32 __PPO__HapticEffect() { return STRUCT_OFFSET(AHandController, HapticEffect); }
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_12_PROLOG
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_GENERATED_BODY_LEGACY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_13_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_RPC_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_INCLASS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_STANDARD_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_INCLASS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_GENERATED_BODY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_INCLASS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_15_ENHANCED_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_INCLASS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

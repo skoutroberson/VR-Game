@@ -156,6 +156,11 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bOn_MetaData[];
+#endif
+		static void NewProp_bOn_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bOn;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Mesh_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Mesh;
@@ -185,6 +190,17 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_MetaData[] = {
+		{ "Category", "Flashlight" },
+		{ "ModuleRelativePath", "Flashlight.h" },
+	};
+#endif
+	void Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_SetBit(void* Obj)
+	{
+		((AFlashlight*)Obj)->bOn = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn = { "bOn", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AFlashlight), &Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_SetBit, METADATA_PARAMS(Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlashlight_Statics::NewProp_Mesh_MetaData[] = {
 		{ "Category", "Flashlight" },
 		{ "EditInline", "true" },
@@ -201,6 +217,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlashlight_Statics::NewProp_ButtonPressAudio = { "ButtonPressAudio", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFlashlight, ButtonPressAudio), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFlashlight_Statics::NewProp_ButtonPressAudio_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlashlight_Statics::NewProp_ButtonPressAudio_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFlashlight_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlashlight_Statics::NewProp_Mesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlashlight_Statics::NewProp_ButtonPressAudio,
 	};
@@ -231,7 +248,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFlashlight, 2191698072);
+	IMPLEMENT_CLASS(AFlashlight, 3729080137);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AFlashlight>()
 	{
 		return AFlashlight::StaticClass();

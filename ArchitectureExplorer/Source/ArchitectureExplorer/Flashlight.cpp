@@ -51,7 +51,7 @@ void AFlashlight::PressButton()
 	}
 	else
 	{
-		LM->EditLight(this, 2000.f, 200.f);
+		LM->EditLight(this, 5000.f, 200.f);
 		//LM->TurnOn(FString("BP_Flashlight2_2"), 5000.f, 200.f);
 		bOn = true;
 	}

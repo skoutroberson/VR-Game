@@ -662,6 +662,11 @@ void AErrolCharacter::KillPlayer()
 
 	BodyMesh->SetVisibility(true);
 	SawMesh->SetVisibility(true);
+
+	FTimerHandle PlayerDeathHandle;
+	GetWorldTimerManager().SetTimer(PlayerDeathHandle, VRChar, &AVRCharacter::Die, 1.8f, false, 1.8f);
+
+	UGameplayStatics::PlaySound2D(World, PlayerDeathSound, 1.0f, 1.0f);
 }
 
 void AErrolCharacter::EnterLookAroundState()
