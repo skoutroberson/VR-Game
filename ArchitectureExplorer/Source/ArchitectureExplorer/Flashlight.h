@@ -39,6 +39,9 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void PlayButtonPressAudio();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bSpotlightRevealEnabled = true;
+
 
 private:
 	ALightManager * LM = nullptr;

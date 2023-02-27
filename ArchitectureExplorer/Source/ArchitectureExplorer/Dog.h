@@ -54,6 +54,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	ABall *Ball = nullptr;
 
+	UPROPERTY(BlueprintReadWrite)
+	AActor *Player = nullptr;
+
 	// pick up ball when close to the ball
 	void ShouldPickUpBall();
 

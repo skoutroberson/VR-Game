@@ -3,6 +3,7 @@
 
 #include "Dog.h"
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "VRCharacter.h"
 
 // Sets default values
 ADog::ADog()
@@ -23,6 +24,8 @@ void ADog::BeginPlay()
 	TArray<AActor*> Balls;
 	UGameplayStatics::GetAllActorsOfClassWithTag(GetWorld(), ABall::StaticClass(), FName("Dog"), Balls);
 	Ball = Cast<ABall>(Balls[0]);
+
+	Player = UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass());
 }
 
 // Called every frame
@@ -56,6 +59,22 @@ void ADog::ShouldPickUpBall()
 
 void ADog::ShouldDropBall()
 {
+	const float Distance = FVector::Distance(GetActorLocation(), Player->GetActorLocation());
+	if (Distance < 150.f)
+	{
+		GetController()->StopMovement();
+		State = DogState::STATE_SITTINGDOWN;
+
+		
+		UPrimitiveComponent *PrimBall = Cast<UPrimitiveComponent>(Ball->GetRootComponent());
+		if (PrimBall != nullptr)
+		{
+			PrimBall->DetachFromParent(true);
+			//Ball->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+			PrimBall->SetSimulatePhysics(true);
+			//PrimBall->AddImpulse(GetActorForwardVector() * 0.001f);
+		}
+	}
 }
 
 void ADog::PickupBall()
