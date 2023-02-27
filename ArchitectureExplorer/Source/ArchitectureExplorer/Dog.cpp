@@ -41,6 +41,9 @@ void ADog::Tick(float DeltaTime)
 	case DogState::STATE_RETURNING:
 		ShouldDropBall();
 		break;
+	case DogState::STATE_SITTING:
+		//RotateToFacePlayer();
+		break;
 	}
 
 }
@@ -62,19 +65,32 @@ void ADog::ShouldDropBall()
 	const float Distance = FVector::Distance(GetActorLocation(), Player->GetActorLocation());
 	if (Distance < 150.f)
 	{
-		GetController()->StopMovement();
-		State = DogState::STATE_SITTINGDOWN;
-
-		
-		UPrimitiveComponent *PrimBall = Cast<UPrimitiveComponent>(Ball->GetRootComponent());
-		if (PrimBall != nullptr)
-		{
-			PrimBall->DetachFromParent(true);
-			//Ball->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-			PrimBall->SetSimulatePhysics(true);
-			//PrimBall->AddImpulse(GetActorForwardVector() * 0.001f);
-		}
+		DropBall();
 	}
+}
+
+void ADog::DropBall()
+{
+	GetController()->StopMovement();
+	State = DogState::STATE_SITTINGDOWN;
+	WaitAndDropBall();
+	/*
+	UPrimitiveComponent *PrimBall = Cast<UPrimitiveComponent>(Ball->GetRootComponent());
+	if (PrimBall != nullptr)
+	{
+		
+		PrimBall->DetachFromParent(true);
+		//Ball->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		PrimBall->SetSimulatePhysics(true);
+		//PrimBall->AddImpulse(GetActorForwardVector() * 0.001f);
+		Ball->bBeingFetched = false;
+		
+	}
+	*/
+}
+
+void ADog::RotateToFacePlayer()
+{
 }
 
 void ADog::PickupBall()

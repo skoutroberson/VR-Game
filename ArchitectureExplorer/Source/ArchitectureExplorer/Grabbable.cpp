@@ -4,7 +4,6 @@
 #include "Grabbable.h"
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
 #include "VRCharacter.h"
-#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 
 // Sets default values

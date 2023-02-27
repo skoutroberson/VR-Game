@@ -16,16 +16,20 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execDropBall); \
 	DECLARE_FUNCTION(execFetchBall); \
 	DECLARE_FUNCTION(execPickupBall);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execDropBall); \
 	DECLARE_FUNCTION(execFetchBall); \
 	DECLARE_FUNCTION(execPickupBall);
 
 
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_EVENT_PARMS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_CALLBACK_WRAPPERS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADog(); \
@@ -69,13 +73,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADog); \
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_PRIVATE_PROPERTY_OFFSET
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_25_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_25_PROLOG \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_EVENT_PARMS
+
+
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_PRIVATE_PROPERTY_OFFSET \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_SPARSE_DATA \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_CALLBACK_WRAPPERS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_INCLASS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_STANDARD_CONSTRUCTORS \
 public: \
@@ -88,6 +96,7 @@ public: \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_PRIVATE_PROPERTY_OFFSET \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_SPARSE_DATA \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_CALLBACK_WRAPPERS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_INCLASS_NO_PURE_DECLS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_ENHANCED_CONSTRUCTORS \
 private: \

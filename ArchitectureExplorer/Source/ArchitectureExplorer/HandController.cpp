@@ -4,6 +4,7 @@
 #include "HandController.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
 #include "Door.h"
 #include "XRMotionControllerBase.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -49,6 +50,8 @@ void AHandController::BeginPlay()
 	ChainsawOffset = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), FName("Saw"))[0]);
 
 	DeltaLocation = MotionController->GetComponentLocation();
+
+	Dog = Cast<ADog>(UGameplayStatics::GetActorOfClass(GetWorld(), ADog::StaticClass()));
 }
 
 // Called every frame
@@ -415,6 +418,11 @@ void AHandController::Release()
 			else if (GrabActor->ActorHasTag(TEXT("Ball")))
 			{
 				bIsHoldingBall = false;
+
+				if (Dog->bWantsToFetch)
+				{
+					Dog->FetchBall();
+				}
 				//tell dog to fetch
 			}
 
@@ -556,6 +564,15 @@ void AHandController::CanInteract()
 			if (OverlappingActor->IsA(ABall::StaticClass()))
 			{
 				// cant interact if the ball is being fetched
+				ABall *Ball = Cast<ABall>(OverlappingActor);
+				if (Ball != nullptr)
+				{
+					if (Ball->bBeingFetched)
+					{
+						bNewCanGrab = false;
+						return;
+					}
+				}
 			}
 
 			bNewCanGrab = true;

@@ -18,5 +18,8 @@ public:
 	ABall();
 
 	virtual void BeginPlay() override;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bBeingFetched = false;
 	
 };

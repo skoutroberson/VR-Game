@@ -174,6 +174,6 @@ private:
 	// Debug functions
 	void DrawDebugLines(float DeltaTime);
 
-	ADog *TheDog;
+	ADog *Dog = nullptr;
 
 };

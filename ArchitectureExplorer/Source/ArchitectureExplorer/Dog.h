@@ -71,12 +71,22 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void PickupBall();
 
-	bool bWantsToFetch = true;
 	// fetch the ball if bWantsToFetch = true and state != Fetching
 
 	UFUNCTION(BlueprintCallable)
 	void FetchBall();
 
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bWantsToFetch = true;
 
+	UFUNCTION(BlueprintCallable)
+	void DropBall();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void WaitAndDropBall();
+
+
+private:
+	void RotateToFacePlayer();
 };
