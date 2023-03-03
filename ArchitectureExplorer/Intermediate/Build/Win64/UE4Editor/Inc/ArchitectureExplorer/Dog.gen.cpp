@@ -17,7 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ADog_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ADog();
-	ENGINE_API UClass* Z_Construct_UClass_APawn();
+	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ABall_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
@@ -272,7 +272,7 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_ADog_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_APawn,
+		(UObject* (*)())Z_Construct_UClass_ACharacter,
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADog_Statics::FuncInfo[] = {
@@ -373,7 +373,7 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADog, 1274246221);
+	IMPLEMENT_CLASS(ADog, 3833479820);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ADog>()
 	{
 		return ADog::StaticClass();

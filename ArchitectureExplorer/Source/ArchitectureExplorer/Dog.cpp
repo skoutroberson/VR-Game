@@ -53,7 +53,8 @@ void ADog::ShouldPickUpBall()
 	// if close to ball then change state to STATE_PICKUP
 	// slow down move speed
 	const float Distance = FVector::Distance(GetActorLocation(), Ball->GetActorLocation());
-	if (Distance < 80.f)
+	
+	if (Distance < 145.f)
 	{
 		GetController()->StopMovement();
 		State = DogState::STATE_PICKUP;

@@ -176,4 +176,6 @@ private:
 
 	ADog *Dog = nullptr;
 
+	class AVRCharacter *Player = nullptr;
+
 };

@@ -801,6 +801,11 @@ void AErrolCharacter::UpdateMoveSpeedBasedOnPlayerCamera(float DeltaTime)
 	if (Dot < 0.5f)
 	{
 		Dot = 0.5f;
+		AVRCharacter *VRChar = Cast<AVRCharacter>(Player);
+		if (VRChar->bIsUsingDoor)
+		{
+			Dot = 0.2f;
+		}
 	}
 	else if (Dot > 0.7f)
 	{

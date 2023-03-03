@@ -258,4 +258,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool bDead = false;
 
+	bool bIsUsingDoor = false;
+
 };

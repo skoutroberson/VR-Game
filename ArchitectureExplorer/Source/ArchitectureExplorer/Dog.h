@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Character.h"
 #include "Ball.h"
 #include "Dog.generated.h"
 
@@ -23,7 +23,7 @@ enum class DogState : uint8
 };
 
 UCLASS()
-class ARCHITECTUREEXPLORER_API ADog : public APawn
+class ARCHITECTUREEXPLORER_API ADog : public ACharacter
 {
 	GENERATED_BODY()
 	

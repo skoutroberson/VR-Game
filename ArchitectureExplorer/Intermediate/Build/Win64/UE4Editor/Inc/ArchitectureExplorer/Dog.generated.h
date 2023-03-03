@@ -35,7 +35,7 @@ private: \
 	static void StaticRegisterNativesADog(); \
 	friend struct Z_Construct_UClass_ADog_Statics; \
 public: \
-	DECLARE_CLASS(ADog, APawn, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ArchitectureExplorer"), NO_API) \
+	DECLARE_CLASS(ADog, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ArchitectureExplorer"), NO_API) \
 	DECLARE_SERIALIZER(ADog)
 
 
@@ -44,7 +44,7 @@ private: \
 	static void StaticRegisterNativesADog(); \
 	friend struct Z_Construct_UClass_ADog_Statics; \
 public: \
-	DECLARE_CLASS(ADog, APawn, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ArchitectureExplorer"), NO_API) \
+	DECLARE_CLASS(ADog, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ArchitectureExplorer"), NO_API) \
 	DECLARE_SERIALIZER(ADog)
 
 

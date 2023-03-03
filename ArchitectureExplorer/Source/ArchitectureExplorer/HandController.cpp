@@ -20,6 +20,7 @@
 #include "Chainsaw.h"
 #include "Drawer.h"
 #include "Ball.h"
+#include "VRCharacter.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -52,6 +53,7 @@ void AHandController::BeginPlay()
 	DeltaLocation = MotionController->GetComponentLocation();
 
 	Dog = Cast<ADog>(UGameplayStatics::GetActorOfClass(GetWorld(), ADog::StaticClass()));
+	Player = Cast<AVRCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass()));
 }
 
 // Called every frame
@@ -299,7 +301,8 @@ void AHandController::Grip()
 		if (!bIsUsingDoor)
 		{
 			bIsUsingDoor = true;
-
+			Player->bIsUsingDoor = true;
+			
 			//OverlappingKnob = OverlappingDoor->GetRootComponent()->GetChildComponent(2);	/////////////////////////////////
 			//UE_LOG(LogTemp, Warning, TEXT("O: %s"), OverlappingKnob->GetName());
 
@@ -366,6 +369,12 @@ void AHandController::Release()
 	if (bIsUsingDoor)
 	{
 		bIsUsingDoor = false;
+		
+		if (!SisterController->bIsUsingDoor)
+		{
+			Player->bIsUsingDoor = false;
+		}
+
 		ADoor* CurrentDoor = Cast<ADoor>(OverlappingDoor);
 
 		if (CurrentDoor != nullptr && !CurrentDoor->bLocked)
