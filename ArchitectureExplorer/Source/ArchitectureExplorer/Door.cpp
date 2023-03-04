@@ -229,7 +229,7 @@ void ADoor::UseDoor(float DeltaTime)
 	SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI)) * 0.0002f;
 	SlerpSize = (SlerpSize > 3.f) ? 3.f : SlerpSize;
 
-	UE_LOG(LogTemp, Warning, TEXT("SLRP: %f"), SlerpSize);
+	//UE_LOG(LogTemp, Warning, TEXT("SLRP: %f"), SlerpSize);
 	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SlerpSize);
 	FQuat NewQuat = DHQ * DQ;
 
@@ -515,6 +515,7 @@ void ADoor::PassController(AActor * HC)
 
 		if (bPortalEnabled)
 		{
+			//
 			TurnOnSoundsAndLighting();
 		}
 	}

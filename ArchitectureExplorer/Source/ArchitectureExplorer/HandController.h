@@ -21,7 +21,9 @@ public:
 
 	void SetHand(EControllerHand Hand) { MotionController->SetTrackingSource(Hand); }
 
+	UFUNCTION(BlueprintCallable)
 	void Grip();
+	UFUNCTION(BlueprintCallable)
 	void Release();
 
 	// AKA the velocity vector of the hand controller
@@ -143,7 +145,7 @@ public:
 	bool bRevvingChainsaw = false;
 
 	// Actor that the hand controller can pick up
-
+	UPROPERTY(BlueprintReadWrite)
 	AActor * GrabActor = nullptr;
 
 

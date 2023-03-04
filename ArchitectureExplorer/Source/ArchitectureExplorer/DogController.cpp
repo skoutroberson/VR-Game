@@ -46,10 +46,8 @@ void ADogController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowin
 		}
 		break;
 	case EPathFollowingResult::Blocked:
-		UE_LOG(LogTemp, Warning, TEXT("DOG PATH BLOCKED"));
-		break;
 	case EPathFollowingResult::Invalid:
-		UE_LOG(LogTemp, Warning, TEXT("DOG MOVE REQUEST INVALID"));
+		UE_LOG(LogTemp, Warning, TEXT("DOG MOVE REQUEST INVALID OR PATH BLOCKED"));
 		if (Dog->State == DogState::STATE_FETCHING)
 		{
 			// play sad sound

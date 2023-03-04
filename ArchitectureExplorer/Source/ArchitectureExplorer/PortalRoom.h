@@ -9,6 +9,7 @@
 #include "Math/Vector.h"
 #include "BoxTrigger.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Engine/PostProcessVolume.h"
 #include "PortalRoom.generated.h"
 
 UCLASS()
@@ -61,5 +62,24 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void TurnOnSoundsAndLighting();
-	
+
+	// for updating the indirect lighting and sounds based on the start door angle
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bUpdateSoundsAndLighting = false;
+
+	void UpdateSoundsAndLightingBasedOnDoorAngle(float DeltaTime);
+
+	UPROPERTY(BlueprintReadWrite)
+	USceneComponent *DoorEndHinge = nullptr;
+
+	UPROPERTY(BlueprintReadWrite)
+	class ADoor *TheEndDoor = nullptr;
+	UPROPERTY(BlueprintReadWrite)
+	APostProcessVolume *PPV = nullptr;
+	class APhone *ThePhone = nullptr;
+	class UAudioComponent *PhoneRing = nullptr;
+	UPROPERTY(BlueprintReadWrite)
+	class USoundClass *WorldSoundClass = nullptr;
+	UPROPERTY(BlueprintReadWrite)
+	class USoundSubmix *WorldSoundSubmix = nullptr;
 };

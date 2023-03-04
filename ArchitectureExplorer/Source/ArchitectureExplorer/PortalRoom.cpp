@@ -17,6 +17,10 @@
 #include "BoxTrigger.h"
 #include "Door.h"
 #include "Radio.h"
+#include "Phone.h"
+#include "Components/AudioComponent.h"
+#include "Sound/SoundClass.h"
+#include "Sound/SoundSubmix.h"
 
 // Sets default values
 APortalRoom::APortalRoom()
@@ -38,6 +42,10 @@ void APortalRoom::BeginPlay()
 	RightHandController = VRCharacter->RightController;
 	LeftHandController = VRCharacter->LeftController;
 
+	ThePhone = Cast<APhone>(UGameplayStatics::GetActorOfClass(GetWorld(), APhone::StaticClass()));
+	PhoneRing = Cast<UAudioComponent>(ThePhone->GetComponentsByTag(UAudioComponent::StaticClass(), FName("Ring"))[0]);
+	WorldSoundClass = PhoneRing->Sound->GetSoundClass();
+	WorldSoundSubmix = WorldSoundClass->Properties.DefaultSubmix;
 }
 
 // Called every frame
@@ -45,6 +53,11 @@ void APortalRoom::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	UE_LOG(LogTemp, Warning, TEXT("Ticking"));
+	if (bUpdateSoundsAndLighting)
+	{
+		UpdateSoundsAndLightingBasedOnDoorAngle(DeltaTime);
+	}
 }
 
 // This was the old Teleport function
@@ -151,4 +164,34 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 
 	// so a footstep sound doesn't play on teleport
 	VRChar->DeltaLocation = TargetLocation;
+}
+
+void APortalRoom::UpdateSoundsAndLightingBasedOnDoorAngle(float DeltaTime)
+{
+	const float Theta = 0.087;
+	const float ThetaMultiplier = 1.0f / Theta;
+
+	const FVector FV = GetActorForwardVector();
+	const FVector PL = VRCharacter->GetActorLocation();
+	const FVector HL = DoorEndHinge->GetComponentLocation();
+	FVector Disp = PL - HL;
+	Disp = Disp.GetSafeNormal();
+
+	const float Dot = FVector::DotProduct(Disp, FV);
+
+	if (Dot < 0.04f)
+	{
+		const float DoorAngle = TheEndDoor->CurrentDoorAngle;
+		float ILI = DoorAngle * ThetaMultiplier;
+		ILI = FMath::Clamp(ILI, 0.0f, 1.0f);
+		if (DoorAngle >= Theta && ILI != 1.0f)
+		{
+			ILI = 1.0f;
+		}
+		PPV->Settings.IndirectLightingIntensity = ILI;
+		//WorldSoundClass->Properties.Volume = ILI;
+		WorldSoundSubmix->SetSubmixOutputVolume(GetWorld(), ILI);
+		//WorldSoundClass->Properties.DefaultSubmix->SetSubmixOutputVolume(GetWorld(), ILI);
+		//PhoneRing->SetVolumeMultiplier(ILI);
+	}
 }

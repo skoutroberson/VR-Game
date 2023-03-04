@@ -18,13 +18,17 @@ class AActor;
 #define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execActorEndOverlap); \
-	DECLARE_FUNCTION(execActorBeginOverlap);
+	DECLARE_FUNCTION(execActorBeginOverlap); \
+	DECLARE_FUNCTION(execRelease); \
+	DECLARE_FUNCTION(execGrip);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execActorEndOverlap); \
-	DECLARE_FUNCTION(execActorBeginOverlap);
+	DECLARE_FUNCTION(execActorBeginOverlap); \
+	DECLARE_FUNCTION(execRelease); \
+	DECLARE_FUNCTION(execGrip);
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_16_INCLASS_NO_PURE_DECLS \

@@ -18,6 +18,11 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
+	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ADoor_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_APostProcessVolume_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundClass_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundSubmix_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(APortalRoom::execTeleportPlayer)
 	{
@@ -174,6 +179,31 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OverlappingGrabbables_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_OverlappingGrabbables;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bUpdateSoundsAndLighting_MetaData[];
+#endif
+		static void NewProp_bUpdateSoundsAndLighting_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bUpdateSoundsAndLighting;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DoorEndHinge_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DoorEndHinge;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TheEndDoor_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TheEndDoor;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PPV_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PPV;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_WorldSoundClass_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_WorldSoundClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_WorldSoundSubmix_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_WorldSoundSubmix;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -204,9 +234,64 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables = { "OverlappingGrabbables", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APortalRoom, OverlappingGrabbables), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APortalRoom_Statics::NewProp_bUpdateSoundsAndLighting_MetaData[] = {
+		{ "Category", "PortalRoom" },
+		{ "Comment", "// for updating the indirect lighting and sounds based on the start door angle\n" },
+		{ "ModuleRelativePath", "PortalRoom.h" },
+		{ "ToolTip", "for updating the indirect lighting and sounds based on the start door angle" },
+	};
+#endif
+	void Z_Construct_UClass_APortalRoom_Statics::NewProp_bUpdateSoundsAndLighting_SetBit(void* Obj)
+	{
+		((APortalRoom*)Obj)->bUpdateSoundsAndLighting = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APortalRoom_Statics::NewProp_bUpdateSoundsAndLighting = { "bUpdateSoundsAndLighting", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APortalRoom), &Z_Construct_UClass_APortalRoom_Statics::NewProp_bUpdateSoundsAndLighting_SetBit, METADATA_PARAMS(Z_Construct_UClass_APortalRoom_Statics::NewProp_bUpdateSoundsAndLighting_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APortalRoom_Statics::NewProp_bUpdateSoundsAndLighting_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APortalRoom_Statics::NewProp_DoorEndHinge_MetaData[] = {
+		{ "Category", "PortalRoom" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "PortalRoom.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortalRoom_Statics::NewProp_DoorEndHinge = { "DoorEndHinge", nullptr, (EPropertyFlags)0x001000000008000c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APortalRoom, DoorEndHinge), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APortalRoom_Statics::NewProp_DoorEndHinge_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APortalRoom_Statics::NewProp_DoorEndHinge_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APortalRoom_Statics::NewProp_TheEndDoor_MetaData[] = {
+		{ "Category", "PortalRoom" },
+		{ "ModuleRelativePath", "PortalRoom.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortalRoom_Statics::NewProp_TheEndDoor = { "TheEndDoor", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APortalRoom, TheEndDoor), Z_Construct_UClass_ADoor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APortalRoom_Statics::NewProp_TheEndDoor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APortalRoom_Statics::NewProp_TheEndDoor_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APortalRoom_Statics::NewProp_PPV_MetaData[] = {
+		{ "Category", "PortalRoom" },
+		{ "ModuleRelativePath", "PortalRoom.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortalRoom_Statics::NewProp_PPV = { "PPV", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APortalRoom, PPV), Z_Construct_UClass_APostProcessVolume_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APortalRoom_Statics::NewProp_PPV_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APortalRoom_Statics::NewProp_PPV_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APortalRoom_Statics::NewProp_WorldSoundClass_MetaData[] = {
+		{ "Category", "PortalRoom" },
+		{ "ModuleRelativePath", "PortalRoom.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortalRoom_Statics::NewProp_WorldSoundClass = { "WorldSoundClass", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APortalRoom, WorldSoundClass), Z_Construct_UClass_USoundClass_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APortalRoom_Statics::NewProp_WorldSoundClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APortalRoom_Statics::NewProp_WorldSoundClass_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APortalRoom_Statics::NewProp_WorldSoundSubmix_MetaData[] = {
+		{ "Category", "PortalRoom" },
+		{ "ModuleRelativePath", "PortalRoom.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APortalRoom_Statics::NewProp_WorldSoundSubmix = { "WorldSoundSubmix", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APortalRoom, WorldSoundSubmix), Z_Construct_UClass_USoundSubmix_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APortalRoom_Statics::NewProp_WorldSoundSubmix_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APortalRoom_Statics::NewProp_WorldSoundSubmix_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APortalRoom_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortalRoom_Statics::NewProp_OverlappingGrabbables,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortalRoom_Statics::NewProp_bUpdateSoundsAndLighting,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortalRoom_Statics::NewProp_DoorEndHinge,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortalRoom_Statics::NewProp_TheEndDoor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortalRoom_Statics::NewProp_PPV,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortalRoom_Statics::NewProp_WorldSoundClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APortalRoom_Statics::NewProp_WorldSoundSubmix,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APortalRoom_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APortalRoom>::IsAbstract,
@@ -235,7 +320,7 @@ void EmptyLinkFunctionForGeneratedCodePortalRoom() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APortalRoom, 3256377882);
+	IMPLEMENT_CLASS(APortalRoom, 1799450213);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<APortalRoom>()
 	{
 		return APortalRoom::StaticClass();

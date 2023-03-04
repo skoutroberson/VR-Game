@@ -29,7 +29,7 @@ public:
 	bool FlyAtPlayer(float DeltaTime);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float FlyAtDistance = 200.f;
+	float FlyAtDistance = 120.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float CurrentFlyAtSpeed = 1000.0f;

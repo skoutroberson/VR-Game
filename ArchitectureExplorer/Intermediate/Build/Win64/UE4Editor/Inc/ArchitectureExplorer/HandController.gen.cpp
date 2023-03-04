@@ -40,12 +40,28 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		P_THIS->ActorBeginOverlap(Z_Param_OverlappedActor,Z_Param_OtherActor);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AHandController::execRelease)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Release();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AHandController::execGrip)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Grip();
+		P_NATIVE_END;
+	}
 	void AHandController::StaticRegisterNativesAHandController()
 	{
 		UClass* Class = AHandController::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ActorBeginOverlap", &AHandController::execActorBeginOverlap },
 			{ "ActorEndOverlap", &AHandController::execActorEndOverlap },
+			{ "Grip", &AHandController::execGrip },
+			{ "Release", &AHandController::execRelease },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -125,6 +141,50 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AHandController_Grip_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHandController_Grip_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HandController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHandController_Grip_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHandController, nullptr, "Grip", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHandController_Grip_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_Grip_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AHandController_Grip()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHandController_Grip_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AHandController_Release_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHandController_Release_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HandController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHandController_Release_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHandController, nullptr, "Release", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHandController_Release_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_Release_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AHandController_Release()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHandController_Release_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AHandController_NoRegister()
 	{
 		return AHandController::StaticClass();
@@ -188,6 +248,10 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HapticEffect_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HapticEffect;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GrabActor_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GrabActor;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -199,6 +263,8 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AHandController_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AHandController_ActorBeginOverlap, "ActorBeginOverlap" }, // 923936220
 		{ &Z_Construct_UFunction_AHandController_ActorEndOverlap, "ActorEndOverlap" }, // 2599293571
+		{ &Z_Construct_UFunction_AHandController_Grip, "Grip" }, // 2449933679
+		{ &Z_Construct_UFunction_AHandController_Release, "Release" }, // 273026658
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::Class_MetaDataParams[] = {
@@ -319,6 +385,15 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect = { "HapticEffect", nullptr, (EPropertyFlags)0x0040000000010001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHandController, HapticEffect), Z_Construct_UClass_UHapticFeedbackEffect_Base_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor_MetaData[] = {
+		{ "Category", "HandController" },
+		{ "Comment", "// Actor that the hand controller can pick up\n" },
+		{ "ModuleRelativePath", "HandController.h" },
+		{ "ToolTip", "Actor that the hand controller can pick up" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor = { "GrabActor", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHandController, GrabActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AHandController_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_DeltaLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_HandControllerVelocity,
@@ -332,6 +407,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingBottle,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_MotionController,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AHandController_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AHandController>::IsAbstract,
@@ -360,7 +436,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHandController, 3319637759);
+	IMPLEMENT_CLASS(AHandController, 573124339);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AHandController>()
 	{
 		return AHandController::StaticClass();
