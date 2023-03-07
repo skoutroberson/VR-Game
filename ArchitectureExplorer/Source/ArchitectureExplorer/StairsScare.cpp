@@ -23,6 +23,10 @@ void AStairsScare::RotateMeshAlongSpline(float Time)
 
 	Mesh->AddWorldRotation(Rot);
 
+	//SplinePath->FindInputKeyClosestToWorld
+	//SplinePath->GetDistanceAlongSplineAtSplineInputKey
+	//SplinePath->GetLength
+
 	//UE_LOG(LogTemp, Warning, TEXT("angle: %f"), YawAngle);
 
 	//DrawDebugLine(GetWorld(), Mesh->GetComponentLocation(), Mesh->GetComponentLocation() + SplineTangent * 120.f, FColor::Magenta, true);

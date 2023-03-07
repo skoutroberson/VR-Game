@@ -202,7 +202,11 @@ private:
 	bool bRightStep = false;
 	float DistanceMoved = 0;
 	UPROPERTY(EditAnywhere);
-	float DistanceThreshold = 98.f;
+	float DistanceThreshold = 85.f;
+
+	bool bFalling = false;
+
+	float SprintDistanceMultiplier = 1.0f;
 	// this should go down more if the players velocity is farther from velocity threshold
 	UPROPERTY(EditAnywhere);
 	float DistanceMovedDecrementAmount = 14.f;

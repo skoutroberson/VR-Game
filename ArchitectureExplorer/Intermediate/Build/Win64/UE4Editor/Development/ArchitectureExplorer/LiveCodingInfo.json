@@ -9,7 +9,6 @@
 			"Ball.cpp.obj",
 			"Bottle.cpp.obj",
 			"BoxTrigger.cpp.obj",
-			"Chainsaw.cpp.obj",
 			"ClosetScare.cpp.obj",
 			"Cockroach.cpp.obj",
 			"cPlayerHandAnimBP.cpp.obj",
@@ -17,6 +16,7 @@
 			"CrawlingMan.cpp.obj",
 			"CrawlSpaceScare.cpp.obj",
 			"Dog.cpp.obj",
+			"DogController.cpp.obj",
 			"DoorKey.cpp.obj",
 			"DoorManager.cpp.obj",
 			"Drawer.cpp.obj",
@@ -35,6 +35,7 @@
 			"PeekPoint.cpp.obj",
 			"Phone.cpp.obj",
 			"Portal.cpp.obj",
+			"PortalRoom.cpp.obj",
 			"QuatRotLib.cpp.obj",
 			"Quest.cpp.obj",
 			"Radio.cpp.obj",
@@ -49,11 +50,11 @@
 			"Stage3.cpp.obj",
 			"StageManager.cpp.obj",
 			"TriggerManager.cpp.obj",
-			"VRCharacter.cpp.obj",
-			"DogController.cpp.obj",
+			"AudioDistanceCrossfader.cpp.obj",
+			"Chainsaw.cpp.obj",
 			"Door.cpp.obj",
-			"PortalRoom.cpp.obj",
-			"StairsScare.cpp.obj"
+			"StairsScare.cpp.obj",
+			"VRCharacter.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.1_of_3.cpp.obj": [
 			"AboveYouScare.gen.cpp.obj",
@@ -71,13 +72,14 @@
 			"CrawlSpaceScare.gen.cpp.obj",
 			"Dog.gen.cpp.obj",
 			"DogController.gen.cpp.obj",
-			"Door.gen.cpp.obj",
 			"DoorKey.gen.cpp.obj",
 			"DoorManager.gen.cpp.obj",
 			"Drawer.gen.cpp.obj",
 			"Errol.gen.cpp.obj",
 			"ErrolCharacter.gen.cpp.obj",
-			"ArchitectureExplorer.init.gen.cpp.obj"
+			"ArchitectureExplorer.init.gen.cpp.obj",
+			"AudioDistanceCrossfader.gen.cpp.obj",
+			"Door.gen.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.2_of_3.cpp.obj": [
 			"ErrolController.gen.cpp.obj",
@@ -86,12 +88,14 @@
 			"Flashlight.gen.cpp.obj",
 			"Grabbable.gen.cpp.obj",
 			"HallwayStareScare.gen.cpp.obj",
+			"HandController.gen.cpp.obj",
 			"KeyCan.gen.cpp.obj",
 			"LightManager.gen.cpp.obj",
 			"LightningStrikeScare.gen.cpp.obj",
 			"PeekPoint.gen.cpp.obj",
 			"Phone.gen.cpp.obj",
 			"Portal.gen.cpp.obj",
+			"PortalRoom.gen.cpp.obj",
 			"QuatRotLib.gen.cpp.obj",
 			"Quest.gen.cpp.obj",
 			"Radio.gen.cpp.obj",
@@ -105,10 +109,8 @@
 			"Stage2.gen.cpp.obj",
 			"Stage3.gen.cpp.obj",
 			"StageManager.gen.cpp.obj",
-			"TriggerManager.gen.cpp.obj",
-			"HandController.gen.cpp.obj",
-			"PortalRoom.gen.cpp.obj",
-			"StairsScare.gen.cpp.obj"
+			"StairsScare.gen.cpp.obj",
+			"TriggerManager.gen.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.3_of_3.cpp.obj": [
 			"VRCharacter.gen.cpp.obj"

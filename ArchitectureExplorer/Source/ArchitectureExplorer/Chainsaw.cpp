@@ -158,6 +158,7 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 		EngineAudio->SetBoolParameter(FName("CD"), true);
 	}
 	*/
+	// instead of doing this. I think I want a seperate function to increase/decrease EngineValue based on curves
 	UE_LOG(LogTemp, Warning, TEXT("RPM: %f"), TriggerAxisValue);
 	EngineAudio->SetFloatParameter(FName("RPM"), TriggerAxisValue);
 	
@@ -457,6 +458,10 @@ void AChainsaw::Released(int HandHoldNum)
 {
 	Super::Released(HandHoldNum);
 
+	if (CurrentEngineValue > 0.0f)
+	{
+		// interpolate value to 0. Cancel interp if picked up again
+	}
 }
 
 void AChainsaw::InterpToMC(float DeltaTime)

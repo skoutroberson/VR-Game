@@ -284,24 +284,43 @@ void AVRCharacter::ReleaseTrigger(bool bLeft)
 void AVRCharacter::PlayFootStepSound()
 {
 	const float DeltaTime = GetWorld()->DeltaTimeSeconds;
-	const float V = (DeltaLocation - GetActorLocation()).Size();
+	const float V = FMath::Clamp((DeltaLocation - GetActorLocation()).Size(), 0.0f, 4.f);
 
 	//UE_LOG(LogTemp, Warning, TEXT("V: %f"), V);
 
 	// I should also make the noise quieter if the capsule height is smaller
 
-	if (V > VelocityThreshold)
+	if (bFalling)
+	{
+		bFalling = false;
+		// Play Sound
+		DistanceMoved = 0.f;
+
+		//UE_LOG(LogTemp, Warning, TEXT("Right Step"));
+		float HH = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+		FVector StepLocation = GetActorLocation();
+		StepLocation.Z -= HH;
+
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), FootstepSound,
+			StepLocation, V*2.f, FMath::Clamp(V * 0.5f, 0.9f, 1.3f));
+		bRightStep = false;
+	}
+	else if (V > VelocityThreshold)
 	{
 		DistanceMoved += V;
 
-		if (DistanceMoved > DistanceThreshold)
+		if (DistanceMoved > DistanceThreshold * SprintDistanceMultiplier)
 		{
 			// Play Sound
 			DistanceMoved = 0.f;
 			
 			//UE_LOG(LogTemp, Warning, TEXT("Right Step"));
+			float HH = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+			FVector StepLocation = GetActorLocation();
+			StepLocation.Z -= HH;
+
 			UGameplayStatics::PlaySoundAtLocation(GetWorld(), FootstepSound, 
-				VRRoot->GetComponentLocation() + Camera->GetRightVector() * 2.f, V*2.f);
+				StepLocation, V*2.f, FMath::Clamp(V * 0.5f, 0.9f, 1.3f));
 				bRightStep = false;
 			
 		}
@@ -325,7 +344,8 @@ bool AVRCharacter::CheckFloor()
 
 	FVector UV = GetActorUpVector();
 
-	bool FloorTrace = GetWorld()->LineTraceSingleByChannel(HitResult, FootLocation + UV * 5.f, FootLocation - UV * 15.f, ECollisionChannel::ECC_WorldStatic, CamHeightParams);
+	bool FloorTrace = GetWorld()->LineTraceSingleByChannel(HitResult, FootLocation + UV * 2.f, FootLocation - UV * 2.f, ECollisionChannel::ECC_WorldStatic, CamHeightParams);
+
 	
 	if (FloorTrace)
 	{
@@ -348,6 +368,11 @@ bool AVRCharacter::CheckFloor()
 		}
 		
 		return true;
+	}
+	else
+	{
+		bFalling = GetCharacterMovement()->IsFalling();
+		return !bFalling;
 	}
 
 	return false;
@@ -552,16 +577,18 @@ void AVRCharacter::Click()
 
 void AVRCharacter::Sprint()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Sprint"));
+	//UE_LOG(LogTemp, Warning, TEXT("Sprint"));
 	bSprint = true;
 	StepVolumeMultiplier = 6.f;
+	SprintDistanceMultiplier = 0.85f;
 }
 
 void AVRCharacter::StopSprint()
 {
-	UE_LOG(LogTemp, Warning, TEXT("StopSprint"));
+	//UE_LOG(LogTemp, Warning, TEXT("StopSprint"));
 	bSprint = false;
 	StepVolumeMultiplier = 1.8f;
+	SprintDistanceMultiplier = 1.0f;
 }
 
 

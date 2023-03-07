@@ -69,7 +69,6 @@ void ADoor::BeginPlay()
 	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector().RotateAngleAxis(148.f, DoorHinge->GetUpVector()) * 91.f, FColor::Black, true);
 	//148 - 270
 
-	SwingAudioComponent = Cast<UAudioComponent>(GetComponentByClass(UAudioComponent::StaticClass()));
 	Doorknob = Cast<USphereComponent>(GetComponentByClass(USphereComponent::StaticClass()));
 
 	SwingOpenSoundDuration = SwingOpenSound->GetDuration();
@@ -100,6 +99,7 @@ void ADoor::Tick(float DeltaTime)
 	}
 	else if (!bLocked && bIsBeingUsed)
 	{
+		InterpToHC(DeltaTime);
 		UseDoor(DeltaTime);
 	}
 	else if (bSwing)
@@ -119,8 +119,9 @@ void ADoor::Swing(float DeltaTime)
 	SwingVelocity = (SwingVelocity > 0) ? SwingVelocity - (HingeFriction * DeltaTime) : SwingVelocity - (-HingeFriction * DeltaTime);
 
 	FQuat DHQ = DoorHinge->GetComponentQuat();
-	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SwingVelocity);
+	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SwingVelocity * DeltaTime); // 120 is for the target framerate
 	FQuat NewQuat = DHQ * DQ;
+	//NewQuat = FMath::QInterpConstantTo(DHQ, DQ * DHQ, DeltaTime, 5.f);
 
 	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
 	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
@@ -155,6 +156,13 @@ void ADoor::Swing(float DeltaTime)
 	{
 		SwingAudioComponent->Stop();
 		// play a door collision sound here
+
+		OpenHitAudio->Stop();
+		const float OpenHitVolume = FMath::Clamp(FMath::Abs(SwingVelocity) *50.f, 0.0f, 1.0f);
+		OpenHitAudio->SetVolumeMultiplier(OpenHitVolume);
+		OpenHitAudio->Play();
+		
+
 		if (KnobCollision)
 		{
 			SwingVelocity = -SwingVelocity * 0.16f;
@@ -168,8 +176,11 @@ void ADoor::Swing(float DeltaTime)
 	else
 	{
 		DoorHinge->AddLocalRotation(DQ, true);
+		//DoorHinge->AddLocalRotation(NewQuat);
+		//DoorHinge->SetRelativeRotation(FMath::QInterpConstantTo(DHQ, NewQuat, DeltaTime, 1.4f), true);
+		//DoorHinge->AddLocalRotation(FMath::QInterpConstantTo(DHQ, NewQuat, DeltaTime, 1.4f));
 
-		PlaySwingAudio(SwingVelocity);
+		PlaySwingAudio(SwingVelocity * DeltaTime);
 		// play swing sound
 
 		bFullyClosed = false;
@@ -220,18 +231,24 @@ void ADoor::CollisionSwing(float DeltaTime)
 
 void ADoor::UseDoor(float DeltaTime)
 {
-	FVector HCDelta = LastHCLocation - HandController->GetActorLocation();
+	//FVector HCDelta = LastHCLocation - HandController->GetActorLocation();
+	FVector HCDelta = LastInterpHCLocation - InterpHCLocation;
 	HCDelta.Z = 0;
+
+	//float DeltaSize = FMath::Clamp(HCDelta.Size(), 0.0f, 1.0f);
+
 	FVector DFV = DoorHinge->GetForwardVector();
 	float Dot = FVector::DotProduct(HCDelta.GetSafeNormal(), DFV);
 	FQuat DHQ = DoorHinge->GetComponentQuat();
 
 	SlerpSize = (-Dot * HCDelta.Size() * (180.f / PI)) * 0.0002f;
-	SlerpSize = (SlerpSize > 3.f) ? 3.f : SlerpSize;
+	//SlerpSize = (-Dot * DeltaSize * (180.f / PI)) * 0.0002f;
+	SlerpSize = (SlerpSize > 2.0f) ? 2.0f : SlerpSize;
 
 	//UE_LOG(LogTemp, Warning, TEXT("SLRP: %f"), SlerpSize);
 	FQuat DQ = FQuat(DoorHinge->GetUpVector(), SlerpSize);
 	FQuat NewQuat = DHQ * DQ;
+	//NewQuat = FMath::QInterpConstantTo(DHQ, DQ * DHQ, DeltaTime, 5.f);
 
 	float MinDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MinRotation);
 	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
@@ -275,12 +292,22 @@ void ADoor::UseDoor(float DeltaTime)
 		// stop swing sound
 		// play door collision sound
 
+		OpenHitAudio->Stop();
+		const float OpenHitVolume = FMath::Clamp(FMath::Abs(SlerpSize) *50.f, 0.0f, 1.0f);
+		OpenHitAudio->SetVolumeMultiplier(OpenHitVolume);
+		OpenHitAudio->Play();
+		
+
 		//UE_LOG(LogTemp, Warning, TEXT("MAX"));
 		bFullyClosed = false;
 	}
 	else
 	{
 		DoorHinge->AddLocalRotation(DQ);
+		//DoorHinge->AddLocalRotation(NewQuat);
+		//DoorHinge->SetRelativeRotation(FMath::QInterpConstantTo(DHQ, NewQuat, DeltaTime, 1.4f), true);
+
+		//DoorHinge->AddLocalRotation(FMath::QInterpConstantTo(DHQ, NewQuat, DeltaTime, 1.4f));
 
 		if (SlerpSize > 0)
 		{
@@ -307,10 +334,11 @@ void ADoor::UseDoor(float DeltaTime)
 	}
 
 	LastHCLocation = HandController->GetActorLocation();
+	LastInterpHCLocation = InterpHCLocation;
 
-	if (fabsf(SlerpSize) > MaxSwingVelocity)
+	if (fabsf(SlerpSize) > 2.0f)
 	{
-		MaxSwingVelocity = SlerpSize;
+		SlerpSize = 2.0f;
 	}
 	//UE_LOG(LogTemp, Warning, TEXT("Max: %f"), MaxSwingVelocity);
 	//UE_LOG(LogTemp, Warning, TEXT("SV: %f"), SlerpSize); 
@@ -319,11 +347,26 @@ void ADoor::UseDoor(float DeltaTime)
 void ADoor::PlaySwingAudio(const float Velocity)
 {
 	const float AbsVel = fabsf(Velocity);
-	const float SwingVolumeMultiplier = FMath::Clamp(AbsVel * 50.f, 0.0f, 1.0f);
-	const float SwingPitchMultiplier = FMath::Clamp(Velocity * 100.f, 0.7f, 1.4f);
+	const float SwingVolumeMultiplier = FMath::Clamp(AbsVel * 40.f, 0.0f, 1.0f);
+	const float SwingPitchMultiplier = FMath::Clamp(AbsVel * 100.f, 0.9f, 1.1f);
 	SwingAudioComponent->SetVolumeMultiplier(SwingVolumeMultiplier);
+	//SwingAudioComponent->SetPitchMultiplier(SwingPitchMultiplier);
 
 	//UE_LOG(LogTemp, Warning, TEXT("Volume: %f"), SwingVolumeMultiplier);
+
+	// play different swing sounds for opening vs closing the door?
+
+	//UE_LOG(LogTemp, Warning, TEXT("Vel: %f"), Velocity);
+
+	if (Velocity > 0)
+	{
+		SwingAudioComponent->SetBoolParameter(FName("Open"), true);
+	}
+	else if(Velocity < 0)
+	{
+		SwingAudioComponent->SetBoolParameter(FName("Open"), false);
+	}
+	
 
 	if (AbsVel > MinSwingAudioVelocity)
 	{
@@ -336,12 +379,13 @@ void ADoor::PlaySwingAudio(const float Velocity)
 		}
 		else if(!SwingAudioComponent->IsPlaying())
 		{
+			
 			SwingAudioComponent->Play();
 		}
 	}
 	else
 	{
-		SwingAudioComponent->Stop();
+		//SwingAudioComponent->Stop();
 	}
 }
 
@@ -369,7 +413,7 @@ float ADoor::BinarySearchForMaxAngle()
 	FCollisionQueryParams ColParams;
 	ColParams.AddIgnoredActor(this);
 
-	UWorld* World = GetWorld();
+	//UWorld* World = GetWorld();
 
 	while (fabsf(Max - Min) > 1.f)
 	{
@@ -501,6 +545,8 @@ void ADoor::PassController(AActor * HC)
 		bIsBeingUsed = true;
 		HandController = HC;
 		LastHCLocation = HandController->GetActorLocation();
+		InterpHCLocation = LastHCLocation;
+		LastInterpHCLocation = InterpHCLocation;
 
 		float Dot = FVector::DotProduct(HandController->GetActorForwardVector(), DoorHinge->GetForwardVector());
 		if (Dot > 0)
@@ -534,7 +580,9 @@ void ADoor::SetIsBeingUsed(bool Value)
 	if (!Value)
 	{
 		bSwing = true;
-		SwingVelocity = (SlerpSize > 3.f) ? 3.f : SlerpSize;
+
+		SwingVelocity = SlerpSize * (1.0f / World->DeltaTimeSeconds);
+		//SwingVelocity = (SlerpSize > 2.0f) ? 2.0f : SlerpSize;
 	}
 }
 
@@ -566,6 +614,8 @@ void ADoor::CloseDoorUsingCurve(float DeltaTime)
 	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
 
 	CurrentDoorAngle = MaxAngleRadians - MaxDistance;
+
+	SwingAudioComponent->SetBoolParameter(FName("Open"), false); // doesn't need to be done every frame
 
 	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector() * 300.f, FColor::Cyan, false, 2 * DeltaTime);
 
@@ -638,6 +688,8 @@ void ADoor::OpenDoorUsingCurve(float DeltaTime)
 
 	CurrentDoorAngle = MaxAngleRadians - MaxDistance;
 
+	SwingAudioComponent->SetBoolParameter(FName("Open"), true); // doesn't need to be done every frame
+
 	//DrawDebugLine(GetWorld(), DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + DoorHinge->GetForwardVector() * 300.f, FColor::Cyan, false, 2 * DeltaTime);
 
 	//UE_LOG(LogTemp, Warning, TEXT("D: %f"), Dot);
@@ -706,4 +758,10 @@ void ADoor::OpenDoorUsingCurve(float DeltaTime)
 
 		bFullyClosed = false;
 	}
+}
+
+void ADoor::InterpToHC(float DeltaTime)
+{
+	InterpHCLocation = FMath::VInterpTo(InterpHCLocation, HandController->GetActorLocation(), DeltaTime, 8.f);
+	//DrawDebugSphere(World, InterpHCLocation, 5.f, 10.f, FColor::Cyan, false, DeltaTime * 1.1f);
 }

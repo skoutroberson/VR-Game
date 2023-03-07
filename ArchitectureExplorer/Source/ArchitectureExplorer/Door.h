@@ -83,7 +83,7 @@ public:
 	float CloseAudioMultiplier = 10.f;
 
 	UPROPERTY(EditAnywhere)
-	float MinSwingAudioVelocity = 0.001f;
+	float MinSwingAudioVelocity = 0.0055f;
 
 	bool bSwingingPositive = false;
 	// used for determining if we should stop the current swing audio and play another wave on direction changes.
@@ -94,7 +94,7 @@ private:
 	class UWorld *World;
 	
 	float SlerpSize;
-	const float HingeFriction = 0.008f;
+	const float HingeFriction = 0.3f;
 	const float DoorLength = 91.f;
 	float MaxAngleRadians = 0;
 
@@ -156,8 +156,6 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	class USoundCue * CapsuleCollisionSound;
 
-	UAudioComponent * SwingAudioComponent = nullptr;
-
 	bool bSwingingOpen = false;
 	bool bPlayingSwingSound = false;
 
@@ -173,6 +171,11 @@ private:
 	float MaxSwingVelocity = 0;
 
 public:
+
+	UPROPERTY(BlueprintReadWrite)
+	UAudioComponent * SwingAudioComponent = nullptr;
+	UPROPERTY(BlueprintReadWrite)
+	UAudioComponent *OpenHitAudio = nullptr;
 
 	// A key with this tag will unlock this door.
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite)
@@ -232,4 +235,8 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	bool IsErrolOpening = false;
+
+	void InterpToHC(float DeltaTime);
+	FVector InterpHCLocation = FVector::ZeroVector;
+	FVector LastInterpHCLocation = FVector::ZeroVector;
 };

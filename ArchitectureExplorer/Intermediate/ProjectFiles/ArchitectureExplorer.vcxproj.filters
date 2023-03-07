@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ArchitectureExplorer.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{2F9F36FE-535A-4ECB-B867-F7A7A84D7E72}</UniqueIdentifier>
+      <UniqueIdentifier>{562A429A-B1B5-4F9B-8608-C4FCD2A2D891}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ArchitectureExplorer.Target.cs">
       <Filter>Source</Filter>
@@ -15,7 +15,7 @@
     <None Include="..\..\FootstepsSoundV2.png" />
     <None Include="..\..\GermanShepherd_M.png" />
     <Filter Include="Config">
-      <UniqueIdentifier>{C78D25F6-0940-475E-9E13-5DF4BB059D7B}</UniqueIdentifier>
+      <UniqueIdentifier>{F34C7AD4-6488-48BA-96DD-92F3E969953D}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -36,22 +36,22 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Plugins">
-      <UniqueIdentifier>{EA99A0DB-7178-4754-B58C-5B03C8D2BCAC}</UniqueIdentifier>
+      <UniqueIdentifier>{130C49D3-B1E2-45CB-8943-FADE4DEBA3ED}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\StateMachine">
-      <UniqueIdentifier>{EE13FD9E-7858-4706-8425-2DD30126FFD0}</UniqueIdentifier>
+      <UniqueIdentifier>{E9D3B4D4-7985-44A5-8685-69344C25495D}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\StateMachine\Source">
-      <UniqueIdentifier>{EB51DD7F-E4E2-48EE-A371-791C8CEDF1FB}</UniqueIdentifier>
+      <UniqueIdentifier>{0EF958AF-FFE1-49C6-B008-C09106F8DD84}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\StateMachine\Source\StateMachine">
-      <UniqueIdentifier>{43028A0C-F8B7-47BA-905A-816FFB2BE981}</UniqueIdentifier>
+      <UniqueIdentifier>{C670C29F-A955-416F-BD8A-096F8008CF6D}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\StateMachine\Source\StateMachine\StateMachine.Build.cs">
       <Filter>Plugins\StateMachine\Source\StateMachine</Filter>
     </None>
     <Filter Include="Plugins\StateMachine\Source\StateMachine\Classes">
-      <UniqueIdentifier>{CCA532CD-2530-4751-8FA3-5A87E2FFB283}</UniqueIdentifier>
+      <UniqueIdentifier>{7CAD2A82-2C0C-478F-A36A-E1C8865365EA}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Plugins\StateMachine\Source\StateMachine\Classes\DummyObject.h">
       <Filter>Plugins\StateMachine\Source\StateMachine\Classes</Filter>
@@ -60,7 +60,7 @@
       <Filter>Plugins\StateMachine\Source\StateMachine\Classes</Filter>
     </ClInclude>
     <Filter Include="Plugins\StateMachine\Source\StateMachine\Private">
-      <UniqueIdentifier>{4C256579-BC61-4585-AD9D-F15422FC66FD}</UniqueIdentifier>
+      <UniqueIdentifier>{89E4863C-A61F-44AF-AC65-39CEAE606174}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Plugins\StateMachine\Source\StateMachine\Private\SM_State.cpp">
       <Filter>Plugins\StateMachine\Source\StateMachine\Private</Filter>
@@ -69,25 +69,25 @@
       <Filter>Plugins\StateMachine\Source\StateMachine\Private</Filter>
     </ClCompile>
     <Filter Include="Plugins\StateMachine\Source\StateMachine\Public">
-      <UniqueIdentifier>{3CD8BBBA-C9FB-40B7-A80C-3BDB7F7B668E}</UniqueIdentifier>
+      <UniqueIdentifier>{6E6A6161-C73E-47BB-8EEA-59D26FDF6BE1}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Plugins\StateMachine\Source\StateMachine\Public\StateMachine.h">
       <Filter>Plugins\StateMachine\Source\StateMachine\Public</Filter>
     </ClInclude>
     <Filter Include="Plugins\Sketchfab">
-      <UniqueIdentifier>{E5DADC77-98D8-4F01-9838-E8B3368B29ED}</UniqueIdentifier>
+      <UniqueIdentifier>{082C5C61-B290-4658-9AB1-85E2FC9EABCD}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\Sketchfab\Sketchfab-windows-426">
-      <UniqueIdentifier>{9EEDABB0-1FAF-4D3C-B2E2-5427D5B4C693}</UniqueIdentifier>
+      <UniqueIdentifier>{41C7448D-7EEA-4779-B5CB-88926CBB7500}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\Sketchfab\Sketchfab-windows-426\Sketchfab">
-      <UniqueIdentifier>{68A4E4BE-F083-488B-A7B7-F4F85AB25115}</UniqueIdentifier>
+      <UniqueIdentifier>{41C73BB1-3E83-4141-8C6D-A82977E8465F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\Sketchfab\Sketchfab-windows-426\Sketchfab\Sketchfab.uplugin">
       <Filter>Plugins\Sketchfab\Sketchfab-windows-426\Sketchfab</Filter>
     </None>
     <Filter Include="Plugins\Sketchfab\Sketchfab-windows-426\Sketchfab\Resources">
-      <UniqueIdentifier>{3B1688EF-80C7-4032-A806-364CD539278F}</UniqueIdentifier>
+      <UniqueIdentifier>{BEBE84E0-8A77-483C-8EAB-4D118BFA49EC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\Sketchfab\Sketchfab-windows-426\Sketchfab\Resources\Icon128.png">
       <Filter>Plugins\Sketchfab\Sketchfab-windows-426\Sketchfab\Resources</Filter>
@@ -96,13 +96,13 @@
       <Filter>Plugins\StateMachine</Filter>
     </None>
     <Filter Include="Plugins\StateMachine\Resources">
-      <UniqueIdentifier>{253E6AE3-42D4-483F-ADA6-1E8FAA8B02C0}</UniqueIdentifier>
+      <UniqueIdentifier>{6BE3AFD8-CB6A-4DB1-A1D8-8CE2A0B7B778}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\StateMachine\Resources\Icon128.png">
       <Filter>Plugins\StateMachine\Resources</Filter>
     </None>
     <Filter Include="Source\ArchitectureExplorer">
-      <UniqueIdentifier>{438477D2-8F1C-4CC8-B4BD-18FA8AD3B73F}</UniqueIdentifier>
+      <UniqueIdentifier>{719D69C3-267E-450D-A0E8-25EBF7E0DE77}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ArchitectureExplorer\AboveYouScare.cpp">
       <Filter>Source\ArchitectureExplorer</Filter>
@@ -129,6 +129,12 @@
       <Filter>Source\ArchitectureExplorer</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ArchitectureExplorer\ArchitectureExplorerGameModeBase.h">
+      <Filter>Source\ArchitectureExplorer</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ArchitectureExplorer\AudioDistanceCrossfader.cpp">
+      <Filter>Source\ArchitectureExplorer</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArchitectureExplorer\AudioDistanceCrossfader.h">
       <Filter>Source\ArchitectureExplorer</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\ArchitectureExplorer\Ball.cpp">
