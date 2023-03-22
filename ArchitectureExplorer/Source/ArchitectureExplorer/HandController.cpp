@@ -30,6 +30,8 @@ AHandController::AHandController()
 
 	MotionController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("MotionController"));
 	SetRootComponent(MotionController);
+
+	State = HandControllerState::STATE_IDLE;
 }
 
 // Called when the game starts or when spawned
@@ -71,7 +73,7 @@ void AHandController::Tick(float DeltaTime)
 	if (bIsClimbing)
 	{
 		FVector HandControllerDelta = GetActorLocation() - ClimbingStartLocation;
-		GetAttachParentActor()->AddActorWorldOffset(-HandControllerDelta);
+		GetAttachParentActor()->AddActorWorldOffset(-HandControllerDelta, true);
 	}
 	else if (bIsUsingDoor)
 	{
@@ -290,7 +292,9 @@ void AHandController::Grip()
 			ClimbingStartLocation = GetActorLocation();
 			GripSize = 80.f;
 
-			AVRCharacter * VRChar = Cast<AVRCharacter>(GetAttachParentActor());
+			SisterController->bIsClimbing = false; // Hopfully this doesn't cause any issues. I'm puttting this here so PortalLadderRoom knows which HandController's ClimbingStartLocation to use.
+
+			AVRCharacter * VRChar = Cast<AVRCharacter>(GetAttachParentActor()); // dont need to do this cast here but i have lots of CPU ms to spare
 			VRChar->bClimbing = true;
 
 			return;
@@ -509,7 +513,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 			//UE_LOG(LogTemp, Warning, TEXT("Can Grab!"));
 			GripSize = GripSizeCanGrab;
 
-			PlayCanGrabHapticEffect();
+			//PlayCanGrabHapticEffect();
 		}
 		bCanGrab = bNewCanGrab;
 		// Climb mechanics
@@ -518,7 +522,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 			//UE_LOG(LogTemp, Warning, TEXT("Can Climb!"));
 			GripSize = GripSizeCanGrab;
 
-			PlayCanGrabHapticEffect();
+			//PlayCanGrabHapticEffect();
 		}
 		bCanClimb = bNewCanClimb;
 		// Door mechanics
@@ -527,7 +531,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 			//UE_LOG(LogTemp, Warning, TEXT("Can use door!"));
 			GripSize = GripSizeCanGrab;
 
-			PlayCanGrabHapticEffect();
+			//PlayCanGrabHapticEffect();
 		}
 		bCanUseDoor = bNewCanUseDoor;
 
@@ -535,7 +539,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 		{
 			GripSize = GripSizeCanGrab;
 
-			PlayCanGrabHapticEffect();
+			//PlayCanGrabHapticEffect();
 		}
 	}
 }
@@ -585,12 +589,14 @@ void AHandController::CanInteract()
 			}
 
 			bNewCanGrab = true;
+			State = HandControllerState::STATE_CANGRAB;
 			GrabActor = OverlappingActor;
 			return;
 		}
 		else if (OverlappingActor->ActorHasTag(TEXT("Climbable")))
 		{
 			bNewCanClimb = true;
+			State = HandControllerState::STATE_CANGRAB;
 			return;
 		}
 		/*
@@ -607,6 +613,7 @@ void AHandController::CanInteract()
 		if (OC->ComponentHasTag(TEXT("Knob")))
 		{
 			bNewCanUseDoor = true;
+			State = HandControllerState::STATE_CANGRAB;
 			OverlappingKnob = OC;
 			OverlappingDoor = OC->GetOwner();
 			return;
@@ -614,14 +621,17 @@ void AHandController::CanInteract()
 		else if (OC->ComponentHasTag(TEXT("Drawer")))
 		{
 			bNewCanUseDrawer = true;
+			State = HandControllerState::STATE_CANGRAB;
 			GrabActor = OC->GetAttachmentRootActor();
 			return;
 		}
 	}
 	
+	State = HandControllerState::STATE_IDLE;
 	bNewCanClimb = false;
 	bNewCanUseDoor = false;
 	bNewCanGrab = false;
+	bNewCanUseDrawer = false;
 }
 
 void AHandController::CheckDoorDistance()

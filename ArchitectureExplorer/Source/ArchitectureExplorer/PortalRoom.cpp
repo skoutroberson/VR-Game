@@ -53,7 +53,6 @@ void APortalRoom::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UE_LOG(LogTemp, Warning, TEXT("Ticking"));
 	if (bUpdateSoundsAndLighting)
 	{
 		UpdateSoundsAndLightingBasedOnDoorAngle(DeltaTime);
@@ -131,7 +130,7 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 	// get all overlapping grabbable actors in the portal room bounds,
 	// teleport them to the target portal with the player
 
-	int counter = 0;
+	//int counter = 0;
 
 	int n = OverlappingGrabbables.Num();
 
@@ -152,10 +151,10 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 		OverlappingGrabbables[i]->GetVelocity().Set(GrabNewVelocity.X, GrabNewVelocity.Y, GrabNewVelocity.Z);
 		OverlappingGrabbables[i]->SetActorLocationAndRotation(GrabTargetLocation, GrabTeleportRotation);
 
-		counter++;
+		//counter++;
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("Items: %d"), counter);
+	//UE_LOG(LogTemp, Warning, TEXT("Items: %d"), counter);
 	//UE_LOG(LogTemp, Warning, TEXT("1: %f %f %f"), DeltaPosition.X, DeltaPosition.Y, DeltaPosition.Z);
 	//UE_LOG(LogTemp, Warning, TEXT("2: %f %f %f"), NewDeltaPosition.X, NewDeltaPosition.Y, NewDeltaPosition.Z);
 	VRChar->GetCharacterMovement()->Velocity.Set(NewVelocity.X, NewVelocity.Y, NewVelocity.Z);

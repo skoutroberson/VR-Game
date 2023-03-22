@@ -13,15 +13,93 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeHandController() {}
 // Cross Module References
+	ARCHITECTUREEXPLORER_API UEnum* Z_Construct_UEnum_ArchitectureExplorer_HandControllerState();
+	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AHandController_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AHandController();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
-	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	HEADMOUNTEDDISPLAY_API UClass* Z_Construct_UClass_UMotionControllerComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UHapticFeedbackEffect_Base_NoRegister();
 // End Cross Module References
+	static UEnum* HandControllerState_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_ArchitectureExplorer_HandControllerState, Z_Construct_UPackage__Script_ArchitectureExplorer(), TEXT("HandControllerState"));
+		}
+		return Singleton;
+	}
+	template<> ARCHITECTUREEXPLORER_API UEnum* StaticEnum<HandControllerState>()
+	{
+		return HandControllerState_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_HandControllerState(HandControllerState_StaticEnum, TEXT("/Script/ArchitectureExplorer"), TEXT("HandControllerState"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_HandControllerState_Hash() { return 832772849U; }
+	UEnum* Z_Construct_UEnum_ArchitectureExplorer_HandControllerState()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_ArchitectureExplorer();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("HandControllerState"), 0, Get_Z_Construct_UEnum_ArchitectureExplorer_HandControllerState_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "HandControllerState::STATE_IDLE", (int64)HandControllerState::STATE_IDLE },
+				{ "HandControllerState::STATE_CANGRAB", (int64)HandControllerState::STATE_CANGRAB },
+				{ "HandControllerState::STATE_FLASHLIGHT", (int64)HandControllerState::STATE_FLASHLIGHT },
+				{ "HandControllerState::STATE_BALL", (int64)HandControllerState::STATE_BALL },
+				{ "HandControllerState::STATE_LADDER", (int64)HandControllerState::STATE_LADDER },
+				{ "HandControllerState::STATE_DOOR", (int64)HandControllerState::STATE_DOOR },
+				{ "HandControllerState::STATE_CHAINSAW1", (int64)HandControllerState::STATE_CHAINSAW1 },
+				{ "HandControllerState::STATE_CHAINSAW2", (int64)HandControllerState::STATE_CHAINSAW2 },
+				{ "HandControllerState::STATE_PET", (int64)HandControllerState::STATE_PET },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "ModuleRelativePath", "HandController.h" },
+				{ "STATE_BALL.DisplayName", "Ball" },
+				{ "STATE_BALL.Name", "HandControllerState::STATE_BALL" },
+				{ "STATE_CANGRAB.DisplayName", "CanGrab" },
+				{ "STATE_CANGRAB.Name", "HandControllerState::STATE_CANGRAB" },
+				{ "STATE_CHAINSAW1.DisplayName", "Chainsaw1" },
+				{ "STATE_CHAINSAW1.Name", "HandControllerState::STATE_CHAINSAW1" },
+				{ "STATE_CHAINSAW2.DisplayName", "Chainsaw2" },
+				{ "STATE_CHAINSAW2.Name", "HandControllerState::STATE_CHAINSAW2" },
+				{ "STATE_DOOR.DisplayName", "Door" },
+				{ "STATE_DOOR.Name", "HandControllerState::STATE_DOOR" },
+				{ "STATE_FLASHLIGHT.DisplayName", "Flashlight" },
+				{ "STATE_FLASHLIGHT.Name", "HandControllerState::STATE_FLASHLIGHT" },
+				{ "STATE_IDLE.DisplayName", "Idle" },
+				{ "STATE_IDLE.Name", "HandControllerState::STATE_IDLE" },
+				{ "STATE_LADDER.DisplayName", "Ladder" },
+				{ "STATE_LADDER.Name", "HandControllerState::STATE_LADDER" },
+				{ "STATE_PET.DisplayName", "Pet" },
+				{ "STATE_PET.Name", "HandControllerState::STATE_PET" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
+				nullptr,
+				"HandControllerState",
+				"HandControllerState",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 	DEFINE_FUNCTION(AHandController::execActorEndOverlap)
 	{
 		P_GET_OBJECT(AActor,Z_Param_OverlappedActor);
@@ -252,6 +330,11 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GrabActor_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GrabActor;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_State_Underlying;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_State_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_State;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -375,7 +458,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		{ "ToolTip", "Default sub object" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_MotionController = { "MotionController", nullptr, (EPropertyFlags)0x00400000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHandController, MotionController), Z_Construct_UClass_UMotionControllerComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_MotionController_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_MotionController_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_MotionController = { "MotionController", nullptr, (EPropertyFlags)0x00100000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHandController, MotionController), Z_Construct_UClass_UMotionControllerComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_MotionController_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_MotionController_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect_MetaData[] = {
 		{ "Category", "HandController" },
@@ -394,6 +477,14 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor = { "GrabActor", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHandController, GrabActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_State_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_State_MetaData[] = {
+		{ "Category", "HandAnimation" },
+		{ "ModuleRelativePath", "HandController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_State = { "State", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHandController, State), Z_Construct_UEnum_ArchitectureExplorer_HandControllerState, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_State_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_State_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AHandController_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_DeltaLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_HandControllerVelocity,
@@ -408,6 +499,8 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_MotionController,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_State_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_State,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AHandController_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AHandController>::IsAbstract,
@@ -436,7 +529,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHandController, 573124339);
+	IMPLEMENT_CLASS(AHandController, 1871312563);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AHandController>()
 	{
 		return AHandController::StaticClass();

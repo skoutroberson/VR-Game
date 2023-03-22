@@ -116,6 +116,11 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StartRotation_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_StartRotation;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_b1Held_MetaData[];
+#endif
+		static void NewProp_b1Held_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_b1Held;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -299,6 +304,17 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_StartRotation = { "StartRotation", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, StartRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_StartRotation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_StartRotation_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_b1Held_MetaData[] = {
+		{ "Category", "Grabbable" },
+		{ "ModuleRelativePath", "Grabbable.h" },
+	};
+#endif
+	void Z_Construct_UClass_AGrabbable_Statics::NewProp_b1Held_SetBit(void* Obj)
+	{
+		((AGrabbable*)Obj)->b1Held = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_b1Held = { "b1Held", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AGrabbable), &Z_Construct_UClass_AGrabbable_Statics::NewProp_b1Held_SetBit, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_b1Held_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_b1Held_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGrabbable_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemGripSize,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemWeight,
@@ -318,6 +334,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_MotionController2,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_StartLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_StartRotation,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_b1Held,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGrabbable_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AGrabbable>::IsAbstract,
@@ -346,7 +363,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGrabbable, 3367098599);
+	IMPLEMENT_CLASS(AGrabbable, 537777519);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AGrabbable>()
 	{
 		return AGrabbable::StaticClass();

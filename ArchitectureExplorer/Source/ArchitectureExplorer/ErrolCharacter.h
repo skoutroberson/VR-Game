@@ -194,7 +194,7 @@ public:
 	void EnterShoulderPeekState();
 
 	// CHASE
-
+	UFUNCTION(BlueprintCallable)
 	void EnterChaseState(float MaxSpeed);
 
 	UFUNCTION(BlueprintCallable)

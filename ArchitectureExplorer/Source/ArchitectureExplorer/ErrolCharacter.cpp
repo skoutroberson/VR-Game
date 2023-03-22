@@ -800,14 +800,14 @@ void AErrolCharacter::UpdateMoveSpeedBasedOnPlayerCamera(float DeltaTime)
 
 	if (Dot < 0.5f)
 	{
-		Dot = 0.5f;
+		Dot = 0.66f;
 		AVRCharacter *VRChar = Cast<AVRCharacter>(Player);
 		if (VRChar->bIsUsingDoor)
 		{
-			Dot = 0.2f;
+			Dot = 0.35f;
 		}
 	}
-	else if (Dot > 0.7f)
+	else if (Dot > 0.6f)
 	{
 		Dot = 1.0f;
 	}
@@ -1080,6 +1080,7 @@ void AErrolCharacter::UpdateSpeedBasedOnRotation()
 		//GetCharacterMovement()->MaxWalkSpeed = PatrolSpeed - (PatrolSpeed * Dot);
 		if (Dot > 0)
 		{
+			Dot = FMath::Clamp(Dot, 0.1f, 1.0f);
 			GetCharacterMovement()->MaxWalkSpeed = PatrolSpeed * Dot;
 		}
 		else

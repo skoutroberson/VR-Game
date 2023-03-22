@@ -11,7 +11,19 @@
 #include "Components/SphereComponent.h"
 #include "HandController.h"
 #include "Sound/SoundCue.h"
+#include "Curves/CurveFloat.h"
+#include "CollisionQueryParams.h"
+#include "Door.h"
 #include "VRCharacter.generated.h"
+
+UENUM(BlueprintType)
+enum class CameraFadeState : uint8
+{
+	STATE_NO_FADE			UMETA(DisplayName = "NoFade"),
+	STATE_FADING_IN			UMETA(DisplayName = "FadingIn"),
+	STATE_FADING_OUT			UMETA(DisplayName = "FadingOut"),
+};
+
 
 UCLASS()
 class ARCHITECTUREEXPLORER_API AVRCharacter : public ACharacter
@@ -241,6 +253,9 @@ private:
 
 public:
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	class USoundCue *WoodCreakSound;
+
 	void SetBlinkerRadius(float NewRadius);
 
 	bool bClimbing = false;
@@ -259,9 +274,63 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	float CameraFadeValue = 0;
 
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool bDead = false;
 
 	bool bIsUsingDoor = false;
 
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite);
+	float GoalFadeValue = 0;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UCurveFloat *CameraFadeCurve;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UCurveFloat *ColCamFadeIn;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UCurveFloat *ColCamFadeOut;
+
+	CameraFadeState CameraState = CameraFadeState::STATE_NO_FADE;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bFadeCamera = false;
+
+	void FadeCamera(float DeltaTime);
+
+	UPROPERTY(BlueprintReadWrite)
+	float CameraFadeTime = 0;
+	UFUNCTION(BlueprintCallable)
+	void StartCameraFade(float FadeValue, float FadeSpeed, UCurveFloat *FadeCurve);
+	UFUNCTION(BlueprintCallable)
+	void StopCameraFade(float DeltaTime, float FadeSpeed, UCurveFloat *FadeCurve);
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bStuckInWall = false;
+	// called when the player's camera collides with a static object
+	UFUNCTION(BlueprintCallable)
+	void CamColStuck();
+
+	UFUNCTION(BlueprintCallable)
+	void CamColUnStuck();
+	UPROPERTY(BlueprintReadWrite)
+	FVector StuckNormal = FVector(0.f, 0.f, 1.0f);
+	FVector StuckPosition = FVector::ZeroVector;
+	// called in tick to determine when the player camera gets unstuck
+	UFUNCTION(BlueprintCallable)
+	void UnStickCamera(float DeltaTime);
+
+	FCollisionQueryParams CamColParams;
+
+	APlayerController *PlayerController = nullptr;
+
+	FVector LastCameraPosition;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OpenDoor(ADoor *Door);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void WoodCreak();
 };

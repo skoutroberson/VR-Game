@@ -127,6 +127,7 @@ void ADoor::Swing(float DeltaTime)
 	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
 
 	CurrentDoorAngle = MaxAngleRadians - MaxDistance;
+	SwingAudioComponent->SetFloatParameter(FName("Angle"), CurrentDoorAngle);
 
 	//UE_LOG(LogTemp, Warning, TEXT("SV: %f"), SwingVelocity);
 
@@ -254,6 +255,7 @@ void ADoor::UseDoor(float DeltaTime)
 	float MaxDistance = UKismetMathLibrary::Quat_AngularDistance(NewQuat, MaxRotation);
 
 	CurrentDoorAngle = MaxAngleRadians - MaxDistance;
+	SwingAudioComponent->SetFloatParameter(FName("Angle"), CurrentDoorAngle);
 
 	//UE_LOG(LogTemp, Warning, TEXT("Angle: %f"), CurrentDoorAngle);
 
@@ -542,21 +544,25 @@ void ADoor::PassController(AActor * HC)
 {
 	if (!bLocked)
 	{
-		bIsBeingUsed = true;
-		HandController = HC;
-		LastHCLocation = HandController->GetActorLocation();
-		InterpHCLocation = LastHCLocation;
-		LastInterpHCLocation = InterpHCLocation;
+		if (HC != nullptr)
+		{
+			bIsBeingUsed = true;
+			HandController = HC;
+			LastHCLocation = HandController->GetActorLocation();
+			InterpHCLocation = LastHCLocation;
+			LastInterpHCLocation = InterpHCLocation;
 
-		float Dot = FVector::DotProduct(HandController->GetActorForwardVector(), DoorHinge->GetForwardVector());
-		if (Dot > 0)
-		{
-			Push = 1;
+			float Dot = FVector::DotProduct(HandController->GetActorForwardVector(), DoorHinge->GetForwardVector());
+			if (Dot > 0)
+			{
+				Push = 1;
+			}
+			else
+			{
+				Push = -1;
+			}
 		}
-		else
-		{
-			Push = -1;
-		}
+		
 		UGameplayStatics::PlaySoundAtLocation(GetWorld(), OpenSound, GetActorLocation());
 
 		if (bPortalEnabled)

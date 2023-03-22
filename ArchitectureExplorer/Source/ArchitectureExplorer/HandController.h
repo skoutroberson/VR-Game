@@ -10,6 +10,20 @@
 #include "Dog.h"
 #include "HandController.generated.h"
 
+UENUM(BlueprintType)
+enum class HandControllerState : uint8
+{
+	STATE_IDLE			UMETA(DisplayName = "Idle"),
+	STATE_CANGRAB		UMETA(DisplayName = "CanGrab"),
+	STATE_FLASHLIGHT	UMETA(DisplayName = "Flashlight"),
+	STATE_BALL			UMETA(DisplayName = "Ball"),
+	STATE_LADDER		UMETA(DisplayName = "Ladder"),
+	STATE_DOOR			UMETA(DisplayName = "Door"),
+	STATE_CHAINSAW1		UMETA(DisplayName = "Chainsaw1"),
+	STATE_CHAINSAW2		UMETA(DisplayName = "Chainsaw2"),
+	STATE_PET			UMETA(DisplayName = "Pet"),
+};
+
 UCLASS()
 class ARCHITECTUREEXPLORER_API AHandController : public AActor
 {
@@ -85,13 +99,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
 	bool bIsHoldingBottle = false;
 
-
-
-private:
 	// Default sub object
 	UPROPERTY(VisibleAnywhere)
 	UMotionControllerComponent* MotionController;
-
+private:
 	// Parameters
 	UPROPERTY(EditDefaultsOnly)
 	class UHapticFeedbackEffect_Base * HapticEffect;
@@ -109,11 +120,16 @@ private:
 	UPrimitiveComponent * OverlappingKnob = nullptr;
 	//USceneComponent * OverlappingKnob = nullptr;
 
+public:
 	// State
-	bool bCanClimb = false;
+	
 	bool bIsClimbing = false;
-	bool bNewCanClimb = false;
 	FVector ClimbingStartLocation;
+
+private:
+
+	bool bCanClimb = false;
+	bool bNewCanClimb = false;
 
 	bool bCanUseDoor = false;
 	bool bIsUsingDoor = false;
@@ -179,5 +195,9 @@ private:
 	ADog *Dog = nullptr;
 
 	class AVRCharacter *Player = nullptr;
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
+	HandControllerState State;
 
 };

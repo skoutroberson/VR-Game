@@ -27,5 +27,8 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Phone")
 	void AnswerPhone();
+
+	// for calling AnswerPhone() when the phone gets answered in Stage 4 or 6
+	class HGGYScare *HGGYScare = nullptr;
 	
 };

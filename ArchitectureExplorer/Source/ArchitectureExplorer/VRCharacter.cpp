@@ -34,7 +34,9 @@
 #include "Chainsaw.h"
 #include "Components/PostProcessComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
-
+#include "Door.h"
+#include "MotionControllerComponent.h"
+#include "PortalRoom.h"
 
 // Sets default values
 AVRCharacter::AVRCharacter()
@@ -165,6 +167,18 @@ void AVRCharacter::BeginPlay()
 
 	GetCapsuleComponent()->SetMaskFilterOnBodyInstance(3); // so roach sweeps ignore the capsule
 	Cast<USphereComponent>(GetComponentByClass(USphereComponent::StaticClass()))->SetMaskFilterOnBodyInstance(3);
+
+	PlayerController = GetWorld()->GetFirstPlayerController();
+	LastCameraPosition = Camera->GetComponentLocation();
+
+	CamColParams.AddIgnoredActor(this);
+	TArray<AActor*> Doors;
+	//UGameplayStatics::GetAllActorsOfClass(GetWorld(), ADoor::StaticClass(), Doors);
+	//CamColParams.AddIgnoredActors(Doors);
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AGrabbable::StaticClass(), Doors);
+	CamColParams.AddIgnoredActors(Doors);
+	CamColParams.AddIgnoredActor(LeftController);
+	CamColParams.AddIgnoredActor(RightController);
 }
 
 void AVRCharacter::UpdateCapsuleHeight()
@@ -172,14 +186,18 @@ void AVRCharacter::UpdateCapsuleHeight()
 	FRotator DR;
 	FVector DP;
 	UHeadMountedDisplayFunctionLibrary::GetOrientationAndPosition(DR, DP);
-
 	const float CurrentHalfHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
-	const float Diff = CurrentHalfHeight - (DP.Z * 0.5f);
-	GetCapsuleComponent()->SetCapsuleHalfHeight(DP.Z * 0.5f);
+
+	float dpz = DP.Z;
+	dpz = FMath::Clamp(dpz, 4.f, 220.f);
+	
+	const float Diff = CurrentHalfHeight - (dpz * 0.5f);
+	
+	GetCapsuleComponent()->SetCapsuleHalfHeight(dpz * 0.5f);
 	AddActorWorldOffset(FVector(0,0,-Diff), true);
 
 	FVector RL = VRRoot->GetComponentLocation();
-	RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight()) - (DP.Z * 0.14f);
+	RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight()) - (dpz * 0.14f);
 	//RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
 
 	VRRoot->SetWorldLocation(RL);
@@ -321,8 +339,17 @@ void AVRCharacter::PlayFootStepSound()
 
 			UGameplayStatics::PlaySoundAtLocation(GetWorld(), FootstepSound, 
 				StepLocation, V*2.f, FMath::Clamp(V * 0.5f, 0.9f, 1.3f));
-				bRightStep = false;
-			
+			bRightStep = false;
+
+			if (FootstepSound == WoodFootStepSound) // creak sound if we are on wood floor
+			{
+				int r = FMath::RandRange(0, 2);
+				if (r)
+				{
+					WoodCreak();
+					//UGameplayStatics::PlaySoundAtLocation(GetWorld(), WoodCreakSound, StepLocation, FMath::Clamp(V*2.f, 1.0f, 2.0f), FMath::Clamp(V * 0.5f, 0.9f, 1.1f));
+				}
+			}
 		}
 	}
 	else
@@ -344,7 +371,7 @@ bool AVRCharacter::CheckFloor()
 
 	FVector UV = GetActorUpVector();
 
-	bool FloorTrace = GetWorld()->LineTraceSingleByChannel(HitResult, FootLocation + UV * 2.f, FootLocation - UV * 2.f, ECollisionChannel::ECC_WorldStatic, CamHeightParams);
+	bool FloorTrace = GetWorld()->LineTraceSingleByChannel(HitResult, FootLocation + UV * 2.f, FootLocation - UV * 5.f, ECollisionChannel::ECC_WorldStatic, CamHeightParams);
 
 	
 	if (FloorTrace)
@@ -391,6 +418,16 @@ void AVRCharacter::Tick(float DeltaTime)
 	{
 		float PlayerVelocityScaled = GetVelocity().Size() * 0.01f;
 		BlinkerMaterialInstance->SetScalarParameterValue(FName("Radius"), RadiusVsVelocity->GetFloatValue(PlayerVelocityScaled));
+	}
+
+	if (bFadeCamera)
+	{
+		FadeCamera(DeltaTime);
+	}
+
+	if (bStuckInWall)
+	{
+		UnStickCamera(DeltaTime);
 	}
 
 	//GetWorld()->GetFirstPlayerController()->SetControlRotation(Camera->GetComponentRotation());
@@ -443,6 +480,7 @@ void AVRCharacter::Tick(float DeltaTime)
 	}
 	
 	DeltaLocation = GetActorLocation();
+	LastCameraLocation = Camera->GetComponentLocation();
 }
 
 void AVRCharacter::LockCameraPosition()
@@ -522,7 +560,7 @@ PlayerInputComponent->BindAction(TEXT("Teleport"), IE_Released, this, &AVRCharac
 
 PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Pressed, this, &AVRCharacter::Sprint);
 PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Released, this, &AVRCharacter::StopSprint);
-//PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
+PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
 
 PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Pressed, this, &AVRCharacter::GripLeft);
 PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Pressed, this, &AVRCharacter::GripRight);
@@ -552,26 +590,29 @@ void AVRCharacter::Click()
 	FVector Start = Camera->GetComponentLocation();
 	float len = 10000.0f;
 	FVector End = (ForwardVector * len) + Start;
-	DrawDebugLine(GetWorld(), Start, End, FColor(255, 0, 0), true, 1.0f);
+	DrawDebugLine(GetWorld(), Start, End, FColor(255, 0, 0), false, 0.45f);
 	FHitResult Outhit;
 	FCollisionQueryParams ColParams;
 	ColParams.AddIgnoredActor(this);
 
 	if (GetWorld()->LineTraceSingleByChannel(Outhit, Start, End, ECollisionChannel::ECC_WorldDynamic, ColParams))
 	{
-		int NodeDist = AErrol::NodeDist;
-		int FloorHeight = AErrol::FloorHeight;
-		FVector ClosestNode = FVector(
-			roundf(Outhit.Location.X / NodeDist) * NodeDist,
-			roundf(Outhit.Location.Y / NodeDist) * NodeDist,
-			Outhit.Location.Z);
+		TWeakObjectPtr<AActor> Temp = Outhit.Actor;
 
-		DrawDebugSphere(GetWorld(), ClosestNode, 10, 8, FColor::White, false, 1.0f);
-
-		UE_LOG(LogTemp, Warning, TEXT("%f, %f, %f"),
-			roundf(Outhit.Location.X / NodeDist),
-			roundf(Outhit.Location.Y / NodeDist),
-			roundf(Outhit.Location.Z / FloorHeight));
+		if (Temp != nullptr)
+		{
+			ADoor *Door = Cast<ADoor>(Outhit.GetActor());
+			if (Door != nullptr)
+			{
+				OpenDoor(Door);
+				APortalRoom *PR = Cast<APortalRoom>(Door->GetParentActor());
+				if (PR != nullptr)
+				{
+					UE_LOG(LogTemp, Warning, TEXT("parent: %s"), *PR->GetName());
+					Door->PassController(nullptr);
+				}
+			}
+		}
 	}
 }
 
@@ -580,7 +621,7 @@ void AVRCharacter::Sprint()
 	//UE_LOG(LogTemp, Warning, TEXT("Sprint"));
 	bSprint = true;
 	StepVolumeMultiplier = 6.f;
-	SprintDistanceMultiplier = 0.85f;
+	SprintDistanceMultiplier = 0.95f;
 }
 
 void AVRCharacter::StopSprint()
@@ -730,4 +771,69 @@ void AVRCharacter::Die()
 	
 	bDead = true;
 	FadeScreenToBlack();
+}
+
+void AVRCharacter::FadeCamera(float DeltaTime)
+{
+	if (CameraFadeValue == GoalFadeValue)
+	{
+		bFadeCamera = false;
+	}
+	// interp CameraFadeValue based on a curve
+	CameraFadeValue = FMath::FInterpTo(CameraFadeValue, GoalFadeValue, DeltaTime, 20.f);
+	FadeMaterialInstance->SetScalarParameterValue(FName("FadeValue"), CameraFadeValue);
+}
+
+void AVRCharacter::StartCameraFade(float FadeValue, float FadeSpeed, UCurveFloat * FadeCurve)
+{
+}
+
+void AVRCharacter::StopCameraFade(float DeltaTime, float FadeSpeed, UCurveFloat * FadeCurve)
+{
+}
+
+void AVRCharacter::CamColStuck()
+{
+	FRotator DR;
+	FVector DP;
+	UHeadMountedDisplayFunctionLibrary::GetOrientationAndPosition(DR, DP);
+	StuckPosition = DP;
+
+	const FVector CL = Camera->GetComponentLocation();
+	const FQuat CQ = FQuat(FVector::ZeroVector, 0.0f);
+	const FCollisionShape CS = FCollisionShape::MakeSphere(22.f);
+
+	FHitResult HitResult;
+	bool bSweep = GetWorld()->SweepSingleByChannel(HitResult, LastCameraLocation, CL, CQ, ECollisionChannel::ECC_Visibility, CS, CamColParams);
+
+	if (bSweep)
+	{
+		StuckNormal = HitResult.Normal;
+		bStuckInWall = true;
+		Camera->bLockToHmd = false;
+		PlayerController->SetIgnoreLookInput(true);
+		PlayerController->SetIgnoreMoveInput(true);
+	}
+}
+
+void AVRCharacter::CamColUnStuck()
+{
+	bStuckInWall = false;
+	Camera->bLockToHmd = true;
+	PlayerController->SetIgnoreLookInput(false);
+	PlayerController->SetIgnoreMoveInput(false);
+}
+
+void AVRCharacter::UnStickCamera(float DeltaTime)
+{
+	FRotator DR;
+	FVector DP;
+	UHeadMountedDisplayFunctionLibrary::GetOrientationAndPosition(DR, DP);
+	FVector Disp = DP - StuckPosition;
+	float Dot = FVector::DotProduct(Disp, StuckNormal);
+	
+	if (Dot > 2.f)
+	{
+		CamColUnStuck();
+	}
 }

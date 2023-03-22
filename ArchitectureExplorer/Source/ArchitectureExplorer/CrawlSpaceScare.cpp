@@ -38,7 +38,7 @@ bool ACrawlSpaceScare::FlyAtPlayer(float DeltaTime)
 	const FVector CL = PlayerCam->GetComponentLocation();
 	const FVector CFV = PlayerCam->GetForwardVector();
 	const FVector CUV = PlayerCam->GetUpVector();
-	const FVector TL = CL - CFV * 200.f + CUV * 100.f;
+	const FVector TL = CL - CFV * 200.f + FVector(0.f,0.f,1.f) * 60.f;
 	const FVector EL = Crawlerman->GetComponentLocation();
 	const FVector ErL = Crawlerman->GetComponentLocation();
 	FVector Disp = CL - ErL;

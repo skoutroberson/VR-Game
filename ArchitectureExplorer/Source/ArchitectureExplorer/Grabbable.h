@@ -108,11 +108,13 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FRotator StartRotation = FRotator::ZeroRotator;
+	
+	UPROPERTY(BlueprintReadWrite)
+	bool b1Held = false;
+
+	bool b2Held = false;
 
 protected:
-	
-	bool b1Held = false;
-	bool b2Held = false;
 
 	float TwoHandDropThreshold = 15.f;
 	float TwoHandDistance = 22.f;

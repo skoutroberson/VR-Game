@@ -326,6 +326,14 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		P_THIS->TickChaseState(Z_Param_DeltaTime);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AErrolCharacter::execEnterChaseState)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_MaxSpeed);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->EnterChaseState(Z_Param_MaxSpeed);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AErrolCharacter::execEnterShoulderPeekState)
 	{
 		P_FINISH;
@@ -400,6 +408,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 			{ "CanThePlayerSeeMe", &AErrolCharacter::execCanThePlayerSeeMe },
 			{ "EndFlyAtState", &AErrolCharacter::execEndFlyAtState },
 			{ "EndKillState", &AErrolCharacter::execEndKillState },
+			{ "EnterChaseState", &AErrolCharacter::execEnterChaseState },
 			{ "EnterFlyAtState", &AErrolCharacter::execEnterFlyAtState },
 			{ "EnterKillState", &AErrolCharacter::execEnterKillState },
 			{ "EnterPeekState", &AErrolCharacter::execEnterPeekState },
@@ -551,6 +560,40 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics
+	{
+		struct ErrolCharacter_eventEnterChaseState_Parms
+		{
+			float MaxSpeed;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxSpeed;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::NewProp_MaxSpeed = { "MaxSpeed", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ErrolCharacter_eventEnterChaseState_Parms, MaxSpeed), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::NewProp_MaxSpeed,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// CHASE\n" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+		{ "ToolTip", "CHASE" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "EnterChaseState", nullptr, nullptr, sizeof(ErrolCharacter_eventEnterChaseState_Parms), Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_EnterChaseState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -1441,6 +1484,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_EndKillState, "EndKillState" }, // 2785992446
 		{ &Z_Construct_UFunction_AErrolCharacter_EndPeek, "EndPeek" }, // 3061781572
 		{ &Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation, "EndPeekAnimation" }, // 3368898706
+		{ &Z_Construct_UFunction_AErrolCharacter_EnterChaseState, "EnterChaseState" }, // 2358586031
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterFlyAtState, "EnterFlyAtState" }, // 4091144147
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterKillState, "EnterKillState" }, // 428353460
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterPeekState, "EnterPeekState" }, // 3880286838
@@ -1935,7 +1979,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 4278424155);
+	IMPLEMENT_CLASS(AErrolCharacter, 3555073220);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();
