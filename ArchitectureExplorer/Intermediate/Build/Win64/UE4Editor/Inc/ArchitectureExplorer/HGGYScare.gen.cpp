@@ -114,6 +114,11 @@ void EmptyLinkFunctionForGeneratedCodeHGGYScare() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AHGGYScare_AnswerPhone),NULL);
 	}
+	static FName NAME_AHGGYScare_EndChaseBP = FName(TEXT("EndChaseBP"));
+	void AHGGYScare::EndChaseBP()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AHGGYScare_EndChaseBP),NULL);
+	}
 	void AHGGYScare::StaticRegisterNativesAHGGYScare()
 	{
 		UClass* Class = AHGGYScare::StaticClass();
@@ -142,6 +147,28 @@ void EmptyLinkFunctionForGeneratedCodeHGGYScare() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHGGYScare_AnswerPhone_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AHGGYScare_EndChaseBP_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHGGYScare_EndChaseBP_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HGGYScare.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHGGYScare_EndChaseBP_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHGGYScare, nullptr, "EndChaseBP", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHGGYScare_EndChaseBP_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHGGYScare_EndChaseBP_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AHGGYScare_EndChaseBP()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHGGYScare_EndChaseBP_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -223,6 +250,7 @@ void EmptyLinkFunctionForGeneratedCodeHGGYScare() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AHGGYScare_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AHGGYScare_AnswerPhone, "AnswerPhone" }, // 2836638915
+		{ &Z_Construct_UFunction_AHGGYScare_EndChaseBP, "EndChaseBP" }, // 62490990
 		{ &Z_Construct_UFunction_AHGGYScare_EnterCallingPhoneState, "EnterCallingPhoneState" }, // 3163301910
 		{ &Z_Construct_UFunction_AHGGYScare_EnterMovingPhoneState, "EnterMovingPhoneState" }, // 1936228864
 	};
@@ -291,7 +319,7 @@ void EmptyLinkFunctionForGeneratedCodeHGGYScare() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHGGYScare, 2854790521);
+	IMPLEMENT_CLASS(AHGGYScare, 3825914596);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AHGGYScare>()
 	{
 		return AHGGYScare::StaticClass();

@@ -71,6 +71,15 @@ private:
 
 	class AErrolCharacter *Errol = nullptr;
 
+	// ends the chase when the player isn't looking at Errol
 	void ShouldEndChase();
+	void EndChase();
+
+	int EndChaseThreshold = 10;
+	int EndChaseValue = 0;
+
+public:
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void EndChaseBP();
 	
 };

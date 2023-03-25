@@ -1,5 +1,15 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal Projects\ArchitectureExplorer1).
-  Waiting for 'git status' command to complete
+  Creating makefile for ArchitectureExplorerEditor (no existing makefile)
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Binaries\Win64\UE4Editor-ArchitectureExplorer-0001.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Binaries\Win64\UE4Editor-ArchitectureExplorer-0002.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0001.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0002.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0001.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0002.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Binaries\Win64\UE4Editor-StateMachine-0003.dll
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0001.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0002.lib
+  Deleted hot-reload file: E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0003.lib
   Building ArchitectureExplorerEditor...
   Using Visual Studio 2017 14.16.27045 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   [Upgrade]
@@ -9,22 +19,13 @@
   [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
   [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
   [Upgrade]
-  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: CrawlSpaceScare.cpp, Dog.cpp, Door.cpp, ErrolCharacter.cpp, HandController.cpp, HGGYScare.cpp, PortalLadderRoom.cpp, PortalRoom.cpp, Stage4.cpp, VRCharacter.cpp
-  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, Ball.gen.cpp, Bottle.gen.cpp, Chainsaw.gen.cpp, DoorKey.gen.cpp, ErrolCharacter.gen.cpp, Flashlight.gen.cpp, Grabbable.gen.cpp, HandController.gen.cpp, HGGYScare.gen.cpp, Phone.gen.cpp, PortalLadderRoom.gen.cpp, Stage4.gen.cpp, VRCharacter.gen.cpp
-  Building 6 actions with 24 processes...
-    [1/6] UE4Editor-StateMachine-0015.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0015.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0015.exp
-    [2/6] UE4Editor-StateMachine-0015.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0015.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0015.suppressed.exp
-    [3/6] VRCharacter.cpp
-E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\VRCharacter.cpp(380): warning C4458: declaration of 'Tags' hides class member
-    C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Actor.h(804): note: see declaration of 'AActor::Tags'
-E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\VRCharacter.cpp(806): warning C4458: declaration of 'HitResult' hides class member
-    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\VRCharacter.h(179): note: see declaration of 'AVRCharacter::HitResult'
-    [4/6] UE4Editor-ArchitectureExplorer-0015.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0015.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0015.exp
-    [5/6] UE4Editor-ArchitectureExplorer-0015.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0015.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0015.suppressed.exp
-    [6/6] ArchitectureExplorerEditor.target
-  Total time in Parallel executor: 3.57 seconds
-  Total execution time: 10.42 seconds
+  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: HGGYScare.cpp
+  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, HGGYScare.gen.cpp
+  Building 3 actions with 24 processes...
+    [1/3] UE4Editor-ArchitectureExplorer.lib
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer.exp
+    [2/3] UE4Editor-ArchitectureExplorer.dll
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer.suppressed.exp
+    [3/3] ArchitectureExplorerEditor.target
+  Total time in Parallel executor: 1.36 seconds
+  Total execution time: 3.43 seconds

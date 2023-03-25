@@ -36,6 +36,10 @@ void AHGGYScare::BeginPlay()
 	QueryParams.AddIgnoredActor(Phone);
 
 	Errol = Cast<AErrolCharacter>(UGameplayStatics::GetActorOfClass(World, AErrolCharacter::StaticClass()));
+
+	QueryParams.AddIgnoredActor(Errol);
+	QueryParams.AddIgnoredActor(Player);
+	QueryParams.AddIgnoredActor(this);
 }
 
 void AHGGYScare::Tick(float DeltaTime)
@@ -48,7 +52,7 @@ void AHGGYScare::Tick(float DeltaTime)
 		MovingPhone();
 		break;
 	case HGGYState::STATE_ENDING:
-
+		ShouldEndChase();
 		break;
 	}
 }
@@ -118,4 +122,34 @@ void AHGGYScare::MovingPhone()
 
 void AHGGYScare::ShouldEndChase()
 {
+	if (EndChaseValue > EndChaseThreshold)
+	{
+		EndChase();
+		return;
+	}
+
+	const FVector CL = PlayerCamera->GetComponentLocation();
+	FVector EL = Errol->GetActorLocation();
+	EL.Z += 100.f;
+	const FVector Disp = (EL - CL).GetSafeNormal();
+	const FVector CFV = PlayerCamera->GetForwardVector();
+	const float Dot = FVector::DotProduct(Disp, CFV);
+
+	if (!Errol->CanThePlayerSeeMe())
+	{
+		++EndChaseValue;
+	}
+	else
+	{
+		--EndChaseValue;
+	}
+}
+
+void AHGGYScare::EndChase()
+{
+	State = HGGYState::STATE_IDLE;
+	Errol->ExitChaseState();
+	Errol->EnterIdleState();
+	Errol->SetActorLocation(FVector(0.0f, 4500.f, 1100.f));
+	EndChaseBP();
 }
