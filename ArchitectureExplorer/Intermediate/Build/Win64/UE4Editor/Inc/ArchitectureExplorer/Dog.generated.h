@@ -16,6 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execCheckBallDistance); \
 	DECLARE_FUNCTION(execDropBall); \
 	DECLARE_FUNCTION(execFetchBall); \
 	DECLARE_FUNCTION(execPickupBall);
@@ -23,6 +24,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Dog_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execCheckBallDistance); \
 	DECLARE_FUNCTION(execDropBall); \
 	DECLARE_FUNCTION(execFetchBall); \
 	DECLARE_FUNCTION(execPickupBall);

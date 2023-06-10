@@ -14,3 +14,10 @@ void ABall::BeginPlay()
 	Super::BeginPlay();
 	
 }
+
+void ABall::Released(int HandHoldNum)
+{
+	Super::Released(HandHoldNum);
+
+
+}

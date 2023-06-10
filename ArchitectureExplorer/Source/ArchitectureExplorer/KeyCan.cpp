@@ -18,6 +18,7 @@ void AKeyCan::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	StartZ = GetActorLocation().Z;
 }
 
 // Called every frame
@@ -25,6 +26,13 @@ void AKeyCan::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	UE_LOG(LogTemp, Warning, TEXT("KeyCanTick"));
+
+	if (bCheckZ)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("CheckZ"));
+		CheckZ();
+	}
 }
 
 void AKeyCan::AttachKey(ADoorKey * Key)
@@ -32,11 +40,35 @@ void AKeyCan::AttachKey(ADoorKey * Key)
 	if (Key != nullptr)
 	{
 		bHasKey = true;
+		AttachedKey = Key;
 		const FAttachmentTransformRules ATR = FAttachmentTransformRules(EAttachmentRule::SnapToTarget, EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, true);
 		Key->AttachToActor(this, ATR);
-		Key->AddActorWorldOffset(FVector(0, 0, 0.5f));
+		Key->AddActorWorldOffset(FVector(0, 0, 4.f));
 		UE_LOG(LogTemp, Warning, TEXT("AttachKey"));
 		// set relative location/rotation so it is laying in the can
+	}
+}
+
+void AKeyCan::DetachKey()
+{
+	bHasKey = false;
+	AttachedKey = nullptr;
+	AttachedKey->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+	Cast<UPrimitiveComponent>(AttachedKey->GetRootComponent())->AddImpulse(GetActorUpVector() * 2.f);
+	UE_LOG(LogTemp, Warning, TEXT("DetachKey"));
+}
+
+void AKeyCan::CheckZ()
+{
+	const float CurrentZ = GetActorLocation().Z;
+
+	if(CurrentZ <= StartZ - EndZDistance)
+	{
+		// detach key
+		bCheckZ = false;
+		SetActorTickEnabled(false);
+		bHasKey = false;
+		DetachKey();
 	}
 }
 

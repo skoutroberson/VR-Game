@@ -200,4 +200,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
 	HandControllerState State;
 
+	FVector BallOffset = FVector::ZeroVector;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void UpdateAnimation();
+
 };

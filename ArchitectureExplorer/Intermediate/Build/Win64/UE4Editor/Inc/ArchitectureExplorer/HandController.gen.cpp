@@ -132,6 +132,11 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		P_THIS->Grip();
 		P_NATIVE_END;
 	}
+	static FName NAME_AHandController_UpdateAnimation = FName(TEXT("UpdateAnimation"));
+	void AHandController::UpdateAnimation()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AHandController_UpdateAnimation),NULL);
+	}
 	void AHandController::StaticRegisterNativesAHandController()
 	{
 		UClass* Class = AHandController::StaticClass();
@@ -263,6 +268,28 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AHandController_UpdateAnimation_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHandController_UpdateAnimation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HandController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHandController_UpdateAnimation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHandController, nullptr, "UpdateAnimation", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHandController_UpdateAnimation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_UpdateAnimation_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AHandController_UpdateAnimation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHandController_UpdateAnimation_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AHandController_NoRegister()
 	{
 		return AHandController::StaticClass();
@@ -348,6 +375,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		{ &Z_Construct_UFunction_AHandController_ActorEndOverlap, "ActorEndOverlap" }, // 2599293571
 		{ &Z_Construct_UFunction_AHandController_Grip, "Grip" }, // 2449933679
 		{ &Z_Construct_UFunction_AHandController_Release, "Release" }, // 273026658
+		{ &Z_Construct_UFunction_AHandController_UpdateAnimation, "UpdateAnimation" }, // 520880581
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::Class_MetaDataParams[] = {
@@ -529,7 +557,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHandController, 1871312563);
+	IMPLEMENT_CLASS(AHandController, 3939579652);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AHandController>()
 	{
 		return AHandController::StaticClass();

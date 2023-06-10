@@ -25,6 +25,11 @@ AStage1::~AStage1()
 	//RemoveTriggerDelegates();
 }
 
+void AStage1::NewLoop()
+{
+	UE_LOG(LogTemp, Warning, TEXT("New Loop POOPYDOOPY"));
+}
+
 // Called when the game starts or when spawned
 void AStage1::BeginPlay()
 {

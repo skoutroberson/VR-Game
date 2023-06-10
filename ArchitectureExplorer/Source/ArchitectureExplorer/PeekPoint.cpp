@@ -60,7 +60,7 @@ void APeekPoint::BeginPlay()
 	//HeadLocation = GetActorLocation() + GetActorUpVector() * 200.f + RightPeekVector->GetForwardVector() * 10.f + LeftPeekVector->GetForwardVector() * 10.f;
 	HeadLocation = GetActorLocation() + GetActorUpVector() * 140.f - RightPeekVector->GetForwardVector() * 15.f - LeftPeekVector->GetForwardVector() * 15.f;
 
-	DrawDebugSphere(World, HeadLocation, 4.f, 20.f, FColor::Cyan, true);
+	//DrawDebugSphere(World, HeadLocation, 4.f, 20.f, FColor::Cyan, true);
 
 	ErrolActor = UGameplayStatics::GetActorOfClass(World, AErrolCharacter::StaticClass());
 	QueryParams.AddIgnoredActor(ErrolActor);
@@ -110,8 +110,8 @@ bool APeekPoint::IsValid(const float Threshold)
 	{
 		FHitResult HitResult;
 		
-		const bool Trace = World->LineTraceSingleByChannel(HitResult, HeadLocation, CL, ECollisionChannel::ECC_PhysicsBody, QueryParams);
-		if (Trace && HitResult.Actor->ActorHasTag(FName("Player"))) 
+		const bool Trace = World->LineTraceSingleByChannel(HitResult, HeadLocation, CL, ECollisionChannel::ECC_WorldDynamic, QueryParams);
+		if (!Trace) 
 		{
 			bIsValid = true;
 			if (bLeft)

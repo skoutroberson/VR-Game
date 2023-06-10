@@ -13,11 +13,77 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeAlienScare() {}
 // Cross Module References
+	ARCHITECTUREEXPLORER_API UEnum* Z_Construct_UEnum_ArchitectureExplorer_AlienScareState();
+	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AlienScare_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AlienScare();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AScare();
-	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
 // End Cross Module References
+	static UEnum* AlienScareState_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_ArchitectureExplorer_AlienScareState, Z_Construct_UPackage__Script_ArchitectureExplorer(), TEXT("AlienScareState"));
+		}
+		return Singleton;
+	}
+	template<> ARCHITECTUREEXPLORER_API UEnum* StaticEnum<AlienScareState>()
+	{
+		return AlienScareState_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_AlienScareState(AlienScareState_StaticEnum, TEXT("/Script/ArchitectureExplorer"), TEXT("AlienScareState"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_AlienScareState_Hash() { return 957420461U; }
+	UEnum* Z_Construct_UEnum_ArchitectureExplorer_AlienScareState()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_ArchitectureExplorer();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("AlienScareState"), 0, Get_Z_Construct_UEnum_ArchitectureExplorer_AlienScareState_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "AlienScareState::STATE_IDLE", (int64)AlienScareState::STATE_IDLE },
+				{ "AlienScareState::STATE_CALLING_PHONE", (int64)AlienScareState::STATE_CALLING_PHONE },
+				{ "AlienScareState::STATE_WAIT_CHASE", (int64)AlienScareState::STATE_WAIT_CHASE },
+				{ "AlienScareState::STATE_CHASE", (int64)AlienScareState::STATE_CHASE },
+				{ "AlienScareState::STATE_END_CHASE", (int64)AlienScareState::STATE_END_CHASE },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "ModuleRelativePath", "AlienScare.h" },
+				{ "STATE_CALLING_PHONE.DisplayName", "CallingPhone" },
+				{ "STATE_CALLING_PHONE.Name", "AlienScareState::STATE_CALLING_PHONE" },
+				{ "STATE_CHASE.DisplayName", "Chase" },
+				{ "STATE_CHASE.Name", "AlienScareState::STATE_CHASE" },
+				{ "STATE_END_CHASE.DisplayName", "EndChase" },
+				{ "STATE_END_CHASE.Name", "AlienScareState::STATE_END_CHASE" },
+				{ "STATE_IDLE.DisplayName", "Idle" },
+				{ "STATE_IDLE.Name", "AlienScareState::STATE_IDLE" },
+				{ "STATE_WAIT_CHASE.DisplayName", "WaitChase" },
+				{ "STATE_WAIT_CHASE.Name", "AlienScareState::STATE_WAIT_CHASE" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
+				nullptr,
+				"AlienScareState",
+				"AlienScareState",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 	void AlienScare::StaticRegisterNativesAlienScare()
 	{
 	}

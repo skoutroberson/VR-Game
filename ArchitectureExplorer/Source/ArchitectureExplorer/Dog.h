@@ -86,7 +86,21 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void WaitAndDropBall();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int Fetches = 0;
+
+	// makes the dog run towards the house if the ball is over 300uu away from the player
+	UFUNCTION(BlueprintCallable)
+	void CheckBallDistance();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void RunTowardsHouse();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bRanTowardsHouse = false;
 
 private:
 	void RotateToFacePlayer();
+
+	float PickupBallDistance = 150.f;
 };

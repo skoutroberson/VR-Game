@@ -57,3 +57,7 @@ void AStage::ResetStage()
 {
 }
 
+void AStage::NewLoop()
+{
+}
+

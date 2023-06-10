@@ -21,5 +21,7 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool bBeingFetched = false;
+
+	virtual void Released(int HandHoldNum);
 	
 };

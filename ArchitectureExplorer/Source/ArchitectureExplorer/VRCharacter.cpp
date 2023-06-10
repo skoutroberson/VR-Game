@@ -188,19 +188,35 @@ void AVRCharacter::UpdateCapsuleHeight()
 	UHeadMountedDisplayFunctionLibrary::GetOrientationAndPosition(DR, DP);
 	const float CurrentHalfHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
 
-	float dpz = DP.Z;
-	dpz = FMath::Clamp(dpz, 4.f, 220.f);
-	
-	const float Diff = CurrentHalfHeight - (dpz * 0.5f);
-	
-	GetCapsuleComponent()->SetCapsuleHalfHeight(dpz * 0.5f);
-	AddActorWorldOffset(FVector(0,0,-Diff), true);
+	if (!bClimbing)
+	{
+		float dpz = DP.Z;
+		dpz = FMath::Clamp(dpz, 4.f, 220.f);
 
-	FVector RL = VRRoot->GetComponentLocation();
-	RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight()) - (dpz * 0.14f);
-	//RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
+		const float Diff = CurrentHalfHeight - (dpz * 0.5f);
 
-	VRRoot->SetWorldLocation(RL);
+		GetCapsuleComponent()->SetCapsuleHalfHeight(dpz * 0.5f);
+		AddActorWorldOffset(FVector(0, 0, -Diff), true);
+
+		FVector RL = VRRoot->GetComponentLocation();
+		RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight()) - (dpz * 0.14f);
+		//RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
+
+		VRRoot->SetWorldLocation(RL);
+	}
+	else
+	{
+		float dpz = DP.Z;
+		dpz = FMath::Clamp(dpz, 4.f, 220.f);
+		GetCapsuleComponent()->SetCapsuleHalfHeight(12.f);
+		FVector RL = VRRoot->GetComponentLocation();
+		RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
+		//RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
+
+		VRRoot->SetWorldLocation(RL);
+	}
+
+	
 }
 
 void AVRCharacter::PressA(bool bLeft)

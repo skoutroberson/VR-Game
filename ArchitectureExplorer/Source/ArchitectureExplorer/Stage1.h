@@ -24,6 +24,9 @@ public:
 	AStage1();
 	~AStage1();
 
+	UFUNCTION(BlueprintCallable)
+	virtual void NewLoop() override;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

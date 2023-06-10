@@ -181,6 +181,7 @@ void AErrolCharacter::Tick(float DeltaTime)
 		case ErrolState::STATE_PEEK:
 			if (!bPeekFound)
 			{
+				UE_LOG(LogTemp, Warning, TEXT("Finding Peek Point"));
 				FindValidPeekPoint();
 			}
 			else if(bPeeking)
@@ -686,6 +687,7 @@ void AErrolCharacter::EnterPeekState()
 	DisableComponentsSimulatePhysics();
 	BodyMesh->SetVisibility(false, true);
 	SawMesh->SetVisibility(false, true);
+	MocapMesh->SetVisibility(false, true);
 	//	Try to find a "valid" PeekPoint
 	//	Move ErrolCharacter to the PeekPoint
 	//	Start the peek animation
@@ -734,6 +736,7 @@ void AErrolCharacter::ExitPeekState()
 	PeekScareLevel = 0;
 	PeekTime = 0;
 	BodyMesh->SetVisibility(false, true);
+	MocapMesh->SetVisibility(true, true);
 
 	if (ValidPeekPoint != nullptr)
 	{
@@ -920,7 +923,7 @@ void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 
 	CanPlayerSeeMeTraceParams.AddIgnoredActor(Player);
 	//	Debug
-	//EnterPeekState();
+	EnterPeekState();
 
 	//EnterUpperWindowScareState();
 
@@ -1152,7 +1155,7 @@ void AErrolCharacter::StartPeek()
 	FVector Disp = PlayerCamera->GetComponentLocation() - PeekLocation;
 	Disp.Z = 0;
 
-	//DrawDebugLine(World, PeekLocation, PlayerCamera->GetComponentLocation(), FColor::Red, true);
+	DrawDebugLine(World, PeekLocation, PlayerCamera->GetComponentLocation(), FColor::Red, true);
 	
 	//	if player is on the left side of the peek vector, make Errol do a left peek, right side: vice versa
 	float Dot = FVector::DotProduct(Disp, RightPeekVector);

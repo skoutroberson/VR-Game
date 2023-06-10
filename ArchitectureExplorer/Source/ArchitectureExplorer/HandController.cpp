@@ -21,6 +21,7 @@
 #include "Drawer.h"
 #include "Ball.h"
 #include "VRCharacter.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -51,6 +52,8 @@ void AHandController::BeginPlay()
 
 	HandMeshRelativeTransform = HandMesh->GetRelativeTransform();
 	ChainsawOffset = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), FName("Saw"))[0]);
+
+	BallOffset = HandMesh->GetComponentLocation() - HandMesh->GetSocketLocation(FName("BallSocket"));
 
 	DeltaLocation = MotionController->GetComponentLocation();
 
@@ -164,6 +167,9 @@ void AHandController::Grip()
 						}
 						else if (GrabActor->ActorHasTag(TEXT("Ball")))
 						{
+							State = HandControllerState::STATE_BALL;
+							//HandMesh->SetRelativeLocation(BallOffset);
+							UpdateAnimation();
 							// change dog's look at actor to this ball
 							// fetch on release
 						}
@@ -294,8 +300,14 @@ void AHandController::Grip()
 
 			SisterController->bIsClimbing = false; // Hopfully this doesn't cause any issues. I'm puttting this here so PortalLadderRoom knows which HandController's ClimbingStartLocation to use.
 
-			AVRCharacter * VRChar = Cast<AVRCharacter>(GetAttachParentActor()); // dont need to do this cast here but i have lots of CPU ms to spare
-			VRChar->bClimbing = true;
+			AVRCharacter * VRChar = Cast<AVRCharacter>(GetAttachParentActor());
+
+			if (VRChar->bClimbing != true)
+			{
+				// update capsule height and keep VRRoot in same location relative to starting capsule height
+				VRChar->GetCharacterMovement()->GravityScale = 0;
+				VRChar->bClimbing = true;
+			}
 
 			return;
 		}
@@ -366,6 +378,11 @@ void AHandController::Release()
 		{
 			AVRCharacter * VRChar = Cast<AVRCharacter>(GetAttachParentActor());
 			VRChar->bClimbing = false;
+			VRChar->GetCharacterMovement()->GravityScale = 1.0f;
+		}
+		else
+		{
+
 		}
 
 	}
@@ -431,6 +448,8 @@ void AHandController::Release()
 			else if (GrabActor->ActorHasTag(TEXT("Ball")))
 			{
 				bIsHoldingBall = false;
+
+
 
 				if (Dog->bWantsToFetch)
 				{
@@ -498,6 +517,9 @@ void AHandController::Release()
 	{
 		GripSize = GripSizeDefault;
 	}
+
+	State = HandControllerState::STATE_IDLE;
+	UpdateAnimation();
 }
 
 void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor)

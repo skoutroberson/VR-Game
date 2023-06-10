@@ -49,5 +49,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bCompleted = false;
 
+	UPROPERTY(BlueprintReadWrite)
+	int Loops = 0;
+
+	// called when a new loop starts
+	//UFUNCTION(BlueprintCallable)
+	virtual void NewLoop();
 
 };

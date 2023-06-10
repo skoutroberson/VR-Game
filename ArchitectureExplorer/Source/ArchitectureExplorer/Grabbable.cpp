@@ -229,6 +229,15 @@ void AGrabbable::RotateOneHand(float DeltaTime)
 	FRotator MCRot = ControllingMC->GetActorRotation();
 	MCRot.Roll = (bControllingMCLeft) ? MCRot.Roll - 90.f : MCRot.Roll += 90.f;
 
+	/*
+	
+	FRotator MCRot = ControllingMC->GetActorRotation();
+	MCRot += RotationOffset;
+
+	// RotationOffset is set by the HandController when it grabs the item.
+
+	*/
+
 	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), MCRot, (5.f / ItemWeight) * DeltaTime, true));
 	
 }

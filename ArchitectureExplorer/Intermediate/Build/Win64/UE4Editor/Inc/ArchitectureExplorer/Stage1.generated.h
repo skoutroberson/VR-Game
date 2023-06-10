@@ -14,8 +14,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ARCHITECTUREEXPLORER_Stage1_generated_h
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Stage1_h_20_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Stage1_h_20_RPC_WRAPPERS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Stage1_h_20_RPC_WRAPPERS_NO_PURE_DECLS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Stage1_h_20_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execNewLoop);
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Stage1_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execNewLoop);
+
+
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Stage1_h_20_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAStage1(); \

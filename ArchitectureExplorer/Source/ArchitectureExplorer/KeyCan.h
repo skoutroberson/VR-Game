@@ -16,7 +16,7 @@ public:
 	// Sets default values for this actor's properties
 	AKeyCan();
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent *Mesh = nullptr;
 
 protected:
@@ -30,12 +30,25 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AttachKey(ADoorKey *Key);
 
+	void DetachKey();
+
 	UPROPERTY(BlueprintReadOnly)
 	bool bHasKey = false;
 
 	UPROPERTY(BlueprintReadWrite)
 	bool bHitByPlayer = false;
 
+	UPROPERTY(VisibleAnywhere)
+	float StartZ = -9999.f;
 
+	UPROPERTY(BlueprintReadWrite)
+	bool bCheckZ = false;
 
+	void CheckZ();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	ADoorKey  *AttachedKey = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float EndZDistance = 10.f;
 };
