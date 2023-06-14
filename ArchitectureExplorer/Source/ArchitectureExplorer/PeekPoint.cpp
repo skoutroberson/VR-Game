@@ -111,7 +111,7 @@ bool APeekPoint::IsValid(const float Threshold)
 		FHitResult HitResult;
 		
 		const bool Trace = World->LineTraceSingleByChannel(HitResult, HeadLocation, CL, ECollisionChannel::ECC_WorldDynamic, QueryParams);
-		if (!Trace) 
+		if (!Trace || HitResult.Actor == Player) 
 		{
 			bIsValid = true;
 			if (bLeft)
