@@ -24,7 +24,6 @@
 			"DoorManager.cpp.obj",
 			"Drawer.cpp.obj",
 			"Errol.cpp.obj",
-			"ErrolCharacter.cpp.obj",
 			"ErrolController.cpp.obj",
 			"ErrolsSaw.cpp.obj",
 			"FirstChaseScare.cpp.obj",
@@ -36,6 +35,7 @@
 			"KeyCan.cpp.obj",
 			"LightManager.cpp.obj",
 			"LightningStrikeScare.cpp.obj",
+			"PeekPoint.cpp.obj",
 			"Phone.cpp.obj",
 			"Portal.cpp.obj",
 			"PortalLadderRoom.cpp.obj",
@@ -45,7 +45,6 @@
 			"Radio.cpp.obj",
 			"RevealScare.cpp.obj",
 			"Roach.cpp.obj",
-			"RoachSpawner.cpp.obj",
 			"Scare.cpp.obj",
 			"ScareManager.cpp.obj",
 			"Stage.cpp.obj",
@@ -57,12 +56,12 @@
 			"StairsScare.cpp.obj",
 			"TriggerManager.cpp.obj",
 			"VRCharacter.cpp.obj",
-			"PeekPoint.cpp.obj"
+			"ErrolCharacter.cpp.obj",
+			"RoachSpawner.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.1_of_3.cpp.obj": [
 			"AboveYouScare.gen.cpp.obj",
 			"AlienScare.gen.cpp.obj",
-			"ArchitectureExplorer.init.gen.cpp.obj",
 			"ArchitectureExplorerGameModeBase.gen.cpp.obj",
 			"AudioDistanceCrossfader.gen.cpp.obj",
 			"Ball.gen.cpp.obj",
@@ -82,7 +81,8 @@
 			"DoorManager.gen.cpp.obj",
 			"Drawer.gen.cpp.obj",
 			"Errol.gen.cpp.obj",
-			"ErrolCharacter.gen.cpp.obj"
+			"ErrolCharacter.gen.cpp.obj",
+			"ArchitectureExplorer.init.gen.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.2_of_3.cpp.obj": [
 			"ErrolController.gen.cpp.obj",
@@ -106,8 +106,8 @@
 			"Radio.gen.cpp.obj",
 			"RevealScare.gen.cpp.obj",
 			"Roach.gen.cpp.obj",
-			"RoachSpawner.gen.cpp.obj",
-			"Scare.gen.cpp.obj"
+			"Scare.gen.cpp.obj",
+			"RoachSpawner.gen.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.3_of_3.cpp.obj": [
 			"ScareManager.gen.cpp.obj",

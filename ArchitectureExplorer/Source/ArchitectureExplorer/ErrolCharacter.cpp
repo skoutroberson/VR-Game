@@ -736,7 +736,7 @@ void AErrolCharacter::ExitPeekState()
 	PeekScareLevel = 0;
 	PeekTime = 0;
 	BodyMesh->SetVisibility(false, true);
-	MocapMesh->SetVisibility(true, true);
+	MocapMesh->SetVisibility(false, true);
 
 	if (ValidPeekPoint != nullptr)
 	{

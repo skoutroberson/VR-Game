@@ -43,7 +43,7 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	int RoachCount = 0;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<AActor*> Roaches;
 
 	UFUNCTION(BlueprintCallable) // spawn 1 roach per frame and increment RoachCount until it equals TargetRoachCount then turn bSpawningRoaches off and tick off

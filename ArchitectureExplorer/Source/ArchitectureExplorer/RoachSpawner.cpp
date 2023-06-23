@@ -160,7 +160,7 @@ void ARoachSpawner::SpawnRoach()
 
 void ARoachSpawner::DeleteRoach()
 {
-	if (RoachCount == 0)
+	if (RoachCount <= TargetRoachCount)
 	{
 		bDeletingRoaches = false;
 		SetActorTickEnabled(false);
@@ -231,6 +231,7 @@ void ARoachSpawner::DeleteRoaches(int NumberOfRoaches)
 	{
 		NumberOfRoaches = RoachCount;
 	}
+	TargetRoachCount = RoachCount - NumberOfRoaches;
 	bDeletingRoaches = true;
 	SetActorTickEnabled(true);
 }
