@@ -37,6 +37,7 @@
 #include "Door.h"
 #include "MotionControllerComponent.h"
 #include "PortalRoom.h"
+#include "Phone.h"
 
 // Sets default values
 AVRCharacter::AVRCharacter()
@@ -613,13 +614,15 @@ void AVRCharacter::Click()
 
 	if (GetWorld()->LineTraceSingleByChannel(Outhit, Start, End, ECollisionChannel::ECC_WorldDynamic, ColParams))
 	{
-		TWeakObjectPtr<AActor> Temp = Outhit.Actor;
+		AActor *TempA = Outhit.GetActor();
 
-		if (Temp != nullptr)
+		if (TempA != nullptr)
 		{
-			ADoor *Door = Cast<ADoor>(Outhit.GetActor());
-			if (Door != nullptr)
+			UE_LOG(LogTemp, Warning, TEXT("Click: %s"), *TempA->GetName());
+			
+			if (TempA->IsA(ADoor::StaticClass()))
 			{
+				ADoor *Door = Cast<ADoor>(TempA);
 				OpenDoor(Door);
 				APortalRoom *PR = Cast<APortalRoom>(Door->GetParentActor());
 				if (PR != nullptr)
@@ -627,6 +630,13 @@ void AVRCharacter::Click()
 					UE_LOG(LogTemp, Warning, TEXT("parent: %s"), *PR->GetName());
 					Door->PassController(nullptr);
 				}
+			}
+	
+			if (TempA->IsA(APhone::StaticClass()))
+			{
+				UE_LOG(LogTemp, Warning, TEXT("AnswerPhoneClick"));
+				APhone *Phone = Cast<APhone>(TempA);
+				Phone->AnswerPhone();
 			}
 		}
 	}

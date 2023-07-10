@@ -104,7 +104,7 @@ bool APeekPoint::IsValid(const float Threshold)
 		return bIsValid;
 	}
 
-	DrawDebugLine(World, HeadLocation, CL, FColor::Cyan, false, 1.1 * World->DeltaTimeSeconds);
+	//DrawDebugLine(World, HeadLocation, CL, FColor::Cyan, false, 1.1 * World->DeltaTimeSeconds);
 	
 	if (DotLook > Threshold)
 	{

@@ -33,7 +33,7 @@ void EmptyLinkFunctionForGeneratedCodeAlienScare() {}
 		return AlienScareState_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_AlienScareState(AlienScareState_StaticEnum, TEXT("/Script/ArchitectureExplorer"), TEXT("AlienScareState"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_AlienScareState_Hash() { return 957420461U; }
+	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_AlienScareState_Hash() { return 2022846249U; }
 	UEnum* Z_Construct_UEnum_ArchitectureExplorer_AlienScareState()
 	{
 #if WITH_HOT_RELOAD
@@ -46,10 +46,13 @@ void EmptyLinkFunctionForGeneratedCodeAlienScare() {}
 		{
 			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
 				{ "AlienScareState::STATE_IDLE", (int64)AlienScareState::STATE_IDLE },
+				{ "AlienScareState::STATE_START_SCARE", (int64)AlienScareState::STATE_START_SCARE },
+				{ "AlienScareState::STATE_MOVING_PHONE", (int64)AlienScareState::STATE_MOVING_PHONE },
 				{ "AlienScareState::STATE_CALLING_PHONE", (int64)AlienScareState::STATE_CALLING_PHONE },
 				{ "AlienScareState::STATE_WAIT_CHASE", (int64)AlienScareState::STATE_WAIT_CHASE },
 				{ "AlienScareState::STATE_CHASE", (int64)AlienScareState::STATE_CHASE },
 				{ "AlienScareState::STATE_END_CHASE", (int64)AlienScareState::STATE_END_CHASE },
+				{ "AlienScareState::STATE_END_SCARE", (int64)AlienScareState::STATE_END_SCARE },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
@@ -61,8 +64,14 @@ void EmptyLinkFunctionForGeneratedCodeAlienScare() {}
 				{ "STATE_CHASE.Name", "AlienScareState::STATE_CHASE" },
 				{ "STATE_END_CHASE.DisplayName", "EndChase" },
 				{ "STATE_END_CHASE.Name", "AlienScareState::STATE_END_CHASE" },
+				{ "STATE_END_SCARE.DisplayName", "EndScare" },
+				{ "STATE_END_SCARE.Name", "AlienScareState::STATE_END_SCARE" },
 				{ "STATE_IDLE.DisplayName", "Idle" },
 				{ "STATE_IDLE.Name", "AlienScareState::STATE_IDLE" },
+				{ "STATE_MOVING_PHONE.DisplayName", "MovingPhone" },
+				{ "STATE_MOVING_PHONE.Name", "AlienScareState::STATE_MOVING_PHONE" },
+				{ "STATE_START_SCARE.DisplayName", "StartScare" },
+				{ "STATE_START_SCARE.Name", "AlienScareState::STATE_START_SCARE" },
 				{ "STATE_WAIT_CHASE.DisplayName", "WaitChase" },
 				{ "STATE_WAIT_CHASE.Name", "AlienScareState::STATE_WAIT_CHASE" },
 			};
@@ -97,6 +106,12 @@ void EmptyLinkFunctionForGeneratedCodeAlienScare() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_State_Underlying;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_State_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_State;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -106,11 +121,24 @@ void EmptyLinkFunctionForGeneratedCodeAlienScare() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AlienScare_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
+		{ "Comment", "/**\n * // on trigger, call phone\n\x09// \"\"you have to run\"\"\n\x09// delay\n\x09// \"Get out of there! Move!\"\n\x09// delay\n\x09// check how far the player has moved, play an audio for either one,\n\n\x09// \"Wait not that way! The other way-OH GOD!\"\n\x09// or\n\x09// \"What are you doing! Run-OH GOD!\"\n\x09\n\x09// spawn errol at  side of the living room area that the player is looking at, chase for 3 minutes. (if errol is far away and hasn't seen the player in 10 seconds, then spawn him in another part\n\x09of the house.\n */" },
 		{ "IncludePath", "AlienScare.h" },
+		{ "ModuleRelativePath", "AlienScare.h" },
+		{ "ToolTip", "// on trigger, call phone\n       // \"\"you have to run\"\"\n       // delay\n       // \"Get out of there! Move!\"\n       // delay\n       // check how far the player has moved, play an audio for either one,\n\n       // \"Wait not that way! The other way-OH GOD!\"\n       // or\n       // \"What are you doing! Run-OH GOD!\"\n\n       // spawn errol at  side of the living room area that the player is looking at, chase for 3 minutes. (if errol is far away and hasn't seen the player in 10 seconds, then spawn him in another part\n       of the house." },
+	};
+#endif
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AlienScare_Statics::NewProp_State_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AlienScare_Statics::NewProp_State_MetaData[] = {
+		{ "Category", "lienScare" },
 		{ "ModuleRelativePath", "AlienScare.h" },
 	};
 #endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AlienScare_Statics::NewProp_State = { "State", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AlienScare, State), Z_Construct_UEnum_ArchitectureExplorer_AlienScareState, METADATA_PARAMS(Z_Construct_UClass_AlienScare_Statics::NewProp_State_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AlienScare_Statics::NewProp_State_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AlienScare_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AlienScare_Statics::NewProp_State_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AlienScare_Statics::NewProp_State,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AlienScare_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AlienScare>::IsAbstract,
 	};
@@ -120,11 +148,11 @@ void EmptyLinkFunctionForGeneratedCodeAlienScare() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_AlienScare_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_AlienScare_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AlienScare_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AlienScare_Statics::Class_MetaDataParams))
@@ -138,7 +166,7 @@ void EmptyLinkFunctionForGeneratedCodeAlienScare() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AlienScare, 2687303827);
+	IMPLEMENT_CLASS(AlienScare, 1307631104);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AlienScare>()
 	{
 		return AlienScare::StaticClass();

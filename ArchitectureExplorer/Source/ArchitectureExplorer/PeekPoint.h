@@ -55,7 +55,7 @@ public:
 	bool bDisabled = false;
 
 	UPROPERTY(EditAnywhere)
-	float MinDot = 0.4f;
+	float MinDot = 0.5f;
 
 	//	Used for the starting point of the line of sight trace
 	FVector HeadLocation = FVector::ZeroVector;

@@ -417,6 +417,10 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed)
 	// GameState will have a float called fShouldKill representing the GetRandomNumber between 0 and fShouldKill that decides if we should kill the player.
 	// EachState decrement fShouldKill and if the player is killed then increase fShouldKill by a lot so they are very unlucky if they are killed.
 
+	UE_LOG(LogTemp, Warning, TEXT("Chase!"));
+
+	MocapMesh->SetVisibility(true);
+
 	bSprintAtPlayer = true;
 	ChaseSpeed = MaxSpeed;
 	UpdateAnimation(State);
@@ -438,6 +442,7 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 	// update kill distance based on player camera
 	// ShouldFlyAtPlayer() // check distance to the player, when it is less than KillDistance, then fly at the player
 
+	// THIS NEEDS TO BE THE PATH DISTANCE, NOT THE STRAIGHT LINE DISTANCE
 	float Dist = FVector::Dist(GetActorLocation(), Player->GetActorLocation());
 
 	//UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), Dist);

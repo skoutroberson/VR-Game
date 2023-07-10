@@ -33,7 +33,7 @@ void AErrolController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollow
 		GetWorldTimerManager().SetTimer(LookAroundTimerHandle, this, &AErrolController::LookAroundTimerCompleted, LookAroundTimerRate, true);
 		break;
 	case ErrolState::STATE_CHASE:
-		UE_LOG(LogTemp, Warning, TEXT("IM CHASING U MOTHAFUCKA!"));
+		UE_LOG(LogTemp, Warning, TEXT("Chase Result: %s"), *Result.ToString());
 		//ErrolCharacter->ExitChaseState();
 		//ErrolCharacter->EnterKillState();
 		//UE_LOG(LogTemp, Warning, TEXT("Result: %s"), *Result.ToString());
