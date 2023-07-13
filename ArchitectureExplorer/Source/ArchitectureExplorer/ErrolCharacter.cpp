@@ -442,7 +442,7 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 	// update kill distance based on player camera
 	// ShouldFlyAtPlayer() // check distance to the player, when it is less than KillDistance, then fly at the player
 
-	// THIS NEEDS TO BE THE PATH DISTANCE, NOT THE STRAIGHT LINE DISTANCE
+	// THIS NEEDS TO BE THE PATH DISTANCE, NOT "AS THE CROW FLIES"
 	float Dist = FVector::Dist(GetActorLocation(), Player->GetActorLocation());
 
 	//UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), Dist);
