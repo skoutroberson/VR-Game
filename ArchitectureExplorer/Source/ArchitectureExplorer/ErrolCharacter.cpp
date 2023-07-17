@@ -424,6 +424,7 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed)
 	bSprintAtPlayer = true;
 	ChaseSpeed = MaxSpeed;
 	UpdateAnimation(State);
+	GetCharacterMovement()->MaxWalkSpeed = MaxSpeed;
 	ErrolController->MoveToActor(Player); //KillRadius);
 	World->GetTimerManager().UnPauseTimer(OpenBlockingDoorTimer);
 }
@@ -831,7 +832,7 @@ void AErrolCharacter::SprintAtPlayer(float DeltaTime)
 	if (GetCharacterMovement()->MaxWalkSpeed == ChaseSpeed)
 	{
 		bSprintAtPlayer = false;
-		bUpdateMoveSpeedBasedOnPlayerCamera = true;
+		//bUpdateMoveSpeedBasedOnPlayerCamera = true;
 	}
 }
 

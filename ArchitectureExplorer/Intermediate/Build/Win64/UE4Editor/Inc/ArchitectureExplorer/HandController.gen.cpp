@@ -37,7 +37,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		return HandControllerState_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_HandControllerState(HandControllerState_StaticEnum, TEXT("/Script/ArchitectureExplorer"), TEXT("HandControllerState"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_HandControllerState_Hash() { return 832772849U; }
+	uint32 Get_Z_Construct_UEnum_ArchitectureExplorer_HandControllerState_Hash() { return 3431861777U; }
 	UEnum* Z_Construct_UEnum_ArchitectureExplorer_HandControllerState()
 	{
 #if WITH_HOT_RELOAD
@@ -52,6 +52,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 				{ "HandControllerState::STATE_IDLE", (int64)HandControllerState::STATE_IDLE },
 				{ "HandControllerState::STATE_CANGRAB", (int64)HandControllerState::STATE_CANGRAB },
 				{ "HandControllerState::STATE_FLASHLIGHT", (int64)HandControllerState::STATE_FLASHLIGHT },
+				{ "HandControllerState::STATE_PHONE", (int64)HandControllerState::STATE_PHONE },
 				{ "HandControllerState::STATE_BALL", (int64)HandControllerState::STATE_BALL },
 				{ "HandControllerState::STATE_LADDER", (int64)HandControllerState::STATE_LADDER },
 				{ "HandControllerState::STATE_DOOR", (int64)HandControllerState::STATE_DOOR },
@@ -81,6 +82,8 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 				{ "STATE_LADDER.Name", "HandControllerState::STATE_LADDER" },
 				{ "STATE_PET.DisplayName", "Pet" },
 				{ "STATE_PET.Name", "HandControllerState::STATE_PET" },
+				{ "STATE_PHONE.DisplayName", "Phone" },
+				{ "STATE_PHONE.Name", "HandControllerState::STATE_PHONE" },
 			};
 #endif
 			static const UE4CodeGen_Private::FEnumParams EnumParams = {
@@ -346,6 +349,11 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		static void NewProp_bIsHoldingBottle_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsHoldingBottle;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsHoldingPhone_MetaData[];
+#endif
+		static void NewProp_bIsHoldingPhone_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsHoldingPhone;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MotionController_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_MotionController;
@@ -478,6 +486,17 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingBottle = { "bIsHoldingBottle", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AHandController), &Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingBottle_SetBit, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingBottle_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingBottle_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingPhone_MetaData[] = {
+		{ "Category", "HandAnimation" },
+		{ "ModuleRelativePath", "HandController.h" },
+	};
+#endif
+	void Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingPhone_SetBit(void* Obj)
+	{
+		((AHandController*)Obj)->bIsHoldingPhone = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingPhone = { "bIsHoldingPhone", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AHandController), &Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingPhone_SetBit, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingPhone_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingPhone_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_MotionController_MetaData[] = {
 		{ "Category", "HandController" },
 		{ "Comment", "// Default sub object\n" },
@@ -524,6 +543,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingFlashlight,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingChainsaw,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingBottle,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingPhone,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_MotionController,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor,
@@ -557,7 +577,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHandController, 3939579652);
+	IMPLEMENT_CLASS(AHandController, 779756870);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AHandController>()
 	{
 		return AHandController::StaticClass();

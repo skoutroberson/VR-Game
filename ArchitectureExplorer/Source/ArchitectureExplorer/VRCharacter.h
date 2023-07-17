@@ -114,13 +114,13 @@ public:
 	UPROPERTY(EditAnywhere)
 	class UCurveFloat *RadiusVsVelocity;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	class UCameraComponent* Camera;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class AHandController* LeftController;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class AHandController* RightController;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -333,4 +333,11 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void WoodCreak();
+
+
+	// if the component is under 140 fov from the player camera and 1 trace to the component doesn't get blocked then this will return true
+	UFUNCTION(BlueprintCallable)
+	bool IsComponentInView(USceneComponent *SceneComponent);
+
+	FCollisionQueryParams IsCompInViewParams;
 };

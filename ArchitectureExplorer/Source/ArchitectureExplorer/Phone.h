@@ -6,6 +6,17 @@
 #include "Grabbable.h"
 #include "Phone.generated.h"
 
+UENUM(BlueprintType)
+enum class PhoneState : uint8
+{
+	STATE_IDLE			UMETA(DisplayName = "Idle"),
+	STATE_CALL1			UMETA(DisplayName = "Neighbor1"),
+	STATE_HGGY			UMETA(DisplayName = "HGGY"),
+	STATE_ALIEN1		UMETA(DisplayName = "Alien1"),
+	STATE_ALIEN2		UMETA(DisplayName = "Alien2"),
+	STATE_ALIEN3		UMETA(DisplayName = "Alien3"),
+};
+
 /**
  * 
  */
@@ -30,5 +41,8 @@ public:
 
 	// for calling AnswerPhone() when the phone gets answered in Stage 4 or 6
 	class HGGYScare *HGGYScare = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	PhoneState State = PhoneState::STATE_IDLE;
 	
 };

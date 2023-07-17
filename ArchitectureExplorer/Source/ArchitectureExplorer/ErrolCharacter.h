@@ -219,6 +219,7 @@ public:
 	// tick stuff
 
 	// this is turned on once I am sprinting.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bUpdateMoveSpeedBasedOnPlayerCamera = false;
 	void UpdateMoveSpeedBasedOnPlayerCamera(float DeltaTime);
 

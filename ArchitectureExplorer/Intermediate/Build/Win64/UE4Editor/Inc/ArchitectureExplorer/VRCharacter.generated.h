@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class USceneComponent;
 class UCurveFloat;
 class ADoor;
 #ifdef ARCHITECTUREEXPLORER_VRCharacter_generated_h
@@ -18,6 +19,7 @@ class ADoor;
 #define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_31_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_31_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execIsComponentInView); \
 	DECLARE_FUNCTION(execUnStickCamera); \
 	DECLARE_FUNCTION(execCamColUnStuck); \
 	DECLARE_FUNCTION(execCamColStuck); \
@@ -31,6 +33,7 @@ class ADoor;
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_VRCharacter_h_31_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execIsComponentInView); \
 	DECLARE_FUNCTION(execUnStickCamera); \
 	DECLARE_FUNCTION(execCamColUnStuck); \
 	DECLARE_FUNCTION(execCamColStuck); \

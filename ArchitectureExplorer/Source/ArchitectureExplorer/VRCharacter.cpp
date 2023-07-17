@@ -180,6 +180,8 @@ void AVRCharacter::BeginPlay()
 	CamColParams.AddIgnoredActors(Doors);
 	CamColParams.AddIgnoredActor(LeftController);
 	CamColParams.AddIgnoredActor(RightController);
+
+	IsCompInViewParams.AddIgnoredActor(this);
 }
 
 void AVRCharacter::UpdateCapsuleHeight()
@@ -207,14 +209,7 @@ void AVRCharacter::UpdateCapsuleHeight()
 	}
 	else
 	{
-		float dpz = DP.Z;
-		dpz = FMath::Clamp(dpz, 4.f, 220.f);
-		GetCapsuleComponent()->SetCapsuleHalfHeight(12.f);
-		FVector RL = VRRoot->GetComponentLocation();
-		RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
-		//RL.Z = (GetCapsuleComponent()->GetComponentLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
-
-		VRRoot->SetWorldLocation(RL);
+		//GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	}
 
 	
@@ -239,6 +234,12 @@ void AVRCharacter::PressA(bool bLeft)
 		bool bOn = FL->bOn;
 		
 		FL->PressButton();
+	}
+	else if (CurrentController->State == HandControllerState::STATE_PHONE)
+	{
+		AActor * GA = CurrentController->GrabActor;
+		APhone *Phone = Cast<APhone>(GA);
+		Phone->AnswerPhone();
 	}
 	
 }
@@ -862,4 +863,28 @@ void AVRCharacter::UnStickCamera(float DeltaTime)
 	{
 		CamColUnStuck();
 	}
+}
+
+bool AVRCharacter::IsComponentInView(USceneComponent * SceneComponent)
+{
+#define HMD_MAX_FOV 0.33f
+
+	const FVector CameraLocation = Camera->GetComponentLocation();
+	const FVector ComponentLocation = SceneComponent->GetComponentLocation();
+	const FVector CameraForwardVector = Camera->GetForwardVector();
+	const FVector Dir = (ComponentLocation - CameraLocation).GetSafeNormal();
+	const float Dot = FVector::DotProduct(CameraForwardVector, Dir);
+
+	if (Dot > HMD_MAX_FOV)
+	{
+		FHitResult Outhit;
+		bool bTrace = GetWorld()->LineTraceSingleByChannel(Outhit, CameraLocation, ComponentLocation, ECollisionChannel::ECC_Camera, IsCompInViewParams);
+
+		if (bTrace && Outhit.GetActor() == SceneComponent->GetOwner() || !bTrace)
+		{
+			return true;
+		}		
+	}
+
+	return false;
 }

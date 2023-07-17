@@ -73,6 +73,7 @@ void AHGGYScare::EnterMovingPhoneState()
 void AHGGYScare::EnterCallingPhoneState()
 {
 	State = HGGYState::STATE_CALLING_PHONE;
+	Phone->State = PhoneState::STATE_HGGY;
 	Phone->CallPhone();
 }
 

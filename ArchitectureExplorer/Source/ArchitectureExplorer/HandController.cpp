@@ -22,6 +22,7 @@
 #include "Ball.h"
 #include "VRCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Components/CapsuleComponent.h"
 
 // Sets default values
 AHandController::AHandController()
@@ -173,6 +174,11 @@ void AHandController::Grip()
 							// change dog's look at actor to this ball
 							// fetch on release
 						}
+						else if (GrabActor->ActorHasTag(TEXT("Phone")))
+						{
+							State = HandControllerState::STATE_PHONE;
+							UpdateAnimation();
+						}
 
 						/*
 						// attach handmesh to chainsaw
@@ -309,6 +315,8 @@ void AHandController::Grip()
 				VRChar->bClimbing = true;
 			}
 
+			VRChar->GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
 			return;
 		}
 	}
@@ -379,6 +387,7 @@ void AHandController::Release()
 			AVRCharacter * VRChar = Cast<AVRCharacter>(GetAttachParentActor());
 			VRChar->bClimbing = false;
 			VRChar->GetCharacterMovement()->GravityScale = 1.0f;
+			VRChar->GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 		}
 		else
 		{

@@ -71,6 +71,7 @@ void AlienScare::MovePhone()
 		{
 			Phone->SetActorTransform(PhoneTransform2);
 		}
+		Phone->State = PhoneState::STATE_ALIEN1;
 		Phone->CallPhone();
 	}
 

@@ -3,7 +3,6 @@
 	{
 		"Module.ArchitectureExplorer.cpp.obj": [
 			"AboveYouScare.cpp.obj",
-			"AlienScare.cpp.obj",
 			"ArchitectureExplorer.cpp.obj",
 			"ArchitectureExplorerGameModeBase.cpp.obj",
 			"AudioDistanceCrossfader.cpp.obj",
@@ -30,8 +29,6 @@
 			"Flashlight.cpp.obj",
 			"Grabbable.cpp.obj",
 			"HallwayStareScare.cpp.obj",
-			"HandController.cpp.obj",
-			"HGGYScare.cpp.obj",
 			"KeyCan.cpp.obj",
 			"LightManager.cpp.obj",
 			"LightningStrikeScare.cpp.obj",
@@ -56,13 +53,16 @@
 			"StageManager.cpp.obj",
 			"StairsScare.cpp.obj",
 			"TriggerManager.cpp.obj",
-			"VRCharacter.cpp.obj",
-			"ErrolCharacter.cpp.obj"
+			"AlienScare.cpp.obj",
+			"ErrolCharacter.cpp.obj",
+			"ErrolSaw.cpp.obj",
+			"HandController.cpp.obj",
+			"HGGYScare.cpp.obj",
+			"VRCharacter.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.1_of_3.cpp.obj": [
 			"AboveYouScare.gen.cpp.obj",
 			"AlienScare.gen.cpp.obj",
-			"ArchitectureExplorer.init.gen.cpp.obj",
 			"ArchitectureExplorerGameModeBase.gen.cpp.obj",
 			"AudioDistanceCrossfader.gen.cpp.obj",
 			"Ball.gen.cpp.obj",
@@ -82,6 +82,7 @@
 			"DoorManager.gen.cpp.obj",
 			"Drawer.gen.cpp.obj",
 			"Errol.gen.cpp.obj",
+			"ArchitectureExplorer.init.gen.cpp.obj",
 			"ErrolCharacter.gen.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.2_of_3.cpp.obj": [
@@ -91,13 +92,11 @@
 			"Flashlight.gen.cpp.obj",
 			"Grabbable.gen.cpp.obj",
 			"HallwayStareScare.gen.cpp.obj",
-			"HandController.gen.cpp.obj",
 			"HGGYScare.gen.cpp.obj",
 			"KeyCan.gen.cpp.obj",
 			"LightManager.gen.cpp.obj",
 			"LightningStrikeScare.gen.cpp.obj",
 			"PeekPoint.gen.cpp.obj",
-			"Phone.gen.cpp.obj",
 			"Portal.gen.cpp.obj",
 			"PortalLadderRoom.gen.cpp.obj",
 			"PortalRoom.gen.cpp.obj",
@@ -107,9 +106,12 @@
 			"RevealScare.gen.cpp.obj",
 			"Roach.gen.cpp.obj",
 			"RoachSpawner.gen.cpp.obj",
-			"Scare.gen.cpp.obj"
+			"ErrolSaw.gen.cpp.obj",
+			"HandController.gen.cpp.obj",
+			"Phone.gen.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.3_of_3.cpp.obj": [
+			"Scare.gen.cpp.obj",
 			"ScareManager.gen.cpp.obj",
 			"Stage.gen.cpp.obj",
 			"Stage1.gen.cpp.obj",

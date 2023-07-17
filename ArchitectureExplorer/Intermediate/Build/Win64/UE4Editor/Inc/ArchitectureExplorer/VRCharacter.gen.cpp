@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AVRCharacter_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AVRCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
+	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ADoor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
@@ -26,7 +27,6 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AHandController_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_UPostProcessComponent_NoRegister();
@@ -90,6 +90,14 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
 		}
 		return ReturnEnum;
+	}
+	DEFINE_FUNCTION(AVRCharacter::execIsComponentInView)
+	{
+		P_GET_OBJECT(USceneComponent,Z_Param_SceneComponent);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsComponentInView(Z_Param_SceneComponent);
+		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AVRCharacter::execUnStickCamera)
 	{
@@ -191,6 +199,7 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 			{ "CamColUnStuck", &AVRCharacter::execCamColUnStuck },
 			{ "GripLeft", &AVRCharacter::execGripLeft },
 			{ "GripRight", &AVRCharacter::execGripRight },
+			{ "IsComponentInView", &AVRCharacter::execIsComponentInView },
 			{ "ReleaseLeft", &AVRCharacter::execReleaseLeft },
 			{ "ReleaseRight", &AVRCharacter::execReleaseRight },
 			{ "StartCameraFade", &AVRCharacter::execStartCameraFade },
@@ -308,6 +317,57 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AVRCharacter_GripRight_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics
+	{
+		struct VRCharacter_eventIsComponentInView_Parms
+		{
+			USceneComponent* SceneComponent;
+			bool ReturnValue;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SceneComponent_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SceneComponent;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::NewProp_SceneComponent_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::NewProp_SceneComponent = { "SceneComponent", nullptr, (EPropertyFlags)0x0010000000080080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(VRCharacter_eventIsComponentInView_Parms, SceneComponent), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::NewProp_SceneComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::NewProp_SceneComponent_MetaData)) };
+	void Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((VRCharacter_eventIsComponentInView_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(VRCharacter_eventIsComponentInView_Parms), &Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::NewProp_SceneComponent,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// if the component is under 140 fov from the player camera and 1 trace to the component doesn't get blocked then this will return true\n" },
+		{ "ModuleRelativePath", "VRCharacter.h" },
+		{ "ToolTip", "if the component is under 140 fov from the player camera and 1 trace to the component doesn't get blocked then this will return true" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AVRCharacter, nullptr, "IsComponentInView", nullptr, nullptr, sizeof(VRCharacter_eventIsComponentInView_Parms), Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AVRCharacter_IsComponentInView()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AVRCharacter_IsComponentInView_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -731,6 +791,7 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 		{ &Z_Construct_UFunction_AVRCharacter_FadeScreenToBlack, "FadeScreenToBlack" }, // 2815998783
 		{ &Z_Construct_UFunction_AVRCharacter_GripLeft, "GripLeft" }, // 3386932330
 		{ &Z_Construct_UFunction_AVRCharacter_GripRight, "GripRight" }, // 3027521148
+		{ &Z_Construct_UFunction_AVRCharacter_IsComponentInView, "IsComponentInView" }, // 3376795919
 		{ &Z_Construct_UFunction_AVRCharacter_OpenDoor, "OpenDoor" }, // 1996179051
 		{ &Z_Construct_UFunction_AVRCharacter_ReleaseLeft, "ReleaseLeft" }, // 563455975
 		{ &Z_Construct_UFunction_AVRCharacter_ReleaseRight, "ReleaseRight" }, // 3157770404
@@ -810,21 +871,21 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 		{ "ModuleRelativePath", "VRCharacter.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AVRCharacter_Statics::NewProp_Camera = { "Camera", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AVRCharacter, Camera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AVRCharacter_Statics::NewProp_Camera_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AVRCharacter_Statics::NewProp_Camera_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AVRCharacter_Statics::NewProp_Camera = { "Camera", nullptr, (EPropertyFlags)0x001000000008001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AVRCharacter, Camera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AVRCharacter_Statics::NewProp_Camera_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AVRCharacter_Statics::NewProp_Camera_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AVRCharacter_Statics::NewProp_LeftController_MetaData[] = {
 		{ "Category", "VRCharacter" },
 		{ "ModuleRelativePath", "VRCharacter.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AVRCharacter_Statics::NewProp_LeftController = { "LeftController", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AVRCharacter, LeftController), Z_Construct_UClass_AHandController_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AVRCharacter_Statics::NewProp_LeftController_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AVRCharacter_Statics::NewProp_LeftController_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AVRCharacter_Statics::NewProp_LeftController = { "LeftController", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AVRCharacter, LeftController), Z_Construct_UClass_AHandController_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AVRCharacter_Statics::NewProp_LeftController_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AVRCharacter_Statics::NewProp_LeftController_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AVRCharacter_Statics::NewProp_RightController_MetaData[] = {
 		{ "Category", "VRCharacter" },
 		{ "ModuleRelativePath", "VRCharacter.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AVRCharacter_Statics::NewProp_RightController = { "RightController", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AVRCharacter, RightController), Z_Construct_UClass_AHandController_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AVRCharacter_Statics::NewProp_RightController_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AVRCharacter_Statics::NewProp_RightController_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AVRCharacter_Statics::NewProp_RightController = { "RightController", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AVRCharacter, RightController), Z_Construct_UClass_AHandController_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AVRCharacter_Statics::NewProp_RightController_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AVRCharacter_Statics::NewProp_RightController_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AVRCharacter_Statics::NewProp_LeftHandMesh_MetaData[] = {
 		{ "Category", "VRCharacter" },
@@ -1127,7 +1188,7 @@ void EmptyLinkFunctionForGeneratedCodeVRCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AVRCharacter, 1661998129);
+	IMPLEMENT_CLASS(AVRCharacter, 4262125644);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AVRCharacter>()
 	{
 		return AVRCharacter::StaticClass();

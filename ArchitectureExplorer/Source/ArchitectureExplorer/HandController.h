@@ -16,6 +16,7 @@ enum class HandControllerState : uint8
 	STATE_IDLE			UMETA(DisplayName = "Idle"),
 	STATE_CANGRAB		UMETA(DisplayName = "CanGrab"),
 	STATE_FLASHLIGHT	UMETA(DisplayName = "Flashlight"),
+	STATE_PHONE			UMETA(DisplayName = "Phone"),
 	STATE_BALL			UMETA(DisplayName = "Ball"),
 	STATE_LADDER		UMETA(DisplayName = "Ladder"),
 	STATE_DOOR			UMETA(DisplayName = "Door"),
@@ -98,6 +99,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
 	bool bIsHoldingBottle = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HandAnimation)
+	bool bIsHoldingPhone = false;
 
 	// Default sub object
 	UPROPERTY(VisibleAnywhere)

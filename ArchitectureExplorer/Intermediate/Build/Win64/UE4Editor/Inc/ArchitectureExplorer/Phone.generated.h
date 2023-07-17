@@ -13,12 +13,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ARCHITECTUREEXPLORER_Phone_generated_h
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_SPARSE_DATA
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_RPC_WRAPPERS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_RPC_WRAPPERS_NO_PURE_DECLS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_EVENT_PARMS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_CALLBACK_WRAPPERS
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_INCLASS_NO_PURE_DECLS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_SPARSE_DATA
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_RPC_WRAPPERS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_RPC_WRAPPERS_NO_PURE_DECLS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_EVENT_PARMS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_CALLBACK_WRAPPERS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPhone(); \
 	friend struct Z_Construct_UClass_APhone_Statics; \
@@ -27,7 +27,7 @@ public: \
 	DECLARE_SERIALIZER(APhone)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_INCLASS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_INCLASS \
 private: \
 	static void StaticRegisterNativesAPhone(); \
 	friend struct Z_Construct_UClass_APhone_Statics; \
@@ -36,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(APhone)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_STANDARD_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API APhone(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(APhone) \
@@ -49,7 +49,7 @@ private: \
 public:
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_ENHANCED_CONSTRUCTORS \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API APhone(APhone&&); \
@@ -60,33 +60,33 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APhone); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APhone)
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_PRIVATE_PROPERTY_OFFSET
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_12_PROLOG \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_EVENT_PARMS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_PRIVATE_PROPERTY_OFFSET
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_23_PROLOG \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_EVENT_PARMS
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_GENERATED_BODY_LEGACY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_RPC_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_CALLBACK_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_INCLASS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_STANDARD_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_CALLBACK_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_INCLASS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_GENERATED_BODY \
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_PRIVATE_PROPERTY_OFFSET \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_SPARSE_DATA \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_CALLBACK_WRAPPERS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_INCLASS_NO_PURE_DECLS \
-	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_15_ENHANCED_CONSTRUCTORS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_CALLBACK_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_INCLASS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h_26_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -96,5 +96,16 @@ template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<class APhone>();
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID ArchitectureExplorer_Source_ArchitectureExplorer_Phone_h
 
+
+#define FOREACH_ENUM_PHONESTATE(op) \
+	op(PhoneState::STATE_IDLE) \
+	op(PhoneState::STATE_CALL1) \
+	op(PhoneState::STATE_HGGY) \
+	op(PhoneState::STATE_ALIEN1) \
+	op(PhoneState::STATE_ALIEN2) \
+	op(PhoneState::STATE_ALIEN3) 
+
+enum class PhoneState : uint8;
+template<> ARCHITECTUREEXPLORER_API UEnum* StaticEnum<PhoneState>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

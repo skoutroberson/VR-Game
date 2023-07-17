@@ -1343,6 +1343,11 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DoorBlockingPath;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bUpdateMoveSpeedBasedOnPlayerCamera_MetaData[];
+#endif
+		static void NewProp_bUpdateMoveSpeedBasedOnPlayerCamera_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bUpdateMoveSpeedBasedOnPlayerCamera;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SprintSpeedUpSpeed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_SprintSpeedUpSpeed;
@@ -1646,6 +1651,19 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_DoorBlockingPath = { "DoorBlockingPath", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, DoorBlockingPath), Z_Construct_UClass_ADoor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_DoorBlockingPath_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_DoorBlockingPath_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bUpdateMoveSpeedBasedOnPlayerCamera_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "Comment", "// this is turned on once I am sprinting.\n" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+		{ "ToolTip", "this is turned on once I am sprinting." },
+	};
+#endif
+	void Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bUpdateMoveSpeedBasedOnPlayerCamera_SetBit(void* Obj)
+	{
+		((AErrolCharacter*)Obj)->bUpdateMoveSpeedBasedOnPlayerCamera = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bUpdateMoveSpeedBasedOnPlayerCamera = { "bUpdateMoveSpeedBasedOnPlayerCamera", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AErrolCharacter), &Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bUpdateMoveSpeedBasedOnPlayerCamera_SetBit, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bUpdateMoveSpeedBasedOnPlayerCamera_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bUpdateMoveSpeedBasedOnPlayerCamera_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SprintSpeedUpSpeed_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
 		{ "Comment", "// this is how fast Errol will increase his speed into a sprint\n" },
@@ -1919,6 +1937,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_DoorBlockingPath,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bUpdateMoveSpeedBasedOnPlayerCamera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SprintSpeedUpSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_UpdateSpeedBasedOnPlayerCameraSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillChance,
@@ -1979,7 +1998,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 3555073220);
+	IMPLEMENT_CLASS(AErrolCharacter, 3665747869);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();
