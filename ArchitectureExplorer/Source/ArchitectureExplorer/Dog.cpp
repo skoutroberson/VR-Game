@@ -36,17 +36,25 @@ void ADog::Tick(float DeltaTime)
 	switch (State)
 	{
 	case DogState::STATE_FETCHING:
-		ShouldPickUpBall();
 		if (!bRanTowardsHouse && Fetches > 1)
 		{
 			CheckBallDistance();
 		}
+		ShouldPickUpBall();
+		//RotateToFaceBall(DeltaTime);
 		break;
 	case DogState::STATE_RETURNING:
 		ShouldDropBall();
 		break;
 	case DogState::STATE_SITTING:
 		//RotateToFacePlayer();
+		break;
+	case DogState::STATE_PICKUP:
+		// check ball distance,
+		CheckPickupBallDistance();
+		//Rotate to face ball
+		UE_LOG(LogTemp, Warning, TEXT("RotateToFaceBall"));
+		RotateToFaceBall(DeltaTime);
 		break;
 	}
 
@@ -61,7 +69,10 @@ void ADog::ShouldPickUpBall()
 	if (!bRanTowardsHouse && Distance < PickupBallDistance)
 	{
 		GetController()->StopMovement();
+		EnableAnimNotify();
 		State = DogState::STATE_PICKUP;
+		const FVector NewVelocity = Ball->GetVelocity() * 0.33f;
+		Cast<UPrimitiveComponent>(Ball->GetRootComponent())->SetPhysicsLinearVelocity(NewVelocity);
 	}
 }
 
@@ -107,6 +118,35 @@ void ADog::CheckBallDistance()
 		bRanTowardsHouse = true;
 		RunTowardsHouse();
 	}
+}
+
+void ADog::CheckPickupBallDistance()
+{
+	const float Distance = FVector::Distance(GetActorLocation(), Ball->GetActorLocation());
+	UE_LOG(LogTemp, Warning, TEXT("Distance: %f"), Distance);
+	if (Distance > PickupBallDistance + 30.f)
+	{
+		State = DogState::STATE_FETCHING;
+		DisableAnimNotify();
+		MoveToBallCPP();
+	}
+}
+
+void ADog::RotateToFaceBall(float DeltaTime)
+{
+	const FRotator AR = GetActorRotation();
+	const FVector AL = GetActorLocation();
+	const FVector FV = GetActorForwardVector();
+	const FVector BL = Ball->GetActorLocation();
+	FVector Disp = BL - AL;
+	Disp.Z = 0;
+	Disp = Disp.GetSafeNormal();
+	const float Angle = -FMath::Acos(FVector::DotProduct(Disp, FV));
+	FRotator NewRotation = AR;
+	NewRotation.Yaw += Angle;
+
+	SetActorRotation(FMath::RInterpConstantTo(AR, NewRotation, DeltaTime, 100.f));
+	//SetActorRotation(NewRotation);
 }
 
 void ADog::RotateToFacePlayer()

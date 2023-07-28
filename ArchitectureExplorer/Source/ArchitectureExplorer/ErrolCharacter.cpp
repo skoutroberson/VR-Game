@@ -99,6 +99,13 @@ void AErrolCharacter::BeginPlay()
 	OpenDoorQueryParams.AddIgnoredActors(GrabActors);
 	OpenDoorQueryParams.AddIgnoredActor(this);
 
+	PeekQueryParams.AddIgnoredActors(GrabActors);
+	PeekQueryParams.AddIgnoredActor(this);
+	TArray<AActor*> DoorActors;
+	UGameplayStatics::GetAllActorsOfClass(World, ADoor::StaticClass(), DoorActors);
+	//PeekQueryParams.AddIgnoredActors(DoorActors);
+	PeekQueryParams.IgnoreMask = 5;
+
 	World->GetTimerManager().SetTimer(OpenBlockingDoorTimer, this, &AErrolCharacter::OpenDoorBlockingPath, 0.2f, true, 0.4f);
 	
 	World->GetTimerManager().PauseTimer(OpenBlockingDoorTimer);
@@ -928,6 +935,7 @@ void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 	InitializePerceptionTimers();
 
 	CanPlayerSeeMeTraceParams.AddIgnoredActor(Player);
+	//PeekQueryParams.AddIgnoredActor(Player);
 	//	Debug
 	EnterPeekState();
 
@@ -1161,7 +1169,7 @@ void AErrolCharacter::StartPeek()
 	FVector Disp = PlayerCamera->GetComponentLocation() - PeekLocation;
 	Disp.Z = 0;
 
-	DrawDebugLine(World, PeekLocation, PlayerCamera->GetComponentLocation(), FColor::Red, true);
+	//DrawDebugLine(World, PeekLocation, PlayerCamera->GetComponentLocation(), FColor::Red, true);
 	
 	//	if player is on the left side of the peek vector, make Errol do a left peek, right side: vice versa
 	float Dot = FVector::DotProduct(Disp, RightPeekVector);
@@ -1205,6 +1213,16 @@ void AErrolCharacter::StartPeek()
 	ErrolPeekLocation.Z += GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
 	SetActorLocation(ErrolPeekLocation);
 	BodyMesh->SetVisibility(true);
+
+	// open the peek door if there is one (I might want to change this function so that Errol peeks after the door is open).
+	ADoor *PeekDoor = ValidPeekPoint->PeekDoor;
+
+	if (PeekDoor != nullptr)
+	{
+		PeekDoor->CurrentCurve = PeekDoorCurve;
+		PeekDoor->bOpenDoorUsingCurve = true;
+	}
+
 }
 
 
@@ -1215,6 +1233,7 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 	//	- If the player looks at Errol for too long: DotProduct(Disp, CameraVector) * DeltaTime > LookThreshold
 	//	- If the peek angle is too shallow
 
+	// check if peek has gone on too long
 	PeekTime += DeltaTime;
 	if (PeekTime > MaxPeekTime)
 	{
@@ -1248,7 +1267,7 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 			if (ScreenPosition.Y > 1.f && ScreenPosition.Y < ViewportSize.Y)
 			{
 				//UE_LOG(LogTemp, Warning, TEXT("ON SCREEN"));
-				UE_LOG(LogTemp, Warning, TEXT("Scare Level: %f"), PeekScareLevel);
+				//UE_LOG(LogTemp, Warning, TEXT("Scare Level: %f"), PeekScareLevel);
 				bPeekOnScreen = true;
 				bPeekCurrentlyOnScreen = true;
 				PeekScareLevel += (1 / (1 - Dot)) * DeltaTime;
@@ -1262,23 +1281,40 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 			}
 			else
 			{
-				UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+				//UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
 
 			}
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+			//UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
 
 		}
 	}
 	
+	// check if peek is too shallow:
 
-	if (bPeekOnScreen && !bPeekCurrentlyOnScreen && PeekScareLevel > 0.01f)
+	if (PeekState == ErrolPeekState::STATE_LEFTPEEK)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("ENDPEEK"));
-		//bPeeking = false;
-		//EndPeek();
+		Dot = FVector::DotProduct(Disp, -LeftPeekVector);
+	}
+	else if (PeekState == ErrolPeekState::STATE_RIGHTPEEK) 
+	{
+		Dot = FVector::DotProduct(Disp, -RightPeekVector);
+	}
+
+	if (Dot < ValidPeekPoint->MinDot)
+	{
+		bPeeking = false;
+		EndPeek();
+	}
+
+	// if player saw the peek and then looked away, end the peek
+	if (bPeekOnScreen && !bPeekCurrentlyOnScreen && PeekScareLevel > 0.94f)
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("ENDPEEK"));
+		bPeeking = false;
+		EndPeek();
 	}
 }
 
@@ -1295,8 +1331,8 @@ void AErrolCharacter::UpdatePeekPosition()
 
 	FHitResult HitResult;
 
-	bool bEyeTrace = World->LineTraceSingleByChannel(HitResult, EyeLocation, EyeLocation + DispEye * 60.f, ECC_WorldDynamic);
-	bool bNeckTrace = World->LineTraceSingleByChannel(HitResult, NeckLocation, NeckLocation + DispNeck * 60.f, ECC_WorldDynamic);
+	bool bEyeTrace = World->LineTraceSingleByChannel(HitResult, EyeLocation, EyeLocation + DispEye * 60.f, ECC_WorldDynamic, PeekQueryParams);
+	bool bNeckTrace = World->LineTraceSingleByChannel(HitResult, NeckLocation, NeckLocation + DispNeck * 60.f, ECC_WorldDynamic, PeekQueryParams);
 
 	FVector DeltaLocation = ValidPeekPoint->GetActorLocation();
 	

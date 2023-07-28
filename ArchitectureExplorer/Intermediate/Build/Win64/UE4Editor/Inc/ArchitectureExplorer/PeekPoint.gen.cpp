@@ -21,6 +21,7 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 	ENGINE_API UClass* Z_Construct_UClass_UArrowComponent_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ADoor_NoRegister();
 // End Cross Module References
 	void APeekPoint::StaticRegisterNativesAPeekPoint()
 	{
@@ -72,6 +73,10 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MinDot_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MinDot;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PeekDoor_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PeekDoor;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -163,6 +168,15 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APeekPoint_Statics::NewProp_MinDot = { "MinDot", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APeekPoint, MinDot), METADATA_PARAMS(Z_Construct_UClass_APeekPoint_Statics::NewProp_MinDot_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APeekPoint_Statics::NewProp_MinDot_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekDoor_MetaData[] = {
+		{ "Category", "PeekPoint" },
+		{ "Comment", "// set in the level editor\n" },
+		{ "ModuleRelativePath", "PeekPoint.h" },
+		{ "ToolTip", "set in the level editor" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekDoor = { "PeekDoor", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APeekPoint, PeekDoor), Z_Construct_UClass_ADoor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekDoor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekDoor_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APeekPoint_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekRoot,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_LeftPeekVector,
@@ -173,6 +187,7 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_Sphere,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_MinDot,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APeekPoint_Statics::NewProp_PeekDoor,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APeekPoint_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APeekPoint>::IsAbstract,
@@ -201,7 +216,7 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APeekPoint, 3932615102);
+	IMPLEMENT_CLASS(APeekPoint, 1990440446);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<APeekPoint>()
 	{
 		return APeekPoint::StaticClass();

@@ -26,6 +26,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ADoor_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_APeekPoint_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
 // End Cross Module References
 	static UEnum* ErrolPeekState_StaticEnum()
 	{
@@ -1439,6 +1440,10 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_PeekScareLevel;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PeekDoorCurve_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PeekDoorCurve;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_IdleSpeed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_IdleSpeed;
@@ -1845,6 +1850,13 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekScareLevel = { "PeekScareLevel", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, PeekScareLevel), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekScareLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekScareLevel_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekDoorCurve_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekDoorCurve = { "PeekDoorCurve", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, PeekDoorCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekDoorCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekDoorCurve_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_IdleSpeed_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
 		{ "Comment", "// Various settings\n" },
@@ -1961,6 +1973,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekTime,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekScareThreshold,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekScareLevel,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekDoorCurve,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_IdleSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyAtSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PatrolSpeed,
@@ -1998,7 +2011,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 3665747869);
+	IMPLEMENT_CLASS(AErrolCharacter, 4139916991);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

@@ -377,6 +377,11 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	float PeekScareLevel = 0;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UCurveFloat *PeekDoorCurve;
+
+	FCollisionQueryParams PeekQueryParams;
+
 	// SCARE STATES:
 
 	// These states control Errol's behavior during a specific scare created in blueprints.

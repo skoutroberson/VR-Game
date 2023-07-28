@@ -93,14 +93,32 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void CheckBallDistance();
 
+	// changes the state to fetching if the ball rolled out of mouths reach while picking up
+	void CheckPickupBallDistance();
+
 	UFUNCTION(BlueprintImplementableEvent)
 	void RunTowardsHouse();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool bRanTowardsHouse = false;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dog")
+	float PickupBallDistance = 150.f;
+
+	// c++ function for calling the "MoveToBall" blueprint function. (I wrote the blueprint function first)
+	UFUNCTION(BlueprintImplementableEvent)
+	void MoveToBallCPP();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void EnableAnimNotify();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void DisableAnimNotify();
+
+	void RotateToFaceBall(float DeltaTime);
+
 private:
 	void RotateToFacePlayer();
 
-	float PickupBallDistance = 150.f;
+	
 };

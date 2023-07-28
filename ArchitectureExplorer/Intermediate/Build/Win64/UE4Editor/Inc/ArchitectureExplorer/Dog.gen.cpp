@@ -130,6 +130,21 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 		P_THIS->PickupBall();
 		P_NATIVE_END;
 	}
+	static FName NAME_ADog_DisableAnimNotify = FName(TEXT("DisableAnimNotify"));
+	void ADog::DisableAnimNotify()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ADog_DisableAnimNotify),NULL);
+	}
+	static FName NAME_ADog_EnableAnimNotify = FName(TEXT("EnableAnimNotify"));
+	void ADog::EnableAnimNotify()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ADog_EnableAnimNotify),NULL);
+	}
+	static FName NAME_ADog_MoveToBallCPP = FName(TEXT("MoveToBallCPP"));
+	void ADog::MoveToBallCPP()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ADog_MoveToBallCPP),NULL);
+	}
 	static FName NAME_ADog_RunTowardsHouse = FName(TEXT("RunTowardsHouse"));
 	void ADog::RunTowardsHouse()
 	{
@@ -175,6 +190,28 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ADog_DisableAnimNotify_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADog_DisableAnimNotify_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Dog.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADog_DisableAnimNotify_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADog, nullptr, "DisableAnimNotify", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADog_DisableAnimNotify_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADog_DisableAnimNotify_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADog_DisableAnimNotify()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADog_DisableAnimNotify_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ADog_DropBall_Statics
 	{
 #if WITH_METADATA
@@ -194,6 +231,28 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADog_DropBall_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ADog_EnableAnimNotify_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADog_EnableAnimNotify_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Dog.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADog_EnableAnimNotify_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADog, nullptr, "EnableAnimNotify", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADog_EnableAnimNotify_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADog_EnableAnimNotify_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADog_EnableAnimNotify()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADog_EnableAnimNotify_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -218,6 +277,30 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADog_FetchBall_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ADog_MoveToBallCPP_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADog_MoveToBallCPP_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// c++ function for calling the \"MoveToBall\" blueprint function. (I wrote the blueprint function first)\n" },
+		{ "ModuleRelativePath", "Dog.h" },
+		{ "ToolTip", "c++ function for calling the \"MoveToBall\" blueprint function. (I wrote the blueprint function first)" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADog_MoveToBallCPP_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADog, nullptr, "MoveToBallCPP", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADog_MoveToBallCPP_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADog_MoveToBallCPP_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADog_MoveToBallCPP()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADog_MoveToBallCPP_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -335,6 +418,10 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 #endif
 		static void NewProp_bRanTowardsHouse_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bRanTowardsHouse;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PickupBallDistance_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_PickupBallDistance;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -345,8 +432,11 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADog_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADog_CheckBallDistance, "CheckBallDistance" }, // 2700569616
+		{ &Z_Construct_UFunction_ADog_DisableAnimNotify, "DisableAnimNotify" }, // 2427882530
 		{ &Z_Construct_UFunction_ADog_DropBall, "DropBall" }, // 1178078299
+		{ &Z_Construct_UFunction_ADog_EnableAnimNotify, "EnableAnimNotify" }, // 2514366368
 		{ &Z_Construct_UFunction_ADog_FetchBall, "FetchBall" }, // 4014571221
+		{ &Z_Construct_UFunction_ADog_MoveToBallCPP, "MoveToBallCPP" }, // 1640191415
 		{ &Z_Construct_UFunction_ADog_PickupBall, "PickupBall" }, // 1189668216
 		{ &Z_Construct_UFunction_ADog_RunTowardsHouse, "RunTowardsHouse" }, // 3182812604
 		{ &Z_Construct_UFunction_ADog_WaitAndDropBall, "WaitAndDropBall" }, // 192578064
@@ -425,6 +515,13 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 		((ADog*)Obj)->bRanTowardsHouse = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADog_Statics::NewProp_bRanTowardsHouse = { "bRanTowardsHouse", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADog), &Z_Construct_UClass_ADog_Statics::NewProp_bRanTowardsHouse_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADog_Statics::NewProp_bRanTowardsHouse_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADog_Statics::NewProp_bRanTowardsHouse_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADog_Statics::NewProp_PickupBallDistance_MetaData[] = {
+		{ "Category", "Dog" },
+		{ "ModuleRelativePath", "Dog.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADog_Statics::NewProp_PickupBallDistance = { "PickupBallDistance", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADog, PickupBallDistance), METADATA_PARAMS(Z_Construct_UClass_ADog_Statics::NewProp_PickupBallDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADog_Statics::NewProp_PickupBallDistance_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADog_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADog_Statics::NewProp_BarkSound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADog_Statics::NewProp_HappySound,
@@ -435,6 +532,7 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADog_Statics::NewProp_bWantsToFetch,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADog_Statics::NewProp_Fetches,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADog_Statics::NewProp_bRanTowardsHouse,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADog_Statics::NewProp_PickupBallDistance,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADog_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADog>::IsAbstract,
@@ -463,7 +561,7 @@ void EmptyLinkFunctionForGeneratedCodeDog() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADog, 419011916);
+	IMPLEMENT_CLASS(ADog, 3909769093);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ADog>()
 	{
 		return ADog::StaticClass();

@@ -55,7 +55,7 @@ public:
 	bool bDisabled = false;
 
 	UPROPERTY(EditAnywhere)
-	float MinDot = 0.5f;
+	float MinDot = 0.64f;
 
 	//	Used for the starting point of the line of sight trace
 	FVector HeadLocation = FVector::ZeroVector;
@@ -78,5 +78,10 @@ private:
 	class UCameraComponent * PlayerCamera = nullptr;
 	AActor * LeftHandController = nullptr;
 	AActor * RightHandController = nullptr;
+
+public:
+	// set in the level editor
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class ADoor *PeekDoor = nullptr;;
 
 };
