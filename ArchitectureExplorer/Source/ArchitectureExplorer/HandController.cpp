@@ -173,6 +173,7 @@ void AHandController::Grip()
 							UpdateAnimation();
 							// change dog's look at actor to this ball
 							// fetch on release
+							Dog->MoveToPlayer();
 						}
 						else if (GrabActor->ActorHasTag(TEXT("Phone")))
 						{
@@ -462,7 +463,8 @@ void AHandController::Release()
 
 				if (Dog->bWantsToFetch)
 				{
-					Dog->FetchBall();
+					Dog->TryToFetchBall();
+					//Dog->FetchBall();
 				}
 				//tell dog to fetch
 			}

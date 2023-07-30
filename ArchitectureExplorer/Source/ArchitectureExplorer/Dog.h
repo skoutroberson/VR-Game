@@ -96,7 +96,7 @@ public:
 	// changes the state to fetching if the ball rolled out of mouths reach while picking up
 	void CheckPickupBallDistance();
 
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RunTowardsHouse();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -116,6 +116,12 @@ public:
 	void DisableAnimNotify();
 
 	void RotateToFaceBall(float DeltaTime);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void TryToFetchBall();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void MoveToPlayer();
 
 private:
 	void RotateToFacePlayer();

@@ -22,9 +22,10 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 // End Cross Module References
 	DEFINE_FUNCTION(AFlashlight::execPressButton)
 	{
+		P_GET_UBOOL(Z_Param_bButtonAudio);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->PressButton();
+		P_THIS->PressButton(Z_Param_bButtonAudio);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AFlashlight::execTurnOff)
@@ -80,17 +81,32 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	}
 	struct Z_Construct_UFunction_AFlashlight_PressButton_Statics
 	{
+		struct Flashlight_eventPressButton_Parms
+		{
+			bool bButtonAudio;
+		};
+		static void NewProp_bButtonAudio_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bButtonAudio;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AFlashlight_PressButton_Statics::NewProp_bButtonAudio_SetBit(void* Obj)
+	{
+		((Flashlight_eventPressButton_Parms*)Obj)->bButtonAudio = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AFlashlight_PressButton_Statics::NewProp_bButtonAudio = { "bButtonAudio", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Flashlight_eventPressButton_Parms), &Z_Construct_UFunction_AFlashlight_PressButton_Statics::NewProp_bButtonAudio_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFlashlight_PressButton_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFlashlight_PressButton_Statics::NewProp_bButtonAudio,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFlashlight_PressButton_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Flashlight.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFlashlight_PressButton_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFlashlight, nullptr, "PressButton", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFlashlight_PressButton_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFlashlight_PressButton_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFlashlight_PressButton_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFlashlight, nullptr, "PressButton", nullptr, nullptr, sizeof(Flashlight_eventPressButton_Parms), Z_Construct_UFunction_AFlashlight_PressButton_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFlashlight_PressButton_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFlashlight_PressButton_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFlashlight_PressButton_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AFlashlight_PressButton()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -183,7 +199,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AFlashlight_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFlashlight_PlayButtonPressAudio, "PlayButtonPressAudio" }, // 3221636658
-		{ &Z_Construct_UFunction_AFlashlight_PressButton, "PressButton" }, // 2729338754
+		{ &Z_Construct_UFunction_AFlashlight_PressButton, "PressButton" }, // 363746436
 		{ &Z_Construct_UFunction_AFlashlight_TurnOff, "TurnOff" }, // 2755678298
 		{ &Z_Construct_UFunction_AFlashlight_TurnOn, "TurnOn" }, // 4285305367
 	};
@@ -265,7 +281,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFlashlight, 1020352646);
+	IMPLEMENT_CLASS(AFlashlight, 703799308);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AFlashlight>()
 	{
 		return AFlashlight::StaticClass();

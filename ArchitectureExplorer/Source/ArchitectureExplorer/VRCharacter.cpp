@@ -233,7 +233,7 @@ void AVRCharacter::PressA(bool bLeft)
 		AFlashlight * FL = Cast<AFlashlight>(GA);
 		bool bOn = FL->bOn;
 		
-		FL->PressButton();
+		FL->PressButton(true);
 	}
 	else if (CurrentController->State == HandControllerState::STATE_PHONE)
 	{

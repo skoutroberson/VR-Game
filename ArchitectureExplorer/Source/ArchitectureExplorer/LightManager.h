@@ -11,6 +11,23 @@
 #include "Components/SpotLightComponent.h"
 #include "LightManager.generated.h"
 
+USTRUCT(BlueprintType)
+struct FFlickerLight
+{
+	GENERATED_BODY()
+
+public:
+	AActor *LightActor;
+	// Clamped from 1.0f to 5.0f;
+	float SpeedCoefficient;
+	float FlickerTime;
+	float LightIntensity;
+	float EmissivePower;
+	bool bOn = true;
+	FVector LightColor;
+};
+
+
 UCLASS()
 class ARCHITECTUREEXPLORER_API ALightManager : public AActor
 {
@@ -51,6 +68,24 @@ public:
 	// edits light intensity and material emmisive value
 	UFUNCTION(BlueprintCallable)
 	void EditLight(AActor *LightActor, float LightIntensity = 100.f, float EmissiveValue = 100.f, FVector EmissiveColor = FVector(1.0f,1.0f,1.0f));
+
+	// lights that will be flickered
+	TArray<FFlickerLight> FlickerLights;
+
+	UFUNCTION(BlueprintCallable)
+	void AddFlickerLight(AActor *LightActor, float SpeedCoefficient = 1.0f, float LightIntensity = 1.0f, float EmissivePower = 1.0f, FVector LightColor = FVector(1.0f, 1.0f, 1.0f));
+
+	// linearly checks each light
+	UFUNCTION(BlueprintCallable)
+	void RemoveFlickerLight();
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float MaxFlickerTime = 10.0f;
+
+	float CurrentFlickerTime = 0.0f;
+
+	// checks each FlickerLight in FlickerLights and flickers them if their FlickerTime is less than CurrentFlickerTime
+	void Flicker(float DeltaTime);
 
 private:
 

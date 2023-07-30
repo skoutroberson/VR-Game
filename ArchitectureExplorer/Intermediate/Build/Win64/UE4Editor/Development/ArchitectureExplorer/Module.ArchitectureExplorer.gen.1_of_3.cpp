@@ -19,3 +19,4 @@
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/DoorManager.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Drawer.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Errol.gen.cpp"
+#include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/ErrolCharacter.gen.cpp"

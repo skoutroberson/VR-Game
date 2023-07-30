@@ -26,7 +26,7 @@ public:
 	void TurnOff();
 
 	UFUNCTION(BlueprintCallable)
-	void PressButton();
+	void PressButton(bool bButtonAudio);
 
 	UPROPERTY(BlueprintReadOnly)
 	bool bOn = false;

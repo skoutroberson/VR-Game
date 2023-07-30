@@ -32,7 +32,7 @@ void ADogController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowin
 			if (Dog->State == DogState::STATE_FETCHING)
 			{
 				// play sad sound
-				if (!Dog->bRanTowardsHouse)
+				if (!Dog->bRanTowardsHouse && Dog->bWantsToFetch)
 				{
 					Dog->State = DogState::STATE_SITTINGDOWN;
 				}

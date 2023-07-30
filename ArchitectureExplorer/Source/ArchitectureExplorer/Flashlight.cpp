@@ -24,6 +24,7 @@ void AFlashlight::BeginPlay()
 	Super::BeginPlay();
 
 	LM = Cast<ALightManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass()));
+	LM->AddFlickerLight(this, 0.34f, 5000.f, 200.f);
 }
 
 void AFlashlight::TurnOn()
@@ -41,9 +42,13 @@ void AFlashlight::TurnOff()
 	bOn = false;
 }
 
-void AFlashlight::PressButton()
+void AFlashlight::PressButton(bool bButtonAudio)
 {
-	PlayButtonPressAudio();
+	if (bButtonAudio)
+	{
+		PlayButtonPressAudio();
+	}
+	
 	if (bOn)
 	{
 		LM->EditLight(this, 0, 0);

@@ -9,18 +9,9 @@
   [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
   [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
   [Upgrade]
-  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: Dog.cpp, Door.cpp, ErrolCharacter.cpp, PeekPoint.cpp
-  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, Dog.gen.cpp, ErrolCharacter.gen.cpp, PeekPoint.gen.cpp
-  Building 6 actions with 24 processes...
-    [1/6] UE4Editor-StateMachine-0040.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0040.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0040.exp
-    [2/6] UE4Editor-StateMachine-0040.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0040.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0040.suppressed.exp
-    [3/6] Dog.cpp
-    [4/6] UE4Editor-ArchitectureExplorer-0040.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0040.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0040.exp
-    [5/6] UE4Editor-ArchitectureExplorer-0040.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0040.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0040.suppressed.exp
-    [6/6] ArchitectureExplorerEditor.target
-  Total time in Parallel executor: 2.27 seconds
-  Total execution time: 8.95 seconds
+  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: Dog.cpp, DogController.cpp, Flashlight.cpp, HandController.cpp, LightManager.cpp, VRCharacter.cpp
+  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, Dog.gen.cpp, Flashlight.gen.cpp, LightManager.gen.cpp
+  Building 1 action with 24 processes...
+    [1/1] ArchitectureExplorerEditor.target
+  Total time in Parallel executor: 0.17 seconds
+  Total execution time: 6.18 seconds

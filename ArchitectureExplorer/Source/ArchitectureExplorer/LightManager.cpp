@@ -13,7 +13,7 @@
 ALightManager::ALightManager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
 }
 
 // Called when the game starts or when spawned
@@ -21,7 +21,7 @@ void ALightManager::BeginPlay()
 {
 	Super::BeginPlay();
 
-	constexpr size_t sizeOfT = sizeof(Light);
+	//constexpr size_t sizeOfT = sizeof(Light);
 
 	/*
 	TArray<AActor*> SMActors;
@@ -72,11 +72,47 @@ void ALightManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	Flicker(DeltaTime);
 }
 
 void ALightManager::SetEmmissive(float Value, int index)
 {
 	//Lights[index].Mesh->SetScalarParameterValueOnMaterials(TEXT("EmissiveWeight"), Value);
+}
+
+void ALightManager::Flicker(float DeltaTime)
+{
+	const float NewFlickerTime = CurrentFlickerTime + DeltaTime;
+
+	CurrentFlickerTime = (NewFlickerTime > MaxFlickerTime) ? NewFlickerTime - MaxFlickerTime : NewFlickerTime;
+	UE_LOG(LogTemp, Warning, TEXT("FlickerTime: %f"), CurrentFlickerTime);
+
+	for (FFlickerLight &FlickerLight : FlickerLights)
+	{
+		const float FlickerTime = FlickerLight.FlickerTime;
+		
+		if (CurrentFlickerTime > FlickerTime && (CurrentFlickerTime - FlickerTime) < 5.f)
+		{
+			const float RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, FlickerLight.SpeedCoefficient);
+
+			const float NewFlickerTime = (RandTime > MaxFlickerTime) ? RandTime - MaxFlickerTime : RandTime;
+			FlickerLight.FlickerTime = NewFlickerTime;
+
+			bool bOn = FlickerLight.bOn;
+			FlickerLight.bOn = !bOn;
+
+			UE_LOG(LogTemp, Warning, TEXT("TIME: %f"), FlickerTime);
+			
+			if (bOn)
+			{
+				EditLight(FlickerLight.LightActor, FlickerLight.LightIntensity, FlickerLight.EmissivePower, FlickerLight.LightColor);
+			}
+			else
+			{
+				EditLight(FlickerLight.LightActor, 0.f, 0.f, FlickerLight.LightColor);
+			}
+		}
+	}
 }
 
 void ALightManager::FillLightsMap()
@@ -171,4 +207,26 @@ void ALightManager::EditLight(AActor *LightActor, float LightIntensity, float Em
 			LC->SetIntensity(LightIntensity);
 		}
 	}
+}
+
+void ALightManager::AddFlickerLight(AActor *LightActor, float SpeedCoefficient, float LightIntensity, float EmissivePower, FVector LightColor)
+{
+	FFlickerLight NewFlickerLight;
+	NewFlickerLight.LightActor = LightActor;
+	NewFlickerLight.SpeedCoefficient = SpeedCoefficient;
+	NewFlickerLight.LightIntensity = LightIntensity;
+	NewFlickerLight.EmissivePower = EmissivePower;
+	NewFlickerLight.LightColor = LightColor;
+
+	float RandTime = FMath::FRand() * SpeedCoefficient;
+	FMath::Clamp(RandTime, 0.04f, 5.0f);
+	RandTime += CurrentFlickerTime;
+
+	NewFlickerLight.FlickerTime = (RandTime > MaxFlickerTime) ? RandTime - MaxFlickerTime : RandTime;
+
+	FlickerLights.Add(NewFlickerLight);
+}
+
+void ALightManager::RemoveFlickerLight()
+{
 }

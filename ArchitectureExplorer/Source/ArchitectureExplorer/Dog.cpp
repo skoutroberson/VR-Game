@@ -66,8 +66,9 @@ void ADog::ShouldPickUpBall()
 	// slow down move speed
 	const float Distance = FVector::Distance(GetActorLocation(), Ball->GetActorLocation());
 	
-	if (!bRanTowardsHouse && Distance < PickupBallDistance)
+	if (bWantsToFetch && !bRanTowardsHouse && Distance < PickupBallDistance)
 	{
+		Ball->bBeingFetched = true;
 		GetController()->StopMovement();
 		EnableAnimNotify();
 		State = DogState::STATE_PICKUP;
@@ -160,10 +161,12 @@ void ADog::PickupBall()
 
 void ADog::FetchBall()
 {
-	if (bWantsToFetch == true && State == DogState::STATE_SITTING)
+	if (State == DogState::STATE_SITTING)
 	{
 		State = DogState::STATE_STANDINGUP;
+		Ball->bBeingFetched = true;
 		Fetches = (Fetches > 2) ? 2 : Fetches + 1;
 	}
+
 }
 
