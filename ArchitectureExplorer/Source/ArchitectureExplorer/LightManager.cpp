@@ -82,35 +82,38 @@ void ALightManager::SetEmmissive(float Value, int index)
 
 void ALightManager::Flicker(float DeltaTime)
 {
-	const float NewFlickerTime = CurrentFlickerTime + DeltaTime;
+	float NewFlickerTime = CurrentFlickerTime + DeltaTime;
 
 	CurrentFlickerTime = (NewFlickerTime > MaxFlickerTime) ? NewFlickerTime - MaxFlickerTime : NewFlickerTime;
-	UE_LOG(LogTemp, Warning, TEXT("FlickerTime: %f"), CurrentFlickerTime);
+	//UE_LOG(LogTemp, Warning, TEXT("FlickerTime: %f"), CurrentFlickerTime);
 
-	for (FFlickerLight &FlickerLight : FlickerLights)
+	for (auto &FlickerLight : FlickerLights)
 	{
-		const float FlickerTime = FlickerLight.FlickerTime;
+		const float FlickerTime = FlickerLight->FlickerTime;
 		
 		if (CurrentFlickerTime > FlickerTime && (CurrentFlickerTime - FlickerTime) < 5.f)
 		{
-			const float RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, FlickerLight.SpeedCoefficient);
+			float RandTime;
 
-			const float NewFlickerTime = (RandTime > MaxFlickerTime) ? RandTime - MaxFlickerTime : RandTime;
-			FlickerLight.FlickerTime = NewFlickerTime;
+			bool bOn = FlickerLight->bOn;
+			FlickerLight->bOn = !bOn;
 
-			bool bOn = FlickerLight.bOn;
-			FlickerLight.bOn = !bOn;
-
-			UE_LOG(LogTemp, Warning, TEXT("TIME: %f"), FlickerTime);
+			//UE_LOG(LogTemp, Warning, TEXT("TIME: %f"), FlickerTime);
 			
 			if (bOn)
 			{
-				EditLight(FlickerLight.LightActor, FlickerLight.LightIntensity, FlickerLight.EmissivePower, FlickerLight.LightColor);
+				RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, FlickerLight->SpeedCoefficient);
+				EditLight(FlickerLight->LightActor, FlickerLight->LightIntensity, FlickerLight->EmissivePower, FlickerLight->LightColor);
 			}
 			else
 			{
-				EditLight(FlickerLight.LightActor, 0.f, 0.f, FlickerLight.LightColor);
+				float MFR = FlickerLight->SpeedCoefficient * 0.25f;
+				MFR = FMath::Clamp(MFR, 0.18f, 0.4f);
+				RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, MFR);
+				EditLight(FlickerLight->LightActor, 0.f, 0.f, FlickerLight->LightColor);
 			}
+			NewFlickerTime = (RandTime > MaxFlickerTime) ? RandTime - MaxFlickerTime : RandTime;
+			FlickerLight->FlickerTime = NewFlickerTime;
 		}
 	}
 }
@@ -211,22 +214,63 @@ void ALightManager::EditLight(AActor *LightActor, float LightIntensity, float Em
 
 void ALightManager::AddFlickerLight(AActor *LightActor, float SpeedCoefficient, float LightIntensity, float EmissivePower, FVector LightColor)
 {
-	FFlickerLight NewFlickerLight;
-	NewFlickerLight.LightActor = LightActor;
-	NewFlickerLight.SpeedCoefficient = SpeedCoefficient;
-	NewFlickerLight.LightIntensity = LightIntensity;
-	NewFlickerLight.EmissivePower = EmissivePower;
-	NewFlickerLight.LightColor = LightColor;
+	UFlickerLight *NewFlickerLight = NewObject<UFlickerLight>();
+
+	NewFlickerLight->LightActor = LightActor;
+	NewFlickerLight->SpeedCoefficient = SpeedCoefficient;
+	NewFlickerLight->LightIntensity = LightIntensity;
+	NewFlickerLight->EmissivePower = EmissivePower;
+	NewFlickerLight->LightColor = LightColor;
 
 	float RandTime = FMath::FRand() * SpeedCoefficient;
 	FMath::Clamp(RandTime, 0.04f, 5.0f);
 	RandTime += CurrentFlickerTime;
 
-	NewFlickerLight.FlickerTime = (RandTime > MaxFlickerTime) ? RandTime - MaxFlickerTime : RandTime;
+	NewFlickerLight->FlickerTime = (RandTime > MaxFlickerTime) ? RandTime - MaxFlickerTime : RandTime;
 
 	FlickerLights.Add(NewFlickerLight);
+	//return FlickerLights[FlickerLights.Add(NewFlickerLight)];
 }
 
-void ALightManager::RemoveFlickerLight()
+void ALightManager::RemoveFlickerLight(AActor *LightActor)
 {
+	for (auto &Elem : FlickerLights)
+	{
+		if (Elem->LightActor == LightActor)
+		{
+			FlickerLights.Remove(Elem);
+		}
+	}
+}
+
+void ALightManager::EditFlickerLight(AActor *LightActor, FVector LightColor, float SpeedCoefficient, float LightIntensity, float EmissivePower, bool bOn)
+{
+	
+	UFlickerLight *FL = nullptr;
+	for (auto &Elem : FlickerLights)
+	{
+		if (Elem->LightActor == LightActor)
+		{
+			FL = Elem;
+			break;
+		}
+	}
+	
+	if (FL != nullptr)
+	{
+		if (SpeedCoefficient > 0)
+		{
+			FL->SpeedCoefficient = SpeedCoefficient;
+		}
+		if (LightIntensity > 0)
+		{
+			FL->LightIntensity = LightIntensity;
+		}
+		if (EmissivePower > 0)
+		{
+			FL->EmissivePower = EmissivePower;
+		}
+		FL->LightColor = LightColor;
+	}
+	
 }

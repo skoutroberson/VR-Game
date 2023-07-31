@@ -15,16 +15,85 @@ struct FVector;
 #endif
 #define ARCHITECTUREEXPLORER_LightManager_generated_h
 
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_SPARSE_DATA
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_RPC_WRAPPERS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUFlickerLight(); \
+	friend struct Z_Construct_UClass_UFlickerLight_Statics; \
+public: \
+	DECLARE_CLASS(UFlickerLight, UObject, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/ArchitectureExplorer"), NO_API) \
+	DECLARE_SERIALIZER(UFlickerLight)
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_INCLASS \
+private: \
+	static void StaticRegisterNativesUFlickerLight(); \
+	friend struct Z_Construct_UClass_UFlickerLight_Statics; \
+public: \
+	DECLARE_CLASS(UFlickerLight, UObject, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/ArchitectureExplorer"), NO_API) \
+	DECLARE_SERIALIZER(UFlickerLight)
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_STANDARD_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API UFlickerLight(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFlickerLight) \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UFlickerLight); \
+DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UFlickerLight); \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UFlickerLight(UFlickerLight&&); \
+	NO_API UFlickerLight(const UFlickerLight&); \
+public:
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API UFlickerLight(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UFlickerLight(UFlickerLight&&); \
+	NO_API UFlickerLight(const UFlickerLight&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UFlickerLight); \
+DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UFlickerLight); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFlickerLight)
+
+
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_PRIVATE_PROPERTY_OFFSET
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_14_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_GENERATED_BODY_LEGACY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_INCLASS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_STANDARD_CONSTRUCTORS \
+public: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
 #define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_GENERATED_BODY \
-	friend struct Z_Construct_UScriptStruct_FFlickerLight_Statics; \
-	ARCHITECTUREEXPLORER_API static class UScriptStruct* StaticStruct();
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_PRIVATE_PROPERTY_OFFSET \
+	ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_SPARSE_DATA \
+	ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_INCLASS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_17_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-template<> ARCHITECTUREEXPLORER_API UScriptStruct* StaticStruct<struct FFlickerLight>();
+template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<class UFlickerLight>();
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_34_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_34_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execEditFlickerLight); \
 	DECLARE_FUNCTION(execRemoveFlickerLight); \
 	DECLARE_FUNCTION(execAddFlickerLight); \
 	DECLARE_FUNCTION(execEditLight); \
@@ -33,6 +102,7 @@ template<> ARCHITECTUREEXPLORER_API UScriptStruct* StaticStruct<struct FFlickerL
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_LightManager_h_34_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execEditFlickerLight); \
 	DECLARE_FUNCTION(execRemoveFlickerLight); \
 	DECLARE_FUNCTION(execAddFlickerLight); \
 	DECLARE_FUNCTION(execEditLight); \

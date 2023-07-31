@@ -1,5 +1,6 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal Projects\ArchitectureExplorer1).
   Waiting for 'git status' command to complete
+  Invalidating makefile for ArchitectureExplorerEditor (working set of source files changed)
   Building ArchitectureExplorerEditor...
   Using Visual Studio 2017 14.16.27045 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   [Upgrade]
@@ -9,9 +10,41 @@
   [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
   [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
   [Upgrade]
-  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: Dog.cpp, DogController.cpp, Flashlight.cpp, HandController.cpp, LightManager.cpp, VRCharacter.cpp
-  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, Dog.gen.cpp, Flashlight.gen.cpp, LightManager.gen.cpp
-  Building 1 action with 24 processes...
-    [1/1] ArchitectureExplorerEditor.target
-  Total time in Parallel executor: 0.17 seconds
-  Total execution time: 6.18 seconds
+  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: Dog.cpp, ErrolCharacter.cpp, Flashlight.cpp, LightManager.cpp
+  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, Flashlight.gen.cpp, LightManager.gen.cpp
+  Building 7 actions with 24 processes...
+    [1/7] UE4Editor-StateMachine-0069.lib
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0069.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0069.exp
+    [2/7] UE4Editor-StateMachine-0069.dll
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0069.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0069.suppressed.exp
+    [3/7] Dog.cpp
+    [4/7] Module.ArchitectureExplorer.cpp
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/AudioDistanceCrossfader.cpp(21): warning C4996: 'USceneComponent::AttachTo': This function is deprecated, please use AttachToComponent instead. Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+    C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/SceneComponent.h(675): note: see declaration of 'USceneComponent::AttachTo'
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/AudioDistanceCrossfader.cpp(24): warning C4996: 'USceneComponent::AttachTo': This function is deprecated, please use AttachToComponent instead. Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+    C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/SceneComponent.h(675): note: see declaration of 'USceneComponent::AttachTo'
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Cockroach.cpp(115): warning C4456: declaration of 'Disp' hides previous local declaration
+    E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Cockroach.cpp(98): note: see declaration of 'Disp'
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Cockroach.cpp(195): warning C4458: declaration of 'HitResult' hides class member
+    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\Cockroach.h(63): note: see declaration of 'ACockroach::HitResult'
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Crawler.cpp(156): warning C4458: declaration of 'HitResult' hides class member
+    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\Crawler.h(64): note: see declaration of 'ACrawler::HitResult'
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Grabbable.cpp(37): warning C4996: 'AActor::GetComponentsByClass': Use one of the GetComponents implementations as appropriate Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+    C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Actor.h(3056): note: see declaration of 'AActor::GetComponentsByClass'
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/PortalRoom.cpp(121): warning C4458: declaration of 'TargetLocation' hides class member
+    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\PortalRoom.h(34): note: see declaration of 'APortalRoom::TargetLocation'
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/RoachSpawner.cpp(36): warning C4458: declaration of 'Roaches' hides class member
+    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\RoachSpawner.h(47): note: see declaration of 'ARoachSpawner::Roaches'
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/RoachSpawner.cpp(56): warning C4996: 'AActor::GetComponentsByClass': Use one of the GetComponents implementations as appropriate Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+    C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Actor.h(3056): note: see declaration of 'AActor::GetComponentsByClass'
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/VRCharacter.cpp(398): warning C4458: declaration of 'Tags' hides class member
+    C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Actor.h(804): note: see declaration of 'AActor::Tags'
+E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/VRCharacter.cpp(833): warning C4458: declaration of 'HitResult' hides class member
+    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\VRCharacter.h(179): note: see declaration of 'AVRCharacter::HitResult'
+    [5/7] UE4Editor-ArchitectureExplorer-0069.lib
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0069.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0069.exp
+    [6/7] UE4Editor-ArchitectureExplorer-0069.dll
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0069.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0069.suppressed.exp
+    [7/7] ArchitectureExplorerEditor.target
+  Total time in Parallel executor: 8.24 seconds
+  Total execution time: 16.61 seconds

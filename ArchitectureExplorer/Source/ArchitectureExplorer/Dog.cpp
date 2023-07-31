@@ -53,7 +53,7 @@ void ADog::Tick(float DeltaTime)
 		// check ball distance,
 		CheckPickupBallDistance();
 		//Rotate to face ball
-		UE_LOG(LogTemp, Warning, TEXT("RotateToFaceBall"));
+		//UE_LOG(LogTemp, Warning, TEXT("RotateToFaceBall"));
 		RotateToFaceBall(DeltaTime);
 		break;
 	}
@@ -88,7 +88,7 @@ void ADog::ShouldDropBall()
 
 void ADog::DropBall()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Drop Ball"))
+	//UE_LOG(LogTemp, Warning, TEXT("Drop Ball"))
 	GetController()->StopMovement();
 	State = DogState::STATE_SITTINGDOWN;
 	WaitAndDropBall();
@@ -124,7 +124,7 @@ void ADog::CheckBallDistance()
 void ADog::CheckPickupBallDistance()
 {
 	const float Distance = FVector::Distance(GetActorLocation(), Ball->GetActorLocation());
-	UE_LOG(LogTemp, Warning, TEXT("Distance: %f"), Distance);
+	//UE_LOG(LogTemp, Warning, TEXT("Distance: %f"), Distance);
 	if (Distance > PickupBallDistance + 30.f)
 	{
 		State = DogState::STATE_FETCHING;

@@ -24,7 +24,7 @@ void AFlashlight::BeginPlay()
 	Super::BeginPlay();
 
 	LM = Cast<ALightManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass()));
-	LM->AddFlickerLight(this, 0.34f, 5000.f, 200.f);
+	//LM->AddFlickerLight(this, 0.34f, 5000.f, 200.f);
 }
 
 void AFlashlight::TurnOn()

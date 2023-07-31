@@ -17,18 +17,19 @@
 			"Crawler.cpp.obj",
 			"CrawlingMan.cpp.obj",
 			"CrawlSpaceScare.cpp.obj",
+			"DogController.cpp.obj",
 			"Door.cpp.obj",
 			"DoorKey.cpp.obj",
 			"DoorManager.cpp.obj",
 			"Drawer.cpp.obj",
 			"Errol.cpp.obj",
-			"ErrolCharacter.cpp.obj",
 			"ErrolController.cpp.obj",
 			"ErrolSaw.cpp.obj",
 			"ErrolsSaw.cpp.obj",
 			"FirstChaseScare.cpp.obj",
 			"Grabbable.cpp.obj",
 			"HallwayStareScare.cpp.obj",
+			"HandController.cpp.obj",
 			"HGGYScare.cpp.obj",
 			"KeyCan.cpp.obj",
 			"LightningStrikeScare.cpp.obj",
@@ -53,12 +54,11 @@
 			"StageManager.cpp.obj",
 			"StairsScare.cpp.obj",
 			"TriggerManager.cpp.obj",
+			"VRCharacter.cpp.obj",
 			"Dog.cpp.obj",
-			"DogController.cpp.obj",
+			"ErrolCharacter.cpp.obj",
 			"Flashlight.cpp.obj",
-			"HandController.cpp.obj",
-			"LightManager.cpp.obj",
-			"VRCharacter.cpp.obj"
+			"LightManager.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.1_of_3.cpp.obj": [
 			"AboveYouScare.gen.cpp.obj",
@@ -75,6 +75,7 @@
 			"Crawler.gen.cpp.obj",
 			"CrawlingMan.gen.cpp.obj",
 			"CrawlSpaceScare.gen.cpp.obj",
+			"Dog.gen.cpp.obj",
 			"DogController.gen.cpp.obj",
 			"Door.gen.cpp.obj",
 			"DoorKey.gen.cpp.obj",
@@ -82,8 +83,7 @@
 			"Drawer.gen.cpp.obj",
 			"Errol.gen.cpp.obj",
 			"ErrolCharacter.gen.cpp.obj",
-			"ArchitectureExplorer.init.gen.cpp.obj",
-			"Dog.gen.cpp.obj"
+			"ArchitectureExplorer.init.gen.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.2_of_3.cpp.obj": [
 			"ErrolController.gen.cpp.obj",
@@ -106,11 +106,11 @@
 			"Radio.gen.cpp.obj",
 			"RevealScare.gen.cpp.obj",
 			"Roach.gen.cpp.obj",
-			"RoachSpawner.gen.cpp.obj",
 			"Flashlight.gen.cpp.obj",
 			"LightManager.gen.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.3_of_3.cpp.obj": [
+			"RoachSpawner.gen.cpp.obj",
 			"Scare.gen.cpp.obj",
 			"ScareManager.gen.cpp.obj",
 			"Stage.gen.cpp.obj",

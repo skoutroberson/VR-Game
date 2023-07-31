@@ -42,8 +42,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bSpotlightRevealEnabled = true;
 
-
-private:
+	UPROPERTY(BlueprintReadWrite)
 	ALightManager * LM = nullptr;
 	
 };

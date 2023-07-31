@@ -11,8 +11,8 @@
 #include "Components/SpotLightComponent.h"
 #include "LightManager.generated.h"
 
-USTRUCT(BlueprintType)
-struct FFlickerLight
+UCLASS(BlueprintType)
+class UFlickerLight : public UObject
 {
 	GENERATED_BODY()
 
@@ -70,14 +70,21 @@ public:
 	void EditLight(AActor *LightActor, float LightIntensity = 100.f, float EmissiveValue = 100.f, FVector EmissiveColor = FVector(1.0f,1.0f,1.0f));
 
 	// lights that will be flickered
-	TArray<FFlickerLight> FlickerLights;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSet<UFlickerLight*> FlickerLights;
 
+	// returns the reference to the added item in FlickerLights
 	UFUNCTION(BlueprintCallable)
 	void AddFlickerLight(AActor *LightActor, float SpeedCoefficient = 1.0f, float LightIntensity = 1.0f, float EmissivePower = 1.0f, FVector LightColor = FVector(1.0f, 1.0f, 1.0f));
 
-	// linearly checks each light
+	// linearly checks each FlickerLight and removes the one that matches LightActor
 	UFUNCTION(BlueprintCallable)
-	void RemoveFlickerLight();
+	void RemoveFlickerLight(AActor *LightActor);
+
+	// linearly checks each FlickerLight for LightActor, and edits this one
+	UFUNCTION(BlueprintCallable)
+	void EditFlickerLight(AActor *LightActor, FVector LightColor = FVector(1.0f, 1.0f, 1.0f), float SpeedCoefficient = -1.0f,
+		float LightIntensity = -1.0f, float EmissivePower = -1.0f, bool bOn = true);
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float MaxFlickerTime = 10.0f;

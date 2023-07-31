@@ -188,7 +188,7 @@ void AErrolCharacter::Tick(float DeltaTime)
 		case ErrolState::STATE_PEEK:
 			if (!bPeekFound)
 			{
-				UE_LOG(LogTemp, Warning, TEXT("Finding Peek Point"));
+				//UE_LOG(LogTemp, Warning, TEXT("Finding Peek Point"));
 				FindValidPeekPoint();
 			}
 			else if(bPeeking)
