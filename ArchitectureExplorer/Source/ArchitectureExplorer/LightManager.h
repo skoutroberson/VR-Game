@@ -94,6 +94,8 @@ public:
 	// checks each FlickerLight in FlickerLights and flickers them if their FlickerTime is less than CurrentFlickerTime
 	void Flicker(float DeltaTime);
 
+	class AFlashlight *Flashlight = nullptr;
+
 private:
 
 	void FillLightsMap();

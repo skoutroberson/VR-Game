@@ -8,6 +8,7 @@
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/HandController.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/HGGYScare.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/KeyCan.gen.cpp"
+#include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/LightManager.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/LightningStrikeScare.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/PeekPoint.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Phone.gen.cpp"

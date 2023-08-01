@@ -28,7 +28,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void PressButton(bool bButtonAudio);
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadWrite)
 	bool bOn = false;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -44,5 +44,8 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	ALightManager * LM = nullptr;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateLightVolumetrics(bool bLightIsOn);
 	
 };

@@ -28,7 +28,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execTurnOn);
 
 
-#define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_EVENT_PARMS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_EVENT_PARMS \
+	struct Flashlight_eventUpdateLightVolumetrics_Parms \
+	{ \
+		bool bLightIsOn; \
+	};
+
+
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_CALLBACK_WRAPPERS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_Flashlight_h_16_INCLASS_NO_PURE_DECLS \
 private: \

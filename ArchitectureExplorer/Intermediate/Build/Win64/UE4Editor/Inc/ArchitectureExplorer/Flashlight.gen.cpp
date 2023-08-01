@@ -48,6 +48,13 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AFlashlight_PlayButtonPressAudio),NULL);
 	}
+	static FName NAME_AFlashlight_UpdateLightVolumetrics = FName(TEXT("UpdateLightVolumetrics"));
+	void AFlashlight::UpdateLightVolumetrics(bool bLightIsOn)
+	{
+		Flashlight_eventUpdateLightVolumetrics_Parms Parms;
+		Parms.bLightIsOn=bLightIsOn ? true : false;
+		ProcessEvent(FindFunctionChecked(NAME_AFlashlight_UpdateLightVolumetrics),&Parms);
+	}
 	void AFlashlight::StaticRegisterNativesAFlashlight()
 	{
 		UClass* Class = AFlashlight::StaticClass();
@@ -161,6 +168,39 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics
+	{
+		static void NewProp_bLightIsOn_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bLightIsOn;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::NewProp_bLightIsOn_SetBit(void* Obj)
+	{
+		((Flashlight_eventUpdateLightVolumetrics_Parms*)Obj)->bLightIsOn = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::NewProp_bLightIsOn = { "bLightIsOn", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Flashlight_eventUpdateLightVolumetrics_Parms), &Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::NewProp_bLightIsOn_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::NewProp_bLightIsOn,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Flashlight.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFlashlight, nullptr, "UpdateLightVolumetrics", nullptr, nullptr, sizeof(Flashlight_eventUpdateLightVolumetrics_Parms), Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AFlashlight_NoRegister()
 	{
 		return AFlashlight::StaticClass();
@@ -207,6 +247,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		{ &Z_Construct_UFunction_AFlashlight_PressButton, "PressButton" }, // 363746436
 		{ &Z_Construct_UFunction_AFlashlight_TurnOff, "TurnOff" }, // 2755678298
 		{ &Z_Construct_UFunction_AFlashlight_TurnOn, "TurnOn" }, // 4285305367
+		{ &Z_Construct_UFunction_AFlashlight_UpdateLightVolumetrics, "UpdateLightVolumetrics" }, // 3072964125
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlashlight_Statics::Class_MetaDataParams[] = {
@@ -225,7 +266,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 	{
 		((AFlashlight*)Obj)->bOn = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn = { "bOn", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AFlashlight), &Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_SetBit, METADATA_PARAMS(Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn = { "bOn", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AFlashlight), &Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_SetBit, METADATA_PARAMS(Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFlashlight_Statics::NewProp_bOn_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlashlight_Statics::NewProp_Mesh_MetaData[] = {
 		{ "Category", "Flashlight" },
@@ -294,7 +335,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFlashlight, 4002913816);
+	IMPLEMENT_CLASS(AFlashlight, 1931156341);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AFlashlight>()
 	{
 		return AFlashlight::StaticClass();

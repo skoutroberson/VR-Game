@@ -60,4 +60,5 @@ void AFlashlight::PressButton(bool bButtonAudio)
 		//LM->TurnOn(FString("BP_Flashlight2_2"), 5000.f, 200.f);
 		bOn = true;
 	}
+	//UpdateLightVolumetrics(bOn);
 }

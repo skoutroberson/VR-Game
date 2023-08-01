@@ -8,6 +8,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Materials/MaterialInterface.h"
+#include "Flashlight.h"
 
 // Sets default values
 ALightManager::ALightManager()
@@ -20,6 +21,8 @@ ALightManager::ALightManager()
 void ALightManager::BeginPlay()
 {
 	Super::BeginPlay();
+
+	Flashlight = Cast<AFlashlight>(UGameplayStatics::GetActorOfClass(GetWorld(), AFlashlight::StaticClass()));
 
 	//constexpr size_t sizeOfT = sizeof(Light);
 
@@ -98,19 +101,27 @@ void ALightManager::Flicker(float DeltaTime)
 			bool bOn = FlickerLight->bOn;
 			FlickerLight->bOn = !bOn;
 
+			AActor *LA = FlickerLight->LightActor;
+
 			//UE_LOG(LogTemp, Warning, TEXT("TIME: %f"), FlickerTime);
+
+			// if flashlight, then we need to update volumetrics
+			if (LA == Flashlight)
+			{
+				Flashlight->UpdateLightVolumetrics(!bOn);
+			}
 			
 			if (bOn)
 			{
 				RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, FlickerLight->SpeedCoefficient);
-				EditLight(FlickerLight->LightActor, FlickerLight->LightIntensity, FlickerLight->EmissivePower, FlickerLight->LightColor);
+				EditLight(LA, FlickerLight->LightIntensity, FlickerLight->EmissivePower, FlickerLight->LightColor);
 			}
 			else
 			{
 				float MFR = FlickerLight->SpeedCoefficient * 0.25f;
 				MFR = FMath::Clamp(MFR, 0.18f, 0.4f);
 				RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, MFR);
-				EditLight(FlickerLight->LightActor, 0.f, 0.f, FlickerLight->LightColor);
+				EditLight(LA, 0.f, 0.f, FlickerLight->LightColor);
 			}
 			NewFlickerTime = (RandTime > MaxFlickerTime) ? RandTime - MaxFlickerTime : RandTime;
 			FlickerLight->FlickerTime = NewFlickerTime;
