@@ -489,6 +489,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bCutInHalf = false;
 
+// misc
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void FlyAtPlayer();
+
+	class AErrolSaw * ErrolSaw = nullptr;
 };

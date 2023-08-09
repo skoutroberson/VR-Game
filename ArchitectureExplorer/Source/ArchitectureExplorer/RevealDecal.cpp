@@ -58,6 +58,7 @@ bool ARevealDecal::FlashlightLineOfSight(int LOSTraces)
 		return true;
 	}
 
+	// check LOS for each corner of decal collision. If we hit > LOSTraces corners, then return true
 	int HitTraces = 0;
 
 	for (int i = 0; i < 4; i++)
@@ -65,8 +66,9 @@ bool ARevealDecal::FlashlightLineOfSight(int LOSTraces)
 		bTrace = World->LineTraceSingleByChannel(HitResult, FLL, CornerLocations[i], ECollisionChannel::ECC_WorldDynamic, LOSParams);
 		if (bTrace)
 		{
+			//UE_LOG(LogTemp, Warning, TEXT("Trace: %s"), *HitResult.GetActor()->GetName())
 			const float DistSquared = FVector::DistSquared(HitResult.ImpactPoint, CornerLocations[i]);
-			if (DistSquared < 100.f)
+			if (DistSquared < 380.f)
 			{
 				++HitTraces;
 			}

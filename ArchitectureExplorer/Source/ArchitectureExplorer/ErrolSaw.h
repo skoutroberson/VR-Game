@@ -6,6 +6,16 @@
 #include "GameFramework/Actor.h"
 #include "ErrolSaw.generated.h"
 
+UENUM(BlueprintType)
+enum class ErrolSawState : uint8
+{
+	STATE_IDLE			UMETA(DisplayName = "Idle"),
+	STATE_INVISIBLE		UMETA(DisplayName = "Invisible"),
+	STATE_MOCAP			UMETA(DisplayName = "Mocap"),
+	STATE_ANIM2			UMETA(DisplayName = "Anim2"),
+	STATE_RAGDOLL		UMETA(DisplayName = "Ragdoll"),
+};
+
 UCLASS()
 class ARCHITECTUREEXPLORER_API AErrolSaw : public AActor
 {
@@ -23,4 +33,25 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ErrolSawState State = ErrolSawState::STATE_IDLE;
+
+	UFUNCTION(BlueprintCallable)
+	void ChangeState(ErrolSawState NewState);
+
+	UFUNCTION(BlueprintCallable)
+	void EnterState(ErrolSawState NewState);
+
+	UFUNCTION(BlueprintCallable)
+	void ExitState(ErrolSawState NewState);
+
+	// set in ErrolCharacter.cpp
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	class USkeletalMeshComponent *MocapMesh = nullptr;
+	// set in ErrolCharacter.cpp
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	class USkeletalMeshComponent *Anim2Mesh = nullptr;
+
+	// this is the skeletal mesh
+	USceneComponent *Root = nullptr;
 };

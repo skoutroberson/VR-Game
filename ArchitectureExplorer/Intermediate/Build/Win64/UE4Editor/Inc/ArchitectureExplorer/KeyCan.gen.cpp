@@ -20,6 +20,13 @@ void EmptyLinkFunctionForGeneratedCodeKeyCan() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ADoorKey_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AKeyCan::execDetachKey)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->DetachKey();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AKeyCan::execAttachKey)
 	{
 		P_GET_OBJECT(ADoorKey,Z_Param_Key);
@@ -33,6 +40,7 @@ void EmptyLinkFunctionForGeneratedCodeKeyCan() {}
 		UClass* Class = AKeyCan::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "AttachKey", &AKeyCan::execAttachKey },
+			{ "DetachKey", &AKeyCan::execDetachKey },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -65,6 +73,28 @@ void EmptyLinkFunctionForGeneratedCodeKeyCan() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AKeyCan_AttachKey_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AKeyCan_DetachKey_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AKeyCan_DetachKey_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "KeyCan.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AKeyCan_DetachKey_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AKeyCan, nullptr, "DetachKey", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AKeyCan_DetachKey_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AKeyCan_DetachKey_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AKeyCan_DetachKey()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AKeyCan_DetachKey_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -120,6 +150,7 @@ void EmptyLinkFunctionForGeneratedCodeKeyCan() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AKeyCan_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AKeyCan_AttachKey, "AttachKey" }, // 2323872718
+		{ &Z_Construct_UFunction_AKeyCan_DetachKey, "DetachKey" }, // 3951620701
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AKeyCan_Statics::Class_MetaDataParams[] = {
@@ -225,7 +256,7 @@ void EmptyLinkFunctionForGeneratedCodeKeyCan() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AKeyCan, 2040870629);
+	IMPLEMENT_CLASS(AKeyCan, 2289686992);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AKeyCan>()
 	{
 		return AKeyCan::StaticClass();

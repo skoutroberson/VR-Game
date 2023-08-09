@@ -118,8 +118,8 @@ void ALightManager::Flicker(float DeltaTime)
 			}
 			else
 			{
-				float MFR = FlickerLight->SpeedCoefficient * 0.25f;
-				MFR = FMath::Clamp(MFR, 0.18f, 0.4f);
+				float MFR = FlickerLight->SpeedCoefficient; //* 0.25f;
+				//MFR = FMath::Clamp(MFR, 0.18f, 0.4f);
 				RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, MFR);
 				EditLight(LA, 0.f, 0.f, FlickerLight->LightColor);
 			}
@@ -225,22 +225,25 @@ void ALightManager::EditLight(AActor *LightActor, float LightIntensity, float Em
 
 void ALightManager::AddFlickerLight(AActor *LightActor, float SpeedCoefficient, float LightIntensity, float EmissivePower, FVector LightColor)
 {
-	UFlickerLight *NewFlickerLight = NewObject<UFlickerLight>();
+	if (LightActor != nullptr)
+	{
+		UFlickerLight *NewFlickerLight = NewObject<UFlickerLight>();
 
-	NewFlickerLight->LightActor = LightActor;
-	NewFlickerLight->SpeedCoefficient = SpeedCoefficient;
-	NewFlickerLight->LightIntensity = LightIntensity;
-	NewFlickerLight->EmissivePower = EmissivePower;
-	NewFlickerLight->LightColor = LightColor;
+		NewFlickerLight->LightActor = LightActor;
+		NewFlickerLight->SpeedCoefficient = SpeedCoefficient;
+		NewFlickerLight->LightIntensity = LightIntensity;
+		NewFlickerLight->EmissivePower = EmissivePower;
+		NewFlickerLight->LightColor = LightColor;
 
-	float RandTime = FMath::FRand() * SpeedCoefficient;
-	FMath::Clamp(RandTime, 0.04f, 5.0f);
-	RandTime += CurrentFlickerTime;
+		float RandTime = FMath::FRand() * SpeedCoefficient;
+		FMath::Clamp(RandTime, 0.04f, 5.0f);
+		RandTime += CurrentFlickerTime;
 
-	NewFlickerLight->FlickerTime = (RandTime > MaxFlickerTime) ? RandTime - MaxFlickerTime : RandTime;
+		NewFlickerLight->FlickerTime = (RandTime > MaxFlickerTime) ? RandTime - MaxFlickerTime : RandTime;
 
-	FlickerLights.Add(NewFlickerLight);
-	//return FlickerLights[FlickerLights.Add(NewFlickerLight)];
+		FlickerLights.Add(NewFlickerLight);
+		//return FlickerLights[FlickerLights.Add(NewFlickerLight)];
+	}
 }
 
 void ALightManager::RemoveFlickerLight(AActor *LightActor)

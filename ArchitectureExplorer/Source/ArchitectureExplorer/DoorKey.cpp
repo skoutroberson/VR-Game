@@ -6,6 +6,7 @@
 
 ADoorKey::ADoorKey()
 {
+	PrimaryActorTick.bCanEverTick = true;
 	AGrabbable::ValidOneHandHandHolds.SetNum(1);
 	AGrabbable::ValidOneHandHandHolds.Insert(1, 0);
 }

@@ -237,6 +237,7 @@ void AVRCharacter::PressA(bool bLeft)
 	}
 	else if (CurrentController->State == HandControllerState::STATE_PHONE)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("YOOOO"));
 		AActor * GA = CurrentController->GrabActor;
 		APhone *Phone = Cast<APhone>(GA);
 		Phone->AnswerPhone();
@@ -628,7 +629,7 @@ void AVRCharacter::Click()
 				APortalRoom *PR = Cast<APortalRoom>(Door->GetParentActor());
 				if (PR != nullptr)
 				{
-					UE_LOG(LogTemp, Warning, TEXT("parent: %s"), *PR->GetName());
+					UE_LOG(LogTemp, Warning, TEXT("DOOR parent: %s"), *PR->GetName());
 					Door->PassController(nullptr);
 				}
 			}
@@ -638,6 +639,12 @@ void AVRCharacter::Click()
 				UE_LOG(LogTemp, Warning, TEXT("AnswerPhoneClick"));
 				APhone *Phone = Cast<APhone>(TempA);
 				Phone->AnswerPhone();
+			}
+
+			if (TempA->IsA(AFlashlight::StaticClass()))
+			{
+				AFlashlight *FL = Cast<AFlashlight>(TempA);
+				FL->PressButton(true);
 			}
 		}
 	}

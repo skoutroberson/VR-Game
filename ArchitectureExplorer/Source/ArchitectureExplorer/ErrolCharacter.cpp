@@ -25,7 +25,7 @@
 #include "Engine/SkeletalMeshSocket.h"
 #include "Door.h"
 #include "Engine.h"
-#include "Engine.h"
+#include "ErrolSaw.h"
 
 // Sets default values
 AErrolCharacter::AErrolCharacter()
@@ -124,6 +124,16 @@ void AErrolCharacter::BeginPlay()
 	FootstepMap.Add(FName("conc"), ConcreteFootStepSound);
 	FootstepMap.Add(FName("stai"), StairFootstepSound);
 	FootstepMap.Add(FName("dirt"), DirtFootStepSound);
+
+	//
+
+	MocapMesh->HideBoneByName(FName("Cube"), EPhysBodyOp::PBO_None);
+
+	ErrolSaw = Cast<AErrolSaw>(UGameplayStatics::GetActorOfClass(World, AErrolSaw::StaticClass()));
+	ErrolSaw->MocapMesh = MocapMesh;
+	ErrolSaw->Anim2Mesh = SawMesh;
+	ErrolSaw->EnterState(ErrolSawState::STATE_MOCAP);
+	
 }
 
 
@@ -434,6 +444,8 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed)
 	GetCharacterMovement()->MaxWalkSpeed = MaxSpeed;
 	ErrolController->MoveToActor(Player); //KillRadius);
 	World->GetTimerManager().UnPauseTimer(OpenBlockingDoorTimer);
+
+	ErrolSaw->EnterState(ErrolSawState::STATE_MOCAP);
 }
 
 void AErrolCharacter::TickChaseState(float DeltaTime)
@@ -675,7 +687,9 @@ void AErrolCharacter::KillPlayer()
 	Player->SetActorRotation(PlayerRotation);
 
 	BodyMesh->SetVisibility(true);
-	SawMesh->SetVisibility(true);
+	//SawMesh->SetVisibility(true);
+
+	ErrolSaw->EnterState(ErrolSawState::STATE_ANIM2);
 
 	FTimerHandle PlayerDeathHandle;
 	GetWorldTimerManager().SetTimer(PlayerDeathHandle, VRChar, &AVRCharacter::Die, 1.8f, false, 1.8f);
@@ -701,6 +715,8 @@ void AErrolCharacter::EnterPeekState()
 	BodyMesh->SetVisibility(false, true);
 	SawMesh->SetVisibility(false, true);
 	MocapMesh->SetVisibility(false, true);
+
+	ErrolSaw->EnterState(ErrolSawState::STATE_INVISIBLE);
 	//	Try to find a "valid" PeekPoint
 	//	Move ErrolCharacter to the PeekPoint
 	//	Start the peek animation
@@ -937,7 +953,7 @@ void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 	CanPlayerSeeMeTraceParams.AddIgnoredActor(Player);
 	//PeekQueryParams.AddIgnoredActor(Player);
 	//	Debug
-	EnterPeekState();
+	//EnterPeekState();
 
 	//EnterUpperWindowScareState();
 

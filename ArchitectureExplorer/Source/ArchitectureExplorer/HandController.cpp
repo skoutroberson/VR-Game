@@ -459,7 +459,8 @@ void AHandController::Release()
 			{
 				bIsHoldingBall = false;
 
-
+				
+				HandControllerState::STATE_IDLE;
 
 				if (Dog->bWantsToFetch)
 				{
@@ -597,74 +598,77 @@ void AHandController::ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActo
 
 void AHandController::CanInteract()
 {
-	TArray<AActor*> OverlappingActors;
-	TArray<UPrimitiveComponent*> OverlappingComponents;
-	GetOverlappingActors(OverlappingActors);
-	GetOverlappingComponents(OverlappingComponents);
-	for (AActor* OverlappingActor : OverlappingActors)
+	if (State == HandControllerState::STATE_IDLE)
 	{
-		if (OverlappingActor->ActorHasTag(TEXT("Grab")))
+		TArray<AActor*> OverlappingActors;
+		TArray<UPrimitiveComponent*> OverlappingComponents;
+		GetOverlappingActors(OverlappingActors);
+		GetOverlappingComponents(OverlappingComponents);
+		for (AActor* OverlappingActor : OverlappingActors)
 		{
-			//UE_LOG(LogTemp, Warning, TEXT("%s"), *OverlappingActor->GetName());
-
-			if (OverlappingActor->IsA(ABall::StaticClass()))
+			if (OverlappingActor->ActorHasTag(TEXT("Grab")))
 			{
-				// cant interact if the ball is being fetched
-				ABall *Ball = Cast<ABall>(OverlappingActor);
-				if (Ball != nullptr)
+				//UE_LOG(LogTemp, Warning, TEXT("%s"), *OverlappingActor->GetName());
+
+				if (OverlappingActor->IsA(ABall::StaticClass()))
 				{
-					if (Ball->bBeingFetched)
+					// cant interact if the ball is being fetched
+					ABall *Ball = Cast<ABall>(OverlappingActor);
+					if (Ball != nullptr)
 					{
-						bNewCanGrab = false;
-						return;
+						if (Ball->bBeingFetched)
+						{
+							bNewCanGrab = false;
+							return;
+						}
 					}
 				}
-			}
 
-			bNewCanGrab = true;
-			State = HandControllerState::STATE_CANGRAB;
-			GrabActor = OverlappingActor;
-			return;
+				bNewCanGrab = true;
+				State = HandControllerState::STATE_CANGRAB;
+				GrabActor = OverlappingActor;
+				return;
+			}
+			else if (OverlappingActor->ActorHasTag(TEXT("Climbable")))
+			{
+				bNewCanClimb = true;
+				State = HandControllerState::STATE_CANGRAB;
+				return;
+			}
+			/*
+			else if (OverlappingActor->ActorHasTag(TEXT("Door")))
+			{
+				bNewCanUseDoor = true;
+				OverlappingDoor = OverlappingActor;
+				return;
+			}
+			*/
 		}
-		else if (OverlappingActor->ActorHasTag(TEXT("Climbable")))
+		for (UPrimitiveComponent* OC : OverlappingComponents)
 		{
-			bNewCanClimb = true;
-			State = HandControllerState::STATE_CANGRAB;
-			return;
+			if (OC->ComponentHasTag(TEXT("Knob")))
+			{
+				bNewCanUseDoor = true;
+				State = HandControllerState::STATE_CANGRAB;
+				OverlappingKnob = OC;
+				OverlappingDoor = OC->GetOwner();
+				return;
+			}
+			else if (OC->ComponentHasTag(TEXT("Drawer")))
+			{
+				bNewCanUseDrawer = true;
+				State = HandControllerState::STATE_CANGRAB;
+				GrabActor = OC->GetAttachmentRootActor();
+				return;
+			}
 		}
-		/*
-		else if (OverlappingActor->ActorHasTag(TEXT("Door")))
-		{
-			bNewCanUseDoor = true;
-			OverlappingDoor = OverlappingActor;
-			return;
-		}
-		*/
+
+		State = HandControllerState::STATE_IDLE;
+		bNewCanClimb = false;
+		bNewCanUseDoor = false;
+		bNewCanGrab = false;
+		bNewCanUseDrawer = false;
 	}
-	for (UPrimitiveComponent* OC : OverlappingComponents)
-	{
-		if (OC->ComponentHasTag(TEXT("Knob")))
-		{
-			bNewCanUseDoor = true;
-			State = HandControllerState::STATE_CANGRAB;
-			OverlappingKnob = OC;
-			OverlappingDoor = OC->GetOwner();
-			return;
-		}
-		else if (OC->ComponentHasTag(TEXT("Drawer")))
-		{
-			bNewCanUseDrawer = true;
-			State = HandControllerState::STATE_CANGRAB;
-			GrabActor = OC->GetAttachmentRootActor();
-			return;
-		}
-	}
-	
-	State = HandControllerState::STATE_IDLE;
-	bNewCanClimb = false;
-	bNewCanUseDoor = false;
-	bNewCanGrab = false;
-	bNewCanUseDrawer = false;
 }
 
 void AHandController::CheckDoorDistance()

@@ -371,7 +371,7 @@ public:
 
 	// flee
 	//FVector FleeLocation = FVector::ZeroVector;
-	FVector FleeLocation = FVector(-1098.f, 942.f, 283.f);
+	FVector FleeLocation = FVector((-1142.f, 828.f, 168.f));
 	// flock
 	FVector FLockLocation = FVector::ZeroVector;
 

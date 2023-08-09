@@ -24,7 +24,7 @@ void AFlashlight::BeginPlay()
 	Super::BeginPlay();
 
 	LM = Cast<ALightManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ALightManager::StaticClass()));
-	//LM->AddFlickerLight(this, 0.34f, 5000.f, 200.f);
+	LM->AddFlickerLight(this, 0.34f, 5000.f, 200.f);
 }
 
 void AFlashlight::TurnOn()
@@ -53,12 +53,16 @@ void AFlashlight::PressButton(bool bButtonAudio)
 	{
 		LM->EditLight(this, 0, 0);
 		bOn = false;
+		UE_LOG(LogTemp, Warning, TEXT("LightOff"));
+		UpdateLightVolumetrics(true);
 	}
 	else
 	{
+		UE_LOG(LogTemp, Warning, TEXT("LightOn"));
 		LM->EditLight(this, 20000.f, 200.f);
 		//LM->TurnOn(FString("BP_Flashlight2_2"), 5000.f, 200.f);
 		bOn = true;
+		UpdateLightVolumetrics(false);
 	}
-	//UpdateLightVolumetrics(bOn);
+	
 }

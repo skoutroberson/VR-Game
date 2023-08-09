@@ -51,10 +51,14 @@ void AKeyCan::AttachKey(ADoorKey * Key)
 
 void AKeyCan::DetachKey()
 {
+	AttachedKey->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+	UPrimitiveComponent * PC = Cast<UPrimitiveComponent>(AttachedKey->GetRootComponent());
+	PC->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	PC->SetSimulatePhysics(true);
+	PC->SetEnableGravity(true);
+	PC->AddImpulse(GetActorUpVector() * 2.f);
 	bHasKey = false;
 	AttachedKey = nullptr;
-	AttachedKey->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-	Cast<UPrimitiveComponent>(AttachedKey->GetRootComponent())->AddImpulse(GetActorUpVector() * 2.f);
 	UE_LOG(LogTemp, Warning, TEXT("DetachKey"));
 }
 
@@ -69,6 +73,7 @@ void AKeyCan::CheckZ()
 		SetActorTickEnabled(false);
 		bHasKey = false;
 		DetachKey();
+		UE_LOG(LogTemp, Warning, TEXT("Key Detached"));
 	}
 }
 

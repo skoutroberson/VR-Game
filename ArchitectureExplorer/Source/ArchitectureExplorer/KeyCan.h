@@ -30,6 +30,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AttachKey(ADoorKey *Key);
 
+	UFUNCTION(BlueprintCallable)
 	void DetachKey();
 
 	UPROPERTY(BlueprintReadOnly)
