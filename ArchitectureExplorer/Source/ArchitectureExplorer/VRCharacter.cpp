@@ -217,6 +217,7 @@ void AVRCharacter::UpdateCapsuleHeight()
 
 void AVRCharacter::PressA(bool bLeft)
 {
+	UE_LOG(LogTemp, Warning, TEXT("AAAAAAA"));
 	AHandController * CurrentController = nullptr;
 	if (bLeft)
 	{
@@ -648,6 +649,14 @@ void AVRCharacter::Click()
 			}
 		}
 	}
+
+	/*
+	AActor *Ball = UGameplayStatics::GetActorOfClass(GetWorld(), ABall::StaticClass());
+	UPrimitiveComponent *PC = Cast<UPrimitiveComponent>(Ball->GetRootComponent());
+	Ball->SetActorLocation(Camera->GetComponentLocation() + Camera->GetForwardVector() * 5.f);
+	PC->SetPhysicsLinearVelocity(FVector::ZeroVector);
+	PC->AddImpulse(Camera->GetForwardVector() * 30.f);
+	*/
 }
 
 void AVRCharacter::Sprint()
@@ -705,21 +714,36 @@ void AVRCharacter::RightTriggerAxis(float Value)
 
 void AVRCharacter::LeftTriggerAxis(float Value)
 {
-	if ((Controller != NULL) && (Value > 0.001f))
+	if (Controller != NULL)
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("LT: %f"), Value);
-		LeftTriggerAxisValue = Value;
+		
+		if (Value > 0.001f)
+		{
+			LeftTriggerAxisValue = Value;
+		}
+		else
+		{
+			LeftTriggerAxisValue = 0.0f;
+		}
 	}
 	
 }
 
 void AVRCharacter::RightGripAxis(float Value)
 {
-	if ((Controller != NULL) && (Value > 0.001f))
+	if (Controller != NULL)
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("Rg: %f"), Value);
-
-		RightGripAxisValue = Value;
+		if (Value > 0.001f)
+		{
+			RightGripAxisValue = Value;
+		}
+		else
+		{
+			RightGripAxisValue = 0.0f;
+		}
+		
 	}
 }
 

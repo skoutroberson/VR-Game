@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	HEADMOUNTEDDISPLAY_API UClass* Z_Construct_UClass_UMotionControllerComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UHapticFeedbackEffect_Base_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 // End Cross Module References
 	static UEnum* HandControllerState_StaticEnum()
 	{
@@ -103,6 +104,13 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return ReturnEnum;
 	}
+	DEFINE_FUNCTION(AHandController::execCanInteract)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->CanInteract();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AHandController::execActorEndOverlap)
 	{
 		P_GET_OBJECT(AActor,Z_Param_OverlappedActor);
@@ -146,6 +154,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ActorBeginOverlap", &AHandController::execActorBeginOverlap },
 			{ "ActorEndOverlap", &AHandController::execActorEndOverlap },
+			{ "CanInteract", &AHandController::execCanInteract },
 			{ "Grip", &AHandController::execGrip },
 			{ "Release", &AHandController::execRelease },
 		};
@@ -179,7 +188,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		{ "ToolTip", "Callbacks" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHandController_ActorBeginOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHandController, nullptr, "ActorBeginOverlap", nullptr, nullptr, sizeof(HandController_eventActorBeginOverlap_Parms), Z_Construct_UFunction_AHandController_ActorBeginOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_ActorBeginOverlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHandController_ActorBeginOverlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_ActorBeginOverlap_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHandController_ActorBeginOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHandController, nullptr, "ActorBeginOverlap", nullptr, nullptr, sizeof(HandController_eventActorBeginOverlap_Parms), Z_Construct_UFunction_AHandController_ActorBeginOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_ActorBeginOverlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHandController_ActorBeginOverlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_ActorBeginOverlap_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AHandController_ActorBeginOverlap()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -217,13 +226,37 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		{ "ToolTip", "I nested both of these functions. There might be a\nbetter solution than the if(!bIsGripping)" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHandController, nullptr, "ActorEndOverlap", nullptr, nullptr, sizeof(HandController_eventActorEndOverlap_Parms), Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHandController, nullptr, "ActorEndOverlap", nullptr, nullptr, sizeof(HandController_eventActorEndOverlap_Parms), Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AHandController_ActorEndOverlap()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHandController_ActorEndOverlap_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AHandController_CanInteract_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHandController_CanInteract_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// Helpers\n" },
+		{ "ModuleRelativePath", "HandController.h" },
+		{ "ToolTip", "Helpers" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHandController_CanInteract_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHandController, nullptr, "CanInteract", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHandController_CanInteract_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_CanInteract_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AHandController_CanInteract()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHandController_CanInteract_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -362,6 +395,24 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HapticEffect;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bCanUseDoor_MetaData[];
+#endif
+		static void NewProp_bCanUseDoor_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bCanUseDoor;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bCanGrab_MetaData[];
+#endif
+		static void NewProp_bCanGrab_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bCanGrab;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OverlappingDoor_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OverlappingDoor;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OverlappingKnob_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OverlappingKnob;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GrabActor_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GrabActor;
@@ -379,8 +430,9 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AHandController_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AHandController_ActorBeginOverlap, "ActorBeginOverlap" }, // 923936220
-		{ &Z_Construct_UFunction_AHandController_ActorEndOverlap, "ActorEndOverlap" }, // 2599293571
+		{ &Z_Construct_UFunction_AHandController_ActorBeginOverlap, "ActorBeginOverlap" }, // 2854880120
+		{ &Z_Construct_UFunction_AHandController_ActorEndOverlap, "ActorEndOverlap" }, // 2657498742
+		{ &Z_Construct_UFunction_AHandController_CanInteract, "CanInteract" }, // 3522903090
 		{ &Z_Construct_UFunction_AHandController_Grip, "Grip" }, // 2449933679
 		{ &Z_Construct_UFunction_AHandController_Release, "Release" }, // 273026658
 		{ &Z_Construct_UFunction_AHandController_UpdateAnimation, "UpdateAnimation" }, // 520880581
@@ -516,6 +568,43 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect = { "HapticEffect", nullptr, (EPropertyFlags)0x0040000000010001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHandController, HapticEffect), Z_Construct_UClass_UHapticFeedbackEffect_Base_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_bCanUseDoor_MetaData[] = {
+		{ "Category", "HandController" },
+		{ "ModuleRelativePath", "HandController.h" },
+	};
+#endif
+	void Z_Construct_UClass_AHandController_Statics::NewProp_bCanUseDoor_SetBit(void* Obj)
+	{
+		((AHandController*)Obj)->bCanUseDoor = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_bCanUseDoor = { "bCanUseDoor", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AHandController), &Z_Construct_UClass_AHandController_Statics::NewProp_bCanUseDoor_SetBit, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_bCanUseDoor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_bCanUseDoor_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_bCanGrab_MetaData[] = {
+		{ "Category", "HandController" },
+		{ "ModuleRelativePath", "HandController.h" },
+	};
+#endif
+	void Z_Construct_UClass_AHandController_Statics::NewProp_bCanGrab_SetBit(void* Obj)
+	{
+		((AHandController*)Obj)->bCanGrab = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_bCanGrab = { "bCanGrab", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AHandController), &Z_Construct_UClass_AHandController_Statics::NewProp_bCanGrab_SetBit, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_bCanGrab_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_bCanGrab_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_OverlappingDoor_MetaData[] = {
+		{ "Category", "HandController" },
+		{ "ModuleRelativePath", "HandController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_OverlappingDoor = { "OverlappingDoor", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHandController, OverlappingDoor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_OverlappingDoor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_OverlappingDoor_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_OverlappingKnob_MetaData[] = {
+		{ "Category", "HandController" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "HandController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHandController_Statics::NewProp_OverlappingKnob = { "OverlappingKnob", nullptr, (EPropertyFlags)0x001000000008000c, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHandController, OverlappingKnob), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHandController_Statics::NewProp_OverlappingKnob_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHandController_Statics::NewProp_OverlappingKnob_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor_MetaData[] = {
 		{ "Category", "HandController" },
 		{ "Comment", "// Actor that the hand controller can pick up\n" },
@@ -546,6 +635,10 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_bIsHoldingPhone,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_MotionController,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_HapticEffect,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_bCanUseDoor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_bCanGrab,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_OverlappingDoor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_OverlappingKnob,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_GrabActor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_State_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHandController_Statics::NewProp_State,
@@ -577,7 +670,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHandController, 779756870);
+	IMPLEMENT_CLASS(AHandController, 1452137981);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AHandController>()
 	{
 		return AHandController::StaticClass();

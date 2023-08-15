@@ -99,7 +99,7 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RunTowardsHouse();
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bRanTowardsHouse = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dog")
@@ -122,6 +122,17 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void MoveToPlayer();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bFetchWhenReady = true;
+
+	void FetchWhenReady();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FetchWhenReadyDistance = 100.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int RunTowardsHouseFetches = 3;
 
 private:
 	void RotateToFacePlayer();

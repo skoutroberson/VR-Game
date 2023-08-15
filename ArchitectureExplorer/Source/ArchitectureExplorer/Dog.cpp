@@ -48,6 +48,11 @@ void ADog::Tick(float DeltaTime)
 		break;
 	case DogState::STATE_SITTING:
 		//RotateToFacePlayer();
+		if (bFetchWhenReady)
+		{
+			FetchWhenReady();
+		}
+		// ShouldFetchBall()
 		break;
 	case DogState::STATE_PICKUP:
 		// check ball distance,
@@ -58,6 +63,17 @@ void ADog::Tick(float DeltaTime)
 		break;
 	}
 
+}
+
+void ADog::FetchWhenReady()
+{
+	// fetch ball if the ball is > distance away from player
+	const float d = FVector::Dist(Ball->GetActorLocation(), Player->GetActorLocation());
+
+	if (d > FetchWhenReadyDistance)
+	{
+		FetchBall();
+	}
 }
 
 void ADog::ShouldPickUpBall()
@@ -113,7 +129,7 @@ void ADog::CheckBallDistance()
 {
 	const float Distance = FVector::Distance(Player->GetActorLocation(), Ball->GetActorLocation());
 
-	if (State == DogState::STATE_FETCHING && Distance > 300.f)
+	if (State == DogState::STATE_FETCHING && Fetches == RunTowardsHouseFetches && Distance > 300.f)
 	{
 		// fling ball towards the house and make dog run and bark towards the house
 		bRanTowardsHouse = true;
@@ -165,7 +181,7 @@ void ADog::FetchBall()
 	{
 		State = DogState::STATE_STANDINGUP;
 		Ball->bBeingFetched = true;
-		Fetches = (Fetches > 2) ? 2 : Fetches + 1;
+		Fetches = (Fetches > RunTowardsHouseFetches) ? RunTowardsHouseFetches : Fetches + 1;
 	}
 
 }

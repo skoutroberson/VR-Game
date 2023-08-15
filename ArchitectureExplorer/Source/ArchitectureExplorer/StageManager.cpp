@@ -82,6 +82,7 @@ bool AStageManager::IsCurrentStageCompleted()
 {
 	if (CurrentStage != nullptr)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("Stage: %d: %d"), CurrentStageNum, CurrentStage->bCompleted);
 		return CurrentStage->bCompleted;
 	}
 	return false;

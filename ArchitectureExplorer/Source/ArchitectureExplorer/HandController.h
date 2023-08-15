@@ -113,15 +113,15 @@ private:
 
 	// Callbacks
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);	// I nested both of these functions. There might be a 
-	UFUNCTION()																// better solution than the if(!bIsGripping)
+	UFUNCTION(BlueprintCallable)																// better solution than the if(!bIsGripping)
 	void ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActor);
 
 	// Helpers
+	UFUNCTION(BlueprintCallable)
 	void CanInteract();
-	AActor* OverlappingDoor = nullptr;
-	UPrimitiveComponent * OverlappingKnob = nullptr;
+	
 	//USceneComponent * OverlappingKnob = nullptr;
 
 public:
@@ -134,17 +134,28 @@ private:
 
 	bool bCanClimb = false;
 	bool bNewCanClimb = false;
-
+public:
+	UPROPERTY(BlueprintReadWrite)
 	bool bCanUseDoor = false;
+	UPROPERTY(BlueprintReadWrite)
+	bool bCanGrab = false;
+
+	UPROPERTY(BlueprintReadWrite)
+	AActor* OverlappingDoor = nullptr;
+	UPROPERTY(BlueprintReadWrite)
+	UPrimitiveComponent * OverlappingKnob = nullptr;
+private:
 	bool bIsUsingDoor = false;
 	bool bNewCanUseDoor = false;
 	FVector UsingDoorLocation;
+
+	
 
 	bool bCanUseDrawer = false;
 	bool bIsUsingDrawer = false;
 	bool bNewCanUseDrawer = false;
 
-	bool bCanGrab = false;
+	
 	bool bNewCanGrab = false;
 
 	bool bIsGripping = false;
@@ -208,5 +219,7 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void UpdateAnimation();
+
+	UPrimitiveComponent *CollisionCapsule = nullptr;
 
 };

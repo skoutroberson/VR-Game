@@ -17,6 +17,7 @@ class AActor;
 #define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_31_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_31_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execCanInteract); \
 	DECLARE_FUNCTION(execActorEndOverlap); \
 	DECLARE_FUNCTION(execActorBeginOverlap); \
 	DECLARE_FUNCTION(execRelease); \
@@ -25,6 +26,7 @@ class AActor;
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_HandController_h_31_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execCanInteract); \
 	DECLARE_FUNCTION(execActorEndOverlap); \
 	DECLARE_FUNCTION(execActorBeginOverlap); \
 	DECLARE_FUNCTION(execRelease); \

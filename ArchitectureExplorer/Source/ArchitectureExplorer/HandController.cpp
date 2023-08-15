@@ -60,6 +60,8 @@ void AHandController::BeginPlay()
 
 	Dog = Cast<ADog>(UGameplayStatics::GetActorOfClass(GetWorld(), ADog::StaticClass()));
 	Player = Cast<AVRCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass()));
+
+	CollisionCapsule = Cast<UPrimitiveComponent>(GetComponentByClass(UCapsuleComponent::StaticClass()));
 }
 
 // Called every frame
@@ -101,6 +103,7 @@ void AHandController::Grip()
 
 			if (ActorBeingGrabbed != nullptr)
 			{
+				UE_LOG(LogTemp, Warning, TEXT("GA: %s"), *ActorBeingGrabbed->GetName());
 				if (!ActorBeingGrabbed->bTwoHanded)
 				{
 					if (ActorBeingGrabbed == SisterController->ActorBeingGrabbed)
@@ -536,6 +539,7 @@ void AHandController::Release()
 
 void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor)
 {
+	//UE_LOG(LogTemp, Warning, TEXT("BeginOverlap: %s"), *OtherActor->GetName());
 	if (!bIsGripping)
 	{
 		// Set bNewCanClimb and bNewCanUseDoor
@@ -580,6 +584,7 @@ void AHandController::ActorBeginOverlap(AActor* OverlappedActor, AActor* OtherAc
 
 void AHandController::ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActor)
 {
+	//UE_LOG(LogTemp, Warning, TEXT("EndOverlap: %s"), *OtherActor->GetName());
 	if (!bIsGripping)
 	{
 		//bCanClimb = CanClimb();
@@ -593,17 +598,21 @@ void AHandController::ActorEndOverlap(AActor* OverlappedActor, AActor* OtherActo
 		{
 			GripSize = GripSizeDefault;
 		}
+
+		//UE_LOG(LogTemp, Warning, TEXT("End Overlap: Can Grab = %d"), bCanGrab);
 	}
 }
 
 void AHandController::CanInteract()
 {
-	if (State == HandControllerState::STATE_IDLE)
-	{
+	//if (State == HandControllerState::STATE_IDLE)
+	//{
 		TArray<AActor*> OverlappingActors;
 		TArray<UPrimitiveComponent*> OverlappingComponents;
-		GetOverlappingActors(OverlappingActors);
-		GetOverlappingComponents(OverlappingComponents);
+		//GetOverlappingActors(OverlappingActors);
+		//GetOverlappingComponents(OverlappingComponents);
+		CollisionCapsule->GetOverlappingActors(OverlappingActors);
+		CollisionCapsule->GetOverlappingComponents(OverlappingComponents);
 		for (AActor* OverlappingActor : OverlappingActors)
 		{
 			if (OverlappingActor->ActorHasTag(TEXT("Grab")))
@@ -622,6 +631,10 @@ void AHandController::CanInteract()
 							return;
 						}
 					}
+				}
+				else if (OverlappingActor->IsA(AFlashlight::StaticClass()))
+				{
+					
 				}
 
 				bNewCanGrab = true;
@@ -648,11 +661,15 @@ void AHandController::CanInteract()
 		{
 			if (OC->ComponentHasTag(TEXT("Knob")))
 			{
-				bNewCanUseDoor = true;
-				State = HandControllerState::STATE_CANGRAB;
-				OverlappingKnob = OC;
-				OverlappingDoor = OC->GetOwner();
-				return;
+				ADoor *OD = Cast<ADoor>(OC->GetOwner());
+				if (OD->bEnabled)
+				{
+					bNewCanUseDoor = true;
+					State = HandControllerState::STATE_CANGRAB;
+					OverlappingKnob = OC;
+					OverlappingDoor = OD;
+					return;
+				}
 			}
 			else if (OC->ComponentHasTag(TEXT("Drawer")))
 			{
@@ -664,11 +681,12 @@ void AHandController::CanInteract()
 		}
 
 		State = HandControllerState::STATE_IDLE;
+		GrabActor = nullptr;
 		bNewCanClimb = false;
 		bNewCanUseDoor = false;
 		bNewCanGrab = false;
 		bNewCanUseDrawer = false;
-	}
+	//}
 }
 
 void AHandController::CheckDoorDistance()

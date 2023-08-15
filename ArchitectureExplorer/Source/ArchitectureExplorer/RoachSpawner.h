@@ -40,7 +40,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void MoveRoaches(int AmountToMove, int NumToMovePerFrame);
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int RoachCount = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

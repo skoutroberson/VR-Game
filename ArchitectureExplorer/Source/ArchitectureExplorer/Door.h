@@ -72,7 +72,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = DoorMechanics)
 	FVector LastCALocation = FVector::ZeroVector;
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bEnabled = true;
 
 	// if this bool is true, then do certain things on door close like turn off flashlight, radio, and change Errol behavior.
 	UPROPERTY(EditAnywhere)
