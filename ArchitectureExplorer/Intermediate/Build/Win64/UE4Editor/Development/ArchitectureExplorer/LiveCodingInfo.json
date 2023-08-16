@@ -17,6 +17,7 @@
 			"Crawler.cpp.obj",
 			"CrawlingMan.cpp.obj",
 			"CrawlSpaceScare.cpp.obj",
+			"Dog.cpp.obj",
 			"DogController.cpp.obj",
 			"Door.cpp.obj",
 			"DoorKey.cpp.obj",
@@ -28,8 +29,10 @@
 			"ErrolSaw.cpp.obj",
 			"ErrolsSaw.cpp.obj",
 			"FirstChaseScare.cpp.obj",
+			"Flashlight.cpp.obj",
 			"Grabbable.cpp.obj",
 			"HallwayStareScare.cpp.obj",
+			"HandController.cpp.obj",
 			"HGGYScare.cpp.obj",
 			"KeyCan.cpp.obj",
 			"LightManager.cpp.obj",
@@ -53,12 +56,9 @@
 			"Stage2.cpp.obj",
 			"Stage3.cpp.obj",
 			"Stage4.cpp.obj",
+			"StageManager.cpp.obj",
 			"StairsScare.cpp.obj",
 			"TriggerManager.cpp.obj",
-			"Dog.cpp.obj",
-			"Flashlight.cpp.obj",
-			"HandController.cpp.obj",
-			"StageManager.cpp.obj",
 			"VRCharacter.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.1_of_3.cpp.obj": [
@@ -76,15 +76,15 @@
 			"Crawler.gen.cpp.obj",
 			"CrawlingMan.gen.cpp.obj",
 			"CrawlSpaceScare.gen.cpp.obj",
+			"Dog.gen.cpp.obj",
 			"DogController.gen.cpp.obj",
+			"Door.gen.cpp.obj",
 			"DoorKey.gen.cpp.obj",
 			"DoorManager.gen.cpp.obj",
 			"Drawer.gen.cpp.obj",
 			"Errol.gen.cpp.obj",
 			"ErrolCharacter.gen.cpp.obj",
-			"ArchitectureExplorer.init.gen.cpp.obj",
-			"Dog.gen.cpp.obj",
-			"Door.gen.cpp.obj"
+			"ArchitectureExplorer.init.gen.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.2_of_3.cpp.obj": [
 			"ErrolController.gen.cpp.obj",
@@ -94,8 +94,8 @@
 			"Flashlight.gen.cpp.obj",
 			"Grabbable.gen.cpp.obj",
 			"HallwayStareScare.gen.cpp.obj",
+			"HandController.gen.cpp.obj",
 			"HGGYScare.gen.cpp.obj",
-			"KeyCan.gen.cpp.obj",
 			"LightManager.gen.cpp.obj",
 			"LightningStrikeScare.gen.cpp.obj",
 			"PeekPoint.gen.cpp.obj",
@@ -109,9 +109,10 @@
 			"RevealDecal.gen.cpp.obj",
 			"RevealScare.gen.cpp.obj",
 			"Roach.gen.cpp.obj",
-			"HandController.gen.cpp.obj"
+			"KeyCan.gen.cpp.obj"
 		],
 		"Module.ArchitectureExplorer.gen.3_of_3.cpp.obj": [
+			"RoachSpawner.gen.cpp.obj",
 			"Scare.gen.cpp.obj",
 			"ScareManager.gen.cpp.obj",
 			"Stage.gen.cpp.obj",
@@ -122,8 +123,7 @@
 			"StageManager.gen.cpp.obj",
 			"StairsScare.gen.cpp.obj",
 			"TriggerManager.gen.cpp.obj",
-			"VRCharacter.gen.cpp.obj",
-			"RoachSpawner.gen.cpp.obj"
+			"VRCharacter.gen.cpp.obj"
 		]
 	}
 }

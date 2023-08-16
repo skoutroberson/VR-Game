@@ -52,4 +52,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float EndZDistance = 10.f;
+
+	UPROPERTY(BlueprintReadWrite)
+	FVector SpawnLocation = FVector::ZeroVector;
 };
