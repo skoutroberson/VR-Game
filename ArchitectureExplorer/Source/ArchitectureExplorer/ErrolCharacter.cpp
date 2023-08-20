@@ -38,6 +38,8 @@ AErrolCharacter::AErrolCharacter()
 
 	MocapMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MocapMesh"));
 	MocapMesh->SetupAttachment(GetRootComponent());
+
+	FlankBlocker = CreateDefaultSubobject<UBoxComponent>(TEXT("FlankBlocker"));
 }
 
 // Called when the game starts or when spawned
@@ -133,7 +135,9 @@ void AErrolCharacter::BeginPlay()
 	ErrolSaw->MocapMesh = MocapMesh;
 	ErrolSaw->Anim2Mesh = SawMesh;
 	ErrolSaw->EnterState(ErrolSawState::STATE_MOCAP);
-	
+
+	FlankBlocker->AddWorldOffset(FVector(0, 0, 600.f));
+	FlankBlocker->SetBoxExtent(FVector(10.f, 150.f, 140.f));
 }
 
 
@@ -200,11 +204,12 @@ void AErrolCharacter::Tick(float DeltaTime)
 			{
 				//UE_LOG(LogTemp, Warning, TEXT("Finding Peek Point"));
 				FindValidPeekPoint();
+				//UpdatePeekPosition(DeltaTime);
 			}
 			else if(bPeeking)
 			{
-				ShouldEndPeek(DeltaTime);
-				UpdatePeekPosition();
+				ShouldEndPeek(DeltaTime); // also updates peek position
+				UpdatePeekPosition(DeltaTime);
 			}
 			break;
 		case ErrolState::STATE_SHOULDERPEEK:
@@ -438,11 +443,15 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed)
 
 	MocapMesh->SetVisibility(true);
 
+	//SetActorEnableCollision(true);
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	//GetCapsuleComponent()->SetSimulatePhysics(true);
+
 	bSprintAtPlayer = true;
 	ChaseSpeed = MaxSpeed;
 	UpdateAnimation(State);
 	GetCharacterMovement()->MaxWalkSpeed = MaxSpeed;
-	ErrolController->MoveToActor(Player); //KillRadius);
+	ErrolController->MoveToActor(Player, 10.f, false, true, false, 0, false); //KillRadius);
 	World->GetTimerManager().UnPauseTimer(OpenBlockingDoorTimer);
 
 	ErrolSaw->EnterState(ErrolSawState::STATE_MOCAP);
@@ -710,8 +719,12 @@ void AErrolCharacter::EnterPeekState()
 	PeekState = ErrolPeekState::STATE_WAITPEEK;
 	bPeeking = true;
 	UpdateAnimation(State);
-	SetActorEnableCollision(false);
-	DisableComponentsSimulatePhysics();
+	//SetActorEnableCollision(false);
+	//DisableComponentsSimulatePhysics();
+
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	GetCapsuleComponent()->SetSimulatePhysics(false);
+
 	BodyMesh->SetVisibility(false, true);
 	SawMesh->SetVisibility(false, true);
 	MocapMesh->SetVisibility(false, true);
@@ -951,9 +964,11 @@ void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 	InitializePerceptionTimers();
 
 	CanPlayerSeeMeTraceParams.AddIgnoredActor(Player);
+	CanPlayerSeeMeTraceParams.AddIgnoredActor(LHandController);
+	CanPlayerSeeMeTraceParams.AddIgnoredActor(RHandController);
 	//PeekQueryParams.AddIgnoredActor(Player);
 	//	Debug
-	//EnterPeekState();
+	EnterPeekState();
 
 	//EnterUpperWindowScareState();
 
@@ -1239,6 +1254,8 @@ void AErrolCharacter::StartPeek()
 		PeekDoor->bOpenDoorUsingCurve = true;
 	}
 
+	UpdateFlankBlocker();
+
 }
 
 
@@ -1248,6 +1265,7 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 	//	- A certain time if the player doesn't look
 	//	- If the player looks at Errol for too long: DotProduct(Disp, CameraVector) * DeltaTime > LookThreshold
 	//	- If the peek angle is too shallow
+	// 
 
 	// check if peek has gone on too long
 	PeekTime += DeltaTime;
@@ -1298,14 +1316,19 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 			else
 			{
 				//UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
-
+				//UpdatePeekPosition();
 			}
 		}
 		else
 		{
 			//UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
-
+			//UpdatePeekPosition();
 		}
+	}
+	else
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("NOT ON SCREEN"));
+		//UpdatePeekPosition();
 	}
 	
 	// check if peek is too shallow:
@@ -1334,7 +1357,7 @@ void AErrolCharacter::ShouldEndPeek(float DeltaTime)
 	}
 }
 
-void AErrolCharacter::UpdatePeekPosition()
+void AErrolCharacter::UpdatePeekPosition(float DeltaTime)
 {
 	FVector PlayerCameraLocation = PlayerCamera->GetComponentLocation();
 	FVector EyeLocation = EyeSocket->GetSocketLocation(BodyMesh);
@@ -1355,30 +1378,77 @@ void AErrolCharacter::UpdatePeekPosition()
 	//	If the neck trace doesn't hit, too much of Errol is visible so move him out of view more
 	if (!bNeckTrace)
 	{
+		const float PeekMoveSpeed = 7.f;
+		const FVector AL = GetActorLocation();
+		FVector NL = GetActorLocation();
 		if (PeekState == ErrolPeekState::STATE_LEFTPEEK)
 		{
-			AddActorWorldOffset(RightPeekVector * 5.f);
+			//AddActorWorldOffset(RightPeekVector * 5.f);
+			NL += RightPeekVector * PeekMoveSpeed;
 		}
 		else
 		{
-			AddActorWorldOffset(LeftPeekVector * 5.f);
+			//AddActorWorldOffset(LeftPeekVector * 5.f);
+			NL += LeftPeekVector * PeekMoveSpeed;
 		}
+		NL = FMath::VInterpTo(AL, NL, DeltaTime, PeekMoveSpeed);
+		SetActorLocation(NL);
 	}
 	else if (bEyeTrace)	//	If this trace hits, then Errol is hidden too much, so he moves more in view
 	{
+		const float PeekMoveSpeed = 7.f;
+		const FVector AL = GetActorLocation();
+		FVector NL = GetActorLocation();
 		if (PeekState == ErrolPeekState::STATE_LEFTPEEK)
 		{
-			AddActorWorldOffset(-RightPeekVector * 10.f);
+			//AddActorWorldOffset(-RightPeekVector * 10.f);
+			NL += -RightPeekVector * PeekMoveSpeed;
 		}
 		else
 		{
-			AddActorWorldOffset(-LeftPeekVector * 10.f);
+			//AddActorWorldOffset(-LeftPeekVector * 10.f);
+			NL += -LeftPeekVector * PeekMoveSpeed;
 		}
+		NL = FMath::VInterpTo(AL, NL, DeltaTime, PeekMoveSpeed);
+		SetActorLocation(NL);
 	}
 
 	//FRotator Rot = DispEye.Rotation();
 	//Rot.Pitch = 0;
 	//SetActorRotation(Rot);
+}
+
+void AErrolCharacter::UpdateFlankBlocker()
+{
+	const FVector HL = ValidPeekPoint->HeadLocation;
+	const FVector CL = PlayerCamera->GetComponentLocation();
+	FVector Dir = CL - HL;
+	Dir.Z = 0;
+	Dir = Dir.GetSafeNormal();
+
+	FVector NewLocation = HL + Dir * 100.f;
+
+	const FVector WUV = FVector(0, 0, 1.0f);
+	const FVector NewRight = FVector::CrossProduct(Dir, WUV);
+	const FVector NewUp = FVector::CrossProduct(NewRight, Dir);
+
+	FTransform NewTransform = FTransform(Dir, NewRight, NewUp, NewLocation);
+
+	FlankBlocker->SetWorldTransform(NewTransform);
+
+}
+
+bool AErrolCharacter::FindPathToPlayer()
+{
+	NavigationSystem->FindPathToActorSynchronously(World, GetActorLocation(), Player);
+	
+
+	return false;
+}
+
+void AErrolCharacter::RemoveFlankBlocker()
+{
+	FlankBlocker->AddWorldOffset(FVector(0, 0, 600.f));
 }
 
 void AErrolCharacter::EnterUpperWindowScareState()

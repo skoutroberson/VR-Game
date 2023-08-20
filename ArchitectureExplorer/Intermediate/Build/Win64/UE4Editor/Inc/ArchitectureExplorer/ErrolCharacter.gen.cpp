@@ -27,6 +27,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_APeekPoint_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 // End Cross Module References
 	static UEnum* ErrolPeekState_StaticEnum()
 	{
@@ -247,6 +248,20 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		P_THIS->EnterUpperWindowScareState();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AErrolCharacter::execRemoveFlankBlocker)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->RemoveFlankBlocker();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AErrolCharacter::execUpdateFlankBlocker)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UpdateFlankBlocker();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AErrolCharacter::execExitShoulderPeekState)
 	{
 		P_FINISH;
@@ -423,6 +438,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 			{ "InitializeCanSeeVariables", &AErrolCharacter::execInitializeCanSeeVariables },
 			{ "KillPlayer", &AErrolCharacter::execKillPlayer },
 			{ "OpenDoorBlockingPath", &AErrolCharacter::execOpenDoorBlockingPath },
+			{ "RemoveFlankBlocker", &AErrolCharacter::execRemoveFlankBlocker },
 			{ "SetDetectionGauge", &AErrolCharacter::execSetDetectionGauge },
 			{ "SetHearGauge", &AErrolCharacter::execSetHearGauge },
 			{ "SetSeeFlashlightGauge", &AErrolCharacter::execSetSeeFlashlightGauge },
@@ -433,6 +449,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 			{ "TickFlyAtState", &AErrolCharacter::execTickFlyAtState },
 			{ "TickKillState", &AErrolCharacter::execTickKillState },
 			{ "TickUpperWindowScareState", &AErrolCharacter::execTickUpperWindowScareState },
+			{ "UpdateFlankBlocker", &AErrolCharacter::execUpdateFlankBlocker },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -946,6 +963,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AErrolCharacter_RemoveFlankBlocker_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_RemoveFlankBlocker_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_RemoveFlankBlocker_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "RemoveFlankBlocker", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_RemoveFlankBlocker_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_RemoveFlankBlocker_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_RemoveFlankBlocker()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_RemoveFlankBlocker_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AErrolCharacter_SetDetectionGauge_Statics
 	{
 #if WITH_METADATA
@@ -1263,6 +1302,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AErrolCharacter_UpdateFlankBlocker_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_UpdateFlankBlocker_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_UpdateFlankBlocker_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "UpdateFlankBlocker", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_UpdateFlankBlocker_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_UpdateFlankBlocker_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_UpdateFlankBlocker()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_UpdateFlankBlocker_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AErrolCharacter_NoRegister()
 	{
 		return AErrolCharacter::StaticClass();
@@ -1446,6 +1507,19 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PeekDoorCurve;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SeenPeeks_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_SeenPeeks;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bChaseAfterPeek_MetaData[];
+#endif
+		static void NewProp_bChaseAfterPeek_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bChaseAfterPeek;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FlankBlocker_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FlankBlocker;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_IdleSpeed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_IdleSpeed;
@@ -1512,6 +1586,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_KillPlayer, "KillPlayer" }, // 4215045179
 		{ &Z_Construct_UFunction_AErrolCharacter_OpenDoor, "OpenDoor" }, // 950942076
 		{ &Z_Construct_UFunction_AErrolCharacter_OpenDoorBlockingPath, "OpenDoorBlockingPath" }, // 3327573011
+		{ &Z_Construct_UFunction_AErrolCharacter_RemoveFlankBlocker, "RemoveFlankBlocker" }, // 333934512
 		{ &Z_Construct_UFunction_AErrolCharacter_SetDetectionGauge, "SetDetectionGauge" }, // 2628373435
 		{ &Z_Construct_UFunction_AErrolCharacter_SetHearGauge, "SetHearGauge" }, // 727653839
 		{ &Z_Construct_UFunction_AErrolCharacter_SetSeeFlashlightGauge, "SetSeeFlashlightGauge" }, // 781599227
@@ -1524,6 +1599,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_TickKillState, "TickKillState" }, // 555512801
 		{ &Z_Construct_UFunction_AErrolCharacter_TickUpperWindowScareState, "TickUpperWindowScareState" }, // 3579540977
 		{ &Z_Construct_UFunction_AErrolCharacter_UpdateAnimation, "UpdateAnimation" }, // 935012373
+		{ &Z_Construct_UFunction_AErrolCharacter_UpdateFlankBlocker, "UpdateFlankBlocker" }, // 4072021637
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::Class_MetaDataParams[] = {
@@ -1859,6 +1935,36 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekDoorCurve = { "PeekDoorCurve", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, PeekDoorCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekDoorCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekDoorCurve_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenPeeks_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "Comment", "// number of peeks that the player has seen\n" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+		{ "ToolTip", "number of peeks that the player has seen" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenPeeks = { "SeenPeeks", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, SeenPeeks), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenPeeks_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenPeeks_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bChaseAfterPeek_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bChaseAfterPeek_SetBit(void* Obj)
+	{
+		((AErrolCharacter*)Obj)->bChaseAfterPeek = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bChaseAfterPeek = { "bChaseAfterPeek", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AErrolCharacter), &Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bChaseAfterPeek_SetBit, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bChaseAfterPeek_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bChaseAfterPeek_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlankBlocker_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "Comment", "// used for trying to block part of the nav mesh so errol flanks the player\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+		{ "ToolTip", "used for trying to block part of the nav mesh so errol flanks the player" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlankBlocker = { "FlankBlocker", nullptr, (EPropertyFlags)0x00100000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, FlankBlocker), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlankBlocker_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlankBlocker_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_IdleSpeed_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
 		{ "Comment", "// Various settings\n" },
@@ -1976,6 +2082,9 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekScareThreshold,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekScareLevel,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PeekDoorCurve,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenPeeks,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bChaseAfterPeek,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlankBlocker,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_IdleSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyAtSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_PatrolSpeed,
@@ -2013,7 +2122,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 3980719302);
+	IMPLEMENT_CLASS(AErrolCharacter, 1983360744);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

@@ -28,6 +28,8 @@ enum class ErrolState : uint8;
 	DECLARE_FUNCTION(execExitUpperWindowScareState); \
 	DECLARE_FUNCTION(execTickUpperWindowScareState); \
 	DECLARE_FUNCTION(execEnterUpperWindowScareState); \
+	DECLARE_FUNCTION(execRemoveFlankBlocker); \
+	DECLARE_FUNCTION(execUpdateFlankBlocker); \
 	DECLARE_FUNCTION(execExitShoulderPeekState); \
 	DECLARE_FUNCTION(execExitPeekState); \
 	DECLARE_FUNCTION(execKillPlayer); \
@@ -59,6 +61,8 @@ enum class ErrolState : uint8;
 	DECLARE_FUNCTION(execExitUpperWindowScareState); \
 	DECLARE_FUNCTION(execTickUpperWindowScareState); \
 	DECLARE_FUNCTION(execEnterUpperWindowScareState); \
+	DECLARE_FUNCTION(execRemoveFlankBlocker); \
+	DECLARE_FUNCTION(execUpdateFlankBlocker); \
 	DECLARE_FUNCTION(execExitShoulderPeekState); \
 	DECLARE_FUNCTION(execExitPeekState); \
 	DECLARE_FUNCTION(execKillPlayer); \

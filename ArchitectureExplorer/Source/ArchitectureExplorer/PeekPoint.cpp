@@ -82,6 +82,12 @@ bool APeekPoint::IsValid(const float Threshold)
 	const FVector CL = PlayerCamera->GetComponentLocation();
 	const FVector AL = GetActorLocation();
 	FVector Disp = CL - HeadLocation;
+
+	if (Disp.Size2D() < 150.f)
+	{
+		return bIsValid;
+	}
+
 	FVector Dir = Disp.GetSafeNormal();
 	const float DotLook = FVector::DotProduct(Dir, CFV);
 	Disp = CL - AL;

@@ -225,7 +225,7 @@ public:
 
 	// this is turned on in EnterChaseState().
 	// smoothly increase MoveSpeed to a sprint. Once I am sprinting, bSprintAtPlayer is changed to false.
-	bool bSprintAtPlayer = false;
+	bool bSprintAtPlayer = true;
 	void SprintAtPlayer(float DeltaTime);
 
 	// If I get inside KillRadius, then exit ChaseState and change state to FlyAt while marking the player for death.
@@ -363,7 +363,7 @@ public:
 	//	determines when Errol should end the peek
 	void ShouldEndPeek(float DeltaTime);
 	//	updates the location and rotation so the peek looks right
-	void UpdatePeekPosition();
+	void UpdatePeekPosition(float DeltaTime);
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float MaxPeekTime = 1000.f;
@@ -381,6 +381,27 @@ public:
 	UCurveFloat *PeekDoorCurve;
 
 	FCollisionQueryParams PeekQueryParams;
+
+	// number of peeks that the player has seen
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int SeenPeeks = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bChaseAfterPeek = false;
+
+	// used for trying to block part of the nav mesh so errol flanks the player
+	UPROPERTY(VisibleAnywhere)
+	class UBoxComponent *FlankBlocker = nullptr;
+
+	UFUNCTION(BlueprintCallable)
+	void UpdateFlankBlocker();
+	// returns true if a path was found
+	bool FindPathToPlayer();
+
+	UFUNCTION(BlueprintCallable)
+	void RemoveFlankBlocker();
+
+	FCollisionQueryParams FlankQueryParams;
 
 	// SCARE STATES:
 
