@@ -54,4 +54,7 @@ public:
 
 	// this is the skeletal mesh
 	USceneComponent *Root = nullptr;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void Rev();
 };

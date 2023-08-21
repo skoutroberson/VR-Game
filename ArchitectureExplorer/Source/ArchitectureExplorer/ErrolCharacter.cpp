@@ -40,6 +40,8 @@ AErrolCharacter::AErrolCharacter()
 	MocapMesh->SetupAttachment(GetRootComponent());
 
 	FlankBlocker = CreateDefaultSubobject<UBoxComponent>(TEXT("FlankBlocker"));
+
+	FlankOverlapper = CreateDefaultSubobject<UBoxComponent>(TEXT("FlankOverlapper"));
 }
 
 // Called when the game starts or when spawned
@@ -138,6 +140,8 @@ void AErrolCharacter::BeginPlay()
 
 	FlankBlocker->AddWorldOffset(FVector(0, 0, 600.f));
 	FlankBlocker->SetBoxExtent(FVector(10.f, 150.f, 140.f));
+	FlankOverlapper->AddWorldOffset(FVector(0, 0, 600.f));
+	FlankOverlapper->SetBoxExtent(FVector(10.f, 150.f, 140.f));
 }
 
 
@@ -460,11 +464,12 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed)
 void AErrolCharacter::TickChaseState(float DeltaTime)
 {
 	
+	/*
 	if (bSprintAtPlayer) // when chase starts, speed up to a sprint
 	{
 		SprintAtPlayer(DeltaTime);
 	}
-	else if (bUpdateMoveSpeedBasedOnPlayerCamera) // slow move speed when Errol is not in view
+	else*/ if (bUpdateMoveSpeedBasedOnPlayerCamera) // slow move speed when Errol is not in view
 	{
 		UpdateMoveSpeedBasedOnPlayerCamera(DeltaTime);
 	}
@@ -619,6 +624,8 @@ void AErrolCharacter::EnterKillState()
 		KillSweepVector = RV - ScaledUp;
 		KillSweepVector.Normalize();
 	}
+
+	ErrolSaw->Rev();
 	
 	//
 
@@ -968,7 +975,7 @@ void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 	CanPlayerSeeMeTraceParams.AddIgnoredActor(RHandController);
 	//PeekQueryParams.AddIgnoredActor(Player);
 	//	Debug
-	EnterPeekState();
+	//EnterPeekState();
 
 	//EnterUpperWindowScareState();
 
@@ -1378,7 +1385,7 @@ void AErrolCharacter::UpdatePeekPosition(float DeltaTime)
 	//	If the neck trace doesn't hit, too much of Errol is visible so move him out of view more
 	if (!bNeckTrace)
 	{
-		const float PeekMoveSpeed = 7.f;
+		const float PeekMoveSpeed = 10.f;
 		const FVector AL = GetActorLocation();
 		FVector NL = GetActorLocation();
 		if (PeekState == ErrolPeekState::STATE_LEFTPEEK)
@@ -1435,7 +1442,7 @@ void AErrolCharacter::UpdateFlankBlocker()
 	FTransform NewTransform = FTransform(Dir, NewRight, NewUp, NewLocation);
 
 	FlankBlocker->SetWorldTransform(NewTransform);
-
+	FlankOverlapper->SetWorldTransform(NewTransform);
 }
 
 bool AErrolCharacter::FindPathToPlayer()
@@ -1449,6 +1456,7 @@ bool AErrolCharacter::FindPathToPlayer()
 void AErrolCharacter::RemoveFlankBlocker()
 {
 	FlankBlocker->AddWorldOffset(FVector(0, 0, 600.f));
+	FlankOverlapper->AddWorldOffset(FVector(0, 0, 600.f));
 }
 
 void AErrolCharacter::EnterUpperWindowScareState()

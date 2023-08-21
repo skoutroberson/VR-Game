@@ -390,8 +390,11 @@ public:
 	bool bChaseAfterPeek = false;
 
 	// used for trying to block part of the nav mesh so errol flanks the player
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class UBoxComponent *FlankBlocker = nullptr;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class UBoxComponent *FlankOverlapper = nullptr;
 
 	UFUNCTION(BlueprintCallable)
 	void UpdateFlankBlocker();
@@ -514,5 +517,9 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void FlyAtPlayer();
 
+	UPROPERTY(BlueprintReadWrite)
 	class AErrolSaw * ErrolSaw = nullptr;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void RevSaw();
 };

@@ -109,6 +109,11 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 		P_THIS->ChangeState(ErrolSawState(Z_Param_NewState));
 		P_NATIVE_END;
 	}
+	static FName NAME_AErrolSaw_Rev = FName(TEXT("Rev"));
+	void AErrolSaw::Rev()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AErrolSaw_Rev),NULL);
+	}
 	void AErrolSaw::StaticRegisterNativesAErrolSaw()
 	{
 		UClass* Class = AErrolSaw::StaticClass();
@@ -224,6 +229,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AErrolSaw_Rev_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolSaw_Rev_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolSaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolSaw_Rev_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolSaw, nullptr, "Rev", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolSaw_Rev_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolSaw_Rev_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolSaw_Rev()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolSaw_Rev_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AErrolSaw_NoRegister()
 	{
 		return AErrolSaw::StaticClass();
@@ -260,6 +287,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 		{ &Z_Construct_UFunction_AErrolSaw_ChangeState, "ChangeState" }, // 2686955747
 		{ &Z_Construct_UFunction_AErrolSaw_EnterState, "EnterState" }, // 2641504874
 		{ &Z_Construct_UFunction_AErrolSaw_ExitState, "ExitState" }, // 563465213
+		{ &Z_Construct_UFunction_AErrolSaw_Rev, "Rev" }, // 2221953741
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolSaw_Statics::Class_MetaDataParams[] = {
@@ -328,7 +356,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolSaw, 3800432032);
+	IMPLEMENT_CLASS(AErrolSaw, 3417610597);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolSaw>()
 	{
 		return AErrolSaw::StaticClass();
