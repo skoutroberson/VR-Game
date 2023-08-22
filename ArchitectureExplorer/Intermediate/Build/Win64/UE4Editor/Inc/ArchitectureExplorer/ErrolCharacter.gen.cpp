@@ -365,6 +365,13 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		P_THIS->EnterPeekState();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AErrolCharacter::execCanPlayerSeeMeMocap)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->CanPlayerSeeMeMocap();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AErrolCharacter::execCanThePlayerSeeMe)
 	{
 		P_FINISH;
@@ -427,6 +434,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	{
 		UClass* Class = AErrolCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "CanPlayerSeeMeMocap", &AErrolCharacter::execCanPlayerSeeMeMocap },
 			{ "CanThePlayerSeeMe", &AErrolCharacter::execCanThePlayerSeeMe },
 			{ "EndFlyAtState", &AErrolCharacter::execEndFlyAtState },
 			{ "EndKillState", &AErrolCharacter::execEndKillState },
@@ -458,6 +466,43 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 			{ "UpdateFlankBlocker", &AErrolCharacter::execUpdateFlankBlocker },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics
+	{
+		struct ErrolCharacter_eventCanPlayerSeeMeMocap_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((ErrolCharacter_eventCanPlayerSeeMeMocap_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ErrolCharacter_eventCanPlayerSeeMeMocap_Parms), &Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "CanPlayerSeeMeMocap", nullptr, nullptr, sizeof(ErrolCharacter_eventCanPlayerSeeMeMocap_Parms), Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AErrolCharacter_CanThePlayerSeeMe_Statics
 	{
@@ -1431,6 +1476,11 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_Waypoints;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bVariablesInitialized_MetaData[];
+#endif
+		static void NewProp_bVariablesInitialized_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bVariablesInitialized;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DoorBlockingPath_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DoorBlockingPath;
@@ -1601,6 +1651,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArchitectureExplorer,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AErrolCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap, "CanPlayerSeeMeMocap" }, // 4166433094
 		{ &Z_Construct_UFunction_AErrolCharacter_CanThePlayerSeeMe, "CanThePlayerSeeMe" }, // 2945474745
 		{ &Z_Construct_UFunction_AErrolCharacter_EndFlyAtState, "EndFlyAtState" }, // 1733603055
 		{ &Z_Construct_UFunction_AErrolCharacter_EndKillState, "EndKillState" }, // 2785992446
@@ -1763,6 +1814,17 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints = { "Waypoints", nullptr, (EPropertyFlags)0x0040000000000000, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, Waypoints), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized_SetBit(void* Obj)
+	{
+		((AErrolCharacter*)Obj)->bVariablesInitialized = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized = { "bVariablesInitialized", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AErrolCharacter), &Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized_SetBit, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_DoorBlockingPath_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
@@ -2108,6 +2170,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_LastState,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_DoorBlockingPath,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bUpdateMoveSpeedBasedOnPlayerCamera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SprintSpeedUpSpeed,
@@ -2176,7 +2239,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 3892083595);
+	IMPLEMENT_CLASS(AErrolCharacter, 3985890955);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

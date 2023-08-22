@@ -85,5 +85,5 @@ bool AStageManager::IsCurrentStageCompleted()
 		UE_LOG(LogTemp, Warning, TEXT("Stage: %d: %d"), CurrentStageNum, CurrentStage->bCompleted);
 		return CurrentStage->bCompleted;
 	}
-	return false;
+	return true;
 }

@@ -169,6 +169,14 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool CanThePlayerSeeMe();
 
+	UFUNCTION(BlueprintCallable)
+	bool CanPlayerSeeMeMocap();
+
+	FCollisionQueryParams CanPlayerSeeMocapParams;
+
+	UPROPERTY(BlueprintReadOnly)
+	bool bVariablesInitialized = false;
+
 	FCollisionQueryParams CanPlayerSeeMeTraceParams;
 	FCollisionQueryParams KillSweepParams;
 
@@ -405,6 +413,8 @@ public:
 	void RemoveFlankBlocker();
 
 	FCollisionQueryParams FlankQueryParams;
+
+
 
 	// SCARE STATES:
 

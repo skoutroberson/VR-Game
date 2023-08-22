@@ -100,6 +100,8 @@ void AErrolCharacter::BeginPlay()
 
 	CanPlayerSeeMeTraceParams.AddIgnoredActors(GrabActors);
 
+	CanPlayerSeeMocapParams.AddIgnoredActors(GrabActors);
+
 	OpenDoorQueryParams.AddIgnoredActors(GrabActors);
 	OpenDoorQueryParams.AddIgnoredActor(this);
 
@@ -408,6 +410,58 @@ bool AErrolCharacter::CanThePlayerSeeMe()
 	}
 
 	return bCanThePlayerSeeMe;
+}
+
+bool AErrolCharacter::CanPlayerSeeMeMocap()
+{
+	const FVector CL = PlayerCamera->GetComponentLocation();
+	const FVector CFV = PlayerCamera->GetForwardVector();
+
+	TArray<FVector> BoneLocations;
+	
+	BoneLocations.Add(MocapMesh->GetSocketLocation(FName("Hips")));
+	BoneLocations.Add(MocapMesh->GetSocketLocation(FName("Spine1")));
+	BoneLocations.Add(MocapMesh->GetSocketLocation(FName("Head")));
+	BoneLocations.Add(MocapMesh->GetSocketLocation(FName("LeftForeArm")));
+	BoneLocations.Add(MocapMesh->GetSocketLocation(FName("RightForeArm")));
+	BoneLocations.Add(MocapMesh->GetSocketLocation(FName("LeftFoot")));
+	BoneLocations.Add(MocapMesh->GetSocketLocation(FName("RightFoot")));
+	BoneLocations.Add(MocapMesh->GetSocketLocation(FName("ErrolSaw")));
+	BoneLocations.Add(MocapMesh->GetSocketLocation(FName("SawTip")));
+
+	APlayerController *PlayerController = UGameplayStatics::GetPlayerController(World, 0);
+	const FVector2D ViewportSize = FVector2D(GEngine->GameViewport->Viewport->GetSizeXY());
+
+	for (FVector BoneLocation : BoneLocations)
+	{
+		DrawDebugPoint(World, BoneLocation, 5.f, FColor::Purple, false, World->DeltaTimeSeconds * 1.1f, ESceneDepthPriorityGroup::SDPG_MAX);
+
+		const FVector Disp = BoneLocation - CL;
+		const float Dot = FVector::DotProduct(Disp, CFV);
+
+		if (Dot > 0)
+		{
+			FHitResult HitResult;
+			bool bCameraTrace = World->LineTraceSingleByChannel(HitResult, CL, BoneLocation, ECollisionChannel::ECC_Camera, CanPlayerSeeMocapParams);
+			if (bCameraTrace && HitResult.Actor == this || HitResult.Actor == ErrolSaw)
+			{
+				const FVector HitLocation = HitResult.ImpactPoint;
+
+				FVector2D HitLocationOnScreen;
+				UGameplayStatics::ProjectWorldToScreen(PlayerController, HitLocation, HitLocationOnScreen);
+
+				if (HitLocationOnScreen.X > 0.1f && HitLocationOnScreen.X <= ViewportSize.X)
+				{
+					if (HitLocationOnScreen.Y > 0.1f && HitLocationOnScreen.Y <= ViewportSize.Y)
+					{
+						return true;
+					}
+				}
+			}
+		}
+	}
+
+	return false;
 }
 
 void AErrolCharacter::EnterIdleState()
@@ -973,6 +1027,12 @@ void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 	CanPlayerSeeMeTraceParams.AddIgnoredActor(Player);
 	CanPlayerSeeMeTraceParams.AddIgnoredActor(LHandController);
 	CanPlayerSeeMeTraceParams.AddIgnoredActor(RHandController);
+
+	CanPlayerSeeMocapParams.AddIgnoredActor(Player);
+	CanPlayerSeeMocapParams.AddIgnoredActor(LHandController);
+	CanPlayerSeeMocapParams.AddIgnoredActor(RHandController);
+
+	bVariablesInitialized = true;
 	//PeekQueryParams.AddIgnoredActor(Player);
 	//	Debug
 	//EnterPeekState();
