@@ -283,6 +283,9 @@ public:
 
 	// KILL
 
+	UPROPERTY(VisibleAnywhere)
+	bool bKillingPlayer = false;
+
 	UFUNCTION(BlueprintCallable)
 	void EnterKillState();
 

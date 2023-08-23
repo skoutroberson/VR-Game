@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AIController.h"
 #include "Runtime/Engine/Classes/Engine/TargetPoint.h"
+#include "TimerManager.h"
 #include "ErrolController.generated.h"
 
 /**
@@ -45,4 +46,12 @@ public:
 		void SetLookAroundTimerRate(float Rate);
 
 		void StopTimers();
+
+		bool bTryToChase = false;
+
+		FTimerHandle TryToChaseTimer;
+
+		void TryToChase();
+
+		AActor *Player = nullptr;
 };

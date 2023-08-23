@@ -4,12 +4,17 @@
 #include "ErrolController.h"
 #include "ErrolCharacter.h"
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
-#include "TimerManager.h"
 #include "Engine/World.h"
+#include "VRCharacter.h"
 
 void AErrolController::BeginPlay()
 {
 	Super::BeginPlay();
+
+	GetWorld()->GetTimerManager().SetTimer(TryToChaseTimer, this, &AErrolController::TryToChase, 0.2f, true, 0.5f);
+	GetWorld()->GetTimerManager().PauseTimer(TryToChaseTimer);
+
+	Player = UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass());
 }
 
 ATargetPoint * AErrolController::GetRandomWaypoint()
@@ -34,6 +39,15 @@ void AErrolController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollow
 		break;
 	case ErrolState::STATE_CHASE:
 		UE_LOG(LogTemp, Warning, TEXT("Chase Result: %s"), *Result.ToString());
+
+		if (!ErrolCharacter->bKillingPlayer && !bTryToChase)
+		{
+			ErrolCharacter->RemoveFlankBlocker();
+
+			bTryToChase = true;
+			GetWorld()->GetTimerManager().UnPauseTimer(TryToChaseTimer);
+			// start a timer to keep trying to chase
+		}
 		//ErrolCharacter->ExitChaseState();
 		//ErrolCharacter->EnterKillState();
 		//UE_LOG(LogTemp, Warning, TEXT("Result: %s"), *Result.ToString());
@@ -69,4 +83,15 @@ void AErrolController::LookAroundTimerCompleted()
 void AErrolController::StopTimers()
 {
 	GetWorldTimerManager().ClearTimer(LookAroundTimerHandle);
+}
+
+void AErrolController::TryToChase()
+{
+	int Result = MoveToActor(Player, 1.0f, false, true, true, 0, false);
+	UE_LOG(LogTemp, Warning, TEXT("Chase Result44: %d"), Result);
+	if (Result)
+	{
+		GetWorld()->GetTimerManager().PauseTimer(TryToChaseTimer);
+		bTryToChase = false;
+	}
 }

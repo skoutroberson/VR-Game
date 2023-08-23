@@ -505,12 +505,15 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed)
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	//GetCapsuleComponent()->SetSimulatePhysics(true);
 
+	bKillingPlayer = false;
 	bSprintAtPlayer = true;
 	ChaseSpeed = MaxSpeed;
 	UpdateAnimation(State);
 	GetCharacterMovement()->MaxWalkSpeed = MaxSpeed;
 	ErrolController->MoveToActor(Player, 10.f, false, true, false, 0, false); //KillRadius);
 	World->GetTimerManager().UnPauseTimer(OpenBlockingDoorTimer);
+
+	UE_LOG(LogTemp, Warning, TEXT("MoveToPlayer: %d"), )
 
 	ErrolSaw->EnterState(ErrolSawState::STATE_MOCAP);
 }
@@ -539,7 +542,7 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 	{
 		if (Dist < ChaseKillDistance)
 		{
-			
+			bKillingPlayer = true;
 			ExitChaseState();
 			EnterKillState();
 			MocapMesh->SetVisibility(false);
@@ -1035,7 +1038,7 @@ void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 	bVariablesInitialized = true;
 	//PeekQueryParams.AddIgnoredActor(Player);
 	//	Debug
-	//EnterPeekState();
+	EnterPeekState();
 
 	//EnterUpperWindowScareState();
 
