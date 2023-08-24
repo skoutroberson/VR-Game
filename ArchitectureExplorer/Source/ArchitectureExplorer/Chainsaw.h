@@ -90,7 +90,7 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bRandomShake = false;
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float RevShakeMaxIntensity = 0.2f;
 
 	UPROPERTY(BlueprintReadWrite)
@@ -192,6 +192,7 @@ private:
 	bool bDismembering = false;
 
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	SawState State = SawState::STATE_IDLE;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -219,5 +220,7 @@ public:
 	void ExitRevvingState();
 	UFUNCTION(BlueprintCallable)
 	void ExitEndrevState();
+
+	
 
 };

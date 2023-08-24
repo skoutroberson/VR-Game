@@ -39,6 +39,7 @@ enum class ErrolState : uint8;
 	DECLARE_FUNCTION(execEndFlyAtState); \
 	DECLARE_FUNCTION(execTickFlyAtState); \
 	DECLARE_FUNCTION(execEnterFlyAtState); \
+	DECLARE_FUNCTION(execExitChaseState); \
 	DECLARE_FUNCTION(execOpenDoorBlockingPath); \
 	DECLARE_FUNCTION(execTickChaseState); \
 	DECLARE_FUNCTION(execEnterChaseState); \
@@ -73,6 +74,7 @@ enum class ErrolState : uint8;
 	DECLARE_FUNCTION(execEndFlyAtState); \
 	DECLARE_FUNCTION(execTickFlyAtState); \
 	DECLARE_FUNCTION(execEnterFlyAtState); \
+	DECLARE_FUNCTION(execExitChaseState); \
 	DECLARE_FUNCTION(execOpenDoorBlockingPath); \
 	DECLARE_FUNCTION(execTickChaseState); \
 	DECLARE_FUNCTION(execEnterChaseState); \

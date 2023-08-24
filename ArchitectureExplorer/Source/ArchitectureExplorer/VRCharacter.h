@@ -84,6 +84,7 @@ private:
 	void Sprint();
 	void StopSprint();
 	void Click();
+	void ReleaseClick();
 
 	float MCCrossMag = 0;
 

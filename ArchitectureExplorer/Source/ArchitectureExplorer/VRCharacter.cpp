@@ -581,6 +581,7 @@ PlayerInputComponent->BindAction(TEXT("Teleport"), IE_Released, this, &AVRCharac
 PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Pressed, this, &AVRCharacter::Sprint);
 PlayerInputComponent->BindAction(TEXT("Sprint"), IE_Released, this, &AVRCharacter::StopSprint);
 PlayerInputComponent->BindAction(TEXT("Click"), IE_Pressed, this, &AVRCharacter::Click);
+PlayerInputComponent->BindAction(TEXT("Click"), IE_Released, this, &AVRCharacter::ReleaseClick);
 
 PlayerInputComponent->BindAction(TEXT("GripLeft"), IE_Pressed, this, &AVRCharacter::GripLeft);
 PlayerInputComponent->BindAction(TEXT("GripRight"), IE_Pressed, this, &AVRCharacter::GripRight);
@@ -647,6 +648,12 @@ void AVRCharacter::Click()
 				AFlashlight *FL = Cast<AFlashlight>(TempA);
 				FL->PressButton(true);
 			}
+
+			if (TempA->IsA(AChainsaw::StaticClass()))
+			{
+				AChainsaw *C = Cast<AChainsaw>(TempA);
+
+			}
 		}
 	}
 
@@ -657,6 +664,11 @@ void AVRCharacter::Click()
 	PC->SetPhysicsLinearVelocity(FVector::ZeroVector);
 	PC->AddImpulse(Camera->GetForwardVector() * 30.f);
 	*/
+}
+
+void AVRCharacter::ReleaseClick()
+{
+
 }
 
 void AVRCharacter::Sprint()

@@ -203,10 +203,21 @@ public:
 
 	// CHASE
 	UFUNCTION(BlueprintCallable)
-	void EnterChaseState(float MaxSpeed);
+	void EnterChaseState(float MaxSpeed, float ChaseDuration = 30.f);
 
 	UFUNCTION(BlueprintCallable)
 	void TickChaseState(float DeltaTime);
+
+	// duration in seconds that a chase will last
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float ChaseDuration = 30.f;
+
+	// keeps track of how long the current chase has took
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	float ChaseTime = 0;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void DisappearAndEndChase();
 
 	FCollisionQueryParams OpenDoorQueryParams;
 	float OpenDoorDistance = 200.f;
@@ -241,6 +252,7 @@ public:
 
 	float MoveTargetValue;
 
+	UFUNCTION(BlueprintCallable)
 	void ExitChaseState();
 
 	// this is how fast Errol will increase his speed into a sprint

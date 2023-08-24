@@ -20,11 +20,6 @@ AChainsaw::AChainsaw()
 	AGrabbable::ValidOneHandHandHolds.Insert(2, 0);
 	PrimaryActorTick.bCanEverTick = true;
 
-	IdleAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("IdleAudio"));
-	StartupAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("StartupAudio"));
-	RevvingAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("RevvingAudio"));
-	EndrevAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("EndrevAudio"));
-
 	//StartupAudio->OnAudioFinished.AddDynamic(this, &AChainsaw::ExitStartupState);
 	//EndrevAudio->OnAudioFinished.AddDynamic(this, &AChainsaw::ExitEndrevState);
 }
@@ -61,16 +56,6 @@ void AChainsaw::BeginPlay()
 
 	//BladeCollision->OnComponentBeginOverlap.AddDynamic(this, &AChainsaw::BladeBeginOverlap);
 
-	IdleAudio->AttachToComponent(SkeletalMesh, FAttachmentTransformRules::SnapToTargetIncludingScale);
-	StartupAudio->AttachToComponent(SkeletalMesh, FAttachmentTransformRules::SnapToTargetIncludingScale);
-	RevvingAudio->AttachToComponent(SkeletalMesh, FAttachmentTransformRules::SnapToTargetIncludingScale);
-	EndrevAudio->AttachToComponent(SkeletalMesh, FAttachmentTransformRules::SnapToTargetIncludingScale);
-
-	IdleAudio->bAutoActivate = false;
-	StartupAudio->bAutoActivate = false;
-	RevvingAudio->bAutoActivate = false;
-	EndrevAudio->bAutoActivate = false;
-
 	EnterIdleState();
 }
 
@@ -83,6 +68,12 @@ void AChainsaw::Tick(float DeltaTime)
 		TriggerAxisUpdates(DeltaTime);
 		//UE_LOG(LogTemp, Warning, TEXT("%f"), LastTriggerAxisValue);
 	}
+
+	if (bRandomShake)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Shake"));
+		RandomShake(DeltaTime);
+	}
 	
 	if (bDismembering)
 	{
@@ -91,6 +82,7 @@ void AChainsaw::Tick(float DeltaTime)
 		return;
 	}
 
+	/*
 	switch (State)
 	{
 	case SawState::STATE_IDLE:
@@ -110,7 +102,7 @@ void AChainsaw::Tick(float DeltaTime)
 		TickEndrevState(DeltaTime);
 		break;
 	}
-
+	*/
 	//DrawDebugLine(GetWorld(), GetActorLocation(), GetActorLocation() + SkeletalMesh->GetRightVector() * 100.f, FColor::Red, false, 2 * DeltaTime);
 	/*
 	if (AGrabbable::bInterpToMC)
@@ -254,12 +246,13 @@ void AChainsaw::TriggerAxisUpdates(float DeltaTime)
 
 void AChainsaw::RandomShake(float DeltaTime)	//	calling this every frame is not ideal?
 {
-	float ShakeIntensity = RevShakeMaxIntensity * RevStartupIntensityMultiplier;
+	float ShakeIntensity = RevShakeMaxIntensity;
 	float x = FMath::RandRange(-ShakeIntensity, ShakeIntensity);
 	float y =  FMath::RandRange(-ShakeIntensity, ShakeIntensity);
 	float z = FMath::RandRange(-ShakeIntensity, ShakeIntensity);
 	FRotator ShakeRotator = FRotator(x, y, z);
 	SkeletalMesh->AddRelativeRotation(ShakeRotator);
+	//AddActorWorldRotation(ShakeRotator, false, nullptr, ETeleportType::TeleportPhysics);
 }
 
 void AChainsaw::StopShake()

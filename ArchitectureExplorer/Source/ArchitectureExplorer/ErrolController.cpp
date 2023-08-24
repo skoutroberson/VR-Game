@@ -32,6 +32,9 @@ void AErrolController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollow
 
 	switch (ErrolCharacter->State)
 	{
+	case ErrolState::STATE_IDLE:
+		GetWorld()->GetTimerManager().PauseTimer(TryToChaseTimer);
+		break;
 	case ErrolState::STATE_PATROL:
 		UE_LOG(LogTemp, Warning, TEXT("HERE MOTHAFUCKA!"));
 		ErrolCharacter->EnterLookAroundState();
@@ -88,7 +91,7 @@ void AErrolController::StopTimers()
 void AErrolController::TryToChase()
 {
 	int Result = MoveToActor(Player, 1.0f, false, true, true, 0, false);
-	UE_LOG(LogTemp, Warning, TEXT("Chase Result44: %d"), Result);
+	//UE_LOG(LogTemp, Warning, TEXT("Chase Result44: %d"), Result);
 	if (Result)
 	{
 		GetWorld()->GetTimerManager().PauseTimer(TryToChaseTimer);

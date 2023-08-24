@@ -328,6 +328,13 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		P_THIS->EnterFlyAtState();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AErrolCharacter::execExitChaseState)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ExitChaseState();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AErrolCharacter::execOpenDoorBlockingPath)
 	{
 		P_FINISH;
@@ -346,9 +353,10 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	DEFINE_FUNCTION(AErrolCharacter::execEnterChaseState)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_MaxSpeed);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_ChaseDuration);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->EnterChaseState(Z_Param_MaxSpeed);
+		P_THIS->EnterChaseState(Z_Param_MaxSpeed,Z_Param_ChaseDuration);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AErrolCharacter::execEnterShoulderPeekState)
@@ -392,6 +400,11 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		P_NATIVE_BEGIN;
 		*(ATargetPoint**)Z_Param__Result=P_THIS->GetRandomWaypoint();
 		P_NATIVE_END;
+	}
+	static FName NAME_AErrolCharacter_DisappearAndEndChase = FName(TEXT("DisappearAndEndChase"));
+	void AErrolCharacter::DisappearAndEndChase()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AErrolCharacter_DisappearAndEndChase),NULL);
 	}
 	static FName NAME_AErrolCharacter_EndPeek = FName(TEXT("EndPeek"));
 	void AErrolCharacter::EndPeek()
@@ -444,6 +457,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 			{ "EnterPeekState", &AErrolCharacter::execEnterPeekState },
 			{ "EnterShoulderPeekState", &AErrolCharacter::execEnterShoulderPeekState },
 			{ "EnterUpperWindowScareState", &AErrolCharacter::execEnterUpperWindowScareState },
+			{ "ExitChaseState", &AErrolCharacter::execExitChaseState },
 			{ "ExitPeekState", &AErrolCharacter::execExitPeekState },
 			{ "ExitShoulderPeekState", &AErrolCharacter::execExitShoulderPeekState },
 			{ "ExitUpperWindowScareState", &AErrolCharacter::execExitUpperWindowScareState },
@@ -543,6 +557,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AErrolCharacter_DisappearAndEndChase_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_DisappearAndEndChase_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_DisappearAndEndChase_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "DisappearAndEndChase", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_DisappearAndEndChase_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_DisappearAndEndChase_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_DisappearAndEndChase()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_DisappearAndEndChase_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AErrolCharacter_EndFlyAtState_Statics
 	{
 #if WITH_METADATA
@@ -637,8 +673,10 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		struct ErrolCharacter_eventEnterChaseState_Parms
 		{
 			float MaxSpeed;
+			float ChaseDuration;
 		};
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxSpeed;
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ChaseDuration;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -646,12 +684,15 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::NewProp_MaxSpeed = { "MaxSpeed", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ErrolCharacter_eventEnterChaseState_Parms, MaxSpeed), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::NewProp_ChaseDuration = { "ChaseDuration", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ErrolCharacter_eventEnterChaseState_Parms, ChaseDuration), METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::NewProp_MaxSpeed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::NewProp_ChaseDuration,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_EnterChaseState_Statics::Function_MetaDataParams[] = {
 		{ "Comment", "// CHASE\n" },
+		{ "CPP_Default_ChaseDuration", "30.000000" },
 		{ "ModuleRelativePath", "ErrolCharacter.h" },
 		{ "ToolTip", "CHASE" },
 	};
@@ -777,6 +818,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_EnterUpperWindowScareState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AErrolCharacter_ExitChaseState_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_ExitChaseState_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_ExitChaseState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "ExitChaseState", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_ExitChaseState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_ExitChaseState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_ExitChaseState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_ExitChaseState_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -1479,6 +1542,14 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		static void NewProp_bVariablesInitialized_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bVariablesInitialized;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ChaseDuration_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ChaseDuration;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ChaseTime_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ChaseTime;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DoorBlockingPath_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DoorBlockingPath;
@@ -1656,16 +1727,18 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AErrolCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap, "CanPlayerSeeMeMocap" }, // 4166433094
 		{ &Z_Construct_UFunction_AErrolCharacter_CanThePlayerSeeMe, "CanThePlayerSeeMe" }, // 2945474745
+		{ &Z_Construct_UFunction_AErrolCharacter_DisappearAndEndChase, "DisappearAndEndChase" }, // 2421458275
 		{ &Z_Construct_UFunction_AErrolCharacter_EndFlyAtState, "EndFlyAtState" }, // 1733603055
 		{ &Z_Construct_UFunction_AErrolCharacter_EndKillState, "EndKillState" }, // 2785992446
 		{ &Z_Construct_UFunction_AErrolCharacter_EndPeek, "EndPeek" }, // 3061781572
 		{ &Z_Construct_UFunction_AErrolCharacter_EndPeekAnimation, "EndPeekAnimation" }, // 3368898706
-		{ &Z_Construct_UFunction_AErrolCharacter_EnterChaseState, "EnterChaseState" }, // 2358586031
+		{ &Z_Construct_UFunction_AErrolCharacter_EnterChaseState, "EnterChaseState" }, // 1848855494
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterFlyAtState, "EnterFlyAtState" }, // 4091144147
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterKillState, "EnterKillState" }, // 2920122354
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterPeekState, "EnterPeekState" }, // 3880286838
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterShoulderPeekState, "EnterShoulderPeekState" }, // 4160678110
 		{ &Z_Construct_UFunction_AErrolCharacter_EnterUpperWindowScareState, "EnterUpperWindowScareState" }, // 636383724
+		{ &Z_Construct_UFunction_AErrolCharacter_ExitChaseState, "ExitChaseState" }, // 1484088169
 		{ &Z_Construct_UFunction_AErrolCharacter_ExitPeekState, "ExitPeekState" }, // 195118670
 		{ &Z_Construct_UFunction_AErrolCharacter_ExitShoulderPeekState, "ExitShoulderPeekState" }, // 3425939680
 		{ &Z_Construct_UFunction_AErrolCharacter_ExitUpperWindowScareState, "ExitUpperWindowScareState" }, // 676053072
@@ -1828,6 +1901,24 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		((AErrolCharacter*)Obj)->bVariablesInitialized = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized = { "bVariablesInitialized", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AErrolCharacter), &Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized_SetBit, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseDuration_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "Comment", "// duration in seconds that a chase will last\n" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+		{ "ToolTip", "duration in seconds that a chase will last" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseDuration = { "ChaseDuration", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, ChaseDuration), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseDuration_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseDuration_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseTime_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "Comment", "// keeps track of how long the current chase has took\n" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+		{ "ToolTip", "keeps track of how long the current chase has took" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseTime = { "ChaseTime", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, ChaseTime), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseTime_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_DoorBlockingPath_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
@@ -2187,6 +2278,8 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_Waypoints,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bVariablesInitialized,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseDuration,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseTime,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_DoorBlockingPath,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bUpdateMoveSpeedBasedOnPlayerCamera,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SprintSpeedUpSpeed,
@@ -2256,7 +2349,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 2301157122);
+	IMPLEMENT_CLASS(AErrolCharacter, 3357275492);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

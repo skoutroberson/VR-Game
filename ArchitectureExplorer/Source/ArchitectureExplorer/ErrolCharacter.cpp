@@ -479,9 +479,11 @@ void AErrolCharacter::EnterPatrolState()
 }
 
 
-void AErrolCharacter::EnterChaseState(float MaxSpeed)
+void AErrolCharacter::EnterChaseState(float MaxSpeed, float ChaseDuration)
 {
 	State = ErrolState::STATE_CHASE;
+
+	this->ChaseDuration = ChaseDuration;
 
 	// smoothly increase errols speed to ChaseSpeed
 	// update the animation in case we are not in a state connected to the idle/walk/run blend space.
@@ -520,6 +522,13 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed)
 
 void AErrolCharacter::TickChaseState(float DeltaTime)
 {
+
+	ChaseTime += DeltaTime;
+
+	if (ChaseTime >= ChaseDuration && !CanPlayerSeeMeMocap())
+	{
+		DisappearAndEndChase();
+	}
 	
 	/*
 	if (bSprintAtPlayer) // when chase starts, speed up to a sprint
@@ -574,6 +583,9 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 		return;
 	}
 	*/
+
+	// increment ChaseTime by DeltaTime
+	// if ChaseTime > ChaseDuration
 
 	UpdateAnimation(State);
 }
@@ -949,10 +961,12 @@ bool AErrolCharacter::ShouldIMarkPlayerForDeath()
 
 void AErrolCharacter::ExitChaseState()
 {
+	State = ErrolState::STATE_IDLE;
 	bSprintAtPlayer = true;
 	bUpdateMoveSpeedBasedOnPlayerCamera = false;
 	ErrolController->StopMovement();
 	World->GetTimerManager().PauseTimer(OpenBlockingDoorTimer);
+	ChaseTime = 0.f;
 }
 
 void AErrolCharacter::EnterFlyAtState()
@@ -1038,7 +1052,7 @@ void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 	bVariablesInitialized = true;
 	//PeekQueryParams.AddIgnoredActor(Player);
 	//	Debug
-	EnterPeekState();
+	//EnterPeekState();
 
 	//EnterUpperWindowScareState();
 
