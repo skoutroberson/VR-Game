@@ -65,7 +65,7 @@ void AChainsaw::Tick(float DeltaTime)
 
 	if (b1Held)
 	{
-		TriggerAxisUpdates(DeltaTime);
+		//TriggerAxisUpdates(DeltaTime);
 		//UE_LOG(LogTemp, Warning, TEXT("%f"), LastTriggerAxisValue);
 	}
 
@@ -81,6 +81,8 @@ void AChainsaw::Tick(float DeltaTime)
 		// cut animation until the saw is all the way through
 		return;
 	}
+
+
 
 	/*
 	switch (State)

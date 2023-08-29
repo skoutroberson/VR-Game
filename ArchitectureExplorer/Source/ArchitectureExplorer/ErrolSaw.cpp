@@ -3,7 +3,7 @@
 
 #include "ErrolSaw.h"
 #include "Components/SkeletalMeshComponent.h"
-
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AErrolSaw::AErrolSaw()
@@ -19,6 +19,14 @@ void AErrolSaw::BeginPlay()
 	Super::BeginPlay();
 	
 	Root = GetRootComponent();
+
+	TArray<UActorComponent*> ACs;
+	ACs = GetComponentsByClass(UAudioComponent::StaticClass());
+
+	for (auto ac : ACs)
+	{
+		SawAudioComponents.Add(Cast<UAudioComponent>(ac));
+	}
 }
 
 // Called every frame
@@ -66,5 +74,13 @@ void AErrolSaw::EnterState(ErrolSawState NewState)
 void AErrolSaw::ExitState(ErrolSawState NewState)
 {
 
+}
+
+void AErrolSaw::SetAudioVolume(float NewVolume)
+{
+	for (UAudioComponent *ac : SawAudioComponents)
+	{
+		ac->SetVolumeMultiplier(NewVolume);
+	}
 }
 

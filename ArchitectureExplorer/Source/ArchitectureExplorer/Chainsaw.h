@@ -62,6 +62,7 @@ public:
 	void ReleaseTrigger();
 
 	//	set in blueprints with PressTrigger() and ReleaseTrigger() events
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool bPressingTrigger = false;
 
 	float LastTriggerAxisValue;

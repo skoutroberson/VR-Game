@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/AudioComponent.h"
 #include "ErrolSaw.generated.h"
 
 UENUM(BlueprintType)
@@ -57,4 +58,14 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void Rev();
+
+	// sets the volume for all audio components in BP_ErrolSaw
+	UFUNCTION(BlueprintCallable)
+	void  SetAudioVolume(float NewVolume);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void FadeOutAudios(float FadeOutTime);
+
+	UPROPERTY(VisibleAnywhere)
+	TArray<UAudioComponent*> SawAudioComponents;
 };

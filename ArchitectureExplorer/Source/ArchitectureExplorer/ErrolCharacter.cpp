@@ -140,6 +140,8 @@ void AErrolCharacter::BeginPlay()
 	ErrolSaw->Anim2Mesh = SawMesh;
 	ErrolSaw->EnterState(ErrolSawState::STATE_MOCAP);
 
+	
+
 	FlankBlocker->AddWorldOffset(FVector(0, 0, 600.f));
 	FlankBlocker->SetBoxExtent(FVector(10.f, 150.f, 140.f));
 	FlankOverlapper->AddWorldOffset(FVector(0, 0, 600.f));
@@ -518,6 +520,7 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed, float ChaseDuration)
 	UE_LOG(LogTemp, Warning, TEXT("MoveToPlayer: %d"), )
 
 	ErrolSaw->EnterState(ErrolSawState::STATE_MOCAP);
+	ErrolSaw->SetAudioVolume(1.0f);
 }
 
 void AErrolCharacter::TickChaseState(float DeltaTime)
@@ -525,7 +528,7 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 
 	ChaseTime += DeltaTime;
 
-	if (ChaseTime >= ChaseDuration && !CanPlayerSeeMeMocap())
+	if (ChaseTime >= ChaseDuration && FVector::Distance(Player->GetActorLocation(), GetActorLocation()) > 300.f && !CanPlayerSeeMeMocap())
 	{
 		DisappearAndEndChase();
 	}
@@ -694,8 +697,8 @@ void AErrolCharacter::EnterKillState()
 		KillSweepVector.Normalize();
 	}
 
+	ErrolSaw->SetAudioVolume(1.0f);
 	ErrolSaw->Rev();
-	
 	//
 
 	//GetWorld()->GetTimerManager().ClearTimer(ChaseTimerHandle);
@@ -967,6 +970,12 @@ void AErrolCharacter::ExitChaseState()
 	ErrolController->StopMovement();
 	World->GetTimerManager().PauseTimer(OpenBlockingDoorTimer);
 	ChaseTime = 0.f;
+
+	if (!bKillingPlayer)
+	{
+		ErrolSaw->FadeOutAudios(3.0f);
+	}
+	//ErrolSaw->SetAudioVolume(0.0f);
 }
 
 void AErrolCharacter::EnterFlyAtState()
@@ -1050,6 +1059,9 @@ void AErrolCharacter::InitializeCanSeeVariables() // this function is a mess
 	CanPlayerSeeMocapParams.AddIgnoredActor(RHandController);
 
 	bVariablesInitialized = true;
+
+	//ErrolSaw->SetAudioVolume(0.f);
+
 	//PeekQueryParams.AddIgnoredActor(Player);
 	//	Debug
 	//EnterPeekState();
