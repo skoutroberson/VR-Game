@@ -75,7 +75,7 @@ private:
 	void ShouldEndChase();
 	void EndChase();
 
-	int EndChaseThreshold = 10;
+	int EndChaseThreshold = 8;
 	int EndChaseValue = 0;
 
 public:

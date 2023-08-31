@@ -52,6 +52,7 @@ void AHGGYScare::Tick(float DeltaTime)
 		MovingPhone();
 		break;
 	case HGGYState::STATE_ENDING:
+		UE_LOG(LogTemp, Warning, TEXT("End Chase Value: %d"), EndChaseValue);
 		ShouldEndChase();
 		break;
 	}
@@ -136,7 +137,7 @@ void AHGGYScare::ShouldEndChase()
 	const FVector CFV = PlayerCamera->GetForwardVector();
 	const float Dot = FVector::DotProduct(Disp, CFV);
 
-	if (!Errol->CanThePlayerSeeMe())
+	if (!Errol->CanPlayerSeeMeMocap())
 	{
 		++EndChaseValue;
 	}
@@ -149,8 +150,9 @@ void AHGGYScare::ShouldEndChase()
 void AHGGYScare::EndChase()
 {
 	State = HGGYState::STATE_IDLE;
-	Errol->ExitChaseState();
-	Errol->EnterIdleState();
-	Errol->SetActorLocation(FVector(0.0f, 4500.f, 1100.f));
+	//Errol->ExitChaseState();
+	//Errol->EnterIdleState();
+	//Errol->SetActorLocation(FVector(0.0f, 4500.f, 1100.f));
+	Errol->DisappearAndEndChase();
 	EndChaseBP();
 }
