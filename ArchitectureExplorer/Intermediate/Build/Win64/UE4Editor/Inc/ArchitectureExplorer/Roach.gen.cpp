@@ -21,6 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
 // End Cross Module References
 	static UEnum* CockroachState_StaticEnum()
@@ -526,6 +527,28 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_AntennaMaxY;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bFlee_MetaData[];
+#endif
+		static void NewProp_bFlee_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bFlee;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bFlock_MetaData[];
+#endif
+		static void NewProp_bFlock_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bFlock;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FleeFlockTimerRate_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FleeFlockTimerRate;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FlockLocation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_FlockLocation;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FleeLocation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_FleeLocation;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_WaitCurve_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_WaitCurve;
@@ -824,6 +847,53 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_AntennaMaxY = { "AntennaMaxY", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, AntennaMaxY), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_AntennaMaxY_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_AntennaMaxY_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_bFlee_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	void Z_Construct_UClass_ARoach_Statics::NewProp_bFlee_SetBit(void* Obj)
+	{
+		((ARoach*)Obj)->bFlee = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_bFlee = { "bFlee", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARoach), &Z_Construct_UClass_ARoach_Statics::NewProp_bFlee_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_bFlee_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_bFlee_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_bFlock_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	void Z_Construct_UClass_ARoach_Statics::NewProp_bFlock_SetBit(void* Obj)
+	{
+		((ARoach*)Obj)->bFlock = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_bFlock = { "bFlock", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARoach), &Z_Construct_UClass_ARoach_Statics::NewProp_bFlock_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_bFlock_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_bFlock_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_FleeFlockTimerRate_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "ModuleRelativePath", "Roach.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_FleeFlockTimerRate = { "FleeFlockTimerRate", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, FleeFlockTimerRate), METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_FleeFlockTimerRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_FleeFlockTimerRate_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_FlockLocation_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "Comment", "// flee\n" },
+		{ "ModuleRelativePath", "Roach.h" },
+		{ "ToolTip", "flee" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_FlockLocation = { "FlockLocation", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, FlockLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_FlockLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_FlockLocation_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_FleeLocation_MetaData[] = {
+		{ "Category", "Roach" },
+		{ "Comment", "// flock\n" },
+		{ "ModuleRelativePath", "Roach.h" },
+		{ "ToolTip", "flock" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ARoach_Statics::NewProp_FleeLocation = { "FleeLocation", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoach, FleeLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ARoach_Statics::NewProp_FleeLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoach_Statics::NewProp_FleeLocation_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoach_Statics::NewProp_WaitCurve_MetaData[] = {
 		{ "Category", "Roach" },
 		{ "Comment", "// used when we roll for WaitTime\n" },
@@ -888,6 +958,11 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_AntennaMaxZ,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_AntennaMinY,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_AntennaMaxY,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_bFlee,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_bFlock,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_FleeFlockTimerRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_FlockLocation,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_FleeLocation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_WaitCurve,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_LazinessCurve,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoach_Statics::NewProp_SwerveSpeedCurve,
@@ -920,7 +995,7 @@ void EmptyLinkFunctionForGeneratedCodeRoach() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoach, 4009310206);
+	IMPLEMENT_CLASS(ARoach, 4284058474);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoach>()
 	{
 		return ARoach::StaticClass();

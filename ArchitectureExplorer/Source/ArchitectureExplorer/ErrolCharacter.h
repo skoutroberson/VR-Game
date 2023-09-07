@@ -547,4 +547,27 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void RevSaw();
+
+	// used in chase tick for playing a stinger and increasing movement speed when player sees Errol
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bSeenByPlayer = false;
+
+	// set to 0 in EnterChaseState(), incremented when seen in TickChaseState()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int SeenTicks = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int TicksBeforeSeen = 1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float SeenDotThreshold = 0.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USoundCue *SeenStinger = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bPlayStingerWhenSeen = true;
+
+	// sets bSeenByPlayer to true if the player sees errol for x > TicksBeforeSeen ticks.
+	void HaveWeBeenSeen();
 };

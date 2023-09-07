@@ -436,7 +436,7 @@ bool AErrolCharacter::CanPlayerSeeMeMocap()
 
 	for (FVector BoneLocation : BoneLocations)
 	{
-		DrawDebugPoint(World, BoneLocation, 5.f, FColor::Purple, false, World->DeltaTimeSeconds * 1.1f, ESceneDepthPriorityGroup::SDPG_MAX);
+		//DrawDebugPoint(World, BoneLocation, 5.f, FColor::Purple, false, World->DeltaTimeSeconds * 1.1f, ESceneDepthPriorityGroup::SDPG_MAX);
 
 		const FVector Disp = BoneLocation - CL;
 		const float Dot = FVector::DotProduct(Disp, CFV);
@@ -487,6 +487,9 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed, float ChaseDuration)
 
 	this->ChaseDuration = ChaseDuration;
 
+	bSeenByPlayer = false;
+	SeenTicks = 0;
+
 	// smoothly increase errols speed to ChaseSpeed
 	// update the animation in case we are not in a state connected to the idle/walk/run blend space.
 	// start TickChaseState()
@@ -513,7 +516,7 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed, float ChaseDuration)
 	bSprintAtPlayer = true;
 	ChaseSpeed = MaxSpeed;
 	UpdateAnimation(State);
-	GetCharacterMovement()->MaxWalkSpeed = MaxSpeed;
+	GetCharacterMovement()->MaxWalkSpeed = 55.f;
 	ErrolController->MoveToActor(Player, 10.f, false, true, false, 0, false); //KillRadius);
 	World->GetTimerManager().UnPauseTimer(OpenBlockingDoorTimer);
 
@@ -531,6 +534,23 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 	if (ChaseTime >= ChaseDuration && FVector::Distance(Player->GetActorLocation(), GetActorLocation()) > 300.f && !CanPlayerSeeMeMocap())
 	{
 		DisappearAndEndChase();
+	}
+
+	// do stuff when the player first sees us chasing them
+
+	if (!bSeenByPlayer)
+	{
+		HaveWeBeenSeen();
+		if (bSeenByPlayer)
+		{
+			// set speed to run
+			ChaseSpeed = 250.f;
+
+			if (bPlayStingerWhenSeen)
+			{
+				UGameplayStatics::PlaySound2D(World, SeenStinger);
+			}
+		}
 	}
 	
 	/*
@@ -1288,6 +1308,19 @@ void AErrolCharacter::HearSound(AActor * Bottle, int ActorInt, int Loudness)
 	DrawDebugSphere(World, NavLoc.Location, 10.f, 10, FColor::Red, true);
 	//Enter Investigate State
 }
+
+void AErrolCharacter::HaveWeBeenSeen()
+{
+	if (CanPlayerSeeMeMocap())
+	{
+		if (++SeenTicks >= TicksBeforeSeen)
+		{
+			bSeenByPlayer = true;
+		}
+	}
+}
+
+
 
 void AErrolCharacter::StartPeek()
 {

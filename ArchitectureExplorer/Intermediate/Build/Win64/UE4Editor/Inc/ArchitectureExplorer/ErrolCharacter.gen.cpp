@@ -1716,6 +1716,32 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ErrolSaw_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ErrolSaw;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bSeenByPlayer_MetaData[];
+#endif
+		static void NewProp_bSeenByPlayer_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bSeenByPlayer;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SeenTicks_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_SeenTicks;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TicksBeforeSeen_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_TicksBeforeSeen;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SeenDotThreshold_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_SeenDotThreshold;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SeenStinger_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SeenStinger;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bPlayStingerWhenSeen_MetaData[];
+#endif
+		static void NewProp_bPlayStingerWhenSeen_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bPlayStingerWhenSeen;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -2256,6 +2282,60 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ErrolSaw = { "ErrolSaw", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, ErrolSaw), Z_Construct_UClass_AErrolSaw_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ErrolSaw_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ErrolSaw_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bSeenByPlayer_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "Comment", "// used in chase tick for playing a stinger and increasing movement speed when player sees Errol\n" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+		{ "ToolTip", "used in chase tick for playing a stinger and increasing movement speed when player sees Errol" },
+	};
+#endif
+	void Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bSeenByPlayer_SetBit(void* Obj)
+	{
+		((AErrolCharacter*)Obj)->bSeenByPlayer = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bSeenByPlayer = { "bSeenByPlayer", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AErrolCharacter), &Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bSeenByPlayer_SetBit, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bSeenByPlayer_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bSeenByPlayer_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenTicks_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "Comment", "// set to 0 in EnterChaseState(), incremented when seen in TickChaseState()\n" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+		{ "ToolTip", "set to 0 in EnterChaseState(), incremented when seen in TickChaseState()" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenTicks = { "SeenTicks", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, SeenTicks), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenTicks_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenTicks_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_TicksBeforeSeen_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_TicksBeforeSeen = { "TicksBeforeSeen", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, TicksBeforeSeen), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_TicksBeforeSeen_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_TicksBeforeSeen_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenDotThreshold_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenDotThreshold = { "SeenDotThreshold", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, SeenDotThreshold), METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenDotThreshold_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenDotThreshold_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenStinger_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenStinger = { "SeenStinger", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, SeenStinger), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenStinger_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenStinger_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPlayStingerWhenSeen_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPlayStingerWhenSeen_SetBit(void* Obj)
+	{
+		((AErrolCharacter*)Obj)->bPlayStingerWhenSeen = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPlayStingerWhenSeen = { "bPlayStingerWhenSeen", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AErrolCharacter), &Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPlayStingerWhenSeen_SetBit, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPlayStingerWhenSeen_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPlayStingerWhenSeen_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AErrolCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_MocapMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_RightFootStepSound,
@@ -2321,6 +2401,12 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillRadius,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bCutInHalf,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ErrolSaw,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bSeenByPlayer,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenTicks,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_TicksBeforeSeen,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenDotThreshold,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_SeenStinger,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPlayStingerWhenSeen,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AErrolCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AErrolCharacter>::IsAbstract,
@@ -2349,7 +2435,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 3357275492);
+	IMPLEMENT_CLASS(AErrolCharacter, 383938707);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

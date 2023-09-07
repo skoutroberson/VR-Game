@@ -1067,23 +1067,35 @@ void ARoach::Flee()
 	const FVector AL = GetActorLocation();
 	const FVector RV = GetActorRightVector();
 	const FVector FV = GetActorForwardVector();
-	FVector Disp = FleeLocation - AL;
+	FVector Disp = FlockLocation - AL;
 	Disp.Normalize();
-	
+
 	float VisionDot = FVector::DotProduct(FV, Disp);
 
 	//if (VisionDot > 0.2f)
 	//{
-		float FleeDot = FVector::DotProduct(RV, Disp);
-		bSwerveLeft = (FleeDot > 0) ? true : false;
-	//}
-
-	
-	//bTurnLeft = bSwerveLeft;
+	float FleeDot = FVector::DotProduct(RV, Disp);
+	bSwerveLeft = (FleeDot > 0) ? false : true;
 }
 
 void ARoach::Flock()
 {
+	const FVector AL = GetActorLocation();
+	const FVector RV = GetActorRightVector();
+	const FVector FV = GetActorForwardVector();
+	FVector Disp = FlockLocation - AL;
+	Disp.Normalize();
+
+	float VisionDot = FVector::DotProduct(FV, Disp);
+
+	//if (VisionDot > 0.2f)
+	//{
+	float FleeDot = FVector::DotProduct(RV, Disp);
+	bSwerveLeft = (FleeDot > 0) ? true : false;
+	//}
+
+
+	//bTurnLeft = bSwerveLeft;
 }
 
 void ARoach::FleeOrFlock()
@@ -1097,7 +1109,9 @@ void ARoach::FleeOrFlock()
 	{
 		Flock();
 	}
+	// need to create a FleeFlockMinRate and MaxRate
 	FleeFlockTimerRate = FMath::FRandRange(0.2f, 0.5f);
+	//WaitIfRolled();
 	GetWorldTimerManager().SetTimer(FleeFlockTimerHandle, this, &ARoach::FleeOrFlock, FleeFlockTimerRate, false, FleeFlockTimerRate);
 }
 

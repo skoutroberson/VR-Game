@@ -657,13 +657,13 @@ void AVRCharacter::Click()
 		}
 	}
 
-	/*
+	///*
 	AActor *Ball = UGameplayStatics::GetActorOfClass(GetWorld(), ABall::StaticClass());
 	UPrimitiveComponent *PC = Cast<UPrimitiveComponent>(Ball->GetRootComponent());
 	Ball->SetActorLocation(Camera->GetComponentLocation() + Camera->GetForwardVector() * 5.f);
 	PC->SetPhysicsLinearVelocity(FVector::ZeroVector);
-	PC->AddImpulse(Camera->GetForwardVector() * 30.f);
-	*/
+	PC->AddImpulse(Camera->GetForwardVector() * 200.f);
+	//*/
 }
 
 void AVRCharacter::ReleaseClick()

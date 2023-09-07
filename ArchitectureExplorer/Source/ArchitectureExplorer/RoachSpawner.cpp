@@ -107,6 +107,13 @@ void ARoachSpawner::SpawnRoach()
 
 	Roaches.Add(NewRoach);
 	++RoachCount;
+	
+	ARoach *NR = Cast<ARoach>(NewRoach);
+	NR->Laziness = 1.0f;
+	NR->StartingLaziness = 1.0f;
+	NR->bFlee = true;
+	NR->FleeLocation = GetActorLocation();
+	//NR->FleeFlockTimerRate = 0.08f;
 
 	// randomly choose child BoxComponent, and spawn at random location within the box with random yaw rotation
 	//FT.SetScale3D(FVector(1.0f, 1.0f, 1.0f));

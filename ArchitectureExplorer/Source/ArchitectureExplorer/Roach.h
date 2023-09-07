@@ -356,7 +356,9 @@ public:
 
 public:
 
-	bool bFlee = true;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bFlee = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bFlock = false;
 
 	void Flee();
@@ -365,15 +367,17 @@ public:
 	UFUNCTION()
 	void FleeOrFlock();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float FleeFlockTimerRate = 0.3f;
 
 	//(X=-1098.000000,Y=942.000000,Z=283.340149)
 
 	// flee
-	//FVector FleeLocation = FVector::ZeroVector;
-	FVector FleeLocation = FVector((-1142.f, 828.f, 168.f));
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector FlockLocation = FVector((-1142.f, 828.f, 168.f));
 	// flock
-	FVector FLockLocation = FVector::ZeroVector;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector FleeLocation = FVector::ZeroVector;
 
 	// curves
 
