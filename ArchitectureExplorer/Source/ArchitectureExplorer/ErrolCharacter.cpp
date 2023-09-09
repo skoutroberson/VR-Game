@@ -1318,6 +1318,10 @@ void AErrolCharacter::HaveWeBeenSeen()
 			bSeenByPlayer = true;
 		}
 	}
+	else if (SeenTicks > TicksBeforeSeen >> 2)
+	{
+		bSeenByPlayer = true;
+	}
 }
 
 
