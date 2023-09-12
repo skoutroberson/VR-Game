@@ -9,22 +9,22 @@
   [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
   [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ArchitectureExplorerEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
   [Upgrade]
-  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: ErrolCharacter.cpp, Roach.cpp, RoachSpawner.cpp, VRCharacter.cpp
-  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, ErrolCharacter.gen.cpp, Roach.gen.cpp
+  [Adaptive unity build] Excluded from ArchitectureExplorer unity file: Chainsaw.cpp, ErrolCharacter.cpp, VRCharacter.cpp
+  [Adaptive unity build] Excluded from ArchitectureExplorer.gen unity file: ArchitectureExplorer.init.gen.cpp, Door.gen.cpp, ErrolCharacter.gen.cpp
   Building 6 actions with 24 processes...
-    [1/6] UE4Editor-StateMachine-0007.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0007.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0007.exp
-    [2/6] UE4Editor-StateMachine-0007.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0007.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0007.suppressed.exp
+    [1/6] UE4Editor-StateMachine-0016.lib
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0016.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0016.exp
+    [2/6] UE4Editor-StateMachine-0016.dll
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0016.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\UE4Editor-StateMachine-0016.suppressed.exp
     [3/6] ErrolCharacter.cpp
 E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\ErrolCharacter.cpp(286): warning C4458: declaration of 'Tags' hides class member
     C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Actor.h(804): note: see declaration of 'AActor::Tags'
 E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Source\ArchitectureExplorer\ErrolCharacter.cpp(484): warning C4458: declaration of 'ChaseDuration' hides class member
-    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\ErrolCharacter.h(213): note: see declaration of 'AErrolCharacter::ChaseDuration'
-    [4/6] UE4Editor-ArchitectureExplorer-0007.lib
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0007.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0007.exp
-    [5/6] UE4Editor-ArchitectureExplorer-0007.dll
-       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0007.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0007.suppressed.exp
+    e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\ErrolCharacter.h(212): note: see declaration of 'AErrolCharacter::ChaseDuration'
+    [4/6] UE4Editor-ArchitectureExplorer-0016.lib
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0016.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0016.exp
+    [5/6] UE4Editor-ArchitectureExplorer-0016.dll
+       Creating library E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0016.suppressed.lib and object E:\Unreal Projects\ArchitectureExplorer1\ArchitectureExplorer\Intermediate\Build\Win64\UE4Editor\Development\ArchitectureExplorer\UE4Editor-ArchitectureExplorer-0016.suppressed.exp
     [6/6] ArchitectureExplorerEditor.target
-  Total time in Parallel executor: 15.73 seconds
-  Total execution time: 17.87 seconds
+  Total time in Parallel executor: 13.61 seconds
+  Total execution time: 16.36 seconds

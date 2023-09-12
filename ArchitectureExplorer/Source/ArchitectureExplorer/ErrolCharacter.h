@@ -114,7 +114,8 @@ public:
 
 	void UpdateFootstepSound(FHitResult &HitResult, bool bLeft, USoundCue * FootstepSound);
 
-
+	UPROPERTY(BlueprintReadOnly)
+	USkeletalMeshComponent * BodyMesh = nullptr;
 
 private:
 	UWorld * World = nullptr;
@@ -130,10 +131,8 @@ private:
 	USkeletalMeshComponent * SkeletalMeshComp = nullptr;
 	USkeletalMeshComponent * TopHalfMesh = nullptr;
 
-	USkeletalMeshComponent * BodyMesh = nullptr;
-	USkeletalMeshComponent * SawMesh = nullptr;
-
 	
+	USkeletalMeshComponent * SawMesh = nullptr;
 
 	const USkeletalMeshSocket *EyeSocket = nullptr;
 	const USkeletalMeshSocket *NeckSocket = nullptr;

@@ -841,6 +841,8 @@ void AVRCharacter::Die()
 	
 	bDead = true;
 	FadeScreenToBlack();
+	// respawn player and reset level/scares
+
 }
 
 void AVRCharacter::FadeCamera(float DeltaTime)

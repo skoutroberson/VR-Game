@@ -574,6 +574,7 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 	{
 		if (Dist < ChaseKillDistance)
 		{
+			
 			bKillingPlayer = true;
 			ExitChaseState();
 			EnterKillState();
@@ -581,6 +582,7 @@ void AErrolCharacter::TickChaseState(float DeltaTime)
 			BodyMesh->SetVisibility(true);
 			UpdateAnimation(State);
 			return;
+			
 		}
 	}
 	else
@@ -728,6 +730,7 @@ void AErrolCharacter::EnterKillState()
 
 void AErrolCharacter::TickKillState(float DeltaTime)
 {
+	
 	if (bFindKillLocation)
 	{
 		FindKillLocation();
@@ -737,6 +740,7 @@ void AErrolCharacter::TickKillState(float DeltaTime)
 		UE_LOG(LogTemp, Warning, TEXT("Spawnig blood"));
 		SpawnBlood(DeltaTime);
 	}
+	
 }
 
 void AErrolCharacter::EndKillState()
@@ -782,6 +786,8 @@ void AErrolCharacter::KillPlayer()
 	SetActorLocation(KillLocation);
 
 	AVRCharacter * VRChar = Cast<AVRCharacter>(Player);
+
+	
 	VRChar->Controller->SetIgnoreMoveInput(true);
 	VRChar->Controller->SetIgnoreLookInput(true);
 
@@ -803,6 +809,7 @@ void AErrolCharacter::KillPlayer()
 	GetWorldTimerManager().SetTimer(PlayerDeathHandle, VRChar, &AVRCharacter::Die, 1.8f, false, 1.8f);
 
 	UGameplayStatics::PlaySound2D(World, PlayerDeathSound, 1.0f, 1.0f);
+	
 }
 
 void AErrolCharacter::EnterLookAroundState()

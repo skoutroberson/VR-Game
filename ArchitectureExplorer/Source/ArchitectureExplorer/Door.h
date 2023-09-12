@@ -34,6 +34,7 @@ public:
 
 	class UStaticMeshComponent* DoorMesh;
 
+	UPROPERTY(BlueprintReadOnly)
 	class USceneComponent* DoorHinge;
 
 	UPROPERTY(BlueprintReadOnly)
@@ -104,9 +105,9 @@ private:
 	int Push = 0;
 public:
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	FQuat MinRotation;
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	FQuat MaxRotation;
 
 private:

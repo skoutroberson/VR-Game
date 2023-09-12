@@ -310,7 +310,7 @@ void AChainsaw::StartDismember()
 	FVector RightVector = GetActorRightVector();
 	FVector RotationAxis = FVector::CrossProduct(RightVector, CutUpVector);
 	RotationAxis.Normalize();
-	float DotProduct = FVector::DotProduct(RightVector, CutUpVector);
+	float DotProduct = FVector::DotProduct(RightVector, CutUpVector);ft
 	float RotationAngle = acosf(DotProduct);
 	FQuat RotQuat(RotationAxis, RotationAngle);
 	FQuat ActorQuat = GetActorQuat();
@@ -333,6 +333,8 @@ void AChainsaw::EndDismember()
 	ErrolTopHalfMesh->SetVisibility(true);
 	ErrolBottomHalfMesh->SetVisibility(true);
 	ErrolChainsawMesh->SetSimulatePhysics(true);
+	ErrolTopHalfMesh->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
+	ErrolBottomHalfMesh->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
 	ErrolTopHalfMesh->SetSimulatePhysics(true);
 	ErrolBottomHalfMesh->SetSimulatePhysics(true);
 
