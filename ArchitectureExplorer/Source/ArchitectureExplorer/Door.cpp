@@ -69,6 +69,29 @@ void ADoor::BeginPlay()
 
 	Doorknob = Cast<USphereComponent>(GetComponentByClass(USphereComponent::StaticClass()));
 
+	TArray<USceneComponent*> KnobHandTransforms;
+	Doorknob->GetChildrenComponents(true, KnobHandTransforms);
+
+	for (auto i : KnobHandTransforms)
+	{
+		if (i->ComponentHasTag(FName("RF")))
+		{
+			HandRFrontLocation = i;
+		}
+		else if (i->ComponentHasTag(FName("LF")))
+		{
+			HandLFrontLocation = i;
+		}
+		else if (i->ComponentHasTag(FName("RB")))
+		{
+			HandRBackLocation = i;
+		}
+		else if (i->ComponentHasTag(FName("LB")))
+		{
+			HandLBackLocation = i;
+		}
+	}
+
 	SwingOpenSoundDuration = SwingOpenSound->GetDuration();
 	SwingCloseSoundDuration = SwingCloseSound->GetDuration();
 
@@ -539,6 +562,26 @@ FQuat ADoor::CalcGoalQuat(FVector GoalVec)
 	FQuat MyQuat = DoorHinge->GetComponentQuat();
 	Result = RotQuat * MyQuat;
 	return Result;
+}
+
+USceneComponent * ADoor::GetHandRFront()
+{
+	return HandRBackLocation;
+}
+
+USceneComponent * ADoor::GetHandLFront()
+{
+	return HandLFrontLocation;
+}
+
+USceneComponent * ADoor::GetHandRBack()
+{
+	return HandRBackLocation;
+}
+
+USceneComponent * ADoor::GetHandLBack()
+{
+	return HandLBackLocation;
 }
 
 void ADoor::PassController(AActor * HC)

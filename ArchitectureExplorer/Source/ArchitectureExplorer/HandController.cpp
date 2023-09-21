@@ -340,6 +340,7 @@ void AHandController::Grip()
 			{
 				CurrentDoor->PassController(this);
 				//GripSize = 80.f;
+
 				
 				AttachHandMeshToDoor(CurrentDoor);
 
@@ -776,8 +777,40 @@ void AHandController::DetachHandMeshAndReattachToHC()
 	HandMesh->SetRelativeTransform(HandMeshRelativeTransform);
 }
 
-void AHandController::AttachHandMeshToDoor(AActor* TheDoor)
+void AHandController::AttachHandMeshToDoor(ADoor* TheDoor)
 {
+	const USceneComponent *DoorHinge = TheDoor->DoorHinge;
+	const FVector AL = GetActorLocation();
+	const FVector HL = DoorHinge->GetComponentLocation();
+	const FVector HFV = DoorHinge->GetForwardVector();
+	const FVector Dir = (AL - HL).GetSafeNormal();
+	const float Dot = FVector::DotProduct(HFV, Dir);
+
+	if (Dot > 0)
+	{
+		if (bLeft)
+		{
+			HandMesh->AttachToComponent(TheDoor->GetHandLFront(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+		}
+		else
+		{
+			HandMesh->AttachToComponent(TheDoor->GetHandRFront(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+		}
+	}
+	else
+	{
+		if (bLeft)
+		{
+			HandMesh->AttachToComponent(TheDoor->GetHandLBack(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+		}
+		else
+		{
+			HandMesh->AttachToComponent(TheDoor->GetHandRBack(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+		}
+	}
+
+	/*
+	never forget the first iteration lol
 	HandMesh->AttachToComponent(OverlappingKnob, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 
 	if (bLeft)
@@ -790,7 +823,7 @@ void AHandController::AttachHandMeshToDoor(AActor* TheDoor)
 		HandMesh->AddLocalOffset(HandMeshDoorOffset);
 		HandMesh->AddLocalRotation(FRotator(38.562122f, -167.167526f, 8.788214f));
 	}
-	
+	*/
 }
 
 void AHandController::PlayCanGrabHapticEffect()

@@ -40,6 +40,20 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	class USphereComponent * Doorknob;
 
+private:
+	// these are actually transforms
+	USceneComponent *HandRFrontLocation = nullptr;
+	USceneComponent *HandLFrontLocation = nullptr;
+	USceneComponent *HandRBackLocation = nullptr;
+	USceneComponent *HandLBackLocation = nullptr;
+
+public:
+
+	USceneComponent* GetHandRFront();
+	USceneComponent* GetHandLFront();
+	USceneComponent* GetHandRBack();
+	USceneComponent* GetHandLBack();
+
 	AActor* HandController = nullptr;
 	FVector LastHCLocation;
 	
