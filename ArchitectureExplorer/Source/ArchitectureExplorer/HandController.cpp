@@ -134,12 +134,23 @@ void AHandController::Grip()
 
 						if (D1 > D2)
 						{
-							HandMesh->AttachToComponent(ActorBeingGrabbed->HandHold2, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+							//HandMesh->AttachToComponent(ActorBeingGrabbed->HandHold2, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 							
+
 							if (ActorBeingGrabbed->MotionController2 == SisterController)
 							{
 								SisterController->Release();
 							}
+
+							if (bLeft)
+							{
+								HandMesh->AttachToComponent(ActorBeingGrabbed->HandL2, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+							}
+							else
+							{
+								HandMesh->AttachToComponent(ActorBeingGrabbed->HandR2, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+							}
+
 							ActorBeingGrabbed->MotionController2 = this;
 							ActorBeingGrabbed->Gripped(2);
 							bHandHold2 = true;
@@ -147,11 +158,22 @@ void AHandController::Grip()
 						}
 						else
 						{
-							HandMesh->AttachToComponent(ActorBeingGrabbed->HandHold1, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+							//HandMesh->AttachToComponent(ActorBeingGrabbed->HandHold1, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+							
 							if (ActorBeingGrabbed->MotionController1 == SisterController)
 							{
 								SisterController->Release();
 							}
+
+							if (bLeft)
+							{
+								HandMesh->AttachToComponent(ActorBeingGrabbed->HandL1, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+							}
+							else
+							{
+								HandMesh->AttachToComponent(ActorBeingGrabbed->HandR1, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+							}
+
 							ActorBeingGrabbed->MotionController1 = this;
 							ActorBeingGrabbed->Gripped(1);
 							bHandHold1 = true;

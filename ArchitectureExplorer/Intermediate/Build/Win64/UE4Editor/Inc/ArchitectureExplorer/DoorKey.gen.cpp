@@ -110,7 +110,7 @@ void EmptyLinkFunctionForGeneratedCodeDoorKey() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADoorKey, 1618004419);
+	IMPLEMENT_CLASS(ADoorKey, 1701320362);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ADoorKey>()
 	{
 		return ADoorKey::StaticClass();

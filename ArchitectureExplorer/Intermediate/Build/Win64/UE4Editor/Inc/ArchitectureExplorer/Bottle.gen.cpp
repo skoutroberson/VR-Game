@@ -145,7 +145,7 @@ void EmptyLinkFunctionForGeneratedCodeBottle() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABottle, 2179748970);
+	IMPLEMENT_CLASS(ABottle, 675796858);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ABottle>()
 	{
 		return ABottle::StaticClass();

@@ -32,6 +32,37 @@ void AGrabbable::BeginPlay()
 		HandHoldOffset2 = GetActorLocation() - HandHold2->GetComponentLocation();
 	}
 
+	
+	TArray<USceneComponent*> SceneComponents;
+	HandHold1->GetChildrenComponents(false, SceneComponents);
+	for (auto i : SceneComponents)
+	{
+		if (i->ComponentHasTag(FName("HR")))
+		{
+			HandR1 = i;
+		}
+		else if (i->ComponentHasTag(FName("HL"))) 
+		{
+			HandL1 = i;
+		}
+	}
+
+	if (bTwoHanded)
+	{
+		HandHold2->GetChildrenComponents(false, SceneComponents);
+		for (auto i : SceneComponents)
+		{
+			if (i->ComponentHasTag(FName("HR2")))
+			{
+				HandR2 = i;
+			}
+			else if (i->ComponentHasTag(FName("HL2")))
+			{
+				HandL2 = i;
+			}
+		}
+	}
+	
 	AActor* VRChar = UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass());
 	TArray<UActorComponent*> Meshes;
 	Meshes = GetComponentsByClass(UMeshComponent::StaticClass());

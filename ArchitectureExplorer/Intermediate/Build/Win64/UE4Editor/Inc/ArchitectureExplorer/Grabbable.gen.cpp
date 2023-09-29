@@ -17,8 +17,8 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AGrabbable();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
-	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 // End Cross Module References
@@ -83,6 +83,22 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 #endif
 		static void NewProp_bCanBeOneHanded_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bCanBeOneHanded;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HandR1_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HandR1;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HandL1_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HandL1;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HandR2_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HandR2;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HandL2_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HandL2;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ControllingMC_MetaData[];
 #endif
@@ -242,6 +258,42 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_bCanBeOneHanded = { "bCanBeOneHanded", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AGrabbable), &Z_Construct_UClass_AGrabbable_Statics::NewProp_bCanBeOneHanded_SetBit, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_bCanBeOneHanded_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_bCanBeOneHanded_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1_MetaData[] = {
+		{ "Category", "Grabbable" },
+		{ "Comment", "// reworked hand gripping\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Grabbable.h" },
+		{ "ToolTip", "reworked hand gripping" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1 = { "HandR1", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, HandR1), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL1_MetaData[] = {
+		{ "Category", "Grabbable" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Grabbable.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL1 = { "HandL1", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, HandL1), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL1_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR2_MetaData[] = {
+		{ "Category", "Grabbable" },
+		{ "Comment", "// these two will be nullptr if the item is one handed\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Grabbable.h" },
+		{ "ToolTip", "these two will be nullptr if the item is one handed" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR2 = { "HandR2", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, HandR2), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR2_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL2_MetaData[] = {
+		{ "Category", "Grabbable" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Grabbable.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL2 = { "HandL2", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, HandL2), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL2_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_ControllingMC_MetaData[] = {
 		{ "Category", "TwoHanded" },
 		{ "ModuleRelativePath", "Grabbable.h" },
@@ -326,6 +378,10 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bRotateTwoHand,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bRotateOneHand,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bCanBeOneHanded,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL1,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR2,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL2,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_ControllingMC,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_NonControllingMC,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bControllingMCLeft,
@@ -363,7 +419,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGrabbable, 537777519);
+	IMPLEMENT_CLASS(AGrabbable, 1147993876);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AGrabbable>()
 	{
 		return AGrabbable::StaticClass();

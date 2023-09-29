@@ -72,6 +72,20 @@ public:
 	USceneComponent * HandHold1 = nullptr;
 	USceneComponent * HandHold2 = nullptr;
 
+	// reworked hand gripping
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	USceneComponent *HandR1 = nullptr;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	USceneComponent *HandL1 = nullptr;
+
+	// these two will be nullptr if the item is one handed
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	USceneComponent *HandR2 = nullptr;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	USceneComponent *HandL2 = nullptr;
+
 	FVector HandHoldOffset1 = FVector::ZeroVector;
 	FVector HandHoldOffset2 = FVector::ZeroVector;
 
