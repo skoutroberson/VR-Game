@@ -335,7 +335,7 @@ void EmptyLinkFunctionForGeneratedCodeFlashlight() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFlashlight, 2069745690);
+	IMPLEMENT_CLASS(AFlashlight, 2155720423);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AFlashlight>()
 	{
 		return AFlashlight::StaticClass();

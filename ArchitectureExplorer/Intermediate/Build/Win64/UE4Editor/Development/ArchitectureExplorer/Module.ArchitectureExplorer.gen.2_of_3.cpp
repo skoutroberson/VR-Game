@@ -4,7 +4,6 @@
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/ErrolsSaw.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/FirstChaseScare.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/HallwayStareScare.gen.cpp"
-#include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/HandController.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/HGGYScare.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/KeyCan.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/LightManager.gen.cpp"
@@ -17,4 +16,3 @@
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Quest.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/Radio.gen.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/RevealDecal.gen.cpp"
-#include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Build/Win64/UE4Editor/Inc/ArchitectureExplorer/RevealScare.gen.cpp"

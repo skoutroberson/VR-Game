@@ -825,7 +825,7 @@ void EmptyLinkFunctionForGeneratedCodeChainsaw() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AChainsaw, 2495606687);
+	IMPLEMENT_CLASS(AChainsaw, 1668118033);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AChainsaw>()
 	{
 		return AChainsaw::StaticClass();

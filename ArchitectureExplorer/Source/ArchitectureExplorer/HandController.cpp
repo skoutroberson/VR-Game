@@ -33,6 +33,9 @@ AHandController::AHandController()
 	MotionController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("MotionController"));
 	SetRootComponent(MotionController);
 
+	GrabFlashlight = CreateDefaultSubobject<USceneComponent>(TEXT("GrabFlashlight"));
+	GrabFlashlight->AttachTo(MotionController);
+
 	State = HandControllerState::STATE_IDLE;
 }
 
@@ -62,6 +65,22 @@ void AHandController::BeginPlay()
 	Player = Cast<AVRCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AVRCharacter::StaticClass()));
 
 	CollisionCapsule = Cast<UPrimitiveComponent>(GetComponentByClass(UCapsuleComponent::StaticClass()));
+
+	/*
+	TArray<UActorComponent*> GrabSceneComponents = GetComponentsByTag(USceneComponent::StaticClass(), FName("GrabScene"));
+
+	for (auto i : GrabSceneComponents)
+	{
+		if (i->ComponentHasTag(FName("Flashlight"))) 
+		{
+			GrabFlashlight = Cast<USceneComponent>(i);
+		}
+		if (i->ComponentHasTag(FName("Ball")))
+		{
+			GrabBall = Cast<USceneComponent>(i);
+		}
+	}*/
+
 }
 
 // Called every frame
@@ -87,6 +106,11 @@ void AHandController::Tick(float DeltaTime)
 	}
 
 	DeltaLocation = MotionController->GetComponentLocation();
+
+	if (GrabFlashlight != nullptr)
+	{
+		DrawGrabSceneOffset();
+	}
 }
 
 void AHandController::Grip()
@@ -182,7 +206,11 @@ void AHandController::Grip()
 
 						if (GrabActor->ActorHasTag(TEXT("Flashlight")))
 						{
+							State = HandControllerState::STATE_FLASHLIGHT;
 							bIsHoldingFlashlight = true;
+							GrabSceneOffset = GrabFlashlight;
+
+							UE_LOG(LogTemp, Warning, TEXT("Holding FLashlight"));
 							// update animation to holding flashlight pose
 							// update location / rotation 
 							// EACH GRABBABLE SHOULD HAVE A GRABLOCATION OFFSET AND A GRABROTATION OFFSET FOR EACH HANDHOLD
@@ -230,6 +258,7 @@ void AHandController::Grip()
 							ActorBeingGrabbed->SetActorRelativeLocation(ChainsawOffset);
 						}
 						*/
+						UpdateAnimation();
 					}
 				//}
 				/*
@@ -640,7 +669,7 @@ void AHandController::CanInteract()
 		{
 			if (OverlappingActor->ActorHasTag(TEXT("Grab")))
 			{
-				//UE_LOG(LogTemp, Warning, TEXT("%s"), *OverlappingActor->GetName());
+				UE_LOG(LogTemp, Warning, TEXT("overlap %s"), *OverlappingActor->GetName());
 
 				if (OverlappingActor->IsA(ABall::StaticClass()))
 				{
@@ -860,4 +889,16 @@ void AHandController::PlayCanGrabHapticEffect()
 			Controller->PlayHapticEffect(HapticEffect, MotionController->GetTrackingSource());
 		}
 	}
+}
+
+void AHandController::DrawGrabSceneOffset()
+{
+	const FVector FV = GrabFlashlight->GetForwardVector() * 15.f;
+	const FVector RV = GrabFlashlight->GetRightVector() * 15.f;
+	const FVector UV = GrabFlashlight->GetUpVector() * 15.f;
+	const FVector L = GrabFlashlight->GetComponentLocation();
+	
+	DrawDebugLine(GetWorld(), L, L + FV, FColor::Red, false, GetWorld()->DeltaTimeSeconds * 1.1f);
+	DrawDebugLine(GetWorld(), L, L + RV, FColor::Green, false, GetWorld()->DeltaTimeSeconds * 1.1f);
+	DrawDebugLine(GetWorld(), L, L + UV, FColor::Blue, false, GetWorld()->DeltaTimeSeconds * 1.1f);
 }

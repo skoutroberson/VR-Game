@@ -222,4 +222,14 @@ public:
 
 	UPrimitiveComponent *CollisionCapsule = nullptr;
 
+	// grab scenecomponents
+
+	USceneComponent *GrabSceneOffset = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USceneComponent *GrabFlashlight = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USceneComponent *GrabBall = nullptr;
+
+	void DrawGrabSceneOffset();
 };

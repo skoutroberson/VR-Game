@@ -17,10 +17,10 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_AGrabbable();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_ArchitectureExplorer();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 // End Cross Module References
 	void AGrabbable::StaticRegisterNativesAGrabbable()
 	{
@@ -43,6 +43,14 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ItemWeight_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ItemWeight;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HCRotationOffset_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HCRotationOffset;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HCLocationOffset_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HCLocationOffset;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bBeingHeld_MetaData[];
 #endif
@@ -167,6 +175,20 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemWeight = { "ItemWeight", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, ItemWeight), METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemWeight_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemWeight_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_HCRotationOffset_MetaData[] = {
+		{ "Category", "Grabbable" },
+		{ "ModuleRelativePath", "Grabbable.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_HCRotationOffset = { "HCRotationOffset", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, HCRotationOffset), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_HCRotationOffset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_HCRotationOffset_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_HCLocationOffset_MetaData[] = {
+		{ "Category", "Grabbable" },
+		{ "ModuleRelativePath", "Grabbable.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_HCLocationOffset = { "HCLocationOffset", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, HCLocationOffset), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_HCLocationOffset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_HCLocationOffset_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_bBeingHeld_MetaData[] = {
 		{ "Category", "TwoHanded" },
@@ -370,6 +392,8 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGrabbable_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemGripSize,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_ItemWeight,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_HCRotationOffset,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_HCLocationOffset,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bBeingHeld,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bLeftHandHeld,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bRightHandHeld,
@@ -419,7 +443,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGrabbable, 1147993876);
+	IMPLEMENT_CLASS(AGrabbable, 15087673);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AGrabbable>()
 	{
 		return AGrabbable::StaticClass();

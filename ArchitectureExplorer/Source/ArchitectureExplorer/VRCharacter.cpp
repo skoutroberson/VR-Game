@@ -87,14 +87,21 @@ void AVRCharacter::BeginPlay()
 	
 	DestinationMarker->SetVisibility(false);
 
-	LeftController = GetWorld()->SpawnActor<AHandController>(HandControllerClass);
+	LeftController = GetWorld()->SpawnActor<AHandController>(LeftHandControllerClass);
 	if (LeftController != nullptr)
 	{
 		LeftController->AttachToComponent(VRRoot, FAttachmentTransformRules::KeepRelativeTransform);
 		LeftController->SetHand(EControllerHand::Left);
 		LeftController->SetOwner(this);
-		LeftController->SetActorScale3D(FVector(1.f,-1.f,1.f));
+		//LeftController->SetActorScale3D(FVector(1.f,-1.f,1.f));
+		//LeftController->HandMesh->SetWorldScale3D(FVector(1.f, -1.f, 1.f));
 		LeftController->bLeft = true;
+
+		//LeftController->GrabFlashlight->SetAbsolute(false, false, true);
+		//LeftController->GrabFlashlight->SetRelativeScale3D(FVector(1.f, -1.f, 1.f));
+
+		//LeftController->GrabFlashlight->SetWorldScale3D(FVector(1.f, -1.f, 1.f));
+		//LeftController->GrabFlashlight->SetWorldScale3D(FVector(1.f, -1.f, 1.f));
 		//LeftController->SetActorRelativeLocation(FVector(-10, -4, -2));
 	}
 

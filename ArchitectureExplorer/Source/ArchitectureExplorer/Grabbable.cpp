@@ -20,6 +20,7 @@ void AGrabbable::BeginPlay()
 
 	World = GetWorld();
 	
+	
 	HandHold1 = Cast<USceneComponent>(GetComponentsByTag(USceneComponent::StaticClass(), TEXT("1"))[0]);
 	HandHoldOffset1 = GetActorLocation() - HandHold1->GetComponentLocation();
 
@@ -73,6 +74,13 @@ void AGrabbable::BeginPlay()
 
 	Mesh = Cast<UPrimitiveComponent>(GetComponentsByTag(UMeshComponent::StaticClass(), FName("Mesh"))[0]);
 	Mesh->SetMaskFilterOnBodyInstance(3); // so roach sweeps ignore this mesh
+
+	TArray<UActorComponent*> CheckForOffset;
+	GetComponentsByTag(USceneComponent::StaticClass(), FName("Offset"));
+	if (CheckForOffset.Num() > 0)
+	{
+		HCOffset = Cast<USceneComponent>(CheckForOffset[0]);
+	}
 }
 
 void AGrabbable::Tick(float DeltaTime)
@@ -248,26 +256,24 @@ void AGrabbable::InterpToMC(float DeltaTime)
 {
 	const FVector AL = GetActorLocation();
 	ControllingOffset = GetActorLocation() - ControllingHandHold->GetComponentLocation();
-	const FVector TL = AGrabbable::ControllingMC->GetActorLocation() + ControllingOffset;
+
+	FVector SceneOffset = FVector::ZeroVector;
+
+	if (HCOffset != nullptr)
+	{
+		SceneOffset = HCOffset->GetComponentLocation() - AL;
+	}
+
+	//FVector TL = AGrabbable::ControllingMC->GetActorLocation() + ControllingOffset;
+	FVector TL = AGrabbable::ControllingMC->GetActorLocation() + SceneOffset;
 
 	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 300.f / ItemWeight));
 }
 
 void AGrabbable::RotateOneHand(float DeltaTime)
 {
-
-	// this only works for the chainsaw
-	FRotator MCRot = ControllingMC->GetActorRotation();
-	MCRot.Roll = (bControllingMCLeft) ? MCRot.Roll - 90.f : MCRot.Roll += 90.f;
-
-	/*
-	
-	FRotator MCRot = ControllingMC->GetActorRotation();
-	MCRot += RotationOffset;
-
-	// RotationOffset is set by the HandController when it grabs the item.
-
-	*/
+	AHandController *HC = Cast<AHandController>(ControllingMC);
+	FRotator MCRot = HC->GrabSceneOffset->GetComponentRotation();
 
 	SetActorRotation(UKismetMathLibrary::RLerp(GetActorRotation(), MCRot, (5.f / ItemWeight) * DeltaTime, true));
 	

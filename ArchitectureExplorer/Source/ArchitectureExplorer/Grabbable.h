@@ -42,6 +42,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Grabbable)
 	float ItemWeight = 1.0f;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FRotator HCRotationOffset = FRotator::ZeroRotator;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector HCLocationOffset = FVector::ZeroVector;
+
+	// Used to rotate the item so it lines up with the player's hand in real life.
+	USceneComponent *HCOffset = nullptr;
 
 	// For two hand item grabbing.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TwoHanded)

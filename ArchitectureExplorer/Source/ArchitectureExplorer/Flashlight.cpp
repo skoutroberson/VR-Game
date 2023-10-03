@@ -18,7 +18,7 @@ AFlashlight::AFlashlight()
 	ButtonPressAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("Button Press"));
 	ButtonPressAudio->SetupAttachment(Mesh);
 
-	
+	HCRotationOffset = FRotator(-41.68f, 0.f, -90.78f);
 }
 
 void AFlashlight::BeginPlay()

@@ -139,6 +139,9 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AHandController> HandControllerClass;
 
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<AHandController> LeftHandControllerClass;
+
 	UPROPERTY()
 	class UPostProcessComponent *PostProcessComponent;
 

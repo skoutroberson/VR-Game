@@ -26,7 +26,6 @@
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/ErrolSaw.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/ErrolsSaw.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/FirstChaseScare.cpp"
-#include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/Flashlight.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/HallwayStareScare.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/HGGYScare.cpp"
 #include "E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Source/ArchitectureExplorer/KeyCan.cpp"
