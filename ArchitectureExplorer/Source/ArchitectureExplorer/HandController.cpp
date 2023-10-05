@@ -36,6 +36,9 @@ AHandController::AHandController()
 	GrabFlashlight = CreateDefaultSubobject<USceneComponent>(TEXT("GrabFlashlight"));
 	GrabFlashlight->AttachTo(MotionController);
 
+	GrabBall = CreateDefaultSubobject<USceneComponent>(TEXT("GrabBall"));
+	GrabBall->AttachTo(MotionController);
+
 	State = HandControllerState::STATE_IDLE;
 }
 

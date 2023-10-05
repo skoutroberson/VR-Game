@@ -231,5 +231,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USceneComponent *GrabBall = nullptr;
 
+
 	void DrawGrabSceneOffset();
 };
