@@ -92,6 +92,10 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		static void NewProp_bCanBeOneHanded_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bCanBeOneHanded;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TargetScene_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_TargetScene;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HandR1_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HandR1;
@@ -280,12 +284,20 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_bCanBeOneHanded = { "bCanBeOneHanded", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AGrabbable), &Z_Construct_UClass_AGrabbable_Statics::NewProp_bCanBeOneHanded_SetBit, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_bCanBeOneHanded_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_bCanBeOneHanded_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_TargetScene_MetaData[] = {
 		{ "Category", "Grabbable" },
-		{ "Comment", "// reworked hand gripping\n" },
+		{ "Comment", "// set in handcontroller\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Grabbable.h" },
-		{ "ToolTip", "reworked hand gripping" },
+		{ "ToolTip", "set in handcontroller" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_TargetScene = { "TargetScene", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, TargetScene), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_TargetScene_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_TargetScene_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1_MetaData[] = {
+		{ "Category", "Grabbable" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Grabbable.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1 = { "HandR1", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGrabbable, HandR1), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1_MetaData)) };
@@ -402,6 +414,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bRotateTwoHand,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bRotateOneHand,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_bCanBeOneHanded,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_TargetScene,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_HandL1,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGrabbable_Statics::NewProp_HandR2,
@@ -443,7 +456,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabbable() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGrabbable, 15087673);
+	IMPLEMENT_CLASS(AGrabbable, 1251523497);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AGrabbable>()
 	{
 		return AGrabbable::StaticClass();

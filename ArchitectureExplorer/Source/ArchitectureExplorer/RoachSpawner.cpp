@@ -81,6 +81,10 @@ void ARoachSpawner::Tick(float DeltaTime)
 	{
 		MoveRoach();
 	}
+	else if (bStoppingFlee)
+	{
+		StopRoachFlee();
+	}
 }
 
 void ARoachSpawner::SpawnRoaches(int NumberOfRoaches)
@@ -107,12 +111,76 @@ void ARoachSpawner::SpawnRoach()
 
 	Roaches.Add(NewRoach);
 	++RoachCount;
+
+	// try to copulate if there is overlap
+	TSet<AActor*> TempSet;
+	NewRoach->GetOverlappingActors(TempSet, ARoach::StaticClass());
+
+	if (TempSet.Num())
+	{
+		ARoach *AR = Cast<ARoach>(TempSet[FSetElementId::FromInteger(0)]);
+		if (AR->CurrentCopulateState == CopulateState::STATE_NONE)
+		{
+
+			if (bCanCopulateOnSpawn && FMath::RandRange(CopulateMinChance, CopulateMaxChance) == 0)
+			{
+				AR->CurrentCopulateState = CopulateState::STATE_BEING_COPULATED;
+				AR->CopulateMoveSpeedModifier = 0.1f;
+				AR->CopulateRotateSpeedModifier = 0.1f;
+				AR->CopulateAnimationSpeedModifier = 0.5f;
+				AR->StartingLaziness = 7.f;
+				//
+
+				ARoach *AR2 = Cast<ARoach>(NewRoach);
+				AR2->CurrentCopulateState = CopulateState::STATE_COPULATING;
+				AR2->ChangeState(&ARoach::WaitState);
+				AR2->PauseTimers();
+				AR2->SetActorEnableCollision(false);
+				AR2->UpdateAnimationSpeed(0.0f);
+				AR2->AttachToActor(AR, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+				AR2->SetActorRelativeRotation(FRotator(0.0f, 180.0f, 0.0f));
+				AR2->SetActorRelativeLocation(FVector(-5.0f, 0.0f, 0.0f));
+				AR2->StartCopulating();
+
+				AR->MateRoach = AR2;
+				AR2->MateRoach = AR;
+
+				/*
+				USphereComponent *s = Cast<USphereComponent>(AR->GetRootComponent());
+				s->SetSphereRadius(4.0f, false);
+				AR->Radius = 4.0f;
+				TArray<USceneComponent*> TA;
+				s->GetChildrenComponents(false, TA);
+				for (auto sc : TA)
+				{
+					sc->AddRelativeLocation(FVector(2.0f, 0.0f, -2.0f));
+				}
+				*/
+			}
+		}
+	}
 	
+
 	ARoach *NR = Cast<ARoach>(NewRoach);
-	NR->Laziness = 1.0f;
-	NR->StartingLaziness = 1.0f;
-	NR->bFlee = true;
-	NR->FleeLocation = GetActorLocation();
+
+	if (bFleeOnSpawn)
+	{
+		NR->Laziness = NR->GenerateLaziness();
+		NR->StartingLaziness = NR->Laziness;
+		NR->bFlee = true;
+		NR->FleeLocation = GetActorLocation();
+		NR->FleeFlockMinRate = FleeMinTimerRate;
+		NR->FleeFlockMaxRate = FleeMaxTimerRate;
+		NR->FleeWaitTimeModifier = FleeWaitTimeModifier;
+		NR->FleeSpeedModifier = FleeSpeedModifier;
+		NR->FleeLazinessModifier = FleeLazinessModifier;
+		NR->StopFleeingDelayed(StopFleeDelayMin, StopFleeDelayMax);
+		//probably should create this function in Roach so each roach can have a random delay
+		
+	}
+	
+
+
 	//NR->FleeFlockTimerRate = 0.08f;
 
 	// randomly choose child BoxComponent, and spawn at random location within the box with random yaw rotation
@@ -190,6 +258,57 @@ void ARoachSpawner::MoveRoach()
 			RoachToMove->bMoveToGoal = false;
 			++RoachesMoved;
 			++MoveRoachIndex;
+
+			// copied from SpawnRoach cuz faster than DRY
+
+			// try to copulate if there is overlap
+			TSet<AActor*> TempSet;
+			RoachToMove->GetOverlappingActors(TempSet, ARoach::StaticClass());
+
+			if (TempSet.Num())
+			{
+				ARoach *AR = Cast<ARoach>(TempSet[FSetElementId::FromInteger(0)]);
+				if (AR->CurrentCopulateState == CopulateState::STATE_NONE)
+				{
+
+					if (bCanCopulateOnSpawn && FMath::RandRange(CopulateMinChance, CopulateMaxChance) == 0)
+					{
+						AR->CurrentCopulateState = CopulateState::STATE_BEING_COPULATED;
+						AR->CopulateMoveSpeedModifier = 0.1f;
+						AR->CopulateRotateSpeedModifier = 0.1f;
+						AR->CopulateAnimationSpeedModifier = 0.2f;
+
+						AR->StartingLaziness = 7.f;
+						//
+
+						ARoach *AR2 = Cast<ARoach>(RoachToMove);
+						AR2->CurrentCopulateState = CopulateState::STATE_COPULATING;
+						AR2->ChangeState(&ARoach::WaitState);
+						AR2->PauseTimers();
+						AR2->SetActorEnableCollision(false);
+						AR2->UpdateAnimationSpeed(0.0f);
+						AR2->AttachToActor(AR, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+						AR2->SetActorRelativeRotation(FRotator(0.0f, 180.0f, 0.0f));
+						AR2->SetActorRelativeLocation(FVector(-5.0f, 0.0f, 0.0f));
+						
+						AR->MateRoach = AR2;
+						AR2->MateRoach = AR;
+
+						/*
+						USphereComponent *s = Cast<USphereComponent>(AR->GetRootComponent());
+						s->SetSphereRadius(4.0f, false);
+						AR->Radius = 4.0f;
+						TArray<USceneComponent*> TA;
+						s->GetChildrenComponents(false, TA);
+						for (auto sc : TA)
+						{
+							sc->AddRelativeLocation(FVector(2.0f, 0.0f, -2.0f));
+						}
+						*/
+					}
+				}
+			}
+
 			//UE_LOG(LogTemp, Warning, TEXT("Roach Moved %d"), MoveRoachIndex - 1);
 		}
 		else
@@ -199,6 +318,47 @@ void ARoachSpawner::MoveRoach()
 			return;
 		}
 	}
+}
+
+void ARoachSpawner::StopRoachFlee()
+{
+	for (int i = 0; i < NumRoachesStoppedFleeingPerFrame; ++i)
+	{
+		if (RoachesStoppedFlee < RoachesToStopFlee && FleeRoachIndex < Roaches.Num())
+		{
+			ARoach *RoachToStopFlee = Cast<ARoach>(Roaches[FleeRoachIndex]);
+			RoachToStopFlee->bFlee = false;
+			RoachToStopFlee->FleeLazinessModifier = 1.0f;
+			RoachToStopFlee->StartingLaziness = RoachToStopFlee->GenerateLaziness();
+			if (RoachToStopFlee->CurrentCopulateState == CopulateState::STATE_BEING_COPULATED)
+			{
+				RoachToStopFlee->StartingLaziness = 8.f;
+			}
+			GetWorldTimerManager().PauseTimer(RoachToStopFlee->FleeFlockTimerHandle);
+			RoachToStopFlee->FleeSpeedModifier = 1.0f;
+			RoachToStopFlee->FleeWaitTimeModifier = 1.0f;
+			//RoachToMove->bMoveToGoal = false;
+			++RoachesStoppedFlee;
+			++FleeRoachIndex;
+			//UE_LOG(LogTemp, Warning, TEXT("Roach Moved %d"), MoveRoachIndex - 1);
+		}
+		else
+		{
+			bStoppingFlee = false;
+			SetActorTickEnabled(false);
+			return;
+		}
+	}
+}
+
+void ARoachSpawner::StopRoachesFleeing(int AmountToStop, int NumToStopPerFrame)
+{
+	RoachesStoppedFlee = 0;
+	FleeRoachIndex = 0;
+	RoachesToStopFlee = AmountToStop;
+	NumRoachesStoppedFleeingPerFrame = NumToStopPerFrame;
+	bStoppingFlee = true;
+	SetActorTickEnabled(true);
 }
 
 FTransform ARoachSpawner::GetRandomSpawnLocationAndRotation()

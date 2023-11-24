@@ -53,6 +53,7 @@ void AKeyCan::DetachKey()
 {
 	AttachedKey->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
 	UPrimitiveComponent * PC = Cast<UPrimitiveComponent>(AttachedKey->GetRootComponent());
+	AttachedKey->GetRootComponent()->SetVisibility(true);
 	PC->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	PC->SetSimulatePhysics(true);
 	PC->SetEnableGravity(true);

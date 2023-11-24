@@ -39,6 +39,12 @@ AHandController::AHandController()
 	GrabBall = CreateDefaultSubobject<USceneComponent>(TEXT("GrabBall"));
 	GrabBall->AttachTo(MotionController);
 
+	GrabPhone = CreateDefaultSubobject<USceneComponent>(TEXT("GrabPhone"));
+	GrabPhone->AttachTo(MotionController);
+
+	GrabKey = CreateDefaultSubobject<USceneComponent>(TEXT("GrabKey"));
+	GrabKey->AttachTo(MotionController);
+
 	State = HandControllerState::STATE_IDLE;
 }
 
@@ -112,7 +118,7 @@ void AHandController::Tick(float DeltaTime)
 
 	if (GrabFlashlight != nullptr)
 	{
-		DrawGrabSceneOffset();
+		//DrawGrabSceneOffset();
 	}
 }
 
@@ -225,6 +231,7 @@ void AHandController::Grip()
 						else if (GrabActor->ActorHasTag(TEXT("Ball")))
 						{
 							State = HandControllerState::STATE_BALL;
+							GrabSceneOffset = GrabBall;  
 							//HandMesh->SetRelativeLocation(BallOffset);
 							UpdateAnimation();
 							// change dog's look at actor to this ball
@@ -235,6 +242,12 @@ void AHandController::Grip()
 						{
 							State = HandControllerState::STATE_PHONE;
 							UpdateAnimation();
+							GrabSceneOffset = GrabPhone;
+						}
+						else if (GrabActor->ActorHasTag(TEXT("Key")))
+						{
+							State = HandControllerState::STATE_KEY;
+							GrabSceneOffset = GrabKey;
 						}
 
 						/*
@@ -398,6 +411,8 @@ void AHandController::Grip()
 				
 				AttachHandMeshToDoor(CurrentDoor);
 
+				State = HandControllerState::STATE_DOOR;
+				UpdateAnimation();
 				// Attach this hand controller's skeletal mesh to the doorknob.
 
 				// Initiate knob turn mechanics if the door is currently closed all the way.

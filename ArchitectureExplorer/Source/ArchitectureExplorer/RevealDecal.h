@@ -47,10 +47,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool FlashlightLineOfSight(int LOSTraces);
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TSubclassOf<UActorComponent>> DecalArray;
+
 private:
 	class UWorld *World = nullptr;
 
 	class UDecalComponent *DecalComponent = nullptr;
+
+	
 
 	FVector Corner1 = FVector::ZeroVector;
 	FVector Corner2 = FVector::ZeroVector;

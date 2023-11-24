@@ -195,6 +195,7 @@ void AErrolCharacter::Tick(float DeltaTime)
 		{
 		case ErrolState::STATE_IDLE:
 			//UE_LOG(LogTemp, Warning, TEXT("IDLE"));
+
 			break;
 		case ErrolState::STATE_PATROL:
 			//UE_LOG(LogTemp, Warning, TEXT("PATROL"));
@@ -1009,8 +1010,12 @@ void AErrolCharacter::EnterFlyAtState()
 {
 	State = ErrolState::STATE_FLYAT;
 	UpdateAnimation(State);
+	ErrolSaw->EnterState(ErrolSawState::STATE_ANIM2);
+
 	GetCharacterMovement()->MaxWalkSpeed = FlyAtSpeed;
-	ErrolController->MoveToActor(Player);
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 0.0f, 10000.f);
+	ErrolController->StopMovement();
+	ErrolController->MoveToActor(Player, -1.0f, false);
 	bFlyAt = true;
 	
 	AVRCharacter * VC = Cast<AVRCharacter>(Player);
@@ -1024,16 +1029,30 @@ void AErrolCharacter::TickFlyAtState(float DeltaTime)
 	if (bFlyThrough)
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("FLYTHOUGH"));
+		const FVector AL = GetActorLocation();
 		FVector CL = PlayerCamera->GetComponentLocation();
-		FVector CBV = -PlayerCamera->GetForwardVector();
-		FVector GoalLocation = CL + CBV * 50.0f;
-		SetActorLocation(FMath::VInterpConstantTo(GetActorLocation(), GoalLocation, DeltaTime, 1000.f));
 
-		float Dist = FVector::Dist(GetActorLocation(), GoalLocation);
-		if (Dist < 1.0f)
+		FVector Dir = (CL - AL).GetSafeNormal();
+
+		
+
+		FVector CFV = PlayerCamera->GetForwardVector();
+		FVector GoalLocation = CL - CFV * 150.0f;
+
+		SetActorLocation(FMath::VInterpConstantTo(AL, AL + GetActorForwardVector() * 100.f, DeltaTime, FlyAtSpeed));
+
+		//DrawDebugLine(World, CL, GoalLocation, FColor::Red, true);
+
+		float Dist = FVector::Dist(AL, GoalLocation);
+
+		UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), Dist);
+
+		if (Dist < 0.0f)
 		{
 			BodyMesh->SetVisibility(false);
 			SawMesh->SetVisibility(false);
+			ErrolSaw->FadeOutAudios(0.1f);
+			ErrolSaw->EnterState(ErrolSawState::STATE_INVISIBLE);
 		}
 	}
 	else if (bFlyAt)
@@ -1041,9 +1060,12 @@ void AErrolCharacter::TickFlyAtState(float DeltaTime)
 		float Dist = FVector::Dist(GetActorLocation(), Player->GetActorLocation());
 		if (Dist < FlyThroughDistance)
 		{
+			UE_LOG(LogTemp, Warning, TEXT("FLY THROUGH"));
 			bFlyThrough = true;
 			SetActorEnableCollision(false);
 			ErrolController->StopMovement();
+			//GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			//GetCapsuleComponent()->SetEnableGravity(false);
 		}
 	}
 }

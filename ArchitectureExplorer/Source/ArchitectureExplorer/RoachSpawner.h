@@ -26,7 +26,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	// Maximum roaches that this spawner can spawn DONT CHANGE AT RUNTIME
-	UPROPERTY(EditAnywhere, NoClear)
+	UPROPERTY(EditAnywhere, NoClear, BlueprintReadWrite)
 	int MaxRoachCount = 100;
 
 	UFUNCTION(BlueprintCallable)
@@ -75,6 +75,57 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int NumRoachesMovePerFrame = 1;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bFleeOnSpawn = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FleeMinTimerRate = 0.1f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FleeMaxTimerRate = 0.3f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bStoppingFlee = false;
+
+	void StopRoachFlee();
+
+	UFUNCTION(BlueprintCallable)
+	void StopRoachesFleeing(int AmountToStop, int NumToStopPerFrame);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int NumRoachesStoppedFleeingPerFrame = 1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float StopFleeDelayMin = 3.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float StopFleeDelayMax = 6.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float StopFleeDelay = 3.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FleeLazinessModifier = 0.2f;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void StopFleeingDelayed();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bCanCopulateOnSpawn = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FleeWaitTimeModifier = 0.1f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FleeSpeedModifier = 2.0f;
+
+	// keep at 0 if you want to roll for copulate chance, 1 if you want to always copulate on overlap while spawning/moving
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int CopulateMinChance = 0.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int CopulateMaxChance = 1.f;
+
 private:
 
 	UWorld *World = nullptr;
@@ -87,6 +138,11 @@ private:
 	int MoveRoachIndex = 0;
 	int RoachesMoved = 0;
 	int RoachesToMove = 0;
+
+	// flee values
+	int FleeRoachIndex = 0;
+	int RoachesStoppedFlee = 0;
+	int RoachesToStopFlee = 0;
 
 	FTransform GetRandomSpawnLocationAndRotation();
 

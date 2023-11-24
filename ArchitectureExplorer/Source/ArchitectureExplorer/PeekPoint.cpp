@@ -65,7 +65,7 @@ void APeekPoint::BeginPlay()
 	ErrolActor = UGameplayStatics::GetActorOfClass(World, AErrolCharacter::StaticClass());
 	QueryParams.AddIgnoredActor(ErrolActor);
 	//QueryParams.AddIgnoredActors(World->GetAllActorsOfClass)
-	QueryParams.IgnoreMask = 5;
+	QueryParams.IgnoreMask = 1 << 5;
 }
 
 // Called every frame

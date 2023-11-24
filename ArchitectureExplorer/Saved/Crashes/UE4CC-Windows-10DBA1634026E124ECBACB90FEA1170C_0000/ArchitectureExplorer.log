@@ -1,0 +1,848 @@
+Not using cached read wrapper
+Started task graph with 5 named threads and 71 total threads with 3 sets of task threads.
+Stats thread started at 0.235368
+Loaded GFSDK_Aftermath_Lib.x64.dll
+ICU TimeZone Detection - Raw Offset: -8:00, Platform Override: ''
+Mounting plugin MeshPainting
+Mounting plugin MegascansPlugin
+Mounting plugin XGEController
+Mounting plugin Paper2D
+Mounting plugin AISupport
+Mounting plugin EnvironmentQueryEditor
+Mounting plugin LightPropagationVolume
+Mounting plugin CameraShakePreviewer
+Mounting plugin AssetManagerEditor
+Mounting plugin DataprepEditor
+Mounting plugin DatasmithContent
+Mounting plugin Niagara
+Mounting plugin StaticMeshEditorExtension
+Mounting plugin AnimationSharing
+Mounting plugin VariantManagerContent
+Mounting plugin CryptoKeys
+Mounting plugin DataValidation
+Mounting plugin CurveEditorTools
+Mounting plugin EditorScriptingUtilities
+Mounting plugin FacialAnimation
+Mounting plugin GameplayTagsEditor
+Mounting plugin GeometryMode
+Mounting plugin MacGraphicsSwitching
+Mounting plugin MaterialAnalyzer
+Mounting plugin PluginBrowser
+Mounting plugin MeshEditor
+Mounting plugin MobileLauncherProfileWizard
+Mounting plugin SpeedTreeImporter
+Mounting plugin CodeLiteSourceCodeAccess
+Mounting plugin CLionSourceCodeAccess
+Mounting plugin GitSourceControl
+Mounting plugin NullSourceCodeAccess
+Mounting plugin VisualStudioCodeSourceCodeAccess
+Mounting plugin RiderSourceCodeAccess
+Mounting plugin PlasticSourceControl
+Mounting plugin UObjectPlugin
+Mounting plugin XCodeSourceCodeAccess
+Mounting plugin PluginUtils
+Mounting plugin KDevelopSourceCodeAccess
+Mounting plugin PerforceSourceControl
+Mounting plugin AndroidMedia
+Mounting plugin SubversionSourceControl
+Mounting plugin AvfMedia
+Mounting plugin PropertyAccessNode
+Mounting plugin VisualStudioSourceCodeAccess
+Mounting plugin MediaCompositing
+Mounting plugin ImgMedia
+Mounting plugin MediaPlayerEditor
+Mounting plugin WebMMedia
+Mounting plugin WmfMedia
+Mounting plugin LuminPlatformFeatures
+Mounting plugin MagicLeap
+Mounting plugin MagicLeapLightEstimation
+Mounting plugin MagicLeapMedia
+Mounting plugin MagicLeapPassableWorld
+Mounting plugin TcpMessaging
+Mounting plugin UdpMessaging
+Mounting plugin MLSDK
+Mounting plugin ActorSequence
+Mounting plugin LevelSequenceEditor
+Mounting plugin MatineeToLevelSequence
+Mounting plugin TemplateSequence
+Mounting plugin OnlineSubsystem
+Mounting plugin OnlineSubsystemNull
+Mounting plugin OnlineSubsystemUtils
+Mounting plugin LauncherChunkInstaller
+Mounting plugin ActorLayerUtilities
+Mounting plugin AndroidDeviceProfileSelector
+Mounting plugin AndroidMoviePlayer
+Mounting plugin AndroidPermission
+Mounting plugin ApexDestruction
+Mounting plugin AppleMoviePlayer
+Mounting plugin AppleImageUtils
+Mounting plugin ArchVisCharacter
+Mounting plugin AudioCapture
+Mounting plugin AssetTags
+Mounting plugin AudioSynesthesia
+Mounting plugin CustomMeshComponent
+Mounting plugin CableComponent
+Mounting plugin ChunkDownloader
+Mounting plugin EditableMesh
+Mounting plugin ExampleDeviceProfileSelector
+Mounting plugin GoogleCloudMessaging
+Mounting plugin GooglePAD
+Mounting plugin ScreenshotTools
+Mounting plugin LinuxDeviceProfileSelector
+Mounting plugin LocationServicesBPLibrary
+Mounting plugin IOSDeviceProfileSelector
+Mounting plugin MobilePatchingUtils
+Mounting plugin PhysXVehicles
+Mounting plugin PropertyAccessEditor
+Mounting plugin ProceduralMeshComponent
+Mounting plugin PostSplashScreen
+Mounting plugin SignificanceManager
+Mounting plugin RuntimePhysXCooking
+Mounting plugin SoundFields
+Mounting plugin SoundVisualizations
+Mounting plugin Synthesis
+Mounting plugin WebMMoviePlayer
+Mounting plugin WindowsMoviePlayer
+Mounting plugin PowerIK
+Mounting plugin AlembicImporter
+Mounting plugin AutomationUtils
+Mounting plugin BackChannel
+Mounting plugin BlastPlugin
+Mounting plugin ChaosClothEditor
+Mounting plugin ChaosEditor
+Mounting plugin ChaosNiagara
+Mounting plugin ChaosCloth
+Mounting plugin ChaosSolverPlugin
+Mounting plugin CharacterAI
+Mounting plugin ControlRig
+Mounting plugin GeometryCache
+Mounting plugin GeometryCollectionPlugin
+Mounting plugin GeometryProcessing
+Mounting plugin MotoSynth
+Mounting plugin PlanarCut
+Mounting plugin ProxyLODPlugin
+Mounting plugin PlatformCrypto
+Mounting plugin PythonScriptPlugin
+Mounting plugin SkeletalReduction
+Mounting plugin ContentBrowserAssetDataSource
+Mounting plugin ContentBrowserFileDataSource
+Mounting plugin ContentBrowserClassDataSource
+Mounting plugin OnlineSubsystemIOS
+Mounting plugin OnlineSubsystemGooglePlay
+Mounting plugin DatabaseSupport
+Mounting plugin SQLiteCore
+Mounting plugin SQLiteSupport
+Mounting plugin OculusVR
+Mounting plugin OculusAudio
+Mounting plugin SteamVR
+Mounting plugin StateMachine
+Cleaning working directory: C:/Users/Skouty/AppData/Local/Temp/UnrealXGEWorkingDir/
+Cannot use XGE Controller as Incredibuild is not installed on this machine.
+Using libcurl 7.55.1-DEV
+ - built for x86_64-pc-win32
+ - supports SSL with OpenSSL/1.1.1
+ - supports HTTP deflate (compression) using libz 1.2.8
+ - other features:
+     CURL_VERSION_SSL
+     CURL_VERSION_LIBZ
+     CURL_VERSION_IPV6
+     CURL_VERSION_ASYNCHDNS
+     CURL_VERSION_LARGEFILE
+     CURL_VERSION_IDN
+ CurlRequestOptions (configurable via config and command line):
+ - bVerifyPeer = true  - Libcurl will verify peer certificate
+ - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+ - bDontReuseConnections = false  - Libcurl will reuse connections
+ - MaxHostConnections = 16  - Libcurl will limit the number of connections to a host
+ - LocalHostAddr = Default
+ - BufferSize = 65536
+OSS: Creating online subsystem instance for: NULL
+WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for module [NULL]
+Oculus Audio: Middleware plugins not found, assuming native UE4 AudioMixer
+Oculus Audio: Attempting to load Oculus Spatializer DLL: ../../../Engine/Binaries/ThirdParty/Oculus/Audio/Win64/ (from ovraudio64)
+OculusPlugin initialized successfully
+Failed initializing OVRPlugin 1.51.0
+Build: ++UE4+Release-4.26-CL-15973114
+Engine Version: 4.26.2-15973114+++UE4+Release-4.26
+Compatible Engine Version: 4.26.0-14830424+++UE4+Release-4.26
+Net CL: 14830424
+OS: Windows 10 (Release 2009) (), CPU: AMD Ryzen 9 5900X 12-Core Processor            , GPU: NVIDIA GeForce RTX 3060 Ti
+Compiled (64-bit): Apr 12 2021 06:14:10
+Compiled with Visual C++: 19.24.28315.00
+Build Configuration: Development
+Branch Name: ++UE4+Release-4.26
+Command Line:  -skipcompile
+Base Directory: C:/Program Files/Epic Games/UE_4.26/Engine/Binaries/Win64/
+Allocator: TBB
+Installed Engine Build: 1
+Number of dev versions registered: 29
+  Dev-Blueprints (B0D832E4-1F89-4F0D-ACCF-7EB736FD4AA2): 10
+  Dev-Build (E1C64328-A22C-4D53-A36C-8E866417BD8C): 0
+  Dev-Core (375EC13C-06E4-48FB-B500-84F0262A717E): 4
+  Dev-Editor (E4B068ED-F494-42E9-A231-DA0B2E46BB41): 40
+  Dev-Framework (CFFC743F-43B0-4480-9391-14DF171D2073): 37
+  Dev-Mobile (B02B49B5-BB20-44E9-A304-32B752E40360): 3
+  Dev-Networking (A4E4105C-59A1-49B5-A7C5-40C4547EDFEE): 0
+  Dev-Online (39C831C9-5AE6-47DC-9A44-9C173E1C8E7C): 0
+  Dev-Physics (78F01B33-EBEA-4F98-B9B4-84EACCB95AA2): 4
+  Dev-Platform (6631380F-2D4D-43E0-8009-CF276956A95A): 0
+  Dev-Rendering (12F88B9F-8875-4AFC-A67C-D90C383ABD29): 44
+  Dev-Sequencer (7B5AE74C-D270-4C10-A958-57980B212A5A): 12
+  Dev-VR (D7296918-1DD6-4BDD-9DE2-64A83CC13884): 3
+  Dev-LoadTimes (C2A15278-BFE7-4AFE-6C17-90FF531DF755): 1
+  Private-Geometry (6EACA3D4-40EC-4CC1-B786-8BED09428FC5): 3
+  Dev-AnimPhys (29E575DD-E0A3-4627-9D10-D276232CDCEA): 17
+  Dev-Anim (AF43A65D-7FD3-4947-9873-3E8ED9C1BB05): 15
+  Dev-ReflectionCapture (6B266CEC-1EC7-4B8F-A30B-E4D90942FC07): 1
+  Dev-Automation (0DF73D61-A23F-47EA-B727-89E90C41499A): 1
+  FortniteMain (601D1886-AC64-4F84-AA16-D3DE0DEAC7D6): 43
+  FortniteRelease (E7086368-6B23-4C58-8439-1B7016265E91): 1
+  Dev-Enterprise (9DFFBCD6-494F-0158-E221-12823C92A888): 10
+  Dev-Niagara (F2AED0AC-9AFE-416F-8664-AA7FFA26D6FC): 1
+  Dev-Destruction (174F1F0B-B4C6-45A5-B13F-2EE8D0FB917D): 10
+  Dev-Physics-Ext (35F94A83-E258-406C-A318-09F59610247C): 40
+  Dev-PhysicsMaterial-Chaos (B68FC16E-8B1B-42E2-B453-215C058844FE): 1
+  Dev-CineCamera (B2E18506-4273-CFC2-A54E-F4BB758BBA07): 1
+  Dev-VirtualProduction (64F58936-FD1B-42BA-BA96-7289D5D0FA4E): 1
+  Dev-MediaFramework (6F0ED827-A609-4895-9C91-998D90180EA4): 2
+Presizing for max 25165824 objects, including 0 objects not considered by GC, pre-allocating 0 bytes for permanent pool.
+Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
+Setting CVar [[s.EventDrivenLoaderEnabled:1]]
+Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
+Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
+Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
+Setting CVar [[s.UseBackgroundLevelStreaming:1]]
+Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+Setting CVar [[s.FlushStreamingOnExit:1]]
+Object subsystem initialized
+Setting CVar [[con.DebugEarlyDefault:1]]
+Setting CVar [[r.setres:1280x720]]
+Setting CVar [[r.VSync:0]]
+Setting CVar [[r.RHICmdBypass:0]]
+Applying CVar settings from Section [/Script/Engine.RendererSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+Setting CVar [[r.GPUCrashDebugging:0]]
+Setting CVar [[r.MobileHDR:0]]
+Setting CVar [[r.Mobile.DisableVertexFog:1]]
+Setting CVar [[r.Shadow.CSM.MaxMobileCascades:2]]
+Setting CVar [[r.MobileMSAA:1]]
+Setting CVar [[r.Mobile.UseHWsRGBEncoding:1]]
+Setting CVar [[r.Mobile.AllowDitheredLODTransition:0]]
+Setting CVar [[r.Mobile.AllowSoftwareOcclusion:0]]
+Setting CVar [[r.DiscardUnusedQuality:0]]
+Setting CVar [[r.AllowOcclusionQueries:1]]
+Setting CVar [[r.MinScreenRadiusForLights:0.030000]]
+Setting CVar [[r.MinScreenRadiusForDepthPrepass:0.030000]]
+Setting CVar [[r.MinScreenRadiusForCSMDepth:0.010000]]
+Setting CVar [[r.PrecomputedVisibilityWarning:0]]
+Setting CVar [[r.TextureStreaming:1]]
+Setting CVar [[Compat.UseDXT5NormalMaps:0]]
+Setting CVar [[r.VirtualTextures:0]]
+Setting CVar [[r.VirtualTexturedLightmaps:0]]
+Setting CVar [[r.VT.TileSize:128]]
+Setting CVar [[r.VT.TileBorderSize:4]]
+Setting CVar [[r.vt.FeedbackFactor:16]]
+Setting CVar [[r.VT.EnableCompressZlib:1]]
+Setting CVar [[r.VT.EnableCompressCrunch:0]]
+Setting CVar [[r.ClearCoatNormal:0]]
+Setting CVar [[r.ReflectionCaptureResolution:128]]
+Setting CVar [[r.ReflectionEnvironmentLightmapMixBasedOnRoughness:1]]
+Setting CVar [[r.ForwardShading:0]]
+Setting CVar [[r.VertexFoggingForOpaque:1]]
+Setting CVar [[r.AllowStaticLighting:1]]
+Setting CVar [[r.NormalMapsForStaticLighting:0]]
+Setting CVar [[r.GenerateMeshDistanceFields:0]]
+Setting CVar [[r.DistanceFieldBuild.EightBit:0]]
+Setting CVar [[r.GenerateLandscapeGIData:0]]
+Setting CVar [[r.DistanceFieldBuild.Compress:0]]
+Setting CVar [[r.TessellationAdaptivePixelsPerTriangle:48.000000]]
+Setting CVar [[r.SeparateTranslucency:0]]
+Setting CVar [[r.TranslucentSortPolicy:0]]
+Setting CVar [[r.CustomDepth:3]]
+Setting CVar [[r.CustomDepthTemporalAAJitter:1]]
+Setting CVar [[r.PostProcessing.PropagateAlpha:0]]
+Setting CVar [[r.DefaultFeature.Bloom:0]]
+Setting CVar [[r.DefaultFeature.AmbientOcclusion:0]]
+Setting CVar [[r.DefaultFeature.AmbientOcclusionStaticFraction:1]]
+Setting CVar [[r.DefaultFeature.AutoExposure:0]]
+Setting CVar [[r.DefaultFeature.AutoExposure.Method:1]]
+Setting CVar [[r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange:1]]
+Setting CVar [[r.UsePreExposure:1]]
+Setting CVar [[r.EyeAdaptation.EditorOnly:1]]
+Setting CVar [[r.DefaultFeature.MotionBlur:0]]
+Setting CVar [[r.DefaultFeature.LensFlare:0]]
+Setting CVar [[r.TemporalAA.Upsampling:0]]
+Setting CVar [[r.SSGI.Enable:0]]
+Setting CVar [[r.DefaultFeature.AntiAliasing:1]]
+Setting CVar [[r.DefaultFeature.LightUnits:1]]
+Setting CVar [[r.DefaultBackBufferPixelFormat:4]]
+Setting CVar [[r.Shadow.UnbuiltPreviewInGame:1]]
+Setting CVar [[r.StencilForLODDither:0]]
+Setting CVar [[r.EarlyZPass:3]]
+Setting CVar [[r.EarlyZPassOnlyMaterialMasking:0]]
+Setting CVar [[r.DBuffer:1]]
+Setting CVar [[r.ClearSceneMethod:1]]
+Setting CVar [[r.BasePassOutputsVelocity:0]]
+Setting CVar [[r.SelectiveBasePassOutputs:0]]
+Setting CVar [[fx.GPUSimulationTextureSizeX:1024]]
+Setting CVar [[fx.GPUSimulationTextureSizeY:1024]]
+Setting CVar [[r.AllowGlobalClipPlane:0]]
+Setting CVar [[r.GBufferFormat:1]]
+Setting CVar [[r.MorphTarget.Mode:1]]
+Setting CVar [[vr.InstancedStereo:1]]
+Setting CVar [[vr.MobileMultiView:1]]
+Setting CVar [[vr.RoundRobinOcclusion:1]]
+Setting CVar [[vr.ODSCapture:0]]
+Setting CVar [[r.WireframeCullThreshold:5.000000]]
+Setting CVar [[r.RayTracing:0]]
+Setting CVar [[r.RayTracing.UseTextureLod:0]]
+Setting CVar [[r.SupportStationarySkylight:0]]
+Setting CVar [[r.SupportLowQualityLightmaps:0]]
+Setting CVar [[r.SupportPointLightWholeSceneShadows:1]]
+Setting CVar [[r.SupportAtmosphericFog:0]]
+Setting CVar [[r.SupportSkyAtmosphere:0]]
+Setting CVar [[r.SupportSkyAtmosphereAffectsHeightFog:0]]
+Setting CVar [[r.SkinCache.CompileShaders:0]]
+Setting CVar [[r.Mobile.EnableStaticAndCSMShadowReceivers:1]]
+Setting CVar [[r.Mobile.EnableMovableLightCSMShaderCulling:1]]
+Setting CVar [[r.Mobile.AllowDistanceFieldShadows:1]]
+Setting CVar [[r.Mobile.AllowMovableDirectionalLights:1]]
+Setting CVar [[r.MobileNumDynamicPointLights:4]]
+Setting CVar [[r.MobileDynamicPointLightsUseStaticBranch:1]]
+Setting CVar [[r.Mobile.EnableMovableSpotlights:1]]
+Setting CVar [[r.SkinCache.SceneMemoryLimitInMB:128.000000]]
+Setting CVar [[r.GPUSkin.Limit2BoneInfluences:0]]
+Setting CVar [[r.SupportDepthOnlyIndexBuffers:1]]
+Setting CVar [[r.SupportReversedIndexBuffers:1]]
+Setting CVar [[r.LightPropagationVolume:0]]
+Setting CVar [[r.Mobile.EnableMovableSpotlightsShadow:1]]
+Applying CVar settings from Section [/Script/Engine.RendererOverrideSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
+Setting CVar [[s.EventDrivenLoaderEnabled:1]]
+Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
+Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
+Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
+Setting CVar [[s.UseBackgroundLevelStreaming:1]]
+Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+Setting CVar [[s.FlushStreamingOnExit:1]]
+Applying CVar settings from Section [/Script/Engine.GarbageCollectionSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+Setting CVar [[gc.MaxObjectsNotConsideredByGC:1]]
+Setting CVar [[gc.SizeOfPermanentObjectPool:0]]
+Setting CVar [[gc.FlushStreamingOnGC:0]]
+Setting CVar [[gc.NumRetriesBeforeForcingGC:10]]
+Setting CVar [[gc.AllowParallelGC:1]]
+Setting CVar [[gc.TimeBetweenPurgingPendingKillObjects:61.1]]
+Setting CVar [[gc.MaxObjectsInEditor:25165824]]
+Setting CVar [[gc.IncrementalBeginDestroyEnabled:1]]
+Setting CVar [[gc.CreateGCClusters:1]]
+Setting CVar [[gc.MinGCClusterSize:5]]
+Setting CVar [[gc.ActorClusteringEnabled:0]]
+Setting CVar [[gc.BlueprintClusteringEnabled:0]]
+Setting CVar [[gc.UseDisregardForGCOnDedicatedServers:0]]
+Setting CVar [[gc.MultithreadedDestructionEnabled:1]]
+Applying CVar settings from Section [/Script/Engine.NetworkSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+Applying CVar settings from Section [/Script/UnrealEd.CookerSettings] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+Applying CVar settings from Section [ViewDistanceQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.SkeletalMeshLODBias:0]]
+Setting CVar [[r.ViewDistanceScale:1.0]]
+Applying CVar settings from Section [AntiAliasingQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.PostProcessAAQuality:4]]
+Applying CVar settings from Section [ShadowQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.LightFunctionQuality:1]]
+Setting CVar [[r.ShadowQuality:5]]
+Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+Setting CVar [[r.Shadow.MaxResolution:2048]]
+Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+Setting CVar [[r.Shadow.DistanceScale:1.0]]
+Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+Setting CVar [[r.DistanceFieldShadowing:1]]
+Setting CVar [[r.DistanceFieldAO:1]]
+Setting CVar [[r.AOQuality:2]]
+Setting CVar [[r.VolumetricFog:1]]
+Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+Setting CVar [[r.CapsuleShadows:1]]
+Applying CVar settings from Section [PostProcessQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.MotionBlurQuality:4]]
+Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+Setting CVar [[r.AmbientOcclusionLevels:-1]]
+Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+Setting CVar [[r.DepthOfFieldQuality:2]]
+Setting CVar [[r.RenderTargetPoolMin:400]]
+Setting CVar [[r.LensFlareQuality:2]]
+Setting CVar [[r.SceneColorFringeQuality:1]]
+Setting CVar [[r.EyeAdaptationQuality:2]]
+Setting CVar [[r.BloomQuality:5]]
+Setting CVar [[r.FastBlurThreshold:100]]
+Setting CVar [[r.Upscale.Quality:3]]
+Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+Setting CVar [[r.LightShaftQuality:1]]
+Setting CVar [[r.Filter.SizeScale:1]]
+Setting CVar [[r.Tonemapper.Quality:5]]
+Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+Applying CVar settings from Section [TextureQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.Streaming.MipBias:0]]
+Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+Setting CVar [[r.Streaming.Boost:1]]
+Setting CVar [[r.MaxAnisotropy:8]]
+Setting CVar [[r.VT.MaxAnisotropy:8]]
+Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+Setting CVar [[r.Streaming.PoolSize:1000]]
+Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+Applying CVar settings from Section [EffectsQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+Setting CVar [[r.RefractionQuality:2]]
+Setting CVar [[r.SSR.Quality:3]]
+Setting CVar [[r.SSR.HalfResSceneColor:0]]
+Setting CVar [[r.SceneColorFormat:4]]
+Setting CVar [[r.DetailMode:2]]
+Setting CVar [[r.TranslucencyVolumeBlur:1]]
+Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+Setting CVar [[r.AnisotropicMaterials:1]]
+Setting CVar [[r.SSS.Scale:1]]
+Setting CVar [[r.SSS.SampleSet:2]]
+Setting CVar [[r.SSS.Quality:1]]
+Setting CVar [[r.SSS.HalfRes:0]]
+Setting CVar [[r.SSGI.Quality:3]]
+Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+Setting CVar [[r.ParticleLightQuality:2]]
+Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
+Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
+Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+Applying CVar settings from Section [FoliageQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[foliage.DensityScale:1.0]]
+Setting CVar [[grass.DensityScale:1.0]]
+Applying CVar settings from Section [ShadingQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+Selected Device Profile: [Windows]
+Applying CVar settings loaded from the selected device profile: [Windows]
+Platform has ~ 32 GB [34300252160 / 34359738368 / 32], which maps to Largest [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+Going up to parent DeviceProfile []
+Applying CVar settings from Section [ViewDistanceQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.SkeletalMeshLODBias:0]]
+Setting CVar [[r.ViewDistanceScale:1.0]]
+Applying CVar settings from Section [AntiAliasingQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.PostProcessAAQuality:4]]
+Applying CVar settings from Section [ShadowQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.LightFunctionQuality:1]]
+Setting CVar [[r.ShadowQuality:5]]
+Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+Setting CVar [[r.Shadow.MaxResolution:2048]]
+Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+Setting CVar [[r.Shadow.DistanceScale:1.0]]
+Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+Setting CVar [[r.DistanceFieldShadowing:1]]
+Setting CVar [[r.DistanceFieldAO:1]]
+Setting CVar [[r.AOQuality:2]]
+Setting CVar [[r.VolumetricFog:1]]
+Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+Setting CVar [[r.CapsuleShadows:1]]
+Applying CVar settings from Section [PostProcessQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.MotionBlurQuality:4]]
+Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+Setting CVar [[r.AmbientOcclusionLevels:-1]]
+Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+Setting CVar [[r.DepthOfFieldQuality:2]]
+Setting CVar [[r.RenderTargetPoolMin:400]]
+Setting CVar [[r.LensFlareQuality:2]]
+Setting CVar [[r.SceneColorFringeQuality:1]]
+Setting CVar [[r.EyeAdaptationQuality:2]]
+Setting CVar [[r.BloomQuality:5]]
+Setting CVar [[r.FastBlurThreshold:100]]
+Setting CVar [[r.Upscale.Quality:3]]
+Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+Setting CVar [[r.LightShaftQuality:1]]
+Setting CVar [[r.Filter.SizeScale:1]]
+Setting CVar [[r.Tonemapper.Quality:5]]
+Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+Applying CVar settings from Section [TextureQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.Streaming.MipBias:0]]
+Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+Setting CVar [[r.Streaming.Boost:1]]
+Setting CVar [[r.MaxAnisotropy:8]]
+Setting CVar [[r.VT.MaxAnisotropy:8]]
+Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+Setting CVar [[r.Streaming.PoolSize:1000]]
+Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+Applying CVar settings from Section [EffectsQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+Setting CVar [[r.RefractionQuality:2]]
+Setting CVar [[r.SSR.Quality:3]]
+Setting CVar [[r.SSR.HalfResSceneColor:0]]
+Setting CVar [[r.SceneColorFormat:4]]
+Setting CVar [[r.DetailMode:2]]
+Setting CVar [[r.TranslucencyVolumeBlur:1]]
+Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+Setting CVar [[r.AnisotropicMaterials:1]]
+Setting CVar [[r.SSS.Scale:1]]
+Setting CVar [[r.SSS.SampleSet:2]]
+Setting CVar [[r.SSS.Quality:1]]
+Setting CVar [[r.SSS.HalfRes:0]]
+Setting CVar [[r.SSGI.Quality:3]]
+Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+Setting CVar [[r.ParticleLightQuality:2]]
+Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
+Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
+Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+Applying CVar settings from Section [FoliageQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[foliage.DensityScale:1.0]]
+Setting CVar [[grass.DensityScale:1.0]]
+Applying CVar settings from Section [ShadingQuality@3] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Scalability.ini]
+Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+Applying CVar settings from Section [Startup] File [../../../Engine/Config/ConsoleVariables.ini]
+Setting CVar [[net.UseAdaptiveNetUpdateFrequency:0]]
+Setting CVar [[p.chaos.AllowCreatePhysxBodies:1]]
+Setting CVar [[fx.SkipVectorVMBackendOptimizations:1]]
+Applying CVar settings from Section [ConsoleVariables] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Engine.ini]
+Applying CVar settings from Section [ConsoleVariables] File [E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Saved/Config/Windows/Editor.ini]
+Computer: DESKTOP-Q7OIGVQ
+User: Skouty
+CPU Page size=4096, Cores=12
+High frequency timer resolution =10.000000 MHz
+Memory total: Physical=31.9GB (32GB approx)
+Platform Memory Stats for Windows
+Process Physical Memory: 151.50 MB used, 155.79 MB peak
+Process Virtual Memory: 130.58 MB used, 130.58 MB peak
+Physical Memory: 13487.41 MB used,  19223.86 MB free, 32711.27 MB total
+Virtual Memory: 134197000.00 MB used,  20725.00 MB free, 134217728.00 MB total
+WindowsPlatformFeatures enabled
+Physics initialised using underlying interface: PhysX
+Using OS detected language (en-US).
+Using OS detected locale (en-US).
+No specific localization for 'en-US' exists, so the 'en' localization will be used.
+Setting process to per monitor DPI aware
+IME system deactivated.
+New Slate User Created.  User Index 0, Is Virtual User: 0
+Slate User Registered.  User Index 0, Is Virtual User: 0
+Failed to initialize OpenVR with code 110
+D3D11 min allowed feature level: 11_0
+D3D11 max allowed feature level: 11_0
+D3D11 adapters:
+   0. 'NVIDIA GeForce RTX 3060 Ti' (Feature Level 11_0)
+      8038/0/16355 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:3, VendorId:0x10de
+   1. 'Microsoft Basic Render Driver' (Feature Level 11_0)
+      0/0/16355 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1414
+Chosen D3D11 Adapter: 0
+Creating new Direct3DDevice
+    GPU DeviceId: 0x2489 (for the marketing name, search the web for "GPU Device Id")
+EnumDisplayDevices:
+   0. 'NVIDIA GeForce RTX 3060 Ti' (P:1 D:1)
+   1. 'NVIDIA GeForce RTX 3060 Ti' (P:0 D:1)
+   2. 'NVIDIA GeForce RTX 3060 Ti' (P:0 D:1)
+   3. 'NVIDIA GeForce RTX 3060 Ti' (P:0 D:0)
+DebugString: FoundDriverCount:4 
+    Adapter Name: NVIDIA GeForce RTX 3060 Ti
+  Driver Version: 546.17 (internal:31.0.15.4617, unified:546.17)
+     Driver Date: 11-9-2023
+Texture pool is 5626 MB (70% of 8038 MB)
+RHI has support for 64 bit atomics
+Async texture creation enabled
+Array index from any shader is supported
+HDR output is supported on display 0 (NvId: 0x80061082).
+GPU Timing Frequency: 1000.000000 (Debug: 2 1)
+GeForceNow SDK initialized: 1
+Loaded TargetPlatform 'AllDesktop'
+Loaded TargetPlatform 'Android'
+Loaded TargetPlatform 'Android_ASTC'
+Loaded TargetPlatform 'Android_DXT'
+Loaded TargetPlatform 'Android_ETC2'
+Loaded TargetPlatform 'AndroidClient'
+Loaded TargetPlatform 'Android_ASTCClient'
+Loaded TargetPlatform 'Android_DXTClient'
+Loaded TargetPlatform 'Android_ETC2Client'
+Loaded TargetPlatform 'Android_Multi'
+Loaded TargetPlatform 'Android_MultiClient'
+Loaded TargetPlatform 'IOSClient'
+Loaded TargetPlatform 'IOS'
+Loaded TargetPlatform 'Linux'
+Loaded TargetPlatform 'LinuxNoEditor'
+Loaded TargetPlatform 'LinuxClient'
+Loaded TargetPlatform 'LinuxServer'
+Loaded TargetPlatform 'LinuxAArch64NoEditor'
+Loaded TargetPlatform 'LinuxAArch64Client'
+Loaded TargetPlatform 'LinuxAArch64Server'
+Loaded TargetPlatform 'Lumin'
+Loaded TargetPlatform 'LuminClient'
+Loaded TargetPlatform 'MacNoEditor'
+Loaded TargetPlatform 'Mac'
+Loaded TargetPlatform 'MacClient'
+Loaded TargetPlatform 'MacServer'
+Loaded TargetPlatform 'TVOSClient'
+Loaded TargetPlatform 'TVOS'
+Loaded TargetPlatform 'WindowsNoEditor'
+Loaded TargetPlatform 'Windows'
+Loaded TargetPlatform 'WindowsClient'
+Loaded TargetPlatform 'WindowsServer'
+Building Assets For Windows
+Lib vorbis DLL was dynamically loaded.
+Ray tracing is disabled. Reason: r.RayTracing=0.
+Guid format shader working directory is -15 characters bigger than the processId version (E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Intermediate/Shaders/WorkingDirectory/42704/).
+Cleaned the shader compiler working directory 'C:/Users/Skouty/AppData/Local/Temp/UnrealShaderWorkingDir/C6FF5F92496D119FDFC96DB77D978B01/'.
+Cannot use XGE Shader Compiler as Incredibuild is not installed on this machine.
+Using Local Shader Compiler.
+Max Cache Size: 512 MB
+Loaded boot cache 0.05s 96MB C:/Users/Skouty/AppData/Local/UnrealEngine/4.26/DerivedDataCache/Boot.ddc.
+Loaded Boot cache: C:/Users/Skouty/AppData/Local/UnrealEngine/4.26/DerivedDataCache/Boot.ddc
+FDerivedDataBackendGraph:  Pak pak cache file E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+Unable to find inner node Pak for hierarchical cache Hierarchy.
+FDerivedDataBackendGraph:  CompressedPak pak cache file E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+Unable to find inner node CompressedPak for hierarchical cache Hierarchy.
+Pak cache opened for reading ../../../Engine/DerivedDataCache/Compressed.ddp.
+FDerivedDataBackendGraph:  EnterprisePak pak cache file ../../../Enterprise/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+Unable to find inner node EnterprisePak for hierarchical cache Hierarchy.
+Speed tests for C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache took 0.01 seconds
+Performance to C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache: Latency=0.04ms. RandomReadSpeed=1149.47MBs, RandomWriteSpeed=160.24MBs. Assigned SpeedClass 'Local'
+Using Local data cache path C:/Users/Skouty/AppData/Local/UnrealEngine/Common/DerivedDataCache: Writable
+Shared data cache path not found in *engine.ini, will not use an Shared cache.
+Unable to find inner node Shared for hierarchical cache Hierarchy.
+Using FreeType 2.10.0
+SlateFontServices - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+FAssetRegistry took 0.0023 seconds to start up
+Selected Device Profile: [Windows]
+Active device profile: [0000026BB8B51900][0000026BB721F780 49] Windows
+Profiles: [0000026BB8B51900][0000026BB721F780 49] Windows, [0000026BB8AC3C00][0000026BB721B8C0 49] WindowsNoEditor, [0000026BB8B53300][0000026BB7229A00 49] WindowsServer, [0000026BB8AC1000][0000026BB722DB40 49] WindowsClient, [0000026BB8B51100][0000026BB7DC5CC0 49] IOS, [0000026BB8AC3900][0000026BB7DC8180 49] iPadAir, [0000026BB8B53200][0000026BB7DCC300 49] iPadAir2, [0000026BB8896600][0000026BB7E4E5C0 49] IPadPro, [0000026BB8896700][0000026BB7DD0600 49] iPadAir3, [0000026BB8B53700][0000026BB7E58780 49] iPadAir4, [0000026BB8897C00][0000026BB7E5C900 49] iPadMini2, [0000026BB8B51F00][0000026BB7650A80 49] iPadMini3, [0000026BB8895B00][0000026BB7682C00 49] iPadMini4, [0000026BB8B51D00][0000026BB7686D80 49] iPadMini5, [0000026BB88B5F00][0000026BB768F040 49] iPhone6, [0000026BB88B6000][0000026BB768B080 49] iPodTouch6, [0000026BB8AC3A00][0000026BB769D340 49] iPhone7, [0000026BB8AC3B00][0000026BB7693380 49] iPodTouch7, [0000026BB88B7600][0000026BB76A1500 49] iPhone5S, [0000026BB8AC1800][0000026BB76A9680 49] iPhone6Plus, [0000026BB88B5900][0000026BB7DC17C0 49] iPhone6S, [0000026BB8AC1F00][0000026BB76AD900 49] iPhone6SPlus, [0000026BB88B4C00][0000026BB76BBA40 49] iPhone7Plus, [0000026BB8AC2400][0000026BB76E7B80 49] iPhoneSE, [0000026BB88B5200][0000026BB776BD00 49] iPhone8, [0000026BB8AC3700][0000026BB77801C0 49] iPhone8Plus, [0000026BB88B4A00][0000026BB7794340 49] iPhoneX, [0000026BB8AC1200][0000026BB77BE4C0 49] iPhoneXS, [0000026BB88B6500][0000026BB77C6640 49] iPhoneXSMax, [0000026BB8AC0700][0000026BB77E47C0 49] iPhoneXR, [0000026BB88B7000][0000026BB77E8940 49] iPhone11, [0000026BB8AC3000][0000026BB77ECAC0 49] iPhone11Pro, [0000026BB88B5800][0000026BB77F0C40 49] iPhone11ProMax, [0000026BB8AC2600][0000026BB77F4DC0 49] iPhoneSE2, [0000026BB88B7C00][0000026BB77F8F40 49] iPhone12Mini, [0000026BB8AC2500][0000026BB77FD0C0 49] iPhone12, [0000026BB8B53A00][0000026BB7801240 49] iPhone12Pro, [0000026BB88B5700][0000026BB78053C0 49] iPhone12ProMax, [0000026BB8B53C00][0000026BB7809540 49] iPadPro105, [0000026BB88B4E00][0000026BB78516C0 49] iPadPro129, [0000026BB8B52D00][0000026BB785D840 49] iPadPro97, [0000026BB88B6C00][0000026BB7759980 49] iPadPro2_129, [0000026BB8AC1700][0000026BB7879AC0 49] iPad5, [0000026BB88B7800][0000026BB787DC00 49] iPad6, [0000026BB8AC1A00][0000026BB78880C0 49] iPad7, [0000026BB88B5100][0000026BB792E240 49] iPad8, [0000026BB8AC0C00][0000026BB79723C0 49] iPadPro11, [0000026BB88B4B00][0000026BB7980540 49] iPadPro2_11, [0000026BB8AC3500][0000026BB79886C0 49] iPadPro3_129, [0000026BB88B4100][0000026BB798C840 49] iPadPro4_129, [0000026BB8AC3800][0000026BB79909C0 49] AppleTV, [0000026BB88B7B00][0000026BA895AB40 49] AppleTV4K, [0000026BB8AC0100][0000026BA8976CC0 49] TVOS, [0000026BB88B4500][0000026BB79D8E40 49] Mac, [0000026BB8AC3300][0000026BB79F8FC0 49] MacClient, [0000026BB88B7400][0000026BB7A21140 49] MacNoEditor, [0000026BB8AC2000][0000026BB7A392C0 49] MacServer, [0000026BB88B5300][0000026BB726D440 49] Linux, [0000026BB8AC2F00][0000026BB72755C0 49] LinuxAArch64, [0000026BB88B6200][0000026BB7279740 49] LinuxNoEditor, [0000026BB8AC1B00][0000026BB727D8C0 49] LinuxAArch64NoEditor, [0000026BB88B7300][0000026BB7885A00 49] LinuxClient, [0000026BB8AC2A00][0000026BB7281B40 49] LinuxAArch64Client, [0000026BB88B6600][0000026BB7285C80 49] LinuxServer, [0000026BB8AC2200][0000026BB729A100 49] LinuxAArch64Server, [0000026BB88B6D00][0000026BB72A2280 49] Android, [0000026BB8AC0E00][0000026BB72A6400 49] Android_Low, [0000026BB88B5600][0000026BB72D2580 49] Android_Mid, [0000026BB8AC2700][0000026BB7364700 49] Android_High, [0000026BB88B6700][0000026BB73DC880 49] Android_Default, [0000026BB8AC1900][0000026BB73EEA00 49] Android_Adreno4xx, [0000026BB88B4700][0000026BB73F2B80 49] Android_Adreno5xx_Low, [0000026BB8AC3E00][0000026BB73F6D00 49] Android_Adreno5xx, [0000026BB88B4800][0000026BB73FAE80 49] Android_Adreno6xx, [0000026BB8AC3400][0000026BB73FF000 49] Android_Adreno6xx_Vulkan, [0000026BB88B6800][0000026BB7403180 49] Android_Mali_T6xx, [0000026BB8AC2D00][0000026BB7407300 49] Android_Mali_T7xx, [0000026BB88B4D00][0000026BB740B480 49] Android_Mali_T8xx, [0000026BB8AC2B00][0000026BB740F600 49] Android_Mali_G71, [0000026BB88B4F00][0000026BB7413780 49] Android_Mali_G72, [0000026BB8AC0D00][0000026BB7417900 49] Android_Mali_G72_Vulkan, [0000026BB88B6A00][0000026BB729FA40 49] Android_Mali_G76, [0000026BB8AC1300][0000026BB741BB80 49] Android_Mali_G76_Vulkan, [0000026BB88B5A00][0000026BB741FCC0 49] Android_Mali_G77, [0000026BB8896E00][0000026BB7422140 49] Android_Mali_G77_Vulkan, [0000026BB8B53900][0000026BB742A2C0 49] Android_Vulkan_SM5, [0000026BB8894800][0000026BB742E440 49] Android_PowerVR_G6xxx, [0000026BB8B53400][0000026BB74325C0 49] Android_PowerVR_GT7xxx, [0000026BB8894E00][0000026BB7436740 49] Android_PowerVR_GE8xxx, [0000026BB8B51400][0000026BB743A8C0 49] Android_PowerVR_GM9xxx, [0000026BB8894900][0000026BB743EA40 49] Android_PowerVR_GM9xxx_Vulkan, [0000026BB8B50E00][0000026BB7442BC0 49] Android_TegraK1, [0000026BB8894D00][0000026BB7446D40 49] Android_Unknown_Vulkan, [0000026BB8B50C00][0000026BB744AEC0 49] Lumin, [0000026BB8895000][0000026BB744F040 49] Lumin_Desktop, [0000026BB8B51700][0000026BB74531C0 49] HoloLens, 
+Using QuadricMeshReduction for automatic static mesh reduction
+Using SimplygonMeshReduction for automatic skeletal mesh reduction
+Using ProxyLODMeshReduction for automatic mesh merging
+No distributed automatic mesh merging module available
+No distributed automatic mesh merging module available
+ArchitectureExplorer 1.0.0, NetCL: 14830424, EngineNetVer: 16, GameNetVer: 0 (Checksum: 4169611960)
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/AbandonedHouse/Materials/MI_Armchair.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/AbandonedHouse/Textures/T_Armchair_D.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/AbandonedHouse/Textures/T_Armchair_N.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_Armchair.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/AbandonedHouse/Textures/T_Armchair_ORM.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_Painting.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_Painting1.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_Painting2.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_prop_paper_clutter_01.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_Painting3.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_Sofa.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_Stand.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_WallWindow1.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_window_single_01_a.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/MI_wood_boards_01.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_CabinetSmall_d_Mat.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_CeramDebris_d_Mat.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_Couch_d_Mat.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_curtainBar_d_Mat.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_Curtain_mat.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_debris_d_Mat.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_Desk_d_Mat.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_Dithering1Sub_Master_mat.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_Emissive.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_Emissive_Inst.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_Emissive_Inst1.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_Emissive_Inst2.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_Fireplace_d_Mat.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_master2_props.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_master_decal_a.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_PureBlack.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_master_props_alpha.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_White.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_master_tiling.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/Decals/Grunge/MI_grunge_generic_b.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/M_WoodDamage_d_Mat.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/Decals/Grunge/MI_grunge_leaking_a.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/Plaster/MI_plaster_01_a_blend_01.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Materials/Plaster/MI_plaster_01_a_blend_02.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Armchair_D.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Armchair_N.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Armchair_ORM.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Base_normal_a.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Bdev_black.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Bdev_normal_a.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_CabinetSmall_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_CabinetSmall_r.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_CabinetSmall_n.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_CabinetSmall_s.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_CeramDebris_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_CeramDebris_r.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_CeramDebris_n.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_CeramDebris_s.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_combine_poster_01_pm.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Couch_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Couch_n.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Couch_r.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Couch_s.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Curtain1_mat_Co.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Curtain1_mat_N.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Curtain1_mat_ORM.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_curtainBar_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_curtainBar_n.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_curtainBar_r.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_curtainBar_s.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_debris_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_debris_n.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_debris_r.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_debris_s.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/t_decal_grunge_leaking_a_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/t_decal_grunge_generic_a_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Desk_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Desk_n.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Desk_s.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Desk_r.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_dev_normal_1a.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_dev_normal_a.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Fireplace_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Fireplace_n.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_dev_white_a.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Fireplace_r.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_light_bulbl_01_a_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Fireplace_s.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_light_bulb_01l_a_pm.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_light_bulb_01_a_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting2_ORM.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting2_D.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_light_bulb_01_a_pm.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting_Mat_1_D.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting_Mat_1_N.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting2_N.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting_Mat_1_ORM.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting_Mat_2_D.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting_Mat_2_N.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting_Mat_D.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting_Mat_2_ORM.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting_Mat_ORM.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Painting_Mat_N.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_prop_bike_01_pm.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_prop_paper_clutter_01_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Sofacloth_Mat_D.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Sofacloth_Mat_N.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Sofacloth_Mat_ORM.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Stand_D.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Stand_ORM.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_tablecloth_mat_Co.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Stand_N.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Table_mat_ORM.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_Table_mat_N.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_window_single_01_a_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_window_single_01_a_pm.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_WoodDamage_a.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_WoodDamage_d.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_window_single_01_a_n.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_WoodDamage_n.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_WoodDamage_r.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_wood_parquet2_01_h.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_WoodDamage_s.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/AbandonedHouse/Textures/T_wood_parquet_012_h.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/LensDirtMask1/Blueprints/BP_FirstPersonGameMode.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/LensDirtMask1/Maps/LDM_rewiev_test_map_A_Fogy_UE5.umap is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/LensDirtMask1/Blueprints/BP_FirstPersonGameMode_UE5.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/LensDirtMask1/Blueprints/BP_FPS_game_mode_UE5.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/LensDirtMask1/Maps/LDM_rewiev_test_map_A_Fogy_UE5_BuiltData.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/LensDirtMask1/Maps/LDM_rewiev_test_map_A_UE5.umap is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/LensDirtMask1/Maps/LDM_rewiev_test_map_A_UE5_BuiltData.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/LensDirtMask1/Maps/LDM_rewiev_test_map_B_UE5.umap is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/LensDirtMask1/Maps/LDM_rewiev_test_map_B_UE5_BuiltData.uasset is too old
+Package E:/Unreal Projects/ArchitectureExplorer1/ArchitectureExplorer/Content/StonePineForest/Materials/MI_HouseTerracotta.uasset has malformed tag
+PokeAHoleMaterial loaded successfully
+Processed 31 localized package path(s) for 1 prioritized culture(s) in 0.035140 seconds
+16854 objects as part of root set at end of initial load.
+4217776 out of 0 bytes used by permanent object pool.
+CloseDisregardForGC: 0/0 objects in disregard for GC pool
+Initializing TcpMessaging bridge
+Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+Using Python 3.7.7
+
+
+Script Stack (0 frames):
+
+FPlatformStackWalk::StackWalkAndDump -  0.405 s
+=== Handled ensure: ===
+
+Ensure condition failed: AttachmentRules.LocationRule == EAttachmentRule::KeepRelative && AttachmentRules.RotationRule == EAttachmentRule::KeepRelative && AttachmentRules.ScaleRule == EAttachmentRule::KeepRelative [File:D:/Build/++UE4/Sync/Engine/Source/Runtime/Engine/Private/Components/SceneComponent.cpp] [Line: 1826]
+AttachToComponent when called from a constructor is only setting up attachment and will always be treated as KeepRelative. Consider calling SetupAttachment directly instead.
+Stack: 
+[Callstack] 0x00007ffc7b46ca39 UE4Editor-Engine.dll!UnknownFunction []
+[Callstack] 0x00007ffc79efe8ff UE4Editor-Engine.dll!UnknownFunction []
+[Callstack] 0x00007ffc61203ff4 UE4Editor-ArchitectureExplorer.dll!AHGGYScare::AHGGYScare() [e:\unreal projects\architectureexplorer1\architectureexplorer\source\architectureexplorer\hggyscare.cpp:18]
+[Callstack] 0x00007ffcba3fc203 UE4Editor-CoreUObject.dll!UnknownFunction []
+[Callstack] 0x00007ffcba6bfabf UE4Editor-CoreUObject.dll!UnknownFunction []
+[Callstack] 0x00007ffcba6a287f UE4Editor-CoreUObject.dll!UnknownFunction []
+[Callstack] 0x00007ffcba5d2305 UE4Editor-CoreUObject.dll!UnknownFunction []
+[Callstack] 0x00007ffc78b199ea UE4Editor-Core.dll!UnknownFunction []
+[Callstack] 0x00007ffc78b412a8 UE4Editor-Core.dll!UnknownFunction []
+[Callstack] 0x00007ffce0ade7d3 UE4Editor-Projects.dll!UnknownFunction []
+[Callstack] 0x00007ffce0adeaea UE4Editor-Projects.dll!UnknownFunction []
+[Callstack] 0x00007ff6a20a53a2 UE4Editor.exe!UnknownFunction []
+[Callstack] 0x00007ff6a20a8a62 UE4Editor.exe!UnknownFunction []
+[Callstack] 0x00007ff6a20a0eec UE4Editor.exe!UnknownFunction []
+[Callstack] 0x00007ff6a20a125a UE4Editor.exe!UnknownFunction []
+[Callstack] 0x00007ff6a20b52bd UE4Editor.exe!UnknownFunction []
+[Callstack] 0x00007ff6a20b7fea UE4Editor.exe!UnknownFunction []
+[Callstack] 0x00007ffd14eb7344 KERNEL32.DLL!UnknownFunction []
+[Callstack] 0x00007ffd163426b1 ntdll.dll!UnknownFunction []
+
+               SubmitErrorReport -  0.000 s

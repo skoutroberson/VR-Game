@@ -16,6 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_SPARSE_DATA
 #define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execStopRoachesFleeing); \
 	DECLARE_FUNCTION(execDeleteRoach); \
 	DECLARE_FUNCTION(execSpawnRoach); \
 	DECLARE_FUNCTION(execMoveRoaches); \
@@ -25,6 +26,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execStopRoachesFleeing); \
 	DECLARE_FUNCTION(execDeleteRoach); \
 	DECLARE_FUNCTION(execSpawnRoach); \
 	DECLARE_FUNCTION(execMoveRoaches); \
@@ -32,6 +34,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execSpawnRoaches);
 
 
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_EVENT_PARMS
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_CALLBACK_WRAPPERS
 #define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesARoachSpawner(); \
@@ -75,13 +79,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ARoachSpawner); \
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_PRIVATE_PROPERTY_OFFSET
-#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_11_PROLOG
+#define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_11_PROLOG \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_EVENT_PARMS
+
+
 #define ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_PRIVATE_PROPERTY_OFFSET \
 	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_SPARSE_DATA \
 	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_RPC_WRAPPERS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_CALLBACK_WRAPPERS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_INCLASS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_STANDARD_CONSTRUCTORS \
 public: \
@@ -94,6 +102,7 @@ public: \
 	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_PRIVATE_PROPERTY_OFFSET \
 	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_SPARSE_DATA \
 	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_CALLBACK_WRAPPERS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_INCLASS_NO_PURE_DECLS \
 	ArchitectureExplorer_Source_ArchitectureExplorer_RoachSpawner_h_14_ENHANCED_CONSTRUCTORS \
 private: \

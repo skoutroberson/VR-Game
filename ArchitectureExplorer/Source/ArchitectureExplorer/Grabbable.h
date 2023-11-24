@@ -82,6 +82,12 @@ public:
 
 	// reworked hand gripping
 
+	// set in handcontroller
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USceneComponent *TargetScene = nullptr;
+
+	class AHandController *ControllingHandController = nullptr;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	USceneComponent *HandR1 = nullptr;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)

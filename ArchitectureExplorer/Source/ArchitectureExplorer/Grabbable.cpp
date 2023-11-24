@@ -75,12 +75,14 @@ void AGrabbable::BeginPlay()
 	Mesh = Cast<UPrimitiveComponent>(GetComponentsByTag(UMeshComponent::StaticClass(), FName("Mesh"))[0]);
 	Mesh->SetMaskFilterOnBodyInstance(3); // so roach sweeps ignore this mesh
 
+	/*
 	TArray<UActorComponent*> CheckForOffset;
 	GetComponentsByTag(USceneComponent::StaticClass(), FName("Offset"));
 	if (CheckForOffset.Num() > 0)
 	{
 		HCOffset = Cast<USceneComponent>(CheckForOffset[0]);
 	}
+	*/
 }
 
 void AGrabbable::Tick(float DeltaTime)
@@ -115,7 +117,6 @@ void AGrabbable::Gripped(int HandHoldNum)
 				ControllingHandHold = HandHold1;
 				bInterpToMC = true;
 				bRotateOneHand = true;
-
 			}
 		}
 		else
@@ -175,6 +176,7 @@ void AGrabbable::Gripped(int HandHoldNum)
 	if (ControllingMC != nullptr)
 	{
 		AHandController* HCCast = Cast<AHandController>(ControllingMC);
+		ControllingHandController = HCCast;
 
 		if (HCCast->bLeft)
 		{
@@ -265,7 +267,9 @@ void AGrabbable::InterpToMC(float DeltaTime)
 	}
 
 	//FVector TL = AGrabbable::ControllingMC->GetActorLocation() + ControllingOffset;
-	FVector TL = AGrabbable::ControllingMC->GetActorLocation() + SceneOffset;
+	//FVector TL = AGrabbable::ControllingMC->GetActorLocation() + SceneOffset;
+
+	FVector TL = ControllingHandController->GrabSceneOffset->GetComponentLocation(); 
 
 	SetActorLocation(UKismetMathLibrary::VInterpTo_Constant(AL, TL, DeltaTime, 300.f / ItemWeight));
 }

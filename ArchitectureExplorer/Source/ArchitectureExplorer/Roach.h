@@ -19,6 +19,14 @@ enum class CockroachState : uint8
 	STATE_COPULATE		UMETA(DisplayName = "Copulate"),
 };
 
+UENUM(BlueprintType)
+enum class CopulateState : uint8
+{
+	STATE_NONE				UMETA(DisplayName = "None"),
+	STATE_COPULATING		UMETA(DisplayName = "Copulating"),
+	STATE_BEING_COPULATED	UMETA(DisplayName = "Being Copulated"),
+};
+
 
 struct FStateInfo
 {
@@ -68,6 +76,30 @@ public:
 	// this is needed mainly for visualization in the editor
 	UPROPERTY(EditAnywhere)
 	CockroachState StateEnum;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	CopulateState CurrentCopulateState;
+
+	bool IsOverlappingMesh();
+
+	// set by RoachSpawner 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	ARoach *MateRoach = nullptr;
+
+	UPROPERTY(VisibleAnywhere)
+	CockroachState PreviousState;
+	void PauseTimers();
+	void ResumeTimers();
+	void StartCopulating(ARoach *OtherRoach);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float CopulateMoveSpeedModifier = 1.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float CopulateRotateSpeedModifier = 1.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float CopulateAnimationSpeedModifier = 1.0f;
 	
 	//UPROPERTY(EditAnywhere)
 	FStateInfo *CurrentState;
@@ -114,16 +146,15 @@ public:
 	bool bSlowingDown = false;
 	void SlowDown(float DeltaTime);
 
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void UpdateAnimationSpeed(float NewSpeed);
 
+	float Radius;
 private:
 
 	USphereComponent *Root;
 
 	UWorld* World;
-
-	float Radius;
 
 	/** Performs two traces (down and forward) to check for the edge of the movement plane.
 	If the forward trace hits, then the roach must turn to avoid the blocking object.
@@ -251,6 +282,12 @@ public:
 	FTimerHandle AntennaTimerHandle;
 	FTimerHandle FleeFlockTimerHandle;
 
+	FTimerHandle CopulateOverlapHandle;
+	void CopulateOverlapCheck();
+
+	// gross
+	void StartCopulating();
+
 	// wiggle stuff
 
 	UFUNCTION()
@@ -269,7 +306,7 @@ public:
 
 	// swerve stuff
 
-	// random number between 1-10;
+	// random number between 1-9;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Laziness = 1.0f;
 
@@ -343,7 +380,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float RightAntennaYGoal = 0;
 
-
+	float GenerateLaziness();
 
 	UPROPERTY(BlueprintReadOnly)
 	float AntennaMinZ = -5.0f;
@@ -355,6 +392,9 @@ public:
 	float AntennaMaxY = 7.0f;
 
 public:
+
+	// called from RoachSpawner when spawned or moved
+	void TryToCopulate();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bFlee = false;
@@ -369,6 +409,26 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float FleeFlockTimerRate = 0.3f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FleeFlockMinRate = 0.1f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FleeFlockMaxRate = 0.3f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FleeWaitTimeModifier = 1.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FleeSpeedModifier = 1.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float FleeLazinessModifier = 1.0f;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void StopFleeingDelayed(float MinDelay, float MaxDelay);
+
+	UFUNCTION(BlueprintCallable)
+	void StopFleeing();
 
 	//(X=-1098.000000,Y=942.000000,Z=283.340149)
 

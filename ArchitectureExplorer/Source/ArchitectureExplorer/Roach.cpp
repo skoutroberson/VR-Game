@@ -30,7 +30,7 @@ ARoach::ARoach()
 	MovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("MovementComponent"));
 
 	QueryParams.AddIgnoredActor(this);
-	QueryParams.IgnoreMask = 3; // ignore all roach hits
+	QueryParams.IgnoreMask = 1 << 3; // ignore all roach hits
 }
 
 // Called when the game starts or when spawned
@@ -81,7 +81,7 @@ void ARoach::BeginPlay()
 			World, AVRCharacter::StaticClass())->GetComponentByClass(
 				UCameraComponent::StaticClass()));
 
-	Cast<USphereComponent>(GetRootComponent())->SetMaskFilterOnBodyInstance(3); // for ignoring other roach sweeps
+	Cast<USphereComponent>(GetRootComponent())->SetMaskFilterOnBodyInstance(1 << 3); // for ignoring other roach sweeps
 }
 
 void ARoach::EndPlay(const EEndPlayReason::Type EndPlayReason)
@@ -112,6 +112,26 @@ void ARoach::ChangeState(CockroachState * NewState)
 }
 */
 void ARoach::PrintTest()
+{
+}
+
+bool ARoach::IsOverlappingMesh()
+{
+	return false;
+}
+
+void ARoach::PauseTimers()
+{
+	GetWorldTimerManager().PauseTimer(WaitTimerHandle);
+	GetWorldTimerManager().PauseTimer(FleeFlockTimerHandle);
+}
+
+void ARoach::ResumeTimers()
+{
+
+}
+
+void ARoach::StartCopulating(ARoach *OtherRoach)
 {
 }
 
@@ -178,6 +198,23 @@ void ARoach::TickWaitState(float DeltaTime)
 	//	SlowDown(DeltaTime);
 	//	TickMoveState(DeltaTime);
 	//}
+
+	if (CurrentCopulateState == CopulateState::STATE_COPULATING)
+	{
+		// check for collision (ignoring other roaches)
+		/*
+		if(IsOverlappingMesh())
+		{
+			if(MateRoach->State == RoachState::WAITING)
+			{
+				
+			}
+			StopMateRoachWaiting
+		}
+		*/
+
+
+	}
 
 	if (bRotateAntenna)
 	{
@@ -335,7 +372,7 @@ void ARoach::SpeedUp(float DeltaTime)
 	{
 		bSpeedingUp = false;
 	}
-	UpdateAnimationSpeed(MoveSpeed);
+	UpdateAnimationSpeed(MoveSpeed * CopulateAnimationSpeedModifier);
 }
 
 void ARoach::SlowDown(float DeltaTime)
@@ -351,7 +388,7 @@ void ARoach::SlowDown(float DeltaTime)
 		UpdateAnimationSpeed(0);
 		return;
 	}
-	UpdateAnimationSpeed(MoveSpeed);
+	UpdateAnimationSpeed(MoveSpeed * CopulateAnimationSpeedModifier);
 }
 
 void ARoach::Turn(float DeltaTime)
@@ -603,6 +640,7 @@ bool ARoach::CheckForward(float DeltaTime)
 		// check if the sweep hit an avoidance volume
 		if (HitActor != nullptr && HitActor->ActorHasTag(FName("Avoid")))
 		{
+			//UE_LOG(LogTemp, Warning, TEXT("Avoid: %s"), *HitActor->GetName());
 			FVector Disp = HitResult.ImpactPoint - AL;
 			Disp.Normalize();
 			const FVector RV = GetActorRightVector();
@@ -821,8 +859,8 @@ void ARoach::MoveAndRotateToGoal(float DeltaTime)
 		//const FQuat NewRotation = FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.08f);
 		//const FVector NewLocation = FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.3f);
 
-		const FQuat NewRotation = FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.08f);
-		const FVector NewLocation = FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.25f);
+		const FQuat NewRotation = FMath::QInterpConstantTo(ActorQuat, NewQuat, DeltaTime, MoveSpeed * 0.08f * (FleeSpeedModifier * 0.5f));
+		const FVector NewLocation = FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, MoveSpeed * 0.25f * CopulateMoveSpeedModifier * FleeSpeedModifier);
 
 		SetActorLocationAndRotation(NewLocation, NewRotation);
 
@@ -927,6 +965,40 @@ float ARoach::DistanceMovedThisFrame()
 	return D;
 }
 
+void ARoach::CopulateOverlapCheck()
+{
+	// if overlapping, set mate roaches state to MoveState
+	FHitResult HitResult;
+	const FVector AL = GetActorLocation();
+	const FVector AFV = GetActorForwardVector();
+	const FQuat AQ = GetActorQuat();
+	FCollisionShape SweepSphere;
+	SweepSphere.SetSphere(Radius * 0.8f);
+	bool bSweep = World->SweepSingleByChannel(HitResult, AL, AL + AFV * 0.01f, AQ, ECollisionChannel::ECC_WorldDynamic, SweepSphere, QueryParams);
+	if (bSweep)
+	{
+		if (MateRoach != nullptr && MateRoach->CurrentState->StateEnum == CockroachState::STATE_WAIT)
+		{
+			MateRoach->ChangeState(&MoveState);
+			MateRoach->Laziness = GenerateLaziness();
+			//WaitTime = FMath::RandRange(0.1f, (10.f - Laziness) * 0.25f);
+			MateRoach->WaitTime = WaitCurve->GetFloatValue(FMath::FRand());
+			World->GetTimerManager().SetTimer(MateRoach->WaitTimerHandle, MateRoach, &ARoach::WaitIfRolled, 0.1f, false, WaitTime);
+			MateRoach->ChangeSwerveSpeed();
+			//MoveSpeedGoal = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
+			MateRoach->MoveSpeedGoal = MoveSpeedCurve->GetFloatValue(FMath::FRand());
+			MateRoach->bSpeedingUp = true;
+			UE_LOG(LogTemp, Warning, TEXT("CopulateOverlap: %s"), *GetName());
+			DrawDebugPoint(World, AL, 10.f, FColor::Green, false, 10 * World->DeltaTimeSeconds, ESceneDepthPriorityGroup::SDPG_MAX);
+		}
+	}
+}
+
+void ARoach::StartCopulating()
+{
+	World->GetTimerManager().SetTimer(CopulateOverlapHandle, this, &ARoach::CopulateOverlapCheck, 0.33f, true);
+}
+
 void ARoach::ChangeWiggleDirection()
 {
 	//UE_LOG(LogTemp, Warning, TEXT("Change Wiggle: %d"), bWiggleLeft);
@@ -977,7 +1049,7 @@ void ARoach::Swerve(float DeltaTime)
 	FQuat RotationQuat(Axis, Angle);
 	FQuat ActorQuat = GetActorQuat();
 	FQuat NewQuat = RotationQuat * ActorQuat;
-	SetActorRotation(FMath::QInterpTo(ActorQuat, NewQuat, DeltaTime, SwerveSpeed));
+	SetActorRotation(FMath::QInterpTo(ActorQuat, NewQuat, DeltaTime, SwerveSpeed *CopulateRotateSpeedModifier));
 }
 
 void ARoach::ChangeSwerveSpeed()
@@ -1016,12 +1088,27 @@ void ARoach::WaitIfRolled()
 
 		if (bRoll2)
 		{
+
 			WaitTime = FMath::RandRange(0.2f, Laziness);
 		}
 		else
 		{
+
 			WaitTime = FMath::RandRange(Laziness, (Laziness * Laziness) * 0.5f);
 			Laziness = StartingLaziness;
+		}
+
+		if (bFlee)
+		{
+			WaitTime *= FleeWaitTimeModifier;
+		}
+		/*
+		if(bCopulateOverlap {WaitTime = 0;)
+		*/
+
+		if (CurrentCopulateState == CopulateState::STATE_BEING_COPULATED)
+		{
+			WaitTime *= 4.0f;
 		}
 
 		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, 0.1f, false, WaitTime);
@@ -1030,9 +1117,21 @@ void ARoach::WaitIfRolled()
 	{
 		ChangeState(&MoveState);
 		//Laziness = FMath::FRandRange(1.0f, 2.0f);
-		Laziness = LazinessCurve->GetFloatValue(FMath::FRand());
+		//Laziness = LazinessCurve->GetFloatValue(FMath::Rand());
+		Laziness = GenerateLaziness();
+
 		//WaitTime = FMath::RandRange(0.1f, (10.f - Laziness) * 0.25f);
 		WaitTime = WaitCurve->GetFloatValue(FMath::FRand());
+
+		if (bFlee)
+		{
+			WaitTime *= 0.1f;
+		}
+
+		/*
+		if(bCopulateOverlap
+		*/
+
 		World->GetTimerManager().SetTimer(WaitTimerHandle, this, &ARoach::WaitIfRolled, 0.1f, false, WaitTime);
 		ChangeSwerveSpeed();
 		//MoveSpeedGoal = FMath::RandRange(MinMoveSpeed, MaxMoveSpeed);
@@ -1060,6 +1159,20 @@ void ARoach::RollNewAntennaRotations()
 	RightAntennaZGoal = FMath::FRandRange(AntennaMinZ, AntennaMaxZ);
 	AntennaRollRate = FMath::FRandRange(0.1f, 0.18f);
 	GetWorldTimerManager().SetTimer(AntennaTimerHandle, this, &ARoach::RollNewAntennaRotations, AntennaRollRate, false, AntennaRollRate);
+}
+
+float ARoach::GenerateLaziness()
+{
+
+	//return FMath::Clamp(LazinessCurve->GetFloatValue(FMath::Rand()) * FleeLazinessModifier, 1.0f, 9.0f);
+	return FMath::Clamp(LazinessCurve->GetFloatValue(FMath::FRand()) * FleeLazinessModifier, 1.0f, 9.0f);
+
+	
+}
+
+void ARoach::TryToCopulate()
+{
+
 }
 
 void ARoach::Flee()
@@ -1110,9 +1223,23 @@ void ARoach::FleeOrFlock()
 		Flock();
 	}
 	// need to create a FleeFlockMinRate and MaxRate
-	FleeFlockTimerRate = FMath::FRandRange(0.2f, 0.5f);
+	FleeFlockTimerRate = FMath::FRandRange(FleeFlockMinRate, FleeFlockMaxRate);
 	//WaitIfRolled();
 	GetWorldTimerManager().SetTimer(FleeFlockTimerHandle, this, &ARoach::FleeOrFlock, FleeFlockTimerRate, false, FleeFlockTimerRate);
+}
+
+void ARoach::StopFleeing()
+{
+	bFlee = false;
+	FleeLazinessModifier = 1.0f;
+	StartingLaziness = GenerateLaziness();
+	if (CurrentCopulateState == CopulateState::STATE_BEING_COPULATED)
+	{
+		StartingLaziness = 8.0f;
+	}
+	GetWorldTimerManager().PauseTimer(FleeFlockTimerHandle);
+	FleeSpeedModifier = 1.0f;
+	FleeWaitTimeModifier = 1.0f;
 }
 
 bool ARoach::CanPlayerSeeMe()

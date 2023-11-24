@@ -23,6 +23,7 @@ enum class HandControllerState : uint8
 	STATE_CHAINSAW1		UMETA(DisplayName = "Chainsaw1"),
 	STATE_CHAINSAW2		UMETA(DisplayName = "Chainsaw2"),
 	STATE_PET			UMETA(DisplayName = "Pet"),
+	STATE_KEY			UMETA(DisplayName = "Key"),
 };
 
 UCLASS()
@@ -230,7 +231,14 @@ public:
 	USceneComponent *GrabFlashlight = nullptr;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USceneComponent *GrabBall = nullptr;
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USceneComponent *GrabPhone = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USceneComponent *GrabKey = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USceneComponent *GrabSaw1 = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USceneComponent *GrabSaw2 = nullptr;
 
 	void DrawGrabSceneOffset();
 };

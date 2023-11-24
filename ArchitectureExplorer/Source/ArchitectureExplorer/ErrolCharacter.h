@@ -290,6 +290,8 @@ public:
 	float FlyThroughDistance = 60.0f;
 
 	bool bFlyAt = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bFlyThrough = false;
 
 	// KILL

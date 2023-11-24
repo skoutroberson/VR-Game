@@ -18,6 +18,8 @@ void EmptyLinkFunctionForGeneratedCodeRevealDecal() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ARevealDecal_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ARevealDecal();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	ENGINE_API UClass* Z_Construct_UClass_UActorComponent_NoRegister();
 // End Cross Module References
 	static UEnum* RevealState_StaticEnum()
 	{
@@ -213,6 +215,11 @@ void EmptyLinkFunctionForGeneratedCodeRevealDecal() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_State_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_State;
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_DecalArray_Inner;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DecalArray_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_DecalArray;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -240,9 +247,19 @@ void EmptyLinkFunctionForGeneratedCodeRevealDecal() {}
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ARevealDecal_Statics::NewProp_State = { "State", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevealDecal, State), Z_Construct_UEnum_ArchitectureExplorer_RevealState, METADATA_PARAMS(Z_Construct_UClass_ARevealDecal_Statics::NewProp_State_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevealDecal_Statics::NewProp_State_MetaData)) };
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ARevealDecal_Statics::NewProp_DecalArray_Inner = { "DecalArray", nullptr, (EPropertyFlags)0x0004000000000000, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UActorComponent_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARevealDecal_Statics::NewProp_DecalArray_MetaData[] = {
+		{ "Category", "RevealDecal" },
+		{ "ModuleRelativePath", "RevealDecal.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ARevealDecal_Statics::NewProp_DecalArray = { "DecalArray", nullptr, (EPropertyFlags)0x0014000000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARevealDecal, DecalArray), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ARevealDecal_Statics::NewProp_DecalArray_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARevealDecal_Statics::NewProp_DecalArray_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARevealDecal_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevealDecal_Statics::NewProp_State_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevealDecal_Statics::NewProp_State,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevealDecal_Statics::NewProp_DecalArray_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARevealDecal_Statics::NewProp_DecalArray,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ARevealDecal_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARevealDecal>::IsAbstract,
@@ -271,7 +288,7 @@ void EmptyLinkFunctionForGeneratedCodeRevealDecal() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARevealDecal, 3442402044);
+	IMPLEMENT_CLASS(ARevealDecal, 3491765860);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARevealDecal>()
 	{
 		return ARevealDecal::StaticClass();

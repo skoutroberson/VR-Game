@@ -98,7 +98,9 @@ void ADoor::BeginPlay()
 	//DoorMesh->SetMaskFilterOnBodyInstance(3); // so roach sweeps ignore this mesh
 
 	// this is being used so that PeekPoint traces ignore the door mesh
-	DoorMesh->SetMaskFilterOnBodyInstance(5);
+
+	//DoorMesh->SetMaskFilterOnBodyInstance(5);
+	DoorMesh->SetMaskFilterOnBodyInstance(1 << 5);
 
 	//DrawDebugLine(World, DoorHinge->GetComponentLocation(), DoorHinge->GetComponentLocation() + LV * 100.f, FColor::Red, true, -1, ESceneDepthPriorityGroup::SDPG_MAX, 5.f);
 
@@ -566,7 +568,7 @@ FQuat ADoor::CalcGoalQuat(FVector GoalVec)
 
 USceneComponent * ADoor::GetHandRFront()
 {
-	return HandRBackLocation;
+	return HandRFrontLocation;
 }
 
 USceneComponent * ADoor::GetHandLFront()

@@ -22,6 +22,15 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ARoach_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ARoachSpawner::execStopRoachesFleeing)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_AmountToStop);
+		P_GET_PROPERTY(FIntProperty,Z_Param_NumToStopPerFrame);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StopRoachesFleeing(Z_Param_AmountToStop,Z_Param_NumToStopPerFrame);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ARoachSpawner::execDeleteRoach)
 	{
 		P_FINISH;
@@ -61,6 +70,11 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		P_THIS->SpawnRoaches(Z_Param_NumberOfRoaches);
 		P_NATIVE_END;
 	}
+	static FName NAME_ARoachSpawner_StopFleeingDelayed = FName(TEXT("StopFleeingDelayed"));
+	void ARoachSpawner::StopFleeingDelayed()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ARoachSpawner_StopFleeingDelayed),NULL);
+	}
 	void ARoachSpawner::StaticRegisterNativesARoachSpawner()
 	{
 		UClass* Class = ARoachSpawner::StaticClass();
@@ -70,6 +84,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 			{ "MoveRoaches", &ARoachSpawner::execMoveRoaches },
 			{ "SpawnRoach", &ARoachSpawner::execSpawnRoach },
 			{ "SpawnRoaches", &ARoachSpawner::execSpawnRoaches },
+			{ "StopRoachesFleeing", &ARoachSpawner::execStopRoachesFleeing },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -223,6 +238,64 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ARoachSpawner_StopFleeingDelayed_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARoachSpawner_StopFleeingDelayed_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoachSpawner_StopFleeingDelayed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoachSpawner, nullptr, "StopFleeingDelayed", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoachSpawner_StopFleeingDelayed_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoachSpawner_StopFleeingDelayed_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ARoachSpawner_StopFleeingDelayed()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoachSpawner_StopFleeingDelayed_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics
+	{
+		struct RoachSpawner_eventStopRoachesFleeing_Parms
+		{
+			int32 AmountToStop;
+			int32 NumToStopPerFrame;
+		};
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_AmountToStop;
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_NumToStopPerFrame;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::NewProp_AmountToStop = { "AmountToStop", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(RoachSpawner_eventStopRoachesFleeing_Parms, AmountToStop), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::NewProp_NumToStopPerFrame = { "NumToStopPerFrame", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(RoachSpawner_eventStopRoachesFleeing_Parms, NumToStopPerFrame), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::NewProp_AmountToStop,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::NewProp_NumToStopPerFrame,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARoachSpawner, nullptr, "StopRoachesFleeing", nullptr, nullptr, sizeof(RoachSpawner_eventStopRoachesFleeing_Parms), Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ARoachSpawner_NoRegister()
 	{
 		return ARoachSpawner::StaticClass();
@@ -268,6 +341,65 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_NumRoachesMovePerFrame_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_NumRoachesMovePerFrame;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bFleeOnSpawn_MetaData[];
+#endif
+		static void NewProp_bFleeOnSpawn_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bFleeOnSpawn;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FleeMinTimerRate_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FleeMinTimerRate;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FleeMaxTimerRate_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FleeMaxTimerRate;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bStoppingFlee_MetaData[];
+#endif
+		static void NewProp_bStoppingFlee_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bStoppingFlee;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_NumRoachesStoppedFleeingPerFrame_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_NumRoachesStoppedFleeingPerFrame;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StopFleeDelayMin_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_StopFleeDelayMin;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StopFleeDelayMax_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_StopFleeDelayMax;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StopFleeDelay_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_StopFleeDelay;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FleeLazinessModifier_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FleeLazinessModifier;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bCanCopulateOnSpawn_MetaData[];
+#endif
+		static void NewProp_bCanCopulateOnSpawn_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bCanCopulateOnSpawn;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FleeWaitTimeModifier_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FleeWaitTimeModifier;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FleeSpeedModifier_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FleeSpeedModifier;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CopulateMinChance_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_CopulateMinChance;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CopulateMaxChance_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_CopulateMaxChance;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -282,6 +414,8 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		{ &Z_Construct_UFunction_ARoachSpawner_MoveRoaches, "MoveRoaches" }, // 4163726484
 		{ &Z_Construct_UFunction_ARoachSpawner_SpawnRoach, "SpawnRoach" }, // 1308915396
 		{ &Z_Construct_UFunction_ARoachSpawner_SpawnRoaches, "SpawnRoaches" }, // 4153748074
+		{ &Z_Construct_UFunction_ARoachSpawner_StopFleeingDelayed, "StopFleeingDelayed" }, // 144860394
+		{ &Z_Construct_UFunction_ARoachSpawner_StopRoachesFleeing, "StopRoachesFleeing" }, // 4004258505
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::Class_MetaDataParams[] = {
@@ -297,7 +431,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		{ "ToolTip", "Maximum roaches that this spawner can spawn DONT CHANGE AT RUNTIME" },
 	};
 #endif
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount = { "MaxRoachCount", nullptr, (EPropertyFlags)0x0010000002000001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, MaxRoachCount), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount_MetaData)) };
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount = { "MaxRoachCount", nullptr, (EPropertyFlags)0x0010000002000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, MaxRoachCount), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_RoachCount_MetaData[] = {
 		{ "Category", "RoachSpawner" },
@@ -352,6 +486,118 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 	};
 #endif
 	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesMovePerFrame = { "NumRoachesMovePerFrame", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, NumRoachesMovePerFrame), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesMovePerFrame_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesMovePerFrame_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bFleeOnSpawn_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	void Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bFleeOnSpawn_SetBit(void* Obj)
+	{
+		((ARoachSpawner*)Obj)->bFleeOnSpawn = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bFleeOnSpawn = { "bFleeOnSpawn", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARoachSpawner), &Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bFleeOnSpawn_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bFleeOnSpawn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bFleeOnSpawn_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeMinTimerRate_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeMinTimerRate = { "FleeMinTimerRate", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, FleeMinTimerRate), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeMinTimerRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeMinTimerRate_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeMaxTimerRate_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeMaxTimerRate = { "FleeMaxTimerRate", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, FleeMaxTimerRate), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeMaxTimerRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeMaxTimerRate_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bStoppingFlee_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	void Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bStoppingFlee_SetBit(void* Obj)
+	{
+		((ARoachSpawner*)Obj)->bStoppingFlee = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bStoppingFlee = { "bStoppingFlee", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARoachSpawner), &Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bStoppingFlee_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bStoppingFlee_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bStoppingFlee_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesStoppedFleeingPerFrame_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesStoppedFleeingPerFrame = { "NumRoachesStoppedFleeingPerFrame", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, NumRoachesStoppedFleeingPerFrame), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesStoppedFleeingPerFrame_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesStoppedFleeingPerFrame_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelayMin_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelayMin = { "StopFleeDelayMin", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, StopFleeDelayMin), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelayMin_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelayMin_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelayMax_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelayMax = { "StopFleeDelayMax", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, StopFleeDelayMax), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelayMax_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelayMax_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelay_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelay = { "StopFleeDelay", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, StopFleeDelay), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelay_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelay_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeLazinessModifier_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeLazinessModifier = { "FleeLazinessModifier", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, FleeLazinessModifier), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeLazinessModifier_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeLazinessModifier_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bCanCopulateOnSpawn_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	void Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bCanCopulateOnSpawn_SetBit(void* Obj)
+	{
+		((ARoachSpawner*)Obj)->bCanCopulateOnSpawn = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bCanCopulateOnSpawn = { "bCanCopulateOnSpawn", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARoachSpawner), &Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bCanCopulateOnSpawn_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bCanCopulateOnSpawn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bCanCopulateOnSpawn_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeWaitTimeModifier_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeWaitTimeModifier = { "FleeWaitTimeModifier", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, FleeWaitTimeModifier), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeWaitTimeModifier_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeWaitTimeModifier_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeSpeedModifier_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeSpeedModifier = { "FleeSpeedModifier", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, FleeSpeedModifier), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeSpeedModifier_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeSpeedModifier_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMinChance_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "Comment", "// keep at 0 if you want to roll for copulate chance, 1 if you want to always copulate on overlap while spawning/moving\n" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+		{ "ToolTip", "keep at 0 if you want to roll for copulate chance, 1 if you want to always copulate on overlap while spawning/moving" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMinChance = { "CopulateMinChance", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, CopulateMinChance), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMinChance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMinChance_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMaxChance_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMaxChance = { "CopulateMaxChance", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, CopulateMaxChance), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMaxChance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMaxChance_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARoachSpawner_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_RoachCount,
@@ -363,6 +609,20 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SpawnBoxes_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_SpawnBoxes,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesMovePerFrame,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bFleeOnSpawn,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeMinTimerRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeMaxTimerRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bStoppingFlee,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_NumRoachesStoppedFleeingPerFrame,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelayMin,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelayMax,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_StopFleeDelay,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeLazinessModifier,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bCanCopulateOnSpawn,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeWaitTimeModifier,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_FleeSpeedModifier,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMinChance,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMaxChance,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ARoachSpawner_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ARoachSpawner>::IsAbstract,
@@ -391,7 +651,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoachSpawner, 2985711356);
+	IMPLEMENT_CLASS(ARoachSpawner, 3192239485);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoachSpawner>()
 	{
 		return ARoachSpawner::StaticClass();

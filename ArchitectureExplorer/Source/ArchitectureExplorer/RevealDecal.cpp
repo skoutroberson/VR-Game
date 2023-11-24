@@ -48,7 +48,7 @@ bool ARevealDecal::FlashlightLineOfSight(int LOSTraces)
 	if (bTrace)
 	{
 		const float DistSquared = FVector::DistSquared(HitResult.ImpactPoint, AL);
-		if (DistSquared < 100.f)
+		if (DistSquared < 140.f)
 		{
 			return true;
 		}
