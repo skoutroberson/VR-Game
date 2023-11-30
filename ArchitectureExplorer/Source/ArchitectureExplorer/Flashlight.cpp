@@ -61,7 +61,7 @@ void AFlashlight::PressButton(bool bButtonAudio)
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("LightOn"));
-		LM->EditLight(this, 20000.f, 200.f);
+		LM->EditLight(this, 20000.f, 1000.f);
 		//LM->TurnOn(FString("BP_Flashlight2_2"), 5000.f, 200.f);
 		bOn = true;
 		UpdateLightVolumetrics(false);

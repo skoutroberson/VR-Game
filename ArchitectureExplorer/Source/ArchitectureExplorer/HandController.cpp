@@ -142,6 +142,9 @@ void AHandController::Grip()
 					if (ActorBeingGrabbed == SisterController->ActorBeingGrabbed)
 					{
 						SisterController->Release();
+						UE_LOG(LogTemp, Warning, TEXT("Sister Release: %s"), *ActorBeingGrabbed->GetName());
+
+
 					}
 				}
 				
@@ -236,7 +239,7 @@ void AHandController::Grip()
 							UpdateAnimation();
 							// change dog's look at actor to this ball
 							// fetch on release
-							Dog->MoveToPlayer();
+							//Dog->MoveToPlayer();
 						}
 						else if (GrabActor->ActorHasTag(TEXT("Phone")))
 						{
@@ -486,6 +489,9 @@ void AHandController::Release()
 			CurrentDoor->SetIsBeingUsed(false);
 		}
 
+		// remove collision on HC for 0.5 seconds.
+		RemoveHCCol();
+
 		DetachHandMeshAndReattachToHC();
 
 		// Attach HandMesh to this hand controller
@@ -537,7 +543,7 @@ void AHandController::Release()
 
 				if (Dog->bWantsToFetch)
 				{
-					Dog->TryToFetchBall();
+					Dog->bFetchWhenReady = true;
 					//Dog->FetchBall();
 				}
 				//tell dog to fetch
@@ -687,7 +693,7 @@ void AHandController::CanInteract()
 		{
 			if (OverlappingActor->ActorHasTag(TEXT("Grab")))
 			{
-				UE_LOG(LogTemp, Warning, TEXT("overlap %s"), *OverlappingActor->GetName());
+				//UE_LOG(LogTemp, Warning, TEXT("overlap %s"), *OverlappingActor->GetName());
 
 				if (OverlappingActor->IsA(ABall::StaticClass()))
 				{
@@ -706,6 +712,8 @@ void AHandController::CanInteract()
 				{
 					
 				}
+
+				//if(Cast<AGrabbable>(OverlappingActor)->ControllingHandController)
 
 				bNewCanGrab = true;
 				State = HandControllerState::STATE_CANGRAB;

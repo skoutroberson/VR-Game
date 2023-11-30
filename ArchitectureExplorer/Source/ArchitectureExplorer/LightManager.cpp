@@ -90,8 +90,58 @@ void ALightManager::Flicker(float DeltaTime)
 	CurrentFlickerTime = (NewFlickerTime > MaxFlickerTime) ? NewFlickerTime - MaxFlickerTime : NewFlickerTime;
 	//UE_LOG(LogTemp, Warning, TEXT("FlickerTime: %f"), CurrentFlickerTime);
 
+	if (bFlickerLightRemoved)
+	{
+		bFlickerLightRemoved = false;
+		return;
+	}
+
+	int n = FlickerLights.Num();
+
+	for (int i = 0; i < n; i++)
+	{
+		UFlickerLight *FlickerLight = FlickerLights[i];
+		const float FlickerTime = FlickerLight->FlickerTime;
+
+		if (CurrentFlickerTime > FlickerTime && (CurrentFlickerTime - FlickerTime) < 5.f)
+		{
+			float RandTime;
+
+			bool bOn = FlickerLight->bOn;
+			FlickerLight->bOn = !bOn;
+
+			AActor *LA = FlickerLight->LightActor;
+
+			//UE_LOG(LogTemp, Warning, TEXT("TIME: %f"), FlickerTime);
+
+			// if flashlight, then we need to update volumetrics
+			if (LA == Flashlight)
+			{
+				Flashlight->UpdateLightVolumetrics(!bOn);
+			}
+
+			if (bOn)
+			{
+				//RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, FlickerLight->SpeedCoefficient);
+				RandTime = CurrentFlickerTime + FMath::RandRange(FlickerLight->SpeedCoefficient * 0.5f, FlickerLight->SpeedCoefficient);
+				EditLight(LA, FlickerLight->LightIntensity, FlickerLight->EmissivePower, FlickerLight->LightColor);
+			}
+			else
+			{
+				float MFR = FlickerLight->SpeedCoefficient; //* 0.25f;
+				//MFR = FMath::Clamp(MFR, 0.18f, 0.4f);
+				RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, MFR);
+				EditLight(LA, 0.f, 0.f, FlickerLight->LightColor);
+			}
+			NewFlickerTime = (RandTime > MaxFlickerTime) ? RandTime - MaxFlickerTime : RandTime;
+			FlickerLight->FlickerTime = NewFlickerTime;
+		}
+	}
+	
+	/*
 	for (auto &FlickerLight : FlickerLights)
 	{
+
 		const float FlickerTime = FlickerLight->FlickerTime;
 		
 		if (CurrentFlickerTime > FlickerTime && (CurrentFlickerTime - FlickerTime) < 5.f)
@@ -113,7 +163,8 @@ void ALightManager::Flicker(float DeltaTime)
 			
 			if (bOn)
 			{
-				RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, FlickerLight->SpeedCoefficient);
+				//RandTime = CurrentFlickerTime + FMath::RandRange(0.04f, FlickerLight->SpeedCoefficient);
+				RandTime = CurrentFlickerTime + FMath::RandRange(FlickerLight->SpeedCoefficient * 0.5f, FlickerLight->SpeedCoefficient);
 				EditLight(LA, FlickerLight->LightIntensity, FlickerLight->EmissivePower, FlickerLight->LightColor);
 			}
 			else
@@ -127,6 +178,7 @@ void ALightManager::Flicker(float DeltaTime)
 			FlickerLight->FlickerTime = NewFlickerTime;
 		}
 	}
+	*/
 }
 
 void ALightManager::FillLightsMap()
@@ -248,13 +300,30 @@ void ALightManager::AddFlickerLight(AActor *LightActor, float SpeedCoefficient, 
 
 void ALightManager::RemoveFlickerLight(AActor *LightActor)
 {
+	int n = FlickerLights.Num();
+	for (int i = 0; i < n; i++)
+	{
+		UFlickerLight *CurrentFlickerLight = FlickerLights[i];
+		if (CurrentFlickerLight->LightActor == LightActor)
+		{
+			//FlickerLights.Remove(Elem);
+			FlickerLights.RemoveSwap(CurrentFlickerLight);
+			bFlickerLightRemoved = true;
+			break;
+		}
+	}
+	/*
 	for (auto &Elem : FlickerLights)
 	{
 		if (Elem->LightActor == LightActor)
 		{
-			FlickerLights.Remove(Elem);
+			//FlickerLights.Remove(Elem);
+			FlickerLights.RemoveSwap(Elem);
+			bFlickerLightRemoved = true;
+			break;
 		}
 	}
+	*/
 }
 
 void ALightManager::EditFlickerLight(AActor *LightActor, FVector LightColor, float SpeedCoefficient, float LightIntensity, float EmissivePower, bool bOn)

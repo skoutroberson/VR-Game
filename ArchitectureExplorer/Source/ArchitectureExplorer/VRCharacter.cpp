@@ -757,23 +757,34 @@ void AVRCharacter::RightGripAxis(float Value)
 	if (Controller != NULL)
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("Rg: %f"), Value);
-		if (Value > 0.001f)
+		
+		if (Value > 0.8f)
 		{
-			RightGripAxisValue = Value;
+			Value = 1.0f;
 		}
-		else
+		else if(Value < 0.1f)
 		{
-			RightGripAxisValue = 0.0f;
+			Value = 0.0f;
 		}
 		
+		RightGripAxisValue = Value;
 	}
 }
 
 void AVRCharacter::LeftGripAxis(float Value)
 {
-	if ((Controller != NULL) && (Value > 0.001f))
+	if (Controller != NULL)
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("Lg: %f"), Value);
+
+		if (Value > 0.8f)
+		{
+			Value = 1.0f;
+		}
+		else if (Value < 0.1f)
+		{
+			Value = 0.0f;
+		}
 
 		LeftGripAxisValue = Value;
 	}

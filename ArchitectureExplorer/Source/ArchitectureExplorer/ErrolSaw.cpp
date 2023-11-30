@@ -51,6 +51,7 @@ void AErrolSaw::EnterState(ErrolSawState NewState)
 		if (!Root->IsVisible())
 		{
 			Root->SetVisibility(true);
+			SawVolumeMultiplier = 1.0f;
 		}
 		AttachToComponent(MocapMesh, FAttachmentTransformRules::SnapToTargetIncludingScale, FName("ErrolSaw"));
 		// start random rev looping system
@@ -59,6 +60,7 @@ void AErrolSaw::EnterState(ErrolSawState NewState)
 		if (!Root->IsVisible())
 		{
 			Root->SetVisibility(true);
+			SawVolumeMultiplier = 1.0f;
 		}
 		AttachToComponent(Anim2Mesh, FAttachmentTransformRules::SnapToTargetIncludingScale, FName("ErrolSaw"));
 		break;

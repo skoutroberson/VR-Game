@@ -32,7 +32,7 @@ void AHauntManager::Tick(float DeltaTime)
 			StartHaunt();
 			State = HauntManagerState::STATE_HAUNTING;
 			HauntTimer = 0.0f;
-			HauntTime = 60.f;
+			HauntTime = FMath::RandRange(MinHauntTime, MaxHauntTime);
 		}
 		break;
 	case HauntManagerState::STATE_HAUNTING:

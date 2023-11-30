@@ -118,6 +118,13 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 		P_THIS->ChangeState(ErrolSawState(Z_Param_NewState));
 		P_NATIVE_END;
 	}
+	static FName NAME_AErrolSaw_FadeInAudios = FName(TEXT("FadeInAudios"));
+	void AErrolSaw::FadeInAudios(float FadeInTime)
+	{
+		ErrolSaw_eventFadeInAudios_Parms Parms;
+		Parms.FadeInTime=FadeInTime;
+		ProcessEvent(FindFunctionChecked(NAME_AErrolSaw_FadeInAudios),&Parms);
+	}
 	static FName NAME_AErrolSaw_FadeOutAudios = FName(TEXT("FadeOutAudios"));
 	void AErrolSaw::FadeOutAudios(float FadeOutTime)
 	{
@@ -246,6 +253,34 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics
+	{
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FadeInTime;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics::NewProp_FadeInTime = { "FadeInTime", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ErrolSaw_eventFadeInAudios_Parms, FadeInTime), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics::NewProp_FadeInTime,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolSaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolSaw, nullptr, "FadeInAudios", nullptr, nullptr, sizeof(ErrolSaw_eventFadeInAudios_Parms), Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolSaw_FadeInAudios()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolSaw_FadeInAudios_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AErrolSaw_FadeOutAudios_Statics
 	{
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FadeOutTime;
@@ -354,6 +389,10 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Anim2Mesh_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Anim2Mesh;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SawVolumeMultiplier_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_SawVolumeMultiplier;
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SawAudioComponents_Inner;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SawAudioComponents_MetaData[];
@@ -371,6 +410,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 		{ &Z_Construct_UFunction_AErrolSaw_ChangeState, "ChangeState" }, // 2686955747
 		{ &Z_Construct_UFunction_AErrolSaw_EnterState, "EnterState" }, // 2641504874
 		{ &Z_Construct_UFunction_AErrolSaw_ExitState, "ExitState" }, // 563465213
+		{ &Z_Construct_UFunction_AErrolSaw_FadeInAudios, "FadeInAudios" }, // 3480894640
 		{ &Z_Construct_UFunction_AErrolSaw_FadeOutAudios, "FadeOutAudios" }, // 2685143969
 		{ &Z_Construct_UFunction_AErrolSaw_Rev, "Rev" }, // 2221953741
 		{ &Z_Construct_UFunction_AErrolSaw_SetAudioVolume, "SetAudioVolume" }, // 266215269
@@ -409,6 +449,13 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolSaw_Statics::NewProp_Anim2Mesh = { "Anim2Mesh", nullptr, (EPropertyFlags)0x00100000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolSaw, Anim2Mesh), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AErrolSaw_Statics::NewProp_Anim2Mesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolSaw_Statics::NewProp_Anim2Mesh_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolSaw_Statics::NewProp_SawVolumeMultiplier_MetaData[] = {
+		{ "Category", "ErrolSaw" },
+		{ "ModuleRelativePath", "ErrolSaw.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AErrolSaw_Statics::NewProp_SawVolumeMultiplier = { "SawVolumeMultiplier", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolSaw, SawVolumeMultiplier), METADATA_PARAMS(Z_Construct_UClass_AErrolSaw_Statics::NewProp_SawVolumeMultiplier_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolSaw_Statics::NewProp_SawVolumeMultiplier_MetaData)) };
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AErrolSaw_Statics::NewProp_SawAudioComponents_Inner = { "SawAudioComponents", nullptr, (EPropertyFlags)0x00000000000a0008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolSaw_Statics::NewProp_SawAudioComponents_MetaData[] = {
@@ -423,6 +470,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolSaw_Statics::NewProp_State,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolSaw_Statics::NewProp_MocapMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolSaw_Statics::NewProp_Anim2Mesh,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolSaw_Statics::NewProp_SawVolumeMultiplier,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolSaw_Statics::NewProp_SawAudioComponents_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolSaw_Statics::NewProp_SawAudioComponents,
 	};
@@ -453,7 +501,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolSaw() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolSaw, 164434552);
+	IMPLEMENT_CLASS(AErrolSaw, 1553233531);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolSaw>()
 	{
 		return AErrolSaw::StaticClass();

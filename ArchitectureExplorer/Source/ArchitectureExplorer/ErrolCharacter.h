@@ -294,6 +294,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bFlyThrough = false;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	FVector FlyThroughVector = FVector::ZeroVector;
+
+	FQuat FlyThroughGoalRotation;
+
 	// KILL
 
 	UPROPERTY(VisibleAnywhere)
@@ -368,7 +373,7 @@ public:
 
 	void FindValidPeekPoint();
 	int PeekCounter = 0;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool bPeekFound = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	APeekPoint *ValidPeekPoint = nullptr;

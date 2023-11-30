@@ -24,6 +24,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ADoor_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_APeekPoint_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
@@ -1593,6 +1594,10 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		static void NewProp_bFlyThrough_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bFlyThrough;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FlyThroughVector_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_FlyThroughVector;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bKillingPlayer_MetaData[];
 #endif
 		static void NewProp_bKillingPlayer_SetBit(void* Obj);
@@ -2046,6 +2051,13 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bFlyThrough = { "bFlyThrough", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AErrolCharacter), &Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bFlyThrough_SetBit, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bFlyThrough_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bFlyThrough_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyThroughVector_MetaData[] = {
+		{ "Category", "ErrolCharacter" },
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyThroughVector = { "FlyThroughVector", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AErrolCharacter, FlyThroughVector), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyThroughVector_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyThroughVector_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bKillingPlayer_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
 		{ "Comment", "// KILL\n" },
@@ -2125,7 +2137,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	{
 		((AErrolCharacter*)Obj)->bPeekFound = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPeekFound = { "bPeekFound", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AErrolCharacter), &Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPeekFound_SetBit, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPeekFound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPeekFound_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPeekFound = { "bPeekFound", nullptr, (EPropertyFlags)0x0010000000020005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AErrolCharacter), &Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPeekFound_SetBit, METADATA_PARAMS(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPeekFound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bPeekFound_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ValidPeekPoint_MetaData[] = {
 		{ "Category", "ErrolCharacter" },
@@ -2398,6 +2410,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bKillImmediately,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyThroughDistance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bFlyThrough,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_FlyThroughVector,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_bKillingPlayer,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_KillDistance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AErrolCharacter_Statics::NewProp_ChaseKillDistance,
@@ -2465,7 +2478,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 1323755498);
+	IMPLEMENT_CLASS(AErrolCharacter, 3471538306);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

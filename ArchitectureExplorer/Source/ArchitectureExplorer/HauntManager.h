@@ -80,6 +80,9 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void StartHaunt();
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void StopHaunt();
+
 	// Sets HauntTime to a random float in the range MinHauntTime - MaxHauntTime.
 	UFUNCTION(BlueprintCallable)
 	void RollHauntTime();

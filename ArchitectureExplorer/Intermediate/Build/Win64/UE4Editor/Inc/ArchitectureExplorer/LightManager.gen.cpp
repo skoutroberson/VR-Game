@@ -404,11 +404,11 @@ void EmptyLinkFunctionForGeneratedCodeLightManager() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FlickerLights_ElementProp;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FlickerLights_Inner;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FlickerLights_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FSetPropertyParams NewProp_FlickerLights;
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_FlickerLights;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxFlickerTime_MetaData[];
 #endif
@@ -434,7 +434,7 @@ void EmptyLinkFunctionForGeneratedCodeLightManager() {}
 		{ "ModuleRelativePath", "LightManager.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights_ElementProp = { "FlickerLights", nullptr, (EPropertyFlags)0x0000000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UFlickerLight_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights_Inner = { "FlickerLights", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UFlickerLight_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights_MetaData[] = {
 		{ "Category", "LightManager" },
@@ -443,7 +443,7 @@ void EmptyLinkFunctionForGeneratedCodeLightManager() {}
 		{ "ToolTip", "lights that will be flickered" },
 	};
 #endif
-	const UE4CodeGen_Private::FSetPropertyParams Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights = { "FlickerLights", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Set, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ALightManager, FlickerLights), METADATA_PARAMS(Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights_MetaData)) };
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights = { "FlickerLights", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ALightManager, FlickerLights), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ALightManager_Statics::NewProp_MaxFlickerTime_MetaData[] = {
 		{ "Category", "LightManager" },
@@ -452,7 +452,7 @@ void EmptyLinkFunctionForGeneratedCodeLightManager() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ALightManager_Statics::NewProp_MaxFlickerTime = { "MaxFlickerTime", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ALightManager, MaxFlickerTime), METADATA_PARAMS(Z_Construct_UClass_ALightManager_Statics::NewProp_MaxFlickerTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ALightManager_Statics::NewProp_MaxFlickerTime_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ALightManager_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights_ElementProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ALightManager_Statics::NewProp_FlickerLights,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ALightManager_Statics::NewProp_MaxFlickerTime,
 	};
@@ -483,7 +483,7 @@ void EmptyLinkFunctionForGeneratedCodeLightManager() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ALightManager, 2961234481);
+	IMPLEMENT_CLASS(ALightManager, 3469267392);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ALightManager>()
 	{
 		return ALightManager::StaticClass();

@@ -66,6 +66,12 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void FadeOutAudios(float FadeOutTime);
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void FadeInAudios(float FadeInTime);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite);
+	float SawVolumeMultiplier = 1.0f;
+
 	UPROPERTY(VisibleAnywhere)
 	TArray<UAudioComponent*> SawAudioComponents;
 };

@@ -218,7 +218,11 @@ void AErrolCharacter::Tick(float DeltaTime)
 			else if(bPeeking)
 			{
 				ShouldEndPeek(DeltaTime); // also updates peek position
-				UpdatePeekPosition(DeltaTime);
+
+				if (PeekScareLevel < PeekScareThreshold * 0.2)
+				{
+					UpdatePeekPosition(DeltaTime);
+				}
 			}
 			break;
 		case ErrolState::STATE_SHOULDERPEEK:
@@ -518,6 +522,8 @@ void AErrolCharacter::EnterChaseState(float MaxSpeed, float ChaseDuration)
 	ChaseSpeed = MaxSpeed;
 	UpdateAnimation(State);
 	GetCharacterMovement()->MaxWalkSpeed = 55.f;
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 255.0f, 0.0f);
+	GetCharacterMovement()->bOrientRotationToMovement = true;
 	ErrolController->MoveToActor(Player, 10.f, false, true, false, 0, false); //KillRadius);
 	World->GetTimerManager().UnPauseTimer(OpenBlockingDoorTimer);
 
@@ -925,6 +931,7 @@ void AErrolCharacter::SpawnBlood(float DeltaTime)
 		FActorSpawnParameters SpawnParams;
 
 		World->SpawnActor<AActor>(BloodFXActor, BloodSpawnLocation->GetComponentTransform());
+		
 	}
 }
 
@@ -1004,6 +1011,7 @@ void AErrolCharacter::ExitChaseState()
 		ErrolSaw->FadeOutAudios(3.0f);
 	}
 	//ErrolSaw->SetAudioVolume(0.0f);
+	UpdateAnimation(State);
 }
 
 void AErrolCharacter::EnterFlyAtState()
@@ -1013,7 +1021,7 @@ void AErrolCharacter::EnterFlyAtState()
 	ErrolSaw->EnterState(ErrolSawState::STATE_ANIM2);
 
 	GetCharacterMovement()->MaxWalkSpeed = FlyAtSpeed;
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 0.0f, 10000.f);
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 2000.0f, 0.0f);
 	ErrolController->StopMovement();
 	ErrolController->MoveToActor(Player, -1.0f, false);
 	bFlyAt = true;
@@ -1034,12 +1042,20 @@ void AErrolCharacter::TickFlyAtState(float DeltaTime)
 
 		FVector Dir = (CL - AL).GetSafeNormal();
 
-		
-
 		FVector CFV = PlayerCamera->GetForwardVector();
-		FVector GoalLocation = CL - CFV * 150.0f;
+		FVector GoalLocation = CL + FlyThroughVector * 150.f;
+		
+		float PCapHalfHeight = Cast<ACharacter>(Player)->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+		float NewZ = Player->GetActorLocation().Z - PCapHalfHeight + GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+		GoalLocation.Z = NewZ;
 
-		SetActorLocation(FMath::VInterpConstantTo(AL, AL + GetActorForwardVector() * 100.f, DeltaTime, FlyAtSpeed));
+		FQuat AQ = GetActorQuat();
+
+		FVector NewLocation = FMath::VInterpConstantTo(AL, GoalLocation, DeltaTime, FlyAtSpeed * 0.5f);
+		FQuat NewRotation = FMath::QInterpConstantTo(AQ, FlyThroughGoalRotation, DeltaTime, FlyAtSpeed * 0.5f);
+
+		//SetActorLocation(FMath::VInterpConstantTo(AL, AL + GetActorForwardVector() * 100.f, DeltaTime, FlyAtSpeed));
+		SetActorLocationAndRotation(NewLocation, NewRotation);
 
 		//DrawDebugLine(World, CL, GoalLocation, FColor::Red, true);
 
@@ -1047,12 +1063,13 @@ void AErrolCharacter::TickFlyAtState(float DeltaTime)
 
 		UE_LOG(LogTemp, Warning, TEXT("Dist: %f"), Dist);
 
-		if (Dist < 0.0f)
+		if (Dist < 10.0f)
 		{
 			BodyMesh->SetVisibility(false);
 			SawMesh->SetVisibility(false);
 			ErrolSaw->FadeOutAudios(0.1f);
 			ErrolSaw->EnterState(ErrolSawState::STATE_INVISIBLE);
+			
 		}
 	}
 	else if (bFlyAt)
@@ -1062,16 +1079,35 @@ void AErrolCharacter::TickFlyAtState(float DeltaTime)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("FLY THROUGH"));
 			bFlyThrough = true;
-			SetActorEnableCollision(false);
+			GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 			ErrolController->StopMovement();
 			//GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 			//GetCapsuleComponent()->SetEnableGravity(false);
+
+			const FVector AL = GetActorLocation();
+			FVector CL = PlayerCamera->GetComponentLocation();
+			FVector Dir = CL - AL;
+			Dir.Z = 0;
+			Dir = Dir.GetSafeNormal();
+			FlyThroughVector = Dir;
+
+			FVector FV = GetActorForwardVector();
+			float Dot = FVector::DotProduct(FV, Dir);
+			float Angle = FMath::Acos(Dot);
+			FQuat RotQuat = FQuat(GetActorUpVector(), -Angle);
+			FQuat AQ = GetActorQuat();
+			FlyThroughGoalRotation = RotQuat * AQ;
 		}
 	}
 }
 
 void AErrolCharacter::EndFlyAtState()
 {
+	State = ErrolState::STATE_IDLE;
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	ErrolController->StopMovement();
+	GetCharacterMovement()->MaxWalkSpeed = 55.f;
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 250.f, 0.0f);
 }
 
 void AErrolCharacter::ExitInvestigateState()
@@ -1540,7 +1576,7 @@ void AErrolCharacter::UpdatePeekPosition(float DeltaTime)
 	//	If the neck trace doesn't hit, too much of Errol is visible so move him out of view more
 	if (!bNeckTrace)
 	{
-		const float PeekMoveSpeed = 10.f;
+		const float PeekMoveSpeed = 20.f;
 		const FVector AL = GetActorLocation();
 		FVector NL = GetActorLocation();
 		if (PeekState == ErrolPeekState::STATE_LEFTPEEK)
@@ -1558,7 +1594,7 @@ void AErrolCharacter::UpdatePeekPosition(float DeltaTime)
 	}
 	else if (bEyeTrace)	//	If this trace hits, then Errol is hidden too much, so he moves more in view
 	{
-		const float PeekMoveSpeed = 7.f;
+		const float PeekMoveSpeed = 20.f;
 		const FVector AL = GetActorLocation();
 		FVector NL = GetActorLocation();
 		if (PeekState == ErrolPeekState::STATE_LEFTPEEK)

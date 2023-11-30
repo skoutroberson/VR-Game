@@ -189,15 +189,16 @@ void ADoor::Swing(float DeltaTime)
 		OpenHitAudio->SetVolumeMultiplier(OpenHitVolume);
 		OpenHitAudio->Play();
 		
-
+		// Only bounce the swing velocity if the door is swing after being used and not being hit by the player capsule.
 		if (KnobCollision)
 		{
-			SwingVelocity = -SwingVelocity * 0.16f;
+			//SwingVelocity = -SwingVelocity * 0.16f;
 		}
 		else
 		{
-			SwingVelocity = -SwingVelocity * 0.16f;
+			//SwingVelocity = -SwingVelocity * 0.16f;
 		}
+		SwingVelocity = 0.0f;
 		bFullyClosed = false;
 	}
 	else

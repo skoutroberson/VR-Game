@@ -71,7 +71,10 @@ public:
 
 	// lights that will be flickered
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSet<UFlickerLight*> FlickerLights;
+	TArray<UFlickerLight*> FlickerLights;
+
+	// if a light was removed this frame then dont iterate over flicker lights in Flicker()
+	bool bFlickerLightRemoved = false;
 
 	// returns the reference to the added item in FlickerLights
 	UFUNCTION(BlueprintCallable)

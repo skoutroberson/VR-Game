@@ -147,6 +147,11 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		P_THIS->Grip();
 		P_NATIVE_END;
 	}
+	static FName NAME_AHandController_RemoveHCCol = FName(TEXT("RemoveHCCol"));
+	void AHandController::RemoveHCCol()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AHandController_RemoveHCCol),NULL);
+	}
 	static FName NAME_AHandController_UpdateAnimation = FName(TEXT("UpdateAnimation"));
 	void AHandController::UpdateAnimation()
 	{
@@ -308,6 +313,30 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AHandController_RemoveHCCol_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHandController_RemoveHCCol_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// Temporarily removes hand controller door hit collision after use\n" },
+		{ "ModuleRelativePath", "HandController.h" },
+		{ "ToolTip", "Temporarily removes hand controller door hit collision after use" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHandController_RemoveHCCol_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHandController, nullptr, "RemoveHCCol", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHandController_RemoveHCCol_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHandController_RemoveHCCol_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AHandController_RemoveHCCol()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHandController_RemoveHCCol_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AHandController_UpdateAnimation_Statics
 	{
 #if WITH_METADATA
@@ -463,6 +492,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		{ &Z_Construct_UFunction_AHandController_CanInteract, "CanInteract" }, // 3522903090
 		{ &Z_Construct_UFunction_AHandController_Grip, "Grip" }, // 2449933679
 		{ &Z_Construct_UFunction_AHandController_Release, "Release" }, // 273026658
+		{ &Z_Construct_UFunction_AHandController_RemoveHCCol, "RemoveHCCol" }, // 2230745334
 		{ &Z_Construct_UFunction_AHandController_UpdateAnimation, "UpdateAnimation" }, // 520880581
 	};
 #if WITH_METADATA
@@ -752,7 +782,7 @@ void EmptyLinkFunctionForGeneratedCodeHandController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHandController, 4058906387);
+	IMPLEMENT_CLASS(AHandController, 3779722715);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AHandController>()
 	{
 		return AHandController::StaticClass();

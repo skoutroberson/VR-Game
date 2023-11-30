@@ -403,7 +403,7 @@ void ARoach::Turn(float DeltaTime)
 	const FQuat NewRotation = DeltaRotation * ActorQuat;
 
 	// this used to be MoveSpeed * 0.17f
-	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewRotation, DeltaTime, MoveSpeed * 0.08f));
+	SetActorRotation(FMath::QInterpConstantTo(ActorQuat, NewRotation, DeltaTime, MoveSpeed * 0.08f * (FleeSpeedModifier * 0.5f)));
 
 	/*
 	FRotator NewRotation = GetActorRotation();
@@ -989,7 +989,7 @@ void ARoach::CopulateOverlapCheck()
 			MateRoach->MoveSpeedGoal = MoveSpeedCurve->GetFloatValue(FMath::FRand());
 			MateRoach->bSpeedingUp = true;
 			UE_LOG(LogTemp, Warning, TEXT("CopulateOverlap: %s"), *GetName());
-			DrawDebugPoint(World, AL, 10.f, FColor::Green, false, 10 * World->DeltaTimeSeconds, ESceneDepthPriorityGroup::SDPG_MAX);
+			//DrawDebugPoint(World, AL, 10.f, FColor::Green, false, 10 * World->DeltaTimeSeconds, ESceneDepthPriorityGroup::SDPG_MAX);
 		}
 	}
 }
@@ -1049,7 +1049,7 @@ void ARoach::Swerve(float DeltaTime)
 	FQuat RotationQuat(Axis, Angle);
 	FQuat ActorQuat = GetActorQuat();
 	FQuat NewQuat = RotationQuat * ActorQuat;
-	SetActorRotation(FMath::QInterpTo(ActorQuat, NewQuat, DeltaTime, SwerveSpeed *CopulateRotateSpeedModifier));
+	SetActorRotation(FMath::QInterpTo(ActorQuat, NewQuat, DeltaTime, SwerveSpeed *CopulateRotateSpeedModifier * (FleeSpeedModifier * 0.5f)));
 }
 
 void ARoach::ChangeSwerveSpeed()

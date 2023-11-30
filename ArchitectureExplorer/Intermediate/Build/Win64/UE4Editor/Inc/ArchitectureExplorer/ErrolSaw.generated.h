@@ -32,6 +32,10 @@ enum class ErrolSawState : uint8;
 
 
 #define ArchitectureExplorer_Source_ArchitectureExplorer_ErrolSaw_h_23_EVENT_PARMS \
+	struct ErrolSaw_eventFadeInAudios_Parms \
+	{ \
+		float FadeInTime; \
+	}; \
 	struct ErrolSaw_eventFadeOutAudios_Parms \
 	{ \
 		float FadeOutTime; \

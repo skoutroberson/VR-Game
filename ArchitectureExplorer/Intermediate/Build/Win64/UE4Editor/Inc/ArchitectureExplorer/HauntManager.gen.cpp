@@ -124,6 +124,11 @@ void EmptyLinkFunctionForGeneratedCodeHauntManager() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AHauntManager_StartHaunt),NULL);
 	}
+	static FName NAME_AHauntManager_StopHaunt = FName(TEXT("StopHaunt"));
+	void AHauntManager::StopHaunt()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AHauntManager_StopHaunt),NULL);
+	}
 	void AHauntManager::StaticRegisterNativesAHauntManager()
 	{
 		UClass* Class = AHauntManager::StaticClass();
@@ -266,6 +271,28 @@ void EmptyLinkFunctionForGeneratedCodeHauntManager() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AHauntManager_StopHaunt_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHauntManager_StopHaunt_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HauntManager.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHauntManager_StopHaunt_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHauntManager, nullptr, "StopHaunt", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHauntManager_StopHaunt_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHauntManager_StopHaunt_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AHauntManager_StopHaunt()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHauntManager_StopHaunt_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AHauntManager_StopHaunting_Statics
 	{
 #if WITH_METADATA
@@ -347,6 +374,7 @@ void EmptyLinkFunctionForGeneratedCodeHauntManager() {}
 		{ &Z_Construct_UFunction_AHauntManager_RollHauntTime, "RollHauntTime" }, // 2526470553
 		{ &Z_Construct_UFunction_AHauntManager_StartHaunt, "StartHaunt" }, // 595561734
 		{ &Z_Construct_UFunction_AHauntManager_StartHaunting, "StartHaunting" }, // 4009498808
+		{ &Z_Construct_UFunction_AHauntManager_StopHaunt, "StopHaunt" }, // 2649334245
 		{ &Z_Construct_UFunction_AHauntManager_StopHaunting, "StopHaunting" }, // 322412039
 	};
 #if WITH_METADATA
@@ -456,7 +484,7 @@ void EmptyLinkFunctionForGeneratedCodeHauntManager() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHauntManager, 2135768401);
+	IMPLEMENT_CLASS(AHauntManager, 3099487118);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AHauntManager>()
 	{
 		return AHauntManager::StaticClass();

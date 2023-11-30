@@ -73,7 +73,8 @@ void AGrabbable::BeginPlay()
 	}
 
 	Mesh = Cast<UPrimitiveComponent>(GetComponentsByTag(UMeshComponent::StaticClass(), FName("Mesh"))[0]);
-	Mesh->SetMaskFilterOnBodyInstance(3); // so roach sweeps ignore this mesh
+	Mesh->SetMaskFilterOnBodyInstance(1 << 3); // so roach sweeps ignore this mesh
+	Mesh->SetMaskFilterOnBodyInstance(1 << 5);
 
 	/*
 	TArray<UActorComponent*> CheckForOffset;
@@ -212,6 +213,8 @@ void AGrabbable::Released(int HandHoldNum)
 				bRotateOneHand = false;
 				Mesh->SetSimulatePhysics(true);
 				Mesh->SetEnableGravity(true);
+				ControllingHandController = nullptr;
+				ControllingMC = nullptr;
 			}
 		}
 	}
@@ -236,6 +239,8 @@ void AGrabbable::Released(int HandHoldNum)
 				bRotateOneHand = false;
 				Mesh->SetSimulatePhysics(true);
 				Mesh->SetEnableGravity(true);
+				ControllingHandController = nullptr;
+				ControllingMC = nullptr;
 			}
 		}
 	}

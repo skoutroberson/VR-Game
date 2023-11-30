@@ -49,6 +49,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector HandControllerVelocity = FVector::ZeroVector;
 
+	// Temporarily removes hand controller door hit collision after use
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void RemoveHCCol();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
