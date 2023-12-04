@@ -160,7 +160,7 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 	{
 		((APeekPoint*)Obj)->bDisabled = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled = { "bDisabled", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APeekPoint), &Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_SetBit, METADATA_PARAMS(Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_MetaData)) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled = { "bDisabled", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(APeekPoint), &Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_SetBit, METADATA_PARAMS(Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APeekPoint_Statics::NewProp_bDisabled_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APeekPoint_Statics::NewProp_MinDot_MetaData[] = {
 		{ "Category", "PeekPoint" },
@@ -216,7 +216,7 @@ void EmptyLinkFunctionForGeneratedCodePeekPoint() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APeekPoint, 1990440446);
+	IMPLEMENT_CLASS(APeekPoint, 3803167879);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<APeekPoint>()
 	{
 		return APeekPoint::StaticClass();

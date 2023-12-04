@@ -189,6 +189,8 @@ void AVRCharacter::BeginPlay()
 	CamColParams.AddIgnoredActor(RightController);
 
 	IsCompInViewParams.AddIgnoredActor(this);
+
+	GetCapsuleComponent()->SetMaskFilterOnBodyInstance(1 << 3);
 }
 
 void AVRCharacter::UpdateCapsuleHeight()

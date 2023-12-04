@@ -1427,7 +1427,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ "ModuleRelativePath", "ErrolCharacter.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "UpdateAnimation", nullptr, nullptr, sizeof(ErrolCharacter_eventUpdateAnimation_Parms), Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "UpdateAnimation", nullptr, nullptr, sizeof(ErrolCharacter_eventUpdateAnimation_Parms), Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_UpdateAnimation_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AErrolCharacter_UpdateAnimation()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -1802,7 +1802,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_TickFlyAtState, "TickFlyAtState" }, // 977977375
 		{ &Z_Construct_UFunction_AErrolCharacter_TickKillState, "TickKillState" }, // 555512801
 		{ &Z_Construct_UFunction_AErrolCharacter_TickUpperWindowScareState, "TickUpperWindowScareState" }, // 3579540977
-		{ &Z_Construct_UFunction_AErrolCharacter_UpdateAnimation, "UpdateAnimation" }, // 935012373
+		{ &Z_Construct_UFunction_AErrolCharacter_UpdateAnimation, "UpdateAnimation" }, // 1341261450
 		{ &Z_Construct_UFunction_AErrolCharacter_UpdateFlankBlocker, "UpdateFlankBlocker" }, // 4072021637
 	};
 #if WITH_METADATA
@@ -2478,7 +2478,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 3471538306);
+	IMPLEMENT_CLASS(AErrolCharacter, 1546407563);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

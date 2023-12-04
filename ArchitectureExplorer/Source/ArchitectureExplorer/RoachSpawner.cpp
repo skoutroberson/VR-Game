@@ -53,7 +53,9 @@ void ARoachSpawner::BeginPlay()
 	AQ = GetActorQuat();
 
 	TArray<UActorComponent*> BoxComponents;
-	BoxComponents = GetComponentsByClass(UBoxComponent::StaticClass());
+	//BoxComponents = GetComponentsByClass(UBoxComponent::StaticClass());
+	BoxComponents = GetComponentsByTag(UBoxComponent::StaticClass(), FName("SpawnBox"));
+
 	SpawnBoxes.Reserve(BoxComponents.Num());
 	for (auto b : BoxComponents)
 	{
@@ -89,6 +91,8 @@ void ARoachSpawner::Tick(float DeltaTime)
 
 void ARoachSpawner::SpawnRoaches(int NumberOfRoaches)
 {
+	bActivated = true;
+	bDeletingRoaches = false;
 	UE_LOG(LogTemp, Warning, TEXT("Spawning Roaches"));
 	TargetRoachCount = NumberOfRoaches;
 	bSpawningRoaches = true;
@@ -402,6 +406,7 @@ void ARoachSpawner::DeleteRoaches(int NumberOfRoaches)
 	{
 		NumberOfRoaches = RoachCount;
 	}
+	bSpawningRoaches = false;
 	TargetRoachCount = RoachCount - NumberOfRoaches;
 	bDeletingRoaches = true;
 	SetActorTickEnabled(true);

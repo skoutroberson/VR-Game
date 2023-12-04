@@ -25,6 +25,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bActivated = false;
+
 	// Maximum roaches that this spawner can spawn DONT CHANGE AT RUNTIME
 	UPROPERTY(EditAnywhere, NoClear, BlueprintReadWrite)
 	int MaxRoachCount = 100;

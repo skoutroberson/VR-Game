@@ -31,7 +31,7 @@ void ABall::Released(int HandHoldNum)
 	Super::Released(HandHoldNum);
 
 	//
-	UpdateAverageVelocity();
+	//UpdateAverageVelocity();
 	Mesh->AddImpulse(AverageHCVelocity * 80.f, NAME_None, true);
 	HCVelocities.Empty();
 	AverageHCVelocity = FVector::ZeroVector;

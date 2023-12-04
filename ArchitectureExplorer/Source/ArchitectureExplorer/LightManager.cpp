@@ -9,6 +9,7 @@
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Materials/MaterialInterface.h"
 #include "Flashlight.h"
+#include "Components/MaterialBillboardComponent.h"
 
 // Sets default values
 ALightManager::ALightManager()
@@ -197,6 +198,7 @@ void ALightManager::FillLightsMap()
 			ThisLight->DynamicMaterial = UMaterialInstanceDynamic::Create(ThisLight->MatInterface, SM);
 			ThisLight->Mesh->SetMaterial(0, ThisLight->DynamicMaterial);
 
+
 			TArray<UActorComponent*> TempArray = Actor->GetComponentsByClass(UPointLightComponent::StaticClass());
 			for (auto lc : TempArray)
 			{
@@ -273,6 +275,23 @@ void ALightManager::EditLight(AActor *LightActor, float LightIntensity, float Em
 			LC->SetIntensity(LightIntensity);
 		}
 	}
+
+	// this is lazy but its good enough for government work
+	// turn material billboard on off depending on LightIntensity.
+	UMaterialBillboardComponent *MBC = Cast<UMaterialBillboardComponent>(LightActor->GetComponentByClass(UMaterialBillboardComponent::StaticClass()));
+
+	if (MBC != nullptr)
+	{
+		if (LightIntensity == 0.f)
+		{
+			MBC->SetVisibility(false);
+		}
+		else
+		{
+			MBC->SetVisibility(true);
+		}
+	}
+	
 }
 
 void ALightManager::AddFlickerLight(AActor *LightActor, float SpeedCoefficient, float LightIntensity, float EmissivePower, FVector LightColor)

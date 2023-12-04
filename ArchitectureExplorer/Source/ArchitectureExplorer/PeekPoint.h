@@ -51,7 +51,7 @@ public:
 	//	Determine if this point is valid for Errol to peek from based on if the player is looking and if Errol will have a line of sight to the player when peeking
 	bool IsValid(const float Threshold);
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bDisabled = false;
 
 	UPROPERTY(EditAnywhere)

@@ -308,6 +308,11 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bActivated_MetaData[];
+#endif
+		static void NewProp_bActivated_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bActivated;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxRoachCount_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_MaxRoachCount;
@@ -423,6 +428,17 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		{ "ModuleRelativePath", "RoachSpawner.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bActivated_MetaData[] = {
+		{ "Category", "RoachSpawner" },
+		{ "ModuleRelativePath", "RoachSpawner.h" },
+	};
+#endif
+	void Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bActivated_SetBit(void* Obj)
+	{
+		((ARoachSpawner*)Obj)->bActivated = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bActivated = { "bActivated", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ARoachSpawner), &Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bActivated_SetBit, METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bActivated_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bActivated_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount_MetaData[] = {
 		{ "Category", "RoachSpawner" },
@@ -599,6 +615,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 #endif
 	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMaxChance = { "CopulateMaxChance", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARoachSpawner, CopulateMaxChance), METADATA_PARAMS(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMaxChance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARoachSpawner_Statics::NewProp_CopulateMaxChance_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARoachSpawner_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_bActivated,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_MaxRoachCount,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_RoachCount,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARoachSpawner_Statics::NewProp_Roaches_Inner,
@@ -651,7 +668,7 @@ void EmptyLinkFunctionForGeneratedCodeRoachSpawner() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARoachSpawner, 3192239485);
+	IMPLEMENT_CLASS(ARoachSpawner, 2444539827);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<ARoachSpawner>()
 	{
 		return ARoachSpawner::StaticClass();

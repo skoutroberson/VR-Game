@@ -179,7 +179,7 @@ public:
 	FCollisionQueryParams CanPlayerSeeMeTraceParams;
 	FCollisionQueryParams KillSweepParams;
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "AIAnimation")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "AIAnimation")
 	void UpdateAnimation(ErrolState CurrentState);
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "AIAnimation")
