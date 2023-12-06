@@ -407,6 +407,11 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AErrolCharacter_DisappearAndEndChase),NULL);
 	}
+	static FName NAME_AErrolCharacter_Dismembered = FName(TEXT("Dismembered"));
+	void AErrolCharacter::Dismembered()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AErrolCharacter_Dismembered),NULL);
+	}
 	static FName NAME_AErrolCharacter_EndPeek = FName(TEXT("EndPeek"));
 	void AErrolCharacter::EndPeek()
 	{
@@ -577,6 +582,28 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_DisappearAndEndChase_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AErrolCharacter_Dismembered_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AErrolCharacter_Dismembered_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ErrolCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AErrolCharacter_Dismembered_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AErrolCharacter, nullptr, "Dismembered", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AErrolCharacter_Dismembered_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AErrolCharacter_Dismembered_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AErrolCharacter_Dismembered()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AErrolCharacter_Dismembered_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -1768,6 +1795,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		{ &Z_Construct_UFunction_AErrolCharacter_CanPlayerSeeMeMocap, "CanPlayerSeeMeMocap" }, // 4166433094
 		{ &Z_Construct_UFunction_AErrolCharacter_CanThePlayerSeeMe, "CanThePlayerSeeMe" }, // 2945474745
 		{ &Z_Construct_UFunction_AErrolCharacter_DisappearAndEndChase, "DisappearAndEndChase" }, // 2421458275
+		{ &Z_Construct_UFunction_AErrolCharacter_Dismembered, "Dismembered" }, // 2345421388
 		{ &Z_Construct_UFunction_AErrolCharacter_EndFlyAtState, "EndFlyAtState" }, // 1733603055
 		{ &Z_Construct_UFunction_AErrolCharacter_EndKillState, "EndKillState" }, // 2785992446
 		{ &Z_Construct_UFunction_AErrolCharacter_EndPeek, "EndPeek" }, // 3061781572
@@ -2478,7 +2506,7 @@ void EmptyLinkFunctionForGeneratedCodeErrolCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AErrolCharacter, 1546407563);
+	IMPLEMENT_CLASS(AErrolCharacter, 786658796);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AErrolCharacter>()
 	{
 		return AErrolCharacter::StaticClass();

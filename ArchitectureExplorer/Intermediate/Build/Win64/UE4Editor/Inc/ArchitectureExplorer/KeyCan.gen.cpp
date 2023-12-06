@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeKeyCan() {}
 	ARCHITECTUREEXPLORER_API UClass* Z_Construct_UClass_ADoorKey_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 // End Cross Module References
 	DEFINE_FUNCTION(AKeyCan::execDetachKey)
 	{
@@ -145,6 +146,10 @@ void EmptyLinkFunctionForGeneratedCodeKeyCan() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SpawnLocation_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_SpawnLocation;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SpawnRotation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_SpawnRotation;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -232,6 +237,13 @@ void EmptyLinkFunctionForGeneratedCodeKeyCan() {}
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AKeyCan_Statics::NewProp_SpawnLocation = { "SpawnLocation", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AKeyCan, SpawnLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AKeyCan_Statics::NewProp_SpawnLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AKeyCan_Statics::NewProp_SpawnLocation_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AKeyCan_Statics::NewProp_SpawnRotation_MetaData[] = {
+		{ "Category", "KeyCan" },
+		{ "ModuleRelativePath", "KeyCan.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AKeyCan_Statics::NewProp_SpawnRotation = { "SpawnRotation", nullptr, (EPropertyFlags)0x0010000000000004, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AKeyCan, SpawnRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_AKeyCan_Statics::NewProp_SpawnRotation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AKeyCan_Statics::NewProp_SpawnRotation_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AKeyCan_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKeyCan_Statics::NewProp_Mesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKeyCan_Statics::NewProp_bHasKey,
@@ -241,6 +253,7 @@ void EmptyLinkFunctionForGeneratedCodeKeyCan() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKeyCan_Statics::NewProp_AttachedKey,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKeyCan_Statics::NewProp_EndZDistance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKeyCan_Statics::NewProp_SpawnLocation,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKeyCan_Statics::NewProp_SpawnRotation,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AKeyCan_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AKeyCan>::IsAbstract,
@@ -269,7 +282,7 @@ void EmptyLinkFunctionForGeneratedCodeKeyCan() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AKeyCan, 3346268860);
+	IMPLEMENT_CLASS(AKeyCan, 593298177);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AKeyCan>()
 	{
 		return AKeyCan::StaticClass();

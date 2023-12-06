@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeArchitectureExplorer_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x6D724D7F,
+				0xA933D79E,
 				0xD8E5A494,
 				METADATA_PARAMS(nullptr, 0)
 			};

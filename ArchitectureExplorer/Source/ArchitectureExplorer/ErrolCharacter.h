@@ -544,6 +544,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bCutInHalf = false;
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void Dismembered();
+
 // misc
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void FlyAtPlayer();

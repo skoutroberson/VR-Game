@@ -66,6 +66,9 @@ void AErrolSaw::EnterState(ErrolSawState NewState)
 		break;
 	case ErrolSawState::STATE_RAGDOLL:
 		// detach from component, enable collision, simulate physics
+		DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		Cast<UPrimitiveComponent>(Root)->SetSimulatePhysics(true);
+
 		break;
 	case ErrolSawState::STATE_INVISIBLE:
 		Root->SetVisibility(false);

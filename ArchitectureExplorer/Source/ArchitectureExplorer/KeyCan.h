@@ -55,4 +55,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	FVector SpawnLocation = FVector::ZeroVector;
+
+	UPROPERTY(BlueprintReadWrite)
+	FRotator SpawnRotation;
 };

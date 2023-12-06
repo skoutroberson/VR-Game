@@ -6,6 +6,7 @@
 #include "Grabbable.h"
 #include "HandController.h"
 #include "VRCharacter.h"
+#include "ErrolCharacter.h"
 #include "Components/AudioComponent.h"
 #include "Components/ArrowComponent.h"
 #include "Chainsaw.generated.h"
@@ -124,6 +125,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> BloodFXActor = nullptr;
 
+	UPROPERTY(BlueprintReadWrite)
+	AErrolCharacter *ErrolChar = nullptr;
+
 	/**
 		used to determine if the controller's left or right trigger is controlling the chainsaw trigger.
 		This is set by HandController when the chainsaw is grabbed
@@ -188,8 +192,8 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	FVector BladeOffset = FVector::ZeroVector;
 
-private:
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	bool bDismembering = false;
 
 public:

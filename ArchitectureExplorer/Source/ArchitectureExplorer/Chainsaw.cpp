@@ -332,11 +332,18 @@ void AChainsaw::EndDismember()
 	ErrolMainMesh->SetVisibility(false);
 	ErrolTopHalfMesh->SetVisibility(true);
 	ErrolBottomHalfMesh->SetVisibility(true);
-	ErrolChainsawMesh->SetSimulatePhysics(true);
+	//ErrolChainsawMesh->SetSimulatePhysics(true);
 	ErrolTopHalfMesh->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
 	ErrolBottomHalfMesh->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
 	ErrolTopHalfMesh->SetSimulatePhysics(true);
 	ErrolBottomHalfMesh->SetSimulatePhysics(true);
+
+	ErrolChar->Dismembered();
+
+	// spawn dog out of view
+	// spawn blood on each half mesh
+
+	
 
 	bDismembering = false;
 

@@ -19,6 +19,9 @@ void AKeyCan::BeginPlay()
 	Super::BeginPlay();
 	
 	StartZ = GetActorLocation().Z;
+
+	SpawnLocation = GetActorLocation();
+	SpawnRotation = GetActorRotation();
 }
 
 // Called every frame
