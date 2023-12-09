@@ -93,7 +93,7 @@ bool AAudioDistanceCrossfader::ShouldStopCrossfading(USceneComponent* Col)
 		}
 		for (auto b : AudioB)
 		{
-			b->SetVolumeMultiplier(VolumeB);
+			b->SetVolumeMultiplier(VolumeB * VolumeBMultiplier);
 		}
 	}
 
@@ -142,7 +142,7 @@ void AAudioDistanceCrossfader::CrossfadeAB(float DeltaTime)
 	}
 	for (auto b : AudioB)
 	{
-		b->SetVolumeMultiplier(NewVolumeB);
+		b->SetVolumeMultiplier(NewVolumeB * VolumeBMultiplier);
 	}
 }
 

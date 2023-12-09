@@ -158,6 +158,10 @@ void EmptyLinkFunctionForGeneratedCodeAudioDistanceCrossfader() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_VolumeB;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_VolumeBMultiplier_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_VolumeBMultiplier;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_InterpSpeed_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_InterpSpeed;
@@ -250,6 +254,15 @@ void EmptyLinkFunctionForGeneratedCodeAudioDistanceCrossfader() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_VolumeB = { "VolumeB", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AAudioDistanceCrossfader, VolumeB), METADATA_PARAMS(Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_VolumeB_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_VolumeB_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_VolumeBMultiplier_MetaData[] = {
+		{ "Category", "AudioDistanceCrossfader" },
+		{ "Comment", "// used if we want to be able to change the crossfade volume (im using for fading saw rooms choir audio when the player finds saw pieces.\n" },
+		{ "ModuleRelativePath", "AudioDistanceCrossfader.h" },
+		{ "ToolTip", "used if we want to be able to change the crossfade volume (im using for fading saw rooms choir audio when the player finds saw pieces." },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_VolumeBMultiplier = { "VolumeBMultiplier", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AAudioDistanceCrossfader, VolumeBMultiplier), METADATA_PARAMS(Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_VolumeBMultiplier_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_VolumeBMultiplier_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_InterpSpeed_MetaData[] = {
 		{ "Category", "AudioDistanceCrossfader" },
 		{ "ModuleRelativePath", "AudioDistanceCrossfader.h" },
@@ -276,6 +289,7 @@ void EmptyLinkFunctionForGeneratedCodeAudioDistanceCrossfader() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_AudioB,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_VolumeA,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_VolumeB,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_VolumeBMultiplier,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_InterpSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAudioDistanceCrossfader_Statics::NewProp_CameraCollision,
 	};
@@ -306,7 +320,7 @@ void EmptyLinkFunctionForGeneratedCodeAudioDistanceCrossfader() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AAudioDistanceCrossfader, 3144293775);
+	IMPLEMENT_CLASS(AAudioDistanceCrossfader, 2777468210);
 	template<> ARCHITECTUREEXPLORER_API UClass* StaticClass<AAudioDistanceCrossfader>()
 	{
 		return AAudioDistanceCrossfader::StaticClass();

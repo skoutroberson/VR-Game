@@ -66,4 +66,9 @@ void ADogController::OnMoveCompleted(FAIRequestID RequestID, const FPathFollowin
 		UE_LOG(LogTemp, Warning, TEXT("DOG IS NOT ON NAV MESH :("));
 		break;
 	}
+
+	if (Dog->State == DogState::STATE_FOLLOW)
+	{
+		// delay and follow
+	}
 }

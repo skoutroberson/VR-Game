@@ -92,6 +92,16 @@ void ADoor::BeginPlay()
 		}
 	}
 
+	if (bBackwards)
+	{
+		USceneComponent *Temp = HandRFrontLocation;
+		HandRFrontLocation = HandRBackLocation;
+		HandRBackLocation = Temp;
+		Temp = HandLFrontLocation;
+		HandLFrontLocation = HandLBackLocation;
+		HandLBackLocation = Temp;
+	}
+
 	SwingOpenSoundDuration = SwingOpenSound->GetDuration();
 	SwingCloseSoundDuration = SwingCloseSound->GetDuration();
 

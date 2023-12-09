@@ -217,6 +217,7 @@ void AGrabbable::Released(int HandHoldNum)
 				ControllingMC = nullptr;
 			}
 		}
+		MotionController1 = nullptr;
 	}
 	else if (HandHoldNum == 2)
 	{
@@ -243,6 +244,7 @@ void AGrabbable::Released(int HandHoldNum)
 				ControllingMC = nullptr;
 			}
 		}
+		MotionController2 = nullptr;
 	}
 }
 

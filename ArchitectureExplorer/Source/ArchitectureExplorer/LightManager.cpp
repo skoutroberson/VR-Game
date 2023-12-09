@@ -265,6 +265,8 @@ void ALightManager::EditLight(AActor *LightActor, float LightIntensity, float Em
 		SM->SetVectorParameterValueOnMaterials(TEXT("Emissive Color"), EmissiveColor);
 	}
 
+	FLinearColor LightColor = FLinearColor(EmissiveColor);
+
 	TArray<UActorComponent*> LightComponents = LightActor->GetComponentsByClass(ULightComponent::StaticClass());
 
 	for (int i = 0; i < LightComponents.Num(); i++)
@@ -273,6 +275,7 @@ void ALightManager::EditLight(AActor *LightActor, float LightIntensity, float Em
 		if (LC != nullptr)
 		{
 			LC->SetIntensity(LightIntensity);
+			LC->SetLightColor(LightColor);
 		}
 	}
 

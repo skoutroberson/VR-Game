@@ -798,6 +798,11 @@ void AErrolCharacter::KillPlayer()
 	VRChar->Controller->SetIgnoreMoveInput(true);
 	VRChar->Controller->SetIgnoreLookInput(true);
 
+	VRChar->RightController->Release();
+	VRChar->RightController->Release();
+
+	// need to disable hand controller grab collision until the player is spawned again.
+
 	FRotator PlayerRotation = Player->GetActorRotation();
 	FRotator CameraRotation = PlayerCamera->GetComponentRotation();
 	float CameraDeltaYaw = PlayerRotation.Yaw - CameraRotation.Yaw;

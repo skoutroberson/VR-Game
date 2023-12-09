@@ -20,6 +20,7 @@ enum class DogState : uint8
 	STATE_RETURNING		UMETA(DisplayName = "Returning"),
 	STATE_PICKUP		UMETA(DisplayName = "PickUp"),
 	STATE_DROP			UMETA(DisplayName = "Dropping"),
+	STATE_FOLLOW		UMETA(DisplayName = "Follow"),
 };
 
 UCLASS()
@@ -133,6 +134,12 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int RunTowardsHouseFetches = 3;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bEndGame = false;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void EndGameSpawn();
 
 private:
 	void RotateToFacePlayer();

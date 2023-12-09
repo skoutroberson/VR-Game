@@ -58,6 +58,10 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	float VolumeB;
 
+	// used if we want to be able to change the crossfade volume (im using for fading saw rooms choir audio when the player finds saw pieces.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float VolumeBMultiplier = 1.0f;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float InterpSpeed = 10.f;
 

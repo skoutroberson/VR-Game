@@ -45,6 +45,9 @@ AHandController::AHandController()
 	GrabKey = CreateDefaultSubobject<USceneComponent>(TEXT("GrabKey"));
 	GrabKey->AttachTo(MotionController);
 
+	GrabSaw2 = CreateDefaultSubobject<USceneComponent>(TEXT("GrabSaw2"));
+	GrabSaw2->AttachTo(MotionController);
+
 	State = HandControllerState::STATE_IDLE;
 }
 
@@ -172,7 +175,7 @@ void AHandController::Grip()
 						{
 							//HandMesh->AttachToComponent(ActorBeingGrabbed->HandHold2, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 							
-
+							// this might be causing the bug where picking up ball drops the flashlight
 							if (ActorBeingGrabbed->MotionController2 == SisterController)
 							{
 								SisterController->Release();
@@ -190,7 +193,16 @@ void AHandController::Grip()
 							ActorBeingGrabbed->MotionController2 = this;
 							ActorBeingGrabbed->Gripped(2);
 							bHandHold2 = true;
-							//need to apply rotation as well
+							
+							// two handed grab scene offset stuff goes here
+
+							if (GrabActor->ActorHasTag(TEXT("Saw")))
+							{
+								bIsHoldingChainsaw = true;
+
+								GrabSceneOffset = GrabSaw2;
+							}
+
 						}
 						else
 						{
@@ -226,10 +238,6 @@ void AHandController::Grip()
 							// update animation to holding flashlight pose
 							// update location / rotation 
 							// EACH GRABBABLE SHOULD HAVE A GRABLOCATION OFFSET AND A GRABROTATION OFFSET FOR EACH HANDHOLD
-						}
-						else if (GrabActor->ActorHasTag(TEXT("Saw")))
-						{
-							bIsHoldingChainsaw = true;
 						}
 						else if (GrabActor->ActorHasTag(TEXT("Ball")))
 						{

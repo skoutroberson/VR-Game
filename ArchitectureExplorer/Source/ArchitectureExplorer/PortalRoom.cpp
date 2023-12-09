@@ -136,22 +136,27 @@ void APortalRoom::TeleportPlayer(UPARAM(ref)AActor * TargetRoom, UPARAM(ref)AAct
 
 	for (int i = 0; i < n; i++)
 	{
-		// position
-		FVector GrabDeltaPosition = OverlappingGrabbables[i]->GetActorLocation() - PL;
-		FVector GrabNewDeltaPosition = FVector(GrabDeltaPosition.Y, -GrabDeltaPosition.X, GrabDeltaPosition.Z);
-		FVector GrabTargetLocation = TPL + GrabNewDeltaPosition;
-		// rotation
-		FRotator GrabRotation = OverlappingGrabbables[i]->GetActorRotation();
-		float GrabTeleportYaw = GrabRotation.Yaw + DeltaRotation;
-		FRotator GrabTeleportRotation = FRotator(GrabRotation.Pitch, GrabTeleportYaw, GrabRotation.Roll);
-		// velocity
-		FVector GrabSavedVelocity = OverlappingGrabbables[i]->GetVelocity();
-		FVector GrabNewVelocity = GrabSavedVelocity.RotateAngleAxis(DeltaRotation, FVector(0, 0, 1.f));
+		// I've crashed here before if I don't have this check because the array index is out of bounds.
+		// I think it is due to a big delta time and OverlappingGrabbables gets updated before this loop ends??
+		// if that's not the reason then idk what else would be wrong here:
+		if (i < OverlappingGrabbables.Num())
+		{
+			// position
+			FVector GrabDeltaPosition = OverlappingGrabbables[i]->GetActorLocation() - PL;
+			FVector GrabNewDeltaPosition = FVector(GrabDeltaPosition.Y, -GrabDeltaPosition.X, GrabDeltaPosition.Z);
+			FVector GrabTargetLocation = TPL + GrabNewDeltaPosition;
+			// rotation
+			FRotator GrabRotation = OverlappingGrabbables[i]->GetActorRotation();
+			float GrabTeleportYaw = GrabRotation.Yaw + DeltaRotation;
+			FRotator GrabTeleportRotation = FRotator(GrabRotation.Pitch, GrabTeleportYaw, GrabRotation.Roll);
+			// velocity
+			FVector GrabSavedVelocity = OverlappingGrabbables[i]->GetVelocity();
+			FVector GrabNewVelocity = GrabSavedVelocity.RotateAngleAxis(DeltaRotation, FVector(0, 0, 1.f));
 
-		OverlappingGrabbables[i]->GetVelocity().Set(GrabNewVelocity.X, GrabNewVelocity.Y, GrabNewVelocity.Z);
-		OverlappingGrabbables[i]->SetActorLocationAndRotation(GrabTargetLocation, GrabTeleportRotation);
-
-		//counter++;
+			OverlappingGrabbables[i]->GetVelocity().Set(GrabNewVelocity.X, GrabNewVelocity.Y, GrabNewVelocity.Z);
+			OverlappingGrabbables[i]->SetActorLocationAndRotation(GrabTargetLocation, GrabTeleportRotation);
+			//counter++;
+		}
 	}
 
 	//UE_LOG(LogTemp, Warning, TEXT("Items: %d"), counter);

@@ -36,9 +36,13 @@ void ADog::Tick(float DeltaTime)
 	switch (State)
 	{
 	case DogState::STATE_FETCHING:
-		if (!bRanTowardsHouse && Fetches > 1)
+
+		if (!bEndGame)
 		{
-			CheckBallDistance();
+			if (!bRanTowardsHouse && Fetches > 1)
+			{
+				CheckBallDistance();
+			}
 		}
 		ShouldPickUpBall();
 		//RotateToFaceBall(DeltaTime);
@@ -181,7 +185,12 @@ void ADog::FetchBall()
 	{
 		State = DogState::STATE_STANDINGUP;
 		Ball->bBeingFetched = true;
-		Fetches = (Fetches > RunTowardsHouseFetches) ? RunTowardsHouseFetches : Fetches + 1;
+
+		if (!bEndGame)
+		{
+			Fetches = (Fetches > RunTowardsHouseFetches) ? RunTowardsHouseFetches : Fetches + 1;
+		}
+
 	}
 
 }
